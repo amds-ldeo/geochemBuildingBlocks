@@ -29,6 +29,24 @@ import normalize_schema_paths as norm
 import schemapath_io
 
 
+
+# Divergences the reviewer has SETTLED in the module's favour. Naming them here, rather than
+# loosening the match, keeps the default safe: an unlisted divergence is still refused.
+ADOPTED = {
+    "Reported Variables and Units":
+        "reviewer settled the reported-property list as $MethodDefinition.ada:reportedProperties[]",
+    "Goodness-of-Fit or Dispersion Statistic":
+        "reviewer's rule: dqv:hasQualityMeasurement by default, the reported-property "
+        "variableMeasured list only when keyed and a reportedProperties list is defined",
+    "Ablation Duration per Spot":
+        "module places the direct ada: property its $def requires; the technique's parameter path "
+        "was already discarded by the generator",
+    "Ablation Pit Depth and Ablation Rate":
+        "as Ablation Duration per Spot",
+    "Raster Line Spacing (Mapping Only)":
+        "as Ablation Duration per Spot",
+}
+
 def canon(p):
     try:
         return norm.mechanical(norm.preclean((p or "").strip()))
@@ -58,7 +76,7 @@ def run(tapp, write=False):
     refs, covered = mc.plan(b.XLSX)
     mp = module_paths(refs)
     rows = schemapath_io.read(f)
-    blanked, divergent = 0, []
+    blanked, adopted, divergent = 0, 0, []
     for r in rows:
         it, p = (r.get("Metadata Item") or "").strip(), (r.get("Schema Path") or "").strip()
         if not it or not p:
@@ -70,20 +88,31 @@ def run(tapp, write=False):
         owners = mp.get(k) or {}
         match = [m for m, paths in owners.items() if canon(p) in paths]
         if not match:
+            # A DIVERGENT row: the technique authored a different placement from the module's.
+            # Blanking it would adopt the module's and destroy the authored decision, so it is left
+            # alone -- UNLESS the divergence has been settled and the item named in ADOPTED, in
+            # which case the module is the agreed owner and the technique row is stale.
+            if it in ADOPTED:
+                r["Schema Path"] = ""
+                r["Source"] = "module"
+                r["Notes"] = "placement owned by Module %s (%s)" % (
+                    (sorted(owners) or ["?"])[0], ADOPTED[it])
+                adopted += 1
+                continue
             divergent.append((it, p, sorted(owners)))
             continue
         r["Schema Path"] = ""
         r["Source"] = "module"
         r["Notes"] = "placement owned by Module %s" % match[0]
         blanked += 1
-    if write and blanked:
+    if write and (blanked or adopted):
         schemapath_io.write(f, rows)
-    print("%-22s %3d path(s) blanked, %d divergent%s"
-          % (tapp, blanked, len(divergent), "" if write else "  (dry run)"))
+    print("%-22s %3d blanked, %2d adopted, %d divergent%s"
+          % (tapp, blanked, adopted, len(divergent), "" if write else "  (dry run)"))
     for it, p, owners in divergent:
         print("      DIVERGENT %-42s owned by %s" % (it[:42], ", ".join(owners) or "?"))
         print("                technique: %s" % p[:100])
-    return blanked, len(divergent)
+    return blanked + adopted, len(divergent)
 
 
 def main():

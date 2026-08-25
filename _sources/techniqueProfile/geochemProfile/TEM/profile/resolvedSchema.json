@@ -10467,41 +10467,6 @@
                                         "schema:name",
                                         "schema:value"
                                       ]
-                                    },
-                                    {
-                                      "title": "Calibration Factor and Determination Method",
-                                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Calibration Factor and Determination Method"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
                                     }
                                   ]
                                 },
@@ -10568,45 +10533,6 @@
                                         },
                                         "schema:name": {
                                           "const": "Image Processing Methods Applied"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Calibration Factor and Determination Method",
-                                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Calibration Factor and Determination Method"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -10726,18 +10652,6 @@
                       ]
                     },
                     "allOf": [
-                      {
-                        "contains": {
-                          "properties": {
-                            "schema:name": {
-                              "const": "Data Reduction"
-                            }
-                          },
-                          "required": [
-                            "schema:name"
-                          ]
-                        }
-                      },
                       {
                         "contains": {
                           "properties": {
@@ -15515,46 +15429,6 @@
       "allOf": [
         {
           "contains": {
-            "title": "Calibration Factor and Determination Method",
-            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue",
-                  "cdi:InstanceVariable"
-                ]
-              },
-              "schema:propertyID": {
-                "const": [
-                  {
-                    "@id": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod"
-                  }
-                ]
-              },
-              "schema:name": {
-                "const": "Calibration Factor and Determination Method"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
             "title": "EDS Detection Limit",
             "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
             "type": "object",
@@ -16112,10 +15986,13 @@
             ]
           },
           "dqv:value": {
-            "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+            "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
             "anyOf": [
               {
                 "type": "string"
+              },
+              {
+                "type": "number"
               },
               {
                 "$ref": "#/$defs/QualityMeasure_DefinedTerm"
@@ -17216,6 +17093,51 @@
                   "properties": {
                     "schema:target": {
                       "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "title": "CalibrationFactor on the analysis",
+      "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
+      "type": "object",
+      "properties": {
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Calibration Factor and Determination Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:value": {
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -18946,6 +18868,65 @@
                             ]
                           },
                           {
+                            "title": "CalibrationFactor on the procedure",
+                            "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+                            "type": "object",
+                            "properties": {
+                              "schema:variableMeasured": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "allOf": [
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "schema:name": {
+                                            "const": "Calibration Factor and Determination Method"
+                                          }
+                                        },
+                                        "required": [
+                                          "schema:name"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "schema:defaultValue": {
+                                            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                "allOf": [
+                                  {
+                                    "contains": {
+                                      "properties": {
+                                        "schema:name": {
+                                          "const": "Calibration Factor and Determination Method"
+                                        }
+                                      },
+                                      "required": [
+                                        "schema:name"
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          {
                             "title": "Analyte on the procedure",
                             "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
                             "type": "object",
@@ -19477,20 +19458,6 @@
                                                     "maxContains": 1
                                                   }
                                                 ]
-                                              },
-                                              "ada:calibrationFactorAndDeterminationMethodDefault": {
-                                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                                "anyOf": [
-                                                  {
-                                                    "type": "string"
-                                                  },
-                                                  {
-                                                    "type": "array",
-                                                    "items": {
-                                                      "type": "string"
-                                                    }
-                                                  }
-                                                ]
                                               }
                                             }
                                           }
@@ -19700,18 +19667,6 @@
                                           "properties": {
                                             "schema:name": {
                                               "const": "Sample preparation"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:name"
-                                          ]
-                                        }
-                                      },
-                                      {
-                                        "contains": {
-                                          "properties": {
-                                            "schema:name": {
-                                              "const": "Data Reduction"
                                             }
                                           },
                                           "required": [
@@ -22729,6 +22684,10 @@
                                   }
                                 }
                               },
+                              "ada:edsCalibrationStandardDefault": {
+                                "description": "Reference material(s) used to validate EDS quantification or determine experimental k-factors or zeta-factors. TEM-EDS is less standardized than EPMA; many procedures rely on manufacturer k-factors without external calibration. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                "type": "string"
+                              },
                               "schema:variableMeasured": {
                                 "type": "array",
                                 "items": {
@@ -22751,47 +22710,6 @@
                                           }
                                         }
                                       }
-                                    },
-                                    {
-                                      "title": "Calibration Factor and Determination Method",
-                                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethodDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "calibrationFactorAndDeterminationMethodDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Calibration Factor and Determination Method"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
                                     },
                                     {
                                       "title": "EDS Detection Limit",
@@ -22839,51 +22757,6 @@
                                 "allOf": [
                                   {
                                     "contains": {
-                                      "title": "Calibration Factor and Determination Method",
-                                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethodDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "calibrationFactorAndDeterminationMethodDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Calibration Factor and Determination Method"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
                                       "title": "EDS Detection Limit",
                                       "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                                       "type": "object",
@@ -22929,9 +22802,16 @@
                                   }
                                 ]
                               },
-                              "ada:edsCalibrationStandardDefault": {
-                                "description": "Reference material(s) used to validate EDS quantification or determine experimental k-factors or zeta-factors. TEM-EDS is less standardized than EPMA; many procedures rely on manufacturer k-factors without external calibration. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
-                                "type": "string"
+                              "ada:analyticalMode": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "TEM Imaging",
+                                    "STEM Imaging",
+                                    "Electron Diffraction"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -30487,10 +30367,13 @@
           ]
         },
         "dqv:value": {
-          "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+          "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
           "anyOf": [
             {
               "type": "string"
+            },
+            {
+              "type": "number"
             },
             {
               "$ref": "#/$defs/QualityMeasure_DefinedTerm"

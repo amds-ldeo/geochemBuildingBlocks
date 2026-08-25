@@ -16,8 +16,6 @@
     "bios:LabProtocol"
   ],
   "schema:name": "example procedureName",
-  "ada:ablationSpotDurationDefault": 1.0,
-  "ada:ablationPitDepthRateDefault": "example ablationPitDepthAndAblationRate",
   "ada:analysisSequenceDefault": "example analysisSequence",
   "ada:analyticalAccuracy": "example analyticalAccuracyAndAssessmentMethod",
   "ada:backgroundCountTimeDefault": 1.0,
@@ -30,6 +28,16 @@
       "schema:valueName": "baselineMeasurementApproach",
       "schema:name": "Baseline Measurement Approach",
       "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
       "ada:fieldScope": "session"
     },
     {
@@ -167,7 +175,6 @@
   "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
   "ada:carrierGasFlowRateDefault": "example carrierGasAndFlowRate",
   "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
-  "ada:detectionLimitMethod": "example detectionLimitMethod",
   "ada:elementalFractionationCorrection": [
     "example elementalFractionationCorrection"
   ],
@@ -177,10 +184,6 @@
   "ada:massBiasCorrectionStrategy": "example massBiasCorrectionStrategy",
   "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
   "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName",
-  "ada:rasterLineSpacingDefault": "example rasterLineSpacing",
-  "ada:reportedProperties": [
-    "example reportedVariablesAndUnits"
-  ],
   "ada:sampleIntroduction": "example sampleIntroduction",
   "ada:secondaryReferenceMaterialDefault": [
     "example secondaryReferenceMaterials"
@@ -223,9 +226,15 @@
   "ada:analyticalMode": [
     "Spot"
   ],
+  "ada:reportedProperties": [
+    "example reportedVariablesAndUnits"
+  ],
   "schema:description": "example additionalNotes",
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
   ],
+  "ada:ablationSpotDurationDefault": 1.0,
+  "ada:ablationPitDepthRateDefault": "example ablationPitDepthAndAblationRate",
+  "ada:rasterLineSpacingDefault": "example rasterLineSpacing",
   "ada:internalNormalizationElementAndIsotopeRatio": "example internalNormalizationElementAndIsotopeRatio"
 }

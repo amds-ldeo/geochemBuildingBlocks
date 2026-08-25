@@ -563,6 +563,51 @@
       ]
     },
     {
+      "title": "CalibrationFactor on the analysis",
+      "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
+      "type": "object",
+      "properties": {
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Calibration Factor and Determination Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:value": {
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
       "title": "Aggregation on the analysis",
       "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
       "type": "object",
@@ -1233,12 +1278,12 @@
                                       ]
                                     },
                                     {
-                                      "title": "Calibration Factor and Determination Method",
-                                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                                      "title": "Normalization / Standards-Based Correction",
+                                      "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+                                          "const": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection"
                                         },
                                         "@type": {
                                           "const": [
@@ -1248,12 +1293,12 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+                                              "@id": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection"
                                             }
                                           ]
                                         },
                                         "schema:name": {
-                                          "const": "Calibration Factor and Determination Method"
+                                          "const": "Normalization / Standards-Based Correction"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -1428,12 +1473,12 @@
                                   },
                                   {
                                     "contains": {
-                                      "title": "Calibration Factor and Determination Method",
-                                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                                      "title": "Normalization / Standards-Based Correction",
+                                      "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+                                          "const": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection"
                                         },
                                         "@type": {
                                           "const": [
@@ -1443,12 +1488,12 @@
                                         "schema:propertyID": {
                                           "const": [
                                             {
-                                              "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
+                                              "@id": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection"
                                             }
                                           ]
                                         },
                                         "schema:name": {
-                                          "const": "Calibration Factor and Determination Method"
+                                          "const": "Normalization / Standards-Based Correction"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -1478,18 +1523,6 @@
                           "properties": {
                             "schema:name": {
                               "const": "Sample preparation"
-                            }
-                          },
-                          "required": [
-                            "schema:name"
-                          ]
-                        }
-                      },
-                      {
-                        "contains": {
-                          "properties": {
-                            "schema:name": {
-                              "const": "Data reduction"
                             }
                           },
                           "required": [
@@ -2034,41 +2067,6 @@
                       ]
                     },
                     {
-                      "title": "Procedural Blank Level",
-                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Procedural Blank Level"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
-                    },
-                    {
                       "title": "Constants Reference Values",
                       "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                       "type": "object",
@@ -2101,6 +2099,52 @@
                         "schema:propertyID",
                         "schema:name",
                         "schema:value"
+                      ]
+                    },
+                    {
+                      "title": "Detection Limit",
+                      "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/laQicpmsTAPP/detectionLimit"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/laQicpmsTAPP/detectionLimit"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Detection Limit"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     }
                   ]
@@ -2688,45 +2732,6 @@
                   },
                   {
                     "contains": {
-                      "title": "Procedural Blank Level",
-                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Procedural Blank Level"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
                       "title": "Constants Reference Values",
                       "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                       "type": "object",
@@ -2759,6 +2764,56 @@
                         "schema:propertyID",
                         "schema:name",
                         "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Detection Limit",
+                      "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/laQicpmsTAPP/detectionLimit"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/laQicpmsTAPP/detectionLimit"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Detection Limit"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
                     "minContains": 0,
@@ -4304,6 +4359,10 @@
                     }
                   ]
                 }
+              },
+              "ada:proceduralBlankLevel": {
+                "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                "type": "string"
               }
             }
           }
@@ -4357,6 +4416,284 @@
                   "dqv:isMeasurementOf"
                 ]
               }
+            }
+          ]
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              {
+                "title": "Detection Limit",
+                "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/detectionLimit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/laQicpmsTAPP/detectionLimit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value",
+                  "schema:unitText"
+                ]
+              },
+              {
+                "title": "Detection Limit Method",
+                "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/laQicpmsTAPP/detectionLimitMethod"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit",
+                "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/detectionLimit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/laQicpmsTAPP/detectionLimit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value",
+                  "schema:unitText"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit Method",
+                "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/detectionLimitMethod"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/laQicpmsTAPP/detectionLimitMethod"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit Method"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
             }
           ]
         }
@@ -10619,10 +10956,13 @@
                 ]
               },
               "dqv:value": {
-                "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
                 "anyOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "type": "number"
                   },
                   {
                     "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",

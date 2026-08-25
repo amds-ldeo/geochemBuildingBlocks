@@ -36,11 +36,35 @@ def find_example_schema_pairs():
     return pairs
 
 
-def resolve_for_validation(schema_path: Path) -> dict:
-    """Resolve a schema file into a fully-inlined JSON Schema dict."""
-    resolved = resolve_file(schema_path.resolve(), seen=set())
+_RESOLVED_CACHE: dict = {}
+
+
+def resolve_for_validation(schema_path: Path, prefer_resolved: bool = True) -> dict:
+    """The schema to validate against, as a fully-inlined JSON Schema dict.
+
+    Prefers the sibling resolvedSchema.json that `resolve_schema.py --all` writes. That file
+    is the canonical artifact downstream validators read, and it is produced by the STRUCTURED
+    resolver (collect_global_defs + merge), which is linear in the reference graph.
+
+    Re-resolving live instead goes through resolve_file(), whose cycle guard copies `seen` per
+    branch and which re-expands every external file from scratch, twice per $def, with no memo.
+    Cost grows combinatorially with the graph's breadth, and this is called once per EXAMPLE
+    (601 calls for 86 distinct schemas). Once composition modules widened the graph it stopped
+    finishing at all -- three runs were killed after 3, 8 and 9 hours pegged at 100% CPU.
+    --live restores the old behaviour.
+    """
+    key = (str(schema_path.resolve()), prefer_resolved)
+    if key in _RESOLVED_CACHE:
+        return _RESOLVED_CACHE[key]
+    pre = schema_path.parent / "resolvedSchema.json"
+    if prefer_resolved and pre.exists():
+        with open(pre, encoding="utf-8") as f:
+            resolved = json.load(f)
+    else:
+        resolved = resolve_file(schema_path.resolve(), seen=set())
     resolved = strip_metadata_keys(resolved, is_root=True)
     resolved.pop("$schema", None)
+    _RESOLVED_CACHE[key] = resolved
     return resolved
 
 
@@ -67,6 +91,14 @@ def main():
     parser = argparse.ArgumentParser(description="Validate all example JSON files against their schemas.")
     parser.add_argument("--verbose", "-v", action="store_true", help="Show pass/fail for each example")
     parser.add_argument("--filter", "-f", type=str, default="", help="Only validate paths containing this string")
+    parser.add_argument(
+        "--live",
+        action="store_true",
+        help="re-resolve each schema from source instead of reading the sibling "
+             "resolvedSchema.json. Much slower - the live resolver is combinatorial in "
+             "the reference graph - and only needed to check a schema.yaml edit that has "
+             "not been re-resolved yet.",
+    )
     args = parser.parse_args()
 
     pairs = find_example_schema_pairs()
@@ -81,7 +113,7 @@ def main():
     for example_path, schema_path in pairs:
         rel = example_path.relative_to(REPO_ROOT)
         try:
-            schema = resolve_for_validation(schema_path)
+            schema = resolve_for_validation(schema_path, prefer_resolved=not args.live)
             errors = validate_example(example_path, schema)
             if errors:
                 failed += 1

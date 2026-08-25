@@ -4,6 +4,7 @@ description: Dataset-level analysis-instance detail for SEM composition (EDS/WDS
   slots on the schema:Dataset root.
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
@@ -52,8 +53,36 @@ allOf:
                         schema:additionalProperty:
                           type: array
                           items:
-                            $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                            anyOf:
+                            - &id001
+                              title: Normalization / Standards-Based Correction
+                              description: Post-acquisition normalization applied using secondary reference
+                                materials to correct for session-to-session calibration drift.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
+                          - contains: *id001
+                            minContains: 0
+                            maxContains: 1
                           - contains:
                               $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             minContains: 0
@@ -76,7 +105,7 @@ allOf:
             items:
               anyOf:
               - $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
-              - &id001
+              - &id002
                 title: Beam Raster Dimensions
                 description: Dimensions of the small area over which the beam is rastered during a single
                   analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered;
@@ -107,7 +136,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id002
+              - &id003
                 title: Beam Damage Minimization
                 description: 'Describes any measures taken to reduce electron beam damage to the sample
                   during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused
@@ -134,7 +163,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id003
+              - &id004
                 title: Drift Correction
                 description: 'Describes whether and how stage or beam drift was monitored and corrected
                   during the measurement session. Examples: periodic stage realignment to a fiducial marker,
@@ -161,7 +190,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id004
+              - &id005
                 title: Chamber Pressure
                 description: Chamber pressure and gas type during analysis. Required for variable pressure
                   (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and
@@ -191,7 +220,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id005
+              - &id006
                 title: EDS Live Time per Point or Pixel
                 description: EDS spectral acquisition live time per analysis point or per pixel in seconds.
                   Longer live time improves counting statistics but increases beam damage risk and total
@@ -221,7 +250,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id006
+              - &id007
                 title: Step Size / Pixel Size
                 description: Centre-to-centre distance between adjacent measurement points (WDS mapping)
                   or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and,
@@ -252,7 +281,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id007
+              - &id008
                 title: Halogen Correction on Oxygen
                 description: Whether oxygen content was adjusted to account for halogen substitution (F
                   and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica,
@@ -277,13 +306,34 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+              - &id009
+                title: Detection Limit
+                description: Method detection limit at 99% confidence, one per reported concentration
+                  variable (one per analyte, these being the same set). Include the method used and the
+                  resulting value for each.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/semCompositionTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/semCompositionTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
             allOf:
             - contains:
                 $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
-              minContains: 0
-              maxContains: 1
-            - contains: *id001
               minContains: 0
               maxContains: 1
             - contains: *id002
@@ -304,8 +354,10 @@ allOf:
             - contains: *id007
               minContains: 0
               maxContains: 1
-            - contains:
-                $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+            - contains: *id008
+              minContains: 0
+              maxContains: 1
+            - contains: *id009
               minContains: 0
               maxContains: 1
           schema:object:
@@ -362,7 +414,7 @@ allOf:
                                   type: array
                                   items:
                                     anyOf:
-                                    - &id008
+                                    - &id010
                                       title: Accelerating Voltage
                                       description: Electron beam accelerating voltage in kilovolts. Affects
                                         X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging
@@ -394,7 +446,7 @@ allOf:
                                       - schema:name
                                       - schema:value
                                       - schema:unitText
-                                    - &id009
+                                    - &id011
                                       title: Beam Diameter
                                       description: Nominal electron beam diameter (spot size) at the sample
                                         surface, in nanometres or micrometres, as set by the condenser
@@ -427,7 +479,7 @@ allOf:
                                       - schema:name
                                       - schema:value
                                       - schema:unitText
-                                    - &id010
+                                    - &id012
                                       title: Working Distance
                                       description: Distance between the objective lens pole piece and
                                         the specimen surface in millimetres. Affects spatial resolution,
@@ -458,13 +510,13 @@ allOf:
                                       - schema:value
                                       - schema:unitText
                                   allOf:
-                                  - contains: *id008
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains: *id009
-                                    minContains: 0
-                                    maxContains: 1
                                   - contains: *id010
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains: *id011
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains: *id012
                                     minContains: 0
                                     maxContains: 1
                       allOf:
@@ -476,6 +528,14 @@ allOf:
                               schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
+          ada:proceduralBlankLevel:
+            description: 'The measured level of the analytical blank in the session, and — where the reported
+              quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
+              result unless its own composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement
+              split the library applies wherever a procedure sets a threshold and an analysis reports
+              a value against it.'
+            type: string
           ada:deadTime:
             description: Percent dead time reported by the EDS detector during the session — the fraction
               of total acquisition time the detector spent processing rather than counting. EDS dead time
@@ -494,7 +554,7 @@ allOf:
       - type: string
     schema:additionalProperty:
       type: array
-      items: &id011
+      items: &id013
         title: Map Area
         description: Physical area covered by the map in µm² or mm², calculated as (map width in pixels
           × step size) × (map height in pixels × step size). Complements the map's pixel-grid dimensions
@@ -526,7 +586,7 @@ allOf:
         - schema:value
         - schema:unitText
       allOf:
-      - contains: *id011
+      - contains: *id013
         minContains: 0
         maxContains: 1
     schema:variableMeasured:
@@ -547,7 +607,7 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - &id012
+        - &id014
           title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference materials to correct
             for session-to-session calibration drift.
@@ -572,36 +632,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id013
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured quantity into the reported
-            quantity, how it was determined, and its uncertainty. Applies where the conversion depends
-            on a factor calibrated against a reference of independently known value, rather than on the
-            instrument response alone. Distinct from the fields that name the calibration material and
-            that state which approach applies to which analyte, where the technique has them: this field
-            records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        - &id014
+        - &id015
           title: Detection Limit
           description: Method detection limit at 99% confidence, one per reported concentration variable
             (one per analyte, these being the same set). Include the method used and the resulting value
@@ -627,7 +658,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id015
+        - &id016
           title: Detection Limit Method
           description: Formula or approach used to calculate detection limits.
           type: object
@@ -652,16 +683,13 @@ allOf:
           - schema:name
           - schema:value
       allOf:
-      - contains: *id012
-        minContains: 0
-        maxContains: 1
-      - contains: *id013
-        minContains: 0
-        maxContains: 1
       - contains: *id014
         minContains: 0
         maxContains: 1
       - contains: *id015
+        minContains: 0
+        maxContains: 1
+      - contains: *id016
         minContains: 0
         maxContains: 1
   required:

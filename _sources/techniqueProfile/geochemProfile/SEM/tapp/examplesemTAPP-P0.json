@@ -9,10 +9,6 @@
   },
   "@id": "ex:semTAPP-P0",
   "@type": [
-    "ada:EBSDIndexingMethod",
-    "ada:InstrumentVariant",
-    "ada:IonBeamSource",
-    "ada:SEDetectorType",
     "prov:Plan",
     "cdi:Activity",
     "schema:Action",
@@ -60,6 +56,16 @@
       ],
       "schema:valueName": "clWavelengthCalibrationReferenceDefault",
       "schema:name": "CL Wavelength Calibration Reference",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
@@ -136,7 +142,7 @@
   "ada:ebsdDetectorConfiguration": "example ebsdDetectorConfiguration",
   "dqv:hasQualityMeasurement": [
     {
-      "dqv:isMeasurementOf": "EBSD Mean Angular Deviation",
+      "dqv:isMeasurementOf": "EBSD Pattern Quality Threshold",
       "dqv:value": "example ebsdPatternQualityThreshold"
     }
   ],
@@ -144,10 +150,10 @@
   "ada:ebsdStepSizeDefault": 1.0,
   "ada:edsAcquisitionMode": "Point / spot",
   "ada:edsLiveTimePerPointOrPixelDefault": 1.0,
-  "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
   "ada:massAbsorptionCoefficients": "LINEMU",
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
   "ada:sampleTiltAngle": 1.0,
+  "ada:seDetectorType": "Everhart-Thornley (ET)",
   "ada:stepSizePixelSizeDefault": 1.0,
   "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
   "ada:wdsDeadTimeCorrection": "Default constant (manufacturer)",

@@ -141,19 +141,6 @@
                 "schema:value": "example value"
               },
               {
-                "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
-                  }
-                ],
-                "schema:name": "Calibration Factor and Determination Method",
-                "schema:value": "example value"
-              },
-              {
                 "@id": "ada:parameter/module/Core/constantsReferenceValues",
                 "@type": [
                   "schema:PropertyValue"
@@ -373,19 +360,6 @@
           "schema:unitText": "example value"
         },
         {
-          "@id": "ada:parameter/module/Blank/proceduralBlankLevel",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
-            }
-          ],
-          "schema:name": "Procedural Blank Level",
-          "schema:value": "example value"
-        },
-        {
           "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio",
           "@type": [
             "schema:PropertyValue"
@@ -399,19 +373,6 @@
           "schema:value": "example value"
         },
         {
-          "@id": "ada:parameter/module/Geochronology/ageDatumReferenceEpoch",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/module/Geochronology/ageDatumReferenceEpoch"
-            }
-          ],
-          "schema:name": "Age Datum / Reference Epoch",
-          "schema:value": "example value"
-        },
-        {
           "@id": "ada:parameter/laMcicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities",
           "@type": [
             "schema:PropertyValue"
@@ -422,6 +383,20 @@
             }
           ],
           "schema:name": "Error Correlation Between Reported Quantities",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/laMcicpmsUPbTAPP/detectionLimit",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laMcicpmsUPbTAPP/detectionLimit"
+            }
+          ],
+          "schema:name": "Detection Limit",
           "schema:value": 1,
           "schema:unitText": "example value"
         }
@@ -732,9 +707,7 @@
           ]
         }
       ],
-      "ada:ablationSpotDuration": 1.0,
-      "ada:ablationPitDepthRate": "example ablationPitDepthAndAblationRate",
-      "ada:rasterLineSpacing": "example rasterLineSpacing",
+      "ada:proceduralBlankLevel": "example proceduralBlankLevel",
       "schema:location": {
         "@type": [
           "schema:Place"
@@ -745,7 +718,10 @@
       "schema:identifier": "example sessionIdentifier",
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
-      "schema:description": "example additionalNotes"
+      "schema:description": "example additionalNotes",
+      "ada:ablationSpotDuration": 1.0,
+      "ada:ablationPitDepthRate": "example ablationPitDepthAndAblationRate",
+      "ada:rasterLineSpacing": "example rasterLineSpacing"
     }
   ],
   "dqv:hasQualityMeasurement": [
@@ -754,12 +730,12 @@
       "dqv:value": "example oxideProduction"
     },
     {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
-    {
       "dqv:isMeasurementOf": "Peak Flatness",
       "dqv:value": "example peakFlatness"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     }
   ],
   "ada:reportedDateType": [

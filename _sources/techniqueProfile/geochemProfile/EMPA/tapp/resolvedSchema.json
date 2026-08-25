@@ -1993,10 +1993,13 @@
             ]
           },
           "dqv:value": {
-            "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+            "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
             "anyOf": [
               {
                 "type": "string"
+              },
+              {
+                "type": "number"
               },
               {
                 "$ref": "#/$defs/QualityMeasure_DefinedTerm"
@@ -2960,6 +2963,65 @@
       "required": [
         "ada:targetSelectionCriteriaDefault"
       ]
+    },
+    {
+      "title": "CalibrationFactor on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Calibration Factor and Determination Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:defaultValue": {
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                  }
+                },
+                "required": [
+                  "schema:name"
+                ]
+              }
+            }
+          ]
+        }
+      }
     },
     {
       "title": "Analyte on the procedure",
@@ -5771,6 +5833,47 @@
                 ]
               },
               {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
                 "title": "Drift Correction",
                 "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
                 "type": "object",
@@ -6022,6 +6125,51 @@
             },
             {
               "contains": {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence (3-sigma), one per reported concentration variable (one per analyte, these being the same set), derived from counting statistics on peak and background. Include the method and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "Drift Correction",
                 "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
                 "type": "object",
@@ -6257,43 +6405,6 @@
                 ]
               },
               {
-                "title": "Detection Limit Method",
-                "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/detectionLimitMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/detectionLimitMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              {
                 "title": "Normalization / Standards-Based Correction",
                 "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
                 "type": "object",
@@ -6311,47 +6422,6 @@
                   },
                   "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
                   },
                   "ada:dataType": {
                     "const": "string"
@@ -6425,47 +6495,6 @@
             },
             {
               "contains": {
-                "title": "Detection Limit Method",
-                "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/detectionLimitMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/empaTAPP/detectionLimitMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Normalization / Standards-Based Correction",
                 "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
                 "type": "object",
@@ -6508,58 +6537,376 @@
               },
               "minContains": 0,
               "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
             }
           ]
         },
-        "ada:detectionLimitMethod": {
-          "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
-          "type": "string",
-          "readOnly": true
+        "schema:actionProcess": {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Data reduction"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "ada:detectionLimitMethod": {
+                          "description": "Formula or approach used to calculate detection limits. Reference method publication if applicable. When the procedure does not specify a method, the analyst should complete this field.",
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "readOnly": true
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "readOnly": true
+                              }
+                            }
+                          ]
+                        },
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "title": "Analysis Inclusion and Rejection Criteria",
+                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "analysisInclusionAndRejectionCriteriaDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Analysis Inclusion and Rejection Criteria"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Normalization / Standards-Based Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
+                                "title": "Constants Reference Values",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "constantsReferenceValuesDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Constants Reference Values"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              }
+                            ]
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "title": "Analysis Inclusion and Rejection Criteria",
+                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "analysisInclusionAndRejectionCriteriaDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Analysis Inclusion and Rejection Criteria"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Normalization / Standards-Based Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Constants Reference Values",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "constantsReferenceValuesDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Constants Reference Values"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Sample preparation"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:description": {
+                          "description": "Description of how samples were prepared for analysis under this procedure (mounting, polishing, coating). Analysts may document session-specific variations from the procedure standard.",
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Data reduction"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Sample preparation"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
         },
         "ada:edsAcquisitionMode": {
           "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, linescan (beam stepped along a transect at defined intervals), or area map (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared Analytical Mode. Particularly important when a procedure includes linescans as a distinct acquisition approach not fully captured by the mode flag columns.",
@@ -6737,358 +7084,6 @@
             }
           ]
         },
-        "schema:actionProcess": {
-          "type": "object",
-          "properties": {
-            "schema:step": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "allOf": [
-                  {
-                    "if": {
-                      "properties": {
-                        "schema:name": {
-                          "const": "Data reduction"
-                        }
-                      },
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    "then": {
-                      "properties": {
-                        "schema:additionalProperty": {
-                          "type": "array",
-                          "items": {
-                            "anyOf": [
-                              {
-                                "title": "Analysis Inclusion and Rejection Criteria",
-                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "analysisInclusionAndRejectionCriteriaDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Analysis Inclusion and Rejection Criteria"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              {
-                                "title": "Calibration Factor and Determination Method",
-                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Calibration Factor and Determination Method"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              {
-                                "title": "Constants Reference Values",
-                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "constantsReferenceValuesDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Constants Reference Values"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              }
-                            ]
-                          },
-                          "allOf": [
-                            {
-                              "contains": {
-                                "title": "Analysis Inclusion and Rejection Criteria",
-                                "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value. Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "analysisInclusionAndRejectionCriteriaDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Analysis Inclusion and Rejection Criteria"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
-                                "title": "Calibration Factor and Determination Method",
-                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Calibration Factor and Determination Method"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
-                                "title": "Constants Reference Values",
-                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "constantsReferenceValuesDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Constants Reference Values"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "schema:name": {
-                          "const": "Sample preparation"
-                        }
-                      },
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    "then": {
-                      "properties": {
-                        "schema:description": {
-                          "description": "Description of how samples were prepared for analysis under this procedure (mounting, polishing, coating). Analysts may document session-specific variations from the procedure standard.",
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  }
-                ]
-              },
-              "allOf": [
-                {
-                  "contains": {
-                    "properties": {
-                      "schema:name": {
-                        "const": "Data reduction"
-                      }
-                    },
-                    "required": [
-                      "schema:name"
-                    ]
-                  }
-                },
-                {
-                  "contains": {
-                    "properties": {
-                      "schema:name": {
-                        "const": "Sample preparation"
-                      }
-                    },
-                    "required": [
-                      "schema:name"
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        },
         "ada:massAbsorptionCoefficients": {
           "description": "Database of mass absorption coefficients used in the matrix correction. MAC database choice affects accuracy particularly for light elements (B, C, N, O, F, Na).",
           "type": "string",
@@ -7154,10 +7149,21 @@
             "missing"
           ],
           "readOnly": true
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "EDS Point Analysis",
+              "EDS Mapping",
+              "WDS Point Analysis",
+              "WDS Mapping"
+            ]
+          }
         }
       },
       "required": [
-        "ada:detectionLimitMethod",
         "ada:edsAcquisitionMode",
         "ada:edsLiveTimePerPointOrPixelDefault",
         "ada:massAbsorptionCoefficients",
@@ -10585,10 +10591,13 @@
                 ]
               },
               "dqv:value": {
-                "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
                 "anyOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "type": "number"
                   },
                   {
                     "$ref": "#/$defs/QualityMeasure_DefinedTerm"

@@ -1993,10 +1993,13 @@
             ]
           },
           "dqv:value": {
-            "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+            "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
             "anyOf": [
               {
                 "type": "string"
+              },
+              {
+                "type": "number"
               },
               {
                 "$ref": "#/$defs/QualityMeasure_DefinedTerm"
@@ -2960,6 +2963,65 @@
       "required": [
         "ada:targetSelectionCriteriaDefault"
       ]
+    },
+    {
+      "title": "CalibrationFactor on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Calibration Factor and Determination Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:defaultValue": {
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                  }
+                },
+                "required": [
+                  "schema:name"
+                ]
+              }
+            }
+          ]
+        }
+      }
     },
     {
       "type": "object",
@@ -5090,47 +5152,6 @@
                                 ]
                               },
                               {
-                                "title": "Calibration Factor and Determination Method",
-                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Calibration Factor and Determination Method"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              {
                                 "title": "Sub-volume Stitching and Registration Method",
                                 "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35° misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
                                 "type": "object",
@@ -5237,51 +5258,6 @@
                                   },
                                   "ada:dataType": {
                                     "const": "boolean"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
-                                "title": "Calibration Factor and Determination Method",
-                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Calibration Factor and Determination Method"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
                                   },
                                   "ada:fieldScope": {
                                     "const": "session"
@@ -5759,6 +5735,16 @@
               "type": "string"
             }
           ]
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Single-volume",
+              "Multi-volume stitching"
+            ]
+          }
         }
       },
       "required": [
@@ -9196,10 +9182,13 @@
                 ]
               },
               "dqv:value": {
-                "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
                 "anyOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "type": "number"
                   },
                   {
                     "$ref": "#/$defs/QualityMeasure_DefinedTerm"

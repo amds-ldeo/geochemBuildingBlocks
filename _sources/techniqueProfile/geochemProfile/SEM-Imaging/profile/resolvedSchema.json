@@ -13986,63 +13986,184 @@
       }
     },
     "dqv:hasQualityMeasurement": {
-      "description": "Quality measurements reported to assess the resource.",
       "type": "array",
       "items": {
-        "title": "definitions for simple quality measure property",
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "contains": {
-              "const": "dqv:QualityMeasurement"
-            },
-            "minItems": 1
-          },
-          "dqv:isMeasurementOf": {
-            "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
-            "anyOf": [
-              {
-                "type": "string"
+        "allOf": [
+          {
+            "title": "definitions for simple quality measure property",
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "dqv:QualityMeasurement"
+                },
+                "minItems": 1
               },
+              "dqv:isMeasurementOf": {
+                "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "description": "a resolvable reference to a representation of a quality measure"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  }
+                ]
+              },
+              "dqv:value": {
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "dqv:isMeasurementOf",
+              "dqv:value"
+            ]
+          },
+          {
+            "type": "object",
+            "allOf": [
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "a resolvable reference to a representation of a quality measure"
+                "if": {
+                  "properties": {
+                    "dqv:isMeasurementOf": {
+                      "const": "EBSD Pattern Quality Threshold"
+                    }
+                  },
+                  "required": [
+                    "dqv:isMeasurementOf"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "dqv:value": {
+                      "description": "Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
                   }
                 }
               },
               {
-                "$ref": "#/$defs/QualityMeasure_DefinedTerm"
-              }
-            ]
-          },
-          "dqv:value": {
-            "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
-            "anyOf": [
-              {
-                "type": "string"
+                "if": {
+                  "properties": {
+                    "dqv:isMeasurementOf": {
+                      "const": "EBSD Mean Angular Deviation"
+                    }
+                  },
+                  "required": [
+                    "dqv:isMeasurementOf"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "dqv:value": {
+                      "description": "Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees. MAD quantifies the misfit between experimental Kikuchi band positions and the best-fit crystal orientation. Values above ~1.5 degrees typically indicate unreliable indexing.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
               },
               {
-                "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                "if": {
+                  "properties": {
+                    "dqv:isMeasurementOf": {
+                      "const": "EBSD Indexing Rate"
+                    }
+                  },
+                  "required": [
+                    "dqv:isMeasurementOf"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "dqv:value": {
+                      "description": "Fraction of EBSD map points successfully indexed, expressed as a percentage of total map points. Low indexing rate may indicate surface damage, amorphisation, severe deformation, or phase misidentification.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             ]
           }
-        },
-        "required": [
-          "dqv:isMeasurementOf",
-          "dqv:value"
         ]
-      }
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "dqv:isMeasurementOf": {
+                "const": "EBSD Mean Angular Deviation"
+              }
+            },
+            "required": [
+              "dqv:isMeasurementOf"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "dqv:isMeasurementOf": {
+                "const": "EBSD Indexing Rate"
+              }
+            },
+            "required": [
+              "dqv:isMeasurementOf"
+            ]
+          }
+        }
+      ]
     },
     "schema:additionalProperty": {
       "description": "PropertyValue entries describing the DELIVERED DATA rather than the analysis that produced it (extent, dimensions, ...). Distinct from the per-analysis prov:wasGeneratedBy.schema:additionalProperty. Technique profiles constrain these.",
@@ -14053,45 +14174,6 @@
     },
     "ada:frameTime": {
       "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time improves pattern quality and indexing rate but increases total acquisition time.",
-      "anyOf": [
-        {
-          "type": "number"
-        },
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "ada:indexingMethod": {
-      "description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
-      "type": "string",
-      "enum": [
-        "Hough transform",
-        "Dictionary indexing (DI)",
-        "Neural network",
-        "Unknown",
-        "N/A",
-        "None",
-        "missing"
-      ]
-    },
-    "ada:patternQualityThreshold": {
-      "description": "Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.",
-      "type": "string"
-    },
-    "ada:meanAngularDeviation": {
-      "description": "Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees. MAD quantifies the misfit between experimental Kikuchi band positions and the best-fit crystal orientation. Values above ~1.5 degrees typically indicate unreliable indexing.",
-      "anyOf": [
-        {
-          "type": "number"
-        },
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "ada:indexingRate": {
-      "description": "Fraction of EBSD map points successfully indexed, expressed as a percentage of total map points. Low indexing rate may indicate surface damage, amorphisation, severe deformation, or phase misidentification.",
       "anyOf": [
         {
           "type": "number"
@@ -15244,12 +15326,7 @@
       }
     },
     {
-      "type": "object",
-      "required": [
-        "ada:indexingMethod",
-        "ada:meanAngularDeviation",
-        "ada:indexingRate"
-      ]
+      "type": "object"
     },
     {
       "type": "object",
@@ -17011,6 +17088,40 @@
                                           },
                                           "then": {
                                             "properties": {
+                                              "ada:ebsdIndexingMethod": {
+                                                "description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
+                                                "anyOf": [
+                                                  {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "Hough transform",
+                                                      "Dictionary indexing (DI)",
+                                                      "Neural network",
+                                                      "Unknown",
+                                                      "N/A",
+                                                      "None",
+                                                      "missing"
+                                                    ],
+                                                    "readOnly": true
+                                                  },
+                                                  {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "string",
+                                                      "enum": [
+                                                        "Hough transform",
+                                                        "Dictionary indexing (DI)",
+                                                        "Neural network",
+                                                        "Unknown",
+                                                        "N/A",
+                                                        "None",
+                                                        "missing"
+                                                      ],
+                                                      "readOnly": true
+                                                    }
+                                                  }
+                                                ]
+                                              },
                                               "schema:additionalProperty": {
                                                 "type": "array",
                                                 "items": {
@@ -18212,6 +18323,57 @@
                               "ada:ebsdPhaseListDefault": {
                                 "description": "Mineral phases included in the EBSD reference pattern library for this procedure. The procedure specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
                                 "type": "string"
+                              },
+                              "dqv:hasQualityMeasurement": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "allOf": [
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "dqv:isMeasurementOf": {
+                                            "const": "EBSD Pattern Quality Threshold"
+                                          }
+                                        },
+                                        "required": [
+                                          "dqv:isMeasurementOf"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "dqv:value": {
+                                            "description": "Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              "ada:analyticalMode": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "SE Imaging",
+                                    "BSE Imaging",
+                                    "CL Point Analysis",
+                                    "CL Mapping",
+                                    "EBSD"
+                                  ]
+                                }
                               }
                             },
                             "required": [
@@ -25719,10 +25881,13 @@
           ]
         },
         "dqv:value": {
-          "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+          "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
           "anyOf": [
             {
               "type": "string"
+            },
+            {
+              "type": "number"
             },
             {
               "$ref": "#/$defs/QualityMeasure_DefinedTerm"

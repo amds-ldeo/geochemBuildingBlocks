@@ -191,9 +191,19 @@ Lives at `_sources/BaseSchema/tappDefinition/`. Was previously `geochemPropertie
 build_tapp.py            <tapp_name>                  # → TAPP BB + catalogs + vocab + detail + examples (empa/laicpms/labxct)
 build_pathdriven.py      <tapp_name>                  # → techniqueProfile/geochemProfile/<TECH>/{tapp,detail}/ from the schema-path sidecar
 build_profile.py         <tapp_name>                  # → techniqueProfile/geochemProfile/<TECH>/profile/
+build_tapp_examples.py   <tapp_name>                  # → one example<TAPP>-<Pub>.json per publication column
 build_adaEMPA_examples.py [--pub P0]…                 # → EMPA profile-level dataset examples (empa only)
 build_dataset_template.py <tapp-instance.json> [out]  # → xlsx columns from analyteColumns, rows from defaultAnalytes
 ```
+
+**`build_tapp_examples.py` is not a second example generator.** It reads the workbook's
+publication columns (everything after `Literature Assessment`) for CONTENT and calls
+`schema_path_example_emitter.build_example(tapp, values=...)` — the same emitter that writes the
+`-P0` files — for PLACEMENT, then layers publication-specific population (collector config,
+reported properties, nested enum conformance) on top. What makes it easy to get wrong is that
+`build_pathdriven` does NOT rebuild its output, so a sidecar edit silently leaves the publication
+examples on their old placement. Moving `Detection Limit` off `analyteColumns[]` produced 125
+validation failures that regeneration alone cleared — no code was wrong, the artifacts were stale.
 
 The legacy `build_TAPP_from_spreadsheet.py` / `build_detail_BB.py` drivers now **delegate to `build_tapp.py` for `empaTAPP`** (matrix routing); they remain only for hypothetical impl-tag-style TAPPs. Templates + user-facing guide live in `docs/`:
 - `docs/TAPP_EPMA_filled-noInterp.xlsx` — annotated canonical EMPA workbook.
@@ -276,7 +286,10 @@ python tools/build_pathdriven.py <tapp_name>
 #    technique-specific ada:componentType enum (placeholder is "ada:TODO_ComponentType").
 # 6. profile/ schema:
 python tools/build_profile.py <tapp_name>
-# 7. Validate everything:
+# 7. Publication-derived examples (NOT rebuilt by build_pathdriven — skipping this leaves the
+#    examples on their previous placement while the schema moves under them):
+python tools/build_tapp_examples.py <tapp_name>
+# 8. Validate everything:
 python tools/resolve_schema.py --all
 python tools/validate_examples.py
 ```
@@ -284,9 +297,10 @@ python tools/validate_examples.py
 **Re-run after editing a workbook:**
 ```bash
 python tools/bootstrap_schemapaths.py docs/<Technique>_TAPP_v#.xlsx  # authored rows preserved
-python tools/build_tapp.py       <tapp_name>
-python tools/build_pathdriven.py <tapp_name>
-python tools/build_profile.py    <tapp_name>
+python tools/build_tapp.py         <tapp_name>
+python tools/build_pathdriven.py   <tapp_name>
+python tools/build_profile.py      <tapp_name>
+python tools/build_tapp_examples.py <tapp_name>
 python tools/resolve_schema.py --all
 python tools/validate_examples.py
 ```

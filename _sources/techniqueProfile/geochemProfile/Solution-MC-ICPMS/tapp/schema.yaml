@@ -6,6 +6,7 @@ allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
@@ -319,6 +320,30 @@ allOf:
                         $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
+                  ada:detectionLimitMethod:
+                    description: Method used to calculate detection limits for each reported concentration
+                      variable, where concentration data are reported.
+                    anyOf:
+                    - type: string
+                      enum:
+                      - 3σ blank
+                      - 3× blank mean
+                      - Poisson statistics
+                      - N/A
+                      - None
+                      - missing
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        enum:
+                        - 3σ blank
+                        - 3× blank mean
+                        - Poisson statistics
+                        - N/A
+                        - None
+                        - missing
+                        readOnly: true
           allOf:
           - contains:
               properties:
@@ -1307,6 +1332,42 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - &id015
+          title: Detection Limit
+          description: Elemental detection limits, one per reported concentration variable (one per analyte,
+            these being the same set), applicable when isotope dilution concentrations are also reported.
+            For pure isotope ratio procedures (no concentration output), this field is N/A or reports
+            the minimum sample mass required for a measurement at target precision. Specify units µg/g
+            or µg/L and whether values are procedure-typical estimates or session-measured. Record 'N/A'
+            where the procedure produces isotope ratios only and reports no concentrations.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionMcicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
       - contains:
           $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
@@ -1320,6 +1381,9 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id014
+        minContains: 0
+        maxContains: 1
+      - contains: *id015
         minContains: 0
         maxContains: 1
     ada:sampleSequenceDesign:
@@ -1402,7 +1466,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
-            - &id018
+            - &id019
               title: Isobaric Interference Corrections Applied
               description: 'Whether mathematical corrections for residual isobaric or polyatomic interferences
                 are applied in data reduction, supplementary to any interference suppression achieved
@@ -1428,10 +1492,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id015
+                  - &id016
                     type: string
                   - type: array
-                    items: *id015
+                    items: *id016
               required:
               - '@id'
               - '@type'
@@ -1439,7 +1503,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id019
+            - &id020
               title: Interfering Species
               description: List of isobaric or polyatomic species mathematically corrected in data reduction.
                 Includes direct isobars (e.g., 54Cr+ on 54Fe+, 58Ni+ on 58Fe+), abundance sensitivity
@@ -1464,10 +1528,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id016
+                  - &id017
                     type: string
                   - type: array
-                    items: *id016
+                    items: *id017
               required:
               - '@id'
               - '@type'
@@ -1475,7 +1539,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id020
+            - &id021
               title: Interference Correction Method
               description: Mathematical approach used to calculate and remove residual interference contributions.
                 For direct isobars, interference monitor masses (e.g., 202Hg to correct 204Hg on 204Pb)
@@ -1500,10 +1564,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id017
+                  - &id018
                     type: string
                   - type: array
-                    items: *id017
+                    items: *id018
               required:
               - '@id'
               - '@type'
@@ -1512,15 +1576,42 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id018
-            minContains: 0
-            maxContains: 1
           - contains: *id019
             minContains: 0
             maxContains: 1
           - contains: *id020
             minContains: 0
             maxContains: 1
+          - contains: *id021
+            minContains: 0
+            maxContains: 1
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the procedure's declared
+            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
+            branches above are permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - *id001
+        - *id015
+      allOf:
+      - contains: *id001
+        minContains: 0
+        maxContains: 1
+      - contains: *id015
+        minContains: 0
+        maxContains: 1
     ada:primaryStandardNameDefault:
       description: 'Name and reference material identifier of the isotopic reference standard used as
         the bracketing standard (SSB) or zero-delta anchor. This is an isotopic composition standard (not
@@ -1554,72 +1645,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id021
-              title: Detection Limit
-              description: Elemental detection limits, one per reported concentration variable (one per
-                analyte, these being the same set), applicable when isotope dilution concentrations are
-                also reported. For pure isotope ratio procedures (no concentration output), this field
-                is N/A or reports the minimum sample mass required for a measurement at target precision.
-                Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured.
-                Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             - &id022
-              title: Detection Limit Method
-              description: Method used to calculate detection limits for each reported concentration variable,
-                where concentration data are reported.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id023
               title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification, where applicable.
               type: object
@@ -1647,7 +1673,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id024
+            - &id023
               title: Analytical Accuracy and Assessment Method
               description: Accuracy of isotope ratio or δ-value measurements relative to certified or
                 published consensus values and the method used to assess it. For isotope ratio procedures,
@@ -1680,16 +1706,10 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id021
-            minContains: 0
-            maxContains: 1
           - contains: *id022
             minContains: 0
             maxContains: 1
           - contains: *id023
-            minContains: 0
-            maxContains: 1
-          - contains: *id024
             minContains: 0
             maxContains: 1
   required:

@@ -49,9 +49,12 @@ python tools/bootstrap_schemapaths.py <table.csv>  # 1. seed/refresh docs/<wb>.s
 python tools/build_tapp.py         <TAPP_NAME>  # 2. registry catalogs + vocab
 python tools/build_pathdriven.py   <TAPP_NAME>  # 3. tapp/ + detail/ schemas from the sidecar
 python tools/build_profile.py      <TAPP_NAME>  # 4. profile/ schema
-python tools/resolve_schema.py --all            # 5. resolve
-python tools/validate_examples.py               # 6. verify
+python tools/build_tapp_examples.py <TAPP_NAME> # 5. publication-derived example*.json
+python tools/resolve_schema.py --all            # 6. resolve
+python tools/validate_examples.py               # 7. verify
 ```
+
+**Step 5 is easy to skip and its omission is silent.** The publication examples (`example<TAPP>-<Pub>.json`, one per column after `Literature Assessment`) are NOT rebuilt by `build_pathdriven`, so a sidecar change moves the schema while they keep the placement they were last generated with. Nothing complains until `validate_examples` runs, and the failure reads as a schema bug rather than a stale artifact — moving `Detection Limit` off `analyteColumns[]` produced 125 such failures that regeneration alone cleared. `build_tapp_examples` is not a second generator: it reads the workbook's publication columns for CONTENT and calls `schema_path_example_emitter.build_example(tapp, values=...)` -- the same emitter that writes the `-P0` files -- for PLACEMENT.
 
 ## Source vs generated
 
@@ -78,8 +81,9 @@ python tools/build_module_bb.py --write        # module BB from its CSV (tapp/ s
 python tools/draft_module.py --measure         # draft candidate modules, measure what they'd save
 ```
 
-A module with no placed root fields still emits a BB when it publishes parameters — `blank` and
-`calibrationFactor` are parameter-only. What it must never do is emit an *empty* root `$def`,
+A module with no placed root fields still emits a BB when it publishes parameters — `blank` is the
+only one left in that state (`calibrationFactor` was too, until its keyed `variableMeasured` rows
+were added). What it must never do is emit an *empty* root `$def`,
 which would wrongly assert that a conforming procedure carries nothing.
 
 ### Module parameters: shape and identity

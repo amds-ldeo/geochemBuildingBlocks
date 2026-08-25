@@ -47,8 +47,9 @@ unsatisfiable together. A module can only offer a branch the technique unions in
 blocks that apply to it (see `docs/REPORTINGCORE_BLOCKS.md`).
 
 A module with no placed root fields still emits a building block when it publishes parameters —
-`blank` and `calibrationFactor` are parameter-only. What it must never emit is an **empty** root
-`$def`, which would assert that a conforming procedure carries nothing.
+`blank` is the only one left in that state (`calibrationFactor` was too, until its keyed
+`variableMeasured` rows were added). What it must never emit is an **empty** root `$def`, which
+would assert that a conforming procedure carries nothing.
 
 ### Parameter shape and identity
 

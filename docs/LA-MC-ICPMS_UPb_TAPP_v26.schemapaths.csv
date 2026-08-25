@@ -76,13 +76,13 @@ Laser Beam Energy Profile,Advanced,Read-Only,Controlled list / Text,$MethodDefin
 Laser Repetition Rate,Basic,Editable,Numeric (Hz),,module,shared,placement owned by Module LaserAblation,
 Laser Repetition Rate,Basic,Editable,Numeric (Hz),,module,shared,placement owned by Module LaserAblation,
 Laser Pulse Duration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Pulse Duration'].schema:value,authored,shared,path from owning module,
-Ablation Duration per Spot,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Duration per Spot'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
+Ablation Duration per Spot,Basic,Editable,Numeric (s),,module,shared,placement owned by Module LaserAblation (module places the direct ada: property its $def requires; the technique's parameter path was already discarded by the generator),
 Ablation Duration per Spot,Basic,Editable,Numeric (s),,module,shared,placement owned by Module LaserAblation,
-Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ablation Pit Depth and Ablation Rate'].schema:value,inferred,,tier rule: session parameter is an additionalProperty on the analysis,
+Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation (as Ablation Duration per Spot),
 Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 "Transect Rate, Mapping Rate or Step Size",Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:value,authored,,path from owning module,
 "Transect Rate, Mapping Rate or Step Size",Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:defaultValue,authored,,path from owning module,
-Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Raster Line Spacing (Mapping Only)'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
+Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation (as Ablation Duration per Spot),
 Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 Carrier Gas and Flow Rate,Basic,Editable,Text (free),$MethodDefinition.ada:carrierGasFlowRateDefault,authored,shared,dual-home decision: protocol default,
 Carrier Gas and Flow Rate,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Carrier Gas and Flow Rate'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
@@ -111,7 +111,7 @@ Analysis Sequence,Basic,Editable,Text (free),$MethodDefinition.ada:analysisSeque
 Analysis Sequence,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Analysis Sequence'].schema:value,authored,divergent,tier rule: session parameter is an additionalProperty on the analysis,
 Analyte,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: analyte
 Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,analyte
-Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,,Keyed By: reported property (pilot),defines: reported property
+Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core (reviewer settled the reported-property list as $MethodDefinition.ada:reportedProperties[]),defines: reported property
 Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.ada:massResolutionAssignment,inferred,,,channel
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$MethodDefinition.ada:ionCounterDeadTimeDefault,inferred,,,channel
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ion Counter Dead Time'].schema:value,inferred,,,channel
@@ -160,10 +160,13 @@ Interference Correction Method,Basic,Read-Only,Text (free),$MethodDefinition.ada
 Isotope Dilution Data Reduction Method,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied,
 Memory Effect Mitigation,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:value,authored,shared,,
 Memory Effect Mitigation,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:defaultValue,authored,shared,,
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied,reported property
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Normalization / Standards-Based Correction'].schema:defaultValue,keyed,shared,aligned to SEM_TAPP_v22,
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Normalization / Standards-Based Correction'].schema:value,keyed,shared,aligned to SEM_TAPP_v22,
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:variableMeasured[schema:name='Normalization / Standards-Based Correction'].schema:defaultValue,keyed,shared,aligned to SEM_TAPP_v22,reported property
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$Dataset.schema:variableMeasured[schema:name='Normalization / Standards-Based Correction'].schema:value,keyed,shared,aligned to SEM_TAPP_v22,reported property
 Calibration Factor and Determination Method,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Calibration Factor and Determination Method'].schema:value,inferred,,path from owning module,reported property
 Calibration Factor and Determination Method,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Calibration Factor and Determination Method'].schema:defaultValue,inferred,,path from owning module,reported property
-Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Procedural Blank Level'].schema:value,flagged,,analysis-instance (needs mapping) | path from owning module,
+Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:proceduralBlankLevel,flagged,,analysis-instance (needs mapping) | path from owning module,
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:value,inferred,,path from owning module,
 Mass Fractionation Law,Basic,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Mass Fractionation Law'].schema:value,inferred,,path from owning module,
 Internal Normalization Element and Isotope Ratio,Basic,Read-Only,Text (free),,module,,placement owned by Module MCICPMS,
@@ -192,13 +195,17 @@ Primary Calibration Standard Name,Basic,Editable,Text (free),$Dataset.prov:wasGe
 Calibration Standard Measurement Frequency,Basic,Read-Only,Text (free),$MethodDefinition.ada:calibrationMeasurementFrequency,authored,shared,,
 Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:secondaryReferenceMaterialDefault[],authored,divergent,dual-home decision: protocol default,defines: standard
 Secondary Reference Materials,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.prov:reagent[ada:reagentRole='referenceMaterial'].schema:name,authored,divergent,dual-home decision: analysis-tier value,defines: standard
-Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,reported property
-Detection Limit Method,Basic,Read-Only,Text / URI,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,reported property
+Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.schema:additionalProperty[schema:name='Detection Limit'].schema:defaultValue,,shared,aligned to SEM_TAPP_v22,
+Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Detection Limit'].schema:value,,shared,aligned to SEM_TAPP_v22,
+Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$MethodDefinition.schema:variableMeasured[schema:name='Detection Limit'].schema:defaultValue,keyed,shared,aligned to SEM_TAPP_v22,reported property
+Detection Limit,Advanced,Basic,Numeric (ppm or wt%),$Dataset.schema:variableMeasured[schema:name='Detection Limit'].schema:value,keyed,shared,aligned to SEM_TAPP_v22,reported property
+Detection Limit Method,Basic,Read-Only,Text / URI,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].ada:detectionLimitMethod,keyed,shared,aligned to SEM_TAPP_v22,
+Detection Limit Method,Basic,Read-Only,Text / URI,$Dataset.schema:variableMeasured[schema:name='Detection Limit Method'].schema:value,keyed,shared,aligned to SEM_TAPP_v22,reported property
 Limit of Quantification (LOQ) Method,Advanced,Basic,Text / URI,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,reported property
 Within-Session Analytical Precision and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
 Between-Session (Long-Term) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
 Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
-Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Dispersion Statistic'].dqv:value,flagged,,analysis-instance (needs mapping) | path from owning module,reported property
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,"placement owned by Module Aggregation (reviewer's rule: dqv:hasQualityMeasurement by default, the reported-property variableMeasured list only when keyed and a reportedProperties list is defined)",reported property
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
@@ -207,8 +214,6 @@ Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:massesMeasure
 Monitored Masses,Basic,Read-Only,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Monitored Masses'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,analyte
 Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,$Dataset.ada:sensitivityYield,authored,,[not in current workbook],channel
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$MethodDefinition.schema:additionalProperty[schema:name='Ion Counter Dead Time'].schema:defaultValue,inferred,,[not in current workbook],channel
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Normalization / Standards-Based Correction'].schema:value,authored,shared,[not in current workbook],reported property
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Normalization / Standards-Based Correction'].schema:defaultValue,authored,shared,[not in current workbook],reported property
 Instrument Manufacturer,Basic,Read-Only,Controlled list,,flagged,,new in this revision (needs mapping),
 Counting Statistics Error,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property
 Internal (Within-Measurement) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property

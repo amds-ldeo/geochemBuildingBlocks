@@ -9,6 +9,7 @@ allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     schema:object:
@@ -1043,7 +1044,6 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       - &id019
                         title: Sub-volume Stitching and Registration Method
                         description: 'Method used to register adjacent sub-volume datasets to each other
@@ -1081,10 +1081,6 @@ allOf:
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains: *id018
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       minContains: 0
                       maxContains: 1
                     - contains: *id019
@@ -1362,6 +1358,13 @@ allOf:
         - None
         - missing
       - type: string
+    ada:analyticalMode:
+      type: array
+      items:
+        type: string
+        enum:
+        - Single-volume
+        - Multi-volume stitching
   required:
   - ada:targetFeature
   - ada:applicableSampleDimensionRange

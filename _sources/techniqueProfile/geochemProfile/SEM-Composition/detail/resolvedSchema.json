@@ -426,6 +426,51 @@
       }
     },
     {
+      "title": "CalibrationFactor on the analysis",
+      "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
+      "type": "object",
+      "properties": {
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Calibration Factor and Determination Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:value": {
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
       "title": "Aggregation on the analysis",
       "description": "Composed into a technique detail (schema:Dataset) schema: what each run supplies fresh, because it cannot be known until the analysis happens.",
       "type": "object",
@@ -598,41 +643,119 @@
                               "schema:additionalProperty": {
                                 "type": "array",
                                 "items": {
-                                  "title": "Constants Reference Values",
-                                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                  "type": "object",
-                                  "properties": {
-                                    "@id": {
-                                      "const": "ada:parameter/module/Core/constantsReferenceValues"
-                                    },
-                                    "@type": {
-                                      "const": [
-                                        "schema:PropertyValue"
-                                      ]
-                                    },
-                                    "schema:propertyID": {
-                                      "const": [
-                                        {
-                                          "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                                  "anyOf": [
+                                    {
+                                      "title": "Normalization / Standards-Based Correction",
+                                      "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Normalization / Standards-Based Correction"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
                                         }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
                                       ]
                                     },
-                                    "schema:name": {
-                                      "const": "Constants Reference Values"
-                                    },
-                                    "schema:value": {
-                                      "type": "string"
+                                    {
+                                      "title": "Constants Reference Values",
+                                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Constants Reference Values"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
                                     }
-                                  },
-                                  "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
                                   ]
                                 },
                                 "allOf": [
+                                  {
+                                    "contains": {
+                                      "title": "Normalization / Standards-Based Correction",
+                                      "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Normalization / Standards-Based Correction"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
                                   {
                                     "contains": {
                                       "title": "Constants Reference Values",
@@ -1037,12 +1160,12 @@
                       ]
                     },
                     {
-                      "title": "Procedural Blank Level",
-                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                      "title": "Detection Limit",
+                      "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
                       "type": "object",
                       "properties": {
                         "@id": {
-                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
+                          "const": "ada:parameter/semCompositionTAPP/detectionLimit"
                         },
                         "@type": {
                           "const": [
@@ -1052,12 +1175,12 @@
                         "schema:propertyID": {
                           "const": [
                             {
-                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
+                              "@id": "ada:parameter/semCompositionTAPP/detectionLimit"
                             }
                           ]
                         },
                         "schema:name": {
-                          "const": "Procedural Blank Level"
+                          "const": "Detection Limit"
                         },
                         "schema:value": {
                           "type": "string"
@@ -1432,12 +1555,12 @@
                   },
                   {
                     "contains": {
-                      "title": "Procedural Blank Level",
-                      "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                      "title": "Detection Limit",
+                      "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
                       "type": "object",
                       "properties": {
                         "@id": {
-                          "const": "ada:parameter/module/Blank/proceduralBlankLevel"
+                          "const": "ada:parameter/semCompositionTAPP/detectionLimit"
                         },
                         "@type": {
                           "const": [
@@ -1447,12 +1570,12 @@
                         "schema:propertyID": {
                           "const": [
                             {
-                              "@id": "ada:parameter/module/Blank/proceduralBlankLevel"
+                              "@id": "ada:parameter/semCompositionTAPP/detectionLimit"
                             }
                           ]
                         },
                         "schema:name": {
-                          "const": "Procedural Blank Level"
+                          "const": "Detection Limit"
                         },
                         "schema:value": {
                           "type": "string"
@@ -3581,6 +3704,10 @@
                   ]
                 }
               },
+              "ada:proceduralBlankLevel": {
+                "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                "type": "string"
+              },
               "ada:deadTime": {
                 "description": "Percent dead time reported by the EDS detector during the session — the fraction of total acquisition time the detector spent processing rather than counting. EDS dead time correction is managed automatically by the detector electronics; this field documents the resulting percentage as a session QC metric. Values above ~40% indicate excessive count rate and may degrade spectral quality and quantitative accuracy. Unlike WDS dead time (see WDS Dead Time Correction), no user-selectable correction algorithm is required.",
                 "anyOf": [
@@ -3767,42 +3894,6 @@
                 ]
               },
               {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
                 "title": "Detection Limit",
                 "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
                 "type": "object",
@@ -3901,46 +3992,6 @@
                   },
                   "schema:name": {
                     "const": "Normalization / Standards-Based Correction"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
                   },
                   "schema:value": {
                     "type": "string"
@@ -10343,10 +10394,13 @@
                 ]
               },
               "dqv:value": {
-                "description": "the reported result of the quality measure, either as a string or a defined term from a vocabulary",
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
                 "anyOf": [
                   {
                     "type": "string"
+                  },
+                  {
+                    "type": "number"
                   },
                   {
                     "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",

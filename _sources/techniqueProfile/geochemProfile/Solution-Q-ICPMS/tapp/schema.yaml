@@ -5,6 +5,7 @@ description: Solution quadrupole ICP-MS extension of the base TAPP definition, g
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
@@ -345,6 +346,32 @@ allOf:
                         $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
+                  ada:detectionLimitMethod:
+                    description: Method used to calculate detection limits for each reported concentration
+                      variable.
+                    anyOf:
+                    - type: string
+                      enum:
+                      - 3σ blank
+                      - 3σ background
+                      - 3× blank mean
+                      - Poisson statistics
+                      - N/A
+                      - None
+                      - missing
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        enum:
+                        - 3σ blank
+                        - 3σ background
+                        - 3× blank mean
+                        - Poisson statistics
+                        - N/A
+                        - None
+                        - missing
+                        readOnly: true
           allOf:
           - contains:
               properties:
@@ -1469,6 +1496,39 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - &id017
+          title: Detection Limit
+          description: Elemental detection limits, one per reported concentration variable (one per analyte,
+            these being the same set). Specify units (µg/g or µg/L) and whether values are procedure-typical
+            estimates or session-specific measured values.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
       - contains:
           $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
@@ -1482,6 +1542,9 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id016
+        minContains: 0
+        maxContains: 1
+      - contains: *id017
         minContains: 0
         maxContains: 1
     ada:channelTemplate:
@@ -1498,7 +1561,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
-            - &id021
+            - &id022
               title: Dwell Time per Mass
               description: Integration time spent on each mass peak per sweep (ms). May differ between
                 masses where per-mass dwell times are programmed.
@@ -1521,12 +1584,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id017
+                  - &id018
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id017
+                    items: *id018
               required:
               - '@id'
               - '@type'
@@ -1534,7 +1597,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id022
+            - &id023
               title: Isobaric Interference Corrections Applied
               description: Whether mathematical corrections for isobaric or polyatomic interferences are
                 applied during data reduction (in addition to any KED or DRC mitigation in the instrument).
@@ -1557,10 +1620,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id018
+                  - &id019
                     type: string
                   - type: array
-                    items: *id018
+                    items: *id019
               required:
               - '@id'
               - '@type'
@@ -1568,7 +1631,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id023
+            - &id024
               title: Interfering Species
               description: List of isobaric or polyatomic species mathematically corrected in data reduction.
                 For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species on Cd isotopes,
@@ -1593,10 +1656,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id019
+                  - &id020
                     type: string
                   - type: array
-                    items: *id019
+                    items: *id020
               required:
               - '@id'
               - '@type'
@@ -1604,7 +1667,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id024
+            - &id025
               title: Interference Correction Method
               description: Mathematical approach used to calculate and remove interference contributions
                 from measured signals (e.g., interference standard solutions isolating specific polyatomics,
@@ -1628,10 +1691,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id020
+                  - &id021
                     type: string
                   - type: array
-                    items: *id020
+                    items: *id021
               required:
               - '@id'
               - '@type'
@@ -1640,9 +1703,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id021
-            minContains: 0
-            maxContains: 1
           - contains: *id022
             minContains: 0
             maxContains: 1
@@ -1650,6 +1710,9 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id024
+            minContains: 0
+            maxContains: 1
+          - contains: *id025
             minContains: 0
             maxContains: 1
     ada:massCyclesPerReplicate:
@@ -1765,6 +1828,33 @@ allOf:
       - None
       - missing
       readOnly: true
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the procedure's declared
+            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
+            branches above are permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - *id002
+        - *id017
+      allOf:
+      - contains: *id002
+        minContains: 0
+        maxContains: 1
+      - contains: *id017
+        minContains: 0
+        maxContains: 1
     ada:primaryStandardNameDefault:
       description: Name and reference material identifier of the external calibration standard used to
         convert signal intensities to elemental concentrations. Include the material name, its source
@@ -1790,68 +1880,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id025
-              title: Detection Limit
-              description: Elemental detection limits, one per reported concentration variable (one per
-                analyte, these being the same set). Specify units (µg/g or µg/L) and whether values are
-                procedure-typical estimates or session-specific measured values.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             - &id026
-              title: Detection Limit Method
-              description: Method used to calculate detection limits for each reported concentration variable.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id027
               title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification.
               type: object
@@ -1879,7 +1908,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id028
+            - &id027
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analytical session and the
                 method used to assess it. Report both the assessment method and the precision values.
@@ -1913,7 +1942,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id029
+            - &id028
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analytical sessions over weeks to
                 months — long-term or intermediate precision — and the method used to assess it. Report
@@ -1946,7 +1975,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id030
+            - &id029
               title: Analytical Accuracy and Assessment Method
               description: Accuracy of final concentration measurements relative to certified or consensus
                 values and the method used to assess it.
@@ -1977,9 +2006,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id025
-            minContains: 0
-            maxContains: 1
           - contains: *id026
             minContains: 0
             maxContains: 1
@@ -1990,9 +2016,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id029
-            minContains: 0
-            maxContains: 1
-          - contains: *id030
             minContains: 0
             maxContains: 1
   required:

@@ -4,6 +4,7 @@ description: Dataset-level analysis-instance detail for SEM (superset), reusing 
   on the schema:Dataset root.
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
@@ -209,6 +210,31 @@ allOf:
                 - schema:name
                 - schema:value
               - &id008
+                title: Detection Limit
+                description: Method detection limit at 99% confidence, one per reported concentration
+                  variable (one per analyte, these being the same set). Include the method used and the
+                  resulting value for each.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/semTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/semTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              - &id009
                 title: Drift Correction
                 description: 'Describes whether and how stage or beam drift was monitored and corrected
                   during the measurement session. Examples: periodic stage realignment to a fiducial marker,
@@ -235,7 +261,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id009
+              - &id010
                 title: EBSD Frame Time
                 description: Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer
                   frame time improves pattern quality and indexing rate but increases total acquisition
@@ -265,7 +291,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id010
+              - &id011
                 title: EBSD Phase List
                 description: Mineral phases included in the EBSD reference pattern library for this procedure.
                   The procedure specifies the expected phase suite for the target material; analysts may
@@ -290,7 +316,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id011
+              - &id012
                 title: EBSD Step Size
                 description: Distance between adjacent EBSD measurement points in the map in nm or µm.
                   Must be smaller than the smallest grain of interest to resolve grain boundary positions
@@ -320,7 +346,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id012
+              - &id013
                 title: EDS Live Time per Point or Pixel
                 description: EDS spectral acquisition live time per analysis point or per pixel in seconds.
                   Longer live time improves counting statistics but increases beam damage risk and total
@@ -350,7 +376,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id013
+              - &id014
                 title: Halogen Correction on Oxygen
                 description: Whether oxygen content was adjusted to account for halogen substitution (F
                   and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica,
@@ -375,7 +401,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id014
+              - &id015
                 title: Image Pixel Size
                 description: Physical size of each image pixel at the sample surface, in nm or µm. Defines
                   spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel
@@ -405,8 +431,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
-              - &id015
+              - &id016
                 title: Step Size / Pixel Size
                 description: Centre-to-centre distance between adjacent measurement points (WDS mapping)
                   or pixels (EDS mapping) in µm. Defines the spatial sampling interval of the map and,
@@ -438,7 +463,7 @@ allOf:
                 - schema:value
                 - schema:unitText
               - $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
-              - &id016
+              - &id017
                 title: Working Distance
                 description: Distance between the objective lens pole piece and the specimen surface in
                   millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and
@@ -511,18 +536,17 @@ allOf:
             - contains: *id014
               minContains: 0
               maxContains: 1
-            - contains:
-                $ref: ../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+            - contains: *id015
               minContains: 0
               maxContains: 1
-            - contains: *id015
+            - contains: *id016
               minContains: 0
               maxContains: 1
             - contains:
                 $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
               minContains: 0
               maxContains: 1
-            - contains: *id016
+            - contains: *id017
               minContains: 0
               maxContains: 1
           prov:used:
@@ -556,7 +580,7 @@ allOf:
                                   type: array
                                   items:
                                     anyOf:
-                                    - &id017
+                                    - &id018
                                       title: Accelerating Voltage
                                       description: Electron beam accelerating voltage in kilovolts. Affects
                                         X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging
@@ -588,7 +612,7 @@ allOf:
                                       - schema:name
                                       - schema:value
                                       - schema:unitText
-                                    - &id018
+                                    - &id019
                                       title: Beam Diameter
                                       description: Nominal electron beam diameter (spot size) at the sample
                                         surface, in nanometres or micrometres, as set by the condenser
@@ -622,10 +646,10 @@ allOf:
                                       - schema:value
                                       - schema:unitText
                                   allOf:
-                                  - contains: *id017
+                                  - contains: *id018
                                     minContains: 0
                                     maxContains: 1
-                                  - contains: *id018
+                                  - contains: *id019
                                     minContains: 0
                                     maxContains: 1
                       allOf:
@@ -657,7 +681,7 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id019
+                            - &id020
                               title: Coarse Milling Conditions
                               description: 'Ion beam voltage and current used for bulk material removal
                                 during FIB milling. For TEM specimen preparation: bulk trenching to isolate
@@ -683,7 +707,7 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - &id020
+                            - &id021
                               title: Fine Polishing Conditions
                               description: Ion beam voltage and current for final thinning and surface
                                 polishing of the TEM lamella. Low-voltage polishing (2 kV or below) minimises
@@ -708,7 +732,7 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - &id021
+                            - &id022
                               title: Protective Coating Deposition
                               description: 'Type and deposition conditions of the protective coating applied
                                 to the sample surface before FIB milling. E-beam deposition causes less
@@ -736,13 +760,13 @@ allOf:
                               - schema:name
                               - schema:value
                           allOf:
-                          - contains: *id019
-                            minContains: 0
-                            maxContains: 1
                           - contains: *id020
                             minContains: 0
                             maxContains: 1
                           - contains: *id021
+                            minContains: 0
+                            maxContains: 1
+                          - contains: *id022
                             minContains: 0
                             maxContains: 1
                         schema:description:
@@ -771,7 +795,7 @@ allOf:
                           items:
                             anyOf:
                             - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-                            - &id022
+                            - &id023
                               title: Crystal Structure Database
                               description: Crystal structure database used for EBSD phase identification
                                 and Kikuchi pattern simulation.
@@ -795,12 +819,39 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
+                            - &id024
+                              title: Normalization / Standards-Based Correction
+                              description: Post-acquisition normalization applied using secondary reference
+                                materials to correct for session-to-session calibration drift.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
                           allOf:
                           - contains:
                               $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             minContains: 0
                             maxContains: 1
-                          - contains: *id022
+                          - contains: *id023
+                            minContains: 0
+                            maxContains: 1
+                          - contains: *id024
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -839,14 +890,7 @@ allOf:
                         const: Ion Milling
                     required:
                     - schema:name
-          ada:ebsdIndexingRate:
-            description: Fraction of EBSD map points successfully indexed, expressed as a percentage of
-              total map points. Low indexing rate may indicate surface damage, amorphisation, severe deformation,
-              or phase misidentification.
-            anyOf:
-            - type: number
-            - type: string
-          ada:deadTime:
+          ada:edsDeadTime:
             description: Percent dead time reported by the EDS detector during the session — the fraction
               of total acquisition time the detector spent processing rather than counting. EDS dead time
               correction is managed automatically by the detector electronics; this field documents the
@@ -874,7 +918,7 @@ allOf:
                       type: array
                       items:
                         anyOf:
-                        - &id023
+                        - &id025
                           title: Foil Thickness
                           description: 'Target thickness of the electron-transparent TEM lamella after
                             final FIB polishing, in nanometres. Actual thickness may differ from target.
@@ -906,7 +950,7 @@ allOf:
                           - schema:value
                           - schema:unitText
                         - $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
-                        - &id024
+                        - &id026
                           title: Slice Thickness
                           description: Thickness of each FIB-milled slice during serial sectioning in
                             nanometres. Controls the Z-axis resolution of the 3D reconstruction.
@@ -936,14 +980,14 @@ allOf:
                           - schema:value
                           - schema:unitText
                       allOf:
-                      - contains: *id023
+                      - contains: *id025
                         minContains: 0
                         maxContains: 1
                       - contains:
                           $ref: ../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
-                      - contains: *id024
+                      - contains: *id026
                         minContains: 0
                         maxContains: 1
             allOf:
@@ -954,6 +998,14 @@ allOf:
                       const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                 required:
                 - '@type'
+          ada:proceduralBlankLevel:
+            description: 'The measured level of the analytical blank in the session, and — where the reported
+              quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
+              result unless its own composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement
+              split the library applies wherever a procedure sets a threshold and an analysis reports
+              a value against it.'
+            type: string
     schema:variableMeasured:
       type: array
       items:
@@ -972,36 +1024,7 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - &id025
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured quantity into the reported
-            quantity, how it was determined, and its uncertainty. Applies where the conversion depends
-            on a factor calibrated against a reference of independently known value, rather than on the
-            instrument response alone. Distinct from the fields that name the calibration material and
-            that state which approach applies to which analyte, where the technique has them: this field
-            records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        - &id026
+        - &id027
           title: Detection Limit
           description: Method detection limit at 99% confidence, one per reported concentration variable
             (one per analyte, these being the same set). Include the method used and the resulting value
@@ -1027,7 +1050,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id027
+        - &id028
           title: Detection Limit Method
           description: Formula or approach used to calculate detection limits.
           type: object
@@ -1051,7 +1074,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - &id028
+        - &id029
           title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference materials to correct
             for session-to-session calibration drift.
@@ -1077,16 +1100,13 @@ allOf:
           - schema:name
           - schema:value
       allOf:
-      - contains: *id025
-        minContains: 0
-        maxContains: 1
-      - contains: *id026
-        minContains: 0
-        maxContains: 1
       - contains: *id027
         minContains: 0
         maxContains: 1
       - contains: *id028
+        minContains: 0
+        maxContains: 1
+      - contains: *id029
         minContains: 0
         maxContains: 1
     dqv:hasQualityMeasurement:
@@ -1097,7 +1117,37 @@ allOf:
         - if:
             properties:
               dqv:isMeasurementOf:
+                const: EBSD Indexing Rate
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Fraction of EBSD map points successfully indexed, expressed as a percentage
+                  of total map points. Low indexing rate may indicate surface damage, amorphisation, severe
+                  deformation, or phase misidentification.
+                anyOf:
+                - type: number
+                - type: string
+        - if:
+            properties:
+              dqv:isMeasurementOf:
                 const: EBSD Mean Angular Deviation
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees.
+                  MAD quantifies the misfit between experimental Kikuchi band positions and the best-fit
+                  crystal orientation. Values above ~1.5 degrees typically indicate unreliable indexing.
+                anyOf:
+                - type: number
+                - type: string
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: EBSD Pattern Quality Threshold
             required:
             - dqv:isMeasurementOf
           then:
@@ -1115,6 +1165,12 @@ allOf:
       - contains:
           properties:
             dqv:isMeasurementOf:
+              const: EBSD Indexing Rate
+          required:
+          - dqv:isMeasurementOf
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
               const: EBSD Mean Angular Deviation
           required:
           - dqv:isMeasurementOf
@@ -1126,7 +1182,7 @@ allOf:
       - type: string
     schema:additionalProperty:
       type: array
-      items: &id029
+      items: &id030
         title: Map Area
         description: Physical area covered by the map in µm² or mm², calculated as (map width in pixels
           × step size) × (map height in pixels × step size). Complements the map's pixel-grid dimensions
@@ -1158,7 +1214,7 @@ allOf:
         - schema:value
         - schema:unitText
       allOf:
-      - contains: *id029
+      - contains: *id030
         minContains: 0
         maxContains: 1
     ada:voxelSize:

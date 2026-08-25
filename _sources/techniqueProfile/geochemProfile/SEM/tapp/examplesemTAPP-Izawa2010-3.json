@@ -16,6 +16,19 @@
   ],
   "schema:name": "sem protocol — Izawa2010-3",
   "schema:description": "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "~0.5 wt% for most elements"
+    }
+  ],
   "ada:edsAcquisitionMode": "Map",
   "schema:instrument": [
     {
@@ -96,6 +109,7 @@
           "schema:ProductModel"
         ]
       },
+      "schema:description": "Standard SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -140,7 +154,7 @@
     }
   ],
   "ada:analyticalMode": [
-    "EDS"
+    "EDS Point Analysis"
   ],
   "schema:measurementTechnique": [
     {
@@ -199,11 +213,11 @@
   "ada:ebsdStepSizeDefault": -9999,
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
-  "ada:liftOutMethod": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",

@@ -192,9 +192,13 @@ _ISAMPLE = "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materia
 
 # Some items are selected in schema:variableMeasured by a shorter name than the table's wording.
 # The selector literal is the variable's own name, not the Metadata Item.
-_VM_SELECTOR = {
-    "goodness of fit or dispersion statistic": "Goodness-of-Fit",
-}
+# A reported property whose `schema:variableMeasured[schema:name=...]` selector is NOT its item
+# name. Empty, deliberately: the one entry it held shortened
+# "Goodness-of-Fit or Dispersion Statistic" to "Goodness-of-Fit", but that short token is the
+# `dqv:isMeasurementOf` measurement name, not the variable name - all 9 authored variableMeasured
+# rows use the full item name, so the shortening matched none of them and reported an existing
+# keyed row as missing.
+_VM_SELECTOR = {}
 
 
 def _reported_property_paths(row, it):
