@@ -6,7 +6,7 @@
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:semCompositionTAPP-Garvie2008",
+  "@id": "ex:semCompositionTAPP-Genge2025",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -14,8 +14,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semComposition protocol \u2014 Garvie2008",
-  "schema:description": "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure",
+  "schema:name": "semComposition protocol \u2014 Genge2025",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v24.csv).",
   "schema:object": [
     {
       "@type": [
@@ -27,42 +27,12 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)"
+            "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo"
           ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -72,13 +42,13 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI / Thermo Fisher Scientific",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "Nova 200 NanoLab DualBeam",
+        "schema:name": "ZEISS 1550VP",
         "@type": [
           "schema:ProductModel"
         ]
@@ -100,18 +70,19 @@
           "schema:name": "missing"
         },
         {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
           "schema:additionalType": [
             "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/EDS-Detector"
+          "schema:description": "Oxford X-Max SDD system",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/SEM/part/EDS-Detector",
+          "schema:name": "missing"
         },
         {
           "@type": [
@@ -128,9 +99,8 @@
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "FIB-SEM dual-beam",
-      "ada:acceleratingVoltageDefault": "500 V; 1 kV; 5 kV",
-      "ada:workingDistanceDefault": "0.5\u20135.4 mm",
+      "schema:description": "VP-SEM / ESEM",
+      "ada:acceleratingVoltageDefault": "10 kV",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -139,17 +109,18 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
+    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "FIB milling and TEM cross-section preparation (same instrument)"
+        "schema:name": "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -158,7 +129,7 @@
     }
   ],
   "ada:analyticalMode": [
-    "SE Imaging"
+    "EDS Point Analysis"
   ],
   "schema:measurementTechnique": [
     {
@@ -169,10 +140,38 @@
       "schema:termCode": "semComposition"
     }
   ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
-  "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",

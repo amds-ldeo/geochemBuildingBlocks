@@ -10068,7 +10068,7 @@ description: 'Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extens
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] entries;
   an ada:analyteTemplate carries per-element columns. Generated from tapp/Current
-  TAPPs/TEM_TAPP_v21.csv by tools/build_tapp.py.'
+  TAPPs/TEM_TAPP_v22.csv by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/ProcedureIdentification
@@ -11681,7 +11681,7 @@ allOf:
               - EDS Detection Limit
             ada:dataType:
               enum:
-              - string
+              - number
             ada:fieldScope:
               enum:
               - session
@@ -11689,6 +11689,8 @@ allOf:
             ada:tier:
               enum:
               - R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -12573,7 +12575,7 @@ allOf:
               - EDS Detection Limit
             ada:dataType:
               enum:
-              - string
+              - number
             ada:fieldScope:
               enum:
               - session
@@ -12581,6 +12583,8 @@ allOf:
             ada:tier:
               enum:
               - R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -13027,7 +13031,7 @@ allOf:
               - EDS Detection Limit
             ada:dataType:
               enum:
-              - string
+              - number
             ada:fieldScope:
               enum:
               - session
@@ -13035,6 +13039,8 @@ allOf:
             ada:tier:
               enum:
               - R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -13064,7 +13070,7 @@ allOf:
               - EDS Detection Limit
             ada:dataType:
               enum:
-              - string
+              - number
             ada:fieldScope:
               enum:
               - session
@@ -13072,6 +13078,8 @@ allOf:
             ada:tier:
               enum:
               - R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'

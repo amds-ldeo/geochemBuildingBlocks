@@ -9,240 +9,8 @@ Dataset-level analysis-instance detail for SEM composition (EDS/WDS), reusing CD
 
 ## Examples
 
-### detail example Garvie2008
-detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | SE Imaging (FEI Nova 200 NanoLab).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Garvie2008",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Garvie2008"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Garvie2008",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Garvie2008"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Garvie2008 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Garvie2008 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Garvie2008-2
-detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Garvie2008-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Garvie2008-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Garvie2008-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Garvie2008-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Garvie2008-2 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Garvie2008-2 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
 ### detail example Genge2025
-detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV).
+detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV).
 #### json
 ```json
 {
@@ -271,7 +39,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -316,7 +84,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -342,239 +110,7 @@ ex:detail-Genge2025 a ada:SEMEDSSpectrum ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Genge2025-2
-detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Genge2025-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Genge2025-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Genge2025-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Genge2025-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Genge2025-2 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Genge2025-2 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Genge2025-3
-detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EBSD (ZEISS Sigma 1550VP, 20 kV).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Genge2025-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Genge2025-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Genge2025-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Genge2025-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Genge2025-3 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Genge2025-3 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -590,7 +126,7 @@ ex:detail-Genge2025-3 a ada:SEMEDSSpectrum ;
 
 
 ### detail example Gucsik2013
-detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV3) | CL Mapping (JEOL JSM-5410LV).
+detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV3) | EDS Point Analysis (JEOL JSM-5410LV).
 #### json
 ```json
 {
@@ -619,7 +155,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -664,7 +200,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -690,123 +226,7 @@ ex:detail-Gucsik2013 a ada:SEMEDSSpectrum ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Gucsik2013-2
-detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV3) | EDS Point Analysis (JEOL JSM-5410LV).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Gucsik2013-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Gucsik2013-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Gucsik2013-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Gucsik2013-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Gucsik2013-2 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Gucsik2013-2 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -822,7 +242,7 @@ ex:detail-Gucsik2013-2 a ada:SEMEDSSpectrum ;
 
 
 ### detail example Izawa2010
-detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL Mapping (Hitachi S-2500C).
+detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | EDS Mapping (Leo 440).
 #### json
 ```json
 {
@@ -851,7 +271,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": "~0.5 wt% for most elements",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -896,7 +316,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": "~0.5 wt% for most elements",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -922,7 +342,7 @@ ex:detail-Izawa2010 a ada:SEMEDSSpectrum ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit "~0.5 wt% for most elements" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -938,7 +358,7 @@ ex:detail-Izawa2010 a ada:SEMEDSSpectrum ;
 
 
 ### detail example Izawa2010-2
-detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440).
+detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | EDS Point Analysis (Leo 1540 FIB/SEM CrossBeam).
 #### json
 ```json
 {
@@ -967,7 +387,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1012,7 +432,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1038,7 +458,7 @@ ex:detail-Izawa2010-2 a ada:SEMEDSSpectrum ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -1046,934 +466,6 @@ ex:detail-Izawa2010-2 a ada:SEMEDSSpectrum ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Izawa2010-3
-detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | EDS Mapping (Leo 440).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Izawa2010-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Izawa2010-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "~0.5 wt% for most elements",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Izawa2010-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Izawa2010-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "~0.5 wt% for most elements",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Izawa2010-3 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Izawa2010-3 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "~0.5 wt% for most elements" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Izawa2010-4
-detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Izawa2010-4",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Izawa2010-4"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Izawa2010-4",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Izawa2010-4"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Izawa2010-4 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Izawa2010-4 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Izawa2010-5
-detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | EDS Point Analysis (Leo 1540 FIB/SEM CrossBeam).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Izawa2010-5",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Izawa2010-5"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Izawa2010-5",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Izawa2010-5"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Izawa2010-5 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Izawa2010-5 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Liu2017
-detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Liu2017",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Liu2017"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Liu2017",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Liu2017"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Liu2017 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Liu2017 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Liu2017-2
-detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | SE Imaging (ESEM Quanta 250).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Liu2017-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Liu2017-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Liu2017-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Liu2017-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Liu2017-2 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Liu2017-2 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Liu2017-3
-detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | SE Imaging (FESEM SUPRA 55).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Liu2017-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Liu2017-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Liu2017-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Liu2017-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Liu2017-3 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Liu2017-3 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Ma2017
-detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phases) | BSE Imaging (ZEISS 1550VP FE-SEM).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Ma2017",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Ma2017"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
-  "ada:sampleName": "Section 126A (USNM 7908)",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Ma2017",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Ma2017"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
-  "ada:sampleName": "Section 126A (USNM 7908)",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Ma2017 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Ma2017 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "Section 126A (USNM 7908)" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Ma2017-2
-detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phases) | EBSD (ZEISS 1550VP FE-SEM, HKL system, 20 kV).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Ma2017-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Ma2017-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
-  "ada:sampleName": "Section 126A (USNM 7908)",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Ma2017-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Ma2017-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
-  "ada:sampleName": "Section 126A (USNM 7908)",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Ma2017-2 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Ma2017-2 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "Section 126A (USNM 7908)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
@@ -1982,7 +474,7 @@ ex:detail-Ma2017-2 a ada:SEMEDSSpectrum ;
 
 
 ### detail example Pascucci2026
-detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE Imaging (Zeiss Supra 40 FE-SEM, 20 kV).
+detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS Point Analysis (Zeiss Supra 40 FE-SEM, 20 kV).
 #### json
 ```json
 {
@@ -2011,7 +503,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2056,7 +548,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2082,7 +574,7 @@ ex:detail-Pascucci2026 a ada:SEMEDSSpectrum ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -2098,7 +590,7 @@ ex:detail-Pascucci2026 a ada:SEMEDSSpectrum ;
 
 
 ### detail example Pascucci2026-2
-detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS Point Analysis (Zeiss Supra 40 FE-SEM, 20 kV).
+detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS Mapping (Zeiss Supra 40 FE-SEM, 20 kV).
 #### json
 ```json
 {
@@ -2123,11 +615,11 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
+  "ada:mapDimensions": 1024,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2168,11 +660,11 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
+  "ada:mapDimensions": 1024,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2198,123 +690,7 @@ ex:detail-Pascucci2026-2 a ada:SEMEDSSpectrum ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "NWA 7317" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Pascucci2026-3
-detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS Mapping (Zeiss Supra 40 FE-SEM, 20 kV).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Pascucci2026-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Pascucci2026-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": 1024,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Pascucci2026-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Pascucci2026-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": 1024,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Pascucci2026-3 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Pascucci2026-3 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -2329,240 +705,8 @@ ex:detail-Pascucci2026-3 a ada:SEMEDSSpectrum ;
 ```
 
 
-### detail example Pascucci2026-4
-detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE Imaging (Zeiss Supra 40 FE-SEM).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Pascucci2026-4",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Pascucci2026-4"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Pascucci2026-4",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Pascucci2026-4"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Pascucci2026-4 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Pascucci2026-4 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "NWA 7317" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Zhou2017
-detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) | 3D Tomography (FEI Helios NanoLab 650).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Zhou2017",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zhou2017"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "SC; HBC",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Zhou2017",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zhou2017"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "SC; HBC",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Zhou2017 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zhou2017 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "SC; HBC" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
 ### detail example Zega2025
-detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | BSE Imaging (JEOL 7600F, NASA JSC, 15 kV).
+detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV).
 #### json
 ```json
 {
@@ -2591,7 +735,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2636,7 +780,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2662,7 +806,7 @@ ex:detail-Zega2025 a ada:SEMEDSSpectrum ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -2678,7 +822,7 @@ ex:detail-Zega2025 a ada:SEMEDSSpectrum ;
 
 
 ### detail example Zega2025-2
-detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV).
+detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Mapping (Hitachi S-4800, U Arizona).
 #### json
 ```json
 {
@@ -2700,14 +844,14 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2745,14 +889,14 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
+  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2778,821 +922,9 @@ ex:detail-Zega2025-2 a ada:SEMEDSSpectrum ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Zega2025-3
-detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | SE Imaging (Hitachi S-4800, U Arizona).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Zega2025-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Zega2025-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Zega2025-3 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zega2025-3 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Zega2025-4
-detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | BSE Imaging (Hitachi S-4800, U Arizona).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Zega2025-4",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-4"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Zega2025-4",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-4"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Zega2025-4 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zega2025-4 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Zega2025-5
-detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Mapping (Hitachi S-4800, U Arizona).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Zega2025-5",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-5"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Zega2025-5",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-5"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Zega2025-5 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zega2025-5 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Zega2025-6
-detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | TEM Sample Preparation (Helios G3, U Arizona).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Zega2025-6",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-6"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Zega2025-6",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-6"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Zega2025-6 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zega2025-6 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Zega2025-7
-detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | TEM Sample Preparation (Helios G4 UX, UC Berkeley).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Zega2025-7",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-7"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Zega2025-7",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-7"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Zega2025-7 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zega2025-7 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Zega2025-8
-detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | TEM Sample Preparation (Quanta3D600, NASA JSC).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Zega2025-8",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-8"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Zega2025-8",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-8"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Zega2025-8 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zega2025-8 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Zega2025-9
-detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | CL Mapping (JEOL JSM-7000F, Universite Cote d'Azur, 5 keV).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Zega2025-9",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-9"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Zega2025-9",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Zega2025-9"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Zega2025-9 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zega2025-9 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
@@ -3635,7 +967,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3680,7 +1012,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3706,7 +1038,7 @@ ex:detail-Barnes2025 a ada:SEMEDSSpectrum ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -3714,354 +1046,6 @@ ex:detail-Barnes2025 a ada:SEMEDSSpectrum ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "OREX-501018-100" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Barnes2025-2
-detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | BSE Imaging (FEI Quanta 3D DualBeam + Helios DualBeam, NASA JSC).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Barnes2025-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Barnes2025-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Barnes2025-2",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Barnes2025-2"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Barnes2025-2 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Barnes2025-2 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Barnes2025-3
-detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | TEM Sample Preparation (FEI Helios G4 DualBeam, NASA JSC).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Barnes2025-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Barnes2025-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Barnes2025-3",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Barnes2025-3"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Barnes2025-3 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Barnes2025-3 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" .
-
-
-```
-
-
-### detail example Barnes2025-4
-detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | TEM Sample Preparation (FEI Helios 660 G3, NASA JSC).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Barnes2025-4",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Barnes2025-4"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Barnes2025-4",
-  "@type": [
-    "ada:SEMEDSSpectrum"
-  ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semCompositionTAPP-Barnes2025-4"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:mapDimensions": -9999,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
-  "ada:analyticalPrecision": "missing",
-  "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ex:detail-Barnes2025-4 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Barnes2025-4 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:analyticalAccuracy "missing" ;
-    ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
-    ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
-    ada:edsDeadTime -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
-    ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
-    ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
@@ -4421,6 +1405,10 @@ allOf:
                   schema:name:
                     const: Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -4428,6 +1416,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
             allOf:
             - contains:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
@@ -4672,6 +1661,10 @@ allOf:
                   schema:name:
                     const: Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -4679,6 +1672,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               minContains: 0
               maxContains: 1
           schema:object:
@@ -5108,6 +2102,10 @@ allOf:
             schema:name:
               const: Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -5115,6 +2113,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         - title: Detection Limit Method
           description: Formula or approach used to calculate detection limits.
           type: object
@@ -5185,6 +2184,10 @@ allOf:
             schema:name:
               const: Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -5192,6 +2195,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         minContains: 0
         maxContains: 1
       - contains:

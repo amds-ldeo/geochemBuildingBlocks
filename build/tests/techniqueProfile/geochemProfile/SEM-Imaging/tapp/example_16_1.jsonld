@@ -16,7 +16,7 @@
       "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:semImagingTAPP-Ma2017",
+  "@id": "ex:semImagingTAPP-Zega2025-3",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -24,8 +24,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semImaging protocol \u2014 Ma2017",
-  "schema:description": "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)",
+  "schema:name": "semImaging protocol \u2014 Zega2025-3",
+  "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
           ]
         }
       ]
@@ -47,7 +47,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -82,13 +82,13 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Hitachi",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "1550VP",
+        "schema:name": "S-4800",
         "@type": [
           "schema:ProductModel"
         ]
@@ -110,17 +110,17 @@
           "schema:name": "missing"
         },
         {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "schema:additionalType": [
             "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "N/A",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
+          "schema:name": "missing",
           "@id": "ex:instrument/SEM/part/BSE-Detector"
         },
         {
@@ -138,7 +138,6 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "N/A",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -151,19 +150,22 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
+        "schema:name": "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
       },
       "@type": [
         "schema:CreativeWork"
       ],
       "schema:url": "https://ada.astromat.org/missing"
     }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "schema:measurementTechnique": [
     {

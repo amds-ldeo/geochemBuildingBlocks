@@ -15172,7 +15172,7 @@
     }
   },
   "title": "SEM Technique-Aligned Protocol Profile (semTAPP)",
-  "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v22.csv via the path-driven pipeline.",
+  "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v24.csv via the path-driven pipeline.",
   "allOf": [
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -16104,16 +16104,22 @@
                           "anyOf": [
                             {
                               "type": "string",
-                              "readOnly": true
+                              "enum": [
+                                "3\u03c3 blank",
+                                "3\u03c3 background",
+                                "3\u03c3 counting statistics",
+                                "3\u00d7 blank mean",
+                                "Poisson statistics",
+                                "N/A",
+                                "None",
+                                "missing"
+                              ]
                             },
                             {
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "readOnly": true
-                              }
+                              "type": "string"
                             }
-                          ]
+                          ],
+                          "readOnly": true
                         },
                         "ada:ebsdIndexingMethod": {
                           "description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
@@ -19534,7 +19540,7 @@
                   },
                   "ada:dataType": {
                     "enum": [
-                      "string"
+                      "number"
                     ]
                   },
                   "ada:fieldScope": {
@@ -19547,6 +19553,9 @@
                     "enum": [
                       "R"
                     ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -20133,7 +20142,7 @@
                   },
                   "ada:dataType": {
                     "enum": [
-                      "string"
+                      "number"
                     ]
                   },
                   "ada:fieldScope": {
@@ -20146,6 +20155,9 @@
                     "enum": [
                       "R"
                     ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -20583,7 +20595,7 @@
                   },
                   "ada:dataType": {
                     "enum": [
-                      "string"
+                      "number"
                     ]
                   },
                   "ada:fieldScope": {
@@ -20596,6 +20608,9 @@
                     "enum": [
                       "R"
                     ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -20693,7 +20708,7 @@
                   },
                   "ada:dataType": {
                     "enum": [
-                      "string"
+                      "number"
                     ]
                   },
                   "ada:fieldScope": {
@@ -20706,6 +20721,9 @@
                     "enum": [
                       "R"
                     ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [

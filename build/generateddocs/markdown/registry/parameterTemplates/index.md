@@ -112,7 +112,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        const: um x um
+        const: "\xB5m x \xB5m"
     required:
     - '@id'
     - '@type'
@@ -354,13 +354,15 @@ $defs:
       schema:name:
         const: Detection Limit
       ada:dataType:
-        const: string
+        const: number
       ada:fieldScope:
         const: session
       schema:readonlyValue:
         const: false
       ada:tier:
         const: R
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1163,7 +1165,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        const: ppm or wt%
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2076,7 +2078,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        const: ppm or wt%
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2947,7 +2949,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        const: ppm or wt%
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3885,7 +3887,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        const: ppm or wt%
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4691,7 +4693,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        const: ppm or wt%
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5564,7 +5566,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        const: ppm or wt%
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6792,13 +6794,15 @@ $defs:
       schema:name:
         const: Detection Limit
       ada:dataType:
-        const: string
+        const: number
       ada:fieldScope:
         const: session
       schema:readonlyValue:
         const: false
       ada:tier:
         const: R
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7671,13 +7675,15 @@ $defs:
       schema:name:
         const: Detection Limit
       ada:dataType:
-        const: string
+        const: number
       ada:fieldScope:
         const: session
       schema:readonlyValue:
         const: false
       ada:tier:
         const: R
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10593,13 +10599,15 @@ $defs:
       schema:name:
         const: EDS Detection Limit
       ada:dataType:
-        const: string
+        const: number
       ada:fieldScope:
         const: session
       schema:readonlyValue:
         const: false
       ada:tier:
         const: R
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'

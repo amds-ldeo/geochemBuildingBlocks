@@ -11111,6 +11111,10 @@ allOf:
                     enum:
                     - EDS Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -11118,6 +11122,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               - title: EDS Counting Statistics / Accumulation Criterion
                 description: Quality criterion used to determine when sufficient EDS
                   signal has been accumulated for a given pixel or point, in lieu
@@ -12043,6 +12048,10 @@ allOf:
                     enum:
                     - EDS Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -12050,6 +12059,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               minContains: 0
               maxContains: 1
             - contains:
@@ -12384,6 +12394,10 @@ allOf:
               enum:
               - EDS Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -12391,6 +12405,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         minContains: 0
         maxContains: 1
       - contains:

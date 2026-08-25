@@ -10706,7 +10706,7 @@ x-defs:
     x-schema-version: https://json-schema.org/draft/2020-12/schema
 title: Solution Q-ICP-MS Technique-Aligned Protocol Profile (solutionQicpmsTAPP)
 description: Solution quadrupole ICP-MS extension of the base TAPP definition, generated
-  from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v34.csv via the path-driven pipeline.
+  from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v35.csv via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/ProcedureIdentification
@@ -11165,24 +11165,14 @@ allOf:
                       enum:
                       - "3\u03C3 blank"
                       - "3\u03C3 background"
+                      - "3\u03C3 counting statistics"
                       - "3\xD7 blank mean"
                       - Poisson statistics
                       - N/A
                       - None
                       - missing
-                      readOnly: true
-                    - type: array
-                      items:
-                        type: string
-                        enum:
-                        - "3\u03C3 blank"
-                        - "3\u03C3 background"
-                        - "3\xD7 blank mean"
-                        - Poisson statistics
-                        - N/A
-                        - None
-                        - missing
-                        readOnly: true
+                    - type: string
+                    readOnly: true
           allOf:
           - contains:
               properties:

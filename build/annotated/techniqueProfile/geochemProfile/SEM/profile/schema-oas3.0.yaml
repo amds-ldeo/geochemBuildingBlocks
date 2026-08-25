@@ -851,6 +851,10 @@ x-defs:
                         enum:
                         - Detection Limit
                       schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
                         type: string
                     required:
                     - '@id'
@@ -858,6 +862,7 @@ x-defs:
                     - schema:propertyID
                     - schema:name
                     - schema:value
+                    - schema:unitText
                   - title: Drift Correction
                     description: 'Describes whether and how stage or beam drift was
                       monitored and corrected during the measurement session. Examples:
@@ -1385,6 +1390,10 @@ x-defs:
                         enum:
                         - Detection Limit
                       schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
                         type: string
                     required:
                     - '@id'
@@ -1392,6 +1401,7 @@ x-defs:
                     - schema:propertyID
                     - schema:name
                     - schema:value
+                    - schema:unitText
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -2517,6 +2527,10 @@ x-defs:
                   enum:
                   - Detection Limit
                 schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
                   type: string
               required:
               - '@id'
@@ -2524,6 +2538,7 @@ x-defs:
               - schema:propertyID
               - schema:name
               - schema:value
+              - schema:unitText
             - title: Detection Limit Method
               description: Formula or approach used to calculate detection limits.
               type: object
@@ -2598,6 +2613,10 @@ x-defs:
                   enum:
                   - Detection Limit
                 schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
                   type: string
               required:
               - '@id'
@@ -2605,6 +2624,7 @@ x-defs:
               - schema:propertyID
               - schema:name
               - schema:value
+              - schema:unitText
             minContains: 0
             maxContains: 1
           - contains:
@@ -2964,7 +2984,7 @@ x-defs:
     title: SEM Technique-Aligned Protocol Profile (semTAPP)
     description: Scanning electron microscopy superset (imaging + EDS/WDS composition
       + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current
-      TAPPs/SEM_TAPP_v22.csv via the path-driven pipeline.
+      TAPPs/SEM_TAPP_v24.csv via the path-driven pipeline.
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/ProcedureIdentification
@@ -3611,11 +3631,17 @@ x-defs:
                           limits.
                         anyOf:
                         - type: string
-                          readOnly: true
-                        - type: array
-                          items:
-                            type: string
-                            readOnly: true
+                          enum:
+                          - "3\u03C3 blank"
+                          - "3\u03C3 background"
+                          - "3\u03C3 counting statistics"
+                          - "3\xD7 blank mean"
+                          - Poisson statistics
+                          - N/A
+                          - None
+                          - missing
+                        - type: string
+                        readOnly: true
                       ada:ebsdIndexingMethod:
                         description: Algorithm used to index EBSD diffraction patterns
                           and assign crystal orientations. Hough-transform methods
@@ -5844,7 +5870,7 @@ x-defs:
                   - Detection Limit
                 ada:dataType:
                   enum:
-                  - string
+                  - number
                 ada:fieldScope:
                   enum:
                   - session
@@ -5852,6 +5878,8 @@ x-defs:
                 ada:tier:
                   enum:
                   - R
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6252,7 +6280,7 @@ x-defs:
                   - Detection Limit
                 ada:dataType:
                   enum:
-                  - string
+                  - number
                 ada:fieldScope:
                   enum:
                   - session
@@ -6260,6 +6288,8 @@ x-defs:
                 ada:tier:
                   enum:
                   - R
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6564,7 +6594,7 @@ x-defs:
                   - Detection Limit
                 ada:dataType:
                   enum:
-                  - string
+                  - number
                 ada:fieldScope:
                   enum:
                   - session
@@ -6572,6 +6602,8 @@ x-defs:
                 ada:tier:
                   enum:
                   - R
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6636,7 +6668,7 @@ x-defs:
                   - Detection Limit
                 ada:dataType:
                   enum:
-                  - string
+                  - number
                 ada:fieldScope:
                   enum:
                   - session
@@ -6644,6 +6676,8 @@ x-defs:
                 ada:tier:
                   enum:
                   - R
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'

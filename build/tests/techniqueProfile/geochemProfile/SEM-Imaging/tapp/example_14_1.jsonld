@@ -16,7 +16,7 @@
       "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:semImagingTAPP-Liu2017-2",
+  "@id": "ex:semImagingTAPP-Zega2025",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -24,8 +24,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semImaging protocol \u2014 Liu2017-2",
-  "schema:description": "Pore and mineral sizes >0.1 \u00b5m measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10\u00b3 to 10\u2074",
+  "schema:name": "semImaging protocol \u2014 Zega2025",
+  "schema:description": "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm\u00b2",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); hummocky and angular particles"
           ]
         }
       ]
@@ -47,7 +47,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -82,24 +82,33 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "JEOL",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "Quanta 250",
+        "schema:name": "7600F",
         "@type": [
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Unknown",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:name": "missing"
+        },
         {
           "@type": [
             "schema:Product",
@@ -120,20 +129,6 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
             "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -143,39 +138,41 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:name": "example instrumentName"
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semImagingTAPP/chamberPressureDefault",
+      "ada:acceleratingVoltageDefault": "15 kV",
       "@type": [
-        "schema:PropertyValueSpecification"
+        "schema:Product",
+        "schema:Thing"
       ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
     }
   ],
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "China University of Mining and Technology, Xuzhou, China"
+    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
+        "schema:name": "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
       },
       "@type": [
         "schema:CreativeWork"
       ],
       "schema:url": "https://ada.astromat.org/missing"
     }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford AZtec (Point & ID programme)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "schema:measurementTechnique": [
     {

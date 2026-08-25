@@ -6,7 +6,7 @@
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:semFibsemTAPP-Garvie2008-2",
+  "@id": "ex:semFibsemTAPP-Liu2017",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -14,8 +14,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semFibsem protocol \u2014 Garvie2008-2",
-  "schema:description": "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v14.csv).",
+  "schema:name": "semFibsem protocol \u2014 Liu2017",
+  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v15.csv).",
   "schema:object": [
     {
       "@type": [
@@ -27,7 +27,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)"
+            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
           ]
         }
       ]
@@ -37,8 +37,20 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
-        "ada:coarseMillingConditionsDefault": "30 kV, 10 pA Ga beam",
+        "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 \u00b5m oxide layer; no coating applied",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "No coating applied; not sputtered with gold or other materials"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -60,11 +72,25 @@
         "schema:position": 2
       },
       {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/sliceThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "sliceThicknessDefault",
+            "schema:name": "Slice Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 15,
+            "schema:description": "15 nm (single layer scanning thickness = 9.0 \u00b5m total / 600 slices)"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -84,33 +110,23 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI / Thermo Fisher Scientific",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "Nova 200 NanoLab DualBeam",
+        "schema:name": "Crossbeam 540",
         "@type": [
           "schema:ProductModel"
         ]
       },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:description": "Unknown",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
-        },
         {
           "@type": [
             "schema:Product",
@@ -131,6 +147,20 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
             "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -140,57 +170,51 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "FIB-SEM dual-beam",
-      "ada:workingDistanceDefault": "5.4 mm (eucentric height for electron and ion columns)",
+      "schema:name": "example instrumentName"
+    },
+    {
+      "@id": "ex:instrument/FIBSEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
-    },
-    {
       "schema:additionalType": [
         "FIBSEM",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
+      "schema:name": "missing",
       "schema:hasPart": [
         {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "schema:additionalType": [
             "Ion Beam Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "Gallium LMIS (Ga+)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
+          "schema:name": "missing",
           "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/FIBSEM",
-      "schema:name": "example instrumentName"
+      ]
     }
   ],
+  "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
+    "schema:name": "China University of Mining and Technology, Xuzhou, China"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "SE Imaging (same instrument, pre- and post-FIB milling)"
+        "schema:name": "X-ray CT (Xradia 520 Versa, Carl Zeiss)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -198,8 +222,14 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model"
+    }
+  ],
   "ada:analyticalMode": [
-    "TEM Sample Preparation"
+    "3D Tomography"
   ],
   "schema:measurementTechnique": [
     {
@@ -213,7 +243,6 @@
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:segmentationMethod3DDefault": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

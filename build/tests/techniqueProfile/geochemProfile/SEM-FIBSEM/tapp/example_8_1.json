@@ -6,7 +6,7 @@
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:semFibsemTAPP-Izawa2010",
+  "@id": "ex:semFibsemTAPP-Barnes2025-2",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -14,34 +14,31 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semFibsem protocol \u2014 Izawa2010",
-  "schema:description": "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates",
-  "schema:object": [
+  "schema:name": "semFibsem protocol \u2014 Barnes2025-2",
+  "schema:description": "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. TEM foil preparation using FEI Helios 660 G3 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein).",
+  "ada:analyticalMode": [
+    "TEM Sample Preparation"
+  ],
+  "schema:measurementTechnique": [
     {
       "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+        "schema:DefinedTerm"
       ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
-          ]
-        }
-      ]
+      "schema:name": "semFibsem",
+      "schema:termCode": "semFibsem"
     }
   ],
   "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
     "schema:step": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Sample preparation",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -69,86 +66,9 @@
         ],
         "schema:position": 3
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:manufacturer": {
-        "schema:name": "Hitachi",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "S-2500C",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:description": "Tungsten (W)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "BSE Detector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "SE Detector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
-        }
-      ],
-      "schema:description": "Standard SEM",
-      "ada:acceleratingVoltageDefault": "15\u201320 kV",
-      "ada:workingDistanceDefault": "~10 mm",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
-    },
     {
       "@id": "ex:instrument/FIBSEM",
       "@type": [
@@ -178,46 +98,64 @@
           "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
         }
       ]
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Zircon and Accessory Phase Laboratory, University of Western Ontario"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Gatan DigitalMicrograph (CL image assembly)"
     },
     {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Gatan DigitalMicrograph"
-    }
-  ],
-  "ada:analyticalMode": [
-    "CL"
-  ],
-  "schema:measurementTechnique": [
-    {
+      "@id": "ex:instrument/SEM",
       "@type": [
-        "schema:DefinedTerm"
+        "schema:Product",
+        "schema:Thing"
       ],
-      "schema:name": "semFibsem",
-      "schema:termCode": "semFibsem"
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing",
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "BSE Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "SE Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
+        }
+      ]
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,

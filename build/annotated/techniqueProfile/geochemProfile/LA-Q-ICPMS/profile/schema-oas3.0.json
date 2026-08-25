@@ -4884,7 +4884,7 @@
     },
     "ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.tapp": {
       "title": "LA-Q-ICP-MS Technique-Aligned Procedure Profile (laQicpmsTAPP)",
-      "description": "Laser-ablation quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-Q-ICP-MS_TAPP_v29.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+      "description": "Laser-ablation quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-Q-ICP-MS_TAPP_v30.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -5940,16 +5940,22 @@
                               "anyOf": [
                                 {
                                   "type": "string",
-                                  "readOnly": true
+                                  "enum": [
+                                    "3\u03c3 blank",
+                                    "3\u03c3 background",
+                                    "3\u03c3 counting statistics",
+                                    "3\u00d7 blank mean",
+                                    "Poisson statistics",
+                                    "N/A",
+                                    "None",
+                                    "missing"
+                                  ]
                                 },
                                 {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string",
-                                    "readOnly": true
-                                  }
+                                  "type": "string"
                                 }
-                              ]
+                              ],
+                              "readOnly": true
                             }
                           }
                         }
@@ -6300,9 +6306,7 @@
                         ]
                       },
                       "schema:unitText": {
-                        "enum": [
-                          "ppm or wt%"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -6639,9 +6643,7 @@
                         ]
                       },
                       "schema:unitText": {
-                        "enum": [
-                          "ppm or wt%"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -10344,9 +10346,7 @@
                         ]
                       },
                       "schema:unitText": {
-                        "enum": [
-                          "ppm or wt%"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -10463,9 +10463,7 @@
                         ]
                       },
                       "schema:unitText": {
-                        "enum": [
-                          "ppm or wt%"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [

@@ -503,7 +503,7 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "0.05 Si, 0.04 Ti, 0.06 Al, 0.06 Fe, 0.02 Mg, 0.02 Ca, 0.03 Na, 0.02 K, 0.05 Cr, 0.06 Mn (all wt%)",
+  "ada:detectionLimit": 0.05,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "1-2% for Si, Al, Ca, Na, and K (based on feldspar standards run as unknowns)",
   "ada:countingStatisticsError": "missing",
@@ -548,7 +548,7 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "0.05 Si, 0.04 Ti, 0.06 Al, 0.06 Fe, 0.02 Mg, 0.02 Ca, 0.03 Na, 0.02 K, 0.05 Cr, 0.06 Mn (all wt%)",
+  "ada:detectionLimit": 0.05,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "1-2% for Si, Al, Ca, Na, and K (based on feldspar standards run as unknowns)",
   "ada:countingStatisticsError": "missing",
@@ -574,7 +574,7 @@ ex:detail-JEOL8200-2 a ada:EMPAImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:EMPAImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "0.05 Si, 0.04 Ti, 0.06 Al, 0.06 Fe, 0.02 Mg, 0.02 Ca, 0.03 Na, 0.02 K, 0.05 Cr, 0.06 Mn (all wt%)" ;
+    ada:detectionLimit 5e-02 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -735,7 +735,7 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -780,7 +780,7 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -806,7 +806,7 @@ ex:detail-P6 a ada:EMPAImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:EMPAImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -851,7 +851,7 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -896,7 +896,7 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -922,7 +922,7 @@ ex:detail-JEOL8530 a ada:EMPAImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:EMPAImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -1083,7 +1083,7 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1128,7 +1128,7 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1154,7 +1154,7 @@ ex:detail-JEOL8530-2 a ada:EMPAImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:EMPAImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -1199,7 +1199,7 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1244,7 +1244,7 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1270,7 +1270,7 @@ ex:detail-P10 a ada:EMPAImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:EMPAImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -1315,7 +1315,7 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1360,7 +1360,7 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1386,7 +1386,7 @@ ex:detail-P11 a ada:EMPAImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:EMPAImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
@@ -1895,6 +1895,10 @@ allOf:
                   schema:name:
                     const: Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -1902,6 +1906,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               - title: Drift Correction
                 description: Method used to monitor and correct for instrument drift
                   (beam current drift, spectrometer drift) during the analytical session.
@@ -2092,6 +2097,10 @@ allOf:
                   schema:name:
                     const: Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -2099,6 +2108,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               minContains: 0
               maxContains: 1
             - contains:
@@ -2417,6 +2427,10 @@ allOf:
             schema:name:
               const: Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -2424,6 +2438,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         - title: Detection Limit Method
           description: Formula or approach used to calculate detection limits. Reference
             method publication if applicable. When the procedure does not specify
@@ -2494,6 +2509,10 @@ allOf:
             schema:name:
               const: Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -2501,6 +2520,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         minContains: 0
         maxContains: 1
       - contains:

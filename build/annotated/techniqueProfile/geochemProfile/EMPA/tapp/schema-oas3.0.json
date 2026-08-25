@@ -15172,7 +15172,7 @@
     }
   },
   "title": "EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)",
-  "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v25.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+  "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v26.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
   "allOf": [
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -18465,7 +18465,7 @@
                   },
                   "schema:unitText": {
                     "enum": [
-                      "um x um"
+                      "\u00b5m x \u00b5m"
                     ]
                   }
                 },
@@ -18507,7 +18507,7 @@
                   },
                   "ada:dataType": {
                     "enum": [
-                      "string"
+                      "number"
                     ]
                   },
                   "ada:fieldScope": {
@@ -18520,6 +18520,9 @@
                     "enum": [
                       "R"
                     ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -18831,7 +18834,7 @@
                   },
                   "schema:unitText": {
                     "enum": [
-                      "um x um"
+                      "\u00b5m x \u00b5m"
                     ]
                   }
                 },
@@ -18877,7 +18880,7 @@
                   },
                   "ada:dataType": {
                     "enum": [
-                      "string"
+                      "number"
                     ]
                   },
                   "ada:fieldScope": {
@@ -18890,6 +18893,9 @@
                     "enum": [
                       "R"
                     ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -19168,7 +19174,7 @@
                   },
                   "ada:dataType": {
                     "enum": [
-                      "string"
+                      "number"
                     ]
                   },
                   "ada:fieldScope": {
@@ -19181,6 +19187,9 @@
                     "enum": [
                       "R"
                     ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -19278,7 +19287,7 @@
                   },
                   "ada:dataType": {
                     "enum": [
-                      "string"
+                      "number"
                     ]
                   },
                   "ada:fieldScope": {
@@ -19291,6 +19300,9 @@
                     "enum": [
                       "R"
                     ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -19392,16 +19404,22 @@
                           "anyOf": [
                             {
                               "type": "string",
-                              "readOnly": true
+                              "enum": [
+                                "3\u03c3 blank",
+                                "3\u03c3 background",
+                                "3\u03c3 counting statistics",
+                                "3\u00d7 blank mean",
+                                "Poisson statistics",
+                                "N/A",
+                                "None",
+                                "missing"
+                              ]
                             },
                             {
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "readOnly": true
-                              }
+                              "type": "string"
                             }
-                          ]
+                          ],
+                          "readOnly": true
                         },
                         "schema:additionalProperty": {
                           "type": "array",

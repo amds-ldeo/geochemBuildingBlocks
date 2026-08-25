@@ -1624,7 +1624,7 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)
 description: Laser-ablation multi-collector ICP-MS extension of the base TAPP definition,
-  generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v26.csv via the path-driven pipeline.
+  generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v27.csv via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -1938,11 +1938,17 @@ allOf:
                       Limit values reported above.
                     anyOf:
                     - type: string
-                      readOnly: true
-                    - type: array
-                      items:
-                        type: string
-                        readOnly: true
+                      enum:
+                      - "3\u03C3 blank"
+                      - "3\u03C3 background"
+                      - "3\u03C3 counting statistics"
+                      - "3\xD7 blank mean"
+                      - Poisson statistics
+                      - N/A
+                      - None
+                      - missing
+                    - type: string
+                    readOnly: true
             - if:
                 properties:
                   schema:name:
@@ -4290,7 +4296,7 @@ allOf:
             ada:tier:
               const: R
             schema:unitText:
-              const: ppm or wt%
+              type: string
           required:
           - '@id'
           - '@type'
@@ -4487,7 +4493,7 @@ allOf:
             ada:tier:
               const: R
             schema:unitText:
-              const: ppm or wt%
+              type: string
           required:
           - '@id'
           - '@type'
@@ -4775,7 +4781,7 @@ allOf:
             ada:tier:
               const: R
             schema:unitText:
-              const: ppm or wt%
+              type: string
           required:
           - '@id'
           - '@type'
@@ -4940,7 +4946,7 @@ allOf:
             ada:tier:
               const: R
             schema:unitText:
-              const: ppm or wt%
+              type: string
           required:
           - '@id'
           - '@type'

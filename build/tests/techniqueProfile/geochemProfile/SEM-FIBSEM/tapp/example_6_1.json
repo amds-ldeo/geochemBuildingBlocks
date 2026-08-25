@@ -6,7 +6,7 @@
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:semFibsemTAPP-Gucsik2013",
+  "@id": "ex:semFibsemTAPP-Zega2025-3",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -14,8 +14,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semFibsem protocol \u2014 Gucsik2013",
-  "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) \u2014 standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2",
+  "schema:name": "semFibsem protocol \u2014 Zega2025-3",
+  "schema:description": "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV \u2192 16 kV \u2192 5 kV; Pt weld to Cu half grids",
   "schema:object": [
     {
       "@type": [
@@ -27,12 +27,105 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return)"
           ]
         }
       ]
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Particles dispersed on conductive carbon dots on Al SEM pin mounts",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Electron-beam deposited carbon (~0.5\u20131 \u00b5m); followed by ion beam-deposited carbon (~2\u20133 \u00b5m capping layer)"
+          }
+        ],
+        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "finePolishingConditionsDefault",
+            "schema:name": "Fine Polishing Conditions",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "foilThicknessDefault",
+            "schema:name": "Foil Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 100,
+            "schema:description": "~100 nm"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+              }
+            ],
+            "schema:name": "Lift-out Method",
+            "schema:value": "In-situ lift-out; ion beam-deposited Pt weld to Cu half grids"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -42,24 +135,33 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "JEOL",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "JSM-5410LV",
+        "schema:name": "Quanta 3D 600",
         "@type": [
           "schema:ProductModel"
         ]
       },
-      "schema:description": "Standard SEM",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Unknown",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:name": "missing"
+        },
         {
           "@type": [
             "schema:Product",
@@ -80,20 +182,6 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
             "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -103,44 +191,57 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:name": "example instrumentName"
-    },
-    {
-      "@id": "ex:instrument/FIBSEM",
+      "schema:description": "N/A",
+      "ada:acceleratingVoltageDefault": "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
+    },
+    {
       "schema:additionalType": [
         "FIBSEM",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:name": "missing",
       "schema:hasPart": [
         {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
           "schema:additionalType": [
             "Ion Beam Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:name": "N/A",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/FIBSEM",
+      "schema:name": "example instrumentName"
     }
   ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+  },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
+        "schema:name": "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -149,7 +250,7 @@
     }
   ],
   "ada:analyticalMode": [
-    "CL"
+    "TEM Sample Preparation"
   ],
   "schema:measurementTechnique": [
     {
@@ -160,46 +261,6 @@
       "schema:termCode": "semFibsem"
     }
   ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ]
-  },
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",

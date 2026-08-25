@@ -10402,6 +10402,10 @@ allOf:
                     enum:
                     - Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -10409,6 +10413,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
             allOf:
             - contains:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_targetSelectionCriteria
@@ -10669,6 +10674,10 @@ allOf:
                     enum:
                     - Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -10676,6 +10685,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               minContains: 0
               maxContains: 1
           schema:object:
@@ -11128,6 +11138,10 @@ allOf:
               enum:
               - Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -11135,6 +11149,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         - title: Detection Limit Method
           description: Formula or approach used to calculate detection limits.
           type: object
@@ -11211,6 +11226,10 @@ allOf:
               enum:
               - Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -11218,6 +11237,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         minContains: 0
         maxContains: 1
       - contains:

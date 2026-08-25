@@ -16,7 +16,7 @@
       "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:semImagingTAPP-Pascucci2026",
+  "@id": "ex:semImagingTAPP-Barnes2025",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -24,34 +24,31 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semImaging protocol \u2014 Pascucci2026",
-  "schema:description": "10 BSE images acquired at \u00d7138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery",
-  "schema:object": [
+  "schema:name": "semImaging protocol \u2014 Barnes2025",
+  "schema:description": "No BSE imaging with FEI Quanta 3D DualBeam or Helios DualBeam at NASA JSC described in this paper (Barnes et al. 2025). BSE mosaic imaging was performed using a Hitachi TM4000plus at the University of Arizona (K-ALFAA) at 15-keV electron beam to identify suitable matrix areas for NanoSIMS analysis (Methods, p.11). No JSC BSE imaging conditions or instrument stated.",
+  "ada:analyticalMode": [
+    "BSE Imaging"
+  ],
+  "schema:measurementTechnique": [
     {
       "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+        "schema:DefinedTerm"
       ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
-          ]
-        }
-      ]
+      "schema:name": "semImaging",
+      "schema:termCode": "semImaging"
     }
   ],
   "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
     "schema:step": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Sample preparation",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -68,60 +65,50 @@
         ],
         "schema:position": 2
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "schema:instrument": [
     {
+      "@id": "ex:instrument/SEM",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
       "schema:additionalType": [
         "SEM",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:manufacturer": {
-        "schema:name": "Zeiss",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "Supra 40",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
+      "schema:name": "missing",
       "schema:hasPart": [
         {
-          "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:description": "Unknown",
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
-        },
-        {
           "schema:additionalType": [
             "BSE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "N/A",
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
+        },
+        {
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -137,65 +124,7 @@
           "schema:name": "missing",
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
-      ],
-      "schema:description": "N/A",
-      "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:workingDistanceDefault": "8 mm",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semImagingTAPP/chamberPressureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford INCA Energy"
-    }
-  ],
-  "ada:analyticalMode": [
-    "BSE (QBSD mode)"
-  ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "semImaging",
-      "schema:termCode": "semImaging"
+      ]
     }
   ],
   "ada:clAcquisitionMode": "missing",

@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol \u2014 Garvie2008",
-  "schema:description": "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure",
+  "schema:description": "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v15.csv).",
   "schema:object": [
     {
       "@type": [
@@ -38,6 +38,7 @@
       {
         "schema:name": "Sample preparation",
         "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
+        "ada:coarseMillingConditionsDefault": "30 kV, 10 pA Ga beam",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -111,20 +112,6 @@
           "schema:name": "missing"
         },
         {
-          "schema:additionalType": [
-            "SE Detector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "In-lens / TLD (through-the-lens)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/SEM/part/SE-Detector"
-        },
-        {
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -137,11 +124,24 @@
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/SEM/part/BSE-Detector"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "SE Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
-      "ada:acceleratingVoltageDefault": "500 V; 1 kV; 5 kV",
-      "ada:workingDistanceDefault": "0.5\u20135.4 mm",
+      "ada:workingDistanceDefault": "5.4 mm (eucentric height for electron and ion columns)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -150,34 +150,34 @@
       "schema:name": "example instrumentName"
     },
     {
-      "@id": "ex:instrument/FIBSEM",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
       "schema:additionalType": [
         "FIBSEM",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
-      "schema:name": "missing",
       "schema:hasPart": [
         {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
           "schema:additionalType": [
             "Ion Beam Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:name": "Gallium LMIS (Ga+)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/FIBSEM",
+      "schema:name": "example instrumentName"
     }
   ],
   "schema:location": {
@@ -190,7 +190,7 @@
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "FIB milling and TEM cross-section preparation (same instrument)"
+        "schema:name": "SE Imaging (same instrument, pre- and post-FIB milling)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -199,7 +199,7 @@
     }
   ],
   "ada:analyticalMode": [
-    "SE Imaging"
+    "TEM Sample Preparation"
   ],
   "schema:measurementTechnique": [
     {

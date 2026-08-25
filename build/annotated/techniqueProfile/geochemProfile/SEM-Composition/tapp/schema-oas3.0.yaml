@@ -10065,7 +10065,7 @@ x-defs:
     x-schema-version: https://json-schema.org/draft/2020-12/schema
 title: SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)
 description: Scanning electron microscopy compositional microanalysis (EDS/WDS) extension
-  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v22.csv
+  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v24.csv
   via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
@@ -10280,11 +10280,17 @@ allOf:
                     description: Formula or approach used to calculate detection limits.
                     anyOf:
                     - type: string
-                      readOnly: true
-                    - type: array
-                      items:
-                        type: string
-                        readOnly: true
+                      enum:
+                      - "3\u03C3 blank"
+                      - "3\u03C3 background"
+                      - "3\u03C3 counting statistics"
+                      - "3\xD7 blank mean"
+                      - Poisson statistics
+                      - N/A
+                      - None
+                      - missing
+                    - type: string
+                    readOnly: true
           allOf:
           - contains:
               properties:
@@ -11938,7 +11944,7 @@ allOf:
               - Detection Limit
             ada:dataType:
               enum:
-              - string
+              - number
             ada:fieldScope:
               enum:
               - session
@@ -11946,6 +11952,8 @@ allOf:
             ada:tier:
               enum:
               - R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -12243,7 +12251,7 @@ allOf:
               - Detection Limit
             ada:dataType:
               enum:
-              - string
+              - number
             ada:fieldScope:
               enum:
               - session
@@ -12251,6 +12259,8 @@ allOf:
             ada:tier:
               enum:
               - R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -13173,7 +13183,7 @@ allOf:
               - Detection Limit
             ada:dataType:
               enum:
-              - string
+              - number
             ada:fieldScope:
               enum:
               - session
@@ -13181,6 +13191,8 @@ allOf:
             ada:tier:
               enum:
               - R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -13285,7 +13297,7 @@ allOf:
               - Detection Limit
             ada:dataType:
               enum:
-              - string
+              - number
             ada:fieldScope:
               enum:
               - session
@@ -13293,6 +13305,8 @@ allOf:
             ada:tier:
               enum:
               - R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'

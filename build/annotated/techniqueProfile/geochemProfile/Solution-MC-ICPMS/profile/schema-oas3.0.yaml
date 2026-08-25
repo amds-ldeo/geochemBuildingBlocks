@@ -2378,7 +2378,7 @@ x-defs:
   ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.tapp:
     title: Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)
     description: Solution multi-collector ICP-MS extension of the base TAPP definition,
-      generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v30.csv via the path-driven
+      generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v31.csv via the path-driven
       pipeline.
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
@@ -2777,23 +2777,15 @@ x-defs:
                         - type: string
                           enum:
                           - "3\u03C3 blank"
+                          - "3\u03C3 background"
+                          - "3\u03C3 counting statistics"
                           - "3\xD7 blank mean"
                           - Poisson statistics
                           - N/A
                           - None
                           - missing
-                          readOnly: true
-                        - type: array
-                          items:
-                            type: string
-                            enum:
-                            - "3\u03C3 blank"
-                            - "3\xD7 blank mean"
-                            - Poisson statistics
-                            - N/A
-                            - None
-                            - missing
-                            readOnly: true
+                        - type: string
+                        readOnly: true
               allOf:
               - contains:
                   properties:

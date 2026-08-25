@@ -16,7 +16,7 @@
       "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:semFibsemTAPP-Genge2025",
+  "@id": "ex:semFibsemTAPP-Zhou2017",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -24,8 +24,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semFibsem protocol \u2014 Genge2025",
-  "schema:description": "semFibsemTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_FIBSEM_TAPP_v14.csv).",
+  "schema:name": "semFibsem protocol \u2014 Zhou2017",
+  "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction",
   "schema:object": [
     {
       "@type": [
@@ -37,12 +37,53 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo"
+            "Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China"
           ]
         }
       ]
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Cuboidal samples (~0.5\u00d71\u00d71 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -52,33 +93,26 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "ZEISS 1550VP",
+        "schema:name": "Helios NanoLab 650",
         "@type": [
           "schema:ProductModel"
         ]
       },
+      "schema:description": "N/A",
+      "ada:acceleratingVoltageDefault": "2 kV (SEM imaging)",
+      "ada:workingDistanceDefault": "4 mm",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:description": "Unknown",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
-        },
         {
           "@type": [
             "schema:Product",
@@ -99,6 +133,20 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
             "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -108,13 +156,6 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "VP-SEM / ESEM",
-      "ada:acceleratingVoltageDefault": "10 kV",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     },
     {
@@ -148,26 +189,22 @@
       ]
     }
   ],
+  "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
+  "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
+    "schema:name": "China University of Geosciences, Beijing, China"
   },
-  "schema:relatedLink": [
+  "bios:computationalTool": [
     {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
     }
   ],
   "ada:analyticalMode": [
-    "BSE Imaging"
+    "3D Tomography"
   ],
   "schema:measurementTechnique": [
     {
@@ -178,50 +215,8 @@
       "schema:termCode": "semFibsem"
     }
   ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ]
-  },
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:segmentationMethod3DDefault": "missing",
   "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

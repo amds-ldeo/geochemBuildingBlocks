@@ -132,10 +132,10 @@ container, not tabular text).
     ada:componentType "ada:other" .
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
-    cdi:has_DataStructureComponent [ a cdi:MeasureComponent ;
-            cdif:name "intensity" ],
-        [ a cdi:DimensionComponent ;
+    cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
             cdif:name "x" ],
+        [ a cdi:MeasureComponent ;
+            cdif:name "intensity" ],
         [ a cdi:DimensionComponent ;
             cdif:name "y" ] ;
     schema1:name "Elemental map cube structure" .

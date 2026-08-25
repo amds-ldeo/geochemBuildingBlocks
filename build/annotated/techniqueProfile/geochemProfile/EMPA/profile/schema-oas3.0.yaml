@@ -883,6 +883,10 @@ x-defs:
                         enum:
                         - Detection Limit
                       schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
                         type: string
                     required:
                     - '@id'
@@ -890,6 +894,7 @@ x-defs:
                     - schema:propertyID
                     - schema:name
                     - schema:value
+                    - schema:unitText
                   - title: Drift Correction
                     description: Method used to monitor and correct for instrument
                       drift (beam current drift, spectrometer drift) during the analytical
@@ -1097,6 +1102,10 @@ x-defs:
                         enum:
                         - Detection Limit
                       schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
                         type: string
                     required:
                     - '@id'
@@ -1104,6 +1113,7 @@ x-defs:
                     - schema:propertyID
                     - schema:name
                     - schema:value
+                    - schema:unitText
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -1443,6 +1453,10 @@ x-defs:
                   enum:
                   - Detection Limit
                 schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
                   type: string
               required:
               - '@id'
@@ -1450,6 +1464,7 @@ x-defs:
               - schema:propertyID
               - schema:name
               - schema:value
+              - schema:unitText
             - title: Detection Limit Method
               description: Formula or approach used to calculate detection limits.
                 Reference method publication if applicable. When the procedure does
@@ -1527,6 +1542,10 @@ x-defs:
                   enum:
                   - Detection Limit
                 schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
                   type: string
               required:
               - '@id'
@@ -1534,6 +1553,7 @@ x-defs:
               - schema:propertyID
               - schema:name
               - schema:value
+              - schema:unitText
             minContains: 0
             maxContains: 1
           - contains:
@@ -1861,7 +1881,7 @@ x-defs:
   ogch.techniqueProfile.geochemProfile.EMPA.tapp:
     title: EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)
     description: Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the
-      base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v25.csv via
+      base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v26.csv via
       the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
@@ -3968,7 +3988,7 @@ x-defs:
                   - R
                 schema:unitText:
                   enum:
-                  - um x um
+                  - "\xB5m x \xB5m"
               required:
               - '@id'
               - '@type'
@@ -3997,7 +4017,7 @@ x-defs:
                   - Detection Limit
                 ada:dataType:
                   enum:
-                  - string
+                  - number
                 ada:fieldScope:
                   enum:
                   - session
@@ -4005,6 +4025,8 @@ x-defs:
                 ada:tier:
                   enum:
                   - R
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -4211,7 +4233,7 @@ x-defs:
                   - R
                 schema:unitText:
                   enum:
-                  - um x um
+                  - "\xB5m x \xB5m"
               required:
               - '@id'
               - '@type'
@@ -4243,7 +4265,7 @@ x-defs:
                   - Detection Limit
                 ada:dataType:
                   enum:
-                  - string
+                  - number
                 ada:fieldScope:
                   enum:
                   - session
@@ -4251,6 +4273,8 @@ x-defs:
                 ada:tier:
                   enum:
                   - R
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -4440,7 +4464,7 @@ x-defs:
                   - Detection Limit
                 ada:dataType:
                   enum:
-                  - string
+                  - number
                 ada:fieldScope:
                   enum:
                   - session
@@ -4448,6 +4472,8 @@ x-defs:
                 ada:tier:
                   enum:
                   - R
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -4513,7 +4539,7 @@ x-defs:
                   - Detection Limit
                 ada:dataType:
                   enum:
-                  - string
+                  - number
                 ada:fieldScope:
                   enum:
                   - session
@@ -4521,6 +4547,8 @@ x-defs:
                 ada:tier:
                   enum:
                   - R
+                schema:unitText:
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -4592,11 +4620,17 @@ x-defs:
                           complete this field.
                         anyOf:
                         - type: string
-                          readOnly: true
-                        - type: array
-                          items:
-                            type: string
-                            readOnly: true
+                          enum:
+                          - "3\u03C3 blank"
+                          - "3\u03C3 background"
+                          - "3\u03C3 counting statistics"
+                          - "3\xD7 blank mean"
+                          - Poisson statistics
+                          - N/A
+                          - None
+                          - missing
+                        - type: string
+                        readOnly: true
                       schema:additionalProperty:
                         type: array
                         items:

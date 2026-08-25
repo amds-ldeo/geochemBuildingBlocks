@@ -6,7 +6,7 @@
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:semCompositionTAPP-Gucsik2013-2",
+  "@id": "ex:semCompositionTAPP-Zega2025",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -14,8 +14,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semComposition protocol \u2014 Gucsik2013-2",
-  "schema:description": "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)",
+  "schema:name": "semComposition protocol \u2014 Zega2025",
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v24.csv).",
   "schema:object": [
     {
       "@type": [
@@ -27,12 +27,42 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return)"
           ]
         }
       ]
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -48,13 +78,27 @@
         ]
       },
       "schema:model": {
-        "schema:name": "JSM-5410LV",
+        "schema:name": "7600F",
         "@type": [
           "schema:ProductModel"
         ]
       },
-      "schema:description": "Standard SEM",
       "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Unknown",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:name": "missing"
+        },
         {
           "schema:additionalType": [
             "EDS Detector",
@@ -62,27 +106,13 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "ISIS analysis system (Oxford); detector type not specified",
+          "schema:description": "Oxford Instruments Ultim Max SDD, 170 mm\u00b2",
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
           "@id": "ex:instrument/SEM/part/EDS-Detector",
           "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -108,16 +138,34 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
+  "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+  },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)"
+        "schema:name": "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
       },
       "@type": [
         "schema:CreativeWork"
       ],
       "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford AZtec (Point & ID programme)"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Oxford AZtec"
     }
   ],
   "ada:analyticalMode": [
@@ -132,37 +180,6 @@
       "schema:termCode": "semComposition"
     }
   ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ]
-  },
-  "ada:edsAcquisitionMode": "missing",
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",

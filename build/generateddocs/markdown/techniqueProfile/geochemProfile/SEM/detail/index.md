@@ -41,7 +41,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -91,7 +91,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -120,7 +120,7 @@ ex:detail-Garvie2008 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -172,7 +172,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -222,7 +222,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -251,7 +251,7 @@ ex:detail-Garvie2008-2 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -303,7 +303,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -353,7 +353,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -382,7 +382,7 @@ ex:detail-Genge2025 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -434,7 +434,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -484,7 +484,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -513,7 +513,7 @@ ex:detail-Genge2025-2 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -565,7 +565,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -615,7 +615,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -644,7 +644,7 @@ ex:detail-Genge2025-3 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -696,7 +696,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -746,7 +746,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -775,7 +775,7 @@ ex:detail-Gucsik2013 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -827,7 +827,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -877,7 +877,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -906,7 +906,7 @@ ex:detail-Gucsik2013-2 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -958,7 +958,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1008,7 +1008,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1037,7 +1037,7 @@ ex:detail-Izawa2010 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -1089,7 +1089,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1139,7 +1139,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1168,7 +1168,7 @@ ex:detail-Izawa2010-2 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -1351,7 +1351,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1401,7 +1401,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1430,7 +1430,7 @@ ex:detail-Izawa2010-4 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -1482,7 +1482,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1532,7 +1532,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1561,7 +1561,7 @@ ex:detail-Izawa2010-5 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -1613,7 +1613,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imageStackDimenstions": "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1663,7 +1663,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imageStackDimenstions": "9.8 \u00d7 9.8 \u00d7 15 nm voxel size; 600 slices; 7.8 \u00d7 7.8 \u00b5m scanning area; 9.0 \u00b5m total thickness",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1692,7 +1692,7 @@ ex:detail-Liu2017 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -1744,7 +1744,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1794,7 +1794,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1823,7 +1823,7 @@ ex:detail-Liu2017-2 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -1875,7 +1875,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1925,7 +1925,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1954,7 +1954,7 @@ ex:detail-Liu2017-3 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -2006,7 +2006,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2056,7 +2056,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2085,7 +2085,7 @@ ex:detail-Ma2017 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -2137,7 +2137,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2187,7 +2187,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2216,7 +2216,7 @@ ex:detail-Ma2017-2 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation 3e-01 ;
     ada:edsDeadTime -9999 ;
@@ -2268,7 +2268,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2318,7 +2318,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2347,7 +2347,7 @@ ex:detail-Pascucci2026 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -2399,7 +2399,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2449,7 +2449,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2478,7 +2478,7 @@ ex:detail-Pascucci2026-2 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -2530,7 +2530,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2580,7 +2580,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2609,7 +2609,7 @@ ex:detail-Pascucci2026-3 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -2661,7 +2661,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2711,7 +2711,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2740,7 +2740,7 @@ ex:detail-Pascucci2026-4 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -2792,7 +2792,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:imageStackDimenstions": "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2842,7 +2842,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:imageStackDimenstions": "14.8\u00d714.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609\u00d73.08\u00d75.446 \u00b5m; HBC=4.679\u00d73.2\u00d74.24 \u00b5m; SEM image resolution 2.5 nm",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2871,7 +2871,7 @@ ex:detail-Zhou2017 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -2923,7 +2923,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -2973,7 +2973,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3002,7 +3002,7 @@ ex:detail-Zega2025 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -3054,7 +3054,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3104,7 +3104,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3133,7 +3133,7 @@ ex:detail-Zega2025-2 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -3185,7 +3185,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3235,7 +3235,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3264,7 +3264,7 @@ ex:detail-Zega2025-3 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -3316,7 +3316,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3366,7 +3366,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3395,7 +3395,7 @@ ex:detail-Zega2025-4 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -3447,7 +3447,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3497,7 +3497,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3526,7 +3526,7 @@ ex:detail-Zega2025-5 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -3578,7 +3578,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3628,7 +3628,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3657,7 +3657,7 @@ ex:detail-Zega2025-6 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -3709,7 +3709,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3759,7 +3759,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3788,7 +3788,7 @@ ex:detail-Zega2025-7 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -3840,7 +3840,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3890,7 +3890,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -3919,7 +3919,7 @@ ex:detail-Zega2025-8 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -3971,7 +3971,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4021,7 +4021,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4050,7 +4050,7 @@ ex:detail-Zega2025-9 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -4102,7 +4102,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4152,7 +4152,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4181,7 +4181,7 @@ ex:detail-Barnes2025 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -4233,7 +4233,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4283,7 +4283,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4312,7 +4312,7 @@ ex:detail-Barnes2025-2 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -4364,7 +4364,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4414,7 +4414,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4443,7 +4443,7 @@ ex:detail-Barnes2025-3 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -4495,7 +4495,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4545,7 +4545,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "missing",
+  "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -4574,7 +4574,7 @@ ex:detail-Barnes2025-4 a ada:SEMImage ;
     ada:analyticalPrecision "missing" ;
     ada:componentType "ada:SEMImage" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "missing" ;
+    ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
@@ -4823,6 +4823,10 @@ allOf:
                   schema:name:
                     const: Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -4830,6 +4834,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               - title: Drift Correction
                 description: 'Describes whether and how stage or beam drift was monitored
                   and corrected during the measurement session. Examples: periodic
@@ -5317,6 +5322,10 @@ allOf:
                   schema:name:
                     const: Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -5324,6 +5333,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               minContains: 0
               maxContains: 1
             - contains:
@@ -6370,6 +6380,10 @@ allOf:
             schema:name:
               const: Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -6377,6 +6391,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         - title: Detection Limit Method
           description: Formula or approach used to calculate detection limits.
           type: object
@@ -6444,6 +6459,10 @@ allOf:
             schema:name:
               const: Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -6451,6 +6470,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         minContains: 0
         maxContains: 1
       - contains:

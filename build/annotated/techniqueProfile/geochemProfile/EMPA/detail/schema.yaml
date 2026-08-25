@@ -258,6 +258,10 @@ allOf:
                   schema:name:
                     const: Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -265,6 +269,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               - title: Drift Correction
                 description: Method used to monitor and correct for instrument drift
                   (beam current drift, spectrometer drift) during the analytical session.
@@ -455,6 +460,10 @@ allOf:
                   schema:name:
                     const: Detection Limit
                   schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -462,6 +471,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+                - schema:unitText
               minContains: 0
               maxContains: 1
             - contains:
@@ -780,6 +790,10 @@ allOf:
             schema:name:
               const: Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -787,6 +801,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         - title: Detection Limit Method
           description: Formula or approach used to calculate detection limits. Reference
             method publication if applicable. When the procedure does not specify
@@ -857,6 +872,10 @@ allOf:
             schema:name:
               const: Detection Limit
             schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
               type: string
           required:
           - '@id'
@@ -864,6 +883,7 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+          - schema:unitText
         minContains: 0
         maxContains: 1
       - contains:

@@ -6,7 +6,7 @@
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Genge2025 a cdi:Activity,
+ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -20,6 +20,7 @@ ex:semFibsemTAPP-Genge2025 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
@@ -28,30 +29,28 @@ ex:semFibsemTAPP-Genge2025 a cdi:Activity,
                     schema1:name "Ion milling" ;
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semFibsemTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_FIBSEM_TAPP_v14.csv)." ;
+    schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
         <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
-            schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
+            schema1:name "China University of Geosciences, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semFibsem" ;
             schema1:termCode "semFibsem" ] ;
-    schema1:name "semFibsem protocol — Genge2025" ;
+    schema1:name "semFibsem protocol — Zhou2017" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo" ] ] ;
-    schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "BSE Imaging" ;
+                    schema1:value "Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China" ] ] ;
+    ada:analyticalMode "3D Tomography" ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "missing" ;
+    ada:imageRegistration3DDefault "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
     ada:samplingUnit "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:segmentationMethod3DDefault "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
+    ada:targetSelectionCriteriaDefault "missing" ;
+    bios:computationalTool [ schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://example.org/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
@@ -70,16 +69,17 @@ ex:semFibsemTAPP-Genge2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "VP-SEM / ESEM" ;
+    schema1:description "N/A" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Zeiss" ] ;
+            schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
-            schema1:name "ZEISS 1550VP" ] ;
+            schema1:name "Helios NanoLab 650" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "10 kV" .
+    ada:acceleratingVoltageDefault "2 kV (SEM imaging)" ;
+    ada:workingDistanceDefault "4 mm" .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -91,7 +91,6 @@ ex:semFibsemTAPP-Genge2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,

@@ -16,7 +16,7 @@
       "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:semImagingTAPP-Genge2025-2",
+  "@id": "ex:semImagingTAPP-Gucsik2013",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -24,8 +24,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semImaging protocol \u2014 Genge2025-2",
-  "schema:description": "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v14.csv).",
+  "schema:name": "semImaging protocol \u2014 Gucsik2013",
+  "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) \u2014 standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point.",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo"
+            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
           ]
         }
       ]
@@ -52,33 +52,52 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "JEOL",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "ZEISS 1550VP",
+        "schema:name": "JSM-5410LV",
         "@type": [
           "schema:ProductModel"
         ]
       },
-      "schema:hasPart": [
+      "schema:description": "Standard SEM",
+      "schema:additionalProperty": [
         {
-          "schema:additionalType": [
-            "Electron Source",
+          "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
             }
           ],
-          "schema:description": "Unknown",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
+          "schema:name": "CL Detector Configuration",
+          "schema:value": "Mini-CL (Gatan, multialkali PMT) for scanning CL images; Oxford MonoCL2 grating monochromator with Hamamatsu R2228 PMT and parabolic mirror (75% efficiency) for spectral CL"
         },
+        {
+          "@id": "ada:parameter/semImagingTAPP/clGrating",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/clGrating"
+            }
+          ],
+          "schema:name": "CL Grating",
+          "schema:value": "1200 gr/mm, focal length 0.3 m, F/4.2, resolution 0.5 nm, slit width 4 mm (Oxford MonoCL2)"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
+      "schema:hasPart": [
         {
           "@type": [
             "schema:Product",
@@ -99,6 +118,20 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
             "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -108,27 +141,15 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "VP-SEM / ESEM",
-      "ada:acceleratingVoltageDefault": "10 kV",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
-  },
+  "ada:clAcquisitionMode": "Spectral point",
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)"
+        "schema:name": "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -137,7 +158,7 @@
     }
   ],
   "ada:analyticalMode": [
-    "EDS"
+    "CL Mapping"
   ],
   "schema:measurementTechnique": [
     {
@@ -177,7 +198,6 @@
       }
     ]
   },
-  "ada:clAcquisitionMode": "missing",
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,

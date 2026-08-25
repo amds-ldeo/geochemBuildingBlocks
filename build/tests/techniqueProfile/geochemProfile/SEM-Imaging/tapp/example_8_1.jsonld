@@ -16,7 +16,7 @@
       "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:semImagingTAPP-Izawa2010",
+  "@id": "ex:semImagingTAPP-Liu2017",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -24,8 +24,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semImaging protocol \u2014 Izawa2010",
-  "schema:description": "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates",
+  "schema:name": "semImaging protocol \u2014 Liu2017",
+  "schema:description": "Pore and mineral sizes >0.1 \u00b5m measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10\u00b3 to 10\u2074",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
+            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
           ]
         }
       ]
@@ -47,7 +47,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
+        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -82,33 +82,24 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Hitachi",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "S-2500C",
+        "schema:name": "Quanta 250",
         "@type": [
           "schema:ProductModel"
         ]
       },
+      "schema:description": "N/A",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:description": "Tungsten (W)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
-        },
         {
           "@type": [
             "schema:Product",
@@ -129,6 +120,20 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
             "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -138,29 +143,6 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "Standard SEM",
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
-            }
-          ],
-          "schema:name": "CL Detector Configuration",
-          "schema:value": "Gatan ChromaCL detector; 4-channel pseudo-color detection (UV: ~300-400nm, Blue: ~400-500nm, Green: ~500-600nm, Red: ~600-850nm including near-IR ~700-850nm); Robinson Backscatter detector also present"
-        }
-      ],
-      "ada:acceleratingVoltageDefault": "15\u201320 kV",
-      "ada:workingDistanceDefault": "~10 mm",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -177,20 +159,17 @@
       "schema:defaultValue": "High vacuum"
     }
   ],
-  "ada:clAcquisitionMode": "Multi-channel pseudo-color",
-  "ada:clWavelengthRange": "300\u2013850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)",
-  "ada:clIntegrationTimeDefault": "80\u2013500 ms per pixel (varied based on IR luminescence duration in carbonates)",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "Zircon and Accessory Phase Laboratory, University of Western Ontario"
+    "schema:name": "China University of Mining and Technology, Xuzhou, China"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)"
+        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
       },
       "@type": [
         "schema:CreativeWork"
@@ -198,18 +177,8 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Gatan DigitalMicrograph (CL image assembly)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Gatan DigitalMicrograph"
-    }
-  ],
   "ada:analyticalMode": [
-    "CL Point Analysis"
+    "SE Imaging"
   ],
   "schema:measurementTechnique": [
     {
@@ -220,6 +189,9 @@
       "schema:termCode": "semImaging"
     }
   ],
+  "ada:clAcquisitionMode": "missing",
+  "ada:clIntegrationTimeDefault": -9999,
+  "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:ebsdDetectorConfiguration": "missing",
   "ada:ebsdPhaseListDefault": "missing",

@@ -16,7 +16,7 @@
       "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:semImagingTAPP-Liu2017-3",
+  "@id": "ex:semImagingTAPP-Zega2025-2",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -24,8 +24,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semImaging protocol \u2014 Liu2017-3",
-  "schema:description": "Pore and mineral sizes >20 nm to <5 \u00b5m measured; EDS also used for mineral analysis; magnification range 10\u00b3 to 10\u2075",
+  "schema:name": "semImaging protocol \u2014 Zega2025-2",
+  "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
           ]
         }
       ]
@@ -47,7 +47,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -82,13 +82,13 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Hitachi",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "SUPRA 55",
+        "schema:name": "S-4800",
         "@type": [
           "schema:ProductModel"
         ]
@@ -138,7 +138,6 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "N/A",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -147,36 +146,26 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semImagingTAPP/chamberPressureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
-    }
-  ],
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "China University of Mining and Technology, Xuzhou, China"
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
+        "schema:name": "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
       },
       "@type": [
         "schema:CreativeWork"
       ],
       "schema:url": "https://ada.astromat.org/missing"
     }
+  ],
+  "ada:analyticalMode": [
+    "SE Imaging"
   ],
   "schema:measurementTechnique": [
     {

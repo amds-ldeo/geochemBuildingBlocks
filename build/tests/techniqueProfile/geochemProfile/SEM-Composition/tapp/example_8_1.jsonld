@@ -16,7 +16,7 @@
       "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:semCompositionTAPP-Izawa2010",
+  "@id": "ex:semCompositionTAPP-Zega2025-2",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -24,8 +24,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semComposition protocol \u2014 Izawa2010",
-  "schema:description": "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates",
+  "schema:name": "semComposition protocol \u2014 Zega2025-2",
+  "schema:description": "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping.",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
           ]
         }
       ]
@@ -47,7 +47,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -88,7 +88,7 @@
         ]
       },
       "schema:model": {
-        "schema:name": "S-2500C",
+        "schema:name": "S-4800",
         "@type": [
           "schema:ProductModel"
         ]
@@ -101,7 +101,7 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Tungsten (W)",
+          "schema:description": "Unknown",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -110,18 +110,19 @@
           "schema:name": "missing"
         },
         {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
           "schema:additionalType": [
             "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/EDS-Detector"
+          "schema:description": "Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/SEM/part/EDS-Detector",
+          "schema:name": "missing"
         },
         {
           "@type": [
@@ -138,9 +139,6 @@
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "Standard SEM",
-      "ada:acceleratingVoltageDefault": "15\u201320 kV",
-      "ada:workingDistanceDefault": "~10 mm",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -149,30 +147,18 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semCompositionTAPP/chamberPressureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "High vacuum"
-    }
-  ],
+  "ada:edsAcquisitionMode": "Map",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "Zircon and Accessory Phase Laboratory, University of Western Ontario"
+    "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)"
+        "schema:name": "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -183,15 +169,15 @@
   "bios:computationalTool": [
     {
       "ada:toolRole": "acquisition",
-      "schema:name": "Gatan DigitalMicrograph (CL image assembly)"
+      "schema:name": "Oxford Instruments Aztec Live/x-stream"
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "Gatan DigitalMicrograph"
+      "schema:name": "Oxford Instruments Aztec"
     }
   ],
   "ada:analyticalMode": [
-    "CL"
+    "EDS Mapping"
   ],
   "schema:measurementTechnique": [
     {
@@ -202,7 +188,6 @@
       "schema:termCode": "semComposition"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",

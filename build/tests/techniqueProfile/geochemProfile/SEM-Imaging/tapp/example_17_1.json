@@ -6,7 +6,7 @@
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:semImagingTAPP-Ma2017-2",
+  "@id": "ex:semImagingTAPP-Zega2025-4",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -14,8 +14,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semImaging protocol \u2014 Ma2017-2",
-  "schema:description": "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)",
+  "schema:name": "semImaging protocol \u2014 Zega2025-4",
+  "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <\u00d7500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging.",
   "schema:object": [
     {
       "@type": [
@@ -27,7 +27,7 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A"
+            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); olivine and carbonate grains"
           ]
         }
       ]
@@ -37,7 +37,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated",
+        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -48,24 +48,11 @@
         "schema:position": 1
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "crystalStructureDatabaseDefault",
-            "schema:name": "Crystal Structure Database",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Literature crystal structures: Black et al. 1961 (Cmc21 (Al,Cu)Fe6 for kryachkoite); Zhang et al. 2005 (Pm3m AlCu for stolperite)"
-          }
-        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -85,13 +72,13 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "JEOL",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "1550VP",
+        "schema:name": "JSM-7000F",
         "@type": [
           "schema:ProductModel"
         ]
@@ -141,7 +128,22 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "N/A",
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/clDetectorConfiguration"
+            }
+          ],
+          "schema:name": "CL Detector Configuration",
+          "schema:value": "MonoCL4 GATAN monochromator; high-sensitivity array detector and photomultiplier; paraboloidal mirror collection (CRHEA Valbonne, France)"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "5 keV",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -150,24 +152,27 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:ebsdPhaseListDefault": "Hollisterite (C2/m FeAl3); kryachkoite (Cmc21 (Al,Cu)Fe6); stolperite (Pm3m AlCu)",
+  "ada:clAcquisitionMode": "Panchromatic",
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
+    "schema:name": "Universit\u00e9 C\u00f4te d'Azur / Observatoire de la C\u00f4te d'Azur, Valbonne, France"
   },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
+        "schema:name": "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)"
       },
       "@type": [
         "schema:CreativeWork"
       ],
       "schema:url": "https://ada.astromat.org/missing"
     }
+  ],
+  "ada:analyticalMode": [
+    "CL Mapping"
   ],
   "schema:measurementTechnique": [
     {
@@ -178,11 +183,11 @@
       "schema:termCode": "semImaging"
     }
   ],
-  "ada:clAcquisitionMode": "missing",
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdPhaseListDefault": "missing",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",

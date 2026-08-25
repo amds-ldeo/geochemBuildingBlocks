@@ -269,6 +269,63 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
+      "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Normalization / Standards-Based Correction",
+      "schema:description": "Normalization / Standards-Based Correction reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimit",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Detection Limit",
+      "schema:description": "Detection Limit reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimit"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitMethod",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Detection Limit Method",
+      "schema:description": "Detection Limit Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitMethod"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
       "@id": "ex:adaProduct-var-001",
       "@type": [
         "schema:PropertyValue",

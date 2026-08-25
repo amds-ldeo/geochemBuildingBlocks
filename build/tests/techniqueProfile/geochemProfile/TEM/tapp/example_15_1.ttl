@@ -15,14 +15,14 @@ ex:temTAPP-Xing2023 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Ultramicrotomy" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data Reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -53,10 +53,11 @@ ex:temTAPP-Xing2023 a cdi:Activity,
     ada:targetSelectionCriteriaDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements" ;
+    schema1:defaultValue 1000 ;
+    schema1:description "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements" ;
     schema1:name "EDS Detection Limit" ;
     schema1:valueName "edsDetectionLimitDefault" ;
-    ada:dataType "string" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://example.org/instrument/TEM> a schema1:Product,

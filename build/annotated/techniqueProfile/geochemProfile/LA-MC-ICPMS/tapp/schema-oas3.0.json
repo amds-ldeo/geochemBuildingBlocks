@@ -17237,7 +17237,7 @@
     }
   },
   "title": "LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)",
-  "description": "Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v26.csv via the path-driven pipeline.",
+  "description": "Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v27.csv via the path-driven pipeline.",
   "allOf": [
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -17752,16 +17752,22 @@
                           "anyOf": [
                             {
                               "type": "string",
-                              "readOnly": true
+                              "enum": [
+                                "3\u03c3 blank",
+                                "3\u03c3 background",
+                                "3\u03c3 counting statistics",
+                                "3\u00d7 blank mean",
+                                "Poisson statistics",
+                                "N/A",
+                                "None",
+                                "missing"
+                              ]
                             },
                             {
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "readOnly": true
-                              }
+                              "type": "string"
                             }
-                          ]
+                          ],
+                          "readOnly": true
                         }
                       }
                     }
@@ -21642,9 +21648,7 @@
                     ]
                   },
                   "schema:unitText": {
-                    "enum": [
-                      "ppm or wt%"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -21975,9 +21979,7 @@
                     ]
                   },
                   "schema:unitText": {
-                    "enum": [
-                      "ppm or wt%"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -22395,9 +22397,7 @@
                     ]
                   },
                   "schema:unitText": {
-                    "enum": [
-                      "ppm or wt%"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -22669,9 +22669,7 @@
                     ]
                   },
                   "schema:unitText": {
-                    "enum": [
-                      "ppm or wt%"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [

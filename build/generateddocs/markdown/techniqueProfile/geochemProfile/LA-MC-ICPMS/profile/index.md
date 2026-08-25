@@ -289,6 +289,25 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
+      "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Detection Limit Method",
+      "schema:description": "Detection Limit Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
       "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod",
       "@type": [
         "schema:PropertyValue",
@@ -372,25 +391,6 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Detection Limit Method",
-      "schema:description": "Detection Limit Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
-        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",

@@ -2540,6 +2540,16 @@
                               ]
                             },
                             "schema:value": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "schema:unitText": {
                               "type": "string"
                             }
                           },
@@ -2548,7 +2558,8 @@
                             "@type",
                             "schema:propertyID",
                             "schema:name",
-                            "schema:value"
+                            "schema:value",
+                            "schema:unitText"
                           ]
                         },
                         {
@@ -4005,6 +4016,16 @@
                               ]
                             },
                             "schema:value": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "schema:unitText": {
                               "type": "string"
                             }
                           },
@@ -4013,7 +4034,8 @@
                             "@type",
                             "schema:propertyID",
                             "schema:name",
-                            "schema:value"
+                            "schema:value",
+                            "schema:unitText"
                           ]
                         },
                         "minContains": 0,
@@ -4546,6 +4568,16 @@
                         ]
                       },
                       "schema:value": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "schema:unitText": {
                         "type": "string"
                       }
                     },
@@ -4554,7 +4586,8 @@
                       "@type",
                       "schema:propertyID",
                       "schema:name",
-                      "schema:value"
+                      "schema:value",
+                      "schema:unitText"
                     ]
                   },
                   "minContains": 0,
@@ -4734,7 +4767,7 @@
     },
     "ogch.techniqueProfile.geochemProfile.TEM.tapp": {
       "title": "TEM Technique-Aligned Protocol Profile (temTAPP)",
-      "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from tapp/Current TAPPs/TEM_TAPP_v21.csv by tools/build_tapp.py.",
+      "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from tapp/Current TAPPs/TEM_TAPP_v22.csv by tools/build_tapp.py.",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -7139,7 +7172,7 @@
                       },
                       "ada:dataType": {
                         "enum": [
-                          "string"
+                          "number"
                         ]
                       },
                       "ada:fieldScope": {
@@ -7152,6 +7185,9 @@
                         "enum": [
                           "R"
                         ]
+                      },
+                      "schema:unitText": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -8462,7 +8498,7 @@
                       },
                       "ada:dataType": {
                         "enum": [
-                          "string"
+                          "number"
                         ]
                       },
                       "ada:fieldScope": {
@@ -8475,6 +8511,9 @@
                         "enum": [
                           "R"
                         ]
+                      },
+                      "schema:unitText": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -9074,7 +9113,7 @@
                       },
                       "ada:dataType": {
                         "enum": [
-                          "string"
+                          "number"
                         ]
                       },
                       "ada:fieldScope": {
@@ -9087,6 +9126,9 @@
                         "enum": [
                           "R"
                         ]
+                      },
+                      "schema:unitText": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -9131,7 +9173,7 @@
                       },
                       "ada:dataType": {
                         "enum": [
-                          "string"
+                          "number"
                         ]
                       },
                       "ada:fieldScope": {
@@ -9144,6 +9186,9 @@
                         "enum": [
                           "R"
                         ]
+                      },
+                      "schema:unitText": {
+                        "type": "string"
                       }
                     },
                     "required": [

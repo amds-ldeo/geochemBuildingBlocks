@@ -16,7 +16,7 @@
       "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:semCompositionTAPP-Garvie2008-2",
+  "@id": "ex:semCompositionTAPP-Gucsik2013",
   "@type": [
     "prov:Plan",
     "cdi:Activity",
@@ -24,8 +24,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "semComposition protocol \u2014 Garvie2008-2",
-  "schema:description": "semCompositionTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_Composition_TAPP_v22.csv).",
+  "schema:name": "semComposition protocol \u2014 Gucsik2013",
+  "schema:description": "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)",
   "schema:object": [
     {
       "@type": [
@@ -37,42 +37,12 @@
         {
           "schema:name": "Target Material",
           "schema:value": [
-            "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)"
+            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
           ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -82,31 +52,32 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "FEI / Thermo Fisher Scientific",
+        "schema:name": "JEOL",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "Nova 200 NanoLab DualBeam",
+        "schema:name": "JSM-5410LV",
         "@type": [
           "schema:ProductModel"
         ]
       },
+      "schema:description": "Standard SEM",
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Electron Source",
+            "EDS Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "ISIS analysis system (Oxford); detector type not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "@id": "ex:instrument/SEM/part/EDS-Detector",
           "schema:name": "missing"
         },
         {
@@ -115,13 +86,13 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "EDS Detector",
+            "Electron Source",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/EDS-Detector"
+          "@id": "ex:instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -138,8 +109,7 @@
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "FIB-SEM dual-beam",
-      "ada:workingDistanceDefault": "5.4 mm (eucentric height for electron and ion columns)",
+      "ada:acceleratingVoltageDefault": "15 kV",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -148,17 +118,11 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
-  },
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "SE Imaging (same instrument, pre- and post-FIB milling)"
+        "schema:name": "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -167,7 +131,7 @@
     }
   ],
   "ada:analyticalMode": [
-    "TEM Sample Preparation"
+    "EDS Point Analysis"
   ],
   "schema:measurementTechnique": [
     {
@@ -178,6 +142,35 @@
       "schema:termCode": "semComposition"
     }
   ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
