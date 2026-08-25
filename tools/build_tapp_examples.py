@@ -12,7 +12,7 @@ per-publication cell values.
 Usage:  python tools/build_tapp_examples.py <tappName>
 Run after tools/build_tapp.py <tappName>.
 """
-import json, os, re, sys
+import glob, json, os, re, sys
 import openpyxl
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -870,6 +870,30 @@ def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_t
     return inst
 
 
+def _prune(dirpath, prefix, keep):
+    """Delete example files for publications the table no longer has.
+
+    examples.yaml is rewritten from `written`, so a removed publication vanishes from the manifest
+    -- but its example<TAPP>-<Pub>.json stayed on disk and kept being validated. When Ruolin
+    narrowed the SEM sub-technique tables (SEM_Composition 35 publication columns -> 9, SEM_FIBSEM
+    -> 8, SEM_Imaging -> 18, removing columns that belonged to other SEM techniques), 70 orphaned
+    files survived and failed the analyticalMode enum with modes their own table no longer declares.
+    The failure reads as a schema bug; it is an artifact nothing owns.
+
+    -P0 is NOT ours -- build_pathdriven writes it -- so it is always kept.
+    """
+    gone = []
+    for f in sorted(glob.glob(os.path.join(dirpath, "example%s-*.json" % prefix))):
+        code = os.path.basename(f)[len("example%s-" % prefix):-len(".json")]
+        if code == "P0" or code in keep:
+            continue
+        os.remove(f)
+        gone.append(code)
+    if gone:
+        print("  pruned %d example(s) with no publication column: %s" % (len(gone), gone))
+    return gone
+
+
 def main():
     if len(sys.argv) < 2:
         raise SystemExit("usage: build_tapp_examples.py <tappName>")
@@ -1060,6 +1084,7 @@ def main():
     with open(os.path.join(TAPP_DIR, "examples.yaml"), "w", encoding="utf-8", newline="\n") as f:
         yaml.safe_dump(entries, f, sort_keys=False, allow_unicode=True, default_flow_style=False, width=1000)
     print(f"wrote {len(written)} {tapp} examples: {[c for c, _ in written]}")
+    _prune(TAPP_DIR, tapp, {c for c, _ in written})
 
     dentries = [{"title": f"{detail_name} example {code}",
                  "content": f"{detail_name} instance derived from {lbl}.",
@@ -1069,6 +1094,7 @@ def main():
     with open(os.path.join(DETAIL_DIR, "examples.yaml"), "w", encoding="utf-8", newline="\n") as f:
         yaml.safe_dump(dentries, f, sort_keys=False, allow_unicode=True, default_flow_style=False, width=1000)
     print(f"wrote {len(detail_written)} {detail_name} examples")
+    _prune(DETAIL_DIR, detail_name, {c for c, _ in detail_written})
 
 
 if __name__ == "__main__":
