@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Liu2017",
-  "schema:description": "semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_Imaging_TAPP_v14.csv).",
+  "schema:description": "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied",
+        "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -72,17 +72,18 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Zeiss",
+        "schema:name": "Unknown",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "Crossbeam 540",
+        "schema:name": "Quanta 250",
         "@type": [
           "schema:ProductModel"
         ]
       },
+      "schema:description": "N/A",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -135,6 +136,19 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semImagingTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "High vacuum"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -145,7 +159,7 @@
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "X-ray CT (Xradia 520 Versa, Carl Zeiss)"
+        "schema:name": "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis"
       },
       "@type": [
         "schema:CreativeWork"
@@ -153,11 +167,8 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model"
-    }
+  "ada:analyticalMode": [
+    "SE Imaging"
   ],
   "schema:measurementTechnique": [
     {

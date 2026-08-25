@@ -10664,6 +10664,16 @@
                           "const": "Detection Limit"
                         },
                         "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -10672,7 +10682,8 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value"
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
                     {
@@ -10989,6 +11000,16 @@
                           "const": "Detection Limit"
                         },
                         "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -10997,7 +11018,8 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value"
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
                     "minContains": 0,
@@ -13499,6 +13521,16 @@
                     "const": "Detection Limit"
                   },
                   "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
                     "type": "string"
                   }
                 },
@@ -13507,7 +13539,8 @@
                   "@type",
                   "schema:propertyID",
                   "schema:name",
-                  "schema:value"
+                  "schema:value",
+                  "schema:unitText"
                 ]
               },
               {
@@ -13613,6 +13646,16 @@
                 "const": "Detection Limit"
               },
               "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "schema:unitText": {
                 "type": "string"
               }
             },
@@ -13621,7 +13664,8 @@
               "@type",
               "schema:propertyID",
               "schema:name",
-              "schema:value"
+              "schema:value",
+              "schema:unitText"
             ]
           },
           "minContains": 0,
@@ -15791,7 +15835,7 @@
                       },
                       "then": {
                         "title": "EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)",
-                        "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v25.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+                        "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v26.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
                         "allOf": [
                           {
                             "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
@@ -20081,7 +20125,7 @@
                                           "const": "R"
                                         },
                                         "schema:unitText": {
-                                          "const": "um x um"
+                                          "const": "µm x µm"
                                         }
                                       },
                                       "required": [
@@ -20113,7 +20157,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -20123,6 +20167,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -20369,7 +20416,7 @@
                                           "const": "R"
                                         },
                                         "schema:unitText": {
-                                          "const": "um x um"
+                                          "const": "µm x µm"
                                         }
                                       },
                                       "required": [
@@ -20405,7 +20452,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -20415,6 +20462,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -20644,7 +20694,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -20654,6 +20704,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -20730,7 +20783,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -20740,6 +20793,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -20827,16 +20883,22 @@
                                                 "anyOf": [
                                                   {
                                                     "type": "string",
-                                                    "readOnly": true
+                                                    "enum": [
+                                                      "3σ blank",
+                                                      "3σ background",
+                                                      "3σ counting statistics",
+                                                      "3× blank mean",
+                                                      "Poisson statistics",
+                                                      "N/A",
+                                                      "None",
+                                                      "missing"
+                                                    ]
                                                   },
                                                   {
-                                                    "type": "array",
-                                                    "items": {
-                                                      "type": "string",
-                                                      "readOnly": true
-                                                    }
+                                                    "type": "string"
                                                   }
-                                                ]
+                                                ],
+                                                "readOnly": true
                                               },
                                               "schema:additionalProperty": {
                                                 "type": "array",

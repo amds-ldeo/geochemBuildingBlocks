@@ -10590,6 +10590,16 @@
                           "const": "Detection Limit"
                         },
                         "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -10598,7 +10608,8 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value"
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
                     {
@@ -11351,6 +11362,16 @@
                           "const": "Detection Limit"
                         },
                         "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -11359,7 +11380,8 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value"
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
                     "minContains": 0,
@@ -14930,6 +14952,16 @@
                     "const": "Detection Limit"
                   },
                   "schema:value": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
                     "type": "string"
                   }
                 },
@@ -14938,7 +14970,8 @@
                   "@type",
                   "schema:propertyID",
                   "schema:name",
-                  "schema:value"
+                  "schema:value",
+                  "schema:unitText"
                 ]
               },
               {
@@ -15044,6 +15077,16 @@
                 "const": "Detection Limit"
               },
               "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "schema:unitText": {
                 "type": "string"
               }
             },
@@ -15052,7 +15095,8 @@
               "@type",
               "schema:propertyID",
               "schema:name",
-              "schema:value"
+              "schema:value",
+              "schema:unitText"
             ]
           },
           "minContains": 0,
@@ -17264,7 +17308,7 @@
                       },
                       "then": {
                         "title": "SEM Technique-Aligned Protocol Profile (semTAPP)",
-                        "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v22.csv via the path-driven pipeline.",
+                        "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v24.csv via the path-driven pipeline.",
                         "allOf": [
                           {
                             "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
@@ -19828,16 +19872,22 @@
                                                 "anyOf": [
                                                   {
                                                     "type": "string",
-                                                    "readOnly": true
+                                                    "enum": [
+                                                      "3σ blank",
+                                                      "3σ background",
+                                                      "3σ counting statistics",
+                                                      "3× blank mean",
+                                                      "Poisson statistics",
+                                                      "N/A",
+                                                      "None",
+                                                      "missing"
+                                                    ]
                                                   },
                                                   {
-                                                    "type": "array",
-                                                    "items": {
-                                                      "type": "string",
-                                                      "readOnly": true
-                                                    }
+                                                    "type": "string"
                                                   }
-                                                ]
+                                                ],
+                                                "readOnly": true
                                               },
                                               "ada:ebsdIndexingMethod": {
                                                 "description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
@@ -22623,7 +22673,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -22633,6 +22683,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -23096,7 +23149,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -23106,6 +23159,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -23468,7 +23524,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -23478,6 +23534,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -23554,7 +23613,7 @@
                                           "const": "Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -23564,6 +23623,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [

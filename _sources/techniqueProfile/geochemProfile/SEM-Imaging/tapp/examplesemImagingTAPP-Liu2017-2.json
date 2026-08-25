@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Liu2017-2",
-  "schema:description": "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴",
+  "schema:description": "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵",
   "schema:object": [
     {
       "@type": [
@@ -72,24 +72,33 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Unknown",
+        "schema:name": "Zeiss",
         "@type": [
           "schema:Organization"
         ]
       },
       "schema:model": {
-        "schema:name": "Quanta 250",
+        "schema:name": "SUPRA 55",
         "@type": [
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "Unknown",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:name": "missing"
+        },
         {
           "@type": [
             "schema:Product",
@@ -110,20 +119,6 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
             "SE Detector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -133,6 +128,12 @@
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
+      "schema:description": "N/A",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName"
     }
   ],
@@ -166,6 +167,9 @@
       ],
       "schema:url": "https://ada.astromat.org/missing"
     }
+  ],
+  "ada:analyticalMode": [
+    "SE Imaging"
   ],
   "schema:measurementTechnique": [
     {

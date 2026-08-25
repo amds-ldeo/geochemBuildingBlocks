@@ -11775,6 +11775,16 @@
                           "const": "EDS Detection Limit"
                         },
                         "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -11783,7 +11793,8 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value"
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
                     {
@@ -13040,6 +13051,16 @@
                           "const": "EDS Detection Limit"
                         },
                         "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -13048,7 +13069,8 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value"
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
                     "minContains": 0,
@@ -15453,6 +15475,16 @@
                 "const": "EDS Detection Limit"
               },
               "schema:value": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "schema:unitText": {
                 "type": "string"
               }
             },
@@ -15461,7 +15493,8 @@
               "@type",
               "schema:propertyID",
               "schema:name",
-              "schema:value"
+              "schema:value",
+              "schema:unitText"
             ]
           },
           "minContains": 0,
@@ -17320,7 +17353,7 @@
                       },
                       "then": {
                         "title": "TEM Technique-Aligned Protocol Profile (temTAPP)",
-                        "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from tapp/Current TAPPs/TEM_TAPP_v21.csv by tools/build_tapp.py.",
+                        "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from tapp/Current TAPPs/TEM_TAPP_v22.csv by tools/build_tapp.py.",
                         "allOf": [
                           {
                             "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
@@ -21134,7 +21167,7 @@
                                           "const": "EDS Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -21144,6 +21177,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -22185,7 +22221,7 @@
                                           "const": "EDS Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -22195,6 +22231,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -22731,7 +22770,7 @@
                                           "const": "EDS Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -22741,6 +22780,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -22776,7 +22818,7 @@
                                           "const": "EDS Detection Limit"
                                         },
                                         "ada:dataType": {
-                                          "const": "string"
+                                          "const": "number"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -22786,6 +22828,9 @@
                                         },
                                         "ada:tier": {
                                           "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
                                         }
                                       },
                                       "required": [

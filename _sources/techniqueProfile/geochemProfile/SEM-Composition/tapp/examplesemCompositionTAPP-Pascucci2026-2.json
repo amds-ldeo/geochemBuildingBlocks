@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Pascucci2026-2",
-  "schema:description": "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy)",
+  "schema:description": "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images Reported detail: ada:edsAcquisitionMode = Element mapping.",
   "schema:object": [
     {
       "@type": [
@@ -165,8 +165,9 @@
       "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
     }
   ],
-  "ada:edsAcquisitionMode": "N/A",
-  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
+  "ada:edsAcquisitionMode": "Map",
+  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
+  "ada:stepSizePixelSizeDefault": "2.5 µm",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -196,7 +197,7 @@
     }
   ],
   "ada:analyticalMode": [
-    "Spot analysis"
+    "EDS Mapping"
   ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
@@ -207,7 +208,7 @@
       "S",
       "Na",
       "Ca",
-      "Al"
+      "Al (element mapping)"
     ],
     "ada:analyteColumns": [
       {
@@ -377,7 +378,6 @@
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:samplingUnit": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
