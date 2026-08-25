@@ -419,9 +419,6 @@
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2, AGV-2, BHVO-2, GS-N and other terrestrial rocks"
   ],
-  "ada:reportedProperties": [
-    "\u03b487Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard \u2212 1] x 1000"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -439,6 +436,9 @@
   "ada:samplingUnit": "Weighed powder aliquot \u2014 \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "\u03b487Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard \u2212 1] x 1000"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "N/A \u2014 Rb has two stable isotopes; bracketing used instead",
   "ada:chromatographicSeparationApplied": "Yes \u2014 DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005",
@@ -462,25 +462,6 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -501,6 +482,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

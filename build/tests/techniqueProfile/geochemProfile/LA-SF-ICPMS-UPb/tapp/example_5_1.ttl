@@ -15,9 +15,8 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault>,
@@ -28,8 +27,9 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Mittlefehldt" ] ;
@@ -67,8 +67,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferingSpecies>,
@@ -76,7 +74,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "²⁵Mg",
                 "²⁷Al",
@@ -133,17 +130,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -183,11 +169,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;

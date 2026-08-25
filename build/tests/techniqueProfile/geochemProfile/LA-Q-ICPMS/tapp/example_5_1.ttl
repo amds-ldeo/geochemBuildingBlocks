@@ -19,6 +19,7 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/normalizationStandardsBasedCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
@@ -27,7 +28,8 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectionLimitDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:datePublished "missing" ;
     schema1:description "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume" ;
     schema1:instrument <https://example.org/instrument/ICPMS>,
@@ -44,13 +46,13 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
                     schema1:value "Martian meteorite (Tissint) silicates, oxides, and glass: olivine, low-Ca pyroxene, augite, maskelynite, Fe-Ti-Cr oxides, shock melt glass, fusion crust" ],
                 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified" ;
                     schema1:name "EPMA (EMP)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
@@ -78,6 +80,21 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
             ada:toolRole "dataReduction" ] .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3 ;
+    schema1:description "Referenced in Table 3 and Table S1; specific values not directly stated in main text; REE in olivines below detection limits at 24–32 µm conditions" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/normalizationStandardsBasedCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "100% oxide total normalization applied per analysis for silicates and oxides; NIST 610 used for external calibration before and after session" ;
+    schema1:name "Normalization / Standards-Based Correction" ;
+    schema1:valueName "normalizationStandardsBasedCorrectionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "In situ — polished thin section (Tissint sections: Tata-2-C3, Tata-3-C2, UT1, UT3)" ;

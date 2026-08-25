@@ -198,6 +198,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
@@ -380,6 +381,38 @@ allOf:
                 - schema:name
                 - schema:value
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+              - title: Detection Limit
+                description: "Session detection limit, one per reported concentration
+                  variable (one per analyte, these being the same set), expressed
+                  in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                  at analysis level to demonstrate the reliability of reported near-detection-limit
+                  concentrations. The calculation method is captured separately in
+                  Detection Limit Method."
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laMcicpmsTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laMcicpmsTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio
               - title: Mapping Area
                 description: "Total area covered by the 2D raster map, expressed as
@@ -478,7 +511,6 @@ allOf:
                 - schema:value
                 - schema:unitText
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
               - title: Signal Integration Time
                 description: 'Actual integration time used for the ablation signal
                   in this analysis, in seconds. This is an analysis-level outcome
@@ -616,6 +648,41 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
+                title: Detection Limit
+                description: "Session detection limit, one per reported concentration
+                  variable (one per analyte, these being the same set), expressed
+                  in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                  at analysis level to demonstrate the reliability of reported near-detection-limit
+                  concentrations. The calculation method is captured separately in
+                  Detection Limit Method."
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laMcicpmsTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laMcicpmsTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              minContains: 0
+              maxContains: 1
+            - contains:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio
               minContains: 0
               maxContains: 1
@@ -732,10 +799,6 @@ allOf:
               maxContains: 1
             - contains:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
-              minContains: 0
-              maxContains: 1
-            - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
               minContains: 0
               maxContains: 1
             - contains:
@@ -2014,6 +2077,84 @@ allOf:
                   - if:
                       properties:
                         schema:name:
+                          const: Sample preparation
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            anyOf:
+                            - title: Fusion Flux and Dilution Ratio
+                              description: For procedures using fused glass, the flux
+                                type and sample:flux dilution ratio used to prepare
+                                the analytical glass.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
+                                schema:name:
+                                  const: Fusion Flux and Dilution Ratio
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_preAblationSurfaceTreatment
+                          allOf:
+                          - contains:
+                              title: Fusion Flux and Dilution Ratio
+                              description: For procedures using fused glass, the flux
+                                type and sample:flux dilution ratio used to prepare
+                                the analytical glass.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
+                                schema:name:
+                                  const: Fusion Flux and Dilution Ratio
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_preAblationSurfaceTreatment
+                            minContains: 0
+                            maxContains: 1
+                        schema:description:
+                          description: Description of how samples were prepared for
+                            analysis (mounting, polishing, coating, fusion procedure,
+                            etc.).
+                          anyOf:
+                          - type: string
+                          - type: array
+                            items:
+                              type: string
+                  - if:
+                      properties:
+                        schema:name:
                           const: Data reduction
                       required:
                       - schema:name
@@ -2023,7 +2164,33 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
+                            - title: Normalization / Standards-Based Correction
+                              description: Any post-acquisition normalization applied
+                                to correct for systematic biases identified from secondary
+                                reference materials, or stoichiometric normalization
+                                applied per pixel in mapping. Distinct from the primary
+                                internal standard approach captured in Internal Standard
+                                Approach.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
                             - title: Signal Smoothing
                               description: 'Description of any signal smoothing device
                                 or approach installed between the ablation cell and
@@ -2111,7 +2278,33 @@ allOf:
                               - schema:value
                           allOf:
                           - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
+                              title: Normalization / Standards-Based Correction
+                              description: Any post-acquisition normalization applied
+                                to correct for systematic biases identified from secondary
+                                reference materials, or stoichiometric normalization
+                                applied per pixel in mapping. Distinct from the primary
+                                internal standard approach captured in Internal Standard
+                                Approach.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -2208,97 +2401,23 @@ allOf:
                               - schema:value
                             minContains: 0
                             maxContains: 1
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Sample preparation
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            anyOf:
-                            - title: Fusion Flux and Dilution Ratio
-                              description: For procedures using fused glass, the flux
-                                type and sample:flux dilution ratio used to prepare
-                                the analytical glass.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
-                                schema:name:
-                                  const: Fusion Flux and Dilution Ratio
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_preAblationSurfaceTreatment
-                          allOf:
-                          - contains:
-                              title: Fusion Flux and Dilution Ratio
-                              description: For procedures using fused glass, the flux
-                                type and sample:flux dilution ratio used to prepare
-                                the analytical glass.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
-                                schema:name:
-                                  const: Fusion Flux and Dilution Ratio
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_preAblationSurfaceTreatment
-                            minContains: 0
-                            maxContains: 1
-                        schema:description:
-                          description: Description of how samples were prepared for
-                            analysis (mounting, polishing, coating, fusion procedure,
-                            etc.).
-                          anyOf:
-                          - type: string
-                          - type: array
-                            items:
-                              type: string
                 allOf:
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Data reduction
-                    required:
-                    - schema:name
                 - contains:
                     properties:
                       schema:name:
                         const: Sample preparation
                     required:
                     - schema:name
+          ada:proceduralBlankLevel:
+            description: "The measured level of the analytical blank in the session,
+              and \u2014 where the reported quantity is a ratio \u2014 its composition,
+              since a blank subtracted from a ratio biases the result unless its own
+              composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows
+              the criterion-versus-measurement split the library applies wherever
+              a procedure sets a threshold and an analysis reports a value against
+              it."
+            type: string
     schema:variableMeasured:
       type: array
       items:
@@ -2318,35 +2437,6 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
         - title: Detection Limit
           description: "Session detection limit, one per reported concentration variable
             (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
@@ -2379,6 +2469,31 @@ allOf:
           - schema:name
           - schema:value
           - schema:unitText
+        - title: Detection Limit Method
+          description: Reference or description of the method used to calculate session
+            detection limits. Mandatory at analysis level. Must be consistent with
+            the method applied to generate the Detection Limit values reported above.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
         - title: Limit of Quantification (LOQ) Method
           description: 'Reference or description of the method used to calculate the
             limit of quantification (LOQ): the lowest concentration reliably measurable
@@ -2462,38 +2577,6 @@ allOf:
           - schema:value
       allOf:
       - contains:
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: Detection Limit
           description: "Session detection limit, one per reported concentration variable
             (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
@@ -2526,6 +2609,34 @@ allOf:
           - schema:name
           - schema:value
           - schema:unitText
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit Method
+          description: Reference or description of the method used to calculate session
+            detection limits. Mandatory at analysis level. Must be consistent with
+            the method applied to generate the Detection Limit values reported above.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
         minContains: 0
         maxContains: 1
       - contains:

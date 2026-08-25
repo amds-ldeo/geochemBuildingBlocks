@@ -425,9 +425,6 @@
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2 and BCR-2"
   ],
-  "ada:reportedProperties": [
-    "\u00b5-notation Fe isotope ratios relative to IRMM-524a"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -458,6 +455,9 @@
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u00b5-notation Fe isotope ratios relative to IRMM-524a"
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549, the certified ratios of IRMM-014",
   "ada:chromatographicSeparationApplied": "Yes \u2014 AG1-X8 (200-400 mesh) anion resin, 3 ml, 10.5 cm PFA columns; repeated with new resin. Overall Fe yield >99%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -481,25 +481,6 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -520,6 +501,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

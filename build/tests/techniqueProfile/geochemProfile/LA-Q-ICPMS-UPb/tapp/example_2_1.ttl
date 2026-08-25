@@ -19,7 +19,8 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
                         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "Pettke (2012) for most elements: LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S); LOQ for pollution elements = blank value + 10SD (IUPAC Gold Book)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/fusionFluxAndDilutionRatioDefault>,
@@ -33,7 +34,8 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectionLimitDefault>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Xue, Li, Wang et al." ] ;
     schema1:datePublished "missing" ;
@@ -72,15 +74,12 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "²³²Th",
                 "²³⁸U (32 trace elements)",
@@ -151,17 +150,6 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -197,11 +185,6 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
@@ -213,6 +196,14 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     schema1:description "Plasma gas flow: 15 l min⁻¹; Auxiliary gas: 0.85 l min⁻¹" ;
     schema1:name "Coolant (Plasma) Gas Flow Rate" ;
     schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 32 ;
+    schema1:description "LODs for 32 elements in Li-borate glass BHVO-2: 0.005–23.5 µg g⁻¹ (dilution-limited; much higher than undiluted glass LODs); LODs for NIST 610: 0.007–0.45 µg g⁻¹; LOQ = 3.3 × LOD (Pettke 2012) for most elements; LOQ for pollution elements = blank + 10SD (Gold Book IUPAC)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 

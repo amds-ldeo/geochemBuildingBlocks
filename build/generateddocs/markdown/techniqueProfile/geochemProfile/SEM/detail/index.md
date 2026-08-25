@@ -4602,6 +4602,7 @@ description: Dataset-level analysis-instance detail for SEM (superset), reusing 
   slots on the schema:Dataset root.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
@@ -4805,6 +4806,30 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+              - title: Detection Limit
+                description: Method detection limit at 99% confidence, one per reported
+                  concentration variable (one per analyte, these being the same set).
+                  Include the method used and the resulting value for each.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/semTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/semTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
               - title: Drift Correction
                 description: 'Describes whether and how stage or beam drift was monitored
                   and corrected during the measurement session. Examples: periodic
@@ -5000,7 +5025,6 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
               - title: Step Size / Pixel Size
                 description: "Centre-to-centre distance between adjacent measurement
                   points (WDS mapping) or pixels (EDS mapping) in \xB5m. Defines the
@@ -5276,6 +5300,33 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
+                title: Detection Limit
+                description: Method detection limit at 99% confidence, one per reported
+                  concentration variable (one per analyte, these being the same set).
+                  Include the method used and the resulting value for each.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/semTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/semTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              minContains: 0
+              maxContains: 1
+            - contains:
                 title: Drift Correction
                 description: 'Describes whether and how stage or beam drift was monitored
                   and corrected during the measurement session. Examples: periodic
@@ -5489,10 +5540,6 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              minContains: 0
-              maxContains: 1
-            - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
               minContains: 0
               maxContains: 1
             - contains:
@@ -5987,6 +6034,30 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
+                            - title: Normalization / Standards-Based Correction
+                              description: Post-acquisition normalization applied
+                                using secondary reference materials to correct for
+                                session-to-session calibration drift.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
                           allOf:
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
@@ -6008,6 +6079,33 @@ allOf:
                                   - '@id': ada:parameter/semTAPP/crystalStructureDatabase
                                 schema:name:
                                   const: Crystal Structure Database
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              title: Normalization / Standards-Based Correction
+                              description: Post-acquisition normalization applied
+                                using secondary reference materials to correct for
+                                session-to-session calibration drift.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
                                 schema:value:
                                   type: string
                               required:
@@ -6055,14 +6153,7 @@ allOf:
                         const: Ion Milling
                     required:
                     - schema:name
-          ada:ebsdIndexingRate:
-            description: Fraction of EBSD map points successfully indexed, expressed
-              as a percentage of total map points. Low indexing rate may indicate
-              surface damage, amorphisation, severe deformation, or phase misidentification.
-            anyOf:
-            - type: number
-            - type: string
-          ada:deadTime:
+          ada:edsDeadTime:
             description: "Percent dead time reported by the EDS detector during the
               session \u2014 the fraction of total acquisition time the detector spent
               processing rather than counting. EDS dead time correction is managed
@@ -6232,6 +6323,16 @@ allOf:
                       const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                 required:
                 - '@type'
+          ada:proceduralBlankLevel:
+            description: "The measured level of the analytical blank in the session,
+              and \u2014 where the reported quantity is a ratio \u2014 its composition,
+              since a blank subtracted from a ratio biases the result unless its own
+              composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows
+              the criterion-versus-measurement split the library applies wherever
+              a procedure sets a threshold and an analysis reports a value against
+              it."
+            type: string
     schema:variableMeasured:
       type: array
       items:
@@ -6251,35 +6352,6 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
         - title: Detection Limit
           description: Method detection limit at 99% confidence, one per reported
             concentration variable (one per analyte, these being the same set). Include
@@ -6353,38 +6425,6 @@ allOf:
           - schema:name
           - schema:value
       allOf:
-      - contains:
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
       - contains:
           title: Detection Limit
           description: Method detection limit at 99% confidence, one per reported
@@ -6474,7 +6514,38 @@ allOf:
         - if:
             properties:
               dqv:isMeasurementOf:
+                const: EBSD Indexing Rate
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Fraction of EBSD map points successfully indexed, expressed
+                  as a percentage of total map points. Low indexing rate may indicate
+                  surface damage, amorphisation, severe deformation, or phase misidentification.
+                anyOf:
+                - type: number
+                - type: string
+        - if:
+            properties:
+              dqv:isMeasurementOf:
                 const: EBSD Mean Angular Deviation
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Mean angular deviation (MAD) of the EBSD pattern indexing
+                  solution in degrees. MAD quantifies the misfit between experimental
+                  Kikuchi band positions and the best-fit crystal orientation. Values
+                  above ~1.5 degrees typically indicate unreliable indexing.
+                anyOf:
+                - type: number
+                - type: string
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: EBSD Pattern Quality Threshold
             required:
             - dqv:isMeasurementOf
           then:
@@ -6490,6 +6561,12 @@ allOf:
                   items:
                     type: string
       allOf:
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: EBSD Indexing Rate
+          required:
+          - dqv:isMeasurementOf
       - contains:
           properties:
             dqv:isMeasurementOf:

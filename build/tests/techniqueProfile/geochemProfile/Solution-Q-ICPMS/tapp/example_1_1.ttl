@@ -15,21 +15,14 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder (50 mg; stated section 3.3)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -40,7 +33,14 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Step 1: conc. HNO3 (1 ml) + conc. HF (1 ml); Steps 2-3: conc. HNO3 fuming to dryness (twice); Step 4: HNO3 (1.5 ml) + ultra-pure water (2.5 ml); stated section 3.3" ] ] ] ;
+                            schema1:name "Step 1: conc. HNO3 (1 ml) + conc. HF (1 ml); Steps 2-3: conc. HNO3 fuming to dryness (twice); Step 4: HNO3 (1.5 ml) + ultra-pure water (2.5 ml); stated section 3.3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1); ada:perAnalyteCalibrationStrategy = External calibration (all analytes; stated section 3.1)." ;
@@ -56,6 +56,8 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Geological reference materials (basalt, andesite, granite, shale); upper continental crust samples (stated abstract)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -66,8 +68,6 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "48 trace elements: Li",
@@ -136,17 +136,6 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;

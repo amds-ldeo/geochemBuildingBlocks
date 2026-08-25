@@ -529,9 +529,6 @@
   "ada:secondaryReferenceMaterialDefault": [
     "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
   ],
-  "ada:reportedProperties": [
-    "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -563,6 +560,9 @@
   "ada:analyticalMode": [
     "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\""
   ],
+  "ada:reportedProperties": [
+    "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]"
+  ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.1)",
   "ada:isotopeDilutionSpike": "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)",
   "ada:finalSolutionMatrix": "0.5 mol/l HF (stated section 2.1.1)",
@@ -590,25 +590,6 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -650,6 +631,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:numberOfReplicatesPerSample": -9999,

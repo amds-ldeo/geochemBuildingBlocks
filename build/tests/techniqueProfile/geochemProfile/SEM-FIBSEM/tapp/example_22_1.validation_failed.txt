@@ -1,5 +1,5 @@
 Validation report for ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp - FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
-Generated 2026-08-24T23:50:04.146103+00:00
+Generated 2026-08-25T15:49:52.349862+00:00
 === Files ===
 Using examplesemFibsemTAPP-Zhou2017.json from examples
 JSON-LD context is present - uplifting
@@ -8,7 +8,15 @@ Output Turtle example_22_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-Validation passed
+
+** Validation error **
+ValidationError: 'Sequential FIB-SEM tomography (serial cross-section imaging)' is not one of ['TEM Sample Preparation', '3D Tomography']
+
+Failed validating 'enum' in schema['allOf'][3]['properties']['ada:analyticalMode']['items']:
+    {'enum': ['TEM Sample Preparation', '3D Tomography'], 'type': 'string'}
+
+On instance['ada:analyticalMode'][0]:
+    'Sequential FIB-SEM tomography (serial cross-section imaging)'
 === End JSON Schema ===
 
 === SHACL ===

@@ -14,25 +14,27 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb + 1/Na)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; HELEX II two-volume cell; C-coated for SEM then coating removed before LA" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -73,8 +75,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferingSpecies>,
@@ -82,7 +82,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "²⁵Mg",
                 "²⁷Al",
@@ -134,17 +133,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -186,11 +174,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
@@ -202,6 +185,14 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:description "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.81 l min⁻¹ (mapping)" ;
     schema1:name "Coolant (Plasma) Gas Flow Rate" ;
     schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:description "LODs reported in Table E1 (Appendix E) for 2D mapping: average of all individual pixel LODs (Na=1, Nb=10 per Longerich et al. 1996)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 

@@ -283,9 +283,6 @@
   ],
   "ada:primaryStandardNameDefault": "OL-REE series",
   "ada:calibrationMeasurementFrequency": "Every sample, spaced by 300 s rinsing",
-  "ada:reportedProperties": [
-    "Mass-dependent REE isotopic fractionation relative to the OL-REE standards, in delta notation"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -303,6 +300,9 @@
   "ada:samplingUnit": "Fraction of a CAI digestion \u2014 \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "Mass-dependent REE isotopic fractionation relative to the OL-REE standards, in delta notation"
   ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 U/TEVA, TODGA, then two-step FPLC on Ln-Spec resin (70 cm x 1.6 mm, 1.4 ml of 25\u201350 \u00b5m resin, 94 steps, 188 ml, 16 h at 70 \u00b0C, 0.17 ml/min). Overall yields >95%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -334,25 +334,6 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -373,6 +354,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",

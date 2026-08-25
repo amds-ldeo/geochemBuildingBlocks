@@ -36,9 +36,8 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -75,9 +74,8 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -94,11 +92,10 @@ ex:detail-Garvie2008 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -134,9 +131,8 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -173,9 +169,8 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -192,11 +187,10 @@ ex:detail-Garvie2008-2 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -232,9 +226,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -271,9 +264,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -290,11 +282,10 @@ ex:detail-Genge2025 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -330,9 +321,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -369,9 +359,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -388,11 +377,10 @@ ex:detail-Genge2025-2 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -428,9 +416,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -467,9 +454,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -486,11 +472,10 @@ ex:detail-Genge2025-3 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -526,9 +511,8 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -565,9 +549,8 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -584,11 +567,10 @@ ex:detail-Gucsik2013 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -624,9 +606,8 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -663,9 +644,8 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -682,11 +662,10 @@ ex:detail-Gucsik2013-2 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -722,9 +701,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -761,9 +739,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -780,11 +757,10 @@ ex:detail-Izawa2010 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -820,9 +796,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -859,9 +834,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -878,11 +852,10 @@ ex:detail-Izawa2010-2 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -918,9 +891,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -957,9 +929,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -976,11 +947,10 @@ ex:detail-Izawa2010-3 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1016,9 +986,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1055,9 +1024,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1074,11 +1042,10 @@ ex:detail-Izawa2010-4 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1114,9 +1081,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1153,9 +1119,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1172,11 +1137,10 @@ ex:detail-Izawa2010-5 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1212,9 +1176,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1251,9 +1214,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1270,11 +1232,10 @@ ex:detail-Liu2017 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1310,9 +1271,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1349,9 +1309,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1368,11 +1327,10 @@ ex:detail-Liu2017-2 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1408,9 +1366,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1447,9 +1404,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1466,11 +1422,10 @@ ex:detail-Liu2017-3 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1506,9 +1461,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1545,9 +1499,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1564,11 +1517,10 @@ ex:detail-Ma2017 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "Section 126A (USNM 7908)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1604,9 +1556,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": 0.3,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": 0.3,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1643,9 +1594,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": 0.3,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": 0.3,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1662,11 +1612,10 @@ ex:detail-Ma2017-2 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation 3e-01 ;
     ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation 3e-01 ;
     ada:sampleName "Section 126A (USNM 7908)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1702,9 +1651,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1741,9 +1689,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1760,11 +1707,10 @@ ex:detail-Pascucci2026 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1800,9 +1746,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1839,9 +1784,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1858,11 +1802,10 @@ ex:detail-Pascucci2026-2 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1898,9 +1841,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -1937,9 +1879,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -1956,11 +1897,10 @@ ex:detail-Pascucci2026-3 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -1996,9 +1936,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2035,9 +1974,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2054,11 +1992,10 @@ ex:detail-Pascucci2026-4 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2094,9 +2031,8 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:sampleName": "SC; HBC",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2133,9 +2069,8 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:sampleName": "SC; HBC",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2152,11 +2087,10 @@ ex:detail-Zhou2017 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "SC; HBC" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2192,9 +2126,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2231,9 +2164,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2250,11 +2182,10 @@ ex:detail-Zega2025 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2290,9 +2221,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2329,9 +2259,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2348,11 +2277,10 @@ ex:detail-Zega2025-2 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2388,9 +2316,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2427,9 +2354,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2446,11 +2372,10 @@ ex:detail-Zega2025-3 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2486,9 +2411,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2525,9 +2449,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2544,11 +2467,10 @@ ex:detail-Zega2025-4 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2584,9 +2506,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2623,9 +2544,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2642,11 +2562,10 @@ ex:detail-Zega2025-5 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2682,9 +2601,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2721,9 +2639,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2740,11 +2657,10 @@ ex:detail-Zega2025-6 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2780,9 +2696,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2819,9 +2734,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2838,11 +2752,10 @@ ex:detail-Zega2025-7 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2878,9 +2791,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -2917,9 +2829,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -2936,11 +2847,10 @@ ex:detail-Zega2025-8 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -2976,9 +2886,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -3015,9 +2924,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -3034,11 +2942,10 @@ ex:detail-Zega2025-9 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -3074,9 +2981,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:sampleName": "OREX-501018-100",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -3113,9 +3019,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:sampleName": "OREX-501018-100",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -3132,11 +3037,10 @@ ex:detail-Barnes2025 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "OREX-501018-100" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -3172,9 +3076,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -3211,9 +3114,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -3230,11 +3132,10 @@ ex:detail-Barnes2025-2 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -3270,9 +3171,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -3309,9 +3209,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -3328,11 +3227,10 @@ ex:detail-Barnes2025-3 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -3368,9 +3266,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 
 ```
@@ -3407,9 +3304,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:sampleName": "missing",
   "ada:samplingUnit": "missing",
   "ada:imagePixelSize": -9999,
-  "ada:meanAngularDeviation": -9999,
-  "ada:indexingRate": -9999,
-  "ada:indexingMethod": "missing"
+  "ada:ebsdMeanAngularDeviation": -9999,
+  "ada:ebsdIndexingRate": -9999
 }
 ```
 
@@ -3426,11 +3322,10 @@ ex:detail-Barnes2025-4 a ada:SEMImage ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:SEMImage" ;
+    ada:ebsdIndexingRate -9999 ;
+    ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:indexingMethod "missing" ;
-    ada:indexingRate -9999 ;
-    ada:meanAngularDeviation -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
@@ -4207,44 +4102,73 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:indexingMethod:
-      description: Algorithm used to index EBSD diffraction patterns and assign crystal
-        orientations. Hough-transform methods fit Kikuchi band positions analytically;
-        dictionary indexing (DI) matches experimental patterns to a pre-computed library
-        of simulated patterns.
-      type: string
-      enum:
-      - Hough transform
-      - Dictionary indexing (DI)
-      - Neural network
-      - Unknown
-      - N/A
-      - None
-      - missing
-    ada:patternQualityThreshold:
-      description: Minimum pattern quality or confidence index threshold applied during
-        EBSD data processing to exclude unreliably indexed points from orientation
-        maps. Include metric name and threshold value.
-      type: string
-    ada:meanAngularDeviation:
-      description: Mean angular deviation (MAD) of the EBSD pattern indexing solution
-        in degrees. MAD quantifies the misfit between experimental Kikuchi band positions
-        and the best-fit crystal orientation. Values above ~1.5 degrees typically
-        indicate unreliable indexing.
-      anyOf:
-      - type: number
-      - type: string
-    ada:indexingRate:
-      description: Fraction of EBSD map points successfully indexed, expressed as
-        a percentage of total map points. Low indexing rate may indicate surface damage,
-        amorphisation, severe deformation, or phase misidentification.
-      anyOf:
-      - type: number
-      - type: string
-  required:
-  - ada:indexingMethod
-  - ada:meanAngularDeviation
-  - ada:indexingRate
+    dqv:hasQualityMeasurement:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: EBSD Pattern Quality Threshold
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Minimum pattern quality or confidence index threshold
+                  applied during EBSD data processing to exclude unreliably indexed
+                  points from orientation maps. Include metric name and threshold
+                  value.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: EBSD Mean Angular Deviation
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Mean angular deviation (MAD) of the EBSD pattern indexing
+                  solution in degrees. MAD quantifies the misfit between experimental
+                  Kikuchi band positions and the best-fit crystal orientation. Values
+                  above ~1.5 degrees typically indicate unreliable indexing.
+                anyOf:
+                - type: number
+                - type: string
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: EBSD Indexing Rate
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Fraction of EBSD map points successfully indexed, expressed
+                  as a percentage of total map points. Low indexing rate may indicate
+                  surface damage, amorphisation, severe deformation, or phase misidentification.
+                anyOf:
+                - type: number
+                - type: string
+      allOf:
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: EBSD Mean Angular Deviation
+          required:
+          - dqv:isMeasurementOf
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: EBSD Indexing Rate
+          required:
+          - dqv:isMeasurementOf
 
 ```
 

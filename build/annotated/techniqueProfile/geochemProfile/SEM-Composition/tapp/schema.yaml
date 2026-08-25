@@ -7,6 +7,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
@@ -121,9 +122,72 @@ allOf:
                     type: array
                     items:
                       anyOf:
+                      - title: Normalization / Standards-Based Correction
+                        description: Post-acquisition normalization applied using
+                          secondary reference materials to correct for session-to-session
+                          calibration drift.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: normalizationStandardsBasedCorrectionDefault
+                          schema:name:
+                            const: Normalization / Standards-Based Correction
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
+                    - contains:
+                        title: Normalization / Standards-Based Correction
+                        description: Post-acquisition normalization applied using
+                          secondary reference materials to correct for session-to-session
+                          calibration drift.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: normalizationStandardsBasedCorrectionDefault
+                          schema:name:
+                            const: Normalization / Standards-Based Correction
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      minContains: 0
+                      maxContains: 1
                     - contains:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
@@ -132,6 +196,15 @@ allOf:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
+                  ada:detectionLimitMethod:
+                    description: Formula or approach used to calculate detection limits.
+                    anyOf:
+                    - type: string
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        readOnly: true
           allOf:
           - contains:
               properties:
@@ -1584,6 +1657,36 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
+        - title: Detection Limit
+          description: Method detection limit at 99% confidence, one per reported
+            concentration variable (one per analyte, these being the same set). Include
+            the method used and the resulting value for each.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
       - contains:
           title: Beam Raster Dimensions
@@ -1822,6 +1925,39 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: Method detection limit at 99% confidence, one per reported
+            concentration variable (one per analyte, these being the same set). Include
+            the method used and the resulting value for each.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         minContains: 0
         maxContains: 1
     ada:channelTemplate:
@@ -2620,40 +2756,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: Detection Limit
           description: Method detection limit at 99% confidence, one per reported
             concentration variable (one per analyte, these being the same set). Include
@@ -2684,35 +2786,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: true
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-          readOnly: true
         - title: Goodness-of-Fit or Dispersion Statistic
           description: The statistic reported to show whether scatter among the contributing
             analyses exceeds what analytical uncertainty alone predicts, together
@@ -2780,43 +2853,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: Detection Limit
           description: Method detection limit at 99% confidence, one per reported
             concentration variable (one per analyte, these being the same set). Include
@@ -2847,38 +2883,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: true
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-          readOnly: true
         minContains: 0
         maxContains: 1
       - contains:
@@ -2937,6 +2941,15 @@ allOf:
       - None
       - missing
       readOnly: true
+    ada:analyticalMode:
+      type: array
+      items:
+        type: string
+        enum:
+        - EDS Point Analysis
+        - EDS Mapping
+        - WDS Point Analysis
+        - WDS Mapping
   required:
   - ada:edsAcquisitionMode
   - ada:edsLiveTimePerPointOrPixelDefault

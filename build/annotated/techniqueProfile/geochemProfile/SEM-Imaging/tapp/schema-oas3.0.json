@@ -14902,6 +14902,40 @@
                     },
                     "then": {
                       "properties": {
+                        "ada:ebsdIndexingMethod": {
+                          "description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "Hough transform",
+                                "Dictionary indexing (DI)",
+                                "Neural network",
+                                "Unknown",
+                                "N/A",
+                                "None",
+                                "missing"
+                              ],
+                              "readOnly": true
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "Hough transform",
+                                  "Dictionary indexing (DI)",
+                                  "Neural network",
+                                  "Unknown",
+                                  "N/A",
+                                  "None",
+                                  "missing"
+                                ],
+                                "readOnly": true
+                              }
+                            }
+                          ]
+                        },
                         "schema:additionalProperty": {
                           "type": "array",
                           "items": {
@@ -16195,6 +16229,59 @@
         "ada:ebsdPhaseListDefault": {
           "description": "Mineral phases included in the EBSD reference pattern library for this procedure. The procedure specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
           "type": "string"
+        },
+        "dqv:hasQualityMeasurement": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "dqv:isMeasurementOf": {
+                      "enum": [
+                        "EBSD Pattern Quality Threshold"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "dqv:isMeasurementOf"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "dqv:value": {
+                      "description": "Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "SE Imaging",
+              "BSE Imaging",
+              "CL Point Analysis",
+              "CL Mapping",
+              "EBSD"
+            ]
+          }
         }
       },
       "required": [

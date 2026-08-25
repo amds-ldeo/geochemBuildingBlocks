@@ -4,6 +4,7 @@ description: Dataset-level analysis-instance detail for SEM composition (EDS/WDS
   reusing CDIF/schema.org slots on the schema:Dataset root.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
@@ -54,8 +55,60 @@ allOf:
                         schema:additionalProperty:
                           type: array
                           items:
-                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                            anyOf:
+                            - title: Normalization / Standards-Based Correction
+                              description: Post-acquisition normalization applied
+                                using secondary reference materials to correct for
+                                session-to-session calibration drift.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
+                          - contains:
+                              title: Normalization / Standards-Based Correction
+                              description: Post-acquisition normalization applied
+                                using secondary reference materials to correct for
+                                session-to-session calibration drift.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             minContains: 0
@@ -278,7 +331,30 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+              - title: Detection Limit
+                description: Method detection limit at 99% confidence, one per reported
+                  concentration variable (one per analyte, these being the same set).
+                  Include the method used and the resulting value for each.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/semCompositionTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/semCompositionTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
             allOf:
             - contains:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
@@ -506,7 +582,30 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+                title: Detection Limit
+                description: Method detection limit at 99% confidence, one per reported
+                  concentration variable (one per analyte, these being the same set).
+                  Include the method used and the resulting value for each.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/semCompositionTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/semCompositionTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
               minContains: 0
               maxContains: 1
           schema:object:
@@ -778,6 +877,16 @@ allOf:
                               schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
+          ada:proceduralBlankLevel:
+            description: "The measured level of the analytical blank in the session,
+              and \u2014 where the reported quantity is a ratio \u2014 its composition,
+              since a blank subtracted from a ratio biases the result unless its own
+              composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows
+              the criterion-versus-measurement split the library applies wherever
+              a procedure sets a threshold and an analysis reports a value against
+              it."
+            type: string
           ada:deadTime:
             description: "Percent dead time reported by the EDS detector during the
               session \u2014 the fraction of total acquisition time the detector spent
@@ -908,35 +1017,6 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-        - title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
         - title: Detection Limit
           description: Method detection limit at 99% confidence, one per reported
             concentration variable (one per analyte, these being the same set). Include
@@ -1003,38 +1083,6 @@ allOf:
               - '@id': ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection
             schema:name:
               const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
             schema:value:
               type: string
           required:

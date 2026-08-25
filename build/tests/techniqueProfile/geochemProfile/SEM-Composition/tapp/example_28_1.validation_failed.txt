@@ -1,5 +1,5 @@
 Validation report for ogch.techniqueProfile.geochemProfile.SEM-Composition.tapp - SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)
-Generated 2026-08-24T23:50:00.035580+00:00
+Generated 2026-08-25T15:49:48.173341+00:00
 === Files ===
 Using examplesemCompositionTAPP-Zega2025-6.json from examples
 JSON-LD context is present - uplifting
@@ -8,7 +8,19 @@ Output Turtle example_28_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-Validation passed
+
+** Validation error **
+ValidationError: 'In-situ FIB lift-out; cross-section lamella preparation for TEM' is not one of ['EDS Point Analysis', 'EDS Mapping', 'WDS Point Analysis', 'WDS Mapping']
+
+Failed validating 'enum' in schema['allOf'][5]['properties']['ada:analyticalMode']['items']:
+    {'enum': ['EDS Point Analysis',
+              'EDS Mapping',
+              'WDS Point Analysis',
+              'WDS Mapping'],
+     'type': 'string'}
+
+On instance['ada:analyticalMode'][0]:
+    'In-situ FIB lift-out; cross-section lamella preparation for TEM'
 === End JSON Schema ===
 
 === SHACL ===

@@ -269,25 +269,6 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
       "@id": "ada:parameter/semTAPP/detectionLimit",
       "@type": [
         "schema:PropertyValue",
@@ -352,6 +333,23 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:name": "Goodness-of-Fit or Dispersion Statistic",
       "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -512,7 +510,15 @@ and technique component types on the archive distribution. Mock data for validat
   },
   "dqv:hasQualityMeasurement": [
     {
+      "dqv:isMeasurementOf": "EBSD Indexing Rate",
+      "dqv:value": 1.0
+    },
+    {
       "dqv:isMeasurementOf": "EBSD Mean Angular Deviation",
+      "dqv:value": 1.0
+    },
+    {
+      "dqv:isMeasurementOf": "EBSD Pattern Quality Threshold",
       "dqv:value": "example ebsdPatternQualityThreshold"
     },
     {

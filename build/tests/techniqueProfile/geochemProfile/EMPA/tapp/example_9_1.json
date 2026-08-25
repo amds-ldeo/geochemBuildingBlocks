@@ -105,6 +105,19 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Better than 0.02 wt% (as stated in paper)"
+    }
+  ],
   "ada:matrixCorrectionMethod": "ZAF",
   "schema:actionProcess": {
     "schema:step": [
@@ -350,7 +363,6 @@
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",

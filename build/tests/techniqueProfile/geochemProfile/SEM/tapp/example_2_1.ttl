@@ -15,15 +15,15 @@ ex:semTAPP-Garvie2008-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion Milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -57,11 +57,11 @@ ex:semTAPP-Garvie2008-2 a cdi:Activity,
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
-    ada:liftOutMethod "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
@@ -72,6 +72,7 @@ ex:semTAPP-Garvie2008-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
+    schema1:description "FIB-SEM dual-beam" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -80,7 +81,8 @@ ex:semTAPP-Garvie2008-2 a cdi:Activity,
             schema1:name "FEI / Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nova 200 NanoLab DualBeam" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "example instrumentName" ;
+    ada:ionBeamSource "Gallium LMIS (Ga+)" .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;

@@ -7,6 +7,9 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/AnalysisIdentification"
     },
     {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/AnalysisIdentification"
+    },
+    {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.json#/$defs/AnalysisIdentification"
     },
     {
@@ -206,9 +209,6 @@
                                         "schema:name",
                                         "schema:value"
                                       ]
-                                    },
-                                    {
-                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod"
                                     }
                                   ]
                                 },
@@ -290,13 +290,6 @@
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod"
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
                                   }
                                 ]
                               }
@@ -337,18 +330,6 @@
                       ]
                     },
                     "allOf": [
-                      {
-                        "contains": {
-                          "properties": {
-                            "schema:name": {
-                              "const": "Data Reduction"
-                            }
-                          },
-                          "required": [
-                            "schema:name"
-                          ]
-                        }
-                      },
                       {
                         "contains": {
                           "properties": {
@@ -3130,46 +3111,6 @@
             "type": "object"
           },
           "allOf": [
-            {
-              "contains": {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
             {
               "contains": {
                 "title": "EDS Detection Limit",

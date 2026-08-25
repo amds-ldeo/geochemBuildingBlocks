@@ -23,6 +23,7 @@ ex:empaTAPP-P13 a cdi:Activity,
                     schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm) [N5,N6]" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not explicitly given; implied Si, Mg, Fe, Ca, Mn, Cr, Ni, Al, Ti from context. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -46,7 +47,6 @@ ex:empaTAPP-P13 a cdi:Activity,
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -55,6 +55,13 @@ ex:empaTAPP-P13 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Transition metals: ~250 ppm (stated as \"typical\")" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;

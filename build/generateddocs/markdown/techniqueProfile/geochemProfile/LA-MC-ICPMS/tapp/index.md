@@ -380,6 +380,82 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:defaultValue": "Standard error (SE = SD/√n) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (two-volume cell)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+            "schema:name": "Normalization / Standards-Based Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "⁸⁸Sr/⁸⁶Sr = 8.37520933 used for Sr isotope mass fractionation correction (exponential law); ⁸⁷Rb/⁸⁵Rb = 0.385706 and ⁸⁶Sr/⁸⁸Sr = 0.119351 for ⁸⁷Rb/⁸⁶Sr calculation; external calibration factor from reference glasses applied to correct Rb/Sr elemental fractionation"
+          },
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
+          },
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "spikeOutlierFilteringApproachDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:primaryStandardNameDefault": "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of ⁸⁷Rb/⁸⁶Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for ⁸⁷Sr/⁸⁶Sr data quality evaluation",
   "schema:relatedLink": [
     {
@@ -418,71 +494,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:name": "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (two-volume cell)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothingDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "signalSmoothingDefault",
-            "schema:name": "Signal Smoothing",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
-          },
-          {
-            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "spikeOutlierFilteringApproachDefault",
-            "schema:name": "Spike / Outlier Filtering Approach",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:secondaryReferenceMaterialDefault": [
     "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 — measured as unknowns for 87Sr/86Sr data quality evaluation"
   ],
@@ -550,15 +561,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
         "@id": "ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -588,15 +590,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -622,7 +615,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   "ada:betweenSessionPrecision": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:detectionLimitMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -1015,6 +1007,82 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:defaultValue": "Standard error (SE = SD/\u221an) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (two-volume cell)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+            "schema:name": "Normalization / Standards-Based Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "\u2078\u2078Sr/\u2078\u2076Sr = 8.37520933 used for Sr isotope mass fractionation correction (exponential law); \u2078\u2077Rb/\u2078\u2075Rb = 0.385706 and \u2078\u2076Sr/\u2078\u2078Sr = 0.119351 for \u2078\u2077Rb/\u2078\u2076Sr calculation; external calibration factor from reference glasses applied to correct Rb/Sr elemental fractionation"
+          },
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
+          },
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "spikeOutlierFilteringApproachDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:primaryStandardNameDefault": "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of \u2078\u2077Rb/\u2078\u2076Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for \u2078\u2077Sr/\u2078\u2076Sr data quality evaluation",
   "schema:relatedLink": [
     {
@@ -1053,71 +1121,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:name": "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (two-volume cell)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothingDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "signalSmoothingDefault",
-            "schema:name": "Signal Smoothing",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
-          },
-          {
-            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "spikeOutlierFilteringApproachDefault",
-            "schema:name": "Spike / Outlier Filtering Approach",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:secondaryReferenceMaterialDefault": [
     "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 \u2014 measured as unknowns for 87Sr/86Sr data quality evaluation"
   ],
@@ -1185,15 +1188,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
         "@id": "ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1223,15 +1217,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1257,7 +1242,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   "ada:betweenSessionPrecision": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:detectionLimitMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -1293,17 +1277,18 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (two-volume cell)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault>,
@@ -1342,12 +1327,10 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/detectionLimit>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/instrumentSensitivity>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy> ;
             ada:defaultAnalytes "C (⁸⁶Sr)",
                 "H1 (¹⁷³Yb²⁺)",
@@ -1364,7 +1347,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     ada:calibrationMeasurementFrequency "missing" ;
     ada:carrierGasFlowRateDefault "He, 0.90 l min⁻¹ (two-volume cell)" ;
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
-    ada:detectionLimitMethod "missing" ;
     ada:elementalFractionationCorrection "Femtosecond laser substantially reduces elemental fractionation; no explicit downhole correction; Rb/Sr elemental fractionation corrected externally by analyzing series of reference glasses; exponential law for Sr isotope mass bias (88Sr/86Sr = 8.37521)" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardApproach "No conventional IS; external calibration only (Rb/Sr elemental fractionation corrected by series of reference glasses; 87Sr/86Sr mass bias corrected by exponential law using 88Sr/86Sr = 8.37521)" ;
@@ -1383,11 +1365,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     ada:withinSessionPrecision "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1" ;
     bios:computationalTool [ schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
             ada:toolRole "dataReduction" ] .
-
-<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/instrumentSensitivity> a schema1:PropertyValueSpecification ;
     schema1:name "Instrument Sensitivity" ;
@@ -1409,11 +1386,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy> a schema1:PropertyValueSpecification ;
@@ -1504,6 +1476,13 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:defaultValue "Low resolution (M/ΔM ≈ 400)" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "⁸⁸Sr/⁸⁶Sr = 8.37520933 used for Sr isotope mass fractionation correction (exponential law); ⁸⁷Rb/⁸⁵Rb = 0.385706 and ⁸⁶Sr/⁸⁸Sr = 0.119351 for ⁸⁷Rb/⁸⁶Sr calculation; external calibration factor from reference glasses applied to correct Rb/Sr elemental fractionation" ;
+    schema1:name "Normalization / Standards-Based Correction" ;
+    schema1:valueName "normalizationStandardsBasedCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -1652,6 +1631,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
@@ -1676,7 +1656,6 @@ allOf:
                     items:
                       anyOf:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm
                       - title: Isotope Dilution Data Reduction Method
                         description: Mass balance approach used to calculate sample
@@ -1704,6 +1683,38 @@ allOf:
                         - schema:name
                         - schema:value
                         readOnly: true
+                      - title: Normalization / Standards-Based Correction
+                        description: Any post-acquisition normalization applied to
+                          correct for systematic biases identified from secondary
+                          reference materials, or stoichiometric normalization applied
+                          per pixel in mapping. Distinct from the primary internal
+                          standard approach captured in Internal Standard Approach.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: normalizationStandardsBasedCorrectionDefault
+                          schema:name:
+                            const: Normalization / Standards-Based Correction
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_peakFlatnessMethodAndThreshold
                       - title: Signal Smoothing
                         description: 'Description of any signal smoothing device or
@@ -1777,10 +1788,6 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm
                       minContains: 0
                       maxContains: 1
@@ -1811,6 +1818,41 @@ allOf:
                         - schema:name
                         - schema:value
                         readOnly: true
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Normalization / Standards-Based Correction
+                        description: Any post-acquisition normalization applied to
+                          correct for systematic biases identified from secondary
+                          reference materials, or stoichiometric normalization applied
+                          per pixel in mapping. Distinct from the primary internal
+                          standard approach captured in Internal Standard Approach.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: normalizationStandardsBasedCorrectionDefault
+                          schema:name:
+                            const: Normalization / Standards-Based Correction
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -1889,6 +1931,18 @@ allOf:
                         - ada:fieldScope
                       minContains: 0
                       maxContains: 1
+                  ada:detectionLimitMethod:
+                    description: Reference or description of the method used to calculate
+                      session detection limits. Mandatory at analysis level. Must
+                      be consistent with the method applied to generate the Detection
+                      Limit values reported above.
+                    anyOf:
+                    - type: string
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        readOnly: true
             - if:
                 properties:
                   schema:name:
@@ -4117,6 +4171,28 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+              schema:manufacturer:
+                type: object
+                properties:
+                  schema:name:
+                    description: Manufacturer of the instrument that performs the
+                      measurement, recorded as a controlled value so that procedures
+                      can be found by vendor. Where a procedure couples a sample-introduction
+                      system to an analysing instrument, this records the analysing
+                      instrument. Instrument Model gives the specific designation.
+                    type: string
+                    enum:
+                    - Thermo Fisher Scientific
+                    - Agilent
+                    - PerkinElmer
+                    - Nu Instruments
+                    - Analytik Jena
+                    - Shimadzu
+                    - Unknown
+                    - N/A
+                    - None
+                    - missing
+                    readOnly: true
         - if:
             properties:
               schema:additionalType:
@@ -4188,6 +4264,40 @@ allOf:
       items:
         anyOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach
+        - title: Detection Limit
+          description: "Session detection limit, one per reported concentration variable
+            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
+            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
+            demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: ppm or wt%
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeIsotopePair
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeMixingRatio
         - title: Instrument Warm-up / Session Duration Limit
@@ -4348,6 +4458,43 @@ allOf:
       allOf:
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: "Session detection limit, one per reported concentration variable
+            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
+            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
+            demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: ppm or wt%
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         minContains: 0
         maxContains: 1
       - contains:
@@ -4560,6 +4707,29 @@ allOf:
         session, or using a separate gas blank map acquired under identical conditions.'
       type: string
       readOnly: true
+    ada:calibrationMeasurementFrequency:
+      description: How often the primary calibration standard is measured relative
+        to unknown samples within a session. For LA-ICP-MS, this defines the bracketing
+        interval between calibration standard ablations used to monitor and correct
+        for instrumental drift.
+      type: string
+      readOnly: true
+    ada:carrierGasFlowRateDefault:
+      description: "Gas used to transport ablated aerosol from the ablation cell to
+        the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
+        is standard for most UV laser systems due to superior aerosol transport. Flow
+        rates are procedure targets; actual session values may be adjusted within
+        \xB110% during tuning."
+      type: string
+    ada:constantsAndReferenceValuesUsedDefault:
+      description: Physical constants and reference values used in data reduction
+        to calculate the final reported quantity (e.g., decay constants for age calculation,
+        standard isotope ratios, or other citable reference values used in a correction
+        or calculation), together with their source. Distinct from the Group 6 reference-material
+        fields, which document accepted values for specific calibration/validation
+        materials rather than universal physical constants. Record "None" if no citable,
+        revisable physical constants feed into this procedure's data reduction.
+      type: string
     schema:variableMeasured:
       type: array
       items:
@@ -4579,40 +4749,6 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: Detection Limit
           description: "Session detection limit, one per reported concentration variable
             (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
@@ -4647,32 +4783,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - title: Detection Limit Method
-          description: Reference or description of the method used to calculate session
-            detection limits. Mandatory at analysis level. Must be consistent with
-            the method applied to generate the Detection Limit values reported above.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
         - title: Goodness-of-Fit or Dispersion Statistic
           description: The statistic reported to show whether scatter among the contributing
             analyses exceeds what analytical uncertainty alone predicts, together
@@ -4804,43 +4914,6 @@ allOf:
           - ada:fieldScope
       allOf:
       - contains:
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: Detection Limit
           description: "Session detection limit, one per reported concentration variable
             (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
@@ -4875,35 +4948,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit Method
-          description: Reference or description of the method used to calculate session
-            detection limits. Mandatory at analysis level. Must be consistent with
-            the method applied to generate the Detection Limit values reported above.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
         minContains: 0
         maxContains: 1
       - contains:
@@ -5047,29 +5091,36 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
-    ada:calibrationMeasurementFrequency:
-      description: How often the primary calibration standard is measured relative
-        to unknown samples within a session. For LA-ICP-MS, this defines the bracketing
-        interval between calibration standard ablations used to monitor and correct
-        for instrumental drift.
+    ada:elementalFractionationCorrection:
+      type: array
+      items:
+        description: Method used to correct for laser-induced elemental fractionation
+          (LIEF), including downhole fractionation during prolonged ablation, matrix-dependent
+          fractionation between sample and calibration standard, and any specific
+          correction algorithm applied. Reference the software function or publication.
+        type: string
+        readOnly: true
+    ada:internalStandardApproach:
+      description: Method used to determine the internal standard (IS) concentration
+        for each unknown sample, used to correct for variable ablation yield between
+        analyses. The approach is a fundamental procedure design choice that cannot
+        be changed by analysts.
       type: string
       readOnly: true
-    ada:carrierGasFlowRateDefault:
-      description: "Gas used to transport ablated aerosol from the ablation cell to
-        the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
-        is standard for most UV laser systems due to superior aerosol transport. Flow
-        rates are procedure targets; actual session values may be adjusted within
-        \xB110% during tuning."
+    ada:internalStandardElement:
+      description: Element(s) used as the internal standard, and how the IS concentration
+        value was determined for unknown samples. For mapping procedures using oxide-sum
+        normalization, report "None (oxide-sum normalization)" and cite the method
+        reference.
       type: string
-    ada:constantsAndReferenceValuesUsedDefault:
-      description: Physical constants and reference values used in data reduction
-        to calculate the final reported quantity (e.g., decay constants for age calculation,
-        standard isotope ratios, or other citable reference values used in a correction
-        or calculation), together with their source. Distinct from the Group 6 reference-material
-        fields, which document accepted values for specific calibration/validation
-        materials rather than universal physical constants. Record "None" if no citable,
-        revisable physical constants feed into this procedure's data reduction.
-      type: string
+      readOnly: true
+    ada:isobaricInterferenceCorrectionsApplied:
+      description: 'Whether isobaric interference corrections were applied for any
+        measured isotope in this procedure. A procedure-level Boolean: if the procedure
+        includes interference corrections, this is always Yes. Detail for each affected
+        mass is captured in Interfering Species and Interference Correction Method.'
+      type: boolean
+      readOnly: true
     ada:analyteTemplate:
       type: object
       properties:
@@ -5078,40 +5129,6 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - title: Detection Limit
-              description: "Session detection limit, one per reported concentration
-                variable (one per analyte, these being the same set), expressed in
-                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                at analysis level to demonstrate the reliability of reported near-detection-limit
-                concentrations. The calculation method is captured separately in Detection
-                Limit Method."
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             - title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate
                 the limit of quantification (LOQ): the lowest concentration reliably
@@ -5210,37 +5227,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Normalization / Standards-Based Correction
-              description: Any post-acquisition normalization applied to correct for
-                systematic biases identified from secondary reference materials, or
-                stoichiometric normalization applied per pixel in mapping. Distinct
-                from the primary internal standard approach captured in Internal Standard
-                Approach.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: normalizationStandardsBasedCorrection
-                schema:name:
-                  const: Normalization / Standards-Based Correction
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             - title: Per-Analyte Calibration Strategy
               description: "Documents cases where different analytes or analyte groups
                 within the same session are calibrated using different strategies
@@ -5314,43 +5300,6 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains:
-              title: Detection Limit
-              description: "Session detection limit, one per reported concentration
-                variable (one per analyte, these being the same set), expressed in
-                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                at analysis level to demonstrate the reliability of reported near-detection-limit
-                concentrations. The calculation method is captured separately in Detection
-                Limit Method."
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
           - contains:
               title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate
@@ -5459,40 +5408,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Normalization / Standards-Based Correction
-              description: Any post-acquisition normalization applied to correct for
-                systematic biases identified from secondary reference materials, or
-                stoichiometric normalization applied per pixel in mapping. Distinct
-                from the primary internal standard approach captured in Internal Standard
-                Approach.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: normalizationStandardsBasedCorrection
-                schema:name:
-                  const: Normalization / Standards-Based Correction
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Per-Analyte Calibration Strategy
               description: "Documents cases where different analytes or analyte groups
                 within the same session are calibrated using different strategies
@@ -5570,42 +5485,6 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
-    ada:detectionLimitMethod:
-      description: Reference or description of the method used to calculate session
-        detection limits. Mandatory at analysis level. Must be consistent with the
-        method applied to generate the Detection Limit values reported above.
-      type: string
-      readOnly: true
-    ada:elementalFractionationCorrection:
-      type: array
-      items:
-        description: Method used to correct for laser-induced elemental fractionation
-          (LIEF), including downhole fractionation during prolonged ablation, matrix-dependent
-          fractionation between sample and calibration standard, and any specific
-          correction algorithm applied. Reference the software function or publication.
-        type: string
-        readOnly: true
-    ada:internalStandardApproach:
-      description: Method used to determine the internal standard (IS) concentration
-        for each unknown sample, used to correct for variable ablation yield between
-        analyses. The approach is a fundamental procedure design choice that cannot
-        be changed by analysts.
-      type: string
-      readOnly: true
-    ada:internalStandardElement:
-      description: Element(s) used as the internal standard, and how the IS concentration
-        value was determined for unknown samples. For mapping procedures using oxide-sum
-        normalization, report "None (oxide-sum normalization)" and cite the method
-        reference.
-      type: string
-      readOnly: true
-    ada:isobaricInterferenceCorrectionsApplied:
-      description: 'Whether isobaric interference corrections were applied for any
-        measured isotope in this procedure. A procedure-level Boolean: if the procedure
-        includes interference corrections, this is always Yes. Detail for each affected
-        mass is captured in Interfering Species and Interference Correction Method.'
-      type: boolean
-      readOnly: true
     ada:massBiasCorrectionStrategy:
       description: 'Strategy used to correct instrumental isotopic mass fractionation,
         also called mass bias or mass discrimination. Distinct from Elemental Fractionation
@@ -5778,6 +5657,14 @@ allOf:
         a single measurement, which derives from counting statistics over the cycles
         of that measurement rather than from repeated analyses.
       type: string
+    ada:analyticalMode:
+      type: array
+      items:
+        type: string
+        enum:
+        - Spot
+        - Transect
+        - Mapping
   required:
   - ada:analysisSequenceDefault
   - ada:analyticalAccuracy
@@ -5787,7 +5674,6 @@ allOf:
   - ada:calibrationMeasurementFrequency
   - ada:carrierGasFlowRateDefault
   - ada:constantsAndReferenceValuesUsedDefault
-  - ada:detectionLimitMethod
   - ada:internalStandardApproach
   - ada:internalStandardElement
   - ada:isobaricInterferenceCorrectionsApplied

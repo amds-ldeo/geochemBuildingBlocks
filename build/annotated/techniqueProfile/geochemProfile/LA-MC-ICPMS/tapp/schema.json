@@ -19,6 +19,9 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.json#/$defs/ProcedureIdentification"
     },
     {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.json#/$defs/ProcedureIdentification"
     },
     {
@@ -51,9 +54,6 @@
                             "anyOf": [
                               {
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.json#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
-                              },
-                              {
-                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod"
                               },
                               {
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.json#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm"
@@ -93,6 +93,47 @@
                                   "schema:value"
                                 ],
                                 "readOnly": true
+                              },
+                              {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Normalization / Standards-Based Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               {
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.json#/$defs/Param_Procedure_peakFlatnessMethodAndThreshold"
@@ -191,13 +232,6 @@
                             },
                             {
                               "contains": {
-                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod"
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.json#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm"
                               },
                               "minContains": 0,
@@ -239,6 +273,51 @@
                                   "schema:value"
                                 ],
                                 "readOnly": true
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Normalization / Standards-Based Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -339,6 +418,22 @@
                               },
                               "minContains": 0,
                               "maxContains": 1
+                            }
+                          ]
+                        },
+                        "ada:detectionLimitMethod": {
+                          "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "readOnly": true
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "readOnly": true
+                              }
                             }
                           ]
                         }
@@ -3346,6 +3441,28 @@
                           "readOnly": true
                         }
                       }
+                    },
+                    "schema:manufacturer": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                          "type": "string",
+                          "enum": [
+                            "Thermo Fisher Scientific",
+                            "Agilent",
+                            "PerkinElmer",
+                            "Nu Instruments",
+                            "Analytik Jena",
+                            "Shimadzu",
+                            "Unknown",
+                            "N/A",
+                            "None",
+                            "missing"
+                          ],
+                          "readOnly": true
+                        }
+                      }
                     }
                   }
                 }
@@ -3466,6 +3583,50 @@
             "anyOf": [
               {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.json#/$defs/Param_Procedure_baselineMeasurementApproach"
+              },
+              {
+                "title": "Detection Limit",
+                "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "const": "ppm or wt%"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.json#/$defs/Param_Procedure_doubleSpikeIsotopePair"
@@ -3687,6 +3848,54 @@
             {
               "contains": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.json#/$defs/Param_Procedure_baselineMeasurementApproach"
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit",
+                "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "const": "ppm or wt%"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               "minContains": 0,
               "maxContains": 1
@@ -3964,6 +4173,19 @@
           "type": "string",
           "readOnly": true
         },
+        "ada:calibrationMeasurementFrequency": {
+          "description": "How often the primary calibration standard is measured relative to unknown samples within a session. For LA-ICP-MS, this defines the bracketing interval between calibration standard ablations used to monitor and correct for instrumental drift.",
+          "type": "string",
+          "readOnly": true
+        },
+        "ada:carrierGasFlowRateDefault": {
+          "description": "Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch, with the procedure-registered target flow rate(s). Helium is standard for most UV laser systems due to superior aerosol transport. Flow rates are procedure targets; actual session values may be adjusted within \u00b110% during tuning.",
+          "type": "string"
+        },
+        "ada:constantsAndReferenceValuesUsedDefault": {
+          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+          "type": "string"
+        },
         "schema:variableMeasured": {
           "type": "array",
           "items": {
@@ -3986,47 +4208,6 @@
                     }
                   }
                 }
-              },
-              {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
               },
               {
                 "title": "Detection Limit",
@@ -4071,43 +4252,6 @@
                   "ada:dataType",
                   "ada:fieldScope"
                 ]
-              },
-              {
-                "title": "Detection Limit Method",
-                "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
               },
               {
                 "title": "Goodness-of-Fit or Dispersion Statistic",
@@ -4278,51 +4422,6 @@
           "allOf": [
             {
               "contains": {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Detection Limit",
                 "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
                 "type": "object",
@@ -4365,47 +4464,6 @@
                   "ada:dataType",
                   "ada:fieldScope"
                 ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Detection Limit Method",
-                "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -4592,18 +4650,28 @@
             }
           ]
         },
-        "ada:calibrationMeasurementFrequency": {
-          "description": "How often the primary calibration standard is measured relative to unknown samples within a session. For LA-ICP-MS, this defines the bracketing interval between calibration standard ablations used to monitor and correct for instrumental drift.",
+        "ada:elementalFractionationCorrection": {
+          "type": "array",
+          "items": {
+            "description": "Method used to correct for laser-induced elemental fractionation (LIEF), including downhole fractionation during prolonged ablation, matrix-dependent fractionation between sample and calibration standard, and any specific correction algorithm applied. Reference the software function or publication.",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "ada:internalStandardApproach": {
+          "description": "Method used to determine the internal standard (IS) concentration for each unknown sample, used to correct for variable ablation yield between analyses. The approach is a fundamental procedure design choice that cannot be changed by analysts.",
           "type": "string",
           "readOnly": true
         },
-        "ada:carrierGasFlowRateDefault": {
-          "description": "Gas used to transport ablated aerosol from the ablation cell to the ICP-MS torch, with the procedure-registered target flow rate(s). Helium is standard for most UV laser systems due to superior aerosol transport. Flow rates are procedure targets; actual session values may be adjusted within \u00b110% during tuning.",
-          "type": "string"
+        "ada:internalStandardElement": {
+          "description": "Element(s) used as the internal standard, and how the IS concentration value was determined for unknown samples. For mapping procedures using oxide-sum normalization, report \"None (oxide-sum normalization)\" and cite the method reference.",
+          "type": "string",
+          "readOnly": true
         },
-        "ada:constantsAndReferenceValuesUsedDefault": {
-          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-          "type": "string"
+        "ada:isobaricInterferenceCorrectionsApplied": {
+          "description": "Whether isobaric interference corrections were applied for any measured isotope in this procedure. A procedure-level Boolean: if the procedure includes interference corrections, this is always Yes. Detail for each affected mass is captured in Interfering Species and Interference Correction Method.",
+          "type": "boolean",
+          "readOnly": true
         },
         "ada:analyteTemplate": {
           "type": "object",
@@ -4614,53 +4682,6 @@
                 "anyOf": [
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/AnalyteIdentifierColumn"
-                  },
-                  {
-                    "title": "Detection Limit",
-                    "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/detectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
                   },
                   {
                     "title": "Limit of Quantification (LOQ) Method",
@@ -4782,46 +4803,6 @@
                       "schema:name",
                       "ada:dataType",
                       "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Normalization / Standards-Based Correction",
-                    "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "normalizationStandardsBasedCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Normalization / Standards-Based Correction"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
                     ]
                   },
                   {
@@ -4907,57 +4888,6 @@
               "allOf": [
                 {
                   "contains": {
-                    "title": "Detection Limit",
-                    "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/detectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
                     "title": "Limit of Quantification (LOQ) Method",
                     "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Mandatory at analysis level when concentrations near the LOD are reported. Concentrations between LOD and LOQ are detectable but not reliably quantifiable.",
                     "type": "object",
@@ -5085,50 +5015,6 @@
                       "schema:name",
                       "ada:dataType",
                       "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Normalization / Standards-Based Correction",
-                    "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "normalizationStandardsBasedCorrection"
-                      },
-                      "schema:name": {
-                        "const": "Normalization / Standards-Based Correction"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
                     ]
                   },
                   "minContains": 0,
@@ -5223,34 +5109,6 @@
               ]
             }
           }
-        },
-        "ada:detectionLimitMethod": {
-          "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:elementalFractionationCorrection": {
-          "type": "array",
-          "items": {
-            "description": "Method used to correct for laser-induced elemental fractionation (LIEF), including downhole fractionation during prolonged ablation, matrix-dependent fractionation between sample and calibration standard, and any specific correction algorithm applied. Reference the software function or publication.",
-            "type": "string",
-            "readOnly": true
-          }
-        },
-        "ada:internalStandardApproach": {
-          "description": "Method used to determine the internal standard (IS) concentration for each unknown sample, used to correct for variable ablation yield between analyses. The approach is a fundamental procedure design choice that cannot be changed by analysts.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:internalStandardElement": {
-          "description": "Element(s) used as the internal standard, and how the IS concentration value was determined for unknown samples. For mapping procedures using oxide-sum normalization, report \"None (oxide-sum normalization)\" and cite the method reference.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:isobaricInterferenceCorrectionsApplied": {
-          "description": "Whether isobaric interference corrections were applied for any measured isotope in this procedure. A procedure-level Boolean: if the procedure includes interference corrections, this is always Yes. Detail for each affected mass is captured in Interfering Species and Interference Correction Method.",
-          "type": "boolean",
-          "readOnly": true
         },
         "ada:massBiasCorrectionStrategy": {
           "description": "Strategy used to correct instrumental isotopic mass fractionation, also called mass bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses inter-element fractionation during ablation and transport: this field addresses discrimination between isotopes of the same element, and applies wherever the procedure reports isotope ratios.",
@@ -5441,6 +5299,17 @@
         "ada:withinSessionPrecision": {
           "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
           "type": "string"
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Spot",
+              "Transect",
+              "Mapping"
+            ]
+          }
         }
       },
       "required": [
@@ -5452,7 +5321,6 @@
         "ada:calibrationMeasurementFrequency",
         "ada:carrierGasFlowRateDefault",
         "ada:constantsAndReferenceValuesUsedDefault",
-        "ada:detectionLimitMethod",
         "ada:internalStandardApproach",
         "ada:internalStandardElement",
         "ada:isobaricInterferenceCorrectionsApplied",

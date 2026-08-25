@@ -62,6 +62,17 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
+            "@id": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+            "schema:name": "Normalization / Standards-Based Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Two-step calibration: external correction of mass bias and fractionation against NIST SRM 610, then a matrix-induced correction against matrix-matched XN02 xenotime"
+          },
+          {
             "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -334,7 +345,6 @@
       "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:ablationSpotDurationDefault": "25 s",
   "ada:carrierGasFlowRateDefault": "He, 900 mL min-1 ablation gas flow",
   "schema:additionalProperty": [
     {
@@ -362,9 +372,6 @@
     }
   ],
   "ada:oxideProductionMethodAndThreshold": "ThO/Th < 0.5%, checked during SQ no-gas tuning",
-  "ada:reportedProperties": [
-    "176Lu/177Hf and 176Hf/177Hf ratios; Lu-Hf isochron and weighted-mean ages (Ma)"
-  ],
   "ada:signalCollectionMode": "N/A",
   "ada:totalIntegrationTimePerOutputDataPointDefault": "0.659 s",
   "ada:backgroundCountTimeDefault": "N \u2014 gas-blank correction applied in Iolite, duration not stated",
@@ -396,9 +403,13 @@
       "schema:name": "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages"
     }
   ],
+  "ada:reportedProperties": [
+    "176Lu/177Hf and 176Hf/177Hf ratios; Lu-Hf isochron and weighted-mean ages (Ma)"
+  ],
   "ada:ablationSamplingMode": [
     "Single hole drilling, two cleaning pulses"
   ],
+  "ada:ablationSpotDurationDefault": "25 s",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Lu and Hf (with Yb monitored for interference)",
@@ -470,34 +481,6 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -537,6 +520,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",

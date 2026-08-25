@@ -4,6 +4,7 @@ description: Dataset-level analysis-instance detail for solution Q-ICP-MS, reusi
   CDIF/schema.org slots on the schema:Dataset root.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
@@ -1322,7 +1323,36 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+              - title: Detection Limit
+                description: "Elemental detection limits, one per reported concentration
+                  variable (one per analyte, these being the same set). Specify units
+                  (\xB5g/g or \xB5g/L) and whether values are procedure-typical estimates
+                  or session-specific measured values."
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionQicpmsTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionQicpmsTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
             allOf:
             - contains:
                 title: Signal Integration Time
@@ -1356,9 +1386,48 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
+                title: Detection Limit
+                description: "Elemental detection limits, one per reported concentration
+                  variable (one per analyte, these being the same set). Specify units
+                  (\xB5g/g or \xB5g/L) and whether values are procedure-typical estimates
+                  or session-specific measured values."
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionQicpmsTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionQicpmsTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
               minContains: 0
               maxContains: 1
+          ada:proceduralBlankLevel:
+            description: "The measured level of the analytical blank in the session,
+              and \u2014 where the reported quantity is a ratio \u2014 its composition,
+              since a blank subtracted from a ratio biases the result unless its own
+              composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows
+              the criterion-versus-measurement split the library applies wherever
+              a procedure sets a threshold and an analysis reports a value against
+              it."
+            type: string
     dqv:hasQualityMeasurement:
       type: array
       items:
@@ -1389,3 +1458,192 @@ allOf:
               const: Oxide production ratio
           required:
           - dqv:isMeasurementOf
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - title: Normalization / Standards-Based Correction
+          description: Post-acquisition normalization applied to output concentrations
+            relative to a reference value (e.g., correction to a monitor element's
+            certified value in the calibration standard).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set). Specify units (\xB5g/g
+            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
+            measured values."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/detectionLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/solutionQicpmsTAPP/detectionLimit
+            schema:name:
+              const: Detection Limit
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+        - title: Detection Limit Method
+          description: Method used to calculate detection limits for each reported
+            concentration variable.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/solutionQicpmsTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+      allOf:
+      - contains:
+          title: Normalization / Standards-Based Correction
+          description: Post-acquisition normalization applied to output concentrations
+            relative to a reference value (e.g., correction to a monitor element's
+            certified value in the calibration standard).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set). Specify units (\xB5g/g
+            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
+            measured values."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/detectionLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/solutionQicpmsTAPP/detectionLimit
+            schema:name:
+              const: Detection Limit
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit Method
+          description: Method used to calculate detection limits for each reported
+            concentration variable.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/solutionQicpmsTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1

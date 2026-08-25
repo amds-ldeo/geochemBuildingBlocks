@@ -384,9 +384,6 @@
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3; DTS-2b and PCC-1 synthetic mixes; Allende"
   ],
-  "ada:reportedProperties": [
-    "\u03b487Rb in permil relative to NIST SRM984"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -404,6 +401,9 @@
   "ada:samplingUnit": "Digestion aliquot \u2014 \"Samples of about 100 mg or less were digested\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "\u03b487Rb in permil relative to NIST SRM984"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "N/A \u2014 Rb has two stable isotopes, so internal normalization is not possible; bracketing used instead",
   "ada:chromatographicSeparationApplied": "Yes \u2014 five steps: AG50W-X8 cation, a second cation column, AG1-X8 anion in 2 M HF for Ti, a 40 cm Eichrom Sr resin column for Rb-K, and an AG50W-X8 clean-up. Yields >95%",
@@ -428,25 +428,6 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -467,6 +448,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",

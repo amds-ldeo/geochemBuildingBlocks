@@ -611,6 +611,7 @@ x-defs:
       CDIF/schema.org slots on the schema:Dataset root.
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/AnalysisIdentification
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/AnalysisIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/AnalysisIdentification
     - type: object
       properties:
@@ -830,6 +831,33 @@ x-defs:
                     - schema:propertyID
                     - schema:name
                     - schema:value
+                  - title: Detection Limit
+                    description: Method detection limit at 99% confidence, one per
+                      reported concentration variable (one per analyte, these being
+                      the same set). Include the method used and the resulting value
+                      for each.
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/semTAPP/detectionLimit
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/semTAPP/detectionLimit
+                      schema:name:
+                        enum:
+                        - Detection Limit
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
                   - title: Drift Correction
                     description: 'Describes whether and how stage or beam drift was
                       monitored and corrected during the measurement session. Examples:
@@ -1041,7 +1069,6 @@ x-defs:
                     - schema:name
                     - schema:value
                     - schema:unitText
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.blank/$defs/Param_Analysis_proceduralBlankLevel
                   - title: Step Size / Pixel Size
                     description: "Centre-to-centre distance between adjacent measurement
                       points (WDS mapping) or pixels (EDS mapping) in \xB5m. Defines
@@ -1338,6 +1365,36 @@ x-defs:
                   minContains: 0
                   maxContains: 1
                 - contains:
+                    title: Detection Limit
+                    description: Method detection limit at 99% confidence, one per
+                      reported concentration variable (one per analyte, these being
+                      the same set). Include the method used and the resulting value
+                      for each.
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/semTAPP/detectionLimit
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/semTAPP/detectionLimit
+                      schema:name:
+                        enum:
+                        - Detection Limit
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                  minContains: 0
+                  maxContains: 1
+                - contains:
                     title: Drift Correction
                     description: 'Describes whether and how stage or beam drift was
                       monitored and corrected during the measurement session. Examples:
@@ -1567,10 +1624,6 @@ x-defs:
                     - schema:name
                     - schema:value
                     - schema:unitText
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.blank/$defs/Param_Analysis_proceduralBlankLevel
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -2104,6 +2157,32 @@ x-defs:
                                   - schema:propertyID
                                   - schema:name
                                   - schema:value
+                                - title: Normalization / Standards-Based Correction
+                                  description: Post-acquisition normalization applied
+                                    using secondary reference materials to correct
+                                    for session-to-session calibration drift.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                    '@type':
+                                      enum:
+                                      - - schema:PropertyValue
+                                    schema:propertyID:
+                                      enum:
+                                      - - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                    schema:name:
+                                      enum:
+                                      - Normalization / Standards-Based Correction
+                                    schema:value:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
                               allOf:
                               - contains:
                                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Analysis_constantsReferenceValues
@@ -2128,6 +2207,35 @@ x-defs:
                                     schema:name:
                                       enum:
                                       - Crystal Structure Database
+                                    schema:value:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                minContains: 0
+                                maxContains: 1
+                              - contains:
+                                  title: Normalization / Standards-Based Correction
+                                  description: Post-acquisition normalization applied
+                                    using secondary reference materials to correct
+                                    for session-to-session calibration drift.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                    '@type':
+                                      enum:
+                                      - - schema:PropertyValue
+                                    schema:propertyID:
+                                      enum:
+                                      - - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
+                                    schema:name:
+                                      enum:
+                                      - Normalization / Standards-Based Correction
                                     schema:value:
                                       type: string
                                   required:
@@ -2179,14 +2287,7 @@ x-defs:
                             - Ion Milling
                         required:
                         - schema:name
-              ada:ebsdIndexingRate:
-                description: Fraction of EBSD map points successfully indexed, expressed
-                  as a percentage of total map points. Low indexing rate may indicate
-                  surface damage, amorphisation, severe deformation, or phase misidentification.
-                anyOf:
-                - type: number
-                - type: string
-              ada:deadTime:
+              ada:edsDeadTime:
                 description: "Percent dead time reported by the EDS detector during
                   the session \u2014 the fraction of total acquisition time the detector
                   spent processing rather than counting. EDS dead time correction
@@ -2367,6 +2468,16 @@ x-defs:
                           - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                     required:
                     - '@type'
+              ada:proceduralBlankLevel:
+                description: "The measured level of the analytical blank in the session,
+                  and \u2014 where the reported quantity is a ratio \u2014 its composition,
+                  since a blank subtracted from a ratio biases the result unless its
+                  own composition is known. Companion to the blank correction method,
+                  which is procedure-level: this field records what was actually measured.
+                  Follows the criterion-versus-measurement split the library applies
+                  wherever a procedure sets a threshold and an analysis reports a
+                  value against it."
+                type: string
         schema:variableMeasured:
           type: array
           items:
@@ -2386,38 +2497,6 @@ x-defs:
                     enum:
                     - cdi:InstanceVariable
                     - schema:PropertyValue
-            - title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-                '@type':
-                  enum:
-                  - - schema:PropertyValue
-                    - cdi:InstanceVariable
-                schema:propertyID:
-                  enum:
-                  - - '@id': ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-                schema:name:
-                  enum:
-                  - Calibration Factor and Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
             - title: Detection Limit
               description: Method detection limit at 99% confidence, one per reported
                 concentration variable (one per analyte, these being the same set).
@@ -2498,41 +2577,6 @@ x-defs:
               - schema:name
               - schema:value
           allOf:
-          - contains:
-              title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-                '@type':
-                  enum:
-                  - - schema:PropertyValue
-                    - cdi:InstanceVariable
-                schema:propertyID:
-                  enum:
-                  - - '@id': ada:parameter/semTAPP/calibrationFactorAndDeterminationMethod
-                schema:name:
-                  enum:
-                  - Calibration Factor and Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
           - contains:
               title: Detection Limit
               description: Method detection limit at 99% confidence, one per reported
@@ -2630,7 +2674,42 @@ x-defs:
                 properties:
                   dqv:isMeasurementOf:
                     enum:
+                    - EBSD Indexing Rate
+                required:
+                - dqv:isMeasurementOf
+              then:
+                properties:
+                  dqv:value:
+                    description: Fraction of EBSD map points successfully indexed,
+                      expressed as a percentage of total map points. Low indexing
+                      rate may indicate surface damage, amorphisation, severe deformation,
+                      or phase misidentification.
+                    anyOf:
+                    - type: number
+                    - type: string
+            - if:
+                properties:
+                  dqv:isMeasurementOf:
+                    enum:
                     - EBSD Mean Angular Deviation
+                required:
+                - dqv:isMeasurementOf
+              then:
+                properties:
+                  dqv:value:
+                    description: Mean angular deviation (MAD) of the EBSD pattern
+                      indexing solution in degrees. MAD quantifies the misfit between
+                      experimental Kikuchi band positions and the best-fit crystal
+                      orientation. Values above ~1.5 degrees typically indicate unreliable
+                      indexing.
+                    anyOf:
+                    - type: number
+                    - type: string
+            - if:
+                properties:
+                  dqv:isMeasurementOf:
+                    enum:
+                    - EBSD Pattern Quality Threshold
                 required:
                 - dqv:isMeasurementOf
               then:
@@ -2646,6 +2725,13 @@ x-defs:
                       items:
                         type: string
           allOf:
+          - contains:
+              properties:
+                dqv:isMeasurementOf:
+                  enum:
+                  - EBSD Indexing Rate
+              required:
+              - dqv:isMeasurementOf
           - contains:
               properties:
                 dqv:isMeasurementOf:
@@ -2883,6 +2969,7 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/ProcedureIdentification
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.analyte/$defs/ProcedureIdentification
     - type: object
       properties:
@@ -3273,6 +3360,66 @@ x-defs:
                           by vendor.
                         type: string
                         readOnly: true
+                  schema:description:
+                    description: 'Broad platform type of the instrument. ''Standard
+                      SEM'': dedicated electron-only SEM column. ''FIB-SEM dual-beam'':
+                      combined focused ion beam and SEM columns (enables TEM specimen
+                      preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM
+                      / ESEM'': variable-pressure or environmental SEM for imaging
+                      uncoated, hydrated, or charging specimens. An instrument may
+                      combine categories (e.g., FIB-SEM with VP capability).'
+                    anyOf:
+                    - type: string
+                      enum:
+                      - Standard SEM
+                      - FIB-SEM dual-beam
+                      - VP-SEM / ESEM
+                      - FIB-SEM dual-beam + VP
+                      - N/A
+                      - None
+                      - missing
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        enum:
+                        - Standard SEM
+                        - FIB-SEM dual-beam
+                        - VP-SEM / ESEM
+                        - FIB-SEM dual-beam + VP
+                        - N/A
+                        - None
+                        - missing
+                        readOnly: true
+                  ada:ionBeamSource:
+                    description: Ion beam source type in a FIB-SEM dual-beam system.
+                      Gallium LMIS (Ga+) is the most common ion source; xenon plasma
+                      FIB (PFIB) provides higher material removal rates for large-volume
+                      milling; helium and neon ion microscopes (GFIS) provide nanometre-resolution
+                      imaging and low-damage milling.
+                    anyOf:
+                    - type: string
+                      enum:
+                      - Gallium LMIS (Ga+)
+                      - Xenon plasma FIB (PFIB)
+                      - Helium GFIS
+                      - Neon GFIS
+                      - N/A
+                      - None
+                      - missing
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        enum:
+                        - Gallium LMIS (Ga+)
+                        - Xenon plasma FIB (PFIB)
+                        - Helium GFIS
+                        - Neon GFIS
+                        - N/A
+                        - None
+                        - missing
+                        readOnly: true
           allOf:
           - contains:
               properties:
@@ -3340,6 +3487,41 @@ x-defs:
                             - schema:name
                             - ada:dataType
                             - ada:fieldScope
+                          - title: Normalization / Standards-Based Correction
+                            description: Post-acquisition normalization applied using
+                              secondary reference materials to correct for session-to-session
+                              calibration drift.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - normalizationStandardsBasedCorrectionDefault
+                              schema:name:
+                                enum:
+                                - Normalization / Standards-Based Correction
+                              ada:dataType:
+                                enum:
+                                - string
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
                         allOf:
                         - contains:
                             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
@@ -3386,6 +3568,83 @@ x-defs:
                             - ada:fieldScope
                           minContains: 0
                           maxContains: 1
+                        - contains:
+                            title: Normalization / Standards-Based Correction
+                            description: Post-acquisition normalization applied using
+                              secondary reference materials to correct for session-to-session
+                              calibration drift.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - normalizationStandardsBasedCorrectionDefault
+                              schema:name:
+                                enum:
+                                - Normalization / Standards-Based Correction
+                              ada:dataType:
+                                enum:
+                                - string
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
+                          minContains: 0
+                          maxContains: 1
+                      ada:detectionLimitMethod:
+                        description: Formula or approach used to calculate detection
+                          limits.
+                        anyOf:
+                        - type: string
+                          readOnly: true
+                        - type: array
+                          items:
+                            type: string
+                            readOnly: true
+                      ada:ebsdIndexingMethod:
+                        description: Algorithm used to index EBSD diffraction patterns
+                          and assign crystal orientations. Hough-transform methods
+                          fit Kikuchi band positions analytically; dictionary indexing
+                          (DI) matches experimental patterns to a pre-computed library
+                          of simulated patterns.
+                        anyOf:
+                        - type: string
+                          enum:
+                          - Hough transform
+                          - Dictionary indexing (DI)
+                          - Neural network
+                          - Unknown
+                          - N/A
+                          - None
+                          - missing
+                          readOnly: true
+                        - type: array
+                          items:
+                            type: string
+                            enum:
+                            - Hough transform
+                            - Dictionary indexing (DI)
+                            - Neural network
+                            - Unknown
+                            - N/A
+                            - None
+                            - missing
+                            readOnly: true
                 - if:
                     properties:
                       schema:name:
@@ -3415,7 +3674,31 @@ x-defs:
                         - type: array
                           items:
                             type: string
-                      ada:protectiveCoatingDeposition:
+                      ada:liftOutMethod:
+                        description: Method used to transfer the FIB-prepared lamella
+                          to the TEM support grid. In-situ lift-out uses a micromanipulator
+                          inside the FIB-SEM chamber and is the standard method for
+                          small or precious specimens.
+                        anyOf:
+                        - type: string
+                          enum:
+                          - In-situ (micromanipulator, Cu or Mo TEM half-grid)
+                          - Ex-situ
+                          - N/A
+                          - None
+                          - missing
+                          readOnly: true
+                        - type: array
+                          items:
+                            type: string
+                            enum:
+                            - In-situ (micromanipulator, Cu or Mo TEM half-grid)
+                            - Ex-situ
+                            - N/A
+                            - None
+                            - missing
+                            readOnly: true
+                      ada:protectiveCoatingDepositionDefault:
                         description: 'Type and deposition conditions of the protective
                           coating applied to the sample surface before FIB milling.
                           E-beam deposition causes less surface damage than ion-beam
@@ -5541,6 +5824,41 @@ x-defs:
               - schema:name
               - ada:dataType
               - ada:fieldScope
+            - title: Detection Limit
+              description: Method detection limit at 99% confidence, one per reported
+                concentration variable (one per analyte, these being the same set).
+                Include the method used and the resulting value for each.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/semTAPP/detectionLimitDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - detectionLimitDefault
+                schema:name:
+                  enum:
+                  - Detection Limit
+                ada:dataType:
+                  enum:
+                  - string
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
             - title: Drift Correction
               description: 'Describes whether and how stage or beam drift was monitored
                 and corrected during the measurement session. Examples: periodic stage
@@ -5914,6 +6232,44 @@ x-defs:
             minContains: 0
             maxContains: 1
           - contains:
+              title: Detection Limit
+              description: Method detection limit at 99% confidence, one per reported
+                concentration variable (one per analyte, these being the same set).
+                Include the method used and the resulting value for each.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/semTAPP/detectionLimitDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - detectionLimitDefault
+                schema:name:
+                  enum:
+                  - Detection Limit
+                ada:dataType:
+                  enum:
+                  - string
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
+            minContains: 0
+            maxContains: 1
+          - contains:
               title: Drift Correction
               description: 'Describes whether and how stage or beam drift was monitored
                 and corrected during the measurement session. Examples: periodic stage
@@ -6140,6 +6496,35 @@ x-defs:
               readOnly: true
             minContains: 0
             maxContains: 1
+        ada:clAcquisitionMode:
+          description: 'CL data collection strategy. Panchromatic: total light intensity
+            collected by PMT across the full detector wavelength range. Spectral point:
+            full CL spectrum at discrete point locations. Hyperspectral map: full
+            CL spectrum acquired at each pixel of a raster scan.'
+          type: string
+          enum:
+          - Panchromatic
+          - Spectral point
+          - Hyperspectral map
+          - Multi-channel pseudo-color
+          - N/A
+          - None
+          - missing
+          readOnly: true
+        ada:clIntegrationTimeDefault:
+          description: Acquisition time per pixel (hyperspectral map mode) or per
+            spectrum (spectral point mode), in ms or s. Longer integration improves
+            signal-to-noise but increases beam dose and acquisition time.
+          anyOf:
+          - type: number
+          - type: string
+        ada:clWavelengthRange:
+          description: Detection wavelength range of the CL system in nm. The range
+            is set by the detector sensitivity and any optical filters installed.
+          anyOf:
+          - type: number
+          - type: string
+          readOnly: true
         schema:variableMeasured:
           type: array
           items:
@@ -6159,46 +6544,6 @@ x-defs:
                     enum:
                     - cdi:InstanceVariable
                     - schema:PropertyValue
-            - title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/semTAPP/calibrationFactorAndDeterminationMethodDefault
-                '@type':
-                  enum:
-                  - - schema:PropertyValueSpecification
-                schema:valueName:
-                  enum:
-                  - calibrationFactorAndDeterminationMethodDefault
-                schema:name:
-                  enum:
-                  - Calibration Factor and Determination Method
-                ada:dataType:
-                  enum:
-                  - string
-                ada:fieldScope:
-                  enum:
-                  - session
-                schema:readonlyValue: {}
-                ada:tier:
-                  enum:
-                  - R
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - ada:fieldScope
             - title: Detection Limit
               description: Method detection limit at 99% confidence, one per reported
                 concentration variable (one per analyte, these being the same set).
@@ -6234,42 +6579,6 @@ x-defs:
               - schema:name
               - ada:dataType
               - ada:fieldScope
-            - title: Detection Limit Method
-              description: Formula or approach used to calculate detection limits.
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/semTAPP/detectionLimitMethod
-                '@type':
-                  enum:
-                  - - schema:PropertyValueSpecification
-                schema:valueName:
-                  enum:
-                  - detectionLimitMethod
-                schema:name:
-                  enum:
-                  - Detection Limit Method
-                ada:dataType:
-                  enum:
-                  - string
-                ada:fieldScope:
-                  enum:
-                  - session
-                schema:readonlyValue:
-                  enum:
-                  - true
-                ada:tier:
-                  enum:
-                  - R
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - ada:fieldScope
-              readOnly: true
             - title: Normalization / Standards-Based Correction
               description: Post-acquisition normalization applied using secondary
                 reference materials to correct for session-to-session calibration
@@ -6307,49 +6616,6 @@ x-defs:
               - ada:fieldScope
           allOf:
           - contains:
-              title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/semTAPP/calibrationFactorAndDeterminationMethodDefault
-                '@type':
-                  enum:
-                  - - schema:PropertyValueSpecification
-                schema:valueName:
-                  enum:
-                  - calibrationFactorAndDeterminationMethodDefault
-                schema:name:
-                  enum:
-                  - Calibration Factor and Determination Method
-                ada:dataType:
-                  enum:
-                  - string
-                ada:fieldScope:
-                  enum:
-                  - session
-                schema:readonlyValue: {}
-                ada:tier:
-                  enum:
-                  - R
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - ada:fieldScope
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Detection Limit
               description: Method detection limit at 99% confidence, one per reported
                 concentration variable (one per analyte, these being the same set).
@@ -6385,45 +6651,6 @@ x-defs:
               - schema:name
               - ada:dataType
               - ada:fieldScope
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Detection Limit Method
-              description: Formula or approach used to calculate detection limits.
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/semTAPP/detectionLimitMethod
-                '@type':
-                  enum:
-                  - - schema:PropertyValueSpecification
-                schema:valueName:
-                  enum:
-                  - detectionLimitMethod
-                schema:name:
-                  enum:
-                  - Detection Limit Method
-                ada:dataType:
-                  enum:
-                  - string
-                ada:fieldScope:
-                  enum:
-                  - session
-                schema:readonlyValue:
-                  enum:
-                  - true
-                ada:tier:
-                  enum:
-                  - R
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - ada:fieldScope
-              readOnly: true
             minContains: 0
             maxContains: 1
           - contains:
@@ -6464,35 +6691,6 @@ x-defs:
               - ada:fieldScope
             minContains: 0
             maxContains: 1
-        ada:clAcquisitionMode:
-          description: 'CL data collection strategy. Panchromatic: total light intensity
-            collected by PMT across the full detector wavelength range. Spectral point:
-            full CL spectrum at discrete point locations. Hyperspectral map: full
-            CL spectrum acquired at each pixel of a raster scan.'
-          type: string
-          enum:
-          - Panchromatic
-          - Spectral point
-          - Hyperspectral map
-          - Multi-channel pseudo-color
-          - N/A
-          - None
-          - missing
-          readOnly: true
-        ada:clIntegrationTimeDefault:
-          description: Acquisition time per pixel (hyperspectral map mode) or per
-            spectrum (spectral point mode), in ms or s. Longer integration improves
-            signal-to-noise but increases beam dose and acquisition time.
-          anyOf:
-          - type: number
-          - type: string
-        ada:clWavelengthRange:
-          description: Detection wavelength range of the CL system in nm. The range
-            is set by the detector sensitivity and any optical filters installed.
-          anyOf:
-          - type: number
-          - type: string
-          readOnly: true
         ada:ebsdDetectorConfiguration:
           description: EBSD detector manufacturer, model, and camera resolution. Include
             whether EBSD and EDS are acquired simultaneously (common on modern combined
@@ -6508,7 +6706,7 @@ x-defs:
                 properties:
                   dqv:isMeasurementOf:
                     enum:
-                    - EBSD Mean Angular Deviation
+                    - EBSD Pattern Quality Threshold
                 required:
                 - dqv:isMeasurementOf
               then:
@@ -6647,18 +6845,6 @@ x-defs:
                     - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
               required:
               - '@type'
-        ada:liftOutMethod:
-          description: Method used to transfer the FIB-prepared lamella to the TEM
-            support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM
-            chamber and is the standard method for small or precious specimens.
-          type: string
-          enum:
-          - In-situ (micromanipulator, Cu or Mo TEM half-grid)
-          - Ex-situ
-          - N/A
-          - None
-          - missing
-          readOnly: true
         ada:massAbsorptionCoefficients:
           description: Database of mass absorption coefficients used in the matrix
             correction. MAC database choice affects accuracy particularly for light
@@ -6700,6 +6886,22 @@ x-defs:
           - type: number
           - type: string
           readOnly: true
+        ada:seDetectorType:
+          description: Type of secondary electron detector used. Everhart-Thornley
+            (ET) detector is the standard off-axis collector sensitive to SE2 and
+            some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at
+            short working distances; GSED/ESED detectors operate in VP/ESEM mode by
+            using the chamber gas as the signal amplification medium.
+          type: string
+          enum:
+          - Everhart-Thornley (ET)
+          - In-lens / TLD (through-the-lens)
+          - GSED (VP/ESEM)
+          - ESED (VP/ESEM)
+          - N/A
+          - None
+          - missing
+          readOnly: true
         ada:stepSizePixelSizeDefault:
           description: "Centre-to-centre distance between adjacent measurement points
             (WDS mapping) or pixels (EDS mapping) in \xB5m. Defines the spatial sampling
@@ -6736,6 +6938,22 @@ x-defs:
           anyOf:
           - type: number
           - type: string
+        ada:analyticalMode:
+          type: array
+          items:
+            type: string
+            enum:
+            - SE Imaging
+            - BSE Imaging
+            - EDS Point Analysis
+            - EDS Mapping
+            - WDS Point Analysis
+            - WDS Mapping
+            - CL Point Analysis
+            - CL Mapping
+            - EBSD
+            - TEM Sample Preparation
+            - 3D Tomography
       required:
       - ada:imageRegistration3DDefault
       - ada:segmentationMethod3DDefault
@@ -6747,10 +6965,10 @@ x-defs:
       - ada:ebsdStepSizeDefault
       - ada:edsAcquisitionMode
       - ada:edsLiveTimePerPointOrPixelDefault
-      - ada:liftOutMethod
       - ada:massAbsorptionCoefficients
       - ada:matrixCorrectionMethod
       - ada:sampleTiltAngle
+      - ada:seDetectorType
       - ada:stepSizePixelSizeDefault
       - ada:wdsDeadTimeCorrection
       - ada:workingDistanceDefault
@@ -10615,6 +10833,182 @@ x-defs:
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ogch.BaseSchema.modules.calibrationFactor:
+    title: 'TAPP Composition Module: CalibrationFactor'
+    description: "The shared CalibrationFactor block of the 2026-08-11 TAPP library
+      (Claude Skills for TAPP/Module_CalibrationFactor.csv), composed by 14 of the
+      sixteen delivery tables. 1 owned fields over 2 schema paths.\n\nGENERATED by
+      tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014
+      edit those, not this file. Requiredness follows the TAPP tier matrix: a field
+      Basic on a side is required there, Advanced is permitted, N/A is absent from
+      that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which
+      properties a conforming procedure or analysis carries. Column F (Example / Allowed
+      Content) is consumer-owned per the module manifest, so no enum is pinned here
+      \u2014 a consuming TAPP may narrow a value space, never widen it."
+    $defs:
+      ProcedureIdentification:
+        title: CalibrationFactor on the procedure
+        description: 'Composed into a TAPP (prov:Plan) schema: what the procedure
+          asserts once, for every analysis that follows it.'
+        type: object
+        properties:
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Calibration Factor and Determination Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:defaultValue:
+                      description: 'An externally-calibrated factor that converts
+                        the measured quantity into the reported quantity, how it was
+                        determined, and its uncertainty. Applies where the conversion
+                        depends on a factor calibrated against a reference of independently
+                        known value, rather than on the instrument response alone.
+                        Distinct from the fields that name the calibration material
+                        and that state which approach applies to which analyte, where
+                        the technique has them: this field records the resulting factor
+                        itself.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/defaultValue
+            allOf:
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Calibration Factor and Determination Method
+                required:
+                - schema:name
+            x-jsonld-id: http://schema.org/variableMeasured
+      AnalysisIdentification:
+        title: CalibrationFactor on the analysis
+        description: 'Composed into a technique detail (schema:Dataset) schema: what
+          each run supplies fresh, because it cannot be known until the analysis happens.'
+        type: object
+        properties:
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Calibration Factor and Determination Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: 'An externally-calibrated factor that converts
+                        the measured quantity into the reported quantity, how it was
+                        determined, and its uncertainty. Applies where the conversion
+                        depends on a factor calibrated against a reference of independently
+                        known value, rather than on the instrument response alone.
+                        Distinct from the fields that name the calibration material
+                        and that state which approach applies to which analyte, where
+                        the technique has them: this field records the resulting factor
+                        itself.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+            x-jsonld-id: http://schema.org/variableMeasured
+      Param_Analysis_calibrationFactorAndDeterminationMethod:
+        title: Calibration Factor and Determination Method
+        description: 'An externally-calibrated factor that converts the measured quantity
+          into the reported quantity, how it was determined, and its uncertainty.
+          Applies where the conversion depends on a factor calibrated against a reference
+          of independently known value, rather than on the instrument response alone.
+          Distinct from the fields that name the calibration material and that state
+          which approach applies to which analyte, where the technique has them: this
+          field records the resulting factor itself.'
+        type: object
+        properties:
+          '@id':
+            enum:
+            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
+          '@type':
+            enum:
+            - - schema:PropertyValue
+          schema:propertyID:
+            x-jsonld-id: http://schema.org/propertyID
+            enum:
+            - - '@id': ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
+          schema:name:
+            x-jsonld-id: http://schema.org/name
+            enum:
+            - Calibration Factor and Determination Method
+          schema:value:
+            type: string
+            x-jsonld-id: http://schema.org/value
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      Param_Procedure_calibrationFactorAndDeterminationMethod:
+        title: Calibration Factor and Determination Method
+        description: 'An externally-calibrated factor that converts the measured quantity
+          into the reported quantity, how it was determined, and its uncertainty.
+          Applies where the conversion depends on a factor calibrated against a reference
+          of independently known value, rather than on the instrument response alone.
+          Distinct from the fields that name the calibration material and that state
+          which approach applies to which analyte, where the technique has them: this
+          field records the resulting factor itself.'
+        type: object
+        properties:
+          '@id':
+            enum:
+            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault
+          '@type':
+            enum:
+            - - schema:PropertyValueSpecification
+          schema:valueName:
+            x-jsonld-id: http://schema.org/valueName
+            enum:
+            - calibrationFactorAndDeterminationMethodDefault
+          schema:name:
+            x-jsonld-id: http://schema.org/name
+            enum:
+            - Calibration Factor and Determination Method
+          ada:dataType:
+            enum:
+            - string
+          ada:fieldScope:
+            enum:
+            - session
+          schema:readonlyValue:
+            x-jsonld-id: http://schema.org/readonlyValue
+          ada:tier:
+            enum:
+            - R
+        required:
+        - '@id'
+        - '@type'
+        - schema:valueName
+        - schema:name
+        - ada:dataType
+        - ada:fieldScope
+    x-jsonld-prefixes:
+      schema: http://schema.org/
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.aggregation:
     title: 'TAPP Composition Module: Aggregation'
     description: "The shared Aggregation block of the 2026-08-11 TAPP library (Claude
@@ -10756,52 +11150,6 @@ x-defs:
       dqv: http://www.w3.org/ns/dqv#
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-  ogch.BaseSchema.modules.blank:
-    title: 'TAPP Composition Module: Blank'
-    description: "The shared Blank block of the 2026-08-11 TAPP library (Claude Skills
-      for TAPP/Module_Blank.csv), composed by 12 of the sixteen delivery tables. 1
-      owned fields over 0 schema paths.\n\nGENERATED by tools/build_module_bb.py from
-      the module's CSV and its schema-path sidecar \u2014 edit those, not this file.
-      Requiredness follows the TAPP tier matrix: a field Basic on a side is required
-      there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
-      is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure
-      or analysis carries. Column F (Example / Allowed Content) is consumer-owned
-      per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may
-      narrow a value space, never widen it."
-    $defs:
-      Param_Analysis_proceduralBlankLevel:
-        title: Procedural Blank Level
-        description: "The measured level of the analytical blank in the session, and
-          \u2014 where the reported quantity is a ratio \u2014 its composition, since
-          a blank subtracted from a ratio biases the result unless its own composition
-          is known. Companion to the blank correction method, which is procedure-level:
-          this field records what was actually measured. Follows the criterion-versus-measurement
-          split the library applies wherever a procedure sets a threshold and an analysis
-          reports a value against it."
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/Blank/proceduralBlankLevel
-          '@type':
-            enum:
-            - - schema:PropertyValue
-          schema:propertyID:
-            enum:
-            - - '@id': ada:parameter/module/Blank/proceduralBlankLevel
-          schema:name:
-            enum:
-            - Procedural Blank Level
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.targetSelection:
     title: 'TAPP Composition Module: TargetSelection'

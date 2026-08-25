@@ -449,9 +449,6 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:secondaryReferenceMaterialDefault": [
     "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
   ],
-  "ada:reportedProperties": [
-    "Forty-eight trace element concentrations (ppm); blanks (ppb)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -469,6 +466,9 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:samplingUnit": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\""
+  ],
+  "ada:reportedProperties": [
+    "Forty-eight trace element concentrations (ppm); blanks (ppb)"
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of digested solution)",
   "ada:isotopeDilutionSpike": "None",
@@ -525,25 +525,6 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -583,6 +564,14 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:numberOfReplicatesPerSample": -9999,
@@ -1043,9 +1032,6 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:secondaryReferenceMaterialDefault": [
     "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
   ],
-  "ada:reportedProperties": [
-    "Forty-eight trace element concentrations (ppm); blanks (ppb)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1063,6 +1049,9 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:samplingUnit": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\""
+  ],
+  "ada:reportedProperties": [
+    "Forty-eight trace element concentrations (ppm); blanks (ppb)"
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of digested solution)",
   "ada:isotopeDilutionSpike": "None",
@@ -1119,25 +1108,6 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1177,6 +1147,14 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:numberOfReplicatesPerSample": -9999,
@@ -1207,21 +1185,14 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder (50 mg; stated section 3.3)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -1232,7 +1203,14 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Step 1: conc. HNO3 (1 ml) + conc. HF (1 ml); Steps 2-3: conc. HNO3 fuming to dryness (twice); Step 4: HNO3 (1.5 ml) + ultra-pure water (2.5 ml); stated section 3.3" ] ] ] ;
+                            schema1:name "Step 1: conc. HNO3 (1 ml) + conc. HF (1 ml); Steps 2-3: conc. HNO3 fuming to dryness (twice); Step 4: HNO3 (1.5 ml) + ultra-pure water (2.5 ml); stated section 3.3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1); ada:perAnalyteCalibrationStrategy = External calibration (all analytes; stated section 3.1)." ;
@@ -1248,6 +1226,8 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Geological reference materials (basalt, andesite, granite, shale); upper continental crust samples (stated abstract)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -1258,8 +1238,6 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "48 trace elements: Li",
@@ -1328,17 +1306,6 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -1999,9 +1966,6 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   ],
   "ada:blankBackgroundCorrectionMethod": "Procedural blank",
   "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
-  "ada:reportedProperties": [
-    "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2033,6 +1997,9 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler"
   ],
+  "ada:reportedProperties": [
+    "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)"
+  ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of dissolved foraminifera)",
   "ada:isotopeDilutionSpike": "None",
   "ada:finalSolutionMatrix": "0.075 M HNO3 at 100 ppm Ca (stated section 2)",
@@ -2061,25 +2028,6 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -2121,6 +2069,14 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:sampleSequenceDesign": "missing",
@@ -2592,9 +2548,6 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   ],
   "ada:blankBackgroundCorrectionMethod": "Procedural blank",
   "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
-  "ada:reportedProperties": [
-    "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2626,6 +2579,9 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler"
   ],
+  "ada:reportedProperties": [
+    "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)"
+  ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of dissolved foraminifera)",
   "ada:isotopeDilutionSpike": "None",
   "ada:finalSolutionMatrix": "0.075 M HNO3 at 100 ppm Ca (stated section 2)",
@@ -2654,25 +2610,6 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -2714,6 +2651,14 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:sampleSequenceDesign": "missing",
@@ -2751,18 +2696,18 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2); ada:perAnalyteCalibrationStrategy = External calibration with matrix-matched standards at 100 ppm Ca (stated section 2); ada:blankBackgroundCorrectionMethod = On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)." ;
@@ -2782,6 +2727,8 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
             schema1:target [ schema1:description "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)" ;
                     schema1:name "ICP-AES (for initial [Ca] determination; stated section 2)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -2792,8 +2739,6 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "9 Me/Ca ratios: Li",
@@ -2857,17 +2802,6 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -3183,6 +3117,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             "schema:defaultValue": "\"113In/115In = 0.0448 (Rosman and Taylor 1998)\" used in the In correction; \"For a 94Mo/95Mo value of 0.58\" and MoOH+/MoO+ \"a value of ~0.15 was obtained\", both used in the Mo-oxide correction"
           }
         ],
+        "ada:detectionLimitMethod": "N/A",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -3439,8 +3374,19 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:secondaryReferenceMaterialDefault": [
     "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
   ],
-  "ada:reportedProperties": [
-    "Cd, In, Tl and Bi mass fractions (ng g-1)"
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.04,
+      "schema:description": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)"
+    }
   ],
   "schema:measurementTechnique": [
     {
@@ -3459,6 +3405,9 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
   "ada:analyticalMode": [
     "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\""
+  ],
+  "ada:reportedProperties": [
+    "Cd, In, Tl and Bi mass fractions (ng g-1)"
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis)",
   "ada:isotopeDilutionSpike": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)",
@@ -3483,25 +3432,6 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -3543,6 +3473,14 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:massCyclesPerReplicate": -9999,
@@ -3678,6 +3616,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             "schema:defaultValue": "\"113In/115In = 0.0448 (Rosman and Taylor 1998)\" used in the In correction; \"For a 94Mo/95Mo value of 0.58\" and MoOH+/MoO+ \"a value of ~0.15 was obtained\", both used in the Mo-oxide correction"
           }
         ],
+        "ada:detectionLimitMethod": "N/A",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -3934,8 +3873,19 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:secondaryReferenceMaterialDefault": [
     "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
   ],
-  "ada:reportedProperties": [
-    "Cd, In, Tl and Bi mass fractions (ng g-1)"
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.04,
+      "schema:description": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)"
+    }
   ],
   "schema:measurementTechnique": [
     {
@@ -3954,6 +3904,9 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
   "ada:analyticalMode": [
     "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\""
+  ],
+  "ada:reportedProperties": [
+    "Cd, In, Tl and Bi mass fractions (ng g-1)"
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis)",
   "ada:isotopeDilutionSpike": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)",
@@ -3978,25 +3931,6 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -4038,6 +3972,14 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:massCyclesPerReplicate": -9999,
@@ -4067,20 +4009,6 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF + HClO4 (basalt/glass, ultrasonic); HF alone in TFE bomb (peridotite/chondrite; stated section 2)" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder or glass chips (stated section 2)" ;
                     schema1:name "Sample preparation" ;
@@ -4092,7 +4020,23 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
                         <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "N/A" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF + HClO4 (basalt/glass, ultrasonic); HF alone in TFE bomb (peridotite/chondrite; stated section 2)" ] ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -4107,6 +4051,8 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate reference materials (basalt, andesite, peridotite), NIST SRM glasses, carbonaceous chondrites (stated section 2)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -4117,8 +4063,6 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "Bi (with 149Sm as ID-IS reference; stated section 2)",
@@ -4176,17 +4120,6 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -4258,6 +4191,14 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     schema1:description "15-63 mg (silicates); 8-22 mg (NIST glass); 9-28 mg (chondrites; stated section 2)" ;
     schema1:name "Sample Aliquot Mass or Volume" ;
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 4e-02 ;
+    schema1:description "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
@@ -4626,9 +4567,6 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
     ]
   },
   "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
-  "ada:reportedProperties": [
-    "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4660,6 +4598,9 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"The sample was introduced into a Scott spray chamber through a MicroMist nebulizer at an uptake rate of 0.2 mL/min\""
   ],
+  "ada:reportedProperties": [
+    "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper"
+  ],
   "ada:chromatographicSeparationApplied": "None (direct analysis; stated Methods)",
   "ada:isotopeDilutionSpike": "None",
   "ada:analyteTemplate": {
@@ -4678,25 +4619,6 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -4738,6 +4660,14 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
@@ -5059,9 +4989,6 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
     ]
   },
   "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
-  "ada:reportedProperties": [
-    "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5093,6 +5020,9 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"The sample was introduced into a Scott spray chamber through a MicroMist nebulizer at an uptake rate of 0.2 mL/min\""
   ],
+  "ada:reportedProperties": [
+    "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper"
+  ],
   "ada:chromatographicSeparationApplied": "None (direct analysis; stated Methods)",
   "ada:isotopeDilutionSpike": "None",
   "ada:analyteTemplate": {
@@ -5111,25 +5041,6 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -5171,6 +5082,14 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
@@ -5208,6 +5127,12 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ],
@@ -5215,13 +5140,7 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods); ada:perAnalyteCalibrationStrategy = External calibration (stated Methods)." ;
@@ -5241,6 +5160,8 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
             schema1:target [ schema1:description "Same dissolved aliquots analyzed by Q-ICP-MS (major/trace elements, masses 23-75) and MC-ICP-MS (Zn isotopes); stated Methods" ;
                     schema1:name "MC-ICP-MS (Neptune Plus at IPGP; for Zn isotope measurements; stated Methods)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -5251,8 +5172,6 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "Major and trace elements (masses 23-75, Na to As; stated Methods)" ] ;
@@ -5286,17 +5205,6 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -5951,9 +5859,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:secondaryReferenceMaterialDefault": [
     "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
   ],
-  "ada:reportedProperties": [
-    "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5985,6 +5890,9 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:analyticalMode": [
     "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\""
   ],
+  "ada:reportedProperties": [
+    "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]"
+  ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.1)",
   "ada:isotopeDilutionSpike": "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)",
   "ada:finalSolutionMatrix": "0.5 mol/l HF (stated section 2.1.1)",
@@ -6012,25 +5920,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -6072,6 +5961,14 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:numberOfReplicatesPerSample": -9999,
@@ -6625,9 +6522,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:secondaryReferenceMaterialDefault": [
     "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
   ],
-  "ada:reportedProperties": [
-    "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6659,6 +6553,9 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:analyticalMode": [
     "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\""
   ],
+  "ada:reportedProperties": [
+    "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]"
+  ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.1)",
   "ada:isotopeDilutionSpike": "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)",
   "ada:finalSolutionMatrix": "0.5 mol/l HF (stated section 2.1.1)",
@@ -6686,25 +6583,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -6746,6 +6624,14 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:numberOfReplicatesPerSample": -9999,
@@ -6773,18 +6659,6 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/guardElectrode> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
@@ -6798,7 +6672,19 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.5 mol/l HF (stated section 2.1.1)" ] ] ] ;
+                            schema1:name "0.5 mol/l HF (stated section 2.1.1)" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/guardElectrode> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (all analytes; stated section 2.1)." ;
@@ -6818,6 +6704,8 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
             schema1:target [ schema1:description "Q-ICP-MS (7500cs) measured B, Zr, Nb, Mo, Sn, Sb, Hf, Ta; SF-ICP-MS (ELEMENT) measured Ti and Nb; both techniques on same digested solutions; stated section 2.1" ;
                     schema1:name "SF-ICP-MS (Finnigan ELEMENT at PML; for Ti measurements; stated section 2.1.2)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -6828,8 +6716,6 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "B",
@@ -6897,17 +6783,6 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -7365,9 +7240,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   "ada:perAnalyteCalibrationStrategy": [
     "External calibration (all analytes)"
   ],
-  "ada:reportedProperties": [
-    "Te and Se concentrations (ug L-1; mg kg-1)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7385,6 +7257,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "Te and Se concentrations (ug L-1; mg kg-1)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Te and Se"
@@ -7401,25 +7276,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -7512,6 +7368,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
@@ -7767,9 +7631,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   "ada:perAnalyteCalibrationStrategy": [
     "External calibration (all analytes)"
   ],
-  "ada:reportedProperties": [
-    "Te and Se concentrations (ug L-1; mg kg-1)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7787,6 +7648,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "Te and Se concentrations (ug L-1; mg kg-1)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Te and Se"
@@ -7803,25 +7667,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -7914,6 +7759,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
@@ -7953,13 +7806,8 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -7968,8 +7816,13 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v34.csv). Reported detail: ada:perAnalyteCalibrationStrategy = External calibration for both Te and Se." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -7983,6 +7836,8 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Estuarine suspended particulate matter and sediment (Gironde Estuary sorption experiments)" ] ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -7993,8 +7848,6 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "Te and Se" ] ;
@@ -8042,17 +7895,6 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -8485,8 +8327,19 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   "ada:secondaryReferenceMaterialDefault": [
     "NCS 73307 stream sediment"
   ],
-  "ada:reportedProperties": [
-    "Particulate Te concentration (mg kg-1)"
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.1,
+      "schema:description": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD"
+    }
   ],
   "schema:measurementTechnique": [
     {
@@ -8506,6 +8359,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "Particulate Te concentration (mg kg-1)"
+  ],
   "ada:chromatographicSeparationApplied": "No — sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography",
   "ada:finalSolutionMatrix": "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL",
   "ada:analyteTemplate": {
@@ -8524,25 +8380,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -8584,6 +8421,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",
@@ -8946,8 +8791,19 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   "ada:secondaryReferenceMaterialDefault": [
     "NCS 73307 stream sediment"
   ],
-  "ada:reportedProperties": [
-    "Particulate Te concentration (mg kg-1)"
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.1,
+      "schema:description": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD"
+    }
   ],
   "schema:measurementTechnique": [
     {
@@ -8967,6 +8823,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "Particulate Te concentration (mg kg-1)"
+  ],
   "ada:chromatographicSeparationApplied": "No \u2014 sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography",
   "ada:finalSolutionMatrix": "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL",
   "ada:analyteTemplate": {
@@ -8985,25 +8844,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -9045,6 +8885,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",
@@ -9081,14 +8929,10 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Tri-acid HNO3+HCl+HF: 750 uL HNO3 (14M), 1.5 mL HCl (10M), 2.5 mL HF (29M); re-dissolved in 250 uL HNO3. Microwave route for Se: 3 mL HNO3, 0.5 mL H2O2, 0.25 mL HF, 0.5 mL Milli-Q" ] ],
+                    schema1:description "Dried at 50 C and homogenised in an agate mortar before microwave digestion" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -9097,14 +8941,19 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Dried at 50 C and homogenised in an agate mortar before microwave digestion" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Tri-acid HNO3+HCl+HF: 750 uL HNO3 (14M), 1.5 mL HCl (10M), 2.5 mL HF (29M); re-dissolved in 250 uL HNO3. Microwave route for Se: 3 mL HNO3, 0.5 mL H2O2, 0.25 mL HF, 0.5 mL Milli-Q" ] ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v34.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -9119,6 +8968,8 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Estuarine sediment — total digestions and selective extraction fractions" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -9129,8 +8980,6 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "Te" ] ;
@@ -9178,17 +9027,6 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -9253,6 +9091,14 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     schema1:description "30 mg (tri-acid) and 40-50 mg (microwave)" ;
     schema1:name "Sample Aliquot Mass or Volume" ;
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1e-01 ;
+    schema1:description "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
@@ -9544,8 +9390,19 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   "ada:secondaryReferenceMaterialDefault": [
     "CRM-TMDW drinking water and NIST 1643f freshwater"
   ],
-  "ada:reportedProperties": [
-    "Dissolved Se concentration (ug L-1)"
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.01,
+      "schema:description": "LOD 0.01 ug L-1 (N = 10)"
+    }
   ],
   "schema:measurementTechnique": [
     {
@@ -9565,6 +9422,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "Dissolved Se concentration (ug L-1)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Se"
@@ -9581,25 +9441,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -9692,6 +9533,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
@@ -9948,8 +9797,19 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   "ada:secondaryReferenceMaterialDefault": [
     "CRM-TMDW drinking water and NIST 1643f freshwater"
   ],
-  "ada:reportedProperties": [
-    "Dissolved Se concentration (ug L-1)"
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.01,
+      "schema:description": "LOD 0.01 ug L-1 (N = 10)"
+    }
   ],
   "schema:measurementTechnique": [
     {
@@ -9969,6 +9829,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "Dissolved Se concentration (ug L-1)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Se"
@@ -9985,25 +9848,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -10096,6 +9940,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
@@ -10134,23 +9986,24 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v34.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -10164,6 +10017,8 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Estuarine water — dissolved Se from sorption kinetics and isotherms" ] ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -10174,8 +10029,6 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "Se" ] ;
@@ -10225,17 +10078,6 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Limit of Quantification (LOQ) Method" ;
     schema1:valueName "limitOfQuantificationMethod" ;
@@ -10270,6 +10112,14 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     schema1:name "Isobaric Interference Corrections Applied" ;
     schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1e-02 ;
+    schema1:description "LOD 0.01 ug L-1 (N = 10)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
@@ -10707,9 +10557,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   "ada:secondaryReferenceMaterialDefault": [
     "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure"
   ],
-  "ada:reportedProperties": [
-    "Elemental abundances, CI-normalised ratios"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10727,6 +10574,9 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   "ada:samplingUnit": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "Elemental abundances, CI-normalised ratios"
   ],
   "ada:isotopeDilutionSpike": "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF",
   "ada:finalSolutionMatrix": "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF",
@@ -10788,25 +10638,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10846,6 +10677,14 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
@@ -11247,9 +11086,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   "ada:secondaryReferenceMaterialDefault": [
     "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure"
   ],
-  "ada:reportedProperties": [
-    "Elemental abundances, CI-normalised ratios"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11267,6 +11103,9 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   "ada:samplingUnit": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "Elemental abundances, CI-normalised ratios"
   ],
   "ada:isotopeDilutionSpike": "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF",
   "ada:finalSolutionMatrix": "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF",
@@ -11328,25 +11167,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -11386,6 +11206,14 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
@@ -11420,20 +11248,10 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -11444,9 +11262,19 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v34.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -11461,6 +11289,8 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Carbonaceous asteroid particles (Ryugu, Hayabusa2 TD1) and the Allende chondrite" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -11471,8 +11301,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "54 elements: Li",
@@ -11562,17 +11390,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -11728,6 +11545,7 @@ description: Solution quadrupole ICP-MS extension of the base TAPP definition, g
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
@@ -12138,6 +11956,32 @@ allOf:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
+                  ada:detectionLimitMethod:
+                    description: Method used to calculate detection limits for each
+                      reported concentration variable.
+                    anyOf:
+                    - type: string
+                      enum:
+                      - "3\u03C3 blank"
+                      - "3\u03C3 background"
+                      - "3\xD7 blank mean"
+                      - Poisson statistics
+                      - N/A
+                      - None
+                      - missing
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        enum:
+                        - "3\u03C3 blank"
+                        - "3\u03C3 background"
+                        - "3\xD7 blank mean"
+                        - Poisson statistics
+                        - N/A
+                        - None
+                        - missing
+                        readOnly: true
           allOf:
           - contains:
               properties:
@@ -13692,6 +13536,39 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set). Specify units (\xB5g/g
+            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
+            measured values."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
@@ -13760,6 +13637,42 @@ allOf:
               const: false
             ada:tier:
               const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set). Specify units (\xB5g/g
+            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
+            measured values."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -14197,6 +14110,158 @@ allOf:
       - None
       - missing
       readOnly: true
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - title: Normalization / Standards-Based Correction
+          description: Post-acquisition normalization applied to output concentrations
+            relative to a reference value (e.g., correction to a monitor element's
+            certified value in the calibration standard).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: normalizationStandardsBasedCorrectionDefault
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set). Specify units (\xB5g/g
+            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
+            measured values."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+      allOf:
+      - contains:
+          title: Normalization / Standards-Based Correction
+          description: Post-acquisition normalization applied to output concentrations
+            relative to a reference value (e.g., correction to a monitor element's
+            certified value in the calibration standard).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: normalizationStandardsBasedCorrectionDefault
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set). Specify units (\xB5g/g
+            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
+            measured values."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     ada:primaryStandardNameDefault:
       description: Name and reference material identifier of the external calibration
         standard used to convert signal intensities to elemental concentrations. Include
@@ -14223,67 +14288,6 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - title: Detection Limit
-              description: "Elemental detection limits, one per reported concentration
-                variable (one per analyte, these being the same set). Specify units
-                (\xB5g/g or \xB5g/L) and whether values are procedure-typical estimates
-                or session-specific measured values."
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Detection Limit Method
-              description: Method used to calculate detection limits for each reported
-                concentration variable.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification.
               type: object
@@ -14412,73 +14416,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains:
-              title: Detection Limit
-              description: "Elemental detection limits, one per reported concentration
-                variable (one per analyte, these being the same set). Specify units
-                (\xB5g/g or \xB5g/L) and whether values are procedure-typical estimates
-                or session-specific measured values."
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Detection Limit Method
-              description: Method used to calculate detection limits for each reported
-                concentration variable.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
           - contains:
               title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification.

@@ -120,6 +120,19 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% (Table 1 footnote; other elements N)"
+    }
+  ],
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "schema:actionProcess": {
     "schema:step": [
@@ -380,7 +393,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -512,6 +524,19 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% (Table 1 footnote; other elements N)"
+    }
+  ],
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "schema:actionProcess": {
     "schema:step": [
@@ -772,7 +797,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -811,6 +835,7 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
                     schema1:description "Polished thin section; carbon coating N" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "missing" ;
@@ -867,7 +892,6 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
                 "Na",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -956,6 +980,13 @@ ex:empaTAPP-JEOL8200 a cdi:Activity,
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% (Table 1 footnote; other elements N)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -1112,6 +1143,19 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "K2O: 0.01 wt% (lowest); MnO: 0.06 wt% (highest); full per-element values stated in paper"
+    }
+  ],
   "ada:matrixCorrectionMethod": "Bence-Albee",
   "schema:actionProcess": {
     "schema:step": [
@@ -1369,7 +1413,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -1501,6 +1544,19 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "K2O: 0.01 wt% (lowest); MnO: 0.06 wt% (highest); full per-element values stated in paper"
+    }
+  ],
   "ada:matrixCorrectionMethod": "Bence-Albee",
   "schema:actionProcess": {
     "schema:step": [
@@ -1758,7 +1814,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -1789,14 +1844,15 @@ ex:empaTAPP-P1 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Sen Hu" ] ;
     schema1:datePublished "missing" ;
@@ -1854,7 +1910,6 @@ ex:empaTAPP-P1 a cdi:Activity,
                 "Na",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -1941,6 +1996,13 @@ ex:empaTAPP-P1 a cdi:Activity,
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "K2O: 0.01 wt% (lowest); MnO: 0.06 wt% (highest); full per-element values stated in paper" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -2108,6 +2170,17 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as \"typical\")"
     }
   ],
   "schema:actionProcess": {
@@ -2357,7 +2430,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -2500,6 +2572,17 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Defocused beam 5-10 \u00b5m for maskelynite, phosphate, sulfide, and glass"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as \"typical\")"
     }
   ],
   "schema:actionProcess": {
@@ -2749,7 +2832,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -2788,7 +2870,8 @@ ex:empaTAPP-P2 a cdi:Activity,
                     schema1:description "Polished thin sections (coating type N)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault>,
+        <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 µm). Olivine megacryst mapping (15 kV, 200 nA, step 2 µm, dwell ~0.5 s) described as \"using the EMP\" — instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -2846,7 +2929,6 @@ ex:empaTAPP-P2 a cdi:Activity,
                 "P (from detection limits table)",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -2936,6 +3018,13 @@ ex:empaTAPP-P2 a cdi:Activity,
     schema1:defaultValue "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as \"typical\")" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -3105,6 +3194,17 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as shared conditions with UT)"
     }
   ],
   "schema:actionProcess": {
@@ -3353,7 +3453,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -3497,6 +3596,17 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Defocused beam 5-10 \u00b5m for maskelynite, phosphate, sulfide, and glass"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as shared conditions with UT)"
     }
   ],
   "schema:actionProcess": {
@@ -3745,7 +3855,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -3785,7 +3894,8 @@ ex:empaTAPP-P3 a cdi:Activity,
                     schema1:description "Polished thin sections (coating type N)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault>,
+        <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -3843,7 +3953,6 @@ ex:empaTAPP-P3 a cdi:Activity,
                 "P (from detection limits table; conditions shared with UT)",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -3933,6 +4042,13 @@ ex:empaTAPP-P3 a cdi:Activity,
     schema1:defaultValue "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as shared conditions with UT)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -4102,6 +4218,17 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Low beam current (5 nA); Na diffusion away from beam still observed in liebermannite"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "0.05 Si, 0.04 Ti, 0.06 Al, 0.06 Fe, 0.02 Mg, 0.02 Ca, 0.03 Na, 0.02 K, 0.05 Cr, 0.06 Mn (all wt%)"
     }
   ],
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
@@ -4364,7 +4491,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -4507,6 +4633,17 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Low beam current (5 nA); Na diffusion away from beam still observed in liebermannite"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "0.05 Si, 0.04 Ti, 0.06 Al, 0.06 Fe, 0.02 Mg, 0.02 Ca, 0.03 Na, 0.02 K, 0.05 Cr, 0.06 Mn (all wt%)"
     }
   ],
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
@@ -4769,7 +4906,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -4800,15 +4936,16 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
+                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault>,
+        <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "missing" ;
@@ -4865,7 +5002,6 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
                 "Na",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -4874,10 +5010,10 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Analyte Estimation Method" ;
@@ -4959,6 +5095,13 @@ ex:empaTAPP-JEOL8200-2 a cdi:Activity,
     schema1:defaultValue "Low beam current (5 nA); Na diffusion away from beam still observed in liebermannite" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "0.05 Si, 0.04 Ti, 0.06 Al, 0.06 Fe, 0.02 Mg, 0.02 Ca, 0.03 Na, 0.02 K, 0.05 Cr, 0.06 Mn (all wt%)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -5117,6 +5260,19 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Al2O3, K2O, CaO: 0.03-0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06-0.09 wt% (stated as \"typically\")"
+    }
+  ],
   "schema:object": [
     {
       "@type": [
@@ -5364,7 +5520,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -5497,6 +5652,19 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Al2O3, K2O, CaO: 0.03-0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06-0.09 wt% (stated as \"typically\")"
+    }
+  ],
   "schema:object": [
     {
       "@type": [
@@ -5744,7 +5912,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -5783,6 +5950,7 @@ ex:empaTAPP-P5 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. Secondary standards: USNM San Carlos olivine (Fo90); Kakanui kaersutite. Detection limits stated per element group." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -5842,7 +6010,6 @@ ex:empaTAPP-P5 a cdi:Activity,
                 "Si",
                 "Ti",
                 "V" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -5927,6 +6094,13 @@ ex:empaTAPP-P5 a cdi:Activity,
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Al2O3, K2O, CaO: 0.03-0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06-0.09 wt% (stated as \"typically\")" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -6342,7 +6516,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -6733,7 +6906,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -6764,14 +6936,14 @@ ex:empaTAPP-P6 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "missing" ;
     schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. EDS spectrometer present but not used for quantitative analyses. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated." ;
@@ -6788,12 +6960,12 @@ ex:empaTAPP-P6 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Phyllosilicate (matrix) | Oxide (magnetite, ilmenite) | Sulfide (pyrrhotite, pentlandite) | Carbonate (dolomite, magnesite) | Phosphate (Ca phosphate, Na-Mg hydrous phosphate)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -6819,7 +6991,6 @@ ex:empaTAPP-P6 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
             ada:defaultAnalytes "F (explicitly stated)",
                 "full analyte list N in methods" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -6828,10 +6999,10 @@ ex:empaTAPP-P6 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA microanalysis software" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA microanalysis software" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Analyte Estimation Method" ;
@@ -7341,7 +7512,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -7748,7 +7918,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -7847,7 +8016,6 @@ ex:empaTAPP-JEOL8530 a cdi:Activity,
                 "P",
                 "S",
                 "Si" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -8102,6 +8270,19 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Better than 0.02 wt% (as stated in paper)"
+    }
+  ],
   "ada:matrixCorrectionMethod": "ZAF",
   "schema:actionProcess": {
     "schema:step": [
@@ -8347,7 +8528,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -8479,6 +8659,19 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Better than 0.02 wt% (as stated in paper)"
+    }
+  ],
   "ada:matrixCorrectionMethod": "ZAF",
   "schema:actionProcess": {
     "schema:step": [
@@ -8724,7 +8917,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -8763,6 +8955,7 @@ ex:empaTAPP-P8 a cdi:Activity,
                     schema1:description "Polished thin section; carbon coating N" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -8818,7 +9011,6 @@ ex:empaTAPP-P8 a cdi:Activity,
                 "P (from standards/methods text)",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -8903,6 +9095,13 @@ ex:empaTAPP-P8 a cdi:Activity,
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Better than 0.02 wt% (as stated in paper)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -9315,7 +9514,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -9704,7 +9902,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -9736,14 +9933,14 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Ir-coated specimens mounted on Ir-coated Parafilm" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Ir-coated specimens mounted on Ir-coated Parafilm" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. McCoy" ] ;
     schema1:datePublished "missing" ;
@@ -9803,7 +10000,6 @@ ex:empaTAPP-JEOL8530-2 a cdi:Activity,
                 "Ni",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -10302,7 +10498,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -10692,7 +10887,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -10724,14 +10918,14 @@ ex:empaTAPP-P10 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished section; 20 nm carbon coat" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished section; 20 nm carbon coat" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. Zega" ] ;
     schema1:datePublished "missing" ;
@@ -10749,12 +10943,12 @@ ex:empaTAPP-P10 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Phosphate (Mg,Na phosphate) | Carbonate (Bennu evaporite phases)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -10791,7 +10985,6 @@ ex:empaTAPP-P10 a cdi:Activity,
                 "P",
                 "S",
                 "Si" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -11134,7 +11327,6 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -11369,7 +11561,6 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -11432,7 +11623,6 @@ ex:empaTAPP-P11 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS; TEM-EDS/EELS; FIB-SEM; XRD; XANES" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -11618,6 +11808,17 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "ada:fieldScope": "session",
       "schema:defaultValue": 5,
       "schema:description": "5×5 µm² for carbonates"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Mg: 0.025 wt%; Fe: 0.025 wt%; Si: 0.05 wt%; K: 0.05 wt%; Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%"
     }
   ],
   "schema:actionProcess": {
@@ -11874,7 +12075,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -12019,6 +12219,17 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "ada:fieldScope": "session",
       "schema:defaultValue": 5,
       "schema:description": "5\u00d75 \u00b5m\u00b2 for carbonates"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Mg: 0.025 wt%; Fe: 0.025 wt%; Si: 0.05 wt%; K: 0.05 wt%; Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%"
     }
   ],
   "schema:actionProcess": {
@@ -12275,7 +12486,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -12307,15 +12517,16 @@ ex:empaTAPP-P12 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault>,
+        <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) — unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument)." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -12373,7 +12584,6 @@ ex:empaTAPP-P12 a cdi:Activity,
                 "Session 2: Na",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -12465,6 +12675,13 @@ ex:empaTAPP-P12 a cdi:Activity,
     schema1:name "Beam Raster Dimensions" ;
     schema1:valueName "beamRasterDimensionsDefault" ;
     ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Mg: 0.025 wt%; Fe: 0.025 wt%; Si: 0.05 wt%; K: 0.05 wt%; Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
@@ -12622,6 +12839,19 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Transition metals: ~250 ppm (stated as \"typical\")"
+    }
+  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -12706,7 +12936,6 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -12839,6 +13068,19 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Transition metals: ~250 ppm (stated as \"typical\")"
+    }
+  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -12923,7 +13165,6 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "schema:termCode": "empa"
     }
   ],
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
@@ -12963,6 +13204,7 @@ ex:empaTAPP-P13 a cdi:Activity,
                     schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm) [N5,N6]" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not explicitly given; implied Si, Mg, Fe, Ca, Mn, Cr, Ni, Al, Ti from context. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -12986,7 +13228,6 @@ ex:empaTAPP-P13 a cdi:Activity,
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -12995,6 +13236,13 @@ ex:empaTAPP-P13 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Transition metals: ~250 ppm (stated as \"typical\")" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -13051,6 +13299,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
@@ -14902,6 +15151,37 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: Detection Limit
+          description: Method detection limit at 99% confidence (3-sigma), one per
+            reported concentration variable (one per analyte, these being the same
+            set), derived from counting statistics on peak and background. Include
+            the method and the resulting value for each.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: Drift Correction
           description: Method used to monitor and correct for instrument drift (beam
             current drift, spectrometer drift) during the analytical session.
@@ -15085,6 +15365,40 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
+          title: Detection Limit
+          description: Method detection limit at 99% confidence (3-sigma), one per
+            reported concentration variable (one per analyte, these being the same
+            set), derived from counting statistics on peak and background. Include
+            the method and the resulting value for each.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
           title: Drift Correction
           description: Method used to monitor and correct for instrument drift (beam
             current drift, spectrometer drift) during the analytical session.
@@ -15258,32 +15572,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits. Reference
-            method publication if applicable. When the procedure does not specify
-            a method, the analyst should complete this field.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
         - title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference
             materials to correct for session-to-session calibration drift.
@@ -15298,40 +15586,6 @@ allOf:
               const: normalizationStandardsBasedCorrectionDefault
             schema:name:
               const: Normalization / Standards-Based Correction
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
             ada:dataType:
               const: string
             ada:fieldScope:
@@ -15383,35 +15637,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits. Reference
-            method publication if applicable. When the procedure does not specify
-            a method, the analyst should complete this field.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference
             materials to correct for session-to-session calibration drift.
@@ -15443,49 +15668,143 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
-      - contains:
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-    ada:detectionLimitMethod:
-      description: Formula or approach used to calculate detection limits. Reference
-        method publication if applicable. When the procedure does not specify a method,
-        the analyst should complete this field.
-      type: string
-      readOnly: true
+    schema:actionProcess:
+      type: object
+      properties:
+        schema:step:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: Data reduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  ada:detectionLimitMethod:
+                    description: Formula or approach used to calculate detection limits.
+                      Reference method publication if applicable. When the procedure
+                      does not specify a method, the analyst should complete this
+                      field.
+                    anyOf:
+                    - type: string
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        readOnly: true
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - title: Normalization / Standards-Based Correction
+                        description: Post-acquisition normalization applied using
+                          secondary reference materials to correct for session-to-session
+                          calibration drift.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: normalizationStandardsBasedCorrectionDefault
+                          schema:name:
+                            const: Normalization / Standards-Based Correction
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                    allOf:
+                    - contains:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Normalization / Standards-Based Correction
+                        description: Post-acquisition normalization applied using
+                          secondary reference materials to correct for session-to-session
+                          calibration drift.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: normalizationStandardsBasedCorrectionDefault
+                          schema:name:
+                            const: Normalization / Standards-Based Correction
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                      minContains: 0
+                      maxContains: 1
+            - if:
+                properties:
+                  schema:name:
+                    const: Sample preparation
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:description:
+                    description: Description of how samples were prepared for analysis
+                      under this procedure (mounting, polishing, coating). Analysts
+                      may document session-specific variations from the procedure
+                      standard.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: Data reduction
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: Sample preparation
+              required:
+              - schema:name
     ada:edsAcquisitionMode:
       description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam
         point acquisition, linescan (beam stepped along a transect at defined intervals),
@@ -15580,73 +15899,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    schema:actionProcess:
-      type: object
-      properties:
-        schema:step:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  schema:name:
-                    const: Data reduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                    allOf:
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                      minContains: 0
-                      maxContains: 1
-            - if:
-                properties:
-                  schema:name:
-                    const: Sample preparation
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:description:
-                    description: Description of how samples were prepared for analysis
-                      under this procedure (mounting, polishing, coating). Analysts
-                      may document session-specific variations from the procedure
-                      standard.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-          allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Data reduction
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: Sample preparation
-              required:
-              - schema:name
     ada:massAbsorptionCoefficients:
       description: Database of mass absorption coefficients used in the matrix correction.
         MAC database choice affects accuracy particularly for light elements (B, C,
@@ -15714,8 +15966,16 @@ allOf:
       - None
       - missing
       readOnly: true
+    ada:analyticalMode:
+      type: array
+      items:
+        type: string
+        enum:
+        - EDS Point Analysis
+        - EDS Mapping
+        - WDS Point Analysis
+        - WDS Mapping
   required:
-  - ada:detectionLimitMethod
   - ada:edsAcquisitionMode
   - ada:edsLiveTimePerPointOrPixelDefault
   - ada:massAbsorptionCoefficients

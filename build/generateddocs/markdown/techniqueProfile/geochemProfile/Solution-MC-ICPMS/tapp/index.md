@@ -363,9 +363,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, \"several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples\""
   ],
-  "ada:reportedProperties": [
-    "εiMo relative to the Alfa Aesar solution standard, εiMo = [(iMo/96Mo)sample/(iMo/96Mo)standard − 1] x 10^4"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -396,6 +393,9 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "εiMo relative to the Alfa Aesar solution standard, εiMo = [(iMo/96Mo)sample/(iMo/96Mo)standard − 1] x 10^4"
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "98Mo/96Mo = 1.453173",
   "ada:chromatographicSeparationApplied": "Yes — two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -415,25 +415,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
@@ -456,6 +437,14 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -828,9 +817,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, \"several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples\""
   ],
-  "ada:reportedProperties": [
-    "\u03b5iMo relative to the Alfa Aesar solution standard, \u03b5iMo = [(iMo/96Mo)sample/(iMo/96Mo)standard \u2212 1] x 10^4"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -861,6 +847,9 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u03b5iMo relative to the Alfa Aesar solution standard, \u03b5iMo = [(iMo/96Mo)sample/(iMo/96Mo)standard \u2212 1] x 10^4"
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "98Mo/96Mo = 1.453173",
   "ada:chromatographicSeparationApplied": "Yes \u2014 two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -880,25 +869,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
@@ -921,6 +891,14 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -948,10 +926,12 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -959,20 +939,18 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                            schema1:name "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
@@ -993,6 +971,8 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TIMS — Ba isotopes on a Thermo Scientific Triton Plus at the same institute; Hf-W on the same sample digestions" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -1002,8 +982,6 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Mo (and Ba by TIMS)" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -1027,17 +1005,6 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -1646,9 +1613,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:secondaryReferenceMaterialDefault": [
     "Sch-M-2 anhydrite mineral standard; geological reference samples with known isotope compositions"
   ],
-  "ada:reportedProperties": [
-    "δ34S and δ33S in permil vs V-CDT"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1680,6 +1644,9 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "δ34S and δ33S in permil vs V-CDT"
+  ],
   "ada:chromatographicSeparationApplied": "Yes — cation exchange AG50-X8 (H+ form), 2.5 ml resin, conditioned with 1.4 N HNO3; S passes through while matrix elements are retained. Yield 98±4%",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "2% (w/w) HNO3, 50 ppm S stock",
@@ -1702,25 +1669,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1741,6 +1689,14 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
@@ -2229,9 +2185,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:secondaryReferenceMaterialDefault": [
     "Sch-M-2 anhydrite mineral standard; geological reference samples with known isotope compositions"
   ],
-  "ada:reportedProperties": [
-    "\u03b434S and \u03b433S in permil vs V-CDT"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2263,6 +2216,9 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u03b434S and \u03b433S in permil vs V-CDT"
+  ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 cation exchange AG50-X8 (H+ form), 2.5 ml resin, conditioned with 1.4 N HNO3; S passes through while matrix elements are retained. Yield 98\u00b14%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "2% (w/w) HNO3, 50 ppm S stock",
@@ -2285,25 +2241,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2324,6 +2261,14 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
@@ -2352,18 +2297,6 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/guardElectrode> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Mineral standard cut as a 2 mm thick section, polished and mounted on a 45x25 mm petrographic slide for the laser half; solution half dissolved from weighed mineral" ;
                     schema1:name "Sample preparation" ;
@@ -2377,7 +2310,19 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "5 ml HNO3 (50%), then 3 ml concentrated HNO3 + 2 mL HCl (50%); residue dissolved in 4 mL 2% HNO3" ] ] ] ;
+                            schema1:name "5 ml HNO3 (50%), then 3 ml concentrated HNO3 + 2 mL HCl (50%); residue dissolved in 4 mL 2% HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/guardElectrode> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
@@ -2399,6 +2344,8 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
             schema1:target [ schema1:description "Functional: the laser is connected directly to the spray chamber so ablated particles mix with 2% HNO3 and are \"effectively analyzed as a wet plasma ensuring that ablated aerosols are closely matrix-matched to solution standards\". Sequence: interchangeable — \"Our setup allows for interchangeable bulk and in situ S isotope measurement\"" ;
                     schema1:name "Laser-ablation MC-ICP-MS — the same NEPTUNE, with a NewWave UP213 laser, \"such that laser ablation and solution aspiration can be operated simultaneously\"" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -2408,8 +2355,6 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "S" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -2433,17 +2378,6 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -3085,9 +3019,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2 and BCR-2"
   ],
-  "ada:reportedProperties": [
-    "µ-notation Fe isotope ratios relative to IRMM-524a"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3118,6 +3049,9 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "µ-notation Fe isotope ratios relative to IRMM-524a"
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549, the certified ratios of IRMM-014",
   "ada:chromatographicSeparationApplied": "Yes — AG1-X8 (200-400 mesh) anion resin, 3 ml, 10.5 cm PFA columns; repeated with new resin. Overall Fe yield >99%",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -3141,25 +3075,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3180,6 +3095,14 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -3627,9 +3550,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2 and BCR-2"
   ],
-  "ada:reportedProperties": [
-    "\u00b5-notation Fe isotope ratios relative to IRMM-524a"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3660,6 +3580,9 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u00b5-notation Fe isotope ratios relative to IRMM-524a"
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549, the certified ratios of IRMM-014",
   "ada:chromatographicSeparationApplied": "Yes \u2014 AG1-X8 (200-400 mesh) anion resin, 3 ml, 10.5 cm PFA columns; repeated with new resin. Overall Fe yield >99%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -3683,25 +3606,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3722,6 +3626,14 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -3747,22 +3659,11 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -3772,7 +3673,18 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Iron meteorites: aqua regia (3:1 HCl-HNO3). Basalts: HF-HNO3 (2:1) followed by several steps of aqua regia. All converted to chloride and redissolved in 0.25 ml 10 M HCl" ] ] ] ;
+                            schema1:name "Iron meteorites: aqua regia (3:1 HCl-HNO3). Basalts: HF-HNO3 (2:1) followed by several steps of aqua regia. All converted to chloride and redissolved in 0.25 ml 10 M HCl" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
@@ -3793,6 +3705,8 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Prior Pt, Mo, Ni and/or W isotope analyses on the same digestions" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -3802,8 +3716,6 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Fe" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -3827,17 +3739,6 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -4312,9 +4213,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   ],
   "ada:primaryStandardNameDefault": "OL-REE series",
   "ada:calibrationMeasurementFrequency": "Every sample, spaced by 300 s rinsing",
-  "ada:reportedProperties": [
-    "Mass-dependent REE isotopic fractionation relative to the OL-REE standards, in delta notation"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4332,6 +4230,9 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   "ada:samplingUnit": "Fraction of a CAI digestion — \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "Mass-dependent REE isotopic fractionation relative to the OL-REE standards, in delta notation"
   ],
   "ada:chromatographicSeparationApplied": "Yes — U/TEVA, TODGA, then two-step FPLC on Ln-Spec resin (70 cm x 1.6 mm, 1.4 ml of 25–50 µm resin, 94 steps, 188 ml, 16 h at 70 °C, 0.17 ml/min). Overall yields >95%",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -4363,25 +4264,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4402,6 +4284,14 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -4708,9 +4598,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   ],
   "ada:primaryStandardNameDefault": "OL-REE series",
   "ada:calibrationMeasurementFrequency": "Every sample, spaced by 300 s rinsing",
-  "ada:reportedProperties": [
-    "Mass-dependent REE isotopic fractionation relative to the OL-REE standards, in delta notation"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4728,6 +4615,9 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   "ada:samplingUnit": "Fraction of a CAI digestion \u2014 \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "Mass-dependent REE isotopic fractionation relative to the OL-REE standards, in delta notation"
   ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 U/TEVA, TODGA, then two-step FPLC on Ln-Spec resin (70 cm x 1.6 mm, 1.4 ml of 25\u201350 \u00b5m resin, 94 steps, 188 ml, 16 h at 70 \u00b0C, 0.17 ml/min). Overall yields >95%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -4759,25 +4649,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4798,6 +4669,14 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -4824,11 +4703,6 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
@@ -4839,16 +4713,21 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
                             schema1:name "\"redissolved in a 2:1 mixture of HCl:HNO3 for 1 week on a hot plate ... These steps were performed twice\"; dried and dissolved in concentrated HNO3, diluted in 3 M HNO3" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v30.csv)." ;
@@ -4863,6 +4742,8 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Calcium-aluminium-rich inclusions (CAIs)" ] ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -4872,8 +4753,6 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Ce",
                 "Dy",
@@ -4905,17 +4784,6 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -5394,9 +5262,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
   "ada:blankBackgroundCorrectionMethod": "N/A",
   "ada:primaryStandardNameDefault": "ZrNIST",
   "ada:calibrationMeasurementFrequency": "Every sample — \"Each sample measurement was individually bracketed\"",
-  "ada:reportedProperties": [
-    "δ9x/90ZrNIST in permil — δ91/90Zr, δ92/90Zr, δ94/90Zr and δ96/90Zr"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5434,6 +5299,9 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "δ9x/90ZrNIST in permil — δ91/90Zr, δ92/90Zr, δ94/90Zr and δ96/90Zr"
+  ],
   "ada:chromatographicSeparationApplied": "Yes — AG-1X for U-Pb; Ln-Spec (~300 µl, 25–50 µm) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks",
   "ada:isotopeDilutionSpike": "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio",
   "ada:finalSolutionMatrix": "0.59 M HNO3 + 0.28 M HF, samples and bracketing standards matched in matrix and at 60 ng/g total Zr",
@@ -5453,25 +5321,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
@@ -5494,6 +5343,14 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -5886,9 +5743,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
   "ada:blankBackgroundCorrectionMethod": "N/A",
   "ada:primaryStandardNameDefault": "ZrNIST",
   "ada:calibrationMeasurementFrequency": "Every sample \u2014 \"Each sample measurement was individually bracketed\"",
-  "ada:reportedProperties": [
-    "\u03b49x/90ZrNIST in permil \u2014 \u03b491/90Zr, \u03b492/90Zr, \u03b494/90Zr and \u03b496/90Zr"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5926,6 +5780,9 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u03b49x/90ZrNIST in permil \u2014 \u03b491/90Zr, \u03b492/90Zr, \u03b494/90Zr and \u03b496/90Zr"
+  ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 AG-1X for U-Pb; Ln-Spec (~300 \u00b5l, 25\u201350 \u00b5m) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks",
   "ada:isotopeDilutionSpike": "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio",
   "ada:finalSolutionMatrix": "0.59 M HNO3 + 0.28 M HF, samples and bracketing standards matched in matrix and at 60 ng/g total Zr",
@@ -5945,25 +5802,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
@@ -5986,6 +5824,14 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -6020,16 +5866,6 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "29 M HF; after conversion to a chloride matrix for U-Pb. Zr aliquots taken up in 3 M HNO3 + 0.5 M HF" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
                     schema1:name "Sample preparation" ;
@@ -6038,7 +5874,17 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "29 M HF; after conversion to a chloride matrix for U-Pb. Zr aliquots taken up in 3 M HNO3 + 0.5 M HF" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethodDefault> ;
@@ -6061,6 +5907,8 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
             schema1:target [ schema1:description "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes" ;
                     schema1:name "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -6070,8 +5918,6 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Zr" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -6096,17 +5942,6 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -6642,9 +6477,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3; DTS-2b and PCC-1 synthetic mixes; Allende"
   ],
-  "ada:reportedProperties": [
-    "δ87Rb in permil relative to NIST SRM984"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6662,6 +6494,9 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   "ada:samplingUnit": "Digestion aliquot — \"Samples of about 100 mg or less were digested\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "δ87Rb in permil relative to NIST SRM984"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "N/A — Rb has two stable isotopes, so internal normalization is not possible; bracketing used instead",
   "ada:chromatographicSeparationApplied": "Yes — five steps: AG50W-X8 cation, a second cation column, AG1-X8 anion in 2 M HF for Ti, a 40 cm Eichrom Sr resin column for Rb-K, and an AG50W-X8 clean-up. Yields >95%",
@@ -6686,25 +6521,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -6725,6 +6541,14 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -7122,9 +6946,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3; DTS-2b and PCC-1 synthetic mixes; Allende"
   ],
-  "ada:reportedProperties": [
-    "\u03b487Rb in permil relative to NIST SRM984"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7142,6 +6963,9 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   "ada:samplingUnit": "Digestion aliquot \u2014 \"Samples of about 100 mg or less were digested\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "\u03b487Rb in permil relative to NIST SRM984"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "N/A \u2014 Rb has two stable isotopes, so internal normalization is not possible; bracketing used instead",
   "ada:chromatographicSeparationApplied": "Yes \u2014 five steps: AG50W-X8 cation, a second cation column, AG1-X8 anion in 2 M HF for Ti, a 40 cm Eichrom Sr resin column for Rb-K, and an AG50W-X8 clean-up. Yields >95%",
@@ -7166,25 +6990,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7205,6 +7010,14 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -7248,14 +7061,14 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Whole-rock powder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
@@ -7272,6 +7085,8 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate rocks — geostandards including basalts, granites and peridotites, and the Allende chondrite" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -7281,8 +7096,6 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Rb" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -7306,17 +7119,6 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -7794,9 +7596,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:blankBackgroundCorrectionMethod": "N/A",
   "ada:primaryStandardNameDefault": "UMd, DTM, LOsST and DROsS Os reference materials",
-  "ada:reportedProperties": [
-    "187Os/188Os, 186Os/188Os and 184Os/188Os ratios"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7821,6 +7620,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "187Os/188Os, 186Os/188Os and 184Os/188Os ratios"
+  ],
   "ada:chromatographicSeparationApplied": "N/A — reference material solutions",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "3 or 5 mol/l Teflon-distilled HCl",
@@ -7843,25 +7645,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7882,6 +7665,14 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -8223,9 +8014,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:blankBackgroundCorrectionMethod": "N/A",
   "ada:primaryStandardNameDefault": "UMd, DTM, LOsST and DROsS Os reference materials",
-  "ada:reportedProperties": [
-    "187Os/188Os, 186Os/188Os and 184Os/188Os ratios"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8250,6 +8038,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "187Os/188Os, 186Os/188Os and 184Os/188Os ratios"
+  ],
   "ada:chromatographicSeparationApplied": "N/A \u2014 reference material solutions",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "3 or 5 mol/l Teflon-distilled HCl",
@@ -8272,25 +8063,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -8311,6 +8083,14 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -8351,16 +8131,16 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — reference material solutions in 3 or 5 mol/l Teflon-distilled HCl" ] ],
+                    schema1:description "N/A — reference material solutions, no solid preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "N/A — reference material solutions, no solid preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — reference material solutions in 3 or 5 mol/l Teflon-distilled HCl" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
@@ -8377,6 +8157,8 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Osmium isotope reference material solutions" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -8386,8 +8168,6 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Os" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -8412,17 +8192,6 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -8875,9 +8644,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   ],
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:primaryStandardNameDefault": "DTM and LOsST",
-  "ada:reportedProperties": [
-    "187Os/188Os, 186Os/188Os and 184Os/188Os ratios"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8902,6 +8668,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "187Os/188Os, 186Os/188Os and 184Os/188Os ratios"
+  ],
   "ada:chromatographicSeparationApplied": "N/A — reference material solutions",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "3 mol/l Teflon-distilled HCl",
@@ -8924,25 +8693,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -8963,6 +8713,14 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
@@ -9304,9 +9062,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   ],
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:primaryStandardNameDefault": "DTM and LOsST",
-  "ada:reportedProperties": [
-    "187Os/188Os, 186Os/188Os and 184Os/188Os ratios"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9331,6 +9086,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "187Os/188Os, 186Os/188Os and 184Os/188Os ratios"
+  ],
   "ada:chromatographicSeparationApplied": "N/A \u2014 reference material solutions",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "3 mol/l Teflon-distilled HCl",
@@ -9353,25 +9111,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9392,6 +9131,14 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
@@ -9420,6 +9167,13 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -9435,14 +9189,7 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
@@ -9459,6 +9206,8 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Osmium isotope reference material solutions" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -9468,8 +9217,6 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Os" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -9494,17 +9241,6 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -10050,9 +9786,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2, AGV-2, BHVO-2, GS-N and other terrestrial rocks"
   ],
-  "ada:reportedProperties": [
-    "δ87Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard − 1] x 1000"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10070,6 +9803,9 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   "ada:samplingUnit": "Weighed powder aliquot — \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "δ87Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard − 1] x 1000"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "N/A — Rb has two stable isotopes; bracketing used instead",
   "ada:chromatographicSeparationApplied": "Yes — DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005",
@@ -10093,25 +9829,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10132,6 +9849,14 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -10564,9 +10289,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2, AGV-2, BHVO-2, GS-N and other terrestrial rocks"
   ],
-  "ada:reportedProperties": [
-    "\u03b487Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard \u2212 1] x 1000"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10584,6 +10306,9 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   "ada:samplingUnit": "Weighed powder aliquot \u2014 \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "\u03b487Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard \u2212 1] x 1000"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "N/A \u2014 Rb has two stable isotopes; bracketing used instead",
   "ada:chromatographicSeparationApplied": "Yes \u2014 DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005",
@@ -10607,25 +10332,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10646,6 +10352,14 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -10673,6 +10387,11 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -10692,12 +10411,7 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
                         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproachDefault>,
@@ -10716,6 +10430,8 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Whole-rock terrestrial igneous rocks, chondrites, achondrites and Apollo lunar samples" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -10725,8 +10441,6 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Rb" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -10750,17 +10464,6 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -11324,9 +11027,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2, AGV-1, SCo-1; eucrites Bouvante and Bereba; CO chondrite Colony"
   ],
-  "ada:reportedProperties": [
-    "ε91Zr, ε92Zr and ε96Zr relative to NIST SRM 3169"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11357,6 +11057,9 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "ε91Zr, ε92Zr and ε96Zr relative to NIST SRM 3169"
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "94Zr/90Zr = 0.3381 (Minster & Ricard 1981)",
   "ada:chromatographicSeparationApplied": "Yes — four-step separation on anion exchange (AG 1-X8), DGA and LN resin; two-stage anion exchange for Ivuna; three-stage AG 1-X8 + LN for terrestrial samples",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -11379,25 +11082,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -11418,6 +11102,14 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"
@@ -11812,9 +11504,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2, AGV-1, SCo-1; eucrites Bouvante and Bereba; CO chondrite Colony"
   ],
-  "ada:reportedProperties": [
-    "\u03b591Zr, \u03b592Zr and \u03b596Zr relative to NIST SRM 3169"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11845,6 +11534,9 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u03b591Zr, \u03b592Zr and \u03b596Zr relative to NIST SRM 3169"
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "94Zr/90Zr = 0.3381 (Minster & Ricard 1981)",
   "ada:chromatographicSeparationApplied": "Yes \u2014 four-step separation on anion exchange (AG 1-X8), DGA and LN resin; two-stage anion exchange for Ivuna; three-stage AG 1-X8 + LN for terrestrial samples",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -11867,25 +11559,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -11906,6 +11579,14 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"
@@ -11938,6 +11619,11 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
@@ -11947,11 +11633,6 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "Concentrated HF-HNO3, then a HNO3-HCl mixture, then a HNO3-H2O2 mixture; Ivuna high PT: concentrated HF-HNO3 for 3 days then concentrated HCl for 2 days" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -11978,6 +11659,8 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Mg, K, Ca, Ti, Cr, Fe, Cu, Zn, Mo and Nd isotope data \"all obtained from the same sample digestions and are therefore directly comparable\"" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -11987,8 +11670,6 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Zr" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -12012,17 +11693,6 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -12542,9 +12212,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO2 and DTS-2b, \"processed alongside the samples\""
   ],
-  "ada:reportedProperties": [
-    "µ-notation Fe relative to IRMM-014, Cr relative to SRM979, Mg relative to DTS-2b"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -12575,6 +12242,9 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "µ-notation Fe relative to IRMM-014, Cr relative to SRM979, Mg relative to DTS-2b"
+  ],
   "ada:chromatographicSeparationApplied": "Yes — AG1-X8 anion (1 ml) for Fe, then AG50-X12 cation (1 ml) twice for Cr and Mg",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "0.5 M HNO3 (Cr); 6 M HCl elution of the final Cr cut",
@@ -12597,25 +12267,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -12636,6 +12287,14 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -13016,9 +12675,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO2 and DTS-2b, \"processed alongside the samples\""
   ],
-  "ada:reportedProperties": [
-    "\u00b5-notation Fe relative to IRMM-014, Cr relative to SRM979, Mg relative to DTS-2b"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13049,6 +12705,9 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u00b5-notation Fe relative to IRMM-014, Cr relative to SRM979, Mg relative to DTS-2b"
+  ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 AG1-X8 anion (1 ml) for Fe, then AG50-X12 cation (1 ml) twice for Cr and Mg",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "0.5 M HNO3 (Cr); 6 M HCl elution of the final Cr cut",
@@ -13071,25 +12730,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -13110,6 +12750,14 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -13142,11 +12790,10 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:description "Bulk powder; for the Si aliquot, NaOH fusion in silver crucibles" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -13158,10 +12805,11 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
                             schema1:name "Cr/Mg route: 6 M HCl loading, 10 M HCl pretreatment, 0.5 M HCl, 0.5 M HNO3, 1 M HF, 6 M HCl elutions; Si route: NaOH fusion then Milli-Q water and HNO3" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Bulk powder; for the Si aliquot, NaOH fusion in silver crucibles" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
@@ -13181,6 +12829,8 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -13190,8 +12840,6 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Cr and Mg",
                 "Fe" ] ;
@@ -13217,17 +12865,6 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -13678,9 +13315,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
-  "ada:reportedProperties": [
-    "δ41K in permil relative to NIST SRM 3141a"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13711,6 +13345,9 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "δ41K in permil relative to NIST SRM 3141a"
+  ],
   "ada:chromatographicSeparationApplied": "Yes — twice through 1.5 mL Bio-Rad AG50W-X8 100–200 mesh cation resin, loading, matrix elution and K elution all in 0.5 M HNO3",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "300 ppb K solution",
@@ -13730,25 +13367,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
@@ -13771,6 +13389,14 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -14099,9 +13725,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
-  "ada:reportedProperties": [
-    "\u03b441K in permil relative to NIST SRM 3141a"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -14132,6 +13755,9 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u03b441K in permil relative to NIST SRM 3141a"
+  ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 twice through 1.5 mL Bio-Rad AG50W-X8 100\u2013200 mesh cation resin, loading, matrix elution and K elution all in 0.5 M HNO3",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "300 ppb K solution",
@@ -14151,25 +13777,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
@@ -14192,6 +13799,14 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -14220,16 +13835,6 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -14241,7 +13846,17 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
                         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
@@ -14262,6 +13877,8 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
             schema1:target [ schema1:description "Functional: pre-cut and post-cut fractions either side of the K collection were measured by Q-ICP-MS \"to monitor for K loss during column chemistry\". Sequence: Q-ICP-MS check before MC-ICP-MS measurement" ;
                     schema1:name "Laser-fluorination oxygen isotopes on a Thermo Finnigan MAT 253 Plus; K loss monitored by Thermo Fisher iCAP Q ICP-MS" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -14271,8 +13888,6 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "K" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -14296,17 +13911,6 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -14758,9 +14362,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
-  "ada:reportedProperties": [
-    "δ41K, δ65Cu and δ66Zn in permil, each defined explicitly against its bracketing standard"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -14791,6 +14392,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "δ41K, δ65Cu and δ66Zn in permil, each defined explicitly against its bracketing standard"
+  ],
   "ada:chromatographicSeparationApplied": "Yes — AG1-X8 200–400 mesh anion resin, 5 ml 1.5 M HBr to elute the matrix and 3 ml 0.5 M HNO3 to elute Zn",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "200 ppb for K and Zn; 100 ppb for Cu",
@@ -14813,25 +14417,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -14852,6 +14437,14 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
@@ -15205,9 +14798,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
-  "ada:reportedProperties": [
-    "\u03b441K, \u03b465Cu and \u03b466Zn in permil, each defined explicitly against its bracketing standard"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -15238,6 +14828,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u03b441K, \u03b465Cu and \u03b466Zn in permil, each defined explicitly against its bracketing standard"
+  ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 AG1-X8 200\u2013400 mesh anion resin, 5 ml 1.5 M HBr to elute the matrix and 3 ml 0.5 M HNO3 to elute Zn",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "200 ppb for K and Zn; 100 ppb for Cu",
@@ -15260,25 +14853,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -15299,6 +14873,14 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
@@ -15337,12 +14919,6 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -15350,7 +14926,13 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "\"concentrated HF and HNO3 in a 3:1 ratio\", followed by fluxing in concentrated HNO3 and HCl with 1 ml H2O2 added to remove organics; brought up in 5 ml 0.5 M HNO3" ] ] ] ;
+                            schema1:name "\"concentrated HF and HNO3 in a 3:1 ratio\", followed by fluxing in concentrated HNO3 and HCl with 1 ml H2O2 added to remove organics; brought up in 5 ml 0.5 M HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
@@ -15370,6 +14952,8 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "High-resolution ICP-MS (Thermo Element XR) at LLNL for bulk elemental abundances, on splits of the same digest" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -15379,8 +14963,6 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Cu and Zn",
                 "K" ] ;
@@ -15406,17 +14988,6 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -15804,9 +15375,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
       "schema:HowTo"
     ]
   },
-  "ada:reportedProperties": [
-    "ε50Ti"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -15837,6 +15405,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "ε50Ti"
+  ],
   "ada:chromatographicSeparationApplied": "Yes — three-step anion exchange chromatography; yields 75–100%",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:analyteTemplate": {
@@ -15855,25 +15426,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
@@ -15896,6 +15448,14 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
@@ -16182,9 +15742,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
       "schema:HowTo"
     ]
   },
-  "ada:reportedProperties": [
-    "\u03b550Ti"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -16215,6 +15772,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u03b550Ti"
+  ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 three-step anion exchange chromatography; yields 75\u2013100%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:analyteTemplate": {
@@ -16233,25 +15793,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
@@ -16274,6 +15815,14 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
@@ -16305,12 +15854,6 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -16319,6 +15862,12 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -16345,6 +15894,8 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Coordinated dissolution shared with the WUSTL K/Cu/Zn procedure; SIMS oxygen isotopes" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ a cdi:InstanceVariable ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -16354,8 +15905,6 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> ;
             ada:defaultAnalytes "Ti" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -16378,17 +15927,6 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
@@ -16489,6 +16027,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
@@ -16843,6 +16382,31 @@ allOf:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
+                  ada:detectionLimitMethod:
+                    description: Method used to calculate detection limits for each
+                      reported concentration variable, where concentration data are
+                      reported.
+                    anyOf:
+                    - type: string
+                      enum:
+                      - "3\u03C3 blank"
+                      - "3\xD7 blank mean"
+                      - Poisson statistics
+                      - N/A
+                      - None
+                      - missing
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        enum:
+                        - "3\u03C3 blank"
+                        - "3\xD7 blank mean"
+                        - Poisson statistics
+                        - N/A
+                        - None
+                        - missing
+                        readOnly: true
           allOf:
           - contains:
               properties:
@@ -18227,6 +17791,43 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set), applicable when
+            isotope dilution concentrations are also reported. For pure isotope ratio
+            procedures (no concentration output), this field is N/A or reports the
+            minimum sample mass required for a measurement at target precision. Specify
+            units \xB5g/g or \xB5g/L and whether values are procedure-typical estimates
+            or session-measured. Record 'N/A' where the procedure produces isotope
+            ratios only and reports no concentrations."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionMcicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
@@ -18296,6 +17897,46 @@ allOf:
               const: false
             ada:tier:
               const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set), applicable when
+            isotope dilution concentrations are also reported. For pure isotope ratio
+            procedures (no concentration output), this field is N/A or reports the
+            minimum sample mass required for a measurement at target precision. Specify
+            units \xB5g/g or \xB5g/L and whether values are procedure-typical estimates
+            or session-measured. Record 'N/A' where the procedure produces isotope
+            ratios only and reports no concentrations."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionMcicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
           required:
           - '@id'
           - '@type'
@@ -18624,6 +18265,172 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - title: Normalization / Standards-Based Correction
+          description: "Post-acquisition normalization applied to output isotope ratio
+            data beyond the primary mass bias correction. Examples: correction of
+            \u03B4 values for decay of enriched spike isotopes between calibration
+            and use date (double-spike procedures); age correction of \u03B4238U for
+            secular disequilibrium. Record 'None' if no additional normalization is
+            applied."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: normalizationStandardsBasedCorrectionDefault
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set), applicable when
+            isotope dilution concentrations are also reported. For pure isotope ratio
+            procedures (no concentration output), this field is N/A or reports the
+            minimum sample mass required for a measurement at target precision. Specify
+            units \xB5g/g or \xB5g/L and whether values are procedure-typical estimates
+            or session-measured. Record 'N/A' where the procedure produces isotope
+            ratios only and reports no concentrations."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionMcicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+      allOf:
+      - contains:
+          title: Normalization / Standards-Based Correction
+          description: "Post-acquisition normalization applied to output isotope ratio
+            data beyond the primary mass bias correction. Examples: correction of
+            \u03B4 values for decay of enriched spike isotopes between calibration
+            and use date (double-spike procedures); age correction of \u03B4238U for
+            secular disequilibrium. Record 'None' if no additional normalization is
+            applied."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: normalizationStandardsBasedCorrectionDefault
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: "Elemental detection limits, one per reported concentration
+            variable (one per analyte, these being the same set), applicable when
+            isotope dilution concentrations are also reported. For pure isotope ratio
+            procedures (no concentration output), this field is N/A or reports the
+            minimum sample mass required for a measurement at target precision. Specify
+            units \xB5g/g or \xB5g/L and whether values are procedure-typical estimates
+            or session-measured. Record 'N/A' where the procedure produces isotope
+            ratios only and reports no concentrations."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/solutionMcicpmsTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     ada:primaryStandardNameDefault:
       description: "Name and reference material identifier of the isotopic reference
         standard used as the bracketing standard (SSB) or zero-delta anchor. This
@@ -18661,71 +18468,6 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - title: Detection Limit
-              description: "Elemental detection limits, one per reported concentration
-                variable (one per analyte, these being the same set), applicable when
-                isotope dilution concentrations are also reported. For pure isotope
-                ratio procedures (no concentration output), this field is N/A or reports
-                the minimum sample mass required for a measurement at target precision.
-                Specify units \xB5g/g or \xB5g/L and whether values are procedure-typical
-                estimates or session-measured. Record 'N/A' where the procedure produces
-                isotope ratios only and reports no concentrations."
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Detection Limit Method
-              description: Method used to calculate detection limits for each reported
-                concentration variable, where concentration data are reported.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification, where
                 applicable.
@@ -18788,77 +18530,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains:
-              title: Detection Limit
-              description: "Elemental detection limits, one per reported concentration
-                variable (one per analyte, these being the same set), applicable when
-                isotope dilution concentrations are also reported. For pure isotope
-                ratio procedures (no concentration output), this field is N/A or reports
-                the minimum sample mass required for a measurement at target precision.
-                Specify units \xB5g/g or \xB5g/L and whether values are procedure-typical
-                estimates or session-measured. Record 'N/A' where the procedure produces
-                isotope ratios only and reports no concentrations."
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Detection Limit Method
-              description: Method used to calculate detection limits for each reported
-                concentration variable, where concentration data are reported.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
           - contains:
               title: Limit of Quantification (LOQ) Method
               description: Method used to determine the limit of quantification, where

@@ -13,6 +13,9 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.json#/$defs/ProcedureIdentification"
     },
     {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.json#/$defs/ProcedureIdentification"
     },
     {
@@ -513,6 +516,74 @@
                           "readOnly": true
                         }
                       }
+                    },
+                    "schema:description": {
+                      "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM / ESEM': variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine categories (e.g., FIB-SEM with VP capability).",
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "Standard SEM",
+                            "FIB-SEM dual-beam",
+                            "VP-SEM / ESEM",
+                            "FIB-SEM dual-beam + VP",
+                            "N/A",
+                            "None",
+                            "missing"
+                          ],
+                          "readOnly": true
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "Standard SEM",
+                              "FIB-SEM dual-beam",
+                              "VP-SEM / ESEM",
+                              "FIB-SEM dual-beam + VP",
+                              "N/A",
+                              "None",
+                              "missing"
+                            ],
+                            "readOnly": true
+                          }
+                        }
+                      ]
+                    },
+                    "ada:ionBeamSource": {
+                      "description": "Ion beam source type in a FIB-SEM dual-beam system. Gallium LMIS (Ga+) is the most common ion source; xenon plasma FIB (PFIB) provides higher material removal rates for large-volume milling; helium and neon ion microscopes (GFIS) provide nanometre-resolution imaging and low-damage milling.",
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "Gallium LMIS (Ga+)",
+                            "Xenon plasma FIB (PFIB)",
+                            "Helium GFIS",
+                            "Neon GFIS",
+                            "N/A",
+                            "None",
+                            "missing"
+                          ],
+                          "readOnly": true
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "Gallium LMIS (Ga+)",
+                              "Xenon plasma FIB (PFIB)",
+                              "Helium GFIS",
+                              "Neon GFIS",
+                              "N/A",
+                              "None",
+                              "missing"
+                            ],
+                            "readOnly": true
+                          }
+                        }
+                      ]
                     }
                   }
                 }
@@ -608,6 +679,47 @@
                                   "ada:dataType",
                                   "ada:fieldScope"
                                 ]
+                              },
+                              {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Normalization / Standards-Based Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               }
                             ]
                           },
@@ -670,6 +782,101 @@
                               },
                               "minContains": 0,
                               "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "normalizationStandardsBasedCorrectionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Normalization / Standards-Based Correction"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            }
+                          ]
+                        },
+                        "ada:detectionLimitMethod": {
+                          "description": "Formula or approach used to calculate detection limits.",
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "readOnly": true
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "readOnly": true
+                              }
+                            }
+                          ]
+                        },
+                        "ada:ebsdIndexingMethod": {
+                          "description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "Hough transform",
+                                "Dictionary indexing (DI)",
+                                "Neural network",
+                                "Unknown",
+                                "N/A",
+                                "None",
+                                "missing"
+                              ],
+                              "readOnly": true
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "Hough transform",
+                                  "Dictionary indexing (DI)",
+                                  "Neural network",
+                                  "Unknown",
+                                  "N/A",
+                                  "None",
+                                  "missing"
+                                ],
+                                "readOnly": true
+                              }
                             }
                           ]
                         }
@@ -717,7 +924,37 @@
                             }
                           ]
                         },
-                        "ada:protectiveCoatingDeposition": {
+                        "ada:liftOutMethod": {
+                          "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber and is the standard method for small or precious specimens.",
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
+                                "Ex-situ",
+                                "N/A",
+                                "None",
+                                "missing"
+                              ],
+                              "readOnly": true
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
+                                  "Ex-situ",
+                                  "N/A",
+                                  "None",
+                                  "missing"
+                                ],
+                                "readOnly": true
+                              }
+                            }
+                          ]
+                        },
+                        "ada:protectiveCoatingDepositionDefault": {
                           "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
                           "anyOf": [
                             {
@@ -3374,6 +3611,47 @@
                 ]
               },
               {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
                 "title": "Drift Correction",
                 "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
                 "type": "object",
@@ -3806,6 +4084,51 @@
             },
             {
               "contains": {
+                "title": "Detection Limit",
+                "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "Drift Correction",
                 "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals. Particularly relevant for long mapping runs and high-magnification sessions where positional accuracy affects data quality.",
                 "type": "object",
@@ -4072,6 +4395,43 @@
             }
           ]
         },
+        "ada:clAcquisitionMode": {
+          "description": "CL data collection strategy. Panchromatic: total light intensity collected by PMT across the full detector wavelength range. Spectral point: full CL spectrum at discrete point locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.",
+          "type": "string",
+          "enum": [
+            "Panchromatic",
+            "Spectral point",
+            "Hyperspectral map",
+            "Multi-channel pseudo-color",
+            "N/A",
+            "None",
+            "missing"
+          ],
+          "readOnly": true
+        },
+        "ada:clIntegrationTimeDefault": {
+          "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:clWavelengthRange": {
+          "description": "Detection wavelength range of the CL system in nm. The range is set by the detector sensitivity and any optical filters installed.",
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "readOnly": true
+        },
         "schema:variableMeasured": {
           "type": "array",
           "items": {
@@ -4094,47 +4454,6 @@
                     }
                   }
                 }
-              },
-              {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
               },
               {
                 "title": "Detection Limit",
@@ -4176,48 +4495,6 @@
                   "ada:dataType",
                   "ada:fieldScope"
                 ]
-              },
-              {
-                "title": "Detection Limit Method",
-                "description": "Formula or approach used to calculate detection limits.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/detectionLimitMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitMethod"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ],
-                "readOnly": true
               },
               {
                 "title": "Normalization / Standards-Based Correction",
@@ -4265,51 +4542,6 @@
           "allOf": [
             {
               "contains": {
-                "title": "Calibration Factor and Determination Method",
-                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "calibrationFactorAndDeterminationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Calibration Factor and Determination Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
                 "title": "Detection Limit",
                 "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
                 "type": "object",
@@ -4349,52 +4581,6 @@
                   "ada:dataType",
                   "ada:fieldScope"
                 ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Detection Limit Method",
-                "description": "Formula or approach used to calculate detection limits.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/detectionLimitMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitMethod"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": true
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ],
-                "readOnly": true
               },
               "minContains": 0,
               "maxContains": 1
@@ -4446,43 +4632,6 @@
             }
           ]
         },
-        "ada:clAcquisitionMode": {
-          "description": "CL data collection strategy. Panchromatic: total light intensity collected by PMT across the full detector wavelength range. Spectral point: full CL spectrum at discrete point locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.",
-          "type": "string",
-          "enum": [
-            "Panchromatic",
-            "Spectral point",
-            "Hyperspectral map",
-            "Multi-channel pseudo-color",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "ada:clIntegrationTimeDefault": {
-          "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:clWavelengthRange": {
-          "description": "Detection wavelength range of the CL system in nm. The range is set by the detector sensitivity and any optical filters installed.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ],
-          "readOnly": true
-        },
         "ada:ebsdDetectorConfiguration": {
           "description": "EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).",
           "type": "string",
@@ -4497,7 +4646,7 @@
                 "if": {
                   "properties": {
                     "dqv:isMeasurementOf": {
-                      "const": "EBSD Mean Angular Deviation"
+                      "const": "EBSD Pattern Quality Threshold"
                     }
                   },
                   "required": [
@@ -4699,18 +4848,6 @@
             }
           ]
         },
-        "ada:liftOutMethod": {
-          "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber and is the standard method for small or precious specimens.",
-          "type": "string",
-          "enum": [
-            "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
-            "Ex-situ",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
         "ada:massAbsorptionCoefficients": {
           "description": "Database of mass absorption coefficients used in the matrix correction. MAC database choice affects accuracy particularly for light elements (B, C, N, O, F, Na).",
           "type": "string",
@@ -4756,6 +4893,20 @@
           ],
           "readOnly": true
         },
+        "ada:seDetectorType": {
+          "description": "Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber gas as the signal amplification medium.",
+          "type": "string",
+          "enum": [
+            "Everhart-Thornley (ET)",
+            "In-lens / TLD (through-the-lens)",
+            "GSED (VP/ESEM)",
+            "ESED (VP/ESEM)",
+            "N/A",
+            "None",
+            "missing"
+          ],
+          "readOnly": true
+        },
         "ada:stepSizePixelSizeDefault": {
           "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in \u00b5m. Defines the spatial sampling interval of the map and, together with the pixel-grid dimensions, determines the total mapped area. Smaller step sizes increase spatial resolution but extend acquisition time.",
           "anyOf": [
@@ -4792,6 +4943,25 @@
               "type": "string"
             }
           ]
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "SE Imaging",
+              "BSE Imaging",
+              "EDS Point Analysis",
+              "EDS Mapping",
+              "WDS Point Analysis",
+              "WDS Mapping",
+              "CL Point Analysis",
+              "CL Mapping",
+              "EBSD",
+              "TEM Sample Preparation",
+              "3D Tomography"
+            ]
+          }
         }
       },
       "required": [
@@ -4805,10 +4975,10 @@
         "ada:ebsdStepSizeDefault",
         "ada:edsAcquisitionMode",
         "ada:edsLiveTimePerPointOrPixelDefault",
-        "ada:liftOutMethod",
         "ada:massAbsorptionCoefficients",
         "ada:matrixCorrectionMethod",
         "ada:sampleTiltAngle",
+        "ada:seDetectorType",
         "ada:stepSizePixelSizeDefault",
         "ada:wdsDeadTimeCorrection",
         "ada:workingDistanceDefault"

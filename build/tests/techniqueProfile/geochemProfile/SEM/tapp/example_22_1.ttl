@@ -15,11 +15,6 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion Milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
@@ -27,7 +22,12 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -52,11 +52,11 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:imageRegistration3DDefault "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
-    ada:liftOutMethod "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
@@ -69,6 +69,7 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
+    schema1:description "N/A" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,

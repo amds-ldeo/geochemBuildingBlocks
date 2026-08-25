@@ -348,9 +348,6 @@
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, \"several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples\""
   ],
-  "ada:reportedProperties": [
-    "\u03b5iMo relative to the Alfa Aesar solution standard, \u03b5iMo = [(iMo/96Mo)sample/(iMo/96Mo)standard \u2212 1] x 10^4"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -381,6 +378,9 @@
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u03b5iMo relative to the Alfa Aesar solution standard, \u03b5iMo = [(iMo/96Mo)sample/(iMo/96Mo)standard \u2212 1] x 10^4"
+  ],
   "ada:internalNormalizationElementAndIsotopeRatio": "98Mo/96Mo = 1.453173",
   "ada:chromatographicSeparationApplied": "Yes \u2014 two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -400,25 +400,6 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
@@ -441,6 +422,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",

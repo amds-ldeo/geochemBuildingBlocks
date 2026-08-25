@@ -222,8 +222,19 @@
   "ada:secondaryReferenceMaterialDefault": [
     "CRM-TMDW drinking water and NIST 1643f freshwater"
   ],
-  "ada:reportedProperties": [
-    "Dissolved Se concentration (ug L-1)"
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.01,
+      "schema:description": "LOD 0.01 ug L-1 (N = 10)"
+    }
   ],
   "schema:measurementTechnique": [
     {
@@ -243,6 +254,9 @@
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "Dissolved Se concentration (ug L-1)"
+  ],
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Se"
@@ -259,25 +273,6 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -370,6 +365,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",

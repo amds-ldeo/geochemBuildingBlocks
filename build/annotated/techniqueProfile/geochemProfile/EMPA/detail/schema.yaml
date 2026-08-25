@@ -4,6 +4,7 @@ description: Dataset-level analysis-instance detail for EPMA/EMPA, reusing CDIF/
   slots on the schema:Dataset root.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
@@ -239,6 +240,31 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
+              - title: Detection Limit
+                description: Method detection limit at 99% confidence (3-sigma), one
+                  per reported concentration variable (one per analyte, these being
+                  the same set), derived from counting statistics on peak and background.
+                  Include the method and the resulting value for each.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
               - title: Drift Correction
                 description: Method used to monitor and correct for instrument drift
                   (beam current drift, spectrometer drift) during the analytical session.
@@ -349,7 +375,6 @@ allOf:
                 - schema:value
                 - schema:unitText
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
             allOf:
             - contains:
                 title: Beam Damage Minimization
@@ -409,6 +434,34 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: Detection Limit
+                description: Method detection limit at 99% confidence (3-sigma), one
+                  per reported concentration variable (one per analyte, these being
+                  the same set), derived from counting statistics on peak and background.
+                  Include the method and the resulting value for each.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/empaTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/empaTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
               minContains: 0
               maxContains: 1
             - contains:
@@ -536,10 +589,6 @@ allOf:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
               minContains: 0
               maxContains: 1
-            - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
-              minContains: 0
-              maxContains: 1
           schema:object:
             type: array
             items:
@@ -574,6 +623,75 @@ allOf:
                   - if:
                       properties:
                         schema:name:
+                          const: Data reduction
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            anyOf:
+                            - title: Normalization / Standards-Based Correction
+                              description: Post-acquisition normalization applied
+                                using secondary reference materials to correct for
+                                session-to-session calibration drift.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                          allOf:
+                          - contains:
+                              title: Normalization / Standards-Based Correction
+                              description: Post-acquisition normalization applied
+                                using secondary reference materials to correct for
+                                session-to-session calibration drift.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+                                schema:name:
+                                  const: Normalization / Standards-Based Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                            minContains: 0
+                            maxContains: 1
+                  - if:
+                      properties:
+                        schema:name:
                           const: Sample preparation
                       required:
                       - schema:name
@@ -589,40 +707,17 @@ allOf:
                           - type: array
                             items:
                               type: string
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Data reduction
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            anyOf:
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-                          allOf:
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-                            minContains: 0
-                            maxContains: 1
                 allOf:
                 - contains:
                     properties:
                       schema:name:
-                        const: Sample preparation
+                        const: Data reduction
                     required:
                     - schema:name
                 - contains:
                     properties:
                       schema:name:
-                        const: Data reduction
+                        const: Sample preparation
                     required:
                     - schema:name
           ada:deadTime:
@@ -637,6 +732,16 @@ allOf:
             anyOf:
             - type: number
             - type: string
+          ada:proceduralBlankLevel:
+            description: "The measured level of the analytical blank in the session,
+              and \u2014 where the reported quantity is a ratio \u2014 its composition,
+              since a blank subtracted from a ratio biases the result unless its own
+              composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows
+              the criterion-versus-measurement split the library applies wherever
+              a procedure sets a threshold and an analysis reports a value against
+              it."
+            type: string
     schema:variableMeasured:
       type: array
       items:
@@ -682,6 +787,31 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
+        - title: Detection Limit Method
+          description: Formula or approach used to calculate detection limits. Reference
+            method publication if applicable. When the procedure does not specify
+            a method, the analyst should complete this field.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
         - title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference
             materials to correct for session-to-session calibration drift.
@@ -698,35 +828,6 @@ allOf:
               - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
             schema:name:
               const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        - title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
             schema:value:
               type: string
           required:
@@ -766,6 +867,34 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
+          title: Detection Limit Method
+          description: Formula or approach used to calculate detection limits. Reference
+            method publication if applicable. When the procedure does not specify
+            a method, the analyst should complete this field.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/empaTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1
+      - contains:
           title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference
             materials to correct for session-to-session calibration drift.
@@ -782,38 +911,6 @@ allOf:
               - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
             schema:name:
               const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
-            schema:name:
-              const: Calibration Factor and Determination Method
             schema:value:
               type: string
           required:

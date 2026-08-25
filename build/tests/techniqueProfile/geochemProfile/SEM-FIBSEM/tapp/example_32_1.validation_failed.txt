@@ -1,5 +1,5 @@
 Validation report for ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp - FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
-Generated 2026-08-24T23:50:04.312480+00:00
+Generated 2026-08-25T15:49:52.514065+00:00
 === Files ===
 Using examplesemFibsemTAPP-Barnes2025.json from examples
 JSON-LD context is present - uplifting
@@ -8,7 +8,16 @@ Output Turtle example_32_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-Validation passed
+
+** Validation error **
+ValidationError: 'Elemental maps and spot spectra (SEM-EDX) for presolar grain phase identification' is not one of ['TEM Sample Preparation', '3D Tomography']
+
+Failed validating 'enum' in schema['allOf'][3]['properties']['ada:analyticalMode']['items']:
+    {'enum': ['TEM Sample Preparation', '3D Tomography'], 'type': 'string'}
+
+On instance['ada:analyticalMode'][0]:
+    ('Elemental maps and spot spectra (SEM-EDX) for presolar grain phase '
+     'identification')
 === End JSON Schema ===
 
 === SHACL ===

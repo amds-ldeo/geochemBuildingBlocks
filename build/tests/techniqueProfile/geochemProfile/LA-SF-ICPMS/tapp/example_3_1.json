@@ -117,8 +117,20 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: Run 1 medium resolution with Faraday for major elements; Run 2 low resolution; cross-calibration performed"
+          },
+          {
+            "@id": "ada:parameter/laSficpmsTAPP/normalizationStandardsBasedCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+            "schema:name": "Normalization / Standards-Based Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Run 1: 100% oxide sum normalization; Run 2: Cr IS from Run 1 applied; no further post-acquisition normalization"
           }
         ],
+        "ada:detectionLimitMethod": "Longerich et al. (1996); LOQ = 10SD criterion (same equation)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -339,7 +351,6 @@
       "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:ablationSpotDurationDefault": "N/A (line scan run 1) / N/A (spot run 2 \u2014 duration set by 34 runs covering 400 \u00b5m + washout, not a fixed spot duration)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
@@ -387,6 +398,18 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Longerich et al. (1996) for LOD; uncertainty for concentrations not formally described"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "LODs reported in Table 1 for line scan + spot trace elements: Na=24, Nb=5 per Longerich et al. 1996; LOQ = 10SD criterion"
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.19 l min\u207b\u00b9; MFC-2 0.22 l min\u207b\u00b9",
@@ -453,6 +476,7 @@
   "ada:ablationSamplingMode": [
     "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)"
   ],
+  "ada:ablationSpotDurationDefault": "N/A (line scan run 1) / N/A (spot run 2 \u2014 duration set by 34 runs covering 400 \u00b5m + washout, not a fixed spot duration)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Run 1 (major): \u00b2\u2075Mg",
@@ -557,34 +581,6 @@
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
         "schema:defaultValue": "example value"
       },
       {

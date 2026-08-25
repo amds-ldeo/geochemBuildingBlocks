@@ -612,6 +612,7 @@ x-defs:
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/AnalysisIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/AnalysisIdentification
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/AnalysisIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/AnalysisIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/AnalysisIdentification
     - type: object
@@ -964,7 +965,6 @@ x-defs:
                                   - schema:propertyID
                                   - schema:name
                                   - schema:value
-                                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
                                 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Analysis_constantsReferenceValues
                               allOf:
                               - contains:
@@ -1128,10 +1128,6 @@ x-defs:
                                   - schema:propertyID
                                   - schema:name
                                   - schema:value
-                                minContains: 0
-                                maxContains: 1
-                              - contains:
-                                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
                                 minContains: 0
                                 maxContains: 1
                               - contains:
@@ -1456,10 +1452,6 @@ x-defs:
                     - schema:name
                     - schema:value
                     - schema:unitText
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.blank/$defs/Param_Analysis_proceduralBlankLevel
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/Param_Analysis_inheritedOrInitialSignalCorrection
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/Param_Analysis_ageModel
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/Param_Analysis_ageDatumReferenceEpoch
                   - title: Error Correlation Between Reported Quantities
                     description: The correlation coefficient between pairs of reported
                       quantities whose uncertainties are not independent, together
@@ -1479,6 +1471,40 @@ x-defs:
                       schema:name:
                         enum:
                         - Error Correlation Between Reported Quantities
+                      schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    - schema:unitText
+                  - title: Detection Limit
+                    description: "Session detection limit, one per reported concentration
+                      variable (one per analyte, these being the same set), expressed
+                      in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate.
+                      Mandatory at analysis level to demonstrate the reliability of
+                      reported near-detection-limit concentrations. The calculation
+                      method is captured separately in Detection Limit Method."
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                      schema:name:
+                        enum:
+                        - Detection Limit
                       schema:value:
                         anyOf:
                         - type: number
@@ -1866,22 +1892,6 @@ x-defs:
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.blank/$defs/Param_Analysis_proceduralBlankLevel
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/Param_Analysis_inheritedOrInitialSignalCorrection
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/Param_Analysis_ageModel
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/Param_Analysis_ageDatumReferenceEpoch
-                  minContains: 0
-                  maxContains: 1
-                - contains:
                     title: Error Correlation Between Reported Quantities
                     description: The correlation coefficient between pairs of reported
                       quantities whose uncertainties are not independent, together
@@ -1901,6 +1911,43 @@ x-defs:
                       schema:name:
                         enum:
                         - Error Correlation Between Reported Quantities
+                      schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    - schema:unitText
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    title: Detection Limit
+                    description: "Session detection limit, one per reported concentration
+                      variable (one per analyte, these being the same set), expressed
+                      in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate.
+                      Mandatory at analysis level to demonstrate the reliability of
+                      reported near-detection-limit concentrations. The calculation
+                      method is captured separately in Detection Limit Method."
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                      schema:name:
+                        enum:
+                        - Detection Limit
                       schema:value:
                         anyOf:
                         - type: number
@@ -3014,6 +3061,16 @@ x-defs:
                                           type: string
                               required:
                               - ada:reagentRole
+              ada:proceduralBlankLevel:
+                description: "The measured level of the analytical blank in the session,
+                  and \u2014 where the reported quantity is a ratio \u2014 its composition,
+                  since a blank subtracted from a ratio biases the result unless its
+                  own composition is known. Companion to the blank correction method,
+                  which is procedure-level: this field records what was actually measured.
+                  Follows the criterion-versus-measurement split the library applies
+                  wherever a procedure sets a threshold and an analysis reports a
+                  value against it."
+                type: string
         dqv:hasQualityMeasurement:
           type: array
           items:
@@ -3046,6 +3103,219 @@ x-defs:
                   - Oxide production ratio
               required:
               - dqv:isMeasurementOf
+        schema:variableMeasured:
+          type: array
+          items:
+            anyOf:
+            - title: Dataset variable
+              description: A measured variable of this dataset that is not one of
+                the procedure's declared reported properties. schema:variableMeasured
+                carries the dataset's actual variables; the reported-property branches
+                above are permitted members of it, not the whole of it.
+              type: object
+              required:
+              - '@type'
+              properties:
+                '@type':
+                  type: array
+                  contains:
+                    enum:
+                    - cdi:InstanceVariable
+                    - schema:PropertyValue
+            - title: Normalization / Standards-Based Correction
+              description: Any post-acquisition normalization applied to correct for
+                systematic biases identified from secondary reference materials, or
+                stoichiometric normalization applied per pixel in mapping. Distinct
+                from the primary internal standard approach captured in Internal Standard
+                Approach.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                    - cdi:InstanceVariable
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+                schema:name:
+                  enum:
+                  - Normalization / Standards-Based Correction
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            - title: Detection Limit
+              description: "Session detection limit, one per reported concentration
+                variable (one per analyte, these being the same set), expressed in
+                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                at analysis level to demonstrate the reliability of reported near-detection-limit
+                concentrations. The calculation method is captured separately in Detection
+                Limit Method."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                    - cdi:InstanceVariable
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                schema:name:
+                  enum:
+                  - Detection Limit
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            - title: Detection Limit Method
+              description: Reference or description of the method used to calculate
+                session detection limits. Mandatory at analysis level. Must be consistent
+                with the method applied to generate the Detection Limit values reported
+                above.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                    - cdi:InstanceVariable
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod
+                schema:name:
+                  enum:
+                  - Detection Limit Method
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+          allOf:
+          - contains:
+              title: Normalization / Standards-Based Correction
+              description: Any post-acquisition normalization applied to correct for
+                systematic biases identified from secondary reference materials, or
+                stoichiometric normalization applied per pixel in mapping. Distinct
+                from the primary internal standard approach captured in Internal Standard
+                Approach.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                    - cdi:InstanceVariable
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+                schema:name:
+                  enum:
+                  - Normalization / Standards-Based Correction
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Detection Limit
+              description: "Session detection limit, one per reported concentration
+                variable (one per analyte, these being the same set), expressed in
+                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                at analysis level to demonstrate the reliability of reported near-detection-limit
+                concentrations. The calculation method is captured separately in Detection
+                Limit Method."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                    - cdi:InstanceVariable
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                schema:name:
+                  enum:
+                  - Detection Limit
+                schema:value:
+                  anyOf:
+                  - type: number
+                  - type: string
+                schema:unitText:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+              - schema:unitText
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Detection Limit Method
+              description: Reference or description of the method used to calculate
+                session detection limits. Mandatory at analysis level. Must be consistent
+                with the method applied to generate the Detection Limit values reported
+                above.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                    - cdi:InstanceVariable
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod
+                schema:name:
+                  enum:
+                  - Detection Limit Method
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
+            minContains: 0
+            maxContains: 1
         ada:sensitivityYield:
           description: "Instrument sensitivity achieved in the session, with the isotope
             or channel it was measured on and the conditions it applies to. May be
@@ -3198,6 +3468,7 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/ProcedureIdentification
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.uPb/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.analyte/$defs/ProcedureIdentification
@@ -3687,7 +3958,6 @@ x-defs:
                             - schema:name
                             - ada:dataType
                             - ada:fieldScope
-                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.uPb/$defs/Param_Procedure_intermediateDaughterDisequilibriumCorrection
                           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues
@@ -3887,10 +4157,6 @@ x-defs:
                           minContains: 0
                           maxContains: 1
                         - contains:
-                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
-                          minContains: 0
-                          maxContains: 1
-                        - contains:
                             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                           minContains: 0
                           maxContains: 1
@@ -3902,6 +4168,18 @@ x-defs:
                             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues
                           minContains: 0
                           maxContains: 1
+                      ada:detectionLimitMethod:
+                        description: Reference or description of the method used to
+                          calculate session detection limits. Mandatory at analysis
+                          level. Must be consistent with the method applied to generate
+                          the Detection Limit values reported above.
+                        anyOf:
+                        - type: string
+                          readOnly: true
+                        - type: array
+                          items:
+                            type: string
+                            readOnly: true
               allOf:
               - contains:
                   properties:
@@ -4140,7 +4418,6 @@ x-defs:
               - schema:name
               - schema:value
               readOnly: true
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/Param_Procedure_ageDatumReferenceEpoch
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.uPb/$defs/Param_Procedure_discordanceDefinitionAndValues
             - title: Error Correlation Between Reported Quantities
               description: The correlation coefficient between pairs of reported quantities
@@ -4174,6 +4451,47 @@ x-defs:
                 schema:unitText:
                   enum:
                   - dimensionless
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
+            - title: Detection Limit
+              description: "Session detection limit, one per reported concentration
+                variable (one per analyte, these being the same set), expressed in
+                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                at analysis level to demonstrate the reliability of reported near-detection-limit
+                concentrations. The calculation method is captured separately in Detection
+                Limit Method."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/detectionLimitDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - detectionLimitDefault
+                schema:name:
+                  enum:
+                  - Detection Limit
+                ada:dataType:
+                  enum:
+                  - number
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:unitText:
+                  enum:
+                  - ppm or wt%
               required:
               - '@id'
               - '@type'
@@ -4419,10 +4737,6 @@ x-defs:
             minContains: 0
             maxContains: 1
           - contains:
-              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.geochronology/$defs/Param_Procedure_ageDatumReferenceEpoch
-            minContains: 0
-            maxContains: 1
-          - contains:
               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.uPb/$defs/Param_Procedure_discordanceDefinitionAndValues
             minContains: 0
             maxContains: 1
@@ -4459,6 +4773,50 @@ x-defs:
                 schema:unitText:
                   enum:
                   - dimensionless
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Detection Limit
+              description: "Session detection limit, one per reported concentration
+                variable (one per analyte, these being the same set), expressed in
+                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                at analysis level to demonstrate the reliability of reported near-detection-limit
+                concentrations. The calculation method is captured separately in Detection
+                Limit Method."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/detectionLimitDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - detectionLimitDefault
+                schema:name:
+                  enum:
+                  - Detection Limit
+                ada:dataType:
+                  enum:
+                  - number
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:unitText:
+                  enum:
+                  - ppm or wt%
               required:
               - '@id'
               - '@type'
@@ -6362,116 +6720,6 @@ x-defs:
                   - schema:name
                   - ada:dataType
                   - schema:defaultValue
-                - title: Normalization / Standards-Based Correction
-                  description: Any post-acquisition normalization applied to correct
-                    for systematic biases identified from secondary reference materials,
-                    or stoichiometric normalization applied per pixel in mapping.
-                    Distinct from the primary internal standard approach captured
-                    in Internal Standard Approach.
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - normalizationStandardsBasedCorrection
-                    schema:name:
-                      enum:
-                      - Normalization / Standards-Based Correction
-                    ada:dataType:
-                      enum:
-                      - string
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
-                - title: Detection Limit
-                  description: "Session detection limit, one per reported concentration
-                    variable (one per analyte, these being the same set), expressed
-                    in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                    at analysis level to demonstrate the reliability of reported near-detection-limit
-                    concentrations. The calculation method is captured separately
-                    in Detection Limit Method."
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laQicpmsUPbTAPP/detectionLimit
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - detectionLimit
-                    schema:name:
-                      enum:
-                      - Detection Limit
-                    ada:dataType:
-                      enum:
-                      - number
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      anyOf:
-                      - type: number
-                      - type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
-                - title: Detection Limit Method
-                  description: Reference or description of the method used to calculate
-                    session detection limits. Mandatory at analysis level. Must be
-                    consistent with the method applied to generate the Detection Limit
-                    values reported above.
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laQicpmsUPbTAPP/detectionLimitMethod
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - detectionLimitMethod
-                    schema:name:
-                      enum:
-                      - Detection Limit Method
-                    ada:dataType:
-                      enum:
-                      - uri
-                    schema:readonlyValue:
-                      enum:
-                      - true
-                    ada:tier:
-                      enum:
-                      - M
-                    schema:defaultValue:
-                      type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
-                  - schema:defaultValue
                 - title: Limit of Quantification (LOQ) Method
                   description: 'Reference or description of the method used to calculate
                     the limit of quantification (LOQ): the lowest concentration reliably
@@ -6832,125 +7080,6 @@ x-defs:
                 minContains: 0
                 maxContains: 1
               - contains:
-                  title: Normalization / Standards-Based Correction
-                  description: Any post-acquisition normalization applied to correct
-                    for systematic biases identified from secondary reference materials,
-                    or stoichiometric normalization applied per pixel in mapping.
-                    Distinct from the primary internal standard approach captured
-                    in Internal Standard Approach.
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - normalizationStandardsBasedCorrection
-                    schema:name:
-                      enum:
-                      - Normalization / Standards-Based Correction
-                    ada:dataType:
-                      enum:
-                      - string
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
-                minContains: 0
-                maxContains: 1
-              - contains:
-                  title: Detection Limit
-                  description: "Session detection limit, one per reported concentration
-                    variable (one per analyte, these being the same set), expressed
-                    in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                    at analysis level to demonstrate the reliability of reported near-detection-limit
-                    concentrations. The calculation method is captured separately
-                    in Detection Limit Method."
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laQicpmsUPbTAPP/detectionLimit
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - detectionLimit
-                    schema:name:
-                      enum:
-                      - Detection Limit
-                    ada:dataType:
-                      enum:
-                      - number
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      anyOf:
-                      - type: number
-                      - type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
-                minContains: 0
-                maxContains: 1
-              - contains:
-                  title: Detection Limit Method
-                  description: Reference or description of the method used to calculate
-                    session detection limits. Mandatory at analysis level. Must be
-                    consistent with the method applied to generate the Detection Limit
-                    values reported above.
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laQicpmsUPbTAPP/detectionLimitMethod
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - detectionLimitMethod
-                    schema:name:
-                      enum:
-                      - Detection Limit Method
-                    ada:dataType:
-                      enum:
-                      - uri
-                    schema:readonlyValue:
-                      enum:
-                      - true
-                    ada:tier:
-                      enum:
-                      - M
-                    schema:defaultValue:
-                      type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
-                  - schema:defaultValue
-                minContains: 0
-                maxContains: 1
-              - contains:
                   title: Limit of Quantification (LOQ) Method
                   description: 'Reference or description of the method used to calculate
                     the limit of quantification (LOQ): the lowest concentration reliably
@@ -7248,6 +7377,188 @@ x-defs:
             conditions.'
           type: string
           readOnly: true
+        schema:variableMeasured:
+          type: array
+          items:
+            anyOf:
+            - title: Dataset variable
+              description: A measured variable of this dataset that is not one of
+                the procedure's declared reported properties. schema:variableMeasured
+                carries the dataset's actual variables; the reported-property branches
+                above are permitted members of it, not the whole of it.
+              type: object
+              required:
+              - '@type'
+              properties:
+                '@type':
+                  type: array
+                  contains:
+                    enum:
+                    - cdi:InstanceVariable
+                    - schema:PropertyValue
+            - title: Normalization / Standards-Based Correction
+              description: Any post-acquisition normalization applied to correct for
+                systematic biases identified from secondary reference materials, or
+                stoichiometric normalization applied per pixel in mapping. Distinct
+                from the primary internal standard approach captured in Internal Standard
+                Approach.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - normalizationStandardsBasedCorrectionDefault
+                schema:name:
+                  enum:
+                  - Normalization / Standards-Based Correction
+                ada:dataType:
+                  enum:
+                  - string
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
+            - title: Detection Limit
+              description: "Session detection limit, one per reported concentration
+                variable (one per analyte, these being the same set), expressed in
+                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                at analysis level to demonstrate the reliability of reported near-detection-limit
+                concentrations. The calculation method is captured separately in Detection
+                Limit Method."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/detectionLimitDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - detectionLimitDefault
+                schema:name:
+                  enum:
+                  - Detection Limit
+                ada:dataType:
+                  enum:
+                  - number
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:unitText:
+                  enum:
+                  - ppm or wt%
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
+          allOf:
+          - contains:
+              title: Normalization / Standards-Based Correction
+              description: Any post-acquisition normalization applied to correct for
+                systematic biases identified from secondary reference materials, or
+                stoichiometric normalization applied per pixel in mapping. Distinct
+                from the primary internal standard approach captured in Internal Standard
+                Approach.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - normalizationStandardsBasedCorrectionDefault
+                schema:name:
+                  enum:
+                  - Normalization / Standards-Based Correction
+                ada:dataType:
+                  enum:
+                  - string
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Detection Limit
+              description: "Session detection limit, one per reported concentration
+                variable (one per analyte, these being the same set), expressed in
+                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                at analysis level to demonstrate the reliability of reported near-detection-limit
+                concentrations. The calculation method is captured separately in Detection
+                Limit Method."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laQicpmsUPbTAPP/detectionLimitDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - detectionLimitDefault
+                schema:name:
+                  enum:
+                  - Detection Limit
+                ada:dataType:
+                  enum:
+                  - number
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:unitText:
+                  enum:
+                  - ppm or wt%
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
+            minContains: 0
+            maxContains: 1
         ada:primaryStandardNameDefault:
           description: Primary reference material(s) used to calibrate the instrument
             and convert raw signal intensities to concentrations or isotope ratios.
@@ -7280,6 +7591,14 @@ x-defs:
           anyOf:
           - type: number
           - type: string
+        ada:analyticalMode:
+          type: array
+          items:
+            type: string
+            enum:
+            - Spot
+            - Transect
+            - Mapping
       required:
       - ada:sampleIntroduction
       - ada:carrierGasFlowRateDefault
@@ -11841,6 +12160,182 @@ x-defs:
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ogch.BaseSchema.modules.calibrationFactor:
+    title: 'TAPP Composition Module: CalibrationFactor'
+    description: "The shared CalibrationFactor block of the 2026-08-11 TAPP library
+      (Claude Skills for TAPP/Module_CalibrationFactor.csv), composed by 14 of the
+      sixteen delivery tables. 1 owned fields over 2 schema paths.\n\nGENERATED by
+      tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014
+      edit those, not this file. Requiredness follows the TAPP tier matrix: a field
+      Basic on a side is required there, Advanced is permitted, N/A is absent from
+      that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which
+      properties a conforming procedure or analysis carries. Column F (Example / Allowed
+      Content) is consumer-owned per the module manifest, so no enum is pinned here
+      \u2014 a consuming TAPP may narrow a value space, never widen it."
+    $defs:
+      ProcedureIdentification:
+        title: CalibrationFactor on the procedure
+        description: 'Composed into a TAPP (prov:Plan) schema: what the procedure
+          asserts once, for every analysis that follows it.'
+        type: object
+        properties:
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Calibration Factor and Determination Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:defaultValue:
+                      description: 'An externally-calibrated factor that converts
+                        the measured quantity into the reported quantity, how it was
+                        determined, and its uncertainty. Applies where the conversion
+                        depends on a factor calibrated against a reference of independently
+                        known value, rather than on the instrument response alone.
+                        Distinct from the fields that name the calibration material
+                        and that state which approach applies to which analyte, where
+                        the technique has them: this field records the resulting factor
+                        itself.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/defaultValue
+            allOf:
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Calibration Factor and Determination Method
+                required:
+                - schema:name
+            x-jsonld-id: http://schema.org/variableMeasured
+      AnalysisIdentification:
+        title: CalibrationFactor on the analysis
+        description: 'Composed into a technique detail (schema:Dataset) schema: what
+          each run supplies fresh, because it cannot be known until the analysis happens.'
+        type: object
+        properties:
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Calibration Factor and Determination Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: 'An externally-calibrated factor that converts
+                        the measured quantity into the reported quantity, how it was
+                        determined, and its uncertainty. Applies where the conversion
+                        depends on a factor calibrated against a reference of independently
+                        known value, rather than on the instrument response alone.
+                        Distinct from the fields that name the calibration material
+                        and that state which approach applies to which analyte, where
+                        the technique has them: this field records the resulting factor
+                        itself.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+            x-jsonld-id: http://schema.org/variableMeasured
+      Param_Analysis_calibrationFactorAndDeterminationMethod:
+        title: Calibration Factor and Determination Method
+        description: 'An externally-calibrated factor that converts the measured quantity
+          into the reported quantity, how it was determined, and its uncertainty.
+          Applies where the conversion depends on a factor calibrated against a reference
+          of independently known value, rather than on the instrument response alone.
+          Distinct from the fields that name the calibration material and that state
+          which approach applies to which analyte, where the technique has them: this
+          field records the resulting factor itself.'
+        type: object
+        properties:
+          '@id':
+            enum:
+            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
+          '@type':
+            enum:
+            - - schema:PropertyValue
+          schema:propertyID:
+            x-jsonld-id: http://schema.org/propertyID
+            enum:
+            - - '@id': ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
+          schema:name:
+            x-jsonld-id: http://schema.org/name
+            enum:
+            - Calibration Factor and Determination Method
+          schema:value:
+            type: string
+            x-jsonld-id: http://schema.org/value
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      Param_Procedure_calibrationFactorAndDeterminationMethod:
+        title: Calibration Factor and Determination Method
+        description: 'An externally-calibrated factor that converts the measured quantity
+          into the reported quantity, how it was determined, and its uncertainty.
+          Applies where the conversion depends on a factor calibrated against a reference
+          of independently known value, rather than on the instrument response alone.
+          Distinct from the fields that name the calibration material and that state
+          which approach applies to which analyte, where the technique has them: this
+          field records the resulting factor itself.'
+        type: object
+        properties:
+          '@id':
+            enum:
+            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault
+          '@type':
+            enum:
+            - - schema:PropertyValueSpecification
+          schema:valueName:
+            x-jsonld-id: http://schema.org/valueName
+            enum:
+            - calibrationFactorAndDeterminationMethodDefault
+          schema:name:
+            x-jsonld-id: http://schema.org/name
+            enum:
+            - Calibration Factor and Determination Method
+          ada:dataType:
+            enum:
+            - string
+          ada:fieldScope:
+            enum:
+            - session
+          schema:readonlyValue:
+            x-jsonld-id: http://schema.org/readonlyValue
+          ada:tier:
+            enum:
+            - R
+        required:
+        - '@id'
+        - '@type'
+        - schema:valueName
+        - schema:name
+        - ada:dataType
+        - ada:fieldScope
+    x-jsonld-prefixes:
+      schema: http://schema.org/
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.aggregation:
     title: 'TAPP Composition Module: Aggregation'
     description: "The shared Aggregation block of the 2026-08-11 TAPP library (Claude
@@ -11987,7 +12482,7 @@ x-defs:
     title: 'TAPP Composition Module: Geochronology'
     description: "The shared Geochronology block of the 2026-08-11 TAPP library (Claude
       Skills for TAPP/Module_Geochronology.csv), composed by 3 of the sixteen delivery
-      tables. 6 owned fields over 5 schema paths.\n\nGENERATED by tools/build_module_bb.py
+      tables. 6 owned fields over 16 schema paths.\n\nGENERATED by tools/build_module_bb.py
       from the module's CSV and its schema-path sidecar \u2014 edit those, not this
       file. Requiredness follows the TAPP tier matrix: a field Basic on a side is
       required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
@@ -12015,6 +12510,170 @@ x-defs:
                 multiple analyses are combined into a single reported result.
               type: string
             x-jsonld-id: https://ada.astromat.org/metadata/ageCalculationMethod
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Age Calculation Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: The equation used to convert the measured quantities
+                        into an age or date, together with a citation for that equation.
+                        Name the equation unambiguously; where a procedure supports
+                        more than one, state which is used and under what conditions.
+                        Required by every geochronology reporting standard surveyed
+                        (Condon et al. 2024; Schaen et al. 2021; Rooney et al. 2024;
+                        Flowers et al. 2024; Kohn et al. 2024; Mahan et al. 2023).
+                        Distinct from Age Model and Software, which records how multiple
+                        analyses are combined into a single reported result.
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Reported Date Type
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:defaultValue:
+                      description: The kind of date or age the procedure reports.
+                        Most dating systems derive several different date types from
+                        the same measurements, so a reported age is ambiguous without
+                        this. Where more than one type is reported, list all, separated
+                        by semicolons. Kohn et al. (2024) carry this as a named required
+                        item ("fission-track age type"); the equivalent distinction
+                        is required by all five other standards surveyed.
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/defaultValue
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Inherited or Initial Signal Correction
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:defaultValue:
+                      description: 'How any non-radiogenic, inherited or pre-existing
+                        component of the measured signal was accounted for, including
+                        the composition assumed, its source, and its uncertainty.
+                        Record ''None'' where the measured quantity accumulates from
+                        zero and no such component exists. Applies to five of the
+                        six dating systems surveyed; fission track is the sole genuine
+                        exception, as tracks accumulate from zero. D=Editable rather
+                        than Read-Only: the procedure registers the correction method
+                        and any default composition, but the value actually applied
+                        is frequently sample-specific (a two-stage model composition
+                        is evaluated at the interpreted age) or session-derived (a
+                        trapped composition solved from an isochron intercept), and
+                        a revision to the assumed composition should not require registering
+                        a new procedure. Same reasoning as Rule 5''s Constants and
+                        Reference Values Used.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/defaultValue
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Age Model
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:defaultValue:
+                      description: "The statistical model used to combine individual
+                        analyses into a single reported age, including any criteria
+                        governing which model is applied. This is a methodological
+                        choice that changes the result: a Model-1 and a Model-3 regression
+                        of the same data yield different ages and different uncertainties.
+                        Record the model only \u2014 the software implementing it
+                        belongs in Data Reduction Software (Group 3), whose scope
+                        already extends to age calculation; where reduction and age
+                        regression use different packages, list both there. Required
+                        in some form by all six geochronology reporting standards
+                        surveyed."
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/defaultValue
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Age Datum / Reference Epoch
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:defaultValue:
+                      description: 'The zero point from which the reported age is
+                        measured, where this is not the present day, and the date
+                        it corresponds to. Record ''Present day'' where the conventional
+                        datum applies. Explicitly required wherever the datum is not
+                        the present: year of sample collection for luminescence (Mahan
+                        et al. 2023), end of irradiation for 40Ar/39Ar decay corrections
+                        (Schaen et al. 2021).'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/defaultValue
+            allOf:
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Age Calculation Method
+                required:
+                - schema:name
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Reported Date Type
+                required:
+                - schema:name
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Inherited or Initial Signal Correction
+                required:
+                - schema:name
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Age Model
+                required:
+                - schema:name
+            x-jsonld-id: http://schema.org/variableMeasured
           ada:reportedDateType:
             type: array
             items:
@@ -12063,6 +12722,183 @@ x-defs:
           each run supplies fresh, because it cannot be known until the analysis happens.'
         type: object
         properties:
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Age Calculation Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: The equation used to convert the measured quantities
+                        into an age or date, together with a citation for that equation.
+                        Name the equation unambiguously; where a procedure supports
+                        more than one, state which is used and under what conditions.
+                        Required by every geochronology reporting standard surveyed
+                        (Condon et al. 2024; Schaen et al. 2021; Rooney et al. 2024;
+                        Flowers et al. 2024; Kohn et al. 2024; Mahan et al. 2023).
+                        Distinct from Age Model and Software, which records how multiple
+                        analyses are combined into a single reported result.
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Reported Date Type
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: The kind of date or age the procedure reports.
+                        Most dating systems derive several different date types from
+                        the same measurements, so a reported age is ambiguous without
+                        this. Where more than one type is reported, list all, separated
+                        by semicolons. Kohn et al. (2024) carry this as a named required
+                        item ("fission-track age type"); the equivalent distinction
+                        is required by all five other standards surveyed.
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Inherited or Initial Signal Correction
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: 'How any non-radiogenic, inherited or pre-existing
+                        component of the measured signal was accounted for, including
+                        the composition assumed, its source, and its uncertainty.
+                        Record ''None'' where the measured quantity accumulates from
+                        zero and no such component exists. Applies to five of the
+                        six dating systems surveyed; fission track is the sole genuine
+                        exception, as tracks accumulate from zero. D=Editable rather
+                        than Read-Only: the procedure registers the correction method
+                        and any default composition, but the value actually applied
+                        is frequently sample-specific (a two-stage model composition
+                        is evaluated at the interpreted age) or session-derived (a
+                        trapped composition solved from an isochron intercept), and
+                        a revision to the assumed composition should not require registering
+                        a new procedure. Same reasoning as Rule 5''s Constants and
+                        Reference Values Used.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Radiogenic Fraction of Measured Signal
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: "The proportion of the measured signal that is
+                        radiogenic, as opposed to inherited, initial or otherwise
+                        non-radiogenic. Measured companion to Inherited or Initial
+                        Signal Correction, which is procedure-level: this field records
+                        what the session actually produced. It indicates how strongly
+                        the reported age depends on the assumed non-radiogenic composition
+                        \u2014 a result derived from a low radiogenic fraction is
+                        sensitive to that assumption in a way a high-fraction result
+                        is not, and that sensitivity is invisible from the age and
+                        its uncertainty alone. Follows the criterion-versus-measurement
+                        split used for Oxide Production."
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Age Model
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: "The statistical model used to combine individual
+                        analyses into a single reported age, including any criteria
+                        governing which model is applied. This is a methodological
+                        choice that changes the result: a Model-1 and a Model-3 regression
+                        of the same data yield different ages and different uncertainties.
+                        Record the model only \u2014 the software implementing it
+                        belongs in Data Reduction Software (Group 3), whose scope
+                        already extends to age calculation; where reduction and age
+                        regression use different packages, list both there. Required
+                        in some form by all six geochronology reporting standards
+                        surveyed."
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Age Datum / Reference Epoch
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: 'The zero point from which the reported age is
+                        measured, where this is not the present day, and the date
+                        it corresponds to. Record ''Present day'' where the conventional
+                        datum applies. Explicitly required wherever the datum is not
+                        the present: year of sample collection for luminescence (Mahan
+                        et al. 2023), end of irradiation for 40Ar/39Ar decay corrections
+                        (Schaen et al. 2021).'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+            allOf:
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Radiogenic Fraction of Measured Signal
+                required:
+                - schema:name
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Age Datum / Reference Epoch
+                required:
+                - schema:name
+            x-jsonld-id: http://schema.org/variableMeasured
           ada:reportedDateType:
             type: array
             items:
@@ -12097,13 +12933,16 @@ x-defs:
             enum:
             - - schema:PropertyValue
           schema:propertyID:
+            x-jsonld-id: http://schema.org/propertyID
             enum:
             - - '@id': ada:parameter/module/Geochronology/inheritedOrInitialSignalCorrection
           schema:name:
+            x-jsonld-id: http://schema.org/name
             enum:
             - Inherited or Initial Signal Correction
           schema:value:
             type: string
+            x-jsonld-id: http://schema.org/value
         required:
         - '@id'
         - '@type'
@@ -12129,13 +12968,16 @@ x-defs:
             enum:
             - - schema:PropertyValue
           schema:propertyID:
+            x-jsonld-id: http://schema.org/propertyID
             enum:
             - - '@id': ada:parameter/module/Geochronology/ageModel
           schema:name:
+            x-jsonld-id: http://schema.org/name
             enum:
             - Age Model
           schema:value:
             type: string
+            x-jsonld-id: http://schema.org/value
         required:
         - '@id'
         - '@type'
@@ -12159,13 +13001,16 @@ x-defs:
             enum:
             - - schema:PropertyValue
           schema:propertyID:
+            x-jsonld-id: http://schema.org/propertyID
             enum:
             - - '@id': ada:parameter/module/Geochronology/ageDatumReferenceEpoch
           schema:name:
+            x-jsonld-id: http://schema.org/name
             enum:
             - Age Datum / Reference Epoch
           schema:value:
             type: string
+            x-jsonld-id: http://schema.org/value
         required:
         - '@id'
         - '@type'
@@ -12189,9 +13034,11 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
+            x-jsonld-id: http://schema.org/valueName
             enum:
             - ageDatumReferenceEpochDefault
           schema:name:
+            x-jsonld-id: http://schema.org/name
             enum:
             - Age Datum / Reference Epoch
           ada:dataType:
@@ -12202,7 +13049,8 @@ x-defs:
             x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
             enum:
             - session
-          schema:readonlyValue: {}
+          schema:readonlyValue:
+            x-jsonld-id: http://schema.org/readonlyValue
           ada:tier:
             x-jsonld-id: https://ada.astromat.org/metadata/tier
             enum:
@@ -12216,93 +13064,8 @@ x-defs:
         - ada:fieldScope
     x-jsonld-prefixes:
       ada: https://ada.astromat.org/metadata/
+      schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-  ogch.BaseSchema.modules.calibrationFactor:
-    title: 'TAPP Composition Module: CalibrationFactor'
-    description: "The shared CalibrationFactor block of the 2026-08-11 TAPP library
-      (Claude Skills for TAPP/Module_CalibrationFactor.csv), composed by 14 of the
-      sixteen delivery tables. 1 owned fields over 0 schema paths.\n\nGENERATED by
-      tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014
-      edit those, not this file. Requiredness follows the TAPP tier matrix: a field
-      Basic on a side is required there, Advanced is permitted, N/A is absent from
-      that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which
-      properties a conforming procedure or analysis carries. Column F (Example / Allowed
-      Content) is consumer-owned per the module manifest, so no enum is pinned here
-      \u2014 a consuming TAPP may narrow a value space, never widen it."
-    $defs:
-      Param_Analysis_calibrationFactorAndDeterminationMethod:
-        title: Calibration Factor and Determination Method
-        description: 'An externally-calibrated factor that converts the measured quantity
-          into the reported quantity, how it was determined, and its uncertainty.
-          Applies where the conversion depends on a factor calibrated against a reference
-          of independently known value, rather than on the instrument response alone.
-          Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
-          '@type':
-            enum:
-            - - schema:PropertyValue
-          schema:propertyID:
-            enum:
-            - - '@id': ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
-          schema:name:
-            enum:
-            - Calibration Factor and Determination Method
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      Param_Procedure_calibrationFactorAndDeterminationMethod:
-        title: Calibration Factor and Determination Method
-        description: 'An externally-calibrated factor that converts the measured quantity
-          into the reported quantity, how it was determined, and its uncertainty.
-          Applies where the conversion depends on a factor calibrated against a reference
-          of independently known value, rather than on the instrument response alone.
-          Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault
-          '@type':
-            enum:
-            - - schema:PropertyValueSpecification
-          schema:valueName:
-            enum:
-            - calibrationFactorAndDeterminationMethodDefault
-          schema:name:
-            enum:
-            - Calibration Factor and Determination Method
-          ada:dataType:
-            enum:
-            - string
-          ada:fieldScope:
-            enum:
-            - session
-          schema:readonlyValue: {}
-          ada:tier:
-            enum:
-            - R
-        required:
-        - '@id'
-        - '@type'
-        - schema:valueName
-        - schema:name
-        - ada:dataType
-        - ada:fieldScope
-    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.targetSelection:
     title: 'TAPP Composition Module: TargetSelection'
@@ -12441,52 +13204,6 @@ x-defs:
     x-jsonld-prefixes:
       ada: https://ada.astromat.org/metadata/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-  ogch.BaseSchema.modules.blank:
-    title: 'TAPP Composition Module: Blank'
-    description: "The shared Blank block of the 2026-08-11 TAPP library (Claude Skills
-      for TAPP/Module_Blank.csv), composed by 12 of the sixteen delivery tables. 1
-      owned fields over 0 schema paths.\n\nGENERATED by tools/build_module_bb.py from
-      the module's CSV and its schema-path sidecar \u2014 edit those, not this file.
-      Requiredness follows the TAPP tier matrix: a field Basic on a side is required
-      there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
-      is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure
-      or analysis carries. Column F (Example / Allowed Content) is consumer-owned
-      per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may
-      narrow a value space, never widen it."
-    $defs:
-      Param_Analysis_proceduralBlankLevel:
-        title: Procedural Blank Level
-        description: "The measured level of the analytical blank in the session, and
-          \u2014 where the reported quantity is a ratio \u2014 its composition, since
-          a blank subtracted from a ratio biases the result unless its own composition
-          is known. Companion to the blank correction method, which is procedure-level:
-          this field records what was actually measured. Follows the criterion-versus-measurement
-          split the library applies wherever a procedure sets a threshold and an analysis
-          reports a value against it."
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/Blank/proceduralBlankLevel
-          '@type':
-            enum:
-            - - schema:PropertyValue
-          schema:propertyID:
-            enum:
-            - - '@id': ada:parameter/module/Blank/proceduralBlankLevel
-          schema:name:
-            enum:
-            - Procedural Blank Level
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.instrument:
     title: Instrument Description

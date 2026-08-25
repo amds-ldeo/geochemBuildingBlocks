@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Zega2025-8",
-  "schema:description": "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV \u2192 16 kV \u2192 5 kV; Pt weld to Cu half grids Reported detail: ada:liftOutMethod = In-situ lift-out; ion beam-deposited Pt weld to Cu half grids.",
+  "schema:description": "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV \u2192 16 kV \u2192 5 kV; Pt weld to Cu half grids",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -96,6 +96,8 @@
           "schema:ProductModel"
         ]
       },
+      "schema:description": "N/A",
+      "ada:ionBeamSource": "N/A",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -110,7 +112,8 @@
         "schema:name": "Sample preparation",
         "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)",
         "ada:finePolishingConditionsDefault": "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick",
-        "ada:protectiveCoatingDeposition": "Electron-beam deposited carbon (~0.5\u20131 \u00b5m); followed by ion beam-deposited carbon (~2\u20133 \u00b5m capping layer)",
+        "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
+        "ada:protectiveCoatingDepositionDefault": "Electron-beam deposited carbon (~0.5\u20131 \u00b5m); followed by ion beam-deposited carbon (~2\u20133 \u00b5m capping layer)",
         "schema:description": "Particles dispersed on conductive carbon dots on Al SEM pin mounts",
         "@type": [
           "cdi:Activity",
@@ -166,7 +169,6 @@
       ]
     }
   ],
-  "ada:liftOutMethod": "In-situ (micromanipulator, Cu or Mo TEM half-grid)",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -210,6 +212,7 @@
   "ada:matrixCorrectionMethod": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:targetSelectionCriteriaDefault": "missing",

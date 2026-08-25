@@ -15,14 +15,15 @@ ex:empaTAPP-P1 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Sen Hu" ] ;
     schema1:datePublished "missing" ;
@@ -80,7 +81,6 @@ ex:empaTAPP-P1 a cdi:Activity,
                 "Na",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -167,6 +167,13 @@ ex:empaTAPP-P1 a cdi:Activity,
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "K2O: 0.01 wt% (lowest); MnO: 0.06 wt% (highest); full per-element values stated in paper" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;

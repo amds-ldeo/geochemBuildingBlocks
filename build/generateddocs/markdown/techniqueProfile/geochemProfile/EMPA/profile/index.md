@@ -307,17 +307,15 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
-      "@id": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod",
+      "@id": "ex:adaProduct-var-001",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
+      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
+      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
       "schema:propertyID": [
-        {
-          "@id": "ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod"
-        }
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -331,8 +329,8 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
-      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],

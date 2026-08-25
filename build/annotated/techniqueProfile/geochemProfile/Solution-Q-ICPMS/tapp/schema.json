@@ -10,6 +10,9 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/ProcedureIdentification"
     },
     {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.json#/$defs/ProcedureIdentification"
     },
     {
@@ -618,6 +621,40 @@
                               },
                               "minContains": 0,
                               "maxContains": 1
+                            }
+                          ]
+                        },
+                        "ada:detectionLimitMethod": {
+                          "description": "Method used to calculate detection limits for each reported concentration variable.",
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "3\u03c3 blank",
+                                "3\u03c3 background",
+                                "3\u00d7 blank mean",
+                                "Poisson statistics",
+                                "N/A",
+                                "None",
+                                "missing"
+                              ],
+                              "readOnly": true
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "3\u03c3 blank",
+                                  "3\u03c3 background",
+                                  "3\u00d7 blank mean",
+                                  "Poisson statistics",
+                                  "N/A",
+                                  "None",
+                                  "missing"
+                                ],
+                                "readOnly": true
+                              }
                             }
                           ]
                         }
@@ -2739,6 +2776,50 @@
                   "ada:dataType",
                   "ada:fieldScope"
                 ]
+              },
+              {
+                "title": "Detection Limit",
+                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               }
             ]
           },
@@ -2833,6 +2914,54 @@
                   },
                   "ada:tier": {
                     "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit",
+                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -3450,6 +3579,212 @@
           ],
           "readOnly": true
         },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Detection Limit",
+                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "title": "Normalization / Standards-Based Correction",
+                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "normalizationStandardsBasedCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Normalization / Standards-Based Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Detection Limit",
+                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "detectionLimitDefault"
+                  },
+                  "schema:name": {
+                    "const": "Detection Limit"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
         "ada:primaryStandardNameDefault": {
           "description": "Name and reference material identifier of the external calibration standard used to convert signal intensities to elemental concentrations. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
           "type": "string"
@@ -3475,94 +3810,6 @@
                 "anyOf": [
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/AnalyteIdentifierColumn"
-                  },
-                  {
-                    "title": "Detection Limit",
-                    "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Detection Limit Method",
-                    "description": "Method used to calculate detection limits for each reported concentration variable.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
                   },
                   {
                     "title": "Limit of Quantification (LOQ) Method",
@@ -3729,102 +3976,6 @@
                 ]
               },
               "allOf": [
-                {
-                  "contains": {
-                    "title": "Detection Limit",
-                    "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimit"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "number"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Detection Limit Method",
-                    "description": "Method used to calculate detection limits for each reported concentration variable.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "detectionLimitMethod"
-                      },
-                      "schema:name": {
-                        "const": "Detection Limit Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
                 {
                   "contains": {
                     "title": "Limit of Quantification (LOQ) Method",

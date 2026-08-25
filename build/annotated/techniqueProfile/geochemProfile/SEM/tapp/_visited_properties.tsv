@@ -211,7 +211,7 @@ path	@id	schema
 /schema:funding/schema:description	http://schema.org/description	https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/monetaryGrant/schema.yaml
 /schema:funding/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
 /schema:funding/schema:funder	http://schema.org/funder	https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/monetaryGrant/schema.yaml
-/schema:variableMeasured	http://schema.org/variableMeasured	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+/schema:variableMeasured	http://schema.org/variableMeasured	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
 /schema:variableMeasured/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /schema:variableMeasured/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /schema:variableMeasured/schema:defaultValue	http://schema.org/defaultValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -225,6 +225,7 @@ path	@id	schema
 /ada:analyticalMode	https://ada.astromat.org/metadata/analyticalMode	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
 /ada:reportedProperties	https://ada.astromat.org/metadata/reportedProperties	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
 /ada:targetSelectionCriteriaDefault	https://ada.astromat.org/metadata/targetSelectionCriteriaDefault	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml
+/schema:variableMeasured/_then/schema:defaultValue	http://schema.org/defaultValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
 /ada:imageRegistration3DDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:segmentationMethod3DDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:instrument/schema:additionalType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
@@ -249,6 +250,8 @@ path	@id	schema
 /schema:instrument/_then/schema:manufacturer/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:instrument/_then/schema:model		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:instrument/_then/schema:model/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:instrument/_then/schema:description		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:instrument/_then/ada:ionBeamSource		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:actionProcess/schema:step/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
 /schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
@@ -262,9 +265,18 @@ path	@id	schema
 /schema:actionProcess/schema:step/_then/schema:additionalProperty/_anyOf/2/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:actionProcess/schema:step/_then/schema:additionalProperty/_anyOf/2/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:actionProcess/schema:step/_then/schema:additionalProperty/_anyOf/2/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/_anyOf/3/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/_anyOf/3/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/_anyOf/3/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/_anyOf/3/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/_anyOf/3/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/_anyOf/3/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/ada:detectionLimitMethod		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/ada:ebsdIndexingMethod		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:actionProcess/schema:step/_then/ada:coarseMillingConditionsDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:actionProcess/schema:step/_then/ada:finePolishingConditionsDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:actionProcess/schema:step/_then/ada:protectiveCoatingDeposition		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/ada:liftOutMethod		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/ada:protectiveCoatingDepositionDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:actionProcess/schema:step/_then/schema:description		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:analyteTemplate/ada:analyteColumns/_anyOf/1/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:analyteTemplate/ada:analyteColumns/_anyOf/1/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
@@ -459,26 +471,35 @@ path	@id	schema
 /schema:additionalProperty/_anyOf/5/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/5/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/5/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/5/schema:unitText		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/6/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/6/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/6/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/6/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/7/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/6/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/6/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/6/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/6/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/6/schema:unitText		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/7/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/7/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/7/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/7/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/7/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/7/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/7/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/8/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/8/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/8/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/8/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/8/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/8/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/8/schema:unitText		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/9/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/9/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:additionalProperty/_anyOf/9/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/9/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/9/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/9/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/9/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/9/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/9/schema:unitText		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/10/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/10/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/10/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/ada:clAcquisitionMode		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/ada:clIntegrationTimeDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/ada:clWavelengthRange		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:variableMeasured/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:variableMeasured/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:variableMeasured/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
@@ -495,21 +516,6 @@ path	@id	schema
 /schema:variableMeasured/_anyOf/2/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:variableMeasured/_anyOf/2/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:variableMeasured/_anyOf/2/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/3/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/3/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/3/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/3/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/3/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/3/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/4/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/4/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/4/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/4/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/4/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/schema:variableMeasured/_anyOf/4/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/ada:clAcquisitionMode		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/ada:clIntegrationTimeDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/ada:clWavelengthRange		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:ebsdDetectorConfiguration		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /dqv:hasQualityMeasurement/_then/dqv:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:ebsdPhaseListDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
@@ -521,10 +527,10 @@ path	@id	schema
 /schema:object/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:object/_then/schema:additionalProperty/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /schema:object/_then/schema:additionalProperty/_then/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-/ada:liftOutMethod		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:massAbsorptionCoefficients		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:matrixCorrectionMethod		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:sampleTiltAngle		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
+/ada:seDetectorType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:stepSizePixelSizeDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:wdsDeadTimeCorrection		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
 /ada:workingDistanceDefault		/github/workspace/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml

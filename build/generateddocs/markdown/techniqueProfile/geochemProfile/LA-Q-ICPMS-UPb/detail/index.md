@@ -948,6 +948,7 @@ description: Dataset-level analysis-instance detail for LA-Q-ICP-MS U-Pb geochro
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/AnalysisIdentification
 - type: object
@@ -1276,7 +1277,6 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
                           - contains:
@@ -1428,10 +1428,6 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1731,10 +1727,6 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/Param_Analysis_inheritedOrInitialSignalCorrection
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/Param_Analysis_ageModel
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/Param_Analysis_ageDatumReferenceEpoch
               - title: Error Correlation Between Reported Quantities
                 description: The correlation coefficient between pairs of reported
                   quantities whose uncertainties are not independent, together with
@@ -1752,6 +1744,38 @@ allOf:
                     - '@id': ada:parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities
                   schema:name:
                     const: Error Correlation Between Reported Quantities
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - title: Detection Limit
+                description: "Session detection limit, one per reported concentration
+                  variable (one per analyte, these being the same set), expressed
+                  in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                  at analysis level to demonstrate the reliability of reported near-detection-limit
+                  concentrations. The calculation method is captured separately in
+                  Detection Limit Method."
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
                   schema:value:
                     anyOf:
                     - type: number
@@ -2114,22 +2138,6 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel
-              minContains: 0
-              maxContains: 1
-            - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/Param_Analysis_inheritedOrInitialSignalCorrection
-              minContains: 0
-              maxContains: 1
-            - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/Param_Analysis_ageModel
-              minContains: 0
-              maxContains: 1
-            - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/Param_Analysis_ageDatumReferenceEpoch
-              minContains: 0
-              maxContains: 1
-            - contains:
                 title: Error Correlation Between Reported Quantities
                 description: The correlation coefficient between pairs of reported
                   quantities whose uncertainties are not independent, together with
@@ -2147,6 +2155,41 @@ allOf:
                     - '@id': ada:parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities
                   schema:name:
                     const: Error Correlation Between Reported Quantities
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: Detection Limit
+                description: "Session detection limit, one per reported concentration
+                  variable (one per analyte, these being the same set), expressed
+                  in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                  at analysis level to demonstrate the reliability of reported near-detection-limit
+                  concentrations. The calculation method is captured separately in
+                  Detection Limit Method."
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimit
+                  schema:name:
+                    const: Detection Limit
                   schema:value:
                     anyOf:
                     - type: number
@@ -3175,6 +3218,16 @@ allOf:
                                       type: string
                           required:
                           - ada:reagentRole
+          ada:proceduralBlankLevel:
+            description: "The measured level of the analytical blank in the session,
+              and \u2014 where the reported quantity is a ratio \u2014 its composition,
+              since a blank subtracted from a ratio biases the result unless its own
+              composition is known. Companion to the blank correction method, which
+              is procedure-level: this field records what was actually measured. Follows
+              the criterion-versus-measurement split the library applies wherever
+              a procedure sets a threshold and an analysis reports a value against
+              it."
+            type: string
     dqv:hasQualityMeasurement:
       type: array
       items:
@@ -3205,6 +3258,201 @@ allOf:
               const: Oxide production ratio
           required:
           - dqv:isMeasurementOf
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - title: Normalization / Standards-Based Correction
+          description: Any post-acquisition normalization applied to correct for systematic
+            biases identified from secondary reference materials, or stoichiometric
+            normalization applied per pixel in mapping. Distinct from the primary
+            internal standard approach captured in Internal Standard Approach.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        - title: Detection Limit
+          description: "Session detection limit, one per reported concentration variable
+            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
+            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
+            demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/detectionLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimit
+            schema:name:
+              const: Detection Limit
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+        - title: Detection Limit Method
+          description: Reference or description of the method used to calculate session
+            detection limits. Mandatory at analysis level. Must be consistent with
+            the method applied to generate the Detection Limit values reported above.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+      allOf:
+      - contains:
+          title: Normalization / Standards-Based Correction
+          description: Any post-acquisition normalization applied to correct for systematic
+            biases identified from secondary reference materials, or stoichiometric
+            normalization applied per pixel in mapping. Distinct from the primary
+            internal standard approach captured in Internal Standard Approach.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: "Session detection limit, one per reported concentration variable
+            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
+            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
+            demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/detectionLimit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimit
+            schema:name:
+              const: Detection Limit
+            schema:value:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          - schema:unitText
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit Method
+          description: Reference or description of the method used to calculate session
+            detection limits. Mandatory at analysis level. Must be consistent with
+            the method applied to generate the Detection Limit values reported above.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod
+            schema:name:
+              const: Detection Limit Method
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1
     ada:sensitivityYield:
       description: "Instrument sensitivity achieved in the session, with the isotope
         or channel it was measured on and the conditions it applies to. May be expressed

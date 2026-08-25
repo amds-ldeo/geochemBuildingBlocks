@@ -22,6 +22,7 @@ ex:empaTAPP-P5 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. Secondary standards: USNM San Carlos olivine (Fo90); Kakanui kaersutite. Detection limits stated per element group." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -81,7 +82,6 @@ ex:empaTAPP-P5 a cdi:Activity,
                 "Si",
                 "Ti",
                 "V" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -166,6 +166,13 @@ ex:empaTAPP-P5 a cdi:Activity,
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Al2O3, K2O, CaO: 0.03-0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06-0.09 wt% (stated as \"typically\")" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;

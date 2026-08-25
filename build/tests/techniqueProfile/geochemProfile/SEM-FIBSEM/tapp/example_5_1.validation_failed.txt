@@ -1,5 +1,5 @@
 Validation report for ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp - FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
-Generated 2026-08-24T23:50:03.885169+00:00
+Generated 2026-08-25T15:49:51.956440+00:00
 === Files ===
 Using examplesemFibsemTAPP-Genge2025-3.json from examples
 JSON-LD context is present - uplifting
@@ -8,7 +8,15 @@ Output Turtle example_5_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-Validation passed
+
+** Validation error **
+ValidationError: 'EBSD' is not one of ['TEM Sample Preparation', '3D Tomography']
+
+Failed validating 'enum' in schema['allOf'][3]['properties']['ada:analyticalMode']['items']:
+    {'enum': ['TEM Sample Preparation', '3D Tomography'], 'type': 'string'}
+
+On instance['ada:analyticalMode'][0]:
+    'EBSD'
 === End JSON Schema ===
 
 === SHACL ===

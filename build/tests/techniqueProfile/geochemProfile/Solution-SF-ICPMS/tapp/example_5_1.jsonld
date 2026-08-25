@@ -386,6 +386,18 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "None"
+    },
+    {
+      "@id": "ada:parameter/solutionSficpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2,
+      "schema:description": "~2 umol/mol B/Ca procedural blank (stated abstract)"
     }
   ],
   "ada:numberOfScansPerReplicate": "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)",
@@ -402,9 +414,6 @@
     "Four in-house foraminifera consistency standards (C. wuellerstorfi, Uvigerina spp., synthetic mix; stated section 2.2)"
   ],
   "ada:calibrationMeasurementFrequency": "Bracketing blocks of 7 samples (stated section 2.3.1)",
-  "ada:reportedProperties": [
-    "B/Ca and Me/Ca (Li, Mg, Al, Sr, Cd, Ba, U in low resolution; Na, Mn, Fe, Zn in medium resolution) in umol/mol and mmol/mol"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -422,6 +431,9 @@
   "ada:samplingUnit": "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"a Teflon Scott type (single pass) spray chamber was constructed\"; \"we used a platinum injector (1.8 mm I.D.)\"; ESI nebulizer"
+  ],
+  "ada:reportedProperties": [
+    "B/Ca and Me/Ca (Li, Mg, Al, Sr, Cd, Ba, U in low resolution; Na, Mn, Fe, Zn in medium resolution) in umol/mol and mmol/mol"
   ],
   "ada:chromatographicSeparationApplied": "None (direct dissolution analysis; stated section 2.4)",
   "ada:isotopeDilutionSpike": "None",
@@ -516,25 +528,6 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -574,6 +567,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

@@ -444,9 +444,6 @@
   "ada:secondaryReferenceMaterialDefault": [
     "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
   ],
-  "ada:reportedProperties": [
-    "Forty-eight trace element concentrations (ppm); blanks (ppb)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -464,6 +461,9 @@
   "ada:samplingUnit": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\""
+  ],
+  "ada:reportedProperties": [
+    "Forty-eight trace element concentrations (ppm); blanks (ppb)"
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of digested solution)",
   "ada:isotopeDilutionSpike": "None",
@@ -520,25 +520,6 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -578,6 +559,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:numberOfReplicatesPerSample": -9999,

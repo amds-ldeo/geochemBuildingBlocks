@@ -269,25 +269,6 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
       "@id": "ada:parameter/temTAPP/edsDetectionLimit",
       "@type": [
         "schema:PropertyValue",
@@ -331,6 +312,23 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:name": "Goodness-of-Fit or Dispersion Statistic",
       "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],

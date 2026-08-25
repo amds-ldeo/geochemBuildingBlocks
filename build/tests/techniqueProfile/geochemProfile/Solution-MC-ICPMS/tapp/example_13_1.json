@@ -328,9 +328,6 @@
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
-  "ada:reportedProperties": [
-    "\u03b441K, \u03b465Cu and \u03b466Zn in permil, each defined explicitly against its bracketing standard"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -361,6 +358,9 @@
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "\u03b441K, \u03b465Cu and \u03b466Zn in permil, each defined explicitly against its bracketing standard"
+  ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 AG1-X8 200\u2013400 mesh anion resin, 5 ml 1.5 M HBr to elute the matrix and 3 ml 0.5 M HNO3 to elute Zn",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "200 ppb for K and Zn; 100 ppb for Cu",
@@ -383,25 +383,6 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -422,6 +403,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",

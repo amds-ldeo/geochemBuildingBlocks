@@ -115,6 +115,19 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% (Table 1 footnote; other elements N)"
+    }
+  ],
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "schema:actionProcess": {
     "schema:step": [
@@ -375,7 +388,6 @@
       }
     ]
   },
-  "ada:detectionLimitMethod": "missing",
   "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",

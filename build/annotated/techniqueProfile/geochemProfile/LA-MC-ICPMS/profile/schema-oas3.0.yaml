@@ -613,6 +613,7 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/AnalysisIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/AnalysisIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/AnalysisIdentification
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/AnalysisIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/AnalysisIdentification
     - type: object
       properties:
@@ -808,6 +809,40 @@ x-defs:
                     - schema:name
                     - schema:value
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Analysis_constantsReferenceValues
+                  - title: Detection Limit
+                    description: "Session detection limit, one per reported concentration
+                      variable (one per analyte, these being the same set), expressed
+                      in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate.
+                      Mandatory at analysis level to demonstrate the reliability of
+                      reported near-detection-limit concentrations. The calculation
+                      method is captured separately in Detection Limit Method."
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/laMcicpmsTAPP/detectionLimit
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/laMcicpmsTAPP/detectionLimit
+                      schema:name:
+                        enum:
+                        - Detection Limit
+                      schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    - schema:unitText
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_doubleSpikeMixingRatio
                   - title: Mapping Area
                     description: "Total area covered by the 2D raster map, expressed
@@ -914,7 +949,6 @@ x-defs:
                     - schema:value
                     - schema:unitText
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.blank/$defs/Param_Analysis_proceduralBlankLevel
                   - title: Signal Integration Time
                     description: 'Actual integration time used for the ablation signal
                       in this analysis, in seconds. This is an analysis-level outcome
@@ -1062,6 +1096,43 @@ x-defs:
                   minContains: 0
                   maxContains: 1
                 - contains:
+                    title: Detection Limit
+                    description: "Session detection limit, one per reported concentration
+                      variable (one per analyte, these being the same set), expressed
+                      in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate.
+                      Mandatory at analysis level to demonstrate the reliability of
+                      reported near-detection-limit concentrations. The calculation
+                      method is captured separately in Detection Limit Method."
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/laMcicpmsTAPP/detectionLimit
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/laMcicpmsTAPP/detectionLimit
+                      schema:name:
+                        enum:
+                        - Detection Limit
+                      schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    - schema:unitText
+                  minContains: 0
+                  maxContains: 1
+                - contains:
                     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_doubleSpikeMixingRatio
                   minContains: 0
                   maxContains: 1
@@ -1186,10 +1257,6 @@ x-defs:
                   maxContains: 1
                 - contains:
                     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.blank/$defs/Param_Analysis_proceduralBlankLevel
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -2579,6 +2646,89 @@ x-defs:
                           properties:
                             schema:name:
                               enum:
+                              - Sample preparation
+                          required:
+                          - schema:name
+                        then:
+                          properties:
+                            schema:additionalProperty:
+                              type: array
+                              items:
+                                anyOf:
+                                - title: Fusion Flux and Dilution Ratio
+                                  description: For procedures using fused glass, the
+                                    flux type and sample:flux dilution ratio used
+                                    to prepare the analytical glass.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
+                                    '@type':
+                                      enum:
+                                      - - schema:PropertyValue
+                                    schema:propertyID:
+                                      enum:
+                                      - - '@id': ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
+                                    schema:name:
+                                      enum:
+                                      - Fusion Flux and Dilution Ratio
+                                    schema:value:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Analysis_preAblationSurfaceTreatment
+                              allOf:
+                              - contains:
+                                  title: Fusion Flux and Dilution Ratio
+                                  description: For procedures using fused glass, the
+                                    flux type and sample:flux dilution ratio used
+                                    to prepare the analytical glass.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
+                                    '@type':
+                                      enum:
+                                      - - schema:PropertyValue
+                                    schema:propertyID:
+                                      enum:
+                                      - - '@id': ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
+                                    schema:name:
+                                      enum:
+                                      - Fusion Flux and Dilution Ratio
+                                    schema:value:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
+                                minContains: 0
+                                maxContains: 1
+                              - contains:
+                                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Analysis_preAblationSurfaceTreatment
+                                minContains: 0
+                                maxContains: 1
+                            schema:description:
+                              description: Description of how samples were prepared
+                                for analysis (mounting, polishing, coating, fusion
+                                procedure, etc.).
+                              anyOf:
+                              - type: string
+                              - type: array
+                                items:
+                                  type: string
+                      - if:
+                          properties:
+                            schema:name:
+                              enum:
                               - Data reduction
                           required:
                           - schema:name
@@ -2588,7 +2738,35 @@ x-defs:
                               type: array
                               items:
                                 anyOf:
-                                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
+                                - title: Normalization / Standards-Based Correction
+                                  description: Any post-acquisition normalization
+                                    applied to correct for systematic biases identified
+                                    from secondary reference materials, or stoichiometric
+                                    normalization applied per pixel in mapping. Distinct
+                                    from the primary internal standard approach captured
+                                    in Internal Standard Approach.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                    '@type':
+                                      enum:
+                                      - - schema:PropertyValue
+                                    schema:propertyID:
+                                      enum:
+                                      - - '@id': ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                    schema:name:
+                                      enum:
+                                      - Normalization / Standards-Based Correction
+                                    schema:value:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
                                 - title: Signal Smoothing
                                   description: 'Description of any signal smoothing
                                     device or approach installed between the ablation
@@ -2684,7 +2862,35 @@ x-defs:
                                   - schema:value
                               allOf:
                               - contains:
-                                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod
+                                  title: Normalization / Standards-Based Correction
+                                  description: Any post-acquisition normalization
+                                    applied to correct for systematic biases identified
+                                    from secondary reference materials, or stoichiometric
+                                    normalization applied per pixel in mapping. Distinct
+                                    from the primary internal standard approach captured
+                                    in Internal Standard Approach.
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                    '@type':
+                                      enum:
+                                      - - schema:PropertyValue
+                                    schema:propertyID:
+                                      enum:
+                                      - - '@id': ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+                                    schema:name:
+                                      enum:
+                                      - Normalization / Standards-Based Correction
+                                    schema:value:
+                                      type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:propertyID
+                                  - schema:name
+                                  - schema:value
                                 minContains: 0
                                 maxContains: 1
                               - contains:
@@ -2789,97 +2995,7 @@ x-defs:
                                   - schema:value
                                 minContains: 0
                                 maxContains: 1
-                      - if:
-                          properties:
-                            schema:name:
-                              enum:
-                              - Sample preparation
-                          required:
-                          - schema:name
-                        then:
-                          properties:
-                            schema:additionalProperty:
-                              type: array
-                              items:
-                                anyOf:
-                                - title: Fusion Flux and Dilution Ratio
-                                  description: For procedures using fused glass, the
-                                    flux type and sample:flux dilution ratio used
-                                    to prepare the analytical glass.
-                                  type: object
-                                  properties:
-                                    '@id':
-                                      enum:
-                                      - ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
-                                    '@type':
-                                      enum:
-                                      - - schema:PropertyValue
-                                    schema:propertyID:
-                                      enum:
-                                      - - '@id': ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
-                                    schema:name:
-                                      enum:
-                                      - Fusion Flux and Dilution Ratio
-                                    schema:value:
-                                      type: string
-                                  required:
-                                  - '@id'
-                                  - '@type'
-                                  - schema:propertyID
-                                  - schema:name
-                                  - schema:value
-                                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Analysis_preAblationSurfaceTreatment
-                              allOf:
-                              - contains:
-                                  title: Fusion Flux and Dilution Ratio
-                                  description: For procedures using fused glass, the
-                                    flux type and sample:flux dilution ratio used
-                                    to prepare the analytical glass.
-                                  type: object
-                                  properties:
-                                    '@id':
-                                      enum:
-                                      - ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
-                                    '@type':
-                                      enum:
-                                      - - schema:PropertyValue
-                                    schema:propertyID:
-                                      enum:
-                                      - - '@id': ada:parameter/laMcicpmsTAPP/fusionFluxAndDilutionRatio
-                                    schema:name:
-                                      enum:
-                                      - Fusion Flux and Dilution Ratio
-                                    schema:value:
-                                      type: string
-                                  required:
-                                  - '@id'
-                                  - '@type'
-                                  - schema:propertyID
-                                  - schema:name
-                                  - schema:value
-                                minContains: 0
-                                maxContains: 1
-                              - contains:
-                                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Analysis_preAblationSurfaceTreatment
-                                minContains: 0
-                                maxContains: 1
-                            schema:description:
-                              description: Description of how samples were prepared
-                                for analysis (mounting, polishing, coating, fusion
-                                procedure, etc.).
-                              anyOf:
-                              - type: string
-                              - type: array
-                                items:
-                                  type: string
                     allOf:
-                    - contains:
-                        properties:
-                          schema:name:
-                            enum:
-                            - Data reduction
-                        required:
-                        - schema:name
                     - contains:
                         properties:
                           schema:name:
@@ -2887,6 +3003,16 @@ x-defs:
                             - Sample preparation
                         required:
                         - schema:name
+              ada:proceduralBlankLevel:
+                description: "The measured level of the analytical blank in the session,
+                  and \u2014 where the reported quantity is a ratio \u2014 its composition,
+                  since a blank subtracted from a ratio biases the result unless its
+                  own composition is known. Companion to the blank correction method,
+                  which is procedure-level: this field records what was actually measured.
+                  Follows the criterion-versus-measurement split the library applies
+                  wherever a procedure sets a threshold and an analysis reports a
+                  value against it."
+                type: string
         schema:variableMeasured:
           type: array
           items:
@@ -2906,38 +3032,6 @@ x-defs:
                     enum:
                     - cdi:InstanceVariable
                     - schema:PropertyValue
-            - title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-                '@type':
-                  enum:
-                  - - schema:PropertyValue
-                    - cdi:InstanceVariable
-                schema:propertyID:
-                  enum:
-                  - - '@id': ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-                schema:name:
-                  enum:
-                  - Calibration Factor and Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
             - title: Detection Limit
               description: "Session detection limit, one per reported concentration
                 variable (one per analyte, these being the same set), expressed in
@@ -2973,6 +3067,34 @@ x-defs:
               - schema:name
               - schema:value
               - schema:unitText
+            - title: Detection Limit Method
+              description: Reference or description of the method used to calculate
+                session detection limits. Mandatory at analysis level. Must be consistent
+                with the method applied to generate the Detection Limit values reported
+                above.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                    - cdi:InstanceVariable
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+                schema:name:
+                  enum:
+                  - Detection Limit Method
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             - title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate
                 the limit of quantification (LOQ): the lowest concentration reliably
@@ -3064,41 +3186,6 @@ x-defs:
               - schema:value
           allOf:
           - contains:
-              title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-                '@type':
-                  enum:
-                  - - schema:PropertyValue
-                    - cdi:InstanceVariable
-                schema:propertyID:
-                  enum:
-                  - - '@id': ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-                schema:name:
-                  enum:
-                  - Calibration Factor and Determination Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Detection Limit
               description: "Session detection limit, one per reported concentration
                 variable (one per analyte, these being the same set), expressed in
@@ -3134,6 +3221,37 @@ x-defs:
               - schema:name
               - schema:value
               - schema:unitText
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Detection Limit Method
+              description: Reference or description of the method used to calculate
+                session detection limits. Mandatory at analysis level. Must be consistent
+                with the method applied to generate the Detection Limit values reported
+                above.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+                '@type':
+                  enum:
+                  - - schema:PropertyValue
+                    - cdi:InstanceVariable
+                schema:propertyID:
+                  enum:
+                  - - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
+                schema:name:
+                  enum:
+                  - Detection Limit Method
+                schema:value:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:propertyID
+              - schema:name
+              - schema:value
             minContains: 0
             maxContains: 1
           - contains:
@@ -3404,6 +3522,7 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/ProcedureIdentification
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/ProcedureIdentification
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.analyte/$defs/ProcedureIdentification
     - type: object
       properties:
@@ -3429,7 +3548,6 @@ x-defs:
                         items:
                           anyOf:
                           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeInversionAlgorithm
                           - title: Isotope Dilution Data Reduction Method
                             description: Mass balance approach used to calculate sample
@@ -3459,6 +3577,44 @@ x-defs:
                             - schema:name
                             - schema:value
                             readOnly: true
+                          - title: Normalization / Standards-Based Correction
+                            description: Any post-acquisition normalization applied
+                              to correct for systematic biases identified from secondary
+                              reference materials, or stoichiometric normalization
+                              applied per pixel in mapping. Distinct from the primary
+                              internal standard approach captured in Internal Standard
+                              Approach.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - normalizationStandardsBasedCorrectionDefault
+                              schema:name:
+                                enum:
+                                - Normalization / Standards-Based Correction
+                              ada:dataType:
+                                enum:
+                                - string
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
                           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_peakFlatnessMethodAndThreshold
                           - title: Signal Smoothing
                             description: 'Description of any signal smoothing device
@@ -3544,10 +3700,6 @@ x-defs:
                           minContains: 0
                           maxContains: 1
                         - contains:
-                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
-                          minContains: 0
-                          maxContains: 1
-                        - contains:
                             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeInversionAlgorithm
                           minContains: 0
                           maxContains: 1
@@ -3580,6 +3732,47 @@ x-defs:
                             - schema:name
                             - schema:value
                             readOnly: true
+                          minContains: 0
+                          maxContains: 1
+                        - contains:
+                            title: Normalization / Standards-Based Correction
+                            description: Any post-acquisition normalization applied
+                              to correct for systematic biases identified from secondary
+                              reference materials, or stoichiometric normalization
+                              applied per pixel in mapping. Distinct from the primary
+                              internal standard approach captured in Internal Standard
+                              Approach.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - normalizationStandardsBasedCorrectionDefault
+                              schema:name:
+                                enum:
+                                - Normalization / Standards-Based Correction
+                              ada:dataType:
+                                enum:
+                                - string
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
                           minContains: 0
                           maxContains: 1
                         - contains:
@@ -3670,6 +3863,18 @@ x-defs:
                             - ada:fieldScope
                           minContains: 0
                           maxContains: 1
+                      ada:detectionLimitMethod:
+                        description: Reference or description of the method used to
+                          calculate session detection limits. Mandatory at analysis
+                          level. Must be consistent with the method applied to generate
+                          the Detection Limit values reported above.
+                        anyOf:
+                        - type: string
+                          readOnly: true
+                        - type: array
+                          items:
+                            type: string
+                            readOnly: true
                 - if:
                     properties:
                       schema:name:
@@ -6200,6 +6405,29 @@ x-defs:
                           by vendor.
                         type: string
                         readOnly: true
+                  schema:manufacturer:
+                    type: object
+                    properties:
+                      schema:name:
+                        description: Manufacturer of the instrument that performs
+                          the measurement, recorded as a controlled value so that
+                          procedures can be found by vendor. Where a procedure couples
+                          a sample-introduction system to an analysing instrument,
+                          this records the analysing instrument. Instrument Model
+                          gives the specific designation.
+                        type: string
+                        enum:
+                        - Thermo Fisher Scientific
+                        - Agilent
+                        - PerkinElmer
+                        - Nu Instruments
+                        - Analytik Jena
+                        - Shimadzu
+                        - Unknown
+                        - N/A
+                        - None
+                        - missing
+                        readOnly: true
             - if:
                 properties:
                   schema:additionalType:
@@ -6274,6 +6502,47 @@ x-defs:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_baselineMeasurementApproach
+            - title: Detection Limit
+              description: "Session detection limit, one per reported concentration
+                variable (one per analyte, these being the same set), expressed in
+                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                at analysis level to demonstrate the reliability of reported near-detection-limit
+                concentrations. The calculation method is captured separately in Detection
+                Limit Method."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laMcicpmsTAPP/detectionLimitDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - detectionLimitDefault
+                schema:name:
+                  enum:
+                  - Detection Limit
+                ada:dataType:
+                  enum:
+                  - number
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:unitText:
+                  enum:
+                  - ppm or wt%
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeIsotopePair
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeMixingRatio
             - title: Instrument Warm-up / Session Duration Limit
@@ -6455,6 +6724,50 @@ x-defs:
           allOf:
           - contains:
               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_baselineMeasurementApproach
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Detection Limit
+              description: "Session detection limit, one per reported concentration
+                variable (one per analyte, these being the same set), expressed in
+                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
+                at analysis level to demonstrate the reliability of reported near-detection-limit
+                concentrations. The calculation method is captured separately in Detection
+                Limit Method."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:parameter/laMcicpmsTAPP/detectionLimitDefault
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - detectionLimitDefault
+                schema:name:
+                  enum:
+                  - Detection Limit
+                ada:dataType:
+                  enum:
+                  - number
+                ada:fieldScope:
+                  enum:
+                  - session
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:unitText:
+                  enum:
+                  - ppm or wt%
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - ada:fieldScope
             minContains: 0
             maxContains: 1
           - contains:
@@ -6690,6 +7003,30 @@ x-defs:
             conditions.'
           type: string
           readOnly: true
+        ada:calibrationMeasurementFrequency:
+          description: How often the primary calibration standard is measured relative
+            to unknown samples within a session. For LA-ICP-MS, this defines the bracketing
+            interval between calibration standard ablations used to monitor and correct
+            for instrumental drift.
+          type: string
+          readOnly: true
+        ada:carrierGasFlowRateDefault:
+          description: "Gas used to transport ablated aerosol from the ablation cell
+            to the ICP-MS torch, with the procedure-registered target flow rate(s).
+            Helium is standard for most UV laser systems due to superior aerosol transport.
+            Flow rates are procedure targets; actual session values may be adjusted
+            within \xB110% during tuning."
+          type: string
+        ada:constantsAndReferenceValuesUsedDefault:
+          description: Physical constants and reference values used in data reduction
+            to calculate the final reported quantity (e.g., decay constants for age
+            calculation, standard isotope ratios, or other citable reference values
+            used in a correction or calculation), together with their source. Distinct
+            from the Group 6 reference-material fields, which document accepted values
+            for specific calibration/validation materials rather than universal physical
+            constants. Record "None" if no citable, revisable physical constants feed
+            into this procedure's data reduction.
+          type: string
         schema:variableMeasured:
           type: array
           items:
@@ -6709,46 +7046,6 @@ x-defs:
                     enum:
                     - cdi:InstanceVariable
                     - schema:PropertyValue
-            - title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault
-                '@type':
-                  enum:
-                  - - schema:PropertyValueSpecification
-                schema:valueName:
-                  enum:
-                  - calibrationFactorAndDeterminationMethodDefault
-                schema:name:
-                  enum:
-                  - Calibration Factor and Determination Method
-                ada:dataType:
-                  enum:
-                  - string
-                ada:fieldScope:
-                  enum:
-                  - session
-                schema:readonlyValue: {}
-                ada:tier:
-                  enum:
-                  - R
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - ada:fieldScope
             - title: Detection Limit
               description: "Session detection limit, one per reported concentration
                 variable (one per analyte, these being the same set), expressed in
@@ -6790,35 +7087,6 @@ x-defs:
               - schema:name
               - ada:dataType
               - ada:fieldScope
-            - title: Detection Limit Method
-              description: Reference or description of the method used to calculate
-                session detection limits. Mandatory at analysis level. Must be consistent
-                with the method applied to generate the Detection Limit values reported
-                above.
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/laMcicpmsTAPP/detectionLimitMethod
-                '@type':
-                  enum:
-                  - - schema:PropertyValue
-                    - cdi:InstanceVariable
-                schema:propertyID:
-                  enum:
-                  - - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
-                schema:name:
-                  enum:
-                  - Detection Limit Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              readOnly: true
             - title: Goodness-of-Fit or Dispersion Statistic
               description: The statistic reported to show whether scatter among the
                 contributing analyses exceeds what analytical uncertainty alone predicts,
@@ -6972,49 +7240,6 @@ x-defs:
               - ada:fieldScope
           allOf:
           - contains:
-              title: Calibration Factor and Determination Method
-              description: 'An externally-calibrated factor that converts the measured
-                quantity into the reported quantity, how it was determined, and its
-                uncertainty. Applies where the conversion depends on a factor calibrated
-                against a reference of independently known value, rather than on the
-                instrument response alone. Distinct from the fields that name the
-                calibration material and that state which approach applies to which
-                analyte, where the technique has them: this field records the resulting
-                factor itself.'
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethodDefault
-                '@type':
-                  enum:
-                  - - schema:PropertyValueSpecification
-                schema:valueName:
-                  enum:
-                  - calibrationFactorAndDeterminationMethodDefault
-                schema:name:
-                  enum:
-                  - Calibration Factor and Determination Method
-                ada:dataType:
-                  enum:
-                  - string
-                ada:fieldScope:
-                  enum:
-                  - session
-                schema:readonlyValue: {}
-                ada:tier:
-                  enum:
-                  - R
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - ada:fieldScope
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Detection Limit
               description: "Session detection limit, one per reported concentration
                 variable (one per analyte, these being the same set), expressed in
@@ -7056,38 +7281,6 @@ x-defs:
               - schema:name
               - ada:dataType
               - ada:fieldScope
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Detection Limit Method
-              description: Reference or description of the method used to calculate
-                session detection limits. Mandatory at analysis level. Must be consistent
-                with the method applied to generate the Detection Limit values reported
-                above.
-              type: object
-              properties:
-                '@id':
-                  enum:
-                  - ada:parameter/laMcicpmsTAPP/detectionLimitMethod
-                '@type':
-                  enum:
-                  - - schema:PropertyValue
-                    - cdi:InstanceVariable
-                schema:propertyID:
-                  enum:
-                  - - '@id': ada:parameter/laMcicpmsTAPP/detectionLimitMethod
-                schema:name:
-                  enum:
-                  - Detection Limit Method
-                schema:value:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:propertyID
-              - schema:name
-              - schema:value
-              readOnly: true
             minContains: 0
             maxContains: 1
           - contains:
@@ -7253,30 +7446,38 @@ x-defs:
               - ada:fieldScope
             minContains: 0
             maxContains: 1
-        ada:calibrationMeasurementFrequency:
-          description: How often the primary calibration standard is measured relative
-            to unknown samples within a session. For LA-ICP-MS, this defines the bracketing
-            interval between calibration standard ablations used to monitor and correct
-            for instrumental drift.
+        ada:elementalFractionationCorrection:
+          type: array
+          items:
+            description: Method used to correct for laser-induced elemental fractionation
+              (LIEF), including downhole fractionation during prolonged ablation,
+              matrix-dependent fractionation between sample and calibration standard,
+              and any specific correction algorithm applied. Reference the software
+              function or publication.
+            type: string
+            readOnly: true
+        ada:internalStandardApproach:
+          description: Method used to determine the internal standard (IS) concentration
+            for each unknown sample, used to correct for variable ablation yield between
+            analyses. The approach is a fundamental procedure design choice that cannot
+            be changed by analysts.
           type: string
           readOnly: true
-        ada:carrierGasFlowRateDefault:
-          description: "Gas used to transport ablated aerosol from the ablation cell
-            to the ICP-MS torch, with the procedure-registered target flow rate(s).
-            Helium is standard for most UV laser systems due to superior aerosol transport.
-            Flow rates are procedure targets; actual session values may be adjusted
-            within \xB110% during tuning."
+        ada:internalStandardElement:
+          description: Element(s) used as the internal standard, and how the IS concentration
+            value was determined for unknown samples. For mapping procedures using
+            oxide-sum normalization, report "None (oxide-sum normalization)" and cite
+            the method reference.
           type: string
-        ada:constantsAndReferenceValuesUsedDefault:
-          description: Physical constants and reference values used in data reduction
-            to calculate the final reported quantity (e.g., decay constants for age
-            calculation, standard isotope ratios, or other citable reference values
-            used in a correction or calculation), together with their source. Distinct
-            from the Group 6 reference-material fields, which document accepted values
-            for specific calibration/validation materials rather than universal physical
-            constants. Record "None" if no citable, revisable physical constants feed
-            into this procedure's data reduction.
-          type: string
+          readOnly: true
+        ada:isobaricInterferenceCorrectionsApplied:
+          description: 'Whether isobaric interference corrections were applied for
+            any measured isotope in this procedure. A procedure-level Boolean: if
+            the procedure includes interference corrections, this is always Yes. Detail
+            for each affected mass is captured in Interfering Species and Interference
+            Correction Method.'
+          type: boolean
+          readOnly: true
         ada:analyteTemplate:
           type: object
           properties:
@@ -7285,44 +7486,6 @@ x-defs:
               items:
                 anyOf:
                 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/AnalyteIdentifierColumn
-                - title: Detection Limit
-                  description: "Session detection limit, one per reported concentration
-                    variable (one per analyte, these being the same set), expressed
-                    in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                    at analysis level to demonstrate the reliability of reported near-detection-limit
-                    concentrations. The calculation method is captured separately
-                    in Detection Limit Method."
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laMcicpmsTAPP/detectionLimit
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - detectionLimit
-                    schema:name:
-                      enum:
-                      - Detection Limit
-                    ada:dataType:
-                      enum:
-                      - number
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      anyOf:
-                      - type: number
-                      - type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
                 - title: Limit of Quantification (LOQ) Method
                   description: 'Reference or description of the method used to calculate
                     the limit of quantification (LOQ): the lowest concentration reliably
@@ -7440,41 +7603,6 @@ x-defs:
                   - schema:name
                   - ada:dataType
                   - schema:defaultValue
-                - title: Normalization / Standards-Based Correction
-                  description: Any post-acquisition normalization applied to correct
-                    for systematic biases identified from secondary reference materials,
-                    or stoichiometric normalization applied per pixel in mapping.
-                    Distinct from the primary internal standard approach captured
-                    in Internal Standard Approach.
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - normalizationStandardsBasedCorrection
-                    schema:name:
-                      enum:
-                      - Normalization / Standards-Based Correction
-                    ada:dataType:
-                      enum:
-                      - string
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
                 - title: Per-Analyte Calibration Strategy
                   description: "Documents cases where different analytes or analyte
                     groups within the same session are calibrated using different
@@ -7559,47 +7687,6 @@ x-defs:
                   - schema:name
                   - ada:dataType
               allOf:
-              - contains:
-                  title: Detection Limit
-                  description: "Session detection limit, one per reported concentration
-                    variable (one per analyte, these being the same set), expressed
-                    in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                    at analysis level to demonstrate the reliability of reported near-detection-limit
-                    concentrations. The calculation method is captured separately
-                    in Detection Limit Method."
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laMcicpmsTAPP/detectionLimit
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - detectionLimit
-                    schema:name:
-                      enum:
-                      - Detection Limit
-                    ada:dataType:
-                      enum:
-                      - number
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      anyOf:
-                      - type: number
-                      - type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
-                minContains: 0
-                maxContains: 1
               - contains:
                   title: Limit of Quantification (LOQ) Method
                   description: 'Reference or description of the method used to calculate
@@ -7727,44 +7814,6 @@ x-defs:
                 minContains: 0
                 maxContains: 1
               - contains:
-                  title: Normalization / Standards-Based Correction
-                  description: Any post-acquisition normalization applied to correct
-                    for systematic biases identified from secondary reference materials,
-                    or stoichiometric normalization applied per pixel in mapping.
-                    Distinct from the primary internal standard approach captured
-                    in Internal Standard Approach.
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - normalizationStandardsBasedCorrection
-                    schema:name:
-                      enum:
-                      - Normalization / Standards-Based Correction
-                    ada:dataType:
-                      enum:
-                      - string
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
-                minContains: 0
-                maxContains: 1
-              - contains:
                   title: Per-Analyte Calibration Strategy
                   description: "Documents cases where different analytes or analyte
                     groups within the same session are calibrated using different
@@ -7853,44 +7902,6 @@ x-defs:
                   - ada:dataType
                 minContains: 0
                 maxContains: 1
-        ada:detectionLimitMethod:
-          description: Reference or description of the method used to calculate session
-            detection limits. Mandatory at analysis level. Must be consistent with
-            the method applied to generate the Detection Limit values reported above.
-          type: string
-          readOnly: true
-        ada:elementalFractionationCorrection:
-          type: array
-          items:
-            description: Method used to correct for laser-induced elemental fractionation
-              (LIEF), including downhole fractionation during prolonged ablation,
-              matrix-dependent fractionation between sample and calibration standard,
-              and any specific correction algorithm applied. Reference the software
-              function or publication.
-            type: string
-            readOnly: true
-        ada:internalStandardApproach:
-          description: Method used to determine the internal standard (IS) concentration
-            for each unknown sample, used to correct for variable ablation yield between
-            analyses. The approach is a fundamental procedure design choice that cannot
-            be changed by analysts.
-          type: string
-          readOnly: true
-        ada:internalStandardElement:
-          description: Element(s) used as the internal standard, and how the IS concentration
-            value was determined for unknown samples. For mapping procedures using
-            oxide-sum normalization, report "None (oxide-sum normalization)" and cite
-            the method reference.
-          type: string
-          readOnly: true
-        ada:isobaricInterferenceCorrectionsApplied:
-          description: 'Whether isobaric interference corrections were applied for
-            any measured isotope in this procedure. A procedure-level Boolean: if
-            the procedure includes interference corrections, this is always Yes. Detail
-            for each affected mass is captured in Interfering Species and Interference
-            Correction Method.'
-          type: boolean
-          readOnly: true
         ada:massBiasCorrectionStrategy:
           description: 'Strategy used to correct instrumental isotopic mass fractionation,
             also called mass bias or mass discrimination. Distinct from Elemental
@@ -8080,6 +8091,14 @@ x-defs:
             precision of a single measurement, which derives from counting statistics
             over the cycles of that measurement rather than from repeated analyses.
           type: string
+        ada:analyticalMode:
+          type: array
+          items:
+            type: string
+            enum:
+            - Spot
+            - Transect
+            - Mapping
       required:
       - ada:analysisSequenceDefault
       - ada:analyticalAccuracy
@@ -8089,7 +8108,6 @@ x-defs:
       - ada:calibrationMeasurementFrequency
       - ada:carrierGasFlowRateDefault
       - ada:constantsAndReferenceValuesUsedDefault
-      - ada:detectionLimitMethod
       - ada:internalStandardApproach
       - ada:internalStandardElement
       - ada:isobaricInterferenceCorrectionsApplied
@@ -13525,6 +13543,182 @@ x-defs:
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ogch.BaseSchema.modules.calibrationFactor:
+    title: 'TAPP Composition Module: CalibrationFactor'
+    description: "The shared CalibrationFactor block of the 2026-08-11 TAPP library
+      (Claude Skills for TAPP/Module_CalibrationFactor.csv), composed by 14 of the
+      sixteen delivery tables. 1 owned fields over 2 schema paths.\n\nGENERATED by
+      tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014
+      edit those, not this file. Requiredness follows the TAPP tier matrix: a field
+      Basic on a side is required there, Advanced is permitted, N/A is absent from
+      that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which
+      properties a conforming procedure or analysis carries. Column F (Example / Allowed
+      Content) is consumer-owned per the module manifest, so no enum is pinned here
+      \u2014 a consuming TAPP may narrow a value space, never widen it."
+    $defs:
+      ProcedureIdentification:
+        title: CalibrationFactor on the procedure
+        description: 'Composed into a TAPP (prov:Plan) schema: what the procedure
+          asserts once, for every analysis that follows it.'
+        type: object
+        properties:
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Calibration Factor and Determination Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:defaultValue:
+                      description: 'An externally-calibrated factor that converts
+                        the measured quantity into the reported quantity, how it was
+                        determined, and its uncertainty. Applies where the conversion
+                        depends on a factor calibrated against a reference of independently
+                        known value, rather than on the instrument response alone.
+                        Distinct from the fields that name the calibration material
+                        and that state which approach applies to which analyte, where
+                        the technique has them: this field records the resulting factor
+                        itself.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/defaultValue
+            allOf:
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Calibration Factor and Determination Method
+                required:
+                - schema:name
+            x-jsonld-id: http://schema.org/variableMeasured
+      AnalysisIdentification:
+        title: CalibrationFactor on the analysis
+        description: 'Composed into a technique detail (schema:Dataset) schema: what
+          each run supplies fresh, because it cannot be known until the analysis happens.'
+        type: object
+        properties:
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Calibration Factor and Determination Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: 'An externally-calibrated factor that converts
+                        the measured quantity into the reported quantity, how it was
+                        determined, and its uncertainty. Applies where the conversion
+                        depends on a factor calibrated against a reference of independently
+                        known value, rather than on the instrument response alone.
+                        Distinct from the fields that name the calibration material
+                        and that state which approach applies to which analyte, where
+                        the technique has them: this field records the resulting factor
+                        itself.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+            x-jsonld-id: http://schema.org/variableMeasured
+      Param_Analysis_calibrationFactorAndDeterminationMethod:
+        title: Calibration Factor and Determination Method
+        description: 'An externally-calibrated factor that converts the measured quantity
+          into the reported quantity, how it was determined, and its uncertainty.
+          Applies where the conversion depends on a factor calibrated against a reference
+          of independently known value, rather than on the instrument response alone.
+          Distinct from the fields that name the calibration material and that state
+          which approach applies to which analyte, where the technique has them: this
+          field records the resulting factor itself.'
+        type: object
+        properties:
+          '@id':
+            enum:
+            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
+          '@type':
+            enum:
+            - - schema:PropertyValue
+          schema:propertyID:
+            x-jsonld-id: http://schema.org/propertyID
+            enum:
+            - - '@id': ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
+          schema:name:
+            x-jsonld-id: http://schema.org/name
+            enum:
+            - Calibration Factor and Determination Method
+          schema:value:
+            type: string
+            x-jsonld-id: http://schema.org/value
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      Param_Procedure_calibrationFactorAndDeterminationMethod:
+        title: Calibration Factor and Determination Method
+        description: 'An externally-calibrated factor that converts the measured quantity
+          into the reported quantity, how it was determined, and its uncertainty.
+          Applies where the conversion depends on a factor calibrated against a reference
+          of independently known value, rather than on the instrument response alone.
+          Distinct from the fields that name the calibration material and that state
+          which approach applies to which analyte, where the technique has them: this
+          field records the resulting factor itself.'
+        type: object
+        properties:
+          '@id':
+            enum:
+            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault
+          '@type':
+            enum:
+            - - schema:PropertyValueSpecification
+          schema:valueName:
+            x-jsonld-id: http://schema.org/valueName
+            enum:
+            - calibrationFactorAndDeterminationMethodDefault
+          schema:name:
+            x-jsonld-id: http://schema.org/name
+            enum:
+            - Calibration Factor and Determination Method
+          ada:dataType:
+            enum:
+            - string
+          ada:fieldScope:
+            enum:
+            - session
+          schema:readonlyValue:
+            x-jsonld-id: http://schema.org/readonlyValue
+          ada:tier:
+            enum:
+            - R
+        required:
+        - '@id'
+        - '@type'
+        - schema:valueName
+        - schema:name
+        - ada:dataType
+        - ada:fieldScope
+    x-jsonld-prefixes:
+      schema: http://schema.org/
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.aggregation:
     title: 'TAPP Composition Module: Aggregation'
     description: "The shared Aggregation block of the 2026-08-11 TAPP library (Claude
@@ -13804,138 +13998,6 @@ x-defs:
     x-jsonld-prefixes:
       ada: https://ada.astromat.org/metadata/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-  ogch.BaseSchema.modules.blank:
-    title: 'TAPP Composition Module: Blank'
-    description: "The shared Blank block of the 2026-08-11 TAPP library (Claude Skills
-      for TAPP/Module_Blank.csv), composed by 12 of the sixteen delivery tables. 1
-      owned fields over 0 schema paths.\n\nGENERATED by tools/build_module_bb.py from
-      the module's CSV and its schema-path sidecar \u2014 edit those, not this file.
-      Requiredness follows the TAPP tier matrix: a field Basic on a side is required
-      there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
-      is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure
-      or analysis carries. Column F (Example / Allowed Content) is consumer-owned
-      per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may
-      narrow a value space, never widen it."
-    $defs:
-      Param_Analysis_proceduralBlankLevel:
-        title: Procedural Blank Level
-        description: "The measured level of the analytical blank in the session, and
-          \u2014 where the reported quantity is a ratio \u2014 its composition, since
-          a blank subtracted from a ratio biases the result unless its own composition
-          is known. Companion to the blank correction method, which is procedure-level:
-          this field records what was actually measured. Follows the criterion-versus-measurement
-          split the library applies wherever a procedure sets a threshold and an analysis
-          reports a value against it."
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/Blank/proceduralBlankLevel
-          '@type':
-            enum:
-            - - schema:PropertyValue
-          schema:propertyID:
-            enum:
-            - - '@id': ada:parameter/module/Blank/proceduralBlankLevel
-          schema:name:
-            enum:
-            - Procedural Blank Level
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/blank/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-  ogch.BaseSchema.modules.calibrationFactor:
-    title: 'TAPP Composition Module: CalibrationFactor'
-    description: "The shared CalibrationFactor block of the 2026-08-11 TAPP library
-      (Claude Skills for TAPP/Module_CalibrationFactor.csv), composed by 14 of the
-      sixteen delivery tables. 1 owned fields over 0 schema paths.\n\nGENERATED by
-      tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014
-      edit those, not this file. Requiredness follows the TAPP tier matrix: a field
-      Basic on a side is required there, Advanced is permitted, N/A is absent from
-      that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which
-      properties a conforming procedure or analysis carries. Column F (Example / Allowed
-      Content) is consumer-owned per the module manifest, so no enum is pinned here
-      \u2014 a consuming TAPP may narrow a value space, never widen it."
-    $defs:
-      Param_Analysis_calibrationFactorAndDeterminationMethod:
-        title: Calibration Factor and Determination Method
-        description: 'An externally-calibrated factor that converts the measured quantity
-          into the reported quantity, how it was determined, and its uncertainty.
-          Applies where the conversion depends on a factor calibrated against a reference
-          of independently known value, rather than on the instrument response alone.
-          Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
-          '@type':
-            enum:
-            - - schema:PropertyValue
-          schema:propertyID:
-            enum:
-            - - '@id': ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
-          schema:name:
-            enum:
-            - Calibration Factor and Determination Method
-          schema:value:
-            type: string
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      Param_Procedure_calibrationFactorAndDeterminationMethod:
-        title: Calibration Factor and Determination Method
-        description: 'An externally-calibrated factor that converts the measured quantity
-          into the reported quantity, how it was determined, and its uncertainty.
-          Applies where the conversion depends on a factor calibrated against a reference
-          of independently known value, rather than on the instrument response alone.
-          Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault
-          '@type':
-            enum:
-            - - schema:PropertyValueSpecification
-          schema:valueName:
-            enum:
-            - calibrationFactorAndDeterminationMethodDefault
-          schema:name:
-            enum:
-            - Calibration Factor and Determination Method
-          ada:dataType:
-            enum:
-            - string
-          ada:fieldScope:
-            enum:
-            - session
-          schema:readonlyValue: {}
-          ada:tier:
-            enum:
-            - R
-        required:
-        - '@id'
-        - '@type'
-        - schema:valueName
-        - schema:name
-        - ada:dataType
-        - ada:fieldScope
-    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.instrument:
     title: Instrument Description

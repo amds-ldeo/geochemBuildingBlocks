@@ -238,7 +238,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:ablationSpotDurationDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
@@ -261,6 +260,17 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Standard deviation (SD) across individual integration cycles of raster scans; uncertainty propagation not formally described"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "LODs not formally reported; all concentrations above detection limits except noted (Cr in some irons below LOD)"
     }
   ],
   "ada:analysisSequenceDefault": "Standards at start of session → raster unknowns → repeat → standards at end; separate session for Ge spot analyses",
@@ -317,6 +327,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
   "ada:ablationSamplingMode": [
     "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons"
   ],
+  "ada:ablationSpotDurationDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "³¹P",
@@ -414,34 +425,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
         "schema:defaultValue": "example value"
       },
       {
@@ -744,7 +727,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:ablationSpotDurationDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
@@ -767,6 +749,17 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Standard deviation (SD) across individual integration cycles of raster scans; uncertainty propagation not formally described"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "LODs not formally reported; all concentrations above detection limits except noted (Cr in some irons below LOD)"
     }
   ],
   "ada:analysisSequenceDefault": "Standards at start of session \u2192 raster unknowns \u2192 repeat \u2192 standards at end; separate session for Ge spot analyses",
@@ -823,6 +816,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
   "ada:ablationSamplingMode": [
     "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons"
   ],
+  "ada:ablationSpotDurationDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "\u00b3\u00b9P",
@@ -923,34 +917,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1046,7 +1012,8 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethodDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Zhang, Chabot, Rubin, Humayun et al." ] ;
@@ -1066,13 +1033,13 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
                     schema1:value "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal" ],
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons" ;
@@ -1089,8 +1056,6 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferingSpecies>,
@@ -1098,7 +1063,6 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "³¹P",
                 "¹²¹Sb",
@@ -1156,17 +1120,6 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -1208,16 +1161,18 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "LODs not formally reported; all concentrations above detection limits except noted (Cr in some irons below LOD)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Low resolution (M/ΔM ≈ 400)" ;
@@ -1434,6 +1389,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:defaultValue": "100% oxide sum normalization (MgO+FeO+SiO₂+P₂O₅) applied per pixel after IS-normalized external calibration (equations 3–4 in Appendix C1) to fix final mass balance"
           }
         ],
+        "ada:detectionLimitMethod": "Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb + 1/Na)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -1688,9 +1644,20 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Longerich et al. (1996) equation (3SD/S × √(1/Nb + 1/Na))"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "LODs reported in Table E1 (Appendix E) for 2D mapping: average of all individual pixel LODs (Na=1, Nb=10 per Longerich et al. 1996)"
     }
   ],
-  "ada:rasterLineSpacingDefault": "20 µm (contiguous; 20×20 µm square spot = line spacing equals spot width)",
   "ada:carrierGasFlowRateDefault": "He: MFC-1 (cell) 0.200–0.260 l min⁻¹; MFC-2 (cup) 0.220–0.385 l min⁻¹",
   "ada:oxideProductionMethodAndThreshold": "ThO⁺/Th⁺ (mass 248/232); threshold not explicitly stated but minimized by cool plasma",
   "ada:analysisSequenceDefault": "(i) Gas blanks → (ii) all glass GRMs for external calibration → (iii) 1–3 cosmic spherule unknowns → (iv) blanks → (v) all glass GRMs again",
@@ -1756,6 +1723,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:ablationSamplingMode": [
     "Raster area (2D elemental mapping)"
   ],
+  "ada:rasterLineSpacingDefault": "20 µm (contiguous; 20×20 µm square spot = line spacing equals spot width)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "²⁵Mg",
@@ -1844,34 +1812,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
         "schema:defaultValue": "example value"
       },
       {
@@ -2063,6 +2003,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:defaultValue": "100% oxide sum normalization (MgO+FeO+SiO\u2082+P\u2082O\u2085) applied per pixel after IS-normalized external calibration (equations 3\u20134 in Appendix C1) to fix final mass balance"
           }
         ],
+        "ada:detectionLimitMethod": "Longerich et al. (1996): LOD = (3SD/S) \u00d7 \u221a(1/Nb + 1/Na)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -2317,9 +2258,20 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Longerich et al. (1996) equation (3SD/S \u00d7 \u221a(1/Nb + 1/Na))"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "LODs reported in Table E1 (Appendix E) for 2D mapping: average of all individual pixel LODs (Na=1, Nb=10 per Longerich et al. 1996)"
     }
   ],
-  "ada:rasterLineSpacingDefault": "20 \u00b5m (contiguous; 20\u00d720 \u00b5m square spot = line spacing equals spot width)",
   "ada:carrierGasFlowRateDefault": "He: MFC-1 (cell) 0.200\u20130.260 l min\u207b\u00b9; MFC-2 (cup) 0.220\u20130.385 l min\u207b\u00b9",
   "ada:oxideProductionMethodAndThreshold": "ThO\u207a/Th\u207a (mass 248/232); threshold not explicitly stated but minimized by cool plasma",
   "ada:analysisSequenceDefault": "(i) Gas blanks \u2192 (ii) all glass GRMs for external calibration \u2192 (iii) 1\u20133 cosmic spherule unknowns \u2192 (iv) blanks \u2192 (v) all glass GRMs again",
@@ -2385,6 +2337,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:ablationSamplingMode": [
     "Raster area (2D elemental mapping)"
   ],
+  "ada:rasterLineSpacingDefault": "20 \u00b5m (contiguous; 20\u00d720 \u00b5m square spot = line spacing equals spot width)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "\u00b2\u2075Mg",
@@ -2476,34 +2429,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2578,25 +2503,27 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb + 1/Na)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; HELEX II two-volume cell; C-coated for SEM then coating removed before LA" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -2637,8 +2564,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferingSpecies>,
@@ -2646,7 +2571,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "²⁵Mg",
                 "²⁷Al",
@@ -2698,17 +2622,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -2750,11 +2663,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
@@ -2766,6 +2674,14 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:description "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.81 l min⁻¹ (mapping)" ;
     schema1:name "Coolant (Plasma) Gas Flow Rate" ;
     schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:description "LODs reported in Table E1 (Appendix E) for 2D mapping: average of all individual pixel LODs (Na=1, Nb=10 per Longerich et al. 1996)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
@@ -3068,6 +2984,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:defaultValue": "Run 1: 100% oxide sum normalization; Run 2: Cr IS from Run 1 applied; no further post-acquisition normalization"
           }
         ],
+        "ada:detectionLimitMethod": "Longerich et al. (1996); LOQ = 10SD criterion (same equation)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -3288,7 +3205,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:ablationSpotDurationDefault": "N/A (line scan run 1) / N/A (spot run 2 — duration set by 34 runs covering 400 µm + washout, not a fixed spot duration)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
@@ -3336,6 +3252,18 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Longerich et al. (1996) for LOD; uncertainty for concentrations not formally described"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "LODs reported in Table 1 for line scan + spot trace elements: Na=24, Nb=5 per Longerich et al. 1996; LOQ = 10SD criterion"
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.19 l min⁻¹; MFC-2 0.22 l min⁻¹",
@@ -3402,6 +3330,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:ablationSamplingMode": [
     "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)"
   ],
+  "ada:ablationSpotDurationDefault": "N/A (line scan run 1) / N/A (spot run 2 — duration set by 34 runs covering 400 µm + washout, not a fixed spot duration)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Run 1 (major): ²⁵Mg",
@@ -3506,34 +3435,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
         "schema:defaultValue": "example value"
       },
       {
@@ -3739,6 +3640,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             "schema:defaultValue": "Run 1: 100% oxide sum normalization; Run 2: Cr IS from Run 1 applied; no further post-acquisition normalization"
           }
         ],
+        "ada:detectionLimitMethod": "Longerich et al. (1996); LOQ = 10SD criterion (same equation)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -3959,7 +3861,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:ablationSpotDurationDefault": "N/A (line scan run 1) / N/A (spot run 2 \u2014 duration set by 34 runs covering 400 \u00b5m + washout, not a fixed spot duration)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
@@ -4007,6 +3908,18 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Longerich et al. (1996) for LOD; uncertainty for concentrations not formally described"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "LODs reported in Table 1 for line scan + spot trace elements: Na=24, Nb=5 per Longerich et al. 1996; LOQ = 10SD criterion"
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.19 l min\u207b\u00b9; MFC-2 0.22 l min\u207b\u00b9",
@@ -4073,6 +3986,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:ablationSamplingMode": [
     "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)"
   ],
+  "ada:ablationSpotDurationDefault": "N/A (line scan run 1) / N/A (spot run 2 \u2014 duration set by 34 runs covering 400 \u00b5m + washout, not a fixed spot duration)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "Run 1 (major): \u00b2\u2075Mg",
@@ -4180,34 +4094,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4283,13 +4169,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
@@ -4301,8 +4180,17 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
                         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/spikeOutlierFilteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault>,
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "Longerich et al. (1996); LOQ = 10SD criterion (same equation)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
@@ -4344,8 +4232,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferingSpecies>,
@@ -4353,7 +4239,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "Run 1 (major): ²⁵Mg",
                 "Run 2 (trace): ⁷Li",
@@ -4420,17 +4305,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -4472,11 +4346,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
@@ -4488,6 +4357,14 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
     schema1:description "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.90 l min⁻¹ (run 1 and run 2)" ;
     schema1:name "Coolant (Plasma) Gas Flow Rate" ;
     schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:description "LODs reported in Table 1 for line scan + spot trace elements: Na=24, Nb=5 per Longerich et al. 1996; LOQ = 10SD criterion" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
@@ -5009,7 +4886,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:ablationSpotDurationDefault": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition",
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.270 l min⁻¹; MFC-2 0.250 l min⁻¹",
   "schema:additionalProperty": [
     {
@@ -5112,6 +4988,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
   ],
+  "ada:ablationSpotDurationDefault": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "²³Na",
@@ -5216,34 +5093,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
         "schema:defaultValue": "example value"
       },
       {
@@ -5656,7 +5505,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:ablationSpotDurationDefault": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition",
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.270 l min\u207b\u00b9; MFC-2 0.250 l min\u207b\u00b9",
   "schema:additionalProperty": [
     {
@@ -5759,6 +5607,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
   ],
+  "ada:ablationSpotDurationDefault": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "\u00b2\u00b3Na",
@@ -5863,34 +5712,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
         "schema:defaultValue": "example value"
       },
       {
@@ -6028,8 +5849,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferingSpecies>,
@@ -6037,7 +5856,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "²³Na",
                 "²³²Th",
@@ -6105,17 +5923,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -6155,11 +5962,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
@@ -6718,34 +6520,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7197,34 +6971,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7305,9 +7051,8 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault>,
@@ -7318,8 +7063,9 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Mittlefehldt" ] ;
@@ -7357,8 +7103,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferingSpecies>,
@@ -7366,7 +7110,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "²⁵Mg",
                 "²⁷Al",
@@ -7423,17 +7166,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -7473,11 +7205,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
@@ -7691,6 +7418,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:defaultValue": "Fe+Ni+Co=100% sum normalization applied in iolite 3D Trace Elements DRS as final step; yield correction factors applied for NIST SRM 612 relative to North Chile"
           }
         ],
+        "ada:detectionLimitMethod": "Longerich et al. (1996) — implemented in iolite 4; sample-individual LOD calculated per analysis",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -7887,7 +7615,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:ablationSpotDurationDefault": "40 s on-sample ablation (after 20 s background measurement)",
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
   "schema:additionalProperty": [
     {
@@ -7913,6 +7640,18 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       ],
       "schema:name": "Multi-Run Sequential Analysis Design",
       "schema:value": "Single acquisition run (20 spot analyses per sample under repeatability conditions)"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3,
+      "schema:description": "LODs in µg g⁻¹ (median from Table 3): As 2, Au 0.1, Co 2, Cr 19, Cu 0.8, Fe 5300, Ga 0.1, Ge 0.2, Ir 0.04, Ni 60, Os 0.09, Pd 0.06, Pt 0.4, Re 0.02, Rh 0.05, Ru 0.3, W 0.09; calculated per Longerich et al. (1996) in iolite 4"
     }
   ],
   "ada:analysisSequenceDefault": "NIST SRM 612(×3) → North Chile(×3) → unknowns(×10) → NIST SRM 612(×2) → North Chile(×2) → unknowns(×10) → … (bracketing every 15)",
@@ -7978,6 +7717,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
   ],
+  "ada:ablationSpotDurationDefault": "40 s on-sample ablation (after 20 s background measurement)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "⁵²Cr",
@@ -8070,34 +7810,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
         "schema:defaultValue": "example value"
       },
       {
@@ -8294,6 +8006,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             "schema:defaultValue": "Fe+Ni+Co=100% sum normalization applied in iolite 3D Trace Elements DRS as final step; yield correction factors applied for NIST SRM 612 relative to North Chile"
           }
         ],
+        "ada:detectionLimitMethod": "Longerich et al. (1996) \u2014 implemented in iolite 4; sample-individual LOD calculated per analysis",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -8490,7 +8203,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:ablationSpotDurationDefault": "40 s on-sample ablation (after 20 s background measurement)",
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min\u207b\u00b9 (MFC 1) + 0.7 l min\u207b\u00b9 (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
   "schema:additionalProperty": [
     {
@@ -8516,6 +8228,18 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       ],
       "schema:name": "Multi-Run Sequential Analysis Design",
       "schema:value": "Single acquisition run (20 spot analyses per sample under repeatability conditions)"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3,
+      "schema:description": "LODs in \u00b5g g\u207b\u00b9 (median from Table 3): As 2, Au 0.1, Co 2, Cr 19, Cu 0.8, Fe 5300, Ga 0.1, Ge 0.2, Ir 0.04, Ni 60, Os 0.09, Pd 0.06, Pt 0.4, Re 0.02, Rh 0.05, Ru 0.3, W 0.09; calculated per Longerich et al. (1996) in iolite 4"
     }
   ],
   "ada:analysisSequenceDefault": "NIST SRM 612(\u00d73) \u2192 North Chile(\u00d73) \u2192 unknowns(\u00d710) \u2192 NIST SRM 612(\u00d72) \u2192 North Chile(\u00d72) \u2192 unknowns(\u00d710) \u2192 \u2026 (bracketing every 15)",
@@ -8581,6 +8305,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
   ],
+  "ada:ablationSpotDurationDefault": "40 s on-sample ablation (after 20 s background measurement)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "\u2075\u00b2Cr",
@@ -8676,34 +8401,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -8779,10 +8476,13 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "Longerich et al. (1996) — implemented in iolite 4; sample-individual LOD calculated per analysis" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/guardElectrode> ;
@@ -8791,13 +8491,12 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault>,
+                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Navarro, Enzweiler, Crósta et al." ] ;
@@ -8837,8 +8536,6 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferingSpecies>,
@@ -8846,7 +8543,6 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "low relative abundance isotopes chosen for Ni and Fe (analog mode)",
                 "¹⁰³Rh",
@@ -8902,17 +8598,6 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -8954,11 +8639,6 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
@@ -8970,6 +8650,14 @@ ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
     schema1:description "Plasma gas: 16 l min⁻¹; Auxiliary: 0.9 l min⁻¹; Nebulizer gas (from table): 1.1 l min⁻¹" ;
     schema1:name "Coolant (Plasma) Gas Flow Rate" ;
     schema1:valueName "coolantGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3 ;
+    schema1:description "LODs in µg g⁻¹ (median from Table 3): As 2, Au 0.1, Co 2, Cr 19, Cu 0.8, Fe 5300, Ga 0.1, Ge 0.2, Ir 0.04, Ni 60, Os 0.09, Pd 0.06, Pt 0.4, Re 0.02, Rh 0.05, Ru 0.3, W 0.09; calculated per Longerich et al. (1996) in iolite 4" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
@@ -9615,34 +9303,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10215,34 +9875,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10319,12 +9951,10 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/guardElectrode> ;
@@ -10333,10 +9963,12 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/signalSmoothingDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -10377,8 +10009,6 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/interferingSpecies>,
@@ -10386,7 +10016,6 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
             ada:defaultAnalytes "¹⁰³Rh",
                 "¹⁰⁵Pd",
@@ -10441,17 +10070,6 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
     schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Detection Limit Method" ;
-    schema1:valueName "detectionLimitMethod" ;
-    ada:dataType "uri" .
-
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
@@ -10491,11 +10109,6 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
@@ -10663,6 +10276,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
@@ -11098,7 +10712,6 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_intermediateDaughterDisequilibriumCorrection
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
@@ -11273,10 +10886,6 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
                       maxContains: 1
@@ -11288,6 +10897,18 @@ allOf:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
+                  ada:detectionLimitMethod:
+                    description: Reference or description of the method used to calculate
+                      session detection limits. Mandatory at analysis level. Must
+                      be consistent with the method applied to generate the Detection
+                      Limit values reported above.
+                    anyOf:
+                    - type: string
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        readOnly: true
           allOf:
           - contains:
               properties:
@@ -11554,7 +11175,6 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/Param_Procedure_ageDatumReferenceEpoch
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinitionAndValues
         - title: Error Correlation Between Reported Quantities
           description: The correlation coefficient between pairs of reported quantities
@@ -11582,6 +11202,40 @@ allOf:
               const: R
             schema:unitText:
               const: dimensionless
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Detection Limit
+          description: "Session detection limit, one per reported concentration variable
+            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
+            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
+            demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: ppm or wt%
           required:
           - '@id'
           - '@type'
@@ -11864,10 +11518,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/Param_Procedure_ageDatumReferenceEpoch
-        minContains: 0
-        maxContains: 1
-      - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinitionAndValues
         minContains: 0
         maxContains: 1
@@ -11898,6 +11548,43 @@ allOf:
               const: R
             schema:unitText:
               const: dimensionless
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: "Session detection limit, one per reported concentration variable
+            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
+            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
+            demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: ppm or wt%
           required:
           - '@id'
           - '@type'
@@ -13215,102 +12902,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Normalization / Standards-Based Correction
-              description: Any post-acquisition normalization applied to correct for
-                systematic biases identified from secondary reference materials, or
-                stoichiometric normalization applied per pixel in mapping. Distinct
-                from the primary internal standard approach captured in Internal Standard
-                Approach.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: normalizationStandardsBasedCorrection
-                schema:name:
-                  const: Normalization / Standards-Based Correction
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Detection Limit
-              description: "Session detection limit, one per reported concentration
-                variable (one per analyte, these being the same set), expressed in
-                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                at analysis level to demonstrate the reliability of reported near-detection-limit
-                concentrations. The calculation method is captured separately in Detection
-                Limit Method."
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Detection Limit Method
-              description: Reference or description of the method used to calculate
-                session detection limits. Mandatory at analysis level. Must be consistent
-                with the method applied to generate the Detection Limit values reported
-                above.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: uri
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate
                 the limit of quantification (LOQ): the lowest concentration reliably
@@ -13659,111 +13250,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Normalization / Standards-Based Correction
-              description: Any post-acquisition normalization applied to correct for
-                systematic biases identified from secondary reference materials, or
-                stoichiometric normalization applied per pixel in mapping. Distinct
-                from the primary internal standard approach captured in Internal Standard
-                Approach.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: normalizationStandardsBasedCorrection
-                schema:name:
-                  const: Normalization / Standards-Based Correction
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Detection Limit
-              description: "Session detection limit, one per reported concentration
-                variable (one per analyte, these being the same set), expressed in
-                \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                at analysis level to demonstrate the reliability of reported near-detection-limit
-                concentrations. The calculation method is captured separately in Detection
-                Limit Method."
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimit
-                schema:name:
-                  const: Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Detection Limit Method
-              description: Reference or description of the method used to calculate
-                session detection limits. Mandatory at analysis level. Must be consistent
-                with the method applied to generate the Detection Limit values reported
-                above.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: detectionLimitMethod
-                schema:name:
-                  const: Detection Limit Method
-                ada:dataType:
-                  const: uri
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate
                 the limit of quantification (LOQ): the lowest concentration reliably
@@ -14032,6 +13518,162 @@ allOf:
         session, or using a separate gas blank map acquired under identical conditions.'
       type: string
       readOnly: true
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - title: Normalization / Standards-Based Correction
+          description: Any post-acquisition normalization applied to correct for systematic
+            biases identified from secondary reference materials, or stoichiometric
+            normalization applied per pixel in mapping. Distinct from the primary
+            internal standard approach captured in Internal Standard Approach.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: normalizationStandardsBasedCorrectionDefault
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Detection Limit
+          description: "Session detection limit, one per reported concentration variable
+            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
+            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
+            demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: ppm or wt%
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+      allOf:
+      - contains:
+          title: Normalization / Standards-Based Correction
+          description: Any post-acquisition normalization applied to correct for systematic
+            biases identified from secondary reference materials, or stoichiometric
+            normalization applied per pixel in mapping. Distinct from the primary
+            internal standard approach captured in Internal Standard Approach.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: normalizationStandardsBasedCorrectionDefault
+            schema:name:
+              const: Normalization / Standards-Based Correction
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Detection Limit
+          description: "Session detection limit, one per reported concentration variable
+            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
+            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
+            demonstrate the reliability of reported near-detection-limit concentrations.
+            The calculation method is captured separately in Detection Limit Method."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: ppm or wt%
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     ada:primaryStandardNameDefault:
       description: Primary reference material(s) used to calibrate the instrument
         and convert raw signal intensities to concentrations or isotope ratios. Include
@@ -14063,6 +13705,14 @@ allOf:
       anyOf:
       - type: number
       - type: string
+    ada:analyticalMode:
+      type: array
+      items:
+        type: string
+        enum:
+        - Spot
+        - Transect
+        - Mapping
   required:
   - ada:sampleIntroduction
   - ada:carrierGasFlowRateDefault

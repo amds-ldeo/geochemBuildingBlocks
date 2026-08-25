@@ -15,8 +15,8 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -25,8 +25,8 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -43,7 +43,7 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyticalMode "CL" ;
+    ada:analyticalMode "CL Point Analysis" ;
     ada:clAcquisitionMode "Spectral point" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
@@ -53,11 +53,11 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
-    ada:liftOutMethod "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetSelectionCriteriaDefault "missing" ;
@@ -70,6 +70,7 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/semTAPP/clGrating> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
+    schema1:description "Standard SEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,

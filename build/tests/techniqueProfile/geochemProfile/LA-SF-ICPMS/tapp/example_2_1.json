@@ -104,8 +104,20 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: triple mode detection; cross-calibration between pulse-counting and analog modes performed"
+          },
+          {
+            "@id": "ada:parameter/laSficpmsTAPP/normalizationStandardsBasedCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+            "schema:name": "Normalization / Standards-Based Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "100% oxide sum normalization (MgO+FeO+SiO\u2082+P\u2082O\u2085) applied per pixel after IS-normalized external calibration (equations 3\u20134 in Appendix C1) to fix final mass balance"
           }
         ],
+        "ada:detectionLimitMethod": "Longerich et al. (1996): LOD = (3SD/S) \u00d7 \u221a(1/Nb + 1/Na)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -360,9 +372,20 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Longerich et al. (1996) equation (3SD/S \u00d7 \u221a(1/Nb + 1/Na))"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "LODs reported in Table E1 (Appendix E) for 2D mapping: average of all individual pixel LODs (Na=1, Nb=10 per Longerich et al. 1996)"
     }
   ],
-  "ada:rasterLineSpacingDefault": "20 \u00b5m (contiguous; 20\u00d720 \u00b5m square spot = line spacing equals spot width)",
   "ada:carrierGasFlowRateDefault": "He: MFC-1 (cell) 0.200\u20130.260 l min\u207b\u00b9; MFC-2 (cup) 0.220\u20130.385 l min\u207b\u00b9",
   "ada:oxideProductionMethodAndThreshold": "ThO\u207a/Th\u207a (mass 248/232); threshold not explicitly stated but minimized by cool plasma",
   "ada:analysisSequenceDefault": "(i) Gas blanks \u2192 (ii) all glass GRMs for external calibration \u2192 (iii) 1\u20133 cosmic spherule unknowns \u2192 (iv) blanks \u2192 (v) all glass GRMs again",
@@ -428,6 +451,7 @@
   "ada:ablationSamplingMode": [
     "Raster area (2D elemental mapping)"
   ],
+  "ada:rasterLineSpacingDefault": "20 \u00b5m (contiguous; 20\u00d720 \u00b5m square spot = line spacing equals spot width)",
   "ada:analyteTemplate": {
     "ada:defaultAnalytes": [
       "\u00b2\u2075Mg",
@@ -516,34 +540,6 @@
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/laSficpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "uri",
         "schema:defaultValue": "example value"
       },
       {

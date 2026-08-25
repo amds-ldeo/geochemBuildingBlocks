@@ -339,8 +339,19 @@
   "ada:secondaryReferenceMaterialDefault": [
     "NCS 73307 stream sediment"
   ],
-  "ada:reportedProperties": [
-    "Particulate Te concentration (mg kg-1)"
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "detectionLimitDefault",
+      "schema:name": "Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.1,
+      "schema:description": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD"
+    }
   ],
   "schema:measurementTechnique": [
     {
@@ -360,6 +371,9 @@
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],
+  "ada:reportedProperties": [
+    "Particulate Te concentration (mg kg-1)"
+  ],
   "ada:chromatographicSeparationApplied": "No \u2014 sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography",
   "ada:finalSolutionMatrix": "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL",
   "ada:analyteTemplate": {
@@ -378,25 +392,6 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
@@ -438,6 +433,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",

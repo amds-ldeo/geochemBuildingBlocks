@@ -23,6 +23,7 @@ ex:empaTAPP-P8 a cdi:Activity,
                     schema1:description "Polished thin section; carbon coating N" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -78,7 +79,6 @@ ex:empaTAPP-P8 a cdi:Activity,
                 "P (from standards/methods text)",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -163,6 +163,13 @@ ex:empaTAPP-P8 a cdi:Activity,
     schema1:name "Time-Dependent Intensity Correction" ;
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Better than 0.02 wt% (as stated in paper)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;

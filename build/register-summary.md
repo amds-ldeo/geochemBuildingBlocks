@@ -68,13 +68,13 @@ The shared Blank block of the 2026-08-11 TAPP library, composed by 12 of the six
 
 **Type:** schema
 
-The shared CalibrationFactor block of the 2026-08-11 TAPP library, composed by 14 of the sixteen delivery tables. 1 owned fields over 0 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared CalibrationFactor block of the 2026-08-11 TAPP library, composed by 14 of the sixteen delivery tables. 1 owned fields over 2 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.geochronology` — TAPP Composition Module: Geochronology
 
 **Type:** schema
 
-The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 6 owned fields over 5 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 6 owned fields over 16 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.group1` — TAPP Composition Module: Group1
 

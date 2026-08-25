@@ -285,6 +285,125 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Radiogenic Fraction of Measured Signal",
+      "schema:description": "Radiogenic Fraction of Measured Signal reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Age Datum / Reference Epoch",
+      "schema:description": "Age Datum / Reference Epoch reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Age Calculation Method",
+      "schema:description": "Age Calculation Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Reported Date Type",
+      "schema:description": "Reported Date Type reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Inherited or Initial Signal Correction",
+      "schema:description": "Inherited or Initial Signal Correction reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Age Model",
+      "schema:description": "Age Model reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [

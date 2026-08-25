@@ -23,7 +23,8 @@ ex:empaTAPP-P3 a cdi:Activity,
                     schema1:description "Polished thin sections (coating type N)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault>,
+        <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -81,7 +82,6 @@ ex:empaTAPP-P3 a cdi:Activity,
                 "P (from detection limits table; conditions shared with UT)",
                 "Si",
                 "Ti" ] ;
-    ada:detectionLimitMethod "missing" ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
@@ -171,6 +171,13 @@ ex:empaTAPP-P3 a cdi:Activity,
     schema1:defaultValue "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as shared conditions with UT)" ;
+    schema1:name "Detection Limit" ;
+    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

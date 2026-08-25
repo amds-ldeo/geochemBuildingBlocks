@@ -310,9 +310,6 @@
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)"
   ],
-  "ada:reportedProperties": [
-    "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb -- dimensionless isotope ratios"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -343,6 +340,9 @@
   "ada:samplingUnit": "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler"
+  ],
+  "ada:reportedProperties": [
+    "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb -- dimensionless isotope ratios"
   ],
   "ada:chromatographicSeparationApplied": "None (Pb separation performed for MC-ICP-MS only; SF-ICP-MS uses unseparated leachate with Tl addition; stated section 2.3)",
   "ada:isotopeDilutionSpike": "None (Tl added for mass fractionation correction only, not ID)",
@@ -428,25 +428,6 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimitMethod",
-        "schema:name": "Detection Limit Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -486,6 +467,14 @@
       }
     ]
   },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ]
+    }
+  ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:sampleSequenceDesign": "missing",

@@ -9,6 +9,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
@@ -366,20 +367,6 @@ allOf:
                         - ada:fieldScope
                       minContains: 0
                       maxContains: 1
-                  ada:calibrationFactorAndDeterminationMethodDefault:
-                    description: 'An externally-calibrated factor that converts the
-                      measured quantity into the reported quantity, how it was determined,
-                      and its uncertainty. Applies where the conversion depends on
-                      a factor calibrated against a reference of independently known
-                      value, rather than on the instrument response alone. Distinct
-                      from the fields that name the calibration material and that
-                      state which approach applies to which analyte, where the technique
-                      has them: this field records the resulting factor itself.'
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
             - if:
                 properties:
                   schema:name:
@@ -408,12 +395,6 @@ allOf:
               properties:
                 schema:name:
                   const: Sample preparation
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: Data Reduction
               required:
               - schema:name
           - contains:
@@ -2641,6 +2622,12 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+    ada:edsCalibrationStandardDefault:
+      description: Reference material(s) used to validate EDS quantification or determine
+        experimental k-factors or zeta-factors. TEM-EDS is less standardized than
+        EPMA; many procedures rely on manufacturer k-factors without external calibration.
+        Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+      type: string
     schema:variableMeasured:
       type: array
       items:
@@ -2660,40 +2647,6 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: EDS Detection Limit
           description: Estimated detection limits by EDS under this procedure's conditions,
             one per reported concentration variable (one per analyte, these being
@@ -2725,43 +2678,6 @@ allOf:
           - ada:dataType
           - ada:fieldScope
       allOf:
-      - contains:
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/temTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
       - contains:
           title: EDS Detection Limit
           description: Estimated detection limits by EDS under this procedure's conditions,
@@ -2795,12 +2711,14 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
-    ada:edsCalibrationStandardDefault:
-      description: Reference material(s) used to validate EDS quantification or determine
-        experimental k-factors or zeta-factors. TEM-EDS is less standardized than
-        EPMA; many procedures rely on manufacturer k-factors without external calibration.
-        Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
-      type: string
+    ada:analyticalMode:
+      type: array
+      items:
+        type: string
+        enum:
+        - TEM Imaging
+        - STEM Imaging
+        - Electron Diffraction
   required:
   - ada:spectroscopicDetectorDefault
   - ada:analyticalSubModeDefault

@@ -375,6 +375,82 @@
       "schema:defaultValue": "Standard error (SE = SD/\u221an) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (two-volume cell)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
+            "schema:name": "Normalization / Standards-Based Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "\u2078\u2078Sr/\u2078\u2076Sr = 8.37520933 used for Sr isotope mass fractionation correction (exponential law); \u2078\u2077Rb/\u2078\u2075Rb = 0.385706 and \u2078\u2076Sr/\u2078\u2078Sr = 0.119351 for \u2078\u2077Rb/\u2078\u2076Sr calculation; external calibration factor from reference glasses applied to correct Rb/Sr elemental fractionation"
+          },
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
+          },
+          {
+            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "spikeOutlierFilteringApproachDefault",
+            "schema:name": "Spike / Outlier Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:primaryStandardNameDefault": "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of \u2078\u2077Rb/\u2078\u2076Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for \u2078\u2077Sr/\u2078\u2076Sr data quality evaluation",
   "schema:relatedLink": [
     {
@@ -413,71 +489,6 @@
       "schema:name": "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (two-volume cell)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothingDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "signalSmoothingDefault",
-            "schema:name": "Signal Smoothing",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
-          },
-          {
-            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "spikeOutlierFilteringApproachDefault",
-            "schema:name": "Spike / Outlier Filtering Approach",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:secondaryReferenceMaterialDefault": [
     "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 \u2014 measured as unknowns for 87Sr/86Sr data quality evaluation"
   ],
@@ -545,15 +556,6 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/detectionLimit",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "detectionLimit",
-        "schema:name": "Detection Limit",
-        "ada:dataType": "number"
-      },
-      {
         "@id": "ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -583,15 +585,6 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "normalizationStandardsBasedCorrection",
-        "schema:name": "Normalization / Standards-Based Correction",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -617,7 +610,6 @@
   "ada:betweenSessionPrecision": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:detectionLimitMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",

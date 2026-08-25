@@ -7,6 +7,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
@@ -1858,6 +1859,37 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: Detection Limit
+          description: Method detection limit at 99% confidence (3-sigma), one per
+            reported concentration variable (one per analyte, these being the same
+            set), derived from counting statistics on peak and background. Include
+            the method and the resulting value for each.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: Drift Correction
           description: Method used to monitor and correct for instrument drift (beam
             current drift, spectrometer drift) during the analytical session.
@@ -2041,6 +2073,40 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
+          title: Detection Limit
+          description: Method detection limit at 99% confidence (3-sigma), one per
+            reported concentration variable (one per analyte, these being the same
+            set), derived from counting statistics on peak and background. Include
+            the method and the resulting value for each.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/empaTAPP/detectionLimitDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: detectionLimitDefault
+            schema:name:
+              const: Detection Limit
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
           title: Drift Correction
           description: Method used to monitor and correct for instrument drift (beam
             current drift, spectrometer drift) during the analytical session.
@@ -2214,32 +2280,6 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits. Reference
-            method publication if applicable. When the procedure does not specify
-            a method, the analyst should complete this field.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
         - title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference
             materials to correct for session-to-session calibration drift.
@@ -2254,40 +2294,6 @@ allOf:
               const: normalizationStandardsBasedCorrectionDefault
             schema:name:
               const: Normalization / Standards-Based Correction
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
             ada:dataType:
               const: string
             ada:fieldScope:
@@ -2339,35 +2345,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits. Reference
-            method publication if applicable. When the procedure does not specify
-            a method, the analyst should complete this field.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          readOnly: true
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: Normalization / Standards-Based Correction
           description: Post-acquisition normalization applied using secondary reference
             materials to correct for session-to-session calibration drift.
@@ -2399,49 +2376,143 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
-      - contains:
-          title: Calibration Factor and Determination Method
-          description: 'An externally-calibrated factor that converts the measured
-            quantity into the reported quantity, how it was determined, and its uncertainty.
-            Applies where the conversion depends on a factor calibrated against a
-            reference of independently known value, rather than on the instrument
-            response alone. Distinct from the fields that name the calibration material
-            and that state which approach applies to which analyte, where the technique
-            has them: this field records the resulting factor itself.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: calibrationFactorAndDeterminationMethodDefault
-            schema:name:
-              const: Calibration Factor and Determination Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-    ada:detectionLimitMethod:
-      description: Formula or approach used to calculate detection limits. Reference
-        method publication if applicable. When the procedure does not specify a method,
-        the analyst should complete this field.
-      type: string
-      readOnly: true
+    schema:actionProcess:
+      type: object
+      properties:
+        schema:step:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: Data reduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  ada:detectionLimitMethod:
+                    description: Formula or approach used to calculate detection limits.
+                      Reference method publication if applicable. When the procedure
+                      does not specify a method, the analyst should complete this
+                      field.
+                    anyOf:
+                    - type: string
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        readOnly: true
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - title: Normalization / Standards-Based Correction
+                        description: Post-acquisition normalization applied using
+                          secondary reference materials to correct for session-to-session
+                          calibration drift.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: normalizationStandardsBasedCorrectionDefault
+                          schema:name:
+                            const: Normalization / Standards-Based Correction
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                    allOf:
+                    - contains:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Normalization / Standards-Based Correction
+                        description: Post-acquisition normalization applied using
+                          secondary reference materials to correct for session-to-session
+                          calibration drift.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: normalizationStandardsBasedCorrectionDefault
+                          schema:name:
+                            const: Normalization / Standards-Based Correction
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                      minContains: 0
+                      maxContains: 1
+            - if:
+                properties:
+                  schema:name:
+                    const: Sample preparation
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:description:
+                    description: Description of how samples were prepared for analysis
+                      under this procedure (mounting, polishing, coating). Analysts
+                      may document session-specific variations from the procedure
+                      standard.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: Data reduction
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: Sample preparation
+              required:
+              - schema:name
     ada:edsAcquisitionMode:
       description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam
         point acquisition, linescan (beam stepped along a transect at defined intervals),
@@ -2536,73 +2607,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    schema:actionProcess:
-      type: object
-      properties:
-        schema:step:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  schema:name:
-                    const: Data reduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                    allOf:
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Procedure_calibrationFactorAndDeterminationMethod
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                      minContains: 0
-                      maxContains: 1
-            - if:
-                properties:
-                  schema:name:
-                    const: Sample preparation
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:description:
-                    description: Description of how samples were prepared for analysis
-                      under this procedure (mounting, polishing, coating). Analysts
-                      may document session-specific variations from the procedure
-                      standard.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-          allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Data reduction
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: Sample preparation
-              required:
-              - schema:name
     ada:massAbsorptionCoefficients:
       description: Database of mass absorption coefficients used in the matrix correction.
         MAC database choice affects accuracy particularly for light elements (B, C,
@@ -2670,8 +2674,16 @@ allOf:
       - None
       - missing
       readOnly: true
+    ada:analyticalMode:
+      type: array
+      items:
+        type: string
+        enum:
+        - EDS Point Analysis
+        - EDS Mapping
+        - WDS Point Analysis
+        - WDS Mapping
   required:
-  - ada:detectionLimitMethod
   - ada:edsAcquisitionMode
   - ada:edsLiveTimePerPointOrPixelDefault
   - ada:massAbsorptionCoefficients

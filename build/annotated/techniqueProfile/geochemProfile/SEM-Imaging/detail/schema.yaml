@@ -764,41 +764,70 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:indexingMethod:
-      description: Algorithm used to index EBSD diffraction patterns and assign crystal
-        orientations. Hough-transform methods fit Kikuchi band positions analytically;
-        dictionary indexing (DI) matches experimental patterns to a pre-computed library
-        of simulated patterns.
-      type: string
-      enum:
-      - Hough transform
-      - Dictionary indexing (DI)
-      - Neural network
-      - Unknown
-      - N/A
-      - None
-      - missing
-    ada:patternQualityThreshold:
-      description: Minimum pattern quality or confidence index threshold applied during
-        EBSD data processing to exclude unreliably indexed points from orientation
-        maps. Include metric name and threshold value.
-      type: string
-    ada:meanAngularDeviation:
-      description: Mean angular deviation (MAD) of the EBSD pattern indexing solution
-        in degrees. MAD quantifies the misfit between experimental Kikuchi band positions
-        and the best-fit crystal orientation. Values above ~1.5 degrees typically
-        indicate unreliable indexing.
-      anyOf:
-      - type: number
-      - type: string
-    ada:indexingRate:
-      description: Fraction of EBSD map points successfully indexed, expressed as
-        a percentage of total map points. Low indexing rate may indicate surface damage,
-        amorphisation, severe deformation, or phase misidentification.
-      anyOf:
-      - type: number
-      - type: string
-  required:
-  - ada:indexingMethod
-  - ada:meanAngularDeviation
-  - ada:indexingRate
+    dqv:hasQualityMeasurement:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: EBSD Pattern Quality Threshold
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Minimum pattern quality or confidence index threshold
+                  applied during EBSD data processing to exclude unreliably indexed
+                  points from orientation maps. Include metric name and threshold
+                  value.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: EBSD Mean Angular Deviation
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Mean angular deviation (MAD) of the EBSD pattern indexing
+                  solution in degrees. MAD quantifies the misfit between experimental
+                  Kikuchi band positions and the best-fit crystal orientation. Values
+                  above ~1.5 degrees typically indicate unreliable indexing.
+                anyOf:
+                - type: number
+                - type: string
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: EBSD Indexing Rate
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Fraction of EBSD map points successfully indexed, expressed
+                  as a percentage of total map points. Low indexing rate may indicate
+                  surface damage, amorphisation, severe deformation, or phase misidentification.
+                anyOf:
+                - type: number
+                - type: string
+      allOf:
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: EBSD Mean Angular Deviation
+          required:
+          - dqv:isMeasurementOf
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: EBSD Indexing Rate
+          required:
+          - dqv:isMeasurementOf

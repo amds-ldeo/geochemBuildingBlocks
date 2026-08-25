@@ -19,17 +19,18 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (two-volume cell)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/spikeOutlierFilteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault>,
@@ -68,12 +69,10 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/detectionLimit>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/instrumentSensitivity>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection>,
                 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy> ;
             ada:defaultAnalytes "C (⁸⁶Sr)",
                 "H1 (¹⁷³Yb²⁺)",
@@ -90,7 +89,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     ada:calibrationMeasurementFrequency "missing" ;
     ada:carrierGasFlowRateDefault "He, 0.90 l min⁻¹ (two-volume cell)" ;
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
-    ada:detectionLimitMethod "missing" ;
     ada:elementalFractionationCorrection "Femtosecond laser substantially reduces elemental fractionation; no explicit downhole correction; Rb/Sr elemental fractionation corrected externally by analyzing series of reference glasses; exponential law for Sr isotope mass bias (88Sr/86Sr = 8.37521)" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardApproach "No conventional IS; external calibration only (Rb/Sr elemental fractionation corrected by series of reference glasses; 87Sr/86Sr mass bias corrected by exponential law using 88Sr/86Sr = 8.37521)" ;
@@ -109,11 +107,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     ada:withinSessionPrecision "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1" ;
     bios:computationalTool [ schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
             ada:toolRole "dataReduction" ] .
-
-<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/detectionLimit> a schema1:PropertyValueSpecification ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimit" ;
-    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/instrumentSensitivity> a schema1:PropertyValueSpecification ;
     schema1:name "Instrument Sensitivity" ;
@@ -135,11 +128,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:defaultValue "example value" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Normalization / Standards-Based Correction" ;
-    schema1:valueName "normalizationStandardsBasedCorrection" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy> a schema1:PropertyValueSpecification ;
@@ -230,6 +218,13 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:defaultValue "Low resolution (M/ΔM ≈ 400)" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "⁸⁸Sr/⁸⁶Sr = 8.37520933 used for Sr isotope mass fractionation correction (exponential law); ⁸⁷Rb/⁸⁵Rb = 0.385706 and ⁸⁶Sr/⁸⁸Sr = 0.119351 for ⁸⁷Rb/⁸⁶Sr calculation; external calibration factor from reference glasses applied to correct Rb/Sr elemental fractionation" ;
+    schema1:name "Normalization / Standards-Based Correction" ;
+    schema1:valueName "normalizationStandardsBasedCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
