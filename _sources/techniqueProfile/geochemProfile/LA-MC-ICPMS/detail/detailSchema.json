@@ -13,6 +13,9 @@
             "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/AnalysisIdentification"
         },
         {
+            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification"
+        },
+        {
             "$ref": "../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification"
         },
         {
@@ -282,6 +285,52 @@
                                             "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
                                         },
                                         {
+                                            "title": "Detection Limit",
+                                            "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimit"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/laMcicpmsTAPP/detectionLimit"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Detection Limit"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        {
                                             "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio"
                                         },
                                         {
@@ -415,9 +464,6 @@
                                         },
                                         {
                                             "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
-                                        },
-                                        {
-                                            "$ref": "../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel"
                                         },
                                         {
                                             "title": "Signal Integration Time",
@@ -614,6 +660,56 @@
                                     },
                                     {
                                         "contains": {
+                                            "title": "Detection Limit",
+                                            "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/laMcicpmsTAPP/detectionLimit"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/laMcicpmsTAPP/detectionLimit"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Detection Limit"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
                                             "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio"
                                         },
                                         "minContains": 0,
@@ -771,13 +867,6 @@
                                     {
                                         "contains": {
                                             "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                    },
-                                    {
-                                        "contains": {
-                                            "$ref": "../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel"
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
@@ -2538,263 +2627,6 @@
                                                     "if": {
                                                         "properties": {
                                                             "schema:name": {
-                                                                "const": "Data reduction"
-                                                            }
-                                                        },
-                                                        "required": [
-                                                            "schema:name"
-                                                        ]
-                                                    },
-                                                    "then": {
-                                                        "properties": {
-                                                            "schema:additionalProperty": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "anyOf": [
-                                                                        {
-                                                                            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod"
-                                                                        },
-                                                                        {
-                                                                            "title": "Signal Smoothing",
-                                                                            "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/laMcicpmsTAPP/signalSmoothing"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothing"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Signal Smoothing"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
-                                                                        },
-                                                                        {
-                                                                            "title": "Spike / Outlier Filtering Approach",
-                                                                            "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the procedure framework.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproach"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproach"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Spike / Outlier Filtering Approach"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
-                                                                        },
-                                                                        {
-                                                                            "title": "Uncertainty Propagation Method",
-                                                                            "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Uncertainty Propagation Method"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                "allOf": [
-                                                                    {
-                                                                        "contains": {
-                                                                            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod"
-                                                                        },
-                                                                        "minContains": 0,
-                                                                        "maxContains": 1
-                                                                    },
-                                                                    {
-                                                                        "contains": {
-                                                                            "title": "Signal Smoothing",
-                                                                            "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/laMcicpmsTAPP/signalSmoothing"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothing"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Signal Smoothing"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
-                                                                        },
-                                                                        "minContains": 0,
-                                                                        "maxContains": 1
-                                                                    },
-                                                                    {
-                                                                        "contains": {
-                                                                            "title": "Spike / Outlier Filtering Approach",
-                                                                            "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the procedure framework.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproach"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproach"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Spike / Outlier Filtering Approach"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
-                                                                        },
-                                                                        "minContains": 0,
-                                                                        "maxContains": 1
-                                                                    },
-                                                                    {
-                                                                        "contains": {
-                                                                            "title": "Uncertainty Propagation Method",
-                                                                            "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "Uncertainty Propagation Method"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
-                                                                        },
-                                                                        "minContains": 0,
-                                                                        "maxContains": 1
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "if": {
-                                                        "properties": {
-                                                            "schema:name": {
                                                                 "const": "Sample preparation"
                                                             }
                                                         },
@@ -2913,22 +2745,331 @@
                                                             }
                                                         }
                                                     }
+                                                },
+                                                {
+                                                    "if": {
+                                                        "properties": {
+                                                            "schema:name": {
+                                                                "const": "Data reduction"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "schema:name"
+                                                        ]
+                                                    },
+                                                    "then": {
+                                                        "properties": {
+                                                            "schema:additionalProperty": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "title": "Normalization / Standards-Based Correction",
+                                                                            "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Normalization / Standards-Based Correction"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "title": "Signal Smoothing",
+                                                                            "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/laMcicpmsTAPP/signalSmoothing"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothing"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Signal Smoothing"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "title": "Spike / Outlier Filtering Approach",
+                                                                            "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the procedure framework.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproach"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproach"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Spike / Outlier Filtering Approach"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "title": "Uncertainty Propagation Method",
+                                                                            "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Uncertainty Propagation Method"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "allOf": [
+                                                                    {
+                                                                        "contains": {
+                                                                            "title": "Normalization / Standards-Based Correction",
+                                                                            "description": "Any post-acquisition normalization applied to correct for systematic biases identified from secondary reference materials, or stoichiometric normalization applied per pixel in mapping. Distinct from the primary internal standard approach captured in Internal Standard Approach.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Normalization / Standards-Based Correction"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        "minContains": 0,
+                                                                        "maxContains": 1
+                                                                    },
+                                                                    {
+                                                                        "contains": {
+                                                                            "title": "Signal Smoothing",
+                                                                            "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible with high-resolution raster mapping because they degrade spatial resolution by mixing aerosol from successive laser shots. For mapping analyses, report \"None\" explicitly.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/laMcicpmsTAPP/signalSmoothing"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/signalSmoothing"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Signal Smoothing"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        "minContains": 0,
+                                                                        "maxContains": 1
+                                                                    },
+                                                                    {
+                                                                        "contains": {
+                                                                            "title": "Spike / Outlier Filtering Approach",
+                                                                            "description": "Method used to identify and remove anomalous signal spikes arising from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved signal processing. Editable because the specific implementation may vary between sessions while remaining within the procedure framework.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproach"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproach"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Spike / Outlier Filtering Approach"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        "minContains": 0,
+                                                                        "maxContains": 1
+                                                                    },
+                                                                    {
+                                                                        "contains": {
+                                                                            "title": "Uncertainty Propagation Method",
+                                                                            "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Uncertainty Propagation Method"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        "minContains": 0,
+                                                                        "maxContains": 1
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
                                                 }
                                             ]
                                         },
                                         "allOf": [
-                                            {
-                                                "contains": {
-                                                    "properties": {
-                                                        "schema:name": {
-                                                            "const": "Data reduction"
-                                                        }
-                                                    },
-                                                    "required": [
-                                                        "schema:name"
-                                                    ]
-                                                }
-                                            },
                                             {
                                                 "contains": {
                                                     "properties": {
@@ -2944,6 +3085,10 @@
                                         ]
                                     }
                                 }
+                            },
+                            "ada:proceduralBlankLevel": {
+                                "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                                "type": "string"
                             }
                         }
                     }
@@ -2970,42 +3115,6 @@
                                         }
                                     }
                                 }
-                            },
-                            {
-                                "title": "Calibration Factor and Determination Method",
-                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValue",
-                                            "cdi:InstanceVariable"
-                                        ]
-                                    },
-                                    "schema:propertyID": {
-                                        "const": [
-                                            {
-                                                "@id": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
-                                            }
-                                        ]
-                                    },
-                                    "schema:name": {
-                                        "const": "Calibration Factor and Determination Method"
-                                    },
-                                    "schema:value": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                ]
                             },
                             {
                                 "title": "Detection Limit",
@@ -3052,6 +3161,42 @@
                                     "schema:name",
                                     "schema:value",
                                     "schema:unitText"
+                                ]
+                            },
+                            {
+                                "title": "Detection Limit Method",
+                                "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue",
+                                            "cdi:InstanceVariable"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "const": "Detection Limit Method"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
                                 ]
                             },
                             {
@@ -3167,46 +3312,6 @@
                     "allOf": [
                         {
                             "contains": {
-                                "title": "Calibration Factor and Determination Method",
-                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValue",
-                                            "cdi:InstanceVariable"
-                                        ]
-                                    },
-                                    "schema:propertyID": {
-                                        "const": [
-                                            {
-                                                "@id": "ada:parameter/laMcicpmsTAPP/calibrationFactorAndDeterminationMethod"
-                                            }
-                                        ]
-                                    },
-                                    "schema:name": {
-                                        "const": "Calibration Factor and Determination Method"
-                                    },
-                                    "schema:value": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                ]
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
                                 "title": "Detection Limit",
                                 "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in µg g⁻¹, ng g⁻¹, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
                                 "type": "object",
@@ -3251,6 +3356,46 @@
                                     "schema:name",
                                     "schema:value",
                                     "schema:unitText"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Detection Limit Method",
+                                "description": "Reference or description of the method used to calculate session detection limits. Mandatory at analysis level. Must be consistent with the method applied to generate the Detection Limit values reported above.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue",
+                                            "cdi:InstanceVariable"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "const": "Detection Limit Method"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
                                 ]
                             },
                             "minContains": 0,

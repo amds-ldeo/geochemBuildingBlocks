@@ -7,6 +7,9 @@
             "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification"
         },
         {
+            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification"
+        },
+        {
             "$ref": "../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification"
         },
         {
@@ -71,9 +74,87 @@
                                                             "schema:additionalProperty": {
                                                                 "type": "array",
                                                                 "items": {
-                                                                    "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "title": "Normalization / Standards-Based Correction",
+                                                                            "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Normalization / Standards-Based Correction"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
+                                                                        }
+                                                                    ]
                                                                 },
                                                                 "allOf": [
+                                                                    {
+                                                                        "contains": {
+                                                                            "title": "Normalization / Standards-Based Correction",
+                                                                            "description": "Post-acquisition normalization applied using secondary reference materials to correct for session-to-session calibration drift.",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "@id": {
+                                                                                    "const": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                                                                },
+                                                                                "@type": {
+                                                                                    "const": [
+                                                                                        "schema:PropertyValue"
+                                                                                    ]
+                                                                                },
+                                                                                "schema:propertyID": {
+                                                                                    "const": [
+                                                                                        {
+                                                                                            "@id": "ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "schema:name": {
+                                                                                    "const": "Normalization / Standards-Based Correction"
+                                                                                },
+                                                                                "schema:value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "@id",
+                                                                                "@type",
+                                                                                "schema:propertyID",
+                                                                                "schema:name",
+                                                                                "schema:value"
+                                                                            ]
+                                                                        },
+                                                                        "minContains": 0,
+                                                                        "maxContains": 1
+                                                                    },
                                                                     {
                                                                         "contains": {
                                                                             "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
@@ -414,7 +495,50 @@
                                             ]
                                         },
                                         {
-                                            "$ref": "../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel"
+                                            "title": "Detection Limit",
+                                            "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/semCompositionTAPP/detectionLimit"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/semCompositionTAPP/detectionLimit"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Detection Limit"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
                                         }
                                     ]
                                 },
@@ -745,7 +869,50 @@
                                     },
                                     {
                                         "contains": {
-                                            "$ref": "../../../../BaseSchema/modules/blank/schema.yaml#/$defs/Param_Analysis_proceduralBlankLevel"
+                                            "title": "Detection Limit",
+                                            "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/semCompositionTAPP/detectionLimit"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/semCompositionTAPP/detectionLimit"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Detection Limit"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
@@ -1160,6 +1327,10 @@
                                     ]
                                 }
                             },
+                            "ada:proceduralBlankLevel": {
+                                "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method, which is procedure-level: this field records what was actually measured. Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.",
+                                "type": "string"
+                            },
                             "ada:deadTime": {
                                 "description": "Percent dead time reported by the EDS detector during the session — the fraction of total acquisition time the detector spent processing rather than counting. EDS dead time correction is managed automatically by the detector electronics; this field documents the resulting percentage as a session QC metric. Values above ~40% indicate excessive count rate and may degrade spectral quality and quantitative accuracy. Unlike WDS dead time (see WDS Dead Time Correction), no user-selectable correction algorithm is required.",
                                 "anyOf": [
@@ -1346,42 +1517,6 @@
                                 ]
                             },
                             {
-                                "title": "Calibration Factor and Determination Method",
-                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValue",
-                                            "cdi:InstanceVariable"
-                                        ]
-                                    },
-                                    "schema:propertyID": {
-                                        "const": [
-                                            {
-                                                "@id": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod"
-                                            }
-                                        ]
-                                    },
-                                    "schema:name": {
-                                        "const": "Calibration Factor and Determination Method"
-                                    },
-                                    "schema:value": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                ]
-                            },
-                            {
                                 "title": "Detection Limit",
                                 "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
                                 "type": "object",
@@ -1406,6 +1541,16 @@
                                         "const": "Detection Limit"
                                     },
                                     "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:unitText": {
                                         "type": "string"
                                     }
                                 },
@@ -1414,7 +1559,8 @@
                                     "@type",
                                     "schema:propertyID",
                                     "schema:name",
-                                    "schema:value"
+                                    "schema:value",
+                                    "schema:unitText"
                                 ]
                             },
                             {
@@ -1498,46 +1644,6 @@
                         },
                         {
                             "contains": {
-                                "title": "Calibration Factor and Determination Method",
-                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValue",
-                                            "cdi:InstanceVariable"
-                                        ]
-                                    },
-                                    "schema:propertyID": {
-                                        "const": [
-                                            {
-                                                "@id": "ada:parameter/semCompositionTAPP/calibrationFactorAndDeterminationMethod"
-                                            }
-                                        ]
-                                    },
-                                    "schema:name": {
-                                        "const": "Calibration Factor and Determination Method"
-                                    },
-                                    "schema:value": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                ]
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
                                 "title": "Detection Limit",
                                 "description": "Method detection limit at 99% confidence, one per reported concentration variable (one per analyte, these being the same set). Include the method used and the resulting value for each.",
                                 "type": "object",
@@ -1562,6 +1668,16 @@
                                         "const": "Detection Limit"
                                     },
                                     "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:unitText": {
                                         "type": "string"
                                     }
                                 },
@@ -1570,7 +1686,8 @@
                                     "@type",
                                     "schema:propertyID",
                                     "schema:name",
-                                    "schema:value"
+                                    "schema:value",
+                                    "schema:unitText"
                                 ]
                             },
                             "minContains": 0,

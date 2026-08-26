@@ -139,13 +139,19 @@ def place_identity(inst, item, sp, v, allowed_techniques=()):
         # `contains` unsatisfiable. additionalType also carries the Wikidata scientific-instrument
         # term the instrument BB requires of every instrument.
         m = re.search(r"schema:instrument\[\s*schema:additionalType\s*=\s*'([^']+)'", sp)
-        token = m.group(1) if m else "nxs:BaseClass/NXinstrument"
+        token = m.group(1) if m else "nxs:base_classes/NXinstrument.html"
+        # additionalType carries a URI-shaped value as a sealed reference
+        # and a free label as a plain string -- the selector can name
+        # either ('Laser Ablation System' is a label, not a term). The
+        # token itself stays a string: instrument_id() slugifies it, and
+        # a dict there would silently rewrite every instrument @id.
+        addl = {"@id": token} if ":" in token else token
         arr = inst.setdefault("schema:instrument", [])
-        cur = next((i for i in arr if token in (i.get("schema:additionalType") or [])), None)
+        cur = next((i for i in arr if addl in (i.get("schema:additionalType") or [])), None)
         if cur is None:
             cur = {"@id": ex.instrument_id(token),
                    "@type": ["schema:Product", "schema:Thing"],
-                   "schema:additionalType": [token, {"@id": WIKIDATA_INSTRUMENT}],
+                   "schema:additionalType": [addl, {"@id": WIKIDATA_INSTRUMENT}],
                    "schema:name": ""}
             arr.append(cur)
         cur["schema:name"] = (cur.get("schema:name", "") + " " + v).strip()

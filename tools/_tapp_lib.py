@@ -81,7 +81,7 @@ TAPP_PROFILES: dict[str, dict] = {
             ("P10plag", "Pang et al. 2016 (NWA 8003 eucrite plagioclase, Sci. Rep.)"),
         ],
         "p_end_col": 26,
-        "instrument_addl_type": ["nxs:BaseClass/NXinstrument", "ada:EPMAInstrument"],
+        "instrument_addl_type": [{"@id": "nxs:base_classes/NXinstrument.html"}, "ada:EPMAInstrument"],
         "instrument_name_default": "EPMA instrument",
         "instrument_name_short": "EPMA",
         "termcode": "EPMA-WDS",
@@ -122,7 +122,7 @@ TAPP_PROFILES: dict[str, dict] = {
             ("Mapping", "LA-ICPMS 2-D mapping mode"),
         ],
         "p_end_col": 12,  # column M (Mapping) — only K, L, M used
-        "instrument_addl_type": ["nxs:BaseClass/NXinstrument", "ada:LAICPMSInstrument"],
+        "instrument_addl_type": [{"@id": "nxs:base_classes/NXinstrument.html"}, "ada:LAICPMSInstrument"],
         "instrument_name_default": "LA-ICPMS instrument",
         "instrument_name_short": "LA-ICPMS",
         "termcode": "LA-ICPMS",
@@ -1932,7 +1932,7 @@ def _instrument_for_provused(tapp_instrument: dict | None) -> dict:
     base = OrderedDict([
         ("@type", ["schema:Thing", "schema:Product"]),
         ("schema:additionalType", [
-            "nxs:BaseClass/NXinstrument", "ada:EMPAInstrument",
+            {"@id": "nxs:base_classes/NXinstrument.html"}, "ada:EMPAInstrument",
         ]),
         ("schema:name", "EMPA Instrument"),
         ("schema:identifier", ["ex:instrument-empa-001"]),
@@ -1955,7 +1955,7 @@ def _location_for_provused(tapp_location: dict | None) -> dict:
     return OrderedDict([
         ("@type", ["schema:Place"]),
         ("schema:name", name),
-        ("schema:additionalType", ["nxs:BaseClass/NXsource"]),
+        ("schema:additionalType", [{"@id": "nxs:base_classes/NXsource.html"}]),
     ])
 
 
