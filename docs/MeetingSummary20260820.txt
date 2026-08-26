@@ -27,3 +27,10 @@ Action Items
 - Rename "analyte" → "target species" and "channel" → "monitored species" in the TAP template. 
 - Make a metadata section for monitored species metadata and a separate metadata section for reported species metadata (capturing data processing and uncertainty evaluation). 
 
+# implementation notes
+
+added 2026-08-22 by smr
+
+each monitoredSpecies/channel is a variable.  Each of these has a set of configuration properties; some of these are established by the instrument configuration, some are basic,read-only values in the TAPP method definition that are referenced in a $Dataset.prov:wasGeneratedBy.prov:used.ada:TappDefinition entry,  some are assigned as the analysis session level that is reported in $Dataset Metadata as as  set of $Dataset.schema:variableMeasured objects.  At the analysis session level, the variableMeasured object (defining a monitoredSpecies) should include the session-level configuration (what is not defined in the TAPP as a read-only monitoredSpecies/channel property), and a link to the instrument part (if applicable) that reports that monitoredSpecies.  In the JSON there would be a list of monitoredSpecies with the instrumentPart reference, a reference to the $MethodDefinition for that species, a reference to the relevant targetSpecies (analyte(s)), and the session-level properties for that monitoredSpecies in the $dataset. Each so-described monitored species would need an identifier that is used to specify a column in a data table reporting observation results for that monitoredSpecies in that $dataset.
+
+in a data table reporting monitoredSpecies observation results, the rows would be identified by a samplingUnit identifier, and the columns would be IDs for monitoredSpecies objects. Since the data table would (typically) not have multiple rows for the same sampling unit, the samplingUnit properties would be included as columns in the data table.  If there are replicate analyses on the same sampling unit, then the PK for the data table would need to be an 'analysis event' id, not the sampling unit ID. In this case the sampling unit properties could be repeated for each analysis on that sampling unit. 
