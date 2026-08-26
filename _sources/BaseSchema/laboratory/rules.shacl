@@ -16,10 +16,10 @@
 # selected nothing in any of the 74 examples, and the name constraint
 # below had never run.
 #
-# The value is a plain JSON string, which JSON-LD keeps as a literal
-# rather than expanding as a CURIE, so the target matches a literal.
-# When these become {"@id": ...} references this target must become an
-# IRI match to follow.
+# The value is a sealed reference ({"@id": ...}), so JSON-LD expands it
+# and the target matches an IRI. It was a bare string until 2026-08-26,
+# which JSON-LD keeps as a literal -- a value that looked like a URI and
+# resolved to nothing.
 cdifd:laboratoryShape
     a sh:NodeShape ;
     sh:target [
@@ -28,7 +28,7 @@ cdifd:laboratoryShape
             PREFIX schema: <http://schema.org/>
             SELECT ?this
             WHERE {
-                ?this schema:additionalType "nxs:BaseClass/NXsource" .
+                ?this schema:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> .
             }
         """ ;
     ] ;

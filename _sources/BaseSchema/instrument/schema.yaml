@@ -4,7 +4,7 @@ description: >-
   ADA analytical instrument building block. Extends the core CDIF instrument
   building block with NeXus NXinstrument classification via additionalType.
   Instruments are typed as schema:Thing + schema:Product (from core) with
-  domain-specific types (e.g. nxs:BaseClass/NXinstrument, ada:AMSInstrument)
+  domain-specific types (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument)
   in additionalType.
 allOf:
 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/schema.yaml
@@ -23,7 +23,7 @@ allOf:
     'schema:additionalType':
       description: >-
         Domain-specific instrument type classifications. Should include
-        a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or
+        a NeXus base class (e.g. nxs:base_classes/NXinstrument.html) and/or
         technique-specific identifier (e.g. ada:AMSInstrument, GCMD
         instrument identifier). URI-shape values MUST be serialized as
         JSON-LD IRI references ({"@id":"..."}); free-label strings remain valid.
