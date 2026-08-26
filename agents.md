@@ -77,6 +77,84 @@ Profiles additionally compose base schemas via `allOf` references.
 - External schemas are referenced via full HTTP URLs to `cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/`
 - Local schemas use relative `$ref` paths (e.g., `../stringArray/schema.yaml`)
 
+## Module composition — how a shared field is defined once
+
+A module factors out fields many techniques share so a field is defined
+**once** rather than once per technique. `_sources/BaseSchema/modules/*`
+is **generated** from the sidecars in `docs/modules/Module_*.schemapaths.csv`
+— do not hand-edit a module's `schema.yaml`.
+
+**Composition has two halves, and they behave differently.**
+
+*Structural fields* (laboratory, operator, dates) live inside a module's
+root `$def` — `ProcedureIdentification` / `AnalysisIdentification` — and a
+technique `$ref`s them directly. This half works: `module_composition.py`
+reports 19–37 covered rows per technique.
+
+*Parameters* cannot work that way. A module cannot constrain
+`schema:additionalProperty` — that array belongs to the technique — so a
+module publishes each parameter as a separate `Param_<Side>_<name>` `$def`
+and the technique unions it into its own `anyOf`. `schema_path_emitter.py`
+does this, and it is what gives a shared parameter ONE identity
+(`ada:parameter/module/<Module>/<name>`) instead of one per TAPP.
+
+**Three conditions gate dropping a technique's own row** (see
+`module_composition.py` docstring): the module has the field, the field
+has a placement in the module's sidecar, and the `$def` for that side
+exists. *A module field with no path contributes nothing*, so the
+technique keeps its row. This is deliberate — dropping a row the module
+does not actually supply removes the field from the schema while
+instances still carry it.
+
+**The `variableMeasured` guard.** Where a technique routes a field to
+`schema:variableMeasured` (a reported property) rather than
+`schema:additionalProperty`, composition is skipped and the technique
+keeps its own def — the module's shape lacks the `cdi:InstanceVariable`
+typing a dataset variable needs. This is why
+`calibrationFactorAndDeterminationMethod` has a module `Param_*` def with
+zero consumers and 14 technique copies. **That is correct, not drift.**
+
+### Where coverage stands (measured 2026-08-26)
+
+Across the 16 technique `tapp/` schemas: **242 parameters composed from a
+module, 694 minted per technique — 25%.** The split tracks which modules
+exist:
+
+| technique | composed | own | shared |
+|---|--:|--:|--:|
+| LA-MC-ICPMS-UPb | 44 | 67 | 39% |
+| Solution-MC-ICPMS | 25 | 44 | 36% |
+| LA-MC-ICPMS | 30 | 67 | 30% |
+| EPMA | 5 | 14 | 26% |
+| SEM | 4 | 27 | 12% |
+| TEM | 5 | 39 | 11% |
+| Lab-XCT | 3 | 36 | 7% |
+
+`LaserAblation`, `MCICPMS`, `SolutionIntroduction` exist; nothing
+equivalent covers electron-beam or tomography.
+
+**Do not measure duplication in `_sources/registry/`.** Those catalogues
+are `isTypeLibrary: true` and per-technique *by construction* — all 1,325
+defs carry a TAPP identity even where the technique composes the module.
+Counting there says the registry is 87% duplicated, which is true and
+means nothing. Measure the `tapp/` schemas.
+
+### Drafting a module
+
+`tools/draft_module.py` drafts from the TAPP tables for the LA family;
+`docs/modules/draft/README_ElectronBeam.md` documents the same method
+applied to electron-beam. The rule in both: **definitions come from the
+tables, never invented.** A field qualifies only if it appears in more
+than one table, carries identical structure (both tiers, data type,
+`Keyed By`), and is not already module-owned. Structural conflicts are
+refused, not averaged. Where prose differs but structure does not, use
+the *majority* wording and preserve the variants — the longest is not the
+right one, it is often a single technique's vernacular.
+
+Drafts live in `docs/modules/draft/` as `Draft_Module_*`. They are ours
+and provisional; the library's modules are Ruolin's to author (see
+`docs/upstream-requests.md` §1).
+
 ## Key identifiers
 
 - **Identifier prefix:** `ogch.` (e.g. `ogch.BaseSchema.instrument`, `ogch.techniqueProfile.EMPA.detail`, `ogch.BaseSchema.adaProduct`; was `ada.bbr.metadata.`)

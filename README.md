@@ -84,6 +84,33 @@ Eleven techniques have a `tapp/`: EMPA, Geochron, LA-ICPMS, SEM, SEM-Composition
 
 A dataset instance selects between the two profile variants by how it references its protocol: a bare `{"@id": …}` node reference in `schema:measurementTechnique` targets the path-driven profile, an inline `schema:DefinedTerm` targets the generic one.
 
+## Module composition
+
+A module defines a shared field **once** instead of once per technique.
+`_sources/BaseSchema/modules/*` is generated from the sidecars in
+`docs/modules/Module_*.schemapaths.csv` — never hand-edit a module.
+
+Composition works and is unevenly applied: across the 16 technique
+`tapp/` schemas, **242 parameters are composed from a module and 694 are
+minted per technique (25%)**, ranging from 39% for LA-MC-ICPMS-UPb down
+to 7% for Lab-XCT. The spread tracks which modules exist — there are
+modules for the ICP-MS families and none for electron-beam or tomography.
+
+- **[docs/modules/MODULE_CONSOLIDATION_STATUS.md](docs/modules/MODULE_CONSOLIDATION_STATUS.md)**
+  — current state: what was measured and how to reproduce it, what is
+  decided, what is open, and the next drafting pass. **Start here.**
+- **`agents.md` §"Module composition"** — how composition actually works,
+  including why parameters compose differently from structural fields and
+  why some duplication is correct.
+- **`docs/modules/draft/`** — 14 provisional `Draft_Module_*.csv` (6
+  ICP-MS, 8 electron-beam) proposed for the library. Ours and
+  provisional; the library's modules are Ruolin's to author.
+
+One measurement warning: **do not count duplication in
+`_sources/registry/`.** Those catalogues are per-technique by
+construction, so they report ~87% duplication whatever composition does.
+Measure the `tapp/` schemas.
+
 ## componentType architecture
 
 Each archive `hasPart` item carries an `ada:componentType` (a single string like `ada:EMPAImageMap`) that classifies the file. The term list is governed by a **vocabulary**, and two schema layers add per-context constraints:
