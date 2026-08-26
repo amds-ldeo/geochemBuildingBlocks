@@ -7,18 +7,28 @@
 @prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .
 @base <https://www.ogc.org/rules/template/> .
 
-# Validates laboratory/facility nodes typed as nxs:BaseClass/NXsource.
-# JSON schema defines @type = ["schema:Place", "nxs:BaseClass/NXsource"]
-# with schema:name, schema:identifier, schema:alternateName.
+# Validates laboratory/facility nodes classified as nxs:BaseClass/NXsource.
+#
+# The classification lives in schema:additionalType, not in @type: the
+# JSON schema types the node "schema:Place" and requires
+# schema:additionalType to contain "nxs:BaseClass/NXsource". This shape
+# targeted `?this a <.../BaseClass/NXsource>` -- rdf:type -- and so
+# selected nothing in any of the 74 examples, and the name constraint
+# below had never run.
+#
+# The value is a plain JSON string, which JSON-LD keeps as a literal
+# rather than expanding as a CURIE, so the target matches a literal.
+# When these become {"@id": ...} references this target must become an
+# IRI match to follow.
 cdifd:laboratoryShape
     a sh:NodeShape ;
     sh:target [
         a sh:SPARQLTarget ;
         sh:select """
-            PREFIX nxs: <https://manual.nexusformat.org/classes/>
+            PREFIX schema: <http://schema.org/>
             SELECT ?this
             WHERE {
-                ?this a <https://manual.nexusformat.org/classes/BaseClass/NXsource> .
+                ?this schema:additionalType "nxs:BaseClass/NXsource" .
             }
         """ ;
     ] ;
