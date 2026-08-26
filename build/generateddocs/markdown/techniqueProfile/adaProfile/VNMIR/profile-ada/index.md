@@ -206,7 +206,9 @@ Mock data for validation and testing.
                 "schema:Product"
               ],
               "schema:additionalType": [
-                "nxs:BaseClass/NXinstrument",
+                {
+                  "@id": "nxs:base_classes/NXinstrument.html"
+                },
                 "ada:VNMIRInstrument",
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -228,7 +230,9 @@ Mock data for validation and testing.
         "schema:name": "Analytical Sciences Laboratory",
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
-          "nxs:BaseClass/NXsource"
+          {
+            "@id": "nxs:base_classes/NXsource.html"
+          }
         ]
       },
       "schema:object": [
@@ -631,7 +635,9 @@ Mock data for validation and testing.
                 "schema:Product"
               ],
               "schema:additionalType": [
-                "nxs:BaseClass/NXinstrument",
+                {
+                  "@id": "nxs:base_classes/NXinstrument.html"
+                },
                 "ada:VNMIRInstrument",
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -653,7 +659,9 @@ Mock data for validation and testing.
         "schema:name": "Analytical Sciences Laboratory",
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
-          "nxs:BaseClass/NXsource"
+          {
+            "@id": "nxs:base_classes/NXsource.html"
+          }
         ]
       },
       "schema:object": [
@@ -963,7 +971,7 @@ ex:adaVNMIR-example-001 a schema1:Dataset,
                 prov:Activity ;
             schema1:identifier "session-vnmir-20260110-001" ;
             schema1:location [ a schema1:Place ;
-                    schema1:additionalType "nxs:BaseClass/NXsource" ;
+                    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
             schema1:object [ a schema1:Thing,
@@ -1051,9 +1059,9 @@ ex:adaVNMIR-var-002 a cdi:InstanceVariable,
 
 <https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ada:VNMIRInstrument",
-        "nxs:BaseClass/NXinstrument" ;
+    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+        <https://www.wikidata.org/wiki/Q3099911>,
+        "ada:VNMIRInstrument" ;
     schema1:identifier "ex:instrument-vnmir-001" ;
     schema1:name "Example VNMIR Instrument" .
 

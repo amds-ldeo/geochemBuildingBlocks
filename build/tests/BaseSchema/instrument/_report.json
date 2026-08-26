@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.BaseSchema.instrument - ADA Analysis Instrument",
   "bblockName": "ADA Analysis Instrument",
   "bblockId": "ogch.BaseSchema.instrument",
-  "generated": "2026-08-25T19:20:48.198913+00:00",
+  "generated": "2026-08-26T16:21:34.712817+00:00",
   "result": false,
   "items": [
     {
@@ -56,7 +56,7 @@
               "exception": "ValidationError",
               "errorMessage": "'@id' is a required property",
               "isError": true,
-              "message": "ValidationError: '@id' is a required property\n\nFailed validating 'required' in schema['allOf'][1]:\n    {'properties': {'@id': {'description': 'Identifier for this instrument '\n                                           'within the record. REQUIRED: '\n                                           'an instrument has to be '\n                                           'referenceable. A monitored '\n                                           'species names the instrument '\n                                           '(or the instrument part) that '\n                                           'reports it, and a dataset '\n                                           'variable points back at the '\n                                           'device that produced it; '\n                                           'neither is expressible while '\n                                           'the instrument is an anonymous '\n                                           'object. A document-scoped '\n                                           'identifier suffices, but a '\n                                           'resolvable one is better '\n                                           'wherever the lab has a '\n                                           'persistent identifier for the '\n                                           'device.',\n                            'minLength': 1,\n                            'type': 'string'},\n                    'schema:additionalType': {'contains': {'properties': {'@id': {'const': 'https://www.wikidata.org/wiki/Q3099911'}},\n                                                           'required': ['@id'],\n                                                           'type': 'object'},\n                                              'description': 'Domain-specific '\n                                                             'instrument '\n                                                             'type '\n                                                             'classifications. '\n                                                             'Should '\n                                                             'include a '\n                                                             'NeXus base '\n                                                             'class (e.g. '\n                                                             'nxs:BaseClass/NXinstrument) '\n                                                             'and/or '\n                                                             'technique-specific '\n                                                             'identifier '\n                                                             '(e.g. '\n                                                             'ada:AMSInstrument, '\n                                                             'GCMD '\n                                                             'instrument '\n                                                             'identifier). '\n                                                             'URI-shape '\n                                                             'values MUST '\n                                                             'be '\n                                                             'serialized '\n                                                             'as JSON-LD '\n                                                             'IRI '\n                                                             'references '\n                                                             '({\"@id\":\"...\"}); '\n                                                             'free-label '\n                                                             'strings '\n                                                             'remain '\n                                                             'valid. Every '\n                                                             'instrument '\n                                                             'additionally '\n                                                             'carries the '\n                                                             'Wikidata '\n                                                             '\"measuring '\n                                                             'instrument\" '\n                                                             'type, which '\n                                                             'is invariant '\n                                                             'across '\n                                                             'techniques: '\n                                                             'the '\n                                                             'technique-specific '\n                                                             'entry says '\n                                                             'what KIND of '\n                                                             'instrument '\n                                                             'this is and '\n                                                             'varies by '\n                                                             'profile, '\n                                                             'while the '\n                                                             'Wikidata '\n                                                             'term says '\n                                                             'that it is '\n                                                             'an '\n                                                             'instrument '\n                                                             'at all, and '\n                                                             'gives a '\n                                                             'consumer one '\n                                                             'term to '\n                                                             'select on '\n                                                             'without '\n                                                             'knowing the '\n                                                             'ADA '\n                                                             'vocabulary.',\n                                              'items': {'anyOf': [{'type': 'string'},\n                                                                  {'additionalProperties': False,\n                                                                   'properties': {'@id': {'type': 'string'}},\n                                                                   'required': ['@id'],\n                                                                   'type': 'object'}]},\n                                              'minItems': 1,\n                                              'type': 'array',\n                                              'x-jsonld-id': 'http://schema.org/additionalType'},\n                    'schema:hasPart': {'description': 'Sub-components of '\n                                                      'this instrument '\n                                                      'system (a torch, an '\n                                                      'ICP source, a '\n                                                      'collision/reaction '\n                                                      'cell, a '\n                                                      'spectrometer). A '\n                                                      'component IS an '\n                                                      'instrument -- same '\n                                                      '@type '\n                                                      '(schema:Product + '\n                                                      'schema:Thing), same '\n                                                      'Wikidata term, and '\n                                                      'its own '\n                                                      'schema:additionalType '\n                                                      'token saying which '\n                                                      'kind of component '\n                                                      'it is. The shape is '\n                                                      'restated rather '\n                                                      'than written as '\n                                                      \"`$ref: '#'`, \"\n                                                      'because '\n                                                      'resolve_schema '\n                                                      'replaces a circular '\n                                                      'ref with an empty '\n                                                      'stub -- it would '\n                                                      'read as \"a part is '\n                                                      'an instrument\" and '\n                                                      'enforce nothing. '\n                                                      'Upstream types a '\n                                                      'component more '\n                                                      'loosely '\n                                                      '(schema:Thing '\n                                                      'alone, no '\n                                                      'Wikidata); this '\n                                                      'narrows it, and the '\n                                                      'two compose because '\n                                                      'allOf intersects.',\n                                       'items': {'anyOf': [{'properties': {'@id': {'description': 'Identifier '\n                                                                                                  'for '\n                                                                                                  'this '\n                                                                                                  'component '\n                                                                                                  'within '\n                                                                                                  'the '\n                                                                                                  'record. '\n                                                                                                  'REQUIRED '\n                                                                                                  'on '\n                                                                                                  'an '\n                                                                                                  'INLINE '\n                                                                                                  'component '\n                                                                                                  'for '\n                                                                                                  'the '\n                                                                                                  'same '\n                                                                                                  'reason '\n                                                                                                  'it '\n                                                                                                  'is '\n                                                                                                  'required '\n                                                                                                  'on '\n                                                                                                  'the '\n                                                                                                  'instrument: '\n                                                                                                  'a '\n                                                                                                  'monitored '\n                                                                                                  'species '\n                                                                                                  'names '\n                                                                                                  'the '\n                                                                                                  'part '\n                                                                                                  'that '\n                                                                                                  'reports '\n                                                                                                  'it '\n                                                                                                  '-- '\n                                                                                                  'a '\n                                                                                                  'Faraday '\n                                                                                                  'cup, '\n                                                                                                  'a '\n                                                                                                  'spectrometer, '\n                                                                                                  'a '\n                                                                                                  'detector '\n                                                                                                  '-- '\n                                                                                                  'and '\n                                                                                                  'an '\n                                                                                                  'anonymous '\n                                                                                                  'object '\n                                                                                                  'cannot '\n                                                                                                  'be '\n                                                                                                  'referenced. '\n                                                                                                  'The '\n                                                                                                  'sibling '\n                                                                                                  'branch '\n                                                                                                  'of '\n                                                                                                  'this '\n                                                                                                  'anyOf '\n                                                                                                  'is '\n                                                                                                  'the '\n                                                                                                  'by-reference '\n                                                                                                  'form, '\n                                                                                                  'a '\n                                                                                                  'bare '\n                                                                                                  '{\"@id\": '\n                                                                                                  '...} '\n                                                                                                  'pointing '\n                                                                                                  'at '\n                                                                                                  'a '\n                                                                                                  'component '\n                                                                                                  'described '\n                                                                                                  'elsewhere.',\n                                                                                   'minLength': 1,\n                                                                                   'type': 'string'},\n                                                                           '@type': {'allOf': [{'contains': {'const': 'schema:Product'}},\n                                                                                               {'contains': {'const': 'schema:Thing'}}],\n                                                                                     'items': {'type': 'string'},\n                                                                                     'minItems': 2,\n                                                                                     'type': 'array'},\n                                                                           'schema:additionalType': {'contains': {'properties': {'@id': {'const': 'https://www.wikidata.org/wiki/Q3099911'}},\n                                                                                                                  'required': ['@id'],\n                                                                                                                  'type': 'object'},\n                                                                                                     'minItems': 1,\n                                                                                                     'type': 'array',\n                                                                                                     'x-jsonld-id': 'http://schema.org/additionalType'},\n                                                                           'schema:name': {'type': 'string',\n                                                                                           'x-jsonld-id': 'http://schema.org/name'}},\n                                                            'required': ['@id',\n                                                                         '@type',\n                                                                         'schema:name',\n                                                                         'schema:additionalType'],\n                                                            'type': 'object'},\n                                                           {'additionalProperties': False,\n                                                            'description': 'Reference '\n                                                                           'by '\n                                                                           'node '\n                                                                           '@id '\n                                                                           'to '\n                                                                           'a '\n                                                                           'component '\n                                                                           'described '\n                                                                           'elsewhere.',\n                                                            'properties': {'@id': {'type': 'string'}},\n                                                            'required': ['@id'],\n                                                            'type': 'object'}]},\n                                       'type': 'array',\n                                       'x-jsonld-id': 'http://schema.org/hasPart'}},\n     'required': ['@id', 'schema:additionalType'],\n     'type': 'object'}\n\nOn instance:\n    {'@type': ['schema:Thing', 'schema:Product'],\n     'schema:additionalType': ['nxs:BaseClass/NXinstrument',\n                               'https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48'],\n     'schema:description': 'Field-emission electron probe microanalyzer '\n                           'with 5 wavelength-dispersive spectrometers',\n     'schema:identifier': 'https://www.wikidata.org/wiki/Q116917974',\n     'schema:name': 'JEOL JXA-8530F Electron Microprobe'}"
+              "message": "ValidationError: '@id' is a required property\n\nFailed validating 'required' in schema['allOf'][1]:\n    {'properties': {'@id': {'description': 'Identifier for this instrument '\n                                           'within the record. REQUIRED: '\n                                           'an instrument has to be '\n                                           'referenceable. A monitored '\n                                           'species names the instrument '\n                                           '(or the instrument part) that '\n                                           'reports it, and a dataset '\n                                           'variable points back at the '\n                                           'device that produced it; '\n                                           'neither is expressible while '\n                                           'the instrument is an anonymous '\n                                           'object. A document-scoped '\n                                           'identifier suffices, but a '\n                                           'resolvable one is better '\n                                           'wherever the lab has a '\n                                           'persistent identifier for the '\n                                           'device.',\n                            'minLength': 1,\n                            'type': 'string'},\n                    'schema:additionalType': {'contains': {'properties': {'@id': {'const': 'https://www.wikidata.org/wiki/Q3099911'}},\n                                                           'required': ['@id'],\n                                                           'type': 'object'},\n                                              'description': 'Domain-specific '\n                                                             'instrument '\n                                                             'type '\n                                                             'classifications. '\n                                                             'Should '\n                                                             'include a '\n                                                             'NeXus base '\n                                                             'class (e.g. '\n                                                             'nxs:base_classes/NXinstrument.html) '\n                                                             'and/or '\n                                                             'technique-specific '\n                                                             'identifier '\n                                                             '(e.g. '\n                                                             'ada:AMSInstrument, '\n                                                             'GCMD '\n                                                             'instrument '\n                                                             'identifier). '\n                                                             'URI-shape '\n                                                             'values MUST '\n                                                             'be '\n                                                             'serialized '\n                                                             'as JSON-LD '\n                                                             'IRI '\n                                                             'references '\n                                                             '({\"@id\":\"...\"}); '\n                                                             'free-label '\n                                                             'strings '\n                                                             'remain '\n                                                             'valid. Every '\n                                                             'instrument '\n                                                             'additionally '\n                                                             'carries the '\n                                                             'Wikidata '\n                                                             '\"measuring '\n                                                             'instrument\" '\n                                                             'type, which '\n                                                             'is invariant '\n                                                             'across '\n                                                             'techniques: '\n                                                             'the '\n                                                             'technique-specific '\n                                                             'entry says '\n                                                             'what KIND of '\n                                                             'instrument '\n                                                             'this is and '\n                                                             'varies by '\n                                                             'profile, '\n                                                             'while the '\n                                                             'Wikidata '\n                                                             'term says '\n                                                             'that it is '\n                                                             'an '\n                                                             'instrument '\n                                                             'at all, and '\n                                                             'gives a '\n                                                             'consumer one '\n                                                             'term to '\n                                                             'select on '\n                                                             'without '\n                                                             'knowing the '\n                                                             'ADA '\n                                                             'vocabulary.',\n                                              'items': {'anyOf': [{'type': 'string'},\n                                                                  {'additionalProperties': False,\n                                                                   'properties': {'@id': {'type': 'string'}},\n                                                                   'required': ['@id'],\n                                                                   'type': 'object'}]},\n                                              'minItems': 1,\n                                              'type': 'array',\n                                              'x-jsonld-id': 'http://schema.org/additionalType'},\n                    'schema:hasPart': {'description': 'Sub-components of '\n                                                      'this instrument '\n                                                      'system (a torch, an '\n                                                      'ICP source, a '\n                                                      'collision/reaction '\n                                                      'cell, a '\n                                                      'spectrometer). A '\n                                                      'component IS an '\n                                                      'instrument -- same '\n                                                      '@type '\n                                                      '(schema:Product + '\n                                                      'schema:Thing), same '\n                                                      'Wikidata term, and '\n                                                      'its own '\n                                                      'schema:additionalType '\n                                                      'token saying which '\n                                                      'kind of component '\n                                                      'it is. The shape is '\n                                                      'restated rather '\n                                                      'than written as '\n                                                      \"`$ref: '#'`, \"\n                                                      'because '\n                                                      'resolve_schema '\n                                                      'replaces a circular '\n                                                      'ref with an empty '\n                                                      'stub -- it would '\n                                                      'read as \"a part is '\n                                                      'an instrument\" and '\n                                                      'enforce nothing. '\n                                                      'Upstream types a '\n                                                      'component more '\n                                                      'loosely '\n                                                      '(schema:Thing '\n                                                      'alone, no '\n                                                      'Wikidata); this '\n                                                      'narrows it, and the '\n                                                      'two compose because '\n                                                      'allOf intersects.',\n                                       'items': {'anyOf': [{'properties': {'@id': {'description': 'Identifier '\n                                                                                                  'for '\n                                                                                                  'this '\n                                                                                                  'component '\n                                                                                                  'within '\n                                                                                                  'the '\n                                                                                                  'record. '\n                                                                                                  'REQUIRED '\n                                                                                                  'on '\n                                                                                                  'an '\n                                                                                                  'INLINE '\n                                                                                                  'component '\n                                                                                                  'for '\n                                                                                                  'the '\n                                                                                                  'same '\n                                                                                                  'reason '\n                                                                                                  'it '\n                                                                                                  'is '\n                                                                                                  'required '\n                                                                                                  'on '\n                                                                                                  'the '\n                                                                                                  'instrument: '\n                                                                                                  'a '\n                                                                                                  'monitored '\n                                                                                                  'species '\n                                                                                                  'names '\n                                                                                                  'the '\n                                                                                                  'part '\n                                                                                                  'that '\n                                                                                                  'reports '\n                                                                                                  'it '\n                                                                                                  '-- '\n                                                                                                  'a '\n                                                                                                  'Faraday '\n                                                                                                  'cup, '\n                                                                                                  'a '\n                                                                                                  'spectrometer, '\n                                                                                                  'a '\n                                                                                                  'detector '\n                                                                                                  '-- '\n                                                                                                  'and '\n                                                                                                  'an '\n                                                                                                  'anonymous '\n                                                                                                  'object '\n                                                                                                  'cannot '\n                                                                                                  'be '\n                                                                                                  'referenced. '\n                                                                                                  'The '\n                                                                                                  'sibling '\n                                                                                                  'branch '\n                                                                                                  'of '\n                                                                                                  'this '\n                                                                                                  'anyOf '\n                                                                                                  'is '\n                                                                                                  'the '\n                                                                                                  'by-reference '\n                                                                                                  'form, '\n                                                                                                  'a '\n                                                                                                  'bare '\n                                                                                                  '{\"@id\": '\n                                                                                                  '...} '\n                                                                                                  'pointing '\n                                                                                                  'at '\n                                                                                                  'a '\n                                                                                                  'component '\n                                                                                                  'described '\n                                                                                                  'elsewhere.',\n                                                                                   'minLength': 1,\n                                                                                   'type': 'string'},\n                                                                           '@type': {'allOf': [{'contains': {'const': 'schema:Product'}},\n                                                                                               {'contains': {'const': 'schema:Thing'}}],\n                                                                                     'items': {'type': 'string'},\n                                                                                     'minItems': 2,\n                                                                                     'type': 'array'},\n                                                                           'schema:additionalType': {'contains': {'properties': {'@id': {'const': 'https://www.wikidata.org/wiki/Q3099911'}},\n                                                                                                                  'required': ['@id'],\n                                                                                                                  'type': 'object'},\n                                                                                                     'minItems': 1,\n                                                                                                     'type': 'array',\n                                                                                                     'x-jsonld-id': 'http://schema.org/additionalType'},\n                                                                           'schema:name': {'type': 'string',\n                                                                                           'x-jsonld-id': 'http://schema.org/name'}},\n                                                            'required': ['@id',\n                                                                         '@type',\n                                                                         'schema:name',\n                                                                         'schema:additionalType'],\n                                                            'type': 'object'},\n                                                           {'additionalProperties': False,\n                                                            'description': 'Reference '\n                                                                           'by '\n                                                                           'node '\n                                                                           '@id '\n                                                                           'to '\n                                                                           'a '\n                                                                           'component '\n                                                                           'described '\n                                                                           'elsewhere.',\n                                                            'properties': {'@id': {'type': 'string'}},\n                                                            'required': ['@id'],\n                                                            'type': 'object'}]},\n                                       'type': 'array',\n                                       'x-jsonld-id': 'http://schema.org/hasPart'}},\n     'required': ['@id', 'schema:additionalType'],\n     'type': 'object'}\n\nOn instance:\n    {'@type': ['schema:Thing', 'schema:Product'],\n     'schema:additionalType': ['nxs:BaseClass/NXinstrument',\n                               'https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48'],\n     'schema:description': 'Field-emission electron probe microanalyzer '\n                           'with 5 wavelength-dispersive spectrometers',\n     'schema:identifier': 'https://www.wikidata.org/wiki/Q116917974',\n     'schema:name': 'JEOL JXA-8530F Electron Microprobe'}"
             }
           ]
         },
@@ -106,6 +106,86 @@
             },
             {
               "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
+              "graph": "@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode \"nxs:BaseClass/NXinstrument\" ;\n            sh:resultMessage \"schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {\\\"@id\\\":\\\"...\\\"}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape cdifd:AdditionalTypeUriShouldBeIRIShape ;\n            sh:value \"nxs:BaseClass/NXinstrument\" ],\n        [ a sh:ValidationResult ;\n            sh:focusNode \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\" ;\n            sh:resultMessage \"schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {\\\"@id\\\":\\\"...\\\"}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape cdifd:AdditionalTypeUriShouldBeIRIShape ;\n            sh:value \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\" ] .\n\n",
+              "isError": true,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (2):\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: cdifd:AdditionalTypeUriShouldBeIRIShape\n  \tFocus Node: Literal(\"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\")\n  \tValue Node: Literal(\"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\")\n  \tMessage: schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {\"@id\":\"...\"}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: cdifd:AdditionalTypeUriShouldBeIRIShape\n  \tFocus Node: Literal(\"nxs:BaseClass/NXinstrument\")\n  \tValue Node: Literal(\"nxs:BaseClass/NXinstrument\")\n  \tMessage: schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {\"@id\":\"...\"}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
+              "focusNodes": {
+                "_:n41d096c35e2b41dba3823e2f680750e8b33": {
+                  "nodes": []
+                },
+                "cdifd:CDIFadditionalPropertyShape": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b14": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b30": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape": {
+                  "nodes": [
+                    "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48",
+                    "nxs:BaseClass/NXinstrument"
+                  ]
+                },
+                "cdifd:CDIFAddPropertyTermShape": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b20": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b21": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b6": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b28": {
+                  "nodes": []
+                },
+                "cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b13": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b7": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b29": {
+                  "nodes": []
+                },
+                "_:n41d096c35e2b41dba3823e2f680750e8b31": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b33: *none*\n - Shape cdifd:CDIFadditionalPropertyShape: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b14: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b30: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48,nxs:BaseClass/NXinstrument\n - Shape cdifd:CDIFAddPropertyTermShape: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b20: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b21: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b6: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b28: *none*\n - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b13: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b7: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b29: *none*\n - Shape _:n41d096c35e2b41dba3823e2f680750e8b31: *none*\n"
+            },
+            {
+              "op": "shacl-report",
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
@@ -114,45 +194,45 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
               "focusNodes": {
-                "cdifd:CDIFDefinedTermShape": {
+                "_:ne06aca9bf9974125a08b4cad99a63256b7": {
                   "nodes": []
                 },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:nd89393e4733649509f7cd0368bb84a47b7": {
-                  "nodes": []
-                },
-                "_:nd89393e4733649509f7cd0368bb84a47b26": {
+                "_:ne06aca9bf9974125a08b4cad99a63256b4": {
                   "nodes": []
                 },
                 "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "_:nd89393e4733649509f7cd0368bb84a47b5": {
+                "_:ne06aca9bf9974125a08b4cad99a63256b5": {
                   "nodes": []
                 },
-                "_:nd89393e4733649509f7cd0368bb84a47b4": {
+                "_:ne06aca9bf9974125a08b4cad99a63256b26": {
                   "nodes": []
                 },
-                "_:nd89393e4733649509f7cd0368bb84a47b10": {
+                "_:ne06aca9bf9974125a08b4cad99a63256b6": {
                   "nodes": []
                 },
-                "_:nd89393e4733649509f7cd0368bb84a47b19": {
+                "_:ne06aca9bf9974125a08b4cad99a63256b8": {
                   "nodes": []
                 },
-                "_:nd89393e4733649509f7cd0368bb84a47b8": {
+                "_:ne06aca9bf9974125a08b4cad99a63256b10": {
                   "nodes": []
                 },
-                "_:nd89393e4733649509f7cd0368bb84a47b6": {
+                "cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:ne06aca9bf9974125a08b4cad99a63256b19": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n - Shape cdifd:CDIFDefinedTermShape: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nd89393e4733649509f7cd0368bb84a47b7: *none*\n - Shape _:nd89393e4733649509f7cd0368bb84a47b26: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:nd89393e4733649509f7cd0368bb84a47b5: *none*\n - Shape _:nd89393e4733649509f7cd0368bb84a47b4: *none*\n - Shape _:nd89393e4733649509f7cd0368bb84a47b10: *none*\n - Shape _:nd89393e4733649509f7cd0368bb84a47b19: *none*\n - Shape _:nd89393e4733649509f7cd0368bb84a47b8: *none*\n - Shape _:nd89393e4733649509f7cd0368bb84a47b6: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n - Shape _:ne06aca9bf9974125a08b4cad99a63256b7: *none*\n - Shape _:ne06aca9bf9974125a08b4cad99a63256b4: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:ne06aca9bf9974125a08b4cad99a63256b5: *none*\n - Shape _:ne06aca9bf9974125a08b4cad99a63256b26: *none*\n - Shape _:ne06aca9bf9974125a08b4cad99a63256b6: *none*\n - Shape _:ne06aca9bf9974125a08b4cad99a63256b8: *none*\n - Shape _:ne06aca9bf9974125a08b4cad99a63256b10: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:ne06aca9bf9974125a08b4cad99a63256b19: *none*\n - Shape cdifd:CDIFDefinedTermShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -164,95 +244,48 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
               "focusNodes": {
-                "_:nf0c44f5e8b9b4526aef6268ade7e34e6b10": {
+                "_:n7fb20cf06d69417db6378a86f0548983b22": {
                   "nodes": []
                 },
-                "_:nf0c44f5e8b9b4526aef6268ade7e34e6b21": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:nf0c44f5e8b9b4526aef6268ade7e34e6b20": {
-                  "nodes": []
-                },
-                "_:nf0c44f5e8b9b4526aef6268ade7e34e6b25": {
-                  "nodes": []
-                },
-                "_:nf0c44f5e8b9b4526aef6268ade7e34e6b23": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierShape": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierTypeTermShape": {
-                  "nodes": []
-                },
-                "_:nf0c44f5e8b9b4526aef6268ade7e34e6b11": {
+                "_:n7fb20cf06d69417db6378a86f0548983b21": {
                   "nodes": []
                 },
                 "cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:CDIFIdentifierShape/sh:or/rdf:first": {
+                "_:n7fb20cf06d69417db6378a86f0548983b20": {
+                  "nodes": []
+                },
+                "_:n7fb20cf06d69417db6378a86f0548983b11": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape": {
                   "nodes": []
                 },
                 "cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:nf0c44f5e8b9b4526aef6268ade7e34e6b22": {
+                "_:n7fb20cf06d69417db6378a86f0548983b23": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n7fb20cf06d69417db6378a86f0548983b10": {
+                  "nodes": []
+                },
+                "_:n7fb20cf06d69417db6378a86f0548983b25": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierTypeTermShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n - Shape _:nf0c44f5e8b9b4526aef6268ade7e34e6b10: *none*\n - Shape _:nf0c44f5e8b9b4526aef6268ade7e34e6b21: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:nf0c44f5e8b9b4526aef6268ade7e34e6b20: *none*\n - Shape _:nf0c44f5e8b9b4526aef6268ade7e34e6b25: *none*\n - Shape _:nf0c44f5e8b9b4526aef6268ade7e34e6b23: *none*\n - Shape cdifd:CDIFIdentifierShape: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape: *none*\n - Shape _:nf0c44f5e8b9b4526aef6268ade7e34e6b11: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nf0c44f5e8b9b4526aef6268ade7e34e6b22: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl",
-              "focusNodes": {
-                "cdifd:CDIFContactPointShape": {
-                  "nodes": []
-                },
-                "cdifd:affiliationProperty/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:contactPointProperty/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFPersonShape": {
-                  "nodes": []
-                },
-                "_:n5ea891458d50425ab0f613d0794b0652b14": {
-                  "nodes": []
-                },
-                "cdifd:maintainerOrProviderContactPointShape": {
-                  "nodes": []
-                },
-                "cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFPersonShape/sh:or/rdf:first": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n - Shape cdifd:CDIFContactPointShape: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape: *none*\n - Shape _:n5ea891458d50425ab0f613d0794b0652b14: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n - Shape _:n7fb20cf06d69417db6378a86f0548983b22: *none*\n - Shape _:n7fb20cf06d69417db6378a86f0548983b21: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n7fb20cf06d69417db6378a86f0548983b20: *none*\n - Shape _:n7fb20cf06d69417db6378a86f0548983b11: *none*\n - Shape cdifd:CDIFIdentifierShape: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n7fb20cf06d69417db6378a86f0548983b23: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n7fb20cf06d69417db6378a86f0548983b10: *none*\n - Shape _:n7fb20cf06d69417db6378a86f0548983b25: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -264,18 +297,124 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl",
               "focusNodes": {
-                "cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
                 "cdifd:CDIFOrganizationShape/sh:or/rdf:first": {
                   "nodes": []
                 },
                 "cdifd:CDIFOrganizationShape": {
                   "nodes": []
+                },
+                "cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFOrganizationShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFOrganizationShape: *none*\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n264c286137a241dfb89dbff836ba4488b15": {
+                  "nodes": []
+                },
+                "_:n264c286137a241dfb89dbff836ba4488b18": {
+                  "nodes": []
+                },
+                "_:n264c286137a241dfb89dbff836ba4488b20": {
+                  "nodes": []
+                },
+                "cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n264c286137a241dfb89dbff836ba4488b17": {
+                  "nodes": []
+                },
+                "cdifd:roleNameProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n264c286137a241dfb89dbff836ba4488b3": {
+                  "nodes": []
+                },
+                "cdifd:CDIFRoleShape": {
+                  "nodes": []
+                },
+                "cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n264c286137a241dfb89dbff836ba4488b16": {
+                  "nodes": []
+                },
+                "_:n264c286137a241dfb89dbff836ba4488b4": {
+                  "nodes": []
+                },
+                "_:n264c286137a241dfb89dbff836ba4488b14": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:n264c286137a241dfb89dbff836ba4488b15: *none*\n - Shape _:n264c286137a241dfb89dbff836ba4488b18: *none*\n - Shape _:n264c286137a241dfb89dbff836ba4488b20: *none*\n - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n264c286137a241dfb89dbff836ba4488b17: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*\n - Shape _:n264c286137a241dfb89dbff836ba4488b3: *none*\n - Shape cdifd:CDIFRoleShape: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n264c286137a241dfb89dbff836ba4488b16: *none*\n - Shape _:n264c286137a241dfb89dbff836ba4488b4: *none*\n - Shape _:n264c286137a241dfb89dbff836ba4488b14: *none*\n - Shape cdifd:CDIFDefinedTermShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFPersonShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:maintainerOrProviderContactPointShape": {
+                  "nodes": []
+                },
+                "cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFContactPointShape": {
+                  "nodes": []
+                },
+                "_:n569a68dc8f004788b375bdb4c3a02e39b14": {
+                  "nodes": []
+                },
+                "cdifd:contactPointProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFPersonShape": {
+                  "nodes": []
+                },
+                "cdifd:affiliationProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFContactPointShape: *none*\n - Shape _:n569a68dc8f004788b375bdb4c3a02e39b14: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -310,145 +449,6 @@
               },
               "isError": false,
               "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:\n - Shape cdifd:CDIFLabeledLinkShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
-              "focusNodes": {
-                "cdifd:CDIFDefinedTermShape": {
-                  "nodes": []
-                },
-                "_:n792023e23b8148d4894e0dc482e4a126b15": {
-                  "nodes": []
-                },
-                "cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:n792023e23b8148d4894e0dc482e4a126b20": {
-                  "nodes": []
-                },
-                "_:n792023e23b8148d4894e0dc482e4a126b17": {
-                  "nodes": []
-                },
-                "_:n792023e23b8148d4894e0dc482e4a126b16": {
-                  "nodes": []
-                },
-                "cdifd:CDIFRoleShape": {
-                  "nodes": []
-                },
-                "_:n792023e23b8148d4894e0dc482e4a126b3": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:n792023e23b8148d4894e0dc482e4a126b14": {
-                  "nodes": []
-                },
-                "cdifd:roleNameProperty/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:n792023e23b8148d4894e0dc482e4a126b18": {
-                  "nodes": []
-                },
-                "_:n792023e23b8148d4894e0dc482e4a126b4": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n - Shape cdifd:CDIFDefinedTermShape: *none*\n - Shape _:n792023e23b8148d4894e0dc482e4a126b15: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n792023e23b8148d4894e0dc482e4a126b20: *none*\n - Shape _:n792023e23b8148d4894e0dc482e4a126b17: *none*\n - Shape _:n792023e23b8148d4894e0dc482e4a126b16: *none*\n - Shape cdifd:CDIFRoleShape: *none*\n - Shape _:n792023e23b8148d4894e0dc482e4a126b3: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n792023e23b8148d4894e0dc482e4a126b14: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*\n - Shape _:n792023e23b8148d4894e0dc482e4a126b18: *none*\n - Shape _:n792023e23b8148d4894e0dc482e4a126b4: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
-              "graph": "@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode \"nxs:BaseClass/NXinstrument\" ;\n            sh:resultMessage \"schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {\\\"@id\\\":\\\"...\\\"}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape cdifd:AdditionalTypeUriShouldBeIRIShape ;\n            sh:value \"nxs:BaseClass/NXinstrument\" ],\n        [ a sh:ValidationResult ;\n            sh:focusNode \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\" ;\n            sh:resultMessage \"schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {\\\"@id\\\":\\\"...\\\"}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape cdifd:AdditionalTypeUriShouldBeIRIShape ;\n            sh:value \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\" ] .\n\n",
-              "isError": true,
-              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (2):\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: cdifd:AdditionalTypeUriShouldBeIRIShape\n  \tFocus Node: Literal(\"nxs:BaseClass/NXinstrument\")\n  \tValue Node: Literal(\"nxs:BaseClass/NXinstrument\")\n  \tMessage: schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {\"@id\":\"...\"}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: cdifd:AdditionalTypeUriShouldBeIRIShape\n  \tFocus Node: Literal(\"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\")\n  \tValue Node: Literal(\"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\")\n  \tMessage: schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {\"@id\":\"...\"}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted.\n  "
-            },
-            {
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
-              "focusNodes": {
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb14": {
-                  "nodes": []
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb33": {
-                  "nodes": []
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb29": {
-                  "nodes": []
-                },
-                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb21": {
-                  "nodes": []
-                },
-                "cdifd:PropertyIDUriShouldBeIRIShape": {
-                  "nodes": []
-                },
-                "cdifd:CDIFAddPropertyTermShape": {
-                  "nodes": []
-                },
-                "cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:AdditionalTypeUriShouldBeIRIShape": {
-                  "nodes": [
-                    "nxs:BaseClass/NXinstrument",
-                    "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48"
-                  ]
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb20": {
-                  "nodes": []
-                },
-                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb13": {
-                  "nodes": []
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb31": {
-                  "nodes": []
-                },
-                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb28": {
-                  "nodes": []
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb30": {
-                  "nodes": []
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb6": {
-                  "nodes": []
-                },
-                "cdifd:CDIFadditionalPropertyShape": {
-                  "nodes": []
-                },
-                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:n34484d056cd04ebbbe8a80a4ba54cf9bb7": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb14: *none*\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb33: *none*\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb29: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb21: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*\n - Shape cdifd:CDIFAddPropertyTermShape: *none*\n - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: nxs:BaseClass/NXinstrument,https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb20: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb13: *none*\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb31: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb28: *none*\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb30: *none*\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb6: *none*\n - Shape cdifd:CDIFadditionalPropertyShape: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape _:n34484d056cd04ebbbe8a80a4ba54cf9bb7: *none*\n"
             }
           ]
         }

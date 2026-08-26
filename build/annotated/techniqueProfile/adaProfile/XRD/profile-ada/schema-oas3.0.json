@@ -2629,7 +2629,7 @@
     },
     "ogch.BaseSchema.instrument": {
       "title": "ADA Analysis Instrument",
-      "description": "ADA analytical instrument building block. Extends the core CDIF instrument building block with NeXus NXinstrument classification via additionalType. Instruments are typed as schema:Thing + schema:Product (from core) with domain-specific types (e.g. nxs:BaseClass/NXinstrument, ada:AMSInstrument) in additionalType.",
+      "description": "ADA analytical instrument building block. Extends the core CDIF instrument building block with NeXus NXinstrument classification via additionalType. Instruments are typed as schema:Thing + schema:Product (from core) with domain-specific types (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument) in additionalType.",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/XRD/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument"
@@ -2643,7 +2643,7 @@
               "minLength": 1
             },
             "schema:additionalType": {
-              "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:BaseClass/NXinstrument) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
+              "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:base_classes/NXinstrument.html) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
               "type": "array",
               "items": {
                 "anyOf": [
@@ -4441,16 +4441,41 @@
           "type": "object",
           "properties": {
             "schema:additionalType": {
+              "description": "Must classify the place as a NeXus NXsource. The value is a sealed reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a bare string it stays a literal that looks like a URI and resolves to nothing. The two-segment path is the form that actually resolves -- .../classes/BaseClass/NXsource is a 404, .../classes/base_classes/NXsource.html is not.",
               "type": "array",
               "items": {
-                "type": "string"
-              },
-              "contains": {
-                "enum": [
-                  "nxs:BaseClass/NXsource"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "@id"
+                    ],
+                    "properties": {
+                      "@id": {
+                        "type": "string"
+                      }
+                    }
+                  }
                 ]
               },
-              "description": "Must include nxs:BaseClass/NXsource for NeXus facility classification.",
+              "contains": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@id"
+                ],
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "nxs:base_classes/NXsource.html"
+                    ]
+                  }
+                }
+              },
               "x-jsonld-id": "http://schema.org/additionalType"
             }
           }

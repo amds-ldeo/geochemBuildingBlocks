@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-25",
+  "dateOfLastChange": "2026-08-26",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -84,7 +84,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA Analysis Laboratory\ndescription: ADA laboratory or facility building block. Extends the core CDIF spatialExtent\n  (schema:Place) with NeXus NXsource classification via additionalType. Inherits place\n  name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.\nallOf:\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml\n- type: object\n  properties:\n    schema:additionalType:\n      type: array\n      items:\n        type: string\n      contains:\n        const: nxs:BaseClass/NXsource\n      description: Must include nxs:BaseClass/NXsource for NeXus facility classification.\n      x-jsonld-id: http://schema.org/additionalType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  nxs: https://manual.nexusformat.org/classes/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA Analysis Laboratory\ndescription: ADA laboratory or facility building block. Extends the core CDIF spatialExtent\n  (schema:Place) with NeXus NXsource classification via additionalType. Inherits place\n  name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.\nallOf:\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml\n- type: object\n  properties:\n    schema:additionalType:\n      description: 'Must classify the place as a NeXus NXsource. The value is a sealed\n        reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a\n        bare string it stays a literal that looks like a URI and resolves to nothing.\n        The two-segment path is the form that actually resolves -- .../classes/BaseClass/NXsource\n        is a 404, .../classes/base_classes/NXsource.html is not.'\n      type: array\n      items:\n        anyOf:\n        - type: string\n        - type: object\n          additionalProperties: false\n          required:\n          - '@id'\n          properties:\n            '@id':\n              type: string\n      contains:\n        type: object\n        additionalProperties: false\n        required:\n        - '@id'\n        properties:\n          '@id':\n            const: nxs:base_classes/NXsource.html\n      x-jsonld-id: http://schema.org/additionalType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  nxs: https://manual.nexusformat.org/classes/\n",
   "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/BaseSchema/laboratory"
 }

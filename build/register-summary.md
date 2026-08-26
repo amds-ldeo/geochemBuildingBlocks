@@ -28,12 +28,6 @@ Shell type for labeled links to creative works (schema:CreativeWork). Defines pr
 
 Supplemental documents for calibration, methods, and analysis info. Defines properties: @type, componentType, schema:version, schema:isBasedOn. Uses building blocks: detailARGT (geochemProperties).
 
-### `ogch.BaseSchema.otherFile` — Other File Type
-
-**Type:** schema
-
-Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
-
 ### `ogch.BaseSchema.image` — Image Type
 
 **Type:** schema
@@ -45,6 +39,12 @@ ADA image with componentType classification for analytical images. Defines prope
 **Type:** schema
 
 Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
+
+### `ogch.BaseSchema.otherFile` — Other File Type
+
+**Type:** schema
+
+Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
 
 ### `ogch.BaseSchema.spatialRegistration` — Spatial Registration Type
 
@@ -75,12 +75,6 @@ The shared CalibrationFactor block of the 2026-08-11 TAPP library, composed by 1
 **Type:** schema
 
 The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 6 owned fields over 16 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
-
-### `ogch.BaseSchema.modules.group1` — TAPP Composition Module: Group1
-
-**Type:** schema
-
-The shared Group1 block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 18 owned fields over 22 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.mcIcpms` — TAPP Composition Module: MCICPMS
 

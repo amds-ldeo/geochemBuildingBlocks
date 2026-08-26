@@ -148,7 +148,9 @@ their delivery-packaging vocabulary (see adaProduct).
                 "schema:Product"
               ],
               "schema:additionalType": [
-                "nxs:BaseClass/NXinstrument",
+                {
+                  "@id": "nxs:base_classes/NXinstrument.html"
+                },
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
@@ -411,7 +413,9 @@ their delivery-packaging vocabulary (see adaProduct).
                 "schema:Product"
               ],
               "schema:additionalType": [
-                "nxs:BaseClass/NXinstrument",
+                {
+                  "@id": "nxs:base_classes/NXinstrument.html"
+                },
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
@@ -652,8 +656,8 @@ ex:geochemProduct-metadata-001 a schema1:Dataset ;
 
 <https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "nxs:BaseClass/NXinstrument" ;
+    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+        <https://www.wikidata.org/wiki/Q3099911> ;
     schema1:identifier "ex:instrument-001" ;
     schema1:name "Example ICP-MS Instrument" .
 

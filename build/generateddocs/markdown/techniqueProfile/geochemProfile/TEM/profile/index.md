@@ -184,7 +184,9 @@ and technique component types on the archive distribution. Mock data for validat
                 "schema:Product"
               ],
               "schema:additionalType": [
-                "nxs:BaseClass/NXinstrument",
+                {
+                  "@id": "nxs:base_classes/NXinstrument.html"
+                },
                 "TEM",
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -206,7 +208,9 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:name": "Analytical Sciences Laboratory",
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
-          "nxs:BaseClass/NXsource"
+          {
+            "@id": "nxs:base_classes/NXsource.html"
+          }
         ]
       },
       "schema:object": [
