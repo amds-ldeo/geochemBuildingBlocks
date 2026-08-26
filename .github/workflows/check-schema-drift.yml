@@ -1,0 +1,126 @@
+# Fail when a source edit has landed without regenerating what is built
+# from it.
+#
+# schema.yaml is authoritative; resolvedSchema.json and *Schema.json are
+# built from it. An edit that lands in the source and in nothing that
+# validates against it is invisible, because the sources still look
+# right. On 2026-08-26 regenerating this repository with no source edits
+# at all rewrote 9,269 lines across 34 files -- drift that had
+# accumulated silently because nothing checked.
+#
+# The check does not repair anything. Committing a regeneration on the
+# author's behalf would restore byte-parity while leaving the habit
+# intact, and these artifacts are what consumers read.
+name: Check generated schemas are current
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - '_sources/**/schema.yaml'
+      - '_sources/**/resolvedSchema.json'
+      - '_sources/**/*Schema.json'
+      - 'tools/resolve_schema.py'
+      - 'tools/regenerate_schema_json.py'
+      - '.github/workflows/check-schema-drift.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: schema-drift-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-drift:
+    name: Regenerate and diff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      # Unlike the same check in metadataBuildingBlocks, this one is NOT
+      # offline: 31 sources $ref building blocks in that repository by
+      # absolute URL, and resolve_schema.py fetches them at build time.
+      # So the resolved output depends on what that repository has
+      # published, and a red check here means one of two things --
+      # someone edited a source here without regenerating, or an
+      # upstream block changed. The diff says which.
+      - name: Regenerate resolved schemas
+        run: |
+          set -o pipefail
+          python tools/resolve_schema.py --all 2>&1 | tee resolve.log
+
+      # A failed fetch is a warning that returns None and leaves the run
+      # at exit 0, so a network hiccup produces a quietly degraded
+      # resolution that would show up below as drift. Comparing that
+      # against the committed artifacts would report a problem that does
+      # not exist, so stop instead.
+      - name: Refuse to compare a degraded run
+        run: |
+          if grep -q "WARNING: Failed to fetch" resolve.log; then
+            echo "::error::A referenced schema could not be fetched, so this"
+            echo "resolution is incomplete and cannot be compared against the"
+            echo "committed artifacts. This is an infrastructure failure, not"
+            echo "drift. Re-run the job."
+            echo
+            grep "WARNING: Failed to fetch" resolve.log | sed 's/^/  /'
+            exit 1
+          fi
+          echo "All referenced schemas resolved."
+
+      - name: Regenerate Schema.json files
+        run: python tools/regenerate_schema_json.py
+
+      - name: Report drift
+        run: |
+          # Scoped to _sources: build/ is regenerated and committed by
+          # the postprocess workflow, so it is expected to lag here.
+          if git diff --quiet -- _sources; then
+            echo "Generated schemas match their sources."
+            exit 0
+          fi
+
+          echo "::error::Generated schemas are stale. Either a source was edited without regenerating what is built from it, or a referenced upstream block has changed."
+          echo
+          echo "Files that regeneration changed:"
+          git diff --name-only -- _sources | sed 's/^/  /'
+          echo
+          echo "To fix, from the repo root:"
+          echo "  python tools/resolve_schema.py --all"
+          echo "  python tools/regenerate_schema_json.py"
+          echo "then commit the result."
+          echo
+          echo "Note: parameterValues and parameterTemplates reformat"
+          echo "wholesale on any regeneration. If you only meant to touch"
+          echo "one technique, git checkout those two afterwards."
+          echo
+          echo "===== full diff ====="
+          # Untruncated on purpose. A reviewer reading this log is
+          # deciding whether the drift is a forgotten regeneration or an
+          # upstream change, and the file list alone cannot tell those
+          # apart.
+          git --no-pager diff -- _sources
+          exit 1
+
+      # Only reachable when the diff is clean, so this catches the other
+      # half: a generated file that regeneration does not produce at all.
+      - name: Check for untracked generated files
+        run: |
+          UNTRACKED=$(git ls-files --others --exclude-standard -- _sources)
+          if [ -n "$UNTRACKED" ]; then
+            echo "::error::Regeneration produced files that are not committed."
+            echo "$UNTRACKED" | sed 's/^/  /'
+            exit 1
+          fi
+          echo "No untracked generated files."
