@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)",
-    "description": "Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v30.csv via the path-driven pipeline.",
+    "description": "Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v31.csv via the path-driven pipeline.",
     "allOf": [
         {
             "$ref": "../../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
@@ -11,6 +11,9 @@
         },
         {
             "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification"
+        },
+        {
+            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification"
         },
         {
             "$ref": "../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification"
@@ -538,6 +541,28 @@
                                                             "maxContains": 1
                                                         }
                                                     ]
+                                                },
+                                                "ada:detectionLimitMethod": {
+                                                    "description": "Method used to calculate detection limits for each reported concentration variable, where concentration data are reported.",
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "3σ blank",
+                                                                "3σ background",
+                                                                "3σ counting statistics",
+                                                                "3× blank mean",
+                                                                "Poisson statistics",
+                                                                "N/A",
+                                                                "None",
+                                                                "missing"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ],
+                                                    "readOnly": true
                                                 }
                                             }
                                         }
@@ -2403,6 +2428,50 @@
                                     "ada:dataType",
                                     "ada:fieldScope"
                                 ]
+                            },
+                            {
+                                "title": "Detection Limit",
+                                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set), applicable when isotope dilution concentrations are also reported. For pure isotope ratio procedures (no concentration output), this field is N/A or reports the minimum sample mass required for a measurement at target precision. Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured. Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionMcicpmsTAPP/detectionLimitDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "detectionLimitDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Detection Limit"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:unitText": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
                             }
                         ]
                     },
@@ -2497,6 +2566,54 @@
                                     },
                                     "ada:tier": {
                                         "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Detection Limit",
+                                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set), applicable when isotope dilution concentrations are also reported. For pure isotope ratio procedures (no concentration output), this field is N/A or reports the minimum sample mass required for a measurement at target precision. Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured. Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionMcicpmsTAPP/detectionLimitDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "detectionLimitDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Detection Limit"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:unitText": {
+                                        "type": "string"
                                     }
                                 },
                                 "required": [
@@ -2905,6 +3022,212 @@
                         }
                     }
                 },
+                "schema:variableMeasured": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "title": "Dataset variable",
+                                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                                "type": "object",
+                                "required": [
+                                    "@type"
+                                ],
+                                "properties": {
+                                    "@type": {
+                                        "type": "array",
+                                        "contains": {
+                                            "enum": [
+                                                "cdi:InstanceVariable",
+                                                "schema:PropertyValue"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied to output isotope ratio data beyond the primary mass bias correction. Examples: correction of δ values for decay of enriched spike isotopes between calibration and use date (double-spike procedures); age correction of δ238U for secular disequilibrium. Record 'None' if no additional normalization is applied.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "normalizationStandardsBasedCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Normalization / Standards-Based Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Detection Limit",
+                                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set), applicable when isotope dilution concentrations are also reported. For pure isotope ratio procedures (no concentration output), this field is N/A or reports the minimum sample mass required for a measurement at target precision. Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured. Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionMcicpmsTAPP/detectionLimitDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "detectionLimitDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Detection Limit"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:unitText": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            }
+                        ]
+                    },
+                    "allOf": [
+                        {
+                            "contains": {
+                                "title": "Normalization / Standards-Based Correction",
+                                "description": "Post-acquisition normalization applied to output isotope ratio data beyond the primary mass bias correction. Examples: correction of δ values for decay of enriched spike isotopes between calibration and use date (double-spike procedures); age correction of δ238U for secular disequilibrium. Record 'None' if no additional normalization is applied.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "normalizationStandardsBasedCorrectionDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Normalization / Standards-Based Correction"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Detection Limit",
+                                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set), applicable when isotope dilution concentrations are also reported. For pure isotope ratio procedures (no concentration output), this field is N/A or reports the minimum sample mass required for a measurement at target precision. Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured. Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionMcicpmsTAPP/detectionLimitDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "detectionLimitDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Detection Limit"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:unitText": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        }
+                    ]
+                },
                 "ada:primaryStandardNameDefault": {
                     "description": "Name and reference material identifier of the isotopic reference standard used as the bracketing standard (SSB) or zero-delta anchor. This is an isotopic composition standard (not a concentration standard): it defines the isotopic composition against which all sample δ or ε values are normalized. Must be a pure, homogeneous, internationally distributed material with well-characterized isotopic composition. For double-spike procedures, also used for spike calibration. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
                     "type": "string"
@@ -2930,94 +3253,6 @@
                                 "anyOf": [
                                     {
                                         "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
-                                    },
-                                    {
-                                        "title": "Detection Limit",
-                                        "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set), applicable when isotope dilution concentrations are also reported. For pure isotope ratio procedures (no concentration output), this field is N/A or reports the minimum sample mass required for a measurement at target precision. Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured. Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "detectionLimit"
-                                            },
-                                            "schema:name": {
-                                                "const": "Detection Limit"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Detection Limit Method",
-                                        "description": "Method used to calculate detection limits for each reported concentration variable, where concentration data are reported.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "detectionLimitMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Detection Limit Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
                                     },
                                     {
                                         "title": "Limit of Quantification (LOQ) Method",
@@ -3103,102 +3338,6 @@
                                 ]
                             },
                             "allOf": [
-                                {
-                                    "contains": {
-                                        "title": "Detection Limit",
-                                        "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set), applicable when isotope dilution concentrations are also reported. For pure isotope ratio procedures (no concentration output), this field is N/A or reports the minimum sample mass required for a measurement at target precision. Specify units µg/g or µg/L and whether values are procedure-typical estimates or session-measured. Record 'N/A' where the procedure produces isotope ratios only and reports no concentrations.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "detectionLimit"
-                                            },
-                                            "schema:name": {
-                                                "const": "Detection Limit"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "title": "Detection Limit Method",
-                                        "description": "Method used to calculate detection limits for each reported concentration variable, where concentration data are reported.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "detectionLimitMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Detection Limit Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
                                 {
                                     "contains": {
                                         "title": "Limit of Quantification (LOQ) Method",

@@ -7,6 +7,9 @@
             "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification"
         },
         {
+            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification"
+        },
+        {
             "$ref": "../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification"
         },
         {
@@ -206,9 +209,6 @@
                                                                                 "schema:name",
                                                                                 "schema:value"
                                                                             ]
-                                                                        },
-                                                                        {
-                                                                            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod"
                                                                         }
                                                                     ]
                                                                 },
@@ -290,13 +290,6 @@
                                                                         },
                                                                         "minContains": 0,
                                                                         "maxContains": 1
-                                                                    },
-                                                                    {
-                                                                        "contains": {
-                                                                            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/Param_Analysis_calibrationFactorAndDeterminationMethod"
-                                                                        },
-                                                                        "minContains": 0,
-                                                                        "maxContains": 1
                                                                     }
                                                                 ]
                                                             }
@@ -337,18 +330,6 @@
                                             ]
                                         },
                                         "allOf": [
-                                            {
-                                                "contains": {
-                                                    "properties": {
-                                                        "schema:name": {
-                                                            "const": "Data Reduction"
-                                                        }
-                                                    },
-                                                    "required": [
-                                                        "schema:name"
-                                                    ]
-                                                }
-                                            },
                                             {
                                                 "contains": {
                                                     "properties": {
@@ -1440,6 +1421,16 @@
                                                     "const": "EDS Detection Limit"
                                                 },
                                                 "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
                                                     "type": "string"
                                                 }
                                             },
@@ -1448,7 +1439,8 @@
                                                 "@type",
                                                 "schema:propertyID",
                                                 "schema:name",
-                                                "schema:value"
+                                                "schema:value",
+                                                "schema:unitText"
                                             ]
                                         },
                                         {
@@ -2673,6 +2665,16 @@
                                                     "const": "EDS Detection Limit"
                                                 },
                                                 "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
                                                     "type": "string"
                                                 }
                                             },
@@ -2681,7 +2683,8 @@
                                                 "@type",
                                                 "schema:propertyID",
                                                 "schema:name",
-                                                "schema:value"
+                                                "schema:value",
+                                                "schema:unitText"
                                             ]
                                         },
                                         "minContains": 0,
@@ -3132,46 +3135,6 @@
                     "allOf": [
                         {
                             "contains": {
-                                "title": "Calibration Factor and Determination Method",
-                                "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValue",
-                                            "cdi:InstanceVariable"
-                                        ]
-                                    },
-                                    "schema:propertyID": {
-                                        "const": [
-                                            {
-                                                "@id": "ada:parameter/temTAPP/calibrationFactorAndDeterminationMethod"
-                                            }
-                                        ]
-                                    },
-                                    "schema:name": {
-                                        "const": "Calibration Factor and Determination Method"
-                                    },
-                                    "schema:value": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                ]
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
                                 "title": "EDS Detection Limit",
                                 "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                                 "type": "object",
@@ -3196,6 +3159,16 @@
                                         "const": "EDS Detection Limit"
                                     },
                                     "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:unitText": {
                                         "type": "string"
                                     }
                                 },
@@ -3204,7 +3177,8 @@
                                     "@type",
                                     "schema:propertyID",
                                     "schema:name",
-                                    "schema:value"
+                                    "schema:value",
+                                    "schema:unitText"
                                 ]
                             },
                             "minContains": 0,
