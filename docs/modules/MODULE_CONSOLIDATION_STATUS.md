@@ -76,35 +76,86 @@ method. **14 of the 72 carry a `NEEDS RECONCILING` flag** in `Comments`
 — structure agrees, prose differs between tables, variants preserved
 verbatim for Ruolin to choose.
 
-## Open — needs a decision, not more analysis
+## Decided 2026-08-26 (second pass)
 
-1. **Four fields are cross-family and have two candidate homes.**
-   Detection Limit, Detection Limit Method, Secondary Reference
-   Materials, Normalization / Standards-Based Correction appear in the
-   ICP-MS `CalibrationUncertainty` draft *and* in three electron-beam
-   tables. Either `CalibrationUncertainty` becomes the shared home and
-   `XrayQuantification` drops them, or they move to a neutral module both
-   compose. They are currently in both drafts so the overlap is visible.
+**1. The four cross-family fields — resolved.** Three belong in an EXISTING
+module, `Module_Blank`, whose 12 consumers are exactly their carrier set:
+`Detection Limit`, `Detection Limit Method` and `Normalization /
+Standards-Based Correction`. Measured across all 16 tables rather than
+either family, each is carried by **12 of 16** with identical Procedure
+tier, Analysis tier, Data Type and Keyed By. Removed from
+`CalibrationUncertainty` (21 → 18) and `XrayQuantification` (17 → 14). A
+`QuantificationQuality` draft was written first and withdrawn: measuring the
+carrier set against the existing modules showed `Blank` already serves exactly
+those 12 techniques, so a new module would have duplicated one in the library.
+Placement is upstream's call under Rule 6.15 prong 2 — the measurement is ours,
+the decision is not.
 
-2. **Lab-XCT is still at 7%** and no draft addresses it. It shares
-   exactly one field (`Accelerating Voltage`) with the electron-beam
-   tables, so tomography needs its own module rather than a seat in
-   these. **This is the obvious next drafting pass.**
+`Secondary Reference Materials` did **not** move. Its structure splits
+exactly on the family boundary — `defines: standard per analyte` in the
+three electron-beam tables, `defines: standard` in the nine ICP-MS ones —
+and a field whose structure differs is refused, not averaged. It stays in
+both family drafts with the difference recorded. It is also the field the
+open `defines: standard per analyte` question turns on, so folding it into
+a shared module would have buried a decision rather than made one.
 
-3. **Solution and LA families have drafts but no adoption path.** The
-   drafts measure what modularising would save; they do not modularise
-   anything. Nothing changes until the library modules exist.
+**2. Lab-XCT cannot be modularised.** Of its 55 fields that no module
+already owns, **2** appear in any other table and only **1** with identical
+structure. A module needs at least two consumers to remove duplication, so
+there is nothing to draft — tomography is simply a technique of one here.
+The earlier note that it "needs its own module" assumed a tomography family
+that does not exist. No draft was written.
+
+**3. TEM needs no further module.** Re-measured against all 16 tables, not
+just the electron-beam ones. TEM shares exactly **4** non-header fields at
+identical structure, and all four are already drafted:
+
+| field | draft | also in |
+|---|---|---|
+| Accelerating Voltage | `ElectronColumn` | EPMA, Lab-XCT, SEM ×4 |
+| Electron Source | `ElectronColumn` | EPMA, SEM ×4 |
+| EDS Dead Time | `XraySpectrometry` | EPMA, SEM, SEM_Composition |
+| EDS Spectral Processing Type | `XraySpectrometry` | EPMA, SEM, SEM_Composition |
+
+The open question was whether TEM duplicated anything *outside* SEM/EPMA.
+It does not. Its remaining ~50 fields are TEM-only, so its 11% is a floor,
+not a gap.
+
+> **Measurement trap, second instance.** Comparing raw table rows makes the
+> six section headers (`1. Procedure Identification`, `2. Samples`, …) look
+> like fields shared by all 16 tables with identical structure — their tier
+> and type cells are empty, so every table "agrees". Skip rows matching
+> `^\d+\.\s`, as `load_rows` and `validate_application_grid` already do.
+
+## The geochronology family — closed 2026-08-28
+
+`Geochronology` (20 sidecar rows, 11 keyed) and `UPb` are complete and build.
+`ArAr` does **not**, and that is correct, not a gap:
+
+- nothing in `composed_tapps.json` composes it, so `build_module_bb` skips it
+  and emits no building block
+- there is **no Ar-Ar table** in `tapp/Current TAPPs/` for it to serve
+- upstream `Module_ArAr.json` (v4, "40Ar/39Ar Geochronology") describes itself
+  as built to test whether the J value maps onto a Calibration Factor field —
+  a design probe, not a module with consumers
+
+Our `docs/modules/Module_ArAr.schemapaths.csv` carries 4 hand-authored paths,
+all placing cleanly. They are **inert until an Ar-Ar TAPP exists**, and that is
+the finished state: the placements are ready, and nothing regenerates or
+validates them because nothing composes the module. Do not re-open this as a
+flagged-rows problem — the rows are placed; the module simply has no consumer.
+
+Two things to know if an Ar-Ar table ever lands: the module builds with no
+further work once `composed_tapps.json` names it, and its upstream notes still
+reference `Module_ReportingCore`, which was dissolved on 2026-08-14 — so those
+notes need re-reading against the five successor modules before they are trusted.
 
 ## Next step
 
-Draft the missing modules for **Lab-XCT** (and re-check TEM, which sits
-at 11% with 39 minted parameters — the electron-beam drafts cover only
-what it shares with SEM/EPMA, and its own duplication with nothing else
-was not examined).
-
-Method is fixed and in `agents.md`; the electron-beam pass is the worked
-example. Source tables are in the `tapp` submodule under
-`tapp/Current TAPPs/`.
+Both remaining low-coverage techniques are now measured and neither is
+actionable: Lab-XCT and TEM are at their floor. The consolidation question
+is no longer "what else can be drafted" but **whether the 15 existing drafts
+get adopted** — which is Ruolin's call, not ours (see below).
 
 ## Not to be confused
 

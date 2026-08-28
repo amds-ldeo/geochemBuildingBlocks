@@ -71,14 +71,24 @@ reason to split the field.
 
 ## Two things worth deciding before adoption
 
-**`XrayQuantification` overlaps `CalibrationUncertainty`.** Four fields
-— Detection Limit, Detection Limit Method, Secondary Reference
-Materials, Normalization / Standards-Based Correction — are in the
-existing ICP-MS draft *and* in three electron-beam tables. They are
-cross-family, not ICP-MS-specific. Either `CalibrationUncertainty`
-becomes the shared home and `XrayQuantification` drops them, or they move
-to a neutral module both compose. We have not chosen; they appear here so
-the overlap is visible rather than silently duplicated a second time.
+**`XrayQuantification` overlapped `CalibrationUncertainty` — resolved 2026-08-26.**
+The overlapping fields belong in an **existing** module, not a new one:
+`Module_Blank`, whose 12 consumers are exactly their carrier set. A draft
+`QuantificationQuality` module was written and then withdrawn once that match
+was measured — a new module there would have duplicated one already in the
+library. Measured across all 16 tables rather than
+either family: `Detection Limit`, `Detection Limit Method` and
+`Normalization / Standards-Based Correction` are each carried by **12 of
+16** tables with **identical** Procedure tier, Analysis tier, Data Type
+and Keyed By — cross-family by measurement, not by assertion.
+
+`Secondary Reference Materials` did **not** move. Its structure splits
+exactly on the family boundary: `defines: standard per analyte` in the
+three electron-beam tables, `defines: standard` in the nine ICP-MS ones.
+A field whose structure differs is refused, not averaged, so it stays in
+both family drafts with that difference recorded. It is also the field
+the open `defines: standard per analyte` question turns on, so moving it
+would have buried a decision rather than made one.
 
 **Interference is not one concept across families.** The existing
 `InterferenceHandling` draft covers isobaric and molecular overlap in
