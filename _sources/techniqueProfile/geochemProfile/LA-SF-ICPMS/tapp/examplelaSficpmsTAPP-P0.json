@@ -16,10 +16,10 @@
     "bios:LabProtocol"
   ],
   "schema:name": "example procedureName",
-  "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
+  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault",
+      "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -39,7 +39,7 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laSficpmsTAPP/makeUpGasAndFlowRateDefault",
+      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -49,17 +49,14 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laSficpmsTAPP/instrumentWarmUpSessionDurationLimit",
+      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsTAPP/instrumentWarmUpSessionDurationLimit"
-        }
-      ],
-      "schema:name": "Instrument Warm-up / Session Duration Limit",
-      "schema:value": "example value"
+      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
+      "schema:name": "Instrument Warm up Session Duration Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/laSficpmsTAPP/eScanRange",
@@ -89,20 +86,17 @@
       "schema:value": "example value"
     },
     {
-      "@id": "ada:parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign"
-        }
-      ],
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "schema:value": "example value"
+      "schema:valueName": "multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi Run Sequential Analysis Design",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laSficpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@id": "ada:parameter/module/ICPMS/uncertaintyPropagationMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -112,61 +106,30 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laSficpmsTAPP/matrixOffsetCorrection",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsTAPP/matrixOffsetCorrection"
-        }
-      ],
-      "schema:name": "Matrix Offset Correction (LIEF)",
-      "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsTAPP/detectionLimitDefault",
+      "@id": "ada:parameter/module/LaserAblation/matrixOffsetCorrectionLief",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
+      "schema:valueName": "matrixOffsetCorrectionLief",
+      "schema:name": "Matrix Offset Correction LIEF",
+      "ada:dataType": "string",
       "ada:fieldScope": "session"
     }
   ],
-  "ada:sampleIntroduction": "example sampleIntroduction",
   "ada:carrierGasFlowRateDefault": "example carrierGasAndFlowRate",
-  "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault": "example analysisSequence",
   "ada:massResolutionAssignment": "example massResolutionAssignment",
   "ada:ionCounterDeadTimeDefault": 1.0,
   "ada:totalIntegrationTimePerOutputDataPointDefault": 1.0,
   "ada:backgroundCountTimeDefault": 1.0,
-  "ada:internalStandardApproach": "example internalStandardApproach",
-  "ada:internalStandardElement": "example internalStandardElement",
-  "ada:perAnalyteCalibrationStrategy": [
-    "example perAnalyteCalibrationStrategy"
-  ],
-  "ada:elementalFractionationCorrection": [
-    "example elementalFractionationCorrection"
-  ],
   "ada:massBiasCorrectionStrategy": "example massBiasCorrectionStrategy",
-  "ada:uncertaintyLevel": "2σ (95% confidence)",
-  "ada:signalIntegrationIntervalMethod": "example signalIntegrationIntervalMethod",
-  "ada:blankBackgroundCorrectionMethod": "example blankBackgroundCorrectionMethod",
   "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
-  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName",
-  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
-  "ada:secondaryReferenceMaterialDefault": [
-    "example secondaryReferenceMaterials"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS"
+      "schema:termCode": "LA-SF-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -204,5 +167,23 @@
   ],
   "ada:ablationSpotDurationDefault": 1.0,
   "ada:ablationPitDepthRateDefault": "example ablationPitDepthAndAblationRate",
-  "ada:rasterLineSpacingDefault": "example rasterLineSpacing"
+  "ada:rasterLineSpacingDefault": "example rasterLineSpacing",
+  "ada:internalStandardApproach": "example internalStandardApproach",
+  "ada:sampleIntroduction": "example sampleIntroduction",
+  "ada:elementalFractionationCorrection": [
+    "example elementalFractionationCorrection"
+  ],
+  "ada:uncertaintyLevel": "2σ (95% confidence)",
+  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
+  "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank",
+  "ada:internalStandardElement": "example internalStandardElement",
+  "ada:perAnalyteCalibrationStrategy": [
+    "example perAnalyteCalibrationStrategy"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Full acquisition",
+  "ada:secondaryReferenceMaterialDefault": [
+    "example secondaryReferenceMaterials"
+  ],
+  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName"
 }

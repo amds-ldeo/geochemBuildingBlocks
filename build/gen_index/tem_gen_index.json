@@ -1,8 +1,8 @@
 {
  "tapp_props": [
-  "ada:samplePreparationMethod",
+  "ada:samplePreparationMethodDefault",
   "ada:samplingUnit",
-  "ada:targetSelectionCriteriaDefault",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:aberrationCorrector",
   "ada:spectroscopicDetectorDefault",
   "ada:edsDetectorConfiguration",
@@ -11,10 +11,10 @@
   "ada:acceleratingVoltageDefault",
   "ada:analyticalSubModeDefault",
   "ada:convergenceSemiAngle",
-  "ada:stemDwellTimePerPixelDefault",
+  "ada:dwellTimePerPixelDefault",
   "ada:cameraLengthDefault",
   "ada:edsAcquisitionModeDefault",
-  "ada:edsQuantificationMethod",
+  "ada:matrixCorrectionMethod",
   "ada:reportedVariablesAndUnits",
   "ada:eelsAcquisitionModeDefault",
   "ada:eelsEdgesDefault",
@@ -50,20 +50,22 @@
   "tem_edsEnergyRangeDefault",
   "tem_eelsBackgroundSubtractionMethodDefault",
   "tem_eelsPluralScatteringCorrectionDefault",
+  "tem_eelsChemicalStateDeterminationMethodDefault",
   "tem_imageProcessingMethodsAppliedDefault",
   "tem_specimenThicknessDeterminationMethodDefault",
   "tem_eelsEnergyCalibrationDefault",
   "tem_diffractionCalibrationReferenceDefault",
   "tem_edsDetectionLimitDefault",
   "tem_edsCountingStatisticsAccumulationCriterionDefault",
-  "tem_eelsSensitivityAndDetectionLimitDefault"
+  "tem_eelsDetectionLimitDefault"
  ],
  "pv_keys": [
   "tem_coupledProcedureDoi",
   "tem_coupledDatasetOrPublicationReference",
+  "tem_samplePreparationMethod",
   "tem_samplePreparationDetails",
   "tem_samplePersistentIdentifier",
-  "tem_targetSelectionCriteria",
+  "tem_samplingUnitSelectionCriteria",
   "tem_preAnalysisImagingAndScreening",
   "tem_sampleHolder",
   "tem_spectroscopicDetector",
@@ -76,7 +78,7 @@
   "tem_haadfCollectionAngles",
   "tem_stemProbeDiameter",
   "tem_stemProbeCurrent",
-  "tem_stemDwellTimePerPixel",
+  "tem_dwellTimePerPixel",
   "tem_stemScanDimensions",
   "tem_stemFrameAveraging",
   "tem_cameraLength",
@@ -94,6 +96,7 @@
   "tem_eelsEnergyLossRange",
   "tem_eelsBackgroundSubtractionMethod",
   "tem_eelsPluralScatteringCorrection",
+  "tem_eelsChemicalStateDeterminationMethod",
   "tem_imageProcessingMethodsApplied",
   "tem_specimenThicknessDeterminationMethod",
   "tem_calibrationFactorAndDeterminationMethod",
@@ -115,7 +118,7 @@
   "analysisInclusionAndRejectionCriteria",
   "edsDetectionLimit",
   "edsDeadTime",
-  "eelsSensitivityAndDetectionLimit",
+  "eelsDetectionLimit",
   "goodnessOfFitOrDispersionStatistic"
  ],
  "detail_req_multivol": [],
@@ -127,7 +130,7 @@
   "ada:TEMTabular"
  ],
  "basic_required": [
-  "ada:samplePreparationMethod",
+  "ada:samplePreparationMethodDefault",
   "ada:aberrationCorrector",
   "ada:spectroscopicDetectorDefault",
   "ada:edsDetectorConfiguration",
@@ -135,10 +138,10 @@
   "ada:acceleratingVoltageDefault",
   "ada:analyticalSubModeDefault",
   "ada:convergenceSemiAngle",
-  "ada:stemDwellTimePerPixelDefault",
+  "ada:dwellTimePerPixelDefault",
   "ada:cameraLengthDefault",
   "ada:edsAcquisitionModeDefault",
-  "ada:edsQuantificationMethod",
+  "ada:matrixCorrectionMethod",
   "ada:eelsAcquisitionModeDefault",
   "ada:eelsEdgesDefault",
   "ada:eelsCollectionSemiAngle",
@@ -149,7 +152,7 @@
  ],
  "basic_props": [
   {
-   "key": "ada:samplePreparationMethod",
+   "key": "ada:samplePreparationMethodDefault",
    "item": "Sample Preparation Method",
    "jtype": "string",
    "cov": 21,
@@ -163,8 +166,8 @@
    "required": false
   },
   {
-   "key": "ada:targetSelectionCriteriaDefault",
-   "item": "Target Selection Criteria",
+   "key": "ada:samplingUnitSelectionCriteriaDefault",
+   "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
    "cov": 0,
    "required": false
@@ -226,8 +229,8 @@
    "required": true
   },
   {
-   "key": "ada:stemDwellTimePerPixelDefault",
-   "item": "STEM Dwell Time per Pixel",
+   "key": "ada:dwellTimePerPixelDefault",
+   "item": "Dwell Time per Pixel",
    "jtype": "number",
    "cov": 4,
    "required": true
@@ -247,8 +250,8 @@
    "required": true
   },
   {
-   "key": "ada:edsQuantificationMethod",
-   "item": "EDS Quantification Method",
+   "key": "ada:matrixCorrectionMethod",
+   "item": "Matrix Correction Method",
    "jtype": "string",
    "cov": 7,
    "required": true

@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P9",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v31.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
   "schema:object": [
     {
       "@type": [
@@ -74,16 +74,14 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "N/A — no isotope dilution applied"
           },
           {
@@ -215,16 +213,14 @@
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionMcicpmsTAPP/interfaceConeConfiguration",
+              "@id": "ada:parameter/module/ICPMS/configuration",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/interfaceConeConfiguration"
-                }
-              ],
-              "schema:name": "Interface Cone Configuration",
+              "schema:valueName": "configuration",
+              "schema:name": "Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "\"Normal skimmer and sampler cones were utilized\""
             }
           ],
@@ -364,15 +360,7 @@
       "schema:value": "N/A — no added internal standard element"
     }
   ],
-  "ada:sampleSequenceDesign": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
-  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:oxideProductionMethodAndThreshold": "Argide and Ar-Ar-oxide interferences on 94Zr and 96Zr minimised by tuning; no numeric threshold stated",
-  "ada:blankBackgroundCorrectionMethod": "N/A",
-  "ada:primaryStandardNameDefault": "NIST SRM 3169",
-  "ada:calibrationMeasurementFrequency": "Each session — \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, BCR-2, AGV-1, SCo-1; eucrites Bouvante and Bereba; CO chondrite Colony"
-  ],
+  "ada:analysisSequenceDefault": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -410,52 +398,21 @@
   "ada:chromatographicSeparationApplied": "Yes — four-step separation on anion exchange (AG 1-X8), DGA and LN resin; two-stage anion exchange for Ivuna; three-stage AG 1-X8 + LN for terrestrial samples",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "0.5 M HNO3 - 0.005 M HF at 30 ppb Zr (also 17 and 60 ppb)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Zr"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "Both quoted: \"external precision expressed as 2 standard deviations (2SD)\" and 2SE per analysis",
+  "ada:calibrationMeasurementFrequency": "Each session — \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
+  "ada:oxideProductionMethodAndThreshold": "Argide and Ar-Ar-oxide interferences on 94Zr and 96Zr minimised by tuning; no numeric threshold stated",
+  "ada:blankBackgroundCorrectionMethod": "\"An on-peak background correction was performed\"; background corrections averaged 0.3, 2 and 98 ppm for 91Zr/90Zr, 92Zr/90Zr and 96Zr/90Zr",
+  "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:secondaryReferenceMaterialDefault": [
+    "BHVO-2, BCR-2, AGV-1, SCo-1; eucrites Bouvante and Bereba; CO chondrite Colony"
+  ],
+  "ada:primaryStandardNameDefault": "NIST SRM 3169",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"

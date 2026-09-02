@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — Agilent7500",
-  "schema:description": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2).",
+  "schema:description": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2).",
   "schema:object": [
     {
       "@type": [
@@ -74,16 +74,14 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "IUPAC isotope dilution equations with ID-IS internal standard normalization (stated section 2)"
           },
           {
@@ -185,20 +183,18 @@
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -324,12 +320,12 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -355,31 +351,7 @@
       }
     ]
   },
-  "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
-  "ada:internalStandardApproach": "N/A",
   "ada:driftCorrectionMethod": "IS normalization",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution (all analytes)"
-  ],
-  "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.04,
-      "schema:description": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -405,79 +377,27 @@
   "ada:isotopeDilutionSpike": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)",
   "ada:finalSolutionMatrix": "0.5 mol/l HNO3 (stated section 2)",
   "ada:washTimeBetweenSamples": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Cd",
-      "In",
-      "Tl",
-      "Bi (with 149Sm as ID-IS reference; stated section 2)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
+  "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
+  ],
+  "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"

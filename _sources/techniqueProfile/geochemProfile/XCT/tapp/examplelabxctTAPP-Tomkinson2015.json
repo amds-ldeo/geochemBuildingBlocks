@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol — Tomkinson2015",
-  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v37.csv).",
   "schema:object": [
     {
       "@type": [
@@ -139,6 +139,12 @@
       ],
       "ada:acceleratingVoltageDefault": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)",
       "ada:voxelSizeDefault": "10.3 × 10.3 × 10.3 µm³",
+      "schema:manufacturer": {
+        "schema:name": "Nikon",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "schema:model": {
         "schema:name": "Nikon Metris XTH 225",
         "@type": [
@@ -155,6 +161,7 @@
   ],
   "ada:numberOfProjectionsDefault": "3143",
   "ada:exposureTimePerProjectionDefault": "20 s",
+  "ada:samplingUnitSelectionCriteriaDefault": "Single 2.7 g chip (~1.1 x 1.2 x 0.8 cm) taken from the outer part of one stone, selected because it provides a profile from the weathered exterior to the fresh interior; six 2-D slices at ~1 mm spacing extracted for modal analysis",
   "ada:reconstructionAlgorithm": "Filtered back projection (Nikon proprietary)",
   "ada:segmentationMethodDefault": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume",
   "schema:measurementTechnique": [
@@ -184,6 +191,18 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnit": "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)",
+  "ada:analyticalMode": [
+    "Single-volume"
+  ],
+  "ada:reportedProperties": [
+    "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite; slice area (mm2)"
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method"
+    }
+  ],
   "ada:applicableSampleDimensionRange": "missing",
   "ada:beamHardeningCorrectionMethod": "missing",
   "ada:detectorType": "missing",
@@ -191,8 +210,6 @@
   "ada:outputDataFormatDefault": "missing",
   "ada:rotationModeDefault": "missing",
   "ada:rotationRangeDefault": -9999,
-  "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "missing"
 }

@@ -37,7 +37,6 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Ultramicrotomy",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -51,6 +50,7 @@
             "schema:defaultValue": "Particles embedded in low-viscosity epoxy; thin sections ~60 nm thick prepared by ultramicrotomy"
           }
         ],
+        "schema:description": "Ultramicrotomy",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -70,17 +70,6 @@
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -280,8 +269,8 @@
     }
   ],
   "ada:stemDwellTimePerPixelDefault": "50 µs/pixel",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "HRTEM lattice fringes + SAED: metallic npFe0 grains (<5 nm) identified by bcc iron d-spacings (Fig. 6 FFT: iron 110 spacings); pyrrhotite superstructure reflections present in core and absent in disordered rim (SAED + FFT); olivine composition by TEM-EDX (Fo70)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -296,29 +285,6 @@
     ],
     "schema:name": "Robert M. Walker Laboratory for Space Science, Code KR, Astromaterials Research and Exploration Science (ARES), NASA Johnson Space Center"
   },
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Si",
-      "Mg",
-      "Fe",
-      "S",
-      "Al",
-      "Ca",
-      "Ti",
-      "O"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -328,6 +294,6 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

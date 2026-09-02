@@ -1,7 +1,7 @@
 {
  "tapp_props": [
   "ada:samplingUnit",
-  "ada:samplePreparationMethod",
+  "ada:samplePreparationMethodDefault",
   "ada:digestionAcid",
   "ada:digestionVesselType",
   "ada:numberOfDigestionSteps",
@@ -13,7 +13,7 @@
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
   "ada:guardElectrode",
-  "ada:massResolutionSetting",
+  "ada:massResolutionSettingDefault",
   "ada:collisionReactionCellConfiguration",
   "ada:detectorConfiguration",
   "ada:nebulizerType",
@@ -30,7 +30,7 @@
   "ada:monitoredMasses",
   "ada:dwellTimePerMassDefault",
   "ada:numberOfScansPerReplicate",
-  "ada:analysisSequence",
+  "ada:analysisSequenceDefault",
   "ada:washTimeBetweenSamples",
   "ada:signalCollectionMode",
   "ada:collisionGasType",
@@ -39,12 +39,11 @@
   "ada:internalStandardElement",
   "ada:oxideProductionMethodAndThreshold",
   "ada:ionCounterDeadTimeDefault",
-  "ada:internalStandardApproach",
   "ada:driftCorrectionMethod",
   "ada:perAnalyteCalibrationStrategy",
   "ada:signalIntegrationIntervalMethod",
   "ada:blankBackgroundCorrectionMethod",
-  "ada:isobaricInterferenceCorrectionsApplied",
+  "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
   "ada:isotopeDilutionDataReductionMethod",
@@ -87,11 +86,13 @@
   "solutionQicpms_coupledProcedureDoi",
   "solutionQicpms_coupledDatasetOrPublicationReference",
   "solutionQicpms_samplePersistentIdentifier",
+  "solutionQicpms_samplePreparationMethod",
   "solutionQicpms_digestionTemperature",
   "solutionQicpms_digestionDuration",
   "solutionQicpms_sampleAliquotMassOrVolume",
   "solutionQicpms_instrumentSerialNumberOrLabIdentifier",
   "solutionQicpms_torchDepth",
+  "solutionQicpms_massResolutionSetting",
   "solutionQicpms_sampleUptakeRate",
   "solutionQicpms_dataProcessingSoftware",
   "solutionQicpms_rfPower",
@@ -102,6 +103,7 @@
   "solutionQicpms_icpTuning",
   "solutionQicpms_instrumentSensitivity",
   "solutionQicpms_dwellTimePerMass",
+  "solutionQicpms_analysisSequence",
   "solutionQicpms_collisionGasFlowRate",
   "solutionQicpms_cellExitDiscriminationVoltage",
   "solutionQicpms_reactionGasFlowRate",
@@ -149,7 +151,7 @@
  ],
  "basic_required": [
   "ada:samplingUnit",
-  "ada:samplePreparationMethod",
+  "ada:samplePreparationMethodDefault",
   "ada:digestionAcid",
   "ada:digestionVesselType",
   "ada:numberOfDigestionSteps",
@@ -161,7 +163,7 @@
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
   "ada:guardElectrode",
-  "ada:massResolutionSetting",
+  "ada:massResolutionSettingDefault",
   "ada:collisionReactionCellConfiguration",
   "ada:detectorConfiguration",
   "ada:nebulizerType",
@@ -177,18 +179,17 @@
   "ada:monitoredMasses",
   "ada:dwellTimePerMassDefault",
   "ada:numberOfScansPerReplicate",
-  "ada:analysisSequence",
+  "ada:analysisSequenceDefault",
   "ada:washTimeBetweenSamples",
   "ada:signalCollectionMode",
   "ada:collisionGasType",
   "ada:collisionGasFlowRateDefault",
   "ada:internalStandardElement",
   "ada:oxideProductionMethodAndThreshold",
-  "ada:internalStandardApproach",
   "ada:driftCorrectionMethod",
   "ada:perAnalyteCalibrationStrategy",
   "ada:blankBackgroundCorrectionMethod",
-  "ada:isobaricInterferenceCorrectionsApplied",
+  "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
   "ada:isotopeDilutionDataReductionMethod",
@@ -212,7 +213,7 @@
    "required": true
   },
   {
-   "key": "ada:samplePreparationMethod",
+   "key": "ada:samplePreparationMethodDefault",
    "item": "Sample Preparation Method",
    "jtype": "string",
    "cov": 6,
@@ -296,7 +297,7 @@
    "required": true
   },
   {
-   "key": "ada:massResolutionSetting",
+   "key": "ada:massResolutionSettingDefault",
    "item": "Mass Resolution Setting",
    "jtype": "string",
    "cov": 5,
@@ -415,7 +416,7 @@
    "required": true
   },
   {
-   "key": "ada:analysisSequence",
+   "key": "ada:analysisSequenceDefault",
    "item": "Analysis Sequence",
    "jtype": "string",
    "cov": 1,
@@ -478,13 +479,6 @@
    "required": false
   },
   {
-   "key": "ada:internalStandardApproach",
-   "item": "Internal Standard Approach",
-   "jtype": "string",
-   "cov": 3,
-   "required": true
-  },
-  {
    "key": "ada:driftCorrectionMethod",
    "item": "Drift Correction Method",
    "jtype": "string",
@@ -513,8 +507,8 @@
    "required": true
   },
   {
-   "key": "ada:isobaricInterferenceCorrectionsApplied",
-   "item": "Isobaric Interference Corrections Applied",
+   "key": "ada:spectralInterferenceCorrectionsApplied",
+   "item": "Spectral Interference Corrections Applied",
    "jtype": "string",
    "cov": 6,
    "required": true

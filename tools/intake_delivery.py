@@ -114,9 +114,21 @@ def main():
             if not p:
                 continue
             tot += 1
-            if norm.recognize(p)[0] is None:
+            # Normalise BEFORE recognising, exactly as schemapath_io.load_spec does before the
+            # emitter parses. mechanical() is not cosmetic: it expands the SUPPORTED author
+            # shorthand `prov:used[sel]` into `prov:used.<kind>[sel]`, collapses a doubled dot and
+            # fixes `Schema:`/`scheme:`. Checking the raw cell reported 14 rows as broken that the
+            # pipeline had always handled correctly, and buried the one that really was broken
+            # (`schema:used` for `prov:used`, which nothing normalises) among them.
+            if norm.recognize(norm.mechanical(norm.preclean(p)))[0] is None:
                 bad += 1
-                print(f"    UNRECOGNISED [{label}] {r['Metadata Item']}: {p[:100]}")
+                # Printed in FULL, on its own line. Truncating at 100 characters hid the part
+                # that identifies the defect: of the four classes in the 2026-09 sweep, three —
+                # a missing `.schema:instrument` hop, `schema:used` for `prov:used`, and a stray
+                # double dot — are only visible in the tail. A truncated path says a row is broken
+                # without saying how, which is the one thing this report exists to say.
+                print(f"    UNRECOGNISED [{label}] {r['Metadata Item']}")
+                print(f"        {p}")
     print(f"\n{tot} paths, {bad} unrecognised")
     if not bad:
         print("(a clean sweep here is necessary but not sufficient — recognize() accepts some paths")

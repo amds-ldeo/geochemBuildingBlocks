@@ -126,6 +126,29 @@ and emits **nothing**, while a looser recognizer happily calls it `direct-ada`. 
 therefore pass every check and contribute no schema at all. UpperCamel `ada:` segments are now
 rejected rather than silently dropped.
 
+**`schema:used` is always an error for `prov:used`.** schema.org has no `used` property, so the
+segment navigates to a key no base schema declares: the emitter writes it, nothing validates
+against it, and the field is placed nowhere. On the `$Dataset` side the provenance activity carries
+what it used as `prov:used`. Nothing normalises this — unlike the shorthand below, it is not a
+short spelling of anything — so the parser **rejects** it.
+
+**`prov:used[selector]` is supported shorthand, not an error.** `prov:used` is a role-keyed
+wrapper, so the canonical form puts the selector on the entity inside it —
+`prov:used.schema:instrument[schema:additionalType='TEM']`. Authors may write either;
+`normalize_schema_paths.mechanical()` expands the short form by selector key
+(`schema:additionalType` → `schema:instrument`, `ada:toolRole` → `bios:computationalTool`,
+`ada:reagentRole` → `prov:reagent`), and `schemapath_io.load_spec()` applies that before the
+emitter parses. **Any tool that checks a raw sidecar cell must normalise first** — checking the
+raw value reports canonical-equivalent rows as broken, which is exactly what `intake_delivery`
+did until 2026-09-02.
+
+**A `schema:step` selector literal is sentence-case.** `'Data reduction'`, `'Sample preparation'`,
+`'Data acquisition'`, `'Sample digestion'`, `'Ion milling'` — first word capitalised, the rest not.
+The literal IS the node's identity, so `'Data Reduction'` and `'Data reduction'` build two separate
+steps: eight rows carrying the Title-Case spelling made a technique row read as diverging from the
+module that placed it identically, and left examples declaring a step the composed schema did not
+require. Confirmed as the convention 2026-09-02.
+
 **`$Dataset.schema:additionalProperty[…]` and
 `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[…]` are different things.** The first
 (`dataset-parameter`) is a property of the delivered DATA — the area a map covers, the dimensions of

@@ -38,17 +38,17 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproachDefault",
+      "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "spikeOutlierFilteringApproachDefault",
-      "schema:name": "Spike / Outlier Filtering Approach",
+      "schema:valueName": "filteringApproachDefault",
+      "schema:name": "Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@id": "ada:parameter/module/ICPMS/uncertaintyPropagationMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -56,36 +56,13 @@
       "schema:name": "Uncertainty Propagation Method",
       "ada:dataType": "string",
       "ada:fieldScope": "session"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session"
     }
   ],
   "ada:massCyclesPerReplicate": 1,
   "ada:numberOfReplicatesPerSample": 1,
-  "ada:sampleSequenceDesign": "example analysisSequence",
+  "ada:analysisSequenceDefault": "example analysisSequence",
   "ada:signalCollectionMode": "Peak hopping",
-  "ada:internalStandardElement": "example internalStandardElement",
-  "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
-  "ada:internalStandardApproach": "Drift correction only",
   "ada:driftCorrectionMethod": "IS normalization",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Full replicate",
-  "ada:blankBackgroundCorrectionMethod": "On-peak zero",
-  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName",
-  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
-  "ada:secondaryReferenceMaterialDefault": [
-    "example secondaryReferenceMaterials"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -124,8 +101,22 @@
     "example reportedVariablesAndUnits"
   ],
   "schema:description": "example additionalNotes",
-  "ada:chromatographicSeparationApplied": "Anion exchange resin (HCl)",
+  "ada:chromatographicSeparationApplied": "Yes",
   "ada:isotopeDilutionSpike": "example isotopeDilutionSpike",
   "ada:finalSolutionMatrix": "example finalSolutionMatrix",
-  "ada:washTimeBetweenSamples": 1.0
+  "ada:washTimeBetweenSamples": 1.0,
+  "ada:ionCounterDeadTimeDefault": 1.0,
+  "ada:uncertaintyLevel": "2σ (95% confidence)",
+  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
+  "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank",
+  "ada:internalStandardElement": "example internalStandardElement",
+  "ada:perAnalyteCalibrationStrategy": [
+    "example perAnalyteCalibrationStrategy"
+  ],
+  "ada:signalIntegrationIntervalMethod": "Full acquisition",
+  "ada:secondaryReferenceMaterialDefault": [
+    "example secondaryReferenceMaterials"
+  ],
+  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName"
 }

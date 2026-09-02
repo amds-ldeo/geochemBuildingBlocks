@@ -31,7 +31,7 @@ BBDIR = os.path.join(ROOT, "_sources", "BaseSchema", "modules")
 # copies drifted the moment a new module arrived - this one still lowercased TargetSelection to
 # `targetselection` after the builder had been taught lowerCamelCase, so composition emitted a $ref
 # to a directory that does not exist. One definition, one behaviour.
-from build_module_bb import DIRNAME, dirname
+from build_module_bb import DIRNAME, dirname, is_composable
 SIDE = {"MethodDefinition": "Procedure", "Dataset": "Analysis"}
 _BB_CACHE = {}
 
@@ -81,13 +81,15 @@ def _is_composable(path):
     unless each side already knows about the other, which defeats composing them.
 
     Everything else composes: top-level properties, the instrument tree, workflow steps, dqv
-    measurements, the provenance activity. 54 of the 105 module paths, and all 22 of Group1's.
+    measurements, the provenance activity.
 
     Parameters therefore stay with the technique, which is not harmful duplication: the technique
     enumerates which parameters exist — its own table lists them — and the module says what they
-    mean. That is the owned-versus-overlay division the library already uses.
+    mean. That is the owned-versus-overlay division the library already uses. Since the 2026-09
+    delivery the same reasoning covers keyed-table column arrays and default-row arrays; the
+    predicate lives in build_module_bb so this planner and that generator cannot drift apart.
     """
-    return "schema:additionalProperty" not in path
+    return is_composable(path)
 
 
 def _module_placed(name):

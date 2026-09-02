@@ -11,13 +11,26 @@
     "skos:ConceptScheme"
   ],
   "skos:prefLabel": "Blank / Background Correction Method",
-  "skos:definition": "Method used to subtract instrument background and/or procedural blank from sample signals.",
+  "skos:definition": "Method used to subtract background and, where relevant, procedural blank from the measured signal. State what is subtracted - instrument background acquired with no sample reaching the plasma, an on-peak zero acquired on the same matrix, or a separately measured procedural blank - over what interval",
   "schema:identifier": "ada:vocab/solutionSficpmsTAPP/blankBackgroundCorrectionMethod",
   "schema:dateModified": "2026-07-31",
   "schema:license": [
     "https://creativecommons.org/licenses/by/4.0/"
   ],
   "skos:hasTopConcept": [
+    {
+      "@id": "ada:vocab/solutionSficpmsTAPP/blankBackgroundCorrectionMethod/Gas_blank",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Gas blank",
+      "skos:notation": "Gas blank",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/solutionSficpmsTAPP/blankBackgroundCorrectionMethod"
+        }
+      ]
+    },
     {
       "@id": "ada:vocab/solutionSficpmsTAPP/blankBackgroundCorrectionMethod/On-peak_zero",
       "@type": [
@@ -51,6 +64,19 @@
       ],
       "skos:prefLabel": "Procedural blank",
       "skos:notation": "Procedural blank",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/solutionSficpmsTAPP/blankBackgroundCorrectionMethod"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/solutionSficpmsTAPP/blankBackgroundCorrectionMethod/On-peak_zero_procedural_blank",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "On-peak zero + procedural blank",
+      "skos:notation": "On-peak zero + procedural blank",
       "skos:inScheme": [
         {
           "@id": "ada:vocab/solutionSficpmsTAPP/blankBackgroundCorrectionMethod"

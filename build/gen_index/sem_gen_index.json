@@ -2,7 +2,7 @@
  "tapp_props": [
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnit",
-  "ada:targetSelectionCriteriaDefault",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:ionBeamSource",
   "ada:seDetectorType",
   "ada:bseDetectorType",
@@ -40,18 +40,18 @@
   "ada:sliceThicknessDefault",
   "ada:matrixCorrectionMethod",
   "ada:massAbsorptionCoefficients",
-  "ada:backgroundCorrectionMethodDefault",
+  "ada:xRayBackgroundCorrectionMethodDefault",
   "ada:wdsDeadTimeCorrection",
   "ada:ebsdIndexingMethod",
   "ada:crystalStructureDatabaseDefault",
   "ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault",
+  "ada:segmentationMethodDefault",
   "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
-  "ada:interferenceCorrectionsApplied",
+  "ada:xRayLineOverlapCorrectionsApplied",
   "ada:detectionLimitMethod",
   "schema:additionalProperty"
  ],
@@ -81,7 +81,7 @@
   "sem_coupledDatasetOrPublicationReference",
   "sem_samplePreparationMethod",
   "sem_samplePersistentIdentifier",
-  "sem_targetSelectionCriteria",
+  "sem_samplingUnitSelectionCriteria",
   "sem_preAnalysisImagingAndScreening",
   "sem_dataProcessingSoftware",
   "sem_acceleratingVoltage",
@@ -109,7 +109,7 @@
   "sem_foilThickness",
   "sem_ionMillingConditions",
   "sem_sliceThickness",
-  "sem_backgroundCorrectionMethod",
+  "sem_xRayBackgroundCorrectionMethod",
   "sem_timeDependentIntensityCorrection",
   "sem_halogenCorrectionOnOxygen",
   "sem_blankCorrection",
@@ -117,7 +117,7 @@
   "sem_crystalStructureDatabase",
   "sem_ebsdPatternQualityThreshold",
   "sem_imageRegistration3D",
-  "sem_segmentationMethod3D",
+  "sem_segmentationMethod",
   "sem_calibrationFactorAndDeterminationMethod",
   "sem_constantsAndReferenceValuesUsed",
   "sem_primaryCalibrationStandardName",
@@ -185,7 +185,7 @@
   "ada:matrixCorrectionMethod",
   "ada:crystalStructureDatabaseDefault",
   "ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault",
+  "ada:segmentationMethodDefault",
   "ada:primaryCalibrationStandardNameDefault"
  ],
  "basic_props": [
@@ -204,8 +204,8 @@
    "required": false
   },
   {
-   "key": "ada:targetSelectionCriteriaDefault",
-   "item": "Target Selection Criteria",
+   "key": "ada:samplingUnitSelectionCriteriaDefault",
+   "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
    "cov": 0,
    "required": false
@@ -470,8 +470,8 @@
    "required": false
   },
   {
-   "key": "ada:backgroundCorrectionMethodDefault",
-   "item": "Background Correction Method",
+   "key": "ada:xRayBackgroundCorrectionMethodDefault",
+   "item": "X-ray Background Correction Method",
    "jtype": "string",
    "cov": 0,
    "required": false
@@ -505,8 +505,8 @@
    "required": true
   },
   {
-   "key": "ada:segmentationMethod3DDefault",
-   "item": "3D Segmentation Method",
+   "key": "ada:segmentationMethodDefault",
+   "item": "Segmentation Method",
    "jtype": "string",
    "cov": 2,
    "required": true
@@ -547,9 +547,9 @@
    "required": false
   },
   {
-   "key": "ada:interferenceCorrectionsApplied",
-   "item": "Interference Corrections Applied",
-   "jtype": "boolean",
+   "key": "ada:xRayLineOverlapCorrectionsApplied",
+   "item": "X-ray Line Overlap Corrections Applied",
+   "jtype": "string",
    "cov": 0,
    "required": false
   },

@@ -64,6 +64,24 @@
           ]
         },
         {
+          "prov:reagent": [
+            {
+              "ada:reagentRole": "primaryStandard",
+              "schema:name": "example primaryCalibrationStandardName",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            },
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "example secondaryReferenceMaterials",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        },
+        {
           "bios:computationalTool": [
             {
               "ada:toolRole": "acquisition",
@@ -107,20 +125,6 @@
             }
           ],
           "schema:name": "Beam Raster Dimensions",
-          "schema:value": 1,
-          "schema:unitText": "example value"
-        },
-        {
-          "@id": "ada:parameter/empaTAPP/detectionLimit",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/empaTAPP/detectionLimit"
-            }
-          ],
-          "schema:name": "Detection Limit",
           "schema:value": 1,
           "schema:unitText": "example value"
         },
@@ -186,13 +190,13 @@
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening",
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
               "@type": [
                 "schema:PropertyValue"
               ],
               "schema:propertyID": [
                 {
-                  "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
                 }
               ],
               "schema:name": "Pre-Analysis Imaging and Screening",
@@ -203,24 +207,13 @@
           "schema:identifier": "example samplePersistentIdentifier"
         }
       ],
+      "ada:deadTime": 1.0,
+      "ada:proceduralBlankLevel": "example proceduralBlankLevel",
       "schema:actionProcess": {
         "schema:step": [
           {
             "schema:name": "Data reduction",
             "schema:additionalProperty": [
-              {
-                "@id": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/empaTAPP/normalizationStandardsBasedCorrection"
-                  }
-                ],
-                "schema:name": "Normalization / Standards-Based Correction",
-                "schema:value": "example value"
-              },
               {
                 "@id": "ada:parameter/module/Core/constantsReferenceValues",
                 "@type": [
@@ -238,12 +231,10 @@
           },
           {
             "schema:name": "Sample preparation",
-            "schema:description": "example samplePreparationMethod"
+            "schema:description": "Polished thin section"
           }
         ]
       },
-      "ada:deadTime": 1.0,
-      "ada:proceduralBlankLevel": "example proceduralBlankLevel",
       "schema:location": {
         "@type": [
           "schema:Place"
@@ -313,7 +304,7 @@
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "EBSD",
+        "schema:name": "example coupledTechnique",
         "schema:description": "example couplingDescription"
       }
     },

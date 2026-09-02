@@ -26,7 +26,7 @@
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
       "ada:beamDiameterDefault": "1-2 µm (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 µm defocused (maskelynite, phosphate, sulfide, glass)",
-      "ada:beamMode": "Defocused",
+      "ada:beamMode": "Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 µm (maskelynite, phosphate, sulfide, glass)",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -116,50 +116,8 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass"
-    },
-    {
-      "@id": "ada:parameter/empaTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.03,
-      "schema:description": "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as shared conditions with UT)"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections (coating type N)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -205,166 +163,34 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Si",
-      "Ti",
-      "Al",
-      "Mg",
-      "Ca",
-      "Fe",
-      "Mn",
-      "Cr",
-      "Ni",
-      "Na",
-      "K",
-      "P (from detection limits table; conditions shared with UT)"
-    ],
-    "ada:analyteColumns": [
+  "schema:actionProcess": {
+    "schema:step": [
       {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections (coating type N)",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:name": "example instrumentName"
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
       },
       {
-        "@id": "ada:analyteColumn/empaTAPP/analyteEstimationMethod",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
         ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/backgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCorrectionMethod",
-        "schema:name": "Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/beamCurrent",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/blankCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "blankCorrection",
-        "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerAnalyte",
-        "schema:name": "EPMA Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/interferenceCorrectionStandard",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/interferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/interferingElements",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/primaryCalibrationStandardName",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/secondaryReferenceMaterials",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "secondaryReferenceMaterials",
-        "schema:name": "Secondary Reference Materials",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/empaTAPP/timeDependentIntensityCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
+        "schema:position": 2
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -380,9 +206,10 @@
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }

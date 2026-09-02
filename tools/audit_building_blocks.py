@@ -483,6 +483,17 @@ def check_shacl_completeness(bb_dir, name, is_type_library=False):
             # array, or an anyOf umbrella that delegates to other BBs), so a
             # NodeShape is not applicable; rules.shacl is an intentional placeholder.
             info.append("rules.shacl has no sh:NodeShape (isTypeLibrary: SHACL not applicable)")
+        elif "SHACL-NOT-APPLICABLE:" in shacl_text:
+            # An instantiable BB can still have nothing to assert. geochemProduct is the case:
+            # its schema.yaml carries NO root `required` at all — it is a permissive base that
+            # profiles narrow (adaProduct adds the real shapes) — so any NodeShape written here
+            # would invent constraints the JSON Schema does not make, which is worse than the
+            # empty file. The declaration has to be MACHINE-READABLE and carry a reason, so a
+            # genuinely missing shape still fails; a prose comment alone would let every BB
+            # silently opt out.
+            why = next((ln.split("SHACL-NOT-APPLICABLE:", 1)[1].strip()
+                        for ln in shacl_text.splitlines() if "SHACL-NOT-APPLICABLE:" in ln), "")
+            info.append(f"rules.shacl has no sh:NodeShape (declared not applicable: {why})")
         else:
             issues.append("rules.shacl has no sh:NodeShape definitions")
     else:

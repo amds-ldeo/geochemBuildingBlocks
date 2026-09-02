@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Zega2025",
-  "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction).",
+  "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,6 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -51,6 +50,7 @@
             "schema:defaultValue": "ThermoScientific Helios G3 FIB-SEM (K-ALFAA); 12-µm × 4-µm C capping layer; lamellae thinned to electron transparency at 30 keV, 2.5 to 0.8 nA; standard stair-step method"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -61,18 +61,7 @@
         "schema:position": 1
       },
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
         "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data Reduction",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
@@ -93,7 +82,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 2
       }
     ],
     "@type": [
@@ -262,8 +251,8 @@
       "schema:defaultValue": "20 keV (2048 channels)"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "CRISP software (SAED patterns); Adobe Photoshop d-spacing measurement based on calibrated camera constants",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -297,31 +286,6 @@
       "schema:name": "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Si",
-      "Mg",
-      "Al",
-      "Fe (sheet silicates)",
-      "Fe",
-      "S",
-      "Ni (sulfides)",
-      "C",
-      "Si",
-      "Fe (carbonates/nanoglobules)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -331,6 +295,6 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

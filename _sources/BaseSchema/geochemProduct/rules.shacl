@@ -8,6 +8,15 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://www.ogc.org/rules/template/> .
 
+# SHACL-NOT-APPLICABLE: permissive base with no root `required`; profiles add the shapes.
+#
 # geochemProduct is a JSON-Schema-driven base profile. Structural constraints are
 # expressed in schema.yaml; no additional SHACL shapes are imposed at the generic
 # base level (archive-specific profiles such as adaProduct add their own).
+#
+# Concretely: schema.yaml declares no root `required` list, so there is no obligation a
+# NodeShape here could restate. Writing one would ASSERT constraints the JSON Schema does
+# not make — e.g. demanding schema:distribution of every geochemProduct — and instances
+# the schema calls valid would start failing SHACL. adaProduct, which does narrow the base,
+# carries the real shapes (adaProductShape and friends). If geochemProduct ever gains root
+# requirements, delete this marker and write the shape.

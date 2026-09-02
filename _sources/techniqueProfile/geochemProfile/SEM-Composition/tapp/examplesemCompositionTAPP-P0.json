@@ -16,7 +16,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "example procedureName",
-  "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
+  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semCompositionTAPP/beamRasterDimensionsDefault",
@@ -78,7 +78,7 @@
       ],
       "schema:valueName": "halogenCorrectionOnOxygenDefault",
       "schema:name": "Halogen Correction on Oxygen",
-      "ada:dataType": "boolean",
+      "ada:dataType": "string",
       "ada:fieldScope": "session"
     },
     {
@@ -93,24 +93,18 @@
       ],
       "schema:name": "EDS Spectral Processing Type",
       "schema:value": "example value"
-    },
-    {
-      "@id": "ada:parameter/semCompositionTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session"
     }
   ],
-  "ada:edsAcquisitionMode": "Point / spot",
+  "ada:edsAcquisitionMode": "Point",
   "ada:edsLiveTimePerPointOrPixelDefault": 1.0,
   "ada:stepSizePixelSizeDefault": 1.0,
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
   "ada:massAbsorptionCoefficients": "LINEMU",
   "ada:wdsDeadTimeCorrection": "Default constant (manufacturer)",
+  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName",
+  "ada:secondaryReferenceMaterialDefault": [
+    "example secondaryReferenceMaterials"
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [

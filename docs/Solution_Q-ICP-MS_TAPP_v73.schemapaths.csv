@@ -1,0 +1,154 @@
+﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes,Key by
+Procedure Name,Basic,Read-Only,Text (free),,module,shared,placement owned by Module Core,
+Technique,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
+Procedure Author,Basic,Read-Only,Text (free),,module,shared,placement owned by Module Core,
+Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
+Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
+Procedure Start Date,Basic,Read-Only,Date,,module,shared,placement owned by Module Core,
+Funding Source for Procedure Development,Advanced,Read-Only,Text (free),,module,shared,placement owned by Module Core,
+Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,shared,placement owned by Module Core,
+Procedure DOI,N/A,Basic,URI / DOI,,module,shared,placement owned by Module Core,
+Analyst,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
+Analysis Start Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
+Analysis End Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
+Funding Source for Analysis,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
+Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
+Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
+Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
+Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
+Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,shared,,
+Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
+Sample Description,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:description,authored,shared,analysis-instance (needs mapping),
+Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
+Digestion Acid(s),Basic,Read-Only,Text (free),,module,shared,placement owned by Module SolutionIntroduction,preparation step
+Digestion Vessel Type,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample digestion'].schema:additionalProperty[schema:name='Digestion Vessel Type'].schema:value,authored,shared,,
+Number of Digestion Steps,Basic,Read-Only,Integer,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample digestion'].schema:additionalProperty[schema:name='Number of Digestion Steps'].schema:value,authored,shared,,defines: preparation step
+Digestion Temperature,Basic,Editable,Numeric (°C),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample digestion'].schema:additionalProperty[schema:name='Digestion Temperature'].schema:defaultValue,authored,shared,dual-home decision: protocol default,preparation step
+Digestion Temperature,Basic,Editable,Numeric (°C),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample digestion'].schema:additionalProperty[schema:name='Digestion Temperature'].schema:value,authored,shared,dual-home decision: analysis-tier value,preparation step
+Digestion Duration,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample digestion'].schema:additionalProperty[schema:name='Digestion Duration'].schema:defaultValue,authored,shared,dual-home decision: protocol default,preparation step
+Digestion Duration,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample digestion'].schema:additionalProperty[schema:name='Digestion Duration'].schema:value,authored,shared,dual-home decision: analysis-tier value,preparation step
+Final Solution Matrix,Basic,Read-Only,Text (free),,module,shared,placement owned by Module SolutionIntroduction,
+Sample Aliquot Mass or Volume,Advanced,Editable,Numeric (mg or mL),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Aliquot Mass or Volume'].schema:value,authored,shared,,sample
+Sample Aliquot Mass or Volume,Advanced,Editable,Numeric (mg or mL),$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Aliquot Mass or Volume'].schema:defaultValue,authored,shared,,sample
+Chromatographic Separation Applied,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module SolutionIntroduction,
+Isotope Dilution Spike,Basic,Read-Only,Text (free),,module,shared,placement owned by Module SolutionIntroduction,
+Instrument Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:model.schema:name,authored,shared,instrument selector added; ICPMS is the only instrument this sidecar declares,
+ICP-MS Type,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module ICPMS,
+Instrument Serial Number or Lab Identifier,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Instrument Serial Number or Lab Identifier'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
+Instrument Serial Number or Lab Identifier,Advanced,Editable,Text (free),,module,shared,placement owned by Module ICPMS,
+Torch Type,Advanced,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,
+Interface Cone Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Configuration'].schema:value,authored,shared,,
+Sampler and Skimmer Cone Material,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Sampler and Skimmer Cone Material'].schema:value,authored,shared,,
+Torch Depth,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Torch'].schema:additionalProperty[schema:name='Torch Depth'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
+Torch Depth,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Torch'].schema:additionalProperty[schema:name='Torch Depth'].schema:value,authored,shared,dual-home decision: analysis-tier value,
+Guard Electrode,Basic,Read-Only,Controlled list,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data acquisition'].schema:additionalProperty[schema:name='Guard Electrode'].schema:value,inferred,shared,,
+Mass Resolution Setting,Basic,Editable,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Mass Resolution Setting'].schema:value,inferred,divergent,,
+Collision/Reaction Cell (CRC) Configuration,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CollisionCell,channel
+Detector Configuration,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Detector Configuration'].schema:value,inferred,shared,,
+Nebulizer Type,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Sample Introduction System'].schema:additionalProperty[schema:name='Nebulizer Type'].schema:value,authored,shared,,
+Spray Chamber Type and Cooling Temperature,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Sample Introduction System'].schema:additionalProperty[schema:name='Spray Chamber Type and Cooling Temperature'].schema:value,authored,shared,,
+Desolvation System,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:additionalProperty[schema:name='Desolvation System'].schema:value,inferred,shared,,
+Sample Uptake Rate,Basic,Editable,Numeric (µL/min or mL/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Sample Introduction System'].schema:additionalProperty[schema:name='Sample Uptake Rate'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
+Sample Uptake Rate,Basic,Editable,Numeric (µL/min or mL/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Sample Introduction System'].schema:additionalProperty[schema:name='Sample Uptake Rate'].schema:value,authored,shared,dual-home decision: analysis-tier value,
+Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
+RF Power,Basic,Editable,Numeric (W),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='RF Power'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
+RF Power,Basic,Editable,Numeric (W),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='RF Power'].schema:value,authored,shared,dual-home decision: analysis-tier value,
+Coolant (Plasma) Gas Flow Rate,Basic,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Coolant Plasma Gas Flow Rate'].schema:defaultValue,authored,shared,,
+Coolant (Plasma) Gas Flow Rate,Basic,Editable,Numeric (L/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Coolant Plasma Gas Flow Rate'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
+Auxiliary Gas Flow Rate,Basic,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Auxiliary Gas Flow Rate'].schema:defaultValue,authored,shared,,
+Auxiliary Gas Flow Rate,Basic,Editable,Numeric (L/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Auxiliary Gas Flow Rate'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
+Nebulizer Gas Flow Rate,Basic,Editable,Numeric (L/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Sample Introduction System'].schema:additionalProperty[schema:name='Nebulizer Gas Flow Rate'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
+Nebulizer Gas Flow Rate,Basic,Editable,Numeric (L/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Sample Introduction System'].schema:additionalProperty[schema:name='Nebulizer Gas Flow Rate'].schema:value,authored,shared,dual-home decision: analysis-tier value,
+Make-up Gas and Flow Rate,Advanced,Editable,Numeric (L/min) / Text,$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Sample Introduction System'].schema:additionalProperty[schema:name='Make-up Gas and Flow Rate'].schema:value,authored,shared,,
+Make-up Gas and Flow Rate,Advanced,Editable,Numeric (L/min) / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Make-up Gas and Flow Rate'].schema:defaultValue,authored,shared,,
+Plasma Thermal Mode,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Plasma Thermal Mode'].schema:value,authored,shared,"read-only: fixed protocol value, not a default",
+Analyte,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: analyte
+Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:channelTemplate.ada:defaultChannels[],authored,,Keyed By: channel (pilot),defines: channel per analyte
+Dwell Time per Mass,Basic,Editable,Numeric (ms) / Text,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,,Keyed By: channel (pilot),channel
+Number of Scans per Replicate,Basic,Read-Only,Integer,$MethodDefinition.ada:massCyclesPerReplicate,inferred,,,
+Number of Replicates,Advanced,Basic,Integer,$MethodDefinition.ada:numberOfReplicatesPerSample,inferred,shared,,
+Analysis Sequence,Basic,Editable,Text (free),$MethodDefinition.ada:sampleSequenceDesign,inferred,shared,,
+Wash Time Between Samples,Basic,Read-Only,Numeric (s),,module,shared,placement owned by Module SolutionIntroduction,
+Signal Collection Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:signalCollectionMode,inferred,shared,,
+Collision Gas Type,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Collision Gas Type'].schema:value,authored,shared,,channel
+Collision Gas Flow Rate,Basic,Editable,Numeric (mL/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Gas Flow Rate'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
+Collision Gas Flow Rate,Basic,Editable,Numeric (mL/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Gas Flow Rate'].schema:value,authored,shared,dual-home decision: analysis-tier value,
+Cell Exit Discrimination Voltage,Basic,Editable,Numeric (V),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Cell Exit Discrimination Voltage'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
+Cell Exit Discrimination Voltage,Basic,Editable,Numeric (V),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Cell Exit Discrimination Voltage'].schema:value,authored,shared,dual-home decision: analysis-tier value,
+Reaction Gas Type,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Type'].schema:value,authored,shared,,channel
+Reaction Gas Flow Rate,Advanced,Editable,Numeric (mL/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
+Reaction Gas Flow Rate,Advanced,Editable,Numeric (mL/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:value,authored,shared,dual-home decision: analysis-tier value,
+Internal Standard Element,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,
+Internal Standard Concentration,Advanced,Read-Only,Numeric (µg/L),$MethodDefinition.schema:additionalProperty[schema:name='Internal Standard Concentration'].schema:value,inferred,shared,,
+Oxide Production Method and Threshold,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,
+Oxide Production,N/A,Basic,Text (free),,module,shared,placement owned by Module ICPMS,
+Doubly-Charged Species Monitor,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Doubly Charged Species Monitor'].schema:value,authored,shared,,
+Doubly-Charged Species Monitor,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Doubly Charged Species Monitor'].schema:defaultValue,authored,shared,,
+Doubly-Charged Species Production,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Doubly Charged Species Production'].schema:value,authored,shared,,
+Doubly-Charged Species Production,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Doubly Charged Species Production'].schema:defaultValue,authored,shared,,
+Drift Correction Method,Basic,Read-Only,Controlled list,$MethodDefinition.ada:driftCorrectionMethod,inferred,shared,,
+Per-Analyte Calibration Strategy,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,analyte
+Signal Integration Interval Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module ICPMS,
+Signal Integration Time,N/A,Basic,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value,inferred,shared,,
+Blank / Background Correction Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module ICPMS,
+Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Spike / Outlier Filtering Approach'].schema:value,authored,shared,,
+Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Spike / Outlier Filtering Approach'].schema:defaultValue,authored,shared,,
+Pulse/Analog Detector Nonlinearity Correction,Advanced,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Pulse Analog Detector Nonlinearity Correction'].schema:value,authored,shared,,
+Pulse/Analog Detector Nonlinearity Correction,Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Pulse Analog Detector Nonlinearity Correction'].schema:defaultValue,authored,shared,,
+Spectral Interference Corrections Applied,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,,Keyed By: channel (pilot),
+Interfering Species,Basic,Read-Only,Text (free),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,,Keyed By: channel (pilot),channel
+Interference Correction Method,Basic,Read-Only,Text (free),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],authored,,Keyed By: channel (pilot),channel
+Isotope Dilution Data Reduction Method,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied,
+Memory Effect Mitigation,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:value,authored,shared,,
+Memory Effect Mitigation,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:defaultValue,authored,shared,,
+Uncertainty Propagation Method,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Uncertainty Propagation Method'].schema:value,authored,shared,,reported property
+Uncertainty Propagation Method,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Uncertainty Propagation Method'].schema:defaultValue,authored,shared,,reported property
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
+Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
+Primary Calibration Standard Name,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,analyte
+Primary Calibration Standard Name,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,analyte
+Calibration Standard Measurement Frequency,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,
+Secondary Reference Materials,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,defines: standard
+Secondary Reference Materials,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,defines: standard
+Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
+Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
+Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
+Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
+Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
+Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
+Limit of Quantification (LOQ) Method,Advanced,Basic,Controlled list / Text,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,,reported property
+Within-Session Analytical Precision and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,,standard x reported property
+Between-Session (Long-Term) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,,standard x reported property
+Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],inferred,shared,,standard x reported property
+Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
+Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
+Sample Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample
+Sampling Unit,Basic,Basic,Controlled list / Text,,module,module,covered by a composed module; the module owns the placement,defines: sampling unit
+Analytical Mode,Basic,Read-Only,Controlled list,,module,,placement owned by Module Core,
+Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core (reviewer settled the reported-property list as $MethodDefinition.ada:reportedProperties[]),defines: reported property
+Uncertainty Level,Basic,Read-Only,Controlled list / Text,,module,module,covered by a composed module; the module owns the placement,
+Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,module,covered by a composed module; the module owns the placement,reported property
+Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:proceduralBlankLevel,authored,,shared analysis-instance row,analyte
+Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:defaultValue,authored,,data-reduction step parameter,
+Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:defaultValue,authored,,"data-reduction step parameter, following geochronTAPP",
+Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:value,authored,,"data-reduction step parameter, following geochronTAPP",
+Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,module,covered by a composed module; the module owns the placement,reported property
+Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
+Instrument Manufacturer,Basic,Read-Only,Controlled list,,flagged,,new in this revision (needs mapping),
+ICP Tuning,Advanced,Editable,Text (free),,flagged,,new in this revision (needs mapping),
+Instrument Warm-up / Session Duration Limit,Advanced,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),
+Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,,module,module,covered by a composed module; the module owns the placement,channel
+Collision/Reaction Gas Mixture Ratio,Advanced,Editable,Text (free),,flagged,,new in this revision (needs mapping),channel
+Reaction Product Ion / Mass-Shift Transition,Advanced,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),channel
+Ion Counter Dead Time,Basic,Editable,Numeric (ns),,module,module,covered by a composed module; the module owns the placement,channel
+Counting Statistics Error,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property
+Internal (Within-Measurement) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property

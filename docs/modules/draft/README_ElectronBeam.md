@@ -71,30 +71,34 @@ reason to split the field.
 
 ## Two things worth deciding before adoption
 
-**`XrayQuantification` overlapped `CalibrationUncertainty` — resolved 2026-08-26.**
-The overlapping fields belong in an **existing** module, not a new one:
-`Module_Blank`, whose 12 consumers are exactly their carrier set. A draft
-`QuantificationQuality` module was written and then withdrawn once that match
-was measured — a new module there would have duplicated one already in the
-library. Measured across all 16 tables rather than
-either family: `Detection Limit`, `Detection Limit Method` and
-`Normalization / Standards-Based Correction` are each carried by **12 of
-16** tables with **identical** Procedure tier, Analysis tier, Data Type
-and Keyed By — cross-family by measurement, not by assertion.
+**`XrayQuantification` overlapped `CalibrationUncertainty` — SETTLED UPSTREAM 2026-09-02.**
+We measured `Detection Limit`, `Detection Limit Method` and `Normalization /
+Standards-Based Correction` as carried by **12 of 16** tables at identical
+Procedure tier, Analysis tier, Data Type and Keyed By, and proposed folding
+them into the existing `Module_Blank`, whose 12 consumers are exactly their
+carrier set. Ruolin instead created **`Module_CompositionQC`** for them (same
+12 consumers), which is the same call with a different home — and a better one,
+since a blank is not a detection limit. `CalibrationUncertainty` was deleted
+along with the other adopted ICP-MS drafts; only `XrayQuantification` remains
+here, minus those three fields.
 
-`Secondary Reference Materials` did **not** move. Its structure splits
-exactly on the family boundary: `defines: standard per analyte` in the
-three electron-beam tables, `defines: standard` in the nine ICP-MS ones.
-A field whose structure differs is refused, not averaged, so it stays in
-both family drafts with that difference recorded. It is also the field
-the open `defines: standard per analyte` question turns on, so moving it
-would have buried a decision rather than made one.
+`Secondary Reference Materials` **did** move, and the way it moved answered the
+open question. We refused it because its structure split on the family boundary
+— `defines: standard per analyte` in the three electron-beam tables,
+`defines: standard` in the nine ICP-MS ones — and a field whose structure
+differs is refused, not averaged. Upstream removed the split instead:
+`af3f7bc` harmonised the electron-beam three to `defines: standard`, and the
+field is now in `Module_CompositionQC`. The right move was to reconcile the
+tables, which is upstream's to make, not to average them here.
 
-**Interference is not one concept across families.** The existing
-`InterferenceHandling` draft covers isobaric and molecular overlap in
-mass spectrometry. `SpectralInterference` here covers X-ray line overlap.
-The names rhyme and the physics does not, so they are kept separate
-deliberately.
+**Interference is not one concept across families.** The `InterferenceHandling`
+draft covered isobaric and molecular overlap in mass spectrometry;
+`SpectralInterference` here covers X-ray line overlap. The names rhyme and the
+physics does not, so they were kept separate deliberately — and upstream kept
+them separate too: the mass-spectrometry fields went into `Module_ICPMS`, while
+the X-ray ones are still in no module. The 2026-09 delivery renamed the
+electron-beam field to `X-ray Line Overlap Corrections Applied`, which makes the
+distinction visible in the name.
 
 ## Not addressed
 

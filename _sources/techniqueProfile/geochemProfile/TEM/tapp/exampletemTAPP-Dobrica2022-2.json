@@ -37,7 +37,6 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -51,6 +50,7 @@
             "schema:defaultValue": "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 µm thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -70,17 +70,6 @@
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -219,8 +208,8 @@
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "ADF",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3–CaCO3–(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5–10 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/temTAPP/edsDetectionLimitDefault",
@@ -268,32 +257,6 @@
       "schema:name": "Bruker Esprit 1.9"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Ca",
-      "Fe",
-      "Mn",
-      "Si",
-      "Al",
-      "Cr",
-      "C",
-      "O",
-      "S",
-      "P (from Table 1)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -303,7 +266,7 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

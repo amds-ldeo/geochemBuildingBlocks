@@ -47,6 +47,9 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 GP = REPO_ROOT / "_sources" / "BaseSchema"
 DEFAULT_CACHE = REPO_ROOT / "tools" / "componentType_enum_cache.json"
 DEFAULT_XLSX = REPO_ROOT.parent.parent / "amds-ldeo" / "metadata" / "ADA-AnalyticalMethodsAndAttributes.xlsx"
+# OGC nil reason, declared in _sources/registry/vocab/componentType.json as nil:missing
+NIL_MISSING = "nil:missing"
+
 DESC = "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping (see tools/apply_componentType_enums.py)."
 
 yaml = YAML()
@@ -125,6 +128,14 @@ def replace_componentType_in(node, enum_values, *, only_top_level: bool = False,
 def apply_to_bb_schemas(mapping: dict) -> int:
     files_changed = 0
     for bb_name, enum_values in sorted(mapping.items()):
+        # Every enum also admits the OGC nil reason. It is not a component type and so is not in
+        # the Components worksheet, but a file whose classification is genuinely unavailable has
+        # to be describable — otherwise the only way to express "not known yet" is to omit
+        # ada:componentType, which the profile-level anyOf rejects outright. Applies to all file
+        # types, hence injected here rather than carried per-row in the spreadsheet.
+        enum_values = list(enum_values)
+        if NIL_MISSING not in enum_values:
+            enum_values.append(NIL_MISSING)
         path = GP / bb_name / "schema.yaml"
         if not path.exists():
             print(f"  SKIP {bb_name}: no schema.yaml at {path}")

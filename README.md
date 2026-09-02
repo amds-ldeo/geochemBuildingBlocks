@@ -90,11 +90,20 @@ A module defines a shared field **once** instead of once per technique.
 `_sources/BaseSchema/modules/*` is generated from the sidecars in
 `docs/modules/Module_*.schemapaths.csv` — never hand-edit a module.
 
-Composition works and is unevenly applied: across the 16 technique
-`tapp/` schemas, **242 parameters are composed from a module and 694 are
-minted per technique (25%)**, ranging from 39% for LA-MC-ICPMS-UPb down
-to 7% for Lab-XCT. The spread tracks which modules exist — there are
-modules for the ICP-MS families and none for electron-beam or tomography.
+Across the 16 technique `tapp/` schemas, **651 parameter slots are
+composed from a module against 231 minted per technique (73%)**, ranging
+from 100% for Solution-MC-ICPMS down to 7% for Lab-XCT. The spread tracks
+which modules exist: the 2026-09 delivery added `ICPMS`, `CollisionCell`
+and `CompositionQC`, which took the ICP-MS families from ~25% to 78–100%,
+while electron-beam and tomography still have no family module.
+
+That percentage counts **parameters** — entries under
+`schema:additionalProperty` — not all properties, and it ignores the
+module ROOT `$defs` a technique composes, so it understates what a module
+supplies. **100% is not reachable**: of the 79 distinct fields no module
+covers, 50 are carried by exactly one table and a module needs two
+consumers. See MODULE_CONSOLIDATION_STATUS.md for the full definition and
+the ~85% ceiling.
 
 - **[docs/modules/MODULE_CONSOLIDATION_STATUS.md](docs/modules/MODULE_CONSOLIDATION_STATUS.md)**
   — current state: what was measured and how to reproduce it, what is
@@ -102,9 +111,11 @@ modules for the ICP-MS families and none for electron-beam or tomography.
 - **`agents.md` §"Module composition"** — how composition actually works,
   including why parameters compose differently from structural fields and
   why some duplication is correct.
-- **`docs/modules/draft/`** — 14 provisional `Draft_Module_*.csv` (6
-  ICP-MS, 8 electron-beam) proposed for the library. Ours and
-  provisional; the library's modules are Ruolin's to author.
+- **`docs/modules/draft/`** — 8 provisional `Draft_Module_*.csv`, all
+  electron-beam. Ours and provisional; the library's modules are Ruolin's
+  to author. The six ICP-MS drafts were **adopted upstream** in the
+  2026-09 delivery and deleted from here; eight of their fields were not
+  taken up and are recorded in `docs/upstream-requests.md` §1.
 
 One measurement warning: **do not count duplication in
 `_sources/registry/`.** Those catalogues are per-technique by
@@ -152,7 +163,7 @@ Browse the building blocks at: https://amds-ldeo.github.io/geochemBuildingBlocks
 
 **[docs/TAPP-schema-generation-workflow.md](docs/TAPP-schema-generation-workflow.md) is the authoritative walkthrough** — written for three audiences (workbook author, pipeline maintainer, form builder) with a flowchart of the whole path from spreadsheet to validated schema. Read it first; the summary here is orientation only.
 
-> **TAPP source = the `tapp/` git submodule ([amds-ldeo/tapp](https://github.com/amds-ldeo/tapp)).** The TAPP tables and modules live in that submodule, not in this repo; `tools/tapp_source.py:current_delivery()` resolves to `tapp/` (falling back to any inline `TAPPS<date>/` drop). Clone with `git clone --recursive`, or run `git submodule update --init` in an existing checkout, before regenerating. Pin/bump the delivery by updating the submodule commit. **Note:** the pinned submodule is a *newer* drop than the committed schemas were built from — adopting it is a deliberate delivery migration (repoint `TAPP_CONFIGS`, `migrate_sidecar`, regenerate, validate), not yet done.
+> **TAPP source = the `tapp/` git submodule ([amds-ldeo/tapp](https://github.com/amds-ldeo/tapp)).** The TAPP tables and modules live in that submodule, not in this repo; `tools/tapp_source.py:current_delivery()` resolves to `tapp/` (falling back to any inline `TAPPS<date>/` drop). Clone with `git clone --recursive`, or run `git submodule update --init` in an existing checkout, before regenerating. Pin/bump the delivery by updating the submodule commit — a deliberate act, because `.gitmodules` sets `update = none` to stop the OGC postprocess workflow advancing the pointer on its own. The committed schemas are built from the pinned revision (`af3f7bc`, adopted 2026-09-02).
 
 One hand-authored TAPP table per technique (a CSV in the `tapp/` submodule's `Current TAPPs/`) drives everything downstream. Nothing generated should ever be hand-edited — fix the table (upstream, in `amds-ldeo/tapp`) or a tool and regenerate.
 

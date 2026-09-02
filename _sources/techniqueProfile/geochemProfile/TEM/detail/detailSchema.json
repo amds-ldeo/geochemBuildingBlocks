@@ -45,7 +45,7 @@
                                                                 "type": "array",
                                                                 "items": {
                                                                     "title": "Sample Preparation Details",
-                                                                    "description": "Detailed description of section preparation conditions: FIB milling voltages and currents; final thinning conditions and target foil thickness; protective coating type and deposition method (e.g., e-beam vs. ion-beam Pt or C strip — e-beam deposition causes less surface damage); any post-FIB surface cleanup (e.g., low-energy Ar+ ion polishing in a Fischione NanoMill, final 0.5–2 kV Ga+ thinning); sample transfer and storage environment (ambient air, dry N₂ atmosphere, vacuum transfer holder, glovebox); plasma cleaning before loading. Analysts record session-specific observations and deviations from the procedure standard. Includes preparation artifacts noted (Ga implantation, amorphization, curtaining).",
+                                                                    "description": "Detailed description of section preparation conditions: FIB milling voltages and currents; final thinning conditions and target foil thickness; protective coating type and deposition method (e.g., e-beam vs. ion-beam Pt or C strip — e-beam deposition causes less surface damage); any post-FIB surface cleanup (e.g., low-energy Ar+ ion polishing in a Fischione NanoMill, final 0.5–2 kV Ga+ thinning); sample transfer and storage environment (ambient air, dry N₂ atmosphere, vacuum transfer holder, glovebox); plasma cleaning before loading. Includes session-specific observations and deviations from the procedure standard. Includes preparation artifacts noted (Ga implantation, amorphization, curtaining).",
                                                                     "type": "object",
                                                                     "properties": {
                                                                         "@id": {
@@ -82,7 +82,7 @@
                                                                     {
                                                                         "contains": {
                                                                             "title": "Sample Preparation Details",
-                                                                            "description": "Detailed description of section preparation conditions: FIB milling voltages and currents; final thinning conditions and target foil thickness; protective coating type and deposition method (e.g., e-beam vs. ion-beam Pt or C strip — e-beam deposition causes less surface damage); any post-FIB surface cleanup (e.g., low-energy Ar+ ion polishing in a Fischione NanoMill, final 0.5–2 kV Ga+ thinning); sample transfer and storage environment (ambient air, dry N₂ atmosphere, vacuum transfer holder, glovebox); plasma cleaning before loading. Analysts record session-specific observations and deviations from the procedure standard. Includes preparation artifacts noted (Ga implantation, amorphization, curtaining).",
+                                                                            "description": "Detailed description of section preparation conditions: FIB milling voltages and currents; final thinning conditions and target foil thickness; protective coating type and deposition method (e.g., e-beam vs. ion-beam Pt or C strip — e-beam deposition causes less surface damage); any post-FIB surface cleanup (e.g., low-energy Ar+ ion polishing in a Fischione NanoMill, final 0.5–2 kV Ga+ thinning); sample transfer and storage environment (ambient air, dry N₂ atmosphere, vacuum transfer holder, glovebox); plasma cleaning before loading. Includes session-specific observations and deviations from the procedure standard. Includes preparation artifacts noted (Ga implantation, amorphization, curtaining).",
                                                                             "type": "object",
                                                                             "properties": {
                                                                                 "@id": {
@@ -127,7 +127,7 @@
                                                     "if": {
                                                         "properties": {
                                                             "schema:name": {
-                                                                "const": "Data Reduction"
+                                                                "const": "Data reduction"
                                                             }
                                                         },
                                                         "required": [
@@ -142,7 +142,7 @@
                                                                     "anyOf": [
                                                                         {
                                                                             "title": "EELS Plural Scattering Correction",
-                                                                            "description": "Method applied to correct for multiple inelastic scattering events (plural scattering) that broaden edge fine structure. Critical for specimens thicker than ~0.5 inelastic mean free paths. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                                                            "description": "Method applied to correct for multiple inelastic scattering events (plural scattering) that broaden edge fine structure. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                                                                             "type": "object",
                                                                             "properties": {
                                                                                 "@id": {
@@ -209,6 +209,9 @@
                                                                                 "schema:name",
                                                                                 "schema:value"
                                                                             ]
+                                                                        },
+                                                                        {
+                                                                            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
                                                                         }
                                                                     ]
                                                                 },
@@ -216,7 +219,7 @@
                                                                     {
                                                                         "contains": {
                                                                             "title": "EELS Plural Scattering Correction",
-                                                                            "description": "Method applied to correct for multiple inelastic scattering events (plural scattering) that broaden edge fine structure. Critical for specimens thicker than ~0.5 inelastic mean free paths. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                                                            "description": "Method applied to correct for multiple inelastic scattering events (plural scattering) that broaden edge fine structure. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                                                                             "type": "object",
                                                                             "properties": {
                                                                                 "@id": {
@@ -290,31 +293,7 @@
                                                                         },
                                                                         "minContains": 0,
                                                                         "maxContains": 1
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "if": {
-                                                        "properties": {
-                                                            "schema:name": {
-                                                                "const": "Data reduction"
-                                                            }
-                                                        },
-                                                        "required": [
-                                                            "schema:name"
-                                                        ]
-                                                    },
-                                                    "then": {
-                                                        "properties": {
-                                                            "schema:additionalProperty": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
-                                                                },
-                                                                "allOf": [
+                                                                    },
                                                                     {
                                                                         "contains": {
                                                                             "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
@@ -351,11 +330,11 @@
                                 "items": {
                                     "anyOf": [
                                         {
-                                            "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria"
+                                            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
                                         },
                                         {
                                             "title": "Sample Holder",
-                                            "description": "Type of specimen holder used. Cryo holders (liquid N2 to ~110 K) are critical for minimizing beam-induced damage to organic matter and beam-sensitive phases. Heating holders enable in-situ experiments.",
+                                            "description": "Type of specimen holder used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -425,7 +404,7 @@
                                         },
                                         {
                                             "title": "Analytical Sub-mode",
-                                            "description": "Sub-mode(s) of imaging or diffraction performed under this procedure. TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM. STEM Imaging options: HAADF, ABF, BF-STEM, ADF, MAADF. Electron Diffraction options: SAED, CBED, Nanobeam diffraction, Precession ED, 4D-STEM. Multiple values apply when the procedure covers more than one sub-mode within a given analytical mode.",
+                                            "description": "Sub-mode(s) of imaging or diffraction performed under this procedure. Multiple values apply when the procedure covers more than one sub-mode within a given analytical mode.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -495,7 +474,7 @@
                                         },
                                         {
                                             "title": "HAADF Collection Angles",
-                                            "description": "Inner and outer collection angles of the HAADF detector in milliradians (mrad). The inner angle determines the boundary between diffracted and thermally diffuse scattered electrons; larger inner angles yield stronger Z-contrast and reduced Bragg contrast. Inner angle is most critical and can be derived from camera length and detector geometry. In HAADF-STEM a shorter camera length increases the inner angle, yielding more thermally diffuse (Z-contrast) and less Bragg-diffraction signal.",
+                                            "description": "Inner and outer collection angles of the HAADF detector in milliradians (mrad). Inner angle can be derived from camera length and detector geometry.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -530,7 +509,7 @@
                                         },
                                         {
                                             "title": "STEM Probe Diameter",
-                                            "description": "Nominal or measured diameter of the focused electron probe at the sample, reported in nm. Serves as a direct spatial resolution proxy for STEM imaging and STEM-EDS/EELS analysis. Related to, but distinct from, Convergence Semi-Angle: the two quantities are connected via aberration coefficients, defocus, and probe current, which are not always published. Report whichever is known; if both are known, report both fields. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
+                                            "description": "Nominal or measured diameter of the focused electron probe at the sample, reported in nm. Related to, but distinct from, Convergence Semi-Angle: the two quantities are connected via aberration coefficients, defocus, and probe current, which are not always published. Report whichever is known; if both are known, report both fields. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -576,7 +555,7 @@
                                         },
                                         {
                                             "title": "STEM Probe Current",
-                                            "description": "Probe current in picoamperes (pA) or nanoamperes (nA). Higher current improves EDS/EELS signal but increases beam damage risk, especially for organic matter and hydrous minerals. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
+                                            "description": "Probe current in picoamperes (pA) or nanoamperes (nA). Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -621,12 +600,12 @@
                                             ]
                                         },
                                         {
-                                            "title": "STEM Dwell Time per Pixel",
-                                            "description": "Time spent acquiring signal at each pixel during STEM scanning in milliseconds. Longer dwell improves signal-to-noise but increases total specimen dose; for dose-sensitive materials, minimize dwell and compensate with frame averaging. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe Position'.",
+                                            "title": "Dwell Time per Pixel",
+                                            "description": "Time spent acquiring signal at each pixel during STEM scanning in milliseconds. For dose-sensitive materials, minimize dwell and compensate with frame averaging. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe Position'.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
-                                                    "const": "ada:parameter/temTAPP/stemDwellTimePerPixel"
+                                                    "const": "ada:parameter/temTAPP/dwellTimePerPixel"
                                                 },
                                                 "@type": {
                                                     "const": [
@@ -636,12 +615,12 @@
                                                 "schema:propertyID": {
                                                     "const": [
                                                         {
-                                                            "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
+                                                            "@id": "ada:parameter/temTAPP/dwellTimePerPixel"
                                                         }
                                                     ]
                                                 },
                                                 "schema:name": {
-                                                    "const": "STEM Dwell Time per Pixel"
+                                                    "const": "Dwell Time per Pixel"
                                                 },
                                                 "schema:value": {
                                                     "anyOf": [
@@ -668,7 +647,7 @@
                                         },
                                         {
                                             "title": "STEM Scan Dimensions",
-                                            "description": "Number of pixels in the STEM scan frame (X × Y pixels). Combined with calibrated pixel size, defines the field of view. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
+                                            "description": "Number of pixels in the STEM scan frame (X × Y pixels). Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -714,7 +693,7 @@
                                         },
                                         {
                                             "title": "STEM Frame Averaging",
-                                            "description": "Number of frames averaged (with drift correction if applicable) to produce the final STEM image. Averaging reduces noise while limiting per-frame dose. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
+                                            "description": "Number of frames averaged (with drift correction if applicable) to produce the final STEM image. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -749,7 +728,7 @@
                                         },
                                         {
                                             "title": "Camera Length",
-                                            "description": "Nominal camera length in millimeters used for diffraction pattern acquisition. Controls the mapping between reciprocal-space scattering angle and detector position; must be calibrated to convert pixel distances to d-spacings. In STEM mode, also sets HAADF/ABF detector collection angles. Calibration to absolute d-spacings is required — see 'Diffraction Calibration Reference'. Camera length choice affects HAADF Z-contrast purity: a shorter camera length (e.g. 30 mm) shifts the inner angle toward thermal diffuse scatter; a longer one (e.g. 150 mm) admits more Bragg scatter.",
+                                            "description": "Nominal camera length in millimeters used for diffraction pattern acquisition. Must be calibrated to convert pixel distances to d-spacings. Calibration to absolute d-spacings is required — see 'Diffraction Calibration Reference'.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -830,7 +809,7 @@
                                         },
                                         {
                                             "title": "Precession Angle",
-                                            "description": "Precession semi-angle in degrees for precession electron diffraction (PED). Hollow-cone illumination reduces dynamical diffraction effects and produces more kinematical-like intensities. Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed in Analytical Sub-mode.",
+                                            "description": "Precession semi-angle in degrees for precession electron diffraction (PED). Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed in Analytical Sub-mode.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -911,7 +890,7 @@
                                         },
                                         {
                                             "title": "4D-STEM Dwell Time per Probe Position",
-                                            "description": "Time spent acquiring each diffraction pattern in the 4D-STEM dataset in milliseconds. Longer dwell improves signal-to-noise for weakly diffracting phases (e.g., smectite 001 reflection at ~1.24 nm) but increases total specimen dose; risk of beam damage to phyllosilicates and organic matter must be balanced against data quality. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.",
+                                            "description": "Time spent acquiring each diffraction pattern in the 4D-STEM dataset in milliseconds. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -992,7 +971,7 @@
                                         },
                                         {
                                             "title": "EDS Acquisition Mode",
-                                            "description": "Mode of EDS data acquisition. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, line scan (beam stepped along a transect at defined intervals), or area map / spectrum image (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared analytical mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers what the literature also calls spot or point-spectrum analysis. 'Map' and 'Spectrum image' are distinct acquisitions, not synonyms: a map may retain element intensities alone, whereas a spectrum image retains a full spectrum at every pixel and can be requantified afterwards — record which was acquired. Where more than one mode was used, join them with '; ' rather than looking for a combined member.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1143,7 +1122,7 @@
                                         },
                                         {
                                             "title": "EELS Edges",
-                                            "description": "Ionization edge(s) acquired by EELS, specified by element symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart to the Analyte field: while Analyte lists elements, EELS Edges documents which ionization edges were used and their approximate energy loss positions. The procedure registers the full intended edge suite; analysts confirm or narrow this list at analysis time. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Ionization edge(s) acquired by EELS, specified by element symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart to the Analyte field: while Analyte lists elements, EELS Edges documents which ionization edges were used and their approximate energy loss positions. The edge list may be narrowed at analysis time. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1224,7 +1203,7 @@
                                         },
                                         {
                                             "title": "EELS Energy Loss Range",
-                                            "description": "Energy loss range acquired, defined by onset energy and width in eV. The procedure documents the target range for the registered analyte edges; analysts record the actual range acquired. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Energy loss range acquired, defined by onset energy and width in eV. The target range covers the registered analyte edges; the actual range acquired may differ. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1259,7 +1238,7 @@
                                         },
                                         {
                                             "title": "Specimen Thickness Determination Method",
-                                            "description": "Method used to estimate TEM foil thickness. Required for EELS quantification (log-ratio) and for assessing multiple-scattering severity.",
+                                            "description": "Method used to estimate TEM foil thickness.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1294,7 +1273,7 @@
                                         },
                                         {
                                             "title": "EDS Calibration Standard(s)",
-                                            "description": "Reference material(s) used to validate EDS quantification or determine experimental k-factors or zeta-factors. TEM-EDS is less standardized than EPMA; many procedures rely on manufacturer k-factors without external calibration. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Reference material(s) used to validate EDS quantification or determine experimental k-factors or zeta-factors. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1329,7 +1308,7 @@
                                         },
                                         {
                                             "title": "EELS Energy Calibration",
-                                            "description": "Method and reference used to calibrate the EELS energy axis. Accurate calibration is required for ELNES edge identification, chemical-state analysis, and inter-lab comparability. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Method and reference used to calibrate the EELS energy axis. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1465,6 +1444,41 @@
                                                 },
                                                 "schema:name": {
                                                     "const": "EDS Counting Statistics / Accumulation Criterion"
+                                                },
+                                                "schema:value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        },
+                                        {
+                                            "title": "EELS Chemical State Determination Method",
+                                            "description": "Method used to determine the chemical or oxidation state of an element from the fine structure of its ionization edge (ELNES), together with the reference data or calibration the determination relies on. Name the method family and cite the calibration curve or reference spectra used. Record 'N/A' where no chemical-state determination is made.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "EELS Chemical State Determination Method"
                                                 },
                                                 "schema:value": {
                                                     "type": "string"
@@ -1483,7 +1497,7 @@
                                 "allOf": [
                                     {
                                         "contains": {
-                                            "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria"
+                                            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
@@ -1491,7 +1505,7 @@
                                     {
                                         "contains": {
                                             "title": "Sample Holder",
-                                            "description": "Type of specimen holder used. Cryo holders (liquid N2 to ~110 K) are critical for minimizing beam-induced damage to organic matter and beam-sensitive phases. Heating holders enable in-situ experiments.",
+                                            "description": "Type of specimen holder used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1569,7 +1583,7 @@
                                     {
                                         "contains": {
                                             "title": "Analytical Sub-mode",
-                                            "description": "Sub-mode(s) of imaging or diffraction performed under this procedure. TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM. STEM Imaging options: HAADF, ABF, BF-STEM, ADF, MAADF. Electron Diffraction options: SAED, CBED, Nanobeam diffraction, Precession ED, 4D-STEM. Multiple values apply when the procedure covers more than one sub-mode within a given analytical mode.",
+                                            "description": "Sub-mode(s) of imaging or diffraction performed under this procedure. Multiple values apply when the procedure covers more than one sub-mode within a given analytical mode.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1647,7 +1661,7 @@
                                     {
                                         "contains": {
                                             "title": "HAADF Collection Angles",
-                                            "description": "Inner and outer collection angles of the HAADF detector in milliradians (mrad). The inner angle determines the boundary between diffracted and thermally diffuse scattered electrons; larger inner angles yield stronger Z-contrast and reduced Bragg contrast. Inner angle is most critical and can be derived from camera length and detector geometry. In HAADF-STEM a shorter camera length increases the inner angle, yielding more thermally diffuse (Z-contrast) and less Bragg-diffraction signal.",
+                                            "description": "Inner and outer collection angles of the HAADF detector in milliradians (mrad). Inner angle can be derived from camera length and detector geometry.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1686,7 +1700,7 @@
                                     {
                                         "contains": {
                                             "title": "STEM Probe Diameter",
-                                            "description": "Nominal or measured diameter of the focused electron probe at the sample, reported in nm. Serves as a direct spatial resolution proxy for STEM imaging and STEM-EDS/EELS analysis. Related to, but distinct from, Convergence Semi-Angle: the two quantities are connected via aberration coefficients, defocus, and probe current, which are not always published. Report whichever is known; if both are known, report both fields. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
+                                            "description": "Nominal or measured diameter of the focused electron probe at the sample, reported in nm. Related to, but distinct from, Convergence Semi-Angle: the two quantities are connected via aberration coefficients, defocus, and probe current, which are not always published. Report whichever is known; if both are known, report both fields. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1736,7 +1750,7 @@
                                     {
                                         "contains": {
                                             "title": "STEM Probe Current",
-                                            "description": "Probe current in picoamperes (pA) or nanoamperes (nA). Higher current improves EDS/EELS signal but increases beam damage risk, especially for organic matter and hydrous minerals. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
+                                            "description": "Probe current in picoamperes (pA) or nanoamperes (nA). Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1785,12 +1799,12 @@
                                     },
                                     {
                                         "contains": {
-                                            "title": "STEM Dwell Time per Pixel",
-                                            "description": "Time spent acquiring signal at each pixel during STEM scanning in milliseconds. Longer dwell improves signal-to-noise but increases total specimen dose; for dose-sensitive materials, minimize dwell and compensate with frame averaging. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe Position'.",
+                                            "title": "Dwell Time per Pixel",
+                                            "description": "Time spent acquiring signal at each pixel during STEM scanning in milliseconds. For dose-sensitive materials, minimize dwell and compensate with frame averaging. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe Position'.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
-                                                    "const": "ada:parameter/temTAPP/stemDwellTimePerPixel"
+                                                    "const": "ada:parameter/temTAPP/dwellTimePerPixel"
                                                 },
                                                 "@type": {
                                                     "const": [
@@ -1800,12 +1814,12 @@
                                                 "schema:propertyID": {
                                                     "const": [
                                                         {
-                                                            "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
+                                                            "@id": "ada:parameter/temTAPP/dwellTimePerPixel"
                                                         }
                                                     ]
                                                 },
                                                 "schema:name": {
-                                                    "const": "STEM Dwell Time per Pixel"
+                                                    "const": "Dwell Time per Pixel"
                                                 },
                                                 "schema:value": {
                                                     "anyOf": [
@@ -1836,7 +1850,7 @@
                                     {
                                         "contains": {
                                             "title": "STEM Scan Dimensions",
-                                            "description": "Number of pixels in the STEM scan frame (X × Y pixels). Combined with calibrated pixel size, defines the field of view. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
+                                            "description": "Number of pixels in the STEM scan frame (X × Y pixels). Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1886,7 +1900,7 @@
                                     {
                                         "contains": {
                                             "title": "STEM Frame Averaging",
-                                            "description": "Number of frames averaged (with drift correction if applicable) to produce the final STEM image. Averaging reduces noise while limiting per-frame dose. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
+                                            "description": "Number of frames averaged (with drift correction if applicable) to produce the final STEM image. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -1925,7 +1939,7 @@
                                     {
                                         "contains": {
                                             "title": "Camera Length",
-                                            "description": "Nominal camera length in millimeters used for diffraction pattern acquisition. Controls the mapping between reciprocal-space scattering angle and detector position; must be calibrated to convert pixel distances to d-spacings. In STEM mode, also sets HAADF/ABF detector collection angles. Calibration to absolute d-spacings is required — see 'Diffraction Calibration Reference'. Camera length choice affects HAADF Z-contrast purity: a shorter camera length (e.g. 30 mm) shifts the inner angle toward thermal diffuse scatter; a longer one (e.g. 150 mm) admits more Bragg scatter.",
+                                            "description": "Nominal camera length in millimeters used for diffraction pattern acquisition. Must be calibrated to convert pixel distances to d-spacings. Calibration to absolute d-spacings is required — see 'Diffraction Calibration Reference'.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -2014,7 +2028,7 @@
                                     {
                                         "contains": {
                                             "title": "Precession Angle",
-                                            "description": "Precession semi-angle in degrees for precession electron diffraction (PED). Hollow-cone illumination reduces dynamical diffraction effects and produces more kinematical-like intensities. Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed in Analytical Sub-mode.",
+                                            "description": "Precession semi-angle in degrees for precession electron diffraction (PED). Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed in Analytical Sub-mode.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -2103,7 +2117,7 @@
                                     {
                                         "contains": {
                                             "title": "4D-STEM Dwell Time per Probe Position",
-                                            "description": "Time spent acquiring each diffraction pattern in the 4D-STEM dataset in milliseconds. Longer dwell improves signal-to-noise for weakly diffracting phases (e.g., smectite 001 reflection at ~1.24 nm) but increases total specimen dose; risk of beam damage to phyllosilicates and organic matter must be balanced against data quality. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.",
+                                            "description": "Time spent acquiring each diffraction pattern in the 4D-STEM dataset in milliseconds. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -2192,7 +2206,7 @@
                                     {
                                         "contains": {
                                             "title": "EDS Acquisition Mode",
-                                            "description": "Mode of EDS data acquisition. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, line scan (beam stepped along a transect at defined intervals), or area map / spectrum image (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared analytical mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers what the literature also calls spot or point-spectrum analysis. 'Map' and 'Spectrum image' are distinct acquisitions, not synonyms: a map may retain element intensities alone, whereas a spectrum image retains a full spectrum at every pixel and can be requantified afterwards — record which was acquired. Where more than one mode was used, join them with '; ' rather than looking for a combined member.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -2359,7 +2373,7 @@
                                     {
                                         "contains": {
                                             "title": "EELS Edges",
-                                            "description": "Ionization edge(s) acquired by EELS, specified by element symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart to the Analyte field: while Analyte lists elements, EELS Edges documents which ionization edges were used and their approximate energy loss positions. The procedure registers the full intended edge suite; analysts confirm or narrow this list at analysis time. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Ionization edge(s) acquired by EELS, specified by element symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart to the Analyte field: while Analyte lists elements, EELS Edges documents which ionization edges were used and their approximate energy loss positions. The edge list may be narrowed at analysis time. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -2448,7 +2462,7 @@
                                     {
                                         "contains": {
                                             "title": "EELS Energy Loss Range",
-                                            "description": "Energy loss range acquired, defined by onset energy and width in eV. The procedure documents the target range for the registered analyte edges; analysts record the actual range acquired. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Energy loss range acquired, defined by onset energy and width in eV. The target range covers the registered analyte edges; the actual range acquired may differ. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -2487,7 +2501,7 @@
                                     {
                                         "contains": {
                                             "title": "Specimen Thickness Determination Method",
-                                            "description": "Method used to estimate TEM foil thickness. Required for EELS quantification (log-ratio) and for assessing multiple-scattering severity.",
+                                            "description": "Method used to estimate TEM foil thickness.",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -2526,7 +2540,7 @@
                                     {
                                         "contains": {
                                             "title": "EDS Calibration Standard(s)",
-                                            "description": "Reference material(s) used to validate EDS quantification or determine experimental k-factors or zeta-factors. TEM-EDS is less standardized than EPMA; many procedures rely on manufacturer k-factors without external calibration. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Reference material(s) used to validate EDS quantification or determine experimental k-factors or zeta-factors. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -2565,7 +2579,7 @@
                                     {
                                         "contains": {
                                             "title": "EELS Energy Calibration",
-                                            "description": "Method and reference used to calibrate the EELS energy axis. Accurate calibration is required for ELNES edge identification, chemical-state analysis, and inter-lab comparability. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                            "description": "Method and reference used to calibrate the EELS energy axis. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                                             "type": "object",
                                             "properties": {
                                                 "@id": {
@@ -2713,6 +2727,45 @@
                                                 },
                                                 "schema:name": {
                                                     "const": "EDS Counting Statistics / Accumulation Criterion"
+                                                },
+                                                "schema:value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "EELS Chemical State Determination Method",
+                                            "description": "Method used to determine the chemical or oxidation state of an element from the fine structure of its ionization edge (ELNES), together with the reference data or calibration the determination relies on. Name the method family and cite the calibration curve or reference spectra used. Record 'N/A' where no chemical-state determination is made.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "EELS Chemical State Determination Method"
                                                 },
                                                 "schema:value": {
                                                     "type": "string"
@@ -2754,12 +2807,12 @@
                                                     "schema:additionalProperty": {
                                                         "type": "array",
                                                         "items": {
-                                                            "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                                            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
                                                         },
                                                         "allOf": [
                                                             {
                                                                 "contains": {
-                                                                    "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                                                    "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
                                                                 },
                                                                 "minContains": 0,
                                                                 "maxContains": 1
@@ -2873,56 +2926,95 @@
                                                                                     "schema:additionalProperty": {
                                                                                         "type": "array",
                                                                                         "items": {
-                                                                                            "title": "Accelerating Voltage",
-                                                                                            "description": "Electron beam accelerating voltage in kilovolts (kV). For beam-sensitive materials (organic matter, phyllosilicates), 60–80 kV may be used to stay below the displacement threshold for C, N, O, and S. The procedure specifies the standard operating voltage; analysts record and justify deviations. Key parameter for the beam damage regime.",
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                                "@id": {
-                                                                                                    "const": "ada:parameter/temTAPP/acceleratingVoltage"
-                                                                                                },
-                                                                                                "@type": {
-                                                                                                    "const": [
-                                                                                                        "schema:PropertyValue"
-                                                                                                    ]
-                                                                                                },
-                                                                                                "schema:propertyID": {
-                                                                                                    "const": [
-                                                                                                        {
-                                                                                                            "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-                                                                                                        }
-                                                                                                    ]
-                                                                                                },
-                                                                                                "schema:name": {
-                                                                                                    "const": "Accelerating Voltage"
-                                                                                                },
-                                                                                                "schema:value": {
-                                                                                                    "anyOf": [
-                                                                                                        {
-                                                                                                            "type": "number"
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "title": "Accelerating Voltage",
+                                                                                                    "description": "Electron beam accelerating voltage in kilovolts (kV). Justify any deviation from the standard operating voltage.",
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "@id": {
+                                                                                                            "const": "ada:parameter/temTAPP/acceleratingVoltage"
                                                                                                         },
-                                                                                                        {
+                                                                                                        "@type": {
+                                                                                                            "const": [
+                                                                                                                "schema:PropertyValue"
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:propertyID": {
+                                                                                                            "const": [
+                                                                                                                {
+                                                                                                                    "@id": "ada:parameter/temTAPP/acceleratingVoltage"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:name": {
+                                                                                                            "const": "Accelerating Voltage"
+                                                                                                        },
+                                                                                                        "schema:value": {
+                                                                                                            "anyOf": [
+                                                                                                                {
+                                                                                                                    "type": "number"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "string"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:unitText": {
                                                                                                             "type": "string"
                                                                                                         }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "@id",
+                                                                                                        "@type",
+                                                                                                        "schema:propertyID",
+                                                                                                        "schema:name",
+                                                                                                        "schema:value",
+                                                                                                        "schema:unitText"
                                                                                                     ]
                                                                                                 },
-                                                                                                "schema:unitText": {
-                                                                                                    "type": "string"
+                                                                                                {
+                                                                                                    "title": "TEM Objective Aperture",
+                                                                                                    "description": "Objective aperture diameter used to select the imaging beam condition in TEM mode.",
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "@id": {
+                                                                                                            "const": "ada:parameter/temTAPP/temObjectiveAperture"
+                                                                                                        },
+                                                                                                        "@type": {
+                                                                                                            "const": [
+                                                                                                                "schema:PropertyValue"
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:propertyID": {
+                                                                                                            "const": [
+                                                                                                                {
+                                                                                                                    "@id": "ada:parameter/temTAPP/temObjectiveAperture"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:name": {
+                                                                                                            "const": "TEM Objective Aperture"
+                                                                                                        },
+                                                                                                        "schema:value": {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "@id",
+                                                                                                        "@type",
+                                                                                                        "schema:propertyID",
+                                                                                                        "schema:name",
+                                                                                                        "schema:value"
+                                                                                                    ]
                                                                                                 }
-                                                                                            },
-                                                                                            "required": [
-                                                                                                "@id",
-                                                                                                "@type",
-                                                                                                "schema:propertyID",
-                                                                                                "schema:name",
-                                                                                                "schema:value",
-                                                                                                "schema:unitText"
                                                                                             ]
                                                                                         },
                                                                                         "allOf": [
                                                                                             {
                                                                                                 "contains": {
                                                                                                     "title": "Accelerating Voltage",
-                                                                                                    "description": "Electron beam accelerating voltage in kilovolts (kV). For beam-sensitive materials (organic matter, phyllosilicates), 60–80 kV may be used to stay below the displacement threshold for C, N, O, and S. The procedure specifies the standard operating voltage; analysts record and justify deviations. Key parameter for the beam damage regime.",
+                                                                                                    "description": "Electron beam accelerating voltage in kilovolts (kV). Justify any deviation from the standard operating voltage.",
                                                                                                     "type": "object",
                                                                                                     "properties": {
                                                                                                         "@id": {
@@ -2968,6 +3060,45 @@
                                                                                                 },
                                                                                                 "minContains": 0,
                                                                                                 "maxContains": 1
+                                                                                            },
+                                                                                            {
+                                                                                                "contains": {
+                                                                                                    "title": "TEM Objective Aperture",
+                                                                                                    "description": "Objective aperture diameter used to select the imaging beam condition in TEM mode.",
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "@id": {
+                                                                                                            "const": "ada:parameter/temTAPP/temObjectiveAperture"
+                                                                                                        },
+                                                                                                        "@type": {
+                                                                                                            "const": [
+                                                                                                                "schema:PropertyValue"
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:propertyID": {
+                                                                                                            "const": [
+                                                                                                                {
+                                                                                                                    "@id": "ada:parameter/temTAPP/temObjectiveAperture"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:name": {
+                                                                                                            "const": "TEM Objective Aperture"
+                                                                                                        },
+                                                                                                        "schema:value": {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "@id",
+                                                                                                        "@type",
+                                                                                                        "schema:propertyID",
+                                                                                                        "schema:name",
+                                                                                                        "schema:value"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "minContains": 0,
+                                                                                                "maxContains": 1
                                                                                             }
                                                                                         ]
                                                                                     }
@@ -3002,119 +3133,8 @@
                                     ]
                                 }
                             },
-                            "schema:used": {
-                                "type": "object",
-                                "properties": {
-                                    "schema:instrument": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "allOf": [
-                                                {
-                                                    "if": {
-                                                        "properties": {
-                                                            "schema:additionalType": {
-                                                                "contains": {
-                                                                    "const": "TEM"
-                                                                },
-                                                                "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                                                            }
-                                                        },
-                                                        "required": [
-                                                            "schema:additionalType"
-                                                        ]
-                                                    },
-                                                    "then": {
-                                                        "properties": {
-                                                            "schema:additionalProperty": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "title": "TEM Objective Aperture",
-                                                                    "description": "Objective aperture diameter used to select the imaging beam condition in TEM mode. In BF-TEM, a small aperture blocks diffracted beams to enhance mass-thickness contrast; in DF-TEM, the aperture is displaced to select a specific diffracted beam; in HRTEM, no aperture is typically used.",
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "@id": {
-                                                                            "const": "ada:parameter/temTAPP/temObjectiveAperture"
-                                                                        },
-                                                                        "@type": {
-                                                                            "const": [
-                                                                                "schema:PropertyValue"
-                                                                            ]
-                                                                        },
-                                                                        "schema:propertyID": {
-                                                                            "const": [
-                                                                                {
-                                                                                    "@id": "ada:parameter/temTAPP/temObjectiveAperture"
-                                                                                }
-                                                                            ]
-                                                                        },
-                                                                        "schema:name": {
-                                                                            "const": "TEM Objective Aperture"
-                                                                        },
-                                                                        "schema:value": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    },
-                                                                    "required": [
-                                                                        "@id",
-                                                                        "@type",
-                                                                        "schema:propertyID",
-                                                                        "schema:name",
-                                                                        "schema:value"
-                                                                    ]
-                                                                },
-                                                                "allOf": [
-                                                                    {
-                                                                        "contains": {
-                                                                            "title": "TEM Objective Aperture",
-                                                                            "description": "Objective aperture diameter used to select the imaging beam condition in TEM mode. In BF-TEM, a small aperture blocks diffracted beams to enhance mass-thickness contrast; in DF-TEM, the aperture is displaced to select a specific diffracted beam; in HRTEM, no aperture is typically used.",
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                                "@id": {
-                                                                                    "const": "ada:parameter/temTAPP/temObjectiveAperture"
-                                                                                },
-                                                                                "@type": {
-                                                                                    "const": [
-                                                                                        "schema:PropertyValue"
-                                                                                    ]
-                                                                                },
-                                                                                "schema:propertyID": {
-                                                                                    "const": [
-                                                                                        {
-                                                                                            "@id": "ada:parameter/temTAPP/temObjectiveAperture"
-                                                                                        }
-                                                                                    ]
-                                                                                },
-                                                                                "schema:name": {
-                                                                                    "const": "TEM Objective Aperture"
-                                                                                },
-                                                                                "schema:value": {
-                                                                                    "type": "string"
-                                                                                }
-                                                                            },
-                                                                            "required": [
-                                                                                "@id",
-                                                                                "@type",
-                                                                                "schema:propertyID",
-                                                                                "schema:name",
-                                                                                "schema:value"
-                                                                            ]
-                                                                        },
-                                                                        "minContains": 0,
-                                                                        "maxContains": 1
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            },
                             "ada:deadTime": {
-                                "description": "Percent dead time reported by the EDS detector during the session — the fraction of total acquisition time the detector spent processing rather than counting. EDS dead time correction is managed automatically by the detector electronics; this field documents the resulting percentage as a session QC metric. Values above ~40% indicate excessive count rate and may degrade spectral quality and quantitative accuracy. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                                "description": "Percent dead time reported by the EDS detector during the session — the fraction of total acquisition time the detector spent processing rather than counting. This field documents the resulting percentage as a session QC metric. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                                 "anyOf": [
                                     {
                                         "type": "number"

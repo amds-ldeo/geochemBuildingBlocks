@@ -38,11 +38,8 @@ $defs:
                     ada:chemicalAbrasionConditions:
                       description: 'Annealing and partial-dissolution conditions applied to mitigate Pb
                         loss before analysis, following Mattinson (2005): annealing temperature and duration,
-                        and the acid, temperature and duration of the partial-dissolution step. Condon
-                        et al. (2024) require these where chemical abrasion was applied, and state that
-                        it generally should be for zircon. Record ''None'' where grains were analysed
-                        untreated, since the absence of treatment materially affects how discordance should
-                        be read.'
+                        and the acid, temperature and duration of the partial-dissolution step. Record
+                        ''None'' where grains were analysed untreated.'
                       anyOf:
                       - &id001
                         type: string
@@ -59,11 +56,7 @@ $defs:
     title: Intermediate Daughter Disequilibrium Correction
     description: Correction for initial disequilibrium in intermediate daughter products of the U decay
       chains — principally 230Th, and where relevant 231Pa — together with the Th/U or Pa/U partitioning
-      value assumed and its source. Unique to U-Pb among dating systems, because the chains are long enough
-      for intermediate-daughter disequilibrium at crystallisation to bias the 206Pb/238U date, most severely
-      in young samples. Record 'None' with a justification where no correction was applied. Condon et
-      al. (2024) write "we recommend these dates be reported corrected for initial 230Th and 231Pa daughter
-      isotope disequilibrium" — recommended rather than required, hence Advanced.
+      value assumed and its source. Record 'None' with a justification where no correction was applied.
     type: object
     properties:
       '@id':
@@ -92,14 +85,9 @@ $defs:
     - ada:fieldScope
   Param_Procedure_discordanceDefinitionAndValues:
     title: Discordance Definition and Values
-    description: 'How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb chronometers is defined
-      for this procedure, and the discordance values obtained. Several definitions are in circulation
-      and they are not interchangeable, so the formula must be stated. Genuinely specific to U-Pb: it
-      is the only system in routine use with two independent decay schemes in the same mineral, so agreement
-      between them is an internal consistency test no other system can run. The rule for excluding discordant
-      analyses, and how many were excluded, belong in Analysis Inclusion and Rejection Criteria. Condon
-      et al. (2024) write that for samples older than a few hundred million years "it is also useful to
-      provide a measure of discordance" — useful and age-conditional rather than required, hence Advanced.'
+    description: How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb chronometers is defined
+      for this procedure, and the discordance values obtained. State the formula used. The rule for excluding
+      discordant analyses, and how many were excluded, belong in Analysis Inclusion and Rejection Criteria.
     type: object
     properties:
       '@id':

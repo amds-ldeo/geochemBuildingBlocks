@@ -1,0 +1,69 @@
+- title: CompositionQC composed into a procedure (ProcedureIdentification)
+  content: The procedure half of the CompositionQC module, with every property populated. Generated from
+    the schema, so it tracks the sidecar.
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "schema:variableMeasured": [
+          {
+            "schema:name": "Detection Limit",
+            "schema:defaultValue": 1
+          },
+          {
+            "schema:name": "Normalization / Standards-Based Correction",
+            "schema:defaultValue": "example value"
+          }
+        ],
+        "schema:actionProcess": {
+          "schema:step": [
+            {
+              "schema:name": "Data reduction",
+              "ada:detectionLimitMethod": "example value"
+            }
+          ]
+        },
+        "ada:secondaryReferenceMaterialDefault": [
+          "example value"
+        ],
+        "ada:primaryStandardNameDefault": "example value"
+      }
+- title: CompositionQC composed into an analysis (AnalysisIdentification)
+  content: The analysis half of the CompositionQC module, with every property populated. Generated from
+    the schema, so it tracks the sidecar.
+  prefixes:
+    prov: http://www.w3.org/ns/prov#
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "schema:variableMeasured": [
+          {
+            "schema:name": "Detection Limit",
+            "schema:value": 1
+          },
+          {
+            "schema:name": "Detection Limit Method",
+            "schema:value": "example value"
+          },
+          {
+            "schema:name": "Normalization / Standards-Based Correction",
+            "schema:value": "example value"
+          }
+        ],
+        "prov:wasGeneratedBy": [
+          {
+            "prov:used": [
+              {
+                "prov:reagent": [
+                  "example value"
+                ]
+              }
+            ]
+          }
+        ]
+      }

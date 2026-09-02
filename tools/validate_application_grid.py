@@ -57,10 +57,14 @@ def read_grid(path):
         return None, None
 
     hdr = [(str(c).strip() if c is not None else "") for c in rows[0]]
-    start = next((i + 1 for i, h in enumerate(hdr) if h.lower() == "keyed by"), None)
-    if start is None:   # a table predating the Keyed By column
-        start = next((i + 1 for i, h in enumerate(hdr)
-                      if h.lower().startswith("last update")), None)
+    # The 2026-09 delivery inserted `Purpose` between `Keyed By` and the application block. It is a
+    # guidance column, not an application, and reading positionally from `Keyed By` reported it as
+    # a mode with prose in every cell. Anchor on whichever recognised guidance header sits LAST, so
+    # the span still starts at a named boundary rather than a content filter — which is what the
+    # docstring above turns on.
+    lead = [i for i, h in enumerate(hdr)
+            if h.lower() in ("keyed by", "purpose") or h.lower().startswith("last update")]
+    start = max(lead) + 1 if lead else None
     end = next((i for i, h in enumerate(hdr) if h.lower() in END_HEADERS), None)
     if start is None or end is None or end <= start:
         return [], []            # no detectable application block
