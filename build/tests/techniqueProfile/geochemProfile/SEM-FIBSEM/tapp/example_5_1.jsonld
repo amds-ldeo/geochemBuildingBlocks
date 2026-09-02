@@ -43,73 +43,6 @@
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated",
-        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 16\u201330 keV (coarse milling)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "finePolishingConditionsDefault",
-            "schema:name": "Fine Polishing Conditions",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Various voltages down to 1 keV (polishing)"
-          },
-          {
-            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "foilThicknessDefault",
-            "schema:name": "Foil Thickness",
-            "ada:dataType": "number",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": 100,
-            "schema:description": "<100 to 600 nm (variable, depending on targeted experiment)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -138,7 +71,7 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -215,6 +148,73 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 16\u201330 keV (coarse milling)",
+        "schema:description": "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "finePolishingConditionsDefault",
+            "schema:name": "Fine Polishing Conditions",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Various voltages down to 1 keV (polishing)"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "foilThicknessDefault",
+            "schema:name": "Foil Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 100,
+            "schema:description": "<100 to 600 nm (variable, depending on targeted experiment)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -248,7 +248,7 @@
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

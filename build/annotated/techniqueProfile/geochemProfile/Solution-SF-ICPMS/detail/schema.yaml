@@ -6,6 +6,8 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -59,194 +61,20 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - title: Auxiliary Gas Flow Rate
-                                                description: Flow rate of the intermediate
-                                                  (auxiliary) argon gas stream between
-                                                  torch body and injector tube (L/min).
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
-                                                  schema:name:
-                                                    const: Auxiliary Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: Coolant (Plasma) Gas Flow Rate
-                                                description: Flow rate of the outer
-                                                  (coolant) argon gas stream (L/min).
-                                                  Influences plasma temperature and
-                                                  oxide ion formation.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
-                                                  schema:name:
-                                                    const: Coolant (Plasma) Gas Flow
-                                                      Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: RF Power
-                                                description: Radiofrequency forward
-                                                  power applied to the plasma (W).
-                                                  Controls ionization efficiency and
-                                                  oxide production rates.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/rfPower
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/rfPower
-                                                  schema:name:
-                                                    const: RF Power
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
                                             allOf:
                                             - contains:
-                                                title: Auxiliary Gas Flow Rate
-                                                description: Flow rate of the intermediate
-                                                  (auxiliary) argon gas stream between
-                                                  torch body and injector tube (L/min).
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
-                                                  schema:name:
-                                                    const: Auxiliary Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: Coolant (Plasma) Gas Flow Rate
-                                                description: Flow rate of the outer
-                                                  (coolant) argon gas stream (L/min).
-                                                  Influences plasma temperature and
-                                                  oxide ion formation.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
-                                                  schema:name:
-                                                    const: Coolant (Plasma) Gas Flow
-                                                      Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: RF Power
-                                                description: Radiofrequency forward
-                                                  power applied to the plasma (W).
-                                                  Controls ionization efficiency and
-                                                  oxide production rates.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/rfPower
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/rfPower
-                                                  schema:name:
-                                                    const: RF Power
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
                                               minContains: 0
                                               maxContains: 1
                                     - if:
@@ -263,102 +91,12 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - title: Make-up Gas and Flow Rate
-                                                description: "Supplementary gas added
-                                                  to the sample-carrying stream between
-                                                  the sample introduction system and
-                                                  the plasma, with its identity and
-                                                  the procedure-registered target
-                                                  flow rate. Argon make-up is standard
-                                                  and maintains total gas delivery
-                                                  where the carrier flow alone is
-                                                  insufficient \u2014 downstream of
-                                                  an ablation cell, or of a desolvation
-                                                  system that has removed solvent
-                                                  load. Small nitrogen or hydrogen
-                                                  additions are also made here to
-                                                  enhance sensitivity for some elements;
-                                                  record them with their own flow,
-                                                  whose unit commonly differs from
-                                                  the make-up flow. Record 'None'
-                                                  explicitly where no supplementary
-                                                  gas is added, to distinguish it
-                                                  from not reported."
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
-                                                  schema:name:
-                                                    const: Make-up Gas and Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_makeUpGasAndFlowRate
                                               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_nebulizerGasFlowRate
                                               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleUptakeRate
                                             allOf:
                                             - contains:
-                                                title: Make-up Gas and Flow Rate
-                                                description: "Supplementary gas added
-                                                  to the sample-carrying stream between
-                                                  the sample introduction system and
-                                                  the plasma, with its identity and
-                                                  the procedure-registered target
-                                                  flow rate. Argon make-up is standard
-                                                  and maintains total gas delivery
-                                                  where the carrier flow alone is
-                                                  insufficient \u2014 downstream of
-                                                  an ablation cell, or of a desolvation
-                                                  system that has removed solvent
-                                                  load. Small nitrogen or hydrogen
-                                                  additions are also made here to
-                                                  enhance sensitivity for some elements;
-                                                  record them with their own flow,
-                                                  whose unit commonly differs from
-                                                  the make-up flow. Record 'None'
-                                                  explicitly where no supplementary
-                                                  gas is added, to distinguish it
-                                                  from not reported."
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
-                                                  schema:name:
-                                                    const: Make-up Gas and Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_makeUpGasAndFlowRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
@@ -382,72 +120,10 @@ allOf:
                                           schema:additionalProperty:
                                             type: array
                                             items:
-                                              title: Torch Depth
-                                              description: Distance between the load
-                                                coil and the sampling cone tip (mm),
-                                                also called injector depth or torch
-                                                position depending on the instrument
-                                                manufacturer. Affects ion transmission
-                                                efficiency, oxide formation, and doubly-charged
-                                                species production. The procedure
-                                                specifies a target value optimised
-                                                during initial setup; the analyst
-                                                confirms or fine-adjusts during session
-                                                tuning.
-                                              type: object
-                                              properties:
-                                                '@id':
-                                                  const: ada:parameter/solutionSficpmsTAPP/torchDepth
-                                                '@type':
-                                                  const:
-                                                  - schema:PropertyValue
-                                                schema:propertyID:
-                                                  const:
-                                                  - '@id': ada:parameter/solutionSficpmsTAPP/torchDepth
-                                                schema:name:
-                                                  const: Torch Depth
-                                                schema:value:
-                                                  type: string
-                                              required:
-                                              - '@id'
-                                              - '@type'
-                                              - schema:propertyID
-                                              - schema:name
-                                              - schema:value
+                                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
                                             allOf:
                                             - contains:
-                                                title: Torch Depth
-                                                description: Distance between the
-                                                  load coil and the sampling cone
-                                                  tip (mm), also called injector depth
-                                                  or torch position depending on the
-                                                  instrument manufacturer. Affects
-                                                  ion transmission efficiency, oxide
-                                                  formation, and doubly-charged species
-                                                  production. The procedure specifies
-                                                  a target value optimised during
-                                                  initial setup; the analyst confirms
-                                                  or fine-adjusts during session tuning.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/solutionSficpmsTAPP/torchDepth
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/solutionSficpmsTAPP/torchDepth
-                                                  schema:name:
-                                                    const: Torch Depth
-                                                  schema:value:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
                                               minContains: 0
                                               maxContains: 1
                                   allOf:
@@ -474,13 +150,7 @@ allOf:
                                     - title: Doubly-Charged Species Monitor
                                       description: Mass ratio monitored to estimate
                                         doubly-charged ion (M2+) formation during
-                                        instrument tuning. Doubly-charged ions appear
-                                        at half the nominal mass of the parent ion
-                                        and can interfere with lighter analyte masses.
-                                        In SF-ICP-MS, doubly-charged species are not
-                                        suppressed by collision cells and require
-                                        monitoring through plasma tuning. Ba2+/Ba+
-                                        (m/z 69/138) is the most common proxy.
+                                        instrument tuning.
                                       type: object
                                       properties:
                                         '@id':
@@ -504,12 +174,9 @@ allOf:
                                     - title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged
                                         ion production for the monitored species at
-                                        the time of instrument tuning. Record both
-                                        the acceptance threshold and the measured
-                                        value. Elevated doubly-charged production
-                                        indicates incomplete ionization and potential
-                                        interference on elements at approximately
-                                        half the mass of abundant matrix components.
+                                        the time of instrument tuning. The acceptable
+                                        threshold is typically <1% or <3%. Record
+                                        both the threshold and the measured value.
                                       type: object
                                       properties:
                                         '@id':
@@ -530,82 +197,14 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - title: Mass Resolution Setting
-                                      description: "Mass resolution mode(s) used in
-                                        this procedure. Sector-field instruments allow
-                                        selection of low resolution (LR; m/\u0394m
-                                        \u2248 300\u2013400), medium resolution (MR;
-                                        m/\u0394m \u2248 2500\u20135000), or high
-                                        resolution (HR; m/\u0394m \u2248 10,000).
-                                        Multi-resolution procedures assign individual
-                                        analytes to specific modes (documented in
-                                        Group 4 under Mass Resolution Assignment).
-                                        Procedure registers the mode(s) in use; analyst
-                                        confirms at session start."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/solutionSficpmsTAPP/massResolutionSetting
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/solutionSficpmsTAPP/massResolutionSetting
-                                        schema:name:
-                                          const: Mass Resolution Setting
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - title: Memory Effect Mitigation
-                                      description: Procedure applied to identify and
-                                        minimize carry-over of high-concentration
-                                        elements between successive sample introductions.
-                                        For solution ICP-MS, mitigation is implemented
-                                        primarily at measurement time through extended
-                                        rinse periods (see Wash Time Between Samples,
-                                        Group 4). At data processing level, documents
-                                        any flagging or exclusion of measurements
-                                        preceded by high-concentration samples or
-                                        standards where the required washout time
-                                        may not have been achieved.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-                                        schema:name:
-                                          const: Memory Effect Mitigation
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
+                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
+                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
                                   allOf:
                                   - contains:
                                       title: Doubly-Charged Species Monitor
                                       description: Mass ratio monitored to estimate
                                         doubly-charged ion (M2+) formation during
-                                        instrument tuning. Doubly-charged ions appear
-                                        at half the nominal mass of the parent ion
-                                        and can interfere with lighter analyte masses.
-                                        In SF-ICP-MS, doubly-charged species are not
-                                        suppressed by collision cells and require
-                                        monitoring through plasma tuning. Ba2+/Ba+
-                                        (m/z 69/138) is the most common proxy.
+                                        instrument tuning.
                                       type: object
                                       properties:
                                         '@id':
@@ -632,12 +231,9 @@ allOf:
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged
                                         ion production for the monitored species at
-                                        the time of instrument tuning. Record both
-                                        the acceptance threshold and the measured
-                                        value. Elevated doubly-charged production
-                                        indicates incomplete ionization and potential
-                                        interference on elements at approximately
-                                        half the mass of abundant matrix components.
+                                        the time of instrument tuning. The acceptable
+                                        threshold is typically <1% or <3%. Record
+                                        both the threshold and the measured value.
                                       type: object
                                       properties:
                                         '@id':
@@ -661,84 +257,13 @@ allOf:
                                     minContains: 0
                                     maxContains: 1
                                   - contains:
-                                      title: Mass Resolution Setting
-                                      description: "Mass resolution mode(s) used in
-                                        this procedure. Sector-field instruments allow
-                                        selection of low resolution (LR; m/\u0394m
-                                        \u2248 300\u2013400), medium resolution (MR;
-                                        m/\u0394m \u2248 2500\u20135000), or high
-                                        resolution (HR; m/\u0394m \u2248 10,000).
-                                        Multi-resolution procedures assign individual
-                                        analytes to specific modes (documented in
-                                        Group 4 under Mass Resolution Assignment).
-                                        Procedure registers the mode(s) in use; analyst
-                                        confirms at session start."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/solutionSficpmsTAPP/massResolutionSetting
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/solutionSficpmsTAPP/massResolutionSetting
-                                        schema:name:
-                                          const: Mass Resolution Setting
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
+                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
                                     minContains: 0
                                     maxContains: 1
                                   - contains:
-                                      title: Memory Effect Mitigation
-                                      description: Procedure applied to identify and
-                                        minimize carry-over of high-concentration
-                                        elements between successive sample introductions.
-                                        For solution ICP-MS, mitigation is implemented
-                                        primarily at measurement time through extended
-                                        rinse periods (see Wash Time Between Samples,
-                                        Group 4). At data processing level, documents
-                                        any flagging or exclusion of measurements
-                                        preceded by high-concentration samples or
-                                        standards where the required washout time
-                                        may not have been achieved.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-                                        schema:name:
-                                          const: Memory Effect Mitigation
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
+                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
                                     minContains: 0
                                     maxContains: 1
-                                schema:identifier:
-                                  description: Serial number or laboratory-internal
-                                    identifier for the specific instrument unit. Supports
-                                    traceability to instrument service records.
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
                       allOf:
                       - contains:
                           properties:
@@ -748,59 +273,6 @@ allOf:
                               schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
-              - if:
-                  required:
-                  - prov:reagent
-                then:
-                  properties:
-                    prov:reagent:
-                      type: array
-                      items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                ada:reagentRole:
-                                  const: primaryStandard
-                              required:
-                              - ada:reagentRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: Name and reference material identifier
-                                    of the external calibration standard used to convert
-                                    signal intensities to elemental concentrations.
-                                    Include the material name, its source or supplier,
-                                    and a citation for the accepted values used, since
-                                    results calibrated against different published
-                                    values for the same material are not directly
-                                    comparable.
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          - if:
-                              properties:
-                                ada:reagentRole:
-                                  const: referenceMaterial
-                              required:
-                              - ada:reagentRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: Reference material(s) measured as unknowns
-                                    to independently assess analytical accuracy. Specify
-                                    material name and expected-value source.
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          required:
-                          - ada:reagentRole
           schema:object:
             type: array
             items:
@@ -883,42 +355,18 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - title: Normalization / Standards-Based Correction
-                              description: Post-acquisition normalization applied
-                                to output concentrations relative to a reference value
-                                (e.g., correction to a BHVO-2 working value).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-                                schema:name:
-                                  const: Normalization / Standards-Based Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
                             - title: Pulse/Analog Detector Nonlinearity Correction
                               description: Whether a correction was applied for nonlinear
                                 detector response at the transition between pulse-counting
                                 and analog (and Faraday, for triple-mode instruments)
-                                detection modes. For SF-ICP-MS instruments, the signal
-                                transitions between pulse counting (low concentrations)
-                                and analog detection (high concentrations). For triple-mode
-                                instruments (e.g., Thermo Element XR), an additional
-                                transition to Faraday cup detection occurs at the
-                                highest signal intensities. Cross-calibration factors
-                                between detector modes must be confirmed, typically
-                                measured each session.
+                                detection modes. Cross-calibration factors between
+                                detector modes must be confirmed, typically measured
+                                each session. Record 'Applied' and describe the method,
+                                the detector modes involved and the analytes affected;
+                                'None' where a crossover exists on this instrument
+                                but no correction was made, giving the reason; and
+                                'N/A' where the detector is pulse-counting only and
+                                no crossover exists.
                               type: object
                               properties:
                                 '@id':
@@ -939,101 +387,23 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
-                            - title: Spike / Outlier Filtering Approach
-                              description: Criteria used to identify and exclude anomalous
-                                replicate measurements or data points from the calculated
-                                mean.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
-                                schema:name:
-                                  const: Spike / Outlier Filtering Approach
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - title: Uncertainty Propagation Method
-                              description: 'The approach used to propagate analytical
-                                uncertainty through the data reduction chain to the
-                                final reported value. State which sources are included
-                                in the propagation: counting statistics, calibration
-                                standard uncertainty, internal standard uncertainty,
-                                drift correction, and any systematic contributions.
-                                Distinct from Uncertainty Level, which states the
-                                convention at which the resulting uncertainty is quoted.'
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
-                                schema:name:
-                                  const: Uncertainty Propagation Method
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
-                          - contains:
-                              title: Normalization / Standards-Based Correction
-                              description: Post-acquisition normalization applied
-                                to output concentrations relative to a reference value
-                                (e.g., correction to a BHVO-2 working value).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-                                schema:name:
-                                  const: Normalization / Standards-Based Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            minContains: 0
-                            maxContains: 1
                           - contains:
                               title: Pulse/Analog Detector Nonlinearity Correction
                               description: Whether a correction was applied for nonlinear
                                 detector response at the transition between pulse-counting
                                 and analog (and Faraday, for triple-mode instruments)
-                                detection modes. For SF-ICP-MS instruments, the signal
-                                transitions between pulse counting (low concentrations)
-                                and analog detection (high concentrations). For triple-mode
-                                instruments (e.g., Thermo Element XR), an additional
-                                transition to Faraday cup detection occurs at the
-                                highest signal intensities. Cross-calibration factors
-                                between detector modes must be confirmed, typically
-                                measured each session.
+                                detection modes. Cross-calibration factors between
+                                detector modes must be confirmed, typically measured
+                                each session. Record 'Applied' and describe the method,
+                                the detector modes involved and the analytes affected;
+                                'None' where a crossover exists on this instrument
+                                but no correction was made, giving the reason; and
+                                'N/A' where the detector is pulse-counting only and
+                                no crossover exists.
                               type: object
                               properties:
                                 '@id':
@@ -1057,62 +427,11 @@ allOf:
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Spike / Outlier Filtering Approach
-                              description: Criteria used to identify and exclude anomalous
-                                replicate measurements or data points from the calculated
-                                mean.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
-                                schema:name:
-                                  const: Spike / Outlier Filtering Approach
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Uncertainty Propagation Method
-                              description: 'The approach used to propagate analytical
-                                uncertainty through the data reduction chain to the
-                                final reported value. State which sources are included
-                                in the propagation: counting statistics, calibration
-                                standard uncertainty, internal standard uncertainty,
-                                drift correction, and any systematic contributions.
-                                Distinct from Uncertainty Level, which states the
-                                convention at which the resulting uncertainty is quoted.'
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
-                                schema:name:
-                                  const: Uncertainty Propagation Method
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -1135,354 +454,15 @@ allOf:
           schema:additionalProperty:
             type: array
             items:
-              anyOf:
-              - title: Signal Integration Time
-                description: Total integration time per analyte per replicate (s).
-                  Determined at analysis time from the actual acquisition.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/solutionSficpmsTAPP/signalIntegrationTime
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/solutionSficpmsTAPP/signalIntegrationTime
-                  schema:name:
-                    const: Signal Integration Time
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
-              - title: Detection Limit
-                description: "Elemental detection limits, one per reported concentration
-                  variable (one per analyte, these being the same set). Specify units
-                  (\xB5g/g or \xB5g/L) and whether values are procedure-typical estimates
-                  or session-specific measured values."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/solutionSficpmsTAPP/detectionLimit
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/solutionSficpmsTAPP/detectionLimit
-                  schema:name:
-                    const: Detection Limit
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
             allOf:
             - contains:
-                title: Signal Integration Time
-                description: Total integration time per analyte per replicate (s).
-                  Determined at analysis time from the actual acquisition.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/solutionSficpmsTAPP/signalIntegrationTime
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/solutionSficpmsTAPP/signalIntegrationTime
-                  schema:name:
-                    const: Signal Integration Time
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
-              minContains: 0
-              maxContains: 1
-            - contains:
-                title: Detection Limit
-                description: "Elemental detection limits, one per reported concentration
-                  variable (one per analyte, these being the same set). Specify units
-                  (\xB5g/g or \xB5g/L) and whether values are procedure-typical estimates
-                  or session-specific measured values."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/solutionSficpmsTAPP/detectionLimit
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/solutionSficpmsTAPP/detectionLimit
-                  schema:name:
-                    const: Detection Limit
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
               minContains: 0
               maxContains: 1
           ada:proceduralBlankLevel:
             description: "The measured level of the analytical blank in the session,
               and \u2014 where the reported quantity is a ratio \u2014 its composition,
               since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method, which
-              is procedure-level: this field records what was actually measured. Follows
-              the criterion-versus-measurement split the library applies wherever
-              a procedure sets a threshold and an analysis reports a value against
-              it."
+              composition is known. Companion to the blank correction method."
             type: string
-    dqv:hasQualityMeasurement:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              dqv:isMeasurementOf:
-                const: Oxide production ratio
-            required:
-            - dqv:isMeasurementOf
-          then:
-            properties:
-              dqv:value:
-                description: Measured oxide production ratio obtained during session-start
-                  tuning, for the proxy specified in Oxide Production Method and Threshold.
-                  Record the measured value and confirm whether the procedure threshold
-                  was met.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-      allOf:
-      - contains:
-          properties:
-            dqv:isMeasurementOf:
-              const: Oxide production ratio
-          required:
-          - dqv:isMeasurementOf
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the
-            procedure's declared reported properties. schema:variableMeasured carries
-            the dataset's actual variables; the reported-property branches above are
-            permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied to output concentrations
-            relative to a reference value (e.g., correction to a BHVO-2 working value).
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        - title: Detection Limit
-          description: "Elemental detection limits, one per reported concentration
-            variable (one per analyte, these being the same set). Specify units (\xB5g/g
-            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
-            measured values."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/detectionLimit
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/detectionLimit
-            schema:name:
-              const: Detection Limit
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-        - title: Detection Limit Method
-          description: Method used to calculate detection limits for each reported
-            concentration variable.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-      allOf:
-      - contains:
-          title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied to output concentrations
-            relative to a reference value (e.g., correction to a BHVO-2 working value).
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit
-          description: "Elemental detection limits, one per reported concentration
-            variable (one per analyte, these being the same set). Specify units (\xB5g/g
-            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
-            measured values."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/detectionLimit
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/detectionLimit
-            schema:name:
-              const: Detection Limit
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit Method
-          description: Method used to calculate detection limits for each reported
-            concentration variable.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionSficpmsTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/solutionSficpmsTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1

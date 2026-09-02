@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)",
-  "description": "Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v33.csv via the path-driven pipeline.",
+  "description": "Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v69.csv via the path-driven pipeline.",
   "allOf": [
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json"
@@ -17,6 +17,12 @@
     },
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.json#/$defs/ProcedureIdentification"
     },
     {
       "type": "object",
@@ -68,482 +74,44 @@
                                   "items": {
                                     "anyOf": [
                                       {
-                                        "title": "Auxiliary Gas Flow Rate",
-                                        "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "auxiliaryGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Auxiliary Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "L/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_auxiliaryGasFlowRate"
                                       },
                                       {
-                                        "title": "Coolant (Plasma) Gas Flow Rate",
-                                        "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "coolantGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Coolant (Plasma) Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "L/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_coolantPlasmaGasFlowRate"
                                       },
                                       {
-                                        "title": "Plasma Thermal Mode",
-                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution SF-ICP-MS analyses. Cool plasma (\u2264900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Plasma Thermal Mode"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_plasmaThermalMode"
                                       },
                                       {
-                                        "title": "RF Power",
-                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/rfPowerDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "rfPowerDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "RF Power"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "W"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_rfPower"
                                       }
                                     ]
                                   },
                                   "allOf": [
                                     {
                                       "contains": {
-                                        "title": "Auxiliary Gas Flow Rate",
-                                        "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "auxiliaryGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Auxiliary Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "L/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_auxiliaryGasFlowRate"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
                                     },
                                     {
                                       "contains": {
-                                        "title": "Coolant (Plasma) Gas Flow Rate",
-                                        "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/coolantGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "coolantGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Coolant (Plasma) Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "L/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_coolantPlasmaGasFlowRate"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
                                     },
                                     {
                                       "contains": {
-                                        "title": "Plasma Thermal Mode",
-                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution SF-ICP-MS analyses. Cool plasma (\u2264900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Plasma Thermal Mode"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_plasmaThermalMode"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
                                     },
                                     {
                                       "contains": {
-                                        "title": "RF Power",
-                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/rfPowerDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "rfPowerDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "RF Power"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "W"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "Torch"
-                                  },
-                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:name": {
-                                  "description": "Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).",
-                                  "anyOf": [
-                                    {
-                                      "type": "string",
-                                      "readOnly": true
-                                    },
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string",
-                                        "readOnly": true
-                                      }
-                                    }
-                                  ]
-                                },
-                                "schema:additionalProperty": {
-                                  "type": "array",
-                                  "items": {
-                                    "title": "Torch Depth",
-                                    "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionSficpmsTAPP/torchDepthDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "torchDepthDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Torch Depth"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  "allOf": [
-                                    {
-                                      "contains": {
-                                        "title": "Torch Depth",
-                                        "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/torchDepthDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "torchDepthDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Torch Depth"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_rfPower"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
@@ -574,156 +142,24 @@
                                   "items": {
                                     "anyOf": [
                                       {
-                                        "title": "Interface Cone Configuration",
-                                        "description": "Geometry and designation of the sampler and skimmer cones installed during analysis. Some SF-ICP-MS instruments offer multiple cone geometries that differ in aperture size and affect ion transmission efficiency and matrix tolerance.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/interfaceConeConfiguration"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/interfaceConeConfiguration"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Interface Cone Configuration"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_configuration"
                                       },
                                       {
-                                        "title": "Sampler and Skimmer Cone Material",
-                                        "description": "Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most aqueous matrices. Aluminium (Al) cones are used in some SF-ICP-MS labs for enhanced sensitivity at high resolution. Platinum (Pt) is used for HCl-rich matrices.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Sampler and Skimmer Cone Material"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_samplerAndSkimmerConeMaterial"
                                       }
                                     ]
                                   },
                                   "allOf": [
                                     {
                                       "contains": {
-                                        "title": "Interface Cone Configuration",
-                                        "description": "Geometry and designation of the sampler and skimmer cones installed during analysis. Some SF-ICP-MS instruments offer multiple cone geometries that differ in aperture size and affect ion transmission efficiency and matrix tolerance.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/interfaceConeConfiguration"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/interfaceConeConfiguration"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Interface Cone Configuration"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_configuration"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
                                     },
                                     {
                                       "contains": {
-                                        "title": "Sampler and Skimmer Cone Material",
-                                        "description": "Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most aqueous matrices. Aluminium (Al) cones are used in some SF-ICP-MS labs for enhanced sensitivity at high resolution. Platinum (Pt) is used for HCl-rich matrices.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Sampler and Skimmer Cone Material"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_samplerAndSkimmerConeMaterial"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
@@ -800,6 +236,40 @@
                                 }
                               }
                             }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "Torch"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:additionalProperty": {
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_torchDepth"
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_torchDepth"
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    }
+                                  ]
+                                }
+                              }
+                            }
                           }
                         ]
                       },
@@ -867,7 +337,7 @@
                         "anyOf": [
                           {
                             "title": "Doubly-Charged Species Monitor",
-                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.",
+                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -908,7 +378,7 @@
                           },
                           {
                             "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used. SF-ICP-MS instruments typically use a single SEM. Some instruments (e.g., Thermo Element XR) support triple mode: pulse counting for low signals, analog for mid-range signals, and Faraday cup for high signals. The cross-calibration correction between detector modes is documented in Group 5.",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used. The cross-calibration correction between detector modes is documented in Group 5.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -944,7 +414,7 @@
                           },
                           {
                             "title": "Doubly-Charged Species Production",
-                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
+                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -984,171 +454,16 @@
                             ]
                           },
                           {
-                            "title": "Instrument Serial Number or Lab Identifier",
-                            "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "instrumentSerialNumberOrLabIdentifierDefault"
-                              },
-                              "schema:name": {
-                                "const": "Instrument Serial Number or Lab Identifier"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier"
                           },
                           {
-                            "title": "Make-up Gas and Flow Rate",
-                            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient \u2014 downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRateDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "makeUpGasAndFlowRateDefault"
-                              },
-                              "schema:name": {
-                                "const": "Make-up Gas and Flow Rate"
-                              },
-                              "ada:dataType": {
-                                "const": "number"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              },
-                              "schema:unitText": {
-                                "const": "L/min"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_makeUpGasAndFlowRate"
                           },
                           {
-                            "title": "Mass Resolution Setting",
-                            "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/\u0394m \u2248 300\u2013400), medium resolution (MR; m/\u0394m \u2248 2500\u20135000), or high resolution (HR; m/\u0394m \u2248 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution Assignment). Procedure registers the mode(s) in use; analyst confirms at session start.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/massResolutionSettingDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "massResolutionSettingDefault"
-                              },
-                              "schema:name": {
-                                "const": "Mass Resolution Setting"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_massResolutionSetting"
                           },
                           {
-                            "title": "Memory Effect Mitigation",
-                            "description": "Procedure applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "memoryEffectMitigationDefault"
-                              },
-                              "schema:name": {
-                                "const": "Memory Effect Mitigation"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_memoryEffectMitigation"
                           }
                         ]
                       },
@@ -1156,7 +471,7 @@
                         {
                           "contains": {
                             "title": "Doubly-Charged Species Monitor",
-                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS, doubly-charged species are not suppressed by collision cells and require monitoring through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.",
+                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -1201,7 +516,7 @@
                         {
                           "contains": {
                             "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used. SF-ICP-MS instruments typically use a single SEM. Some instruments (e.g., Thermo Element XR) support triple mode: pulse counting for low signals, analog for mid-range signals, and Faraday cup for high signals. The cross-calibration correction between detector modes is documented in Group 5.",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used. The cross-calibration correction between detector modes is documented in Group 5.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -1241,7 +556,7 @@
                         {
                           "contains": {
                             "title": "Doubly-Charged Species Production",
-                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
+                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -1285,183 +600,28 @@
                         },
                         {
                           "contains": {
-                            "title": "Instrument Serial Number or Lab Identifier",
-                            "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "instrumentSerialNumberOrLabIdentifierDefault"
-                              },
-                              "schema:name": {
-                                "const": "Instrument Serial Number or Lab Identifier"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier"
                           },
                           "minContains": 0,
                           "maxContains": 1
                         },
                         {
                           "contains": {
-                            "title": "Make-up Gas and Flow Rate",
-                            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient \u2014 downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRateDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "makeUpGasAndFlowRateDefault"
-                              },
-                              "schema:name": {
-                                "const": "Make-up Gas and Flow Rate"
-                              },
-                              "ada:dataType": {
-                                "const": "number"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              },
-                              "schema:unitText": {
-                                "const": "L/min"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_makeUpGasAndFlowRate"
                           },
                           "minContains": 0,
                           "maxContains": 1
                         },
                         {
                           "contains": {
-                            "title": "Mass Resolution Setting",
-                            "description": "Mass resolution mode(s) used in this procedure. Sector-field instruments allow selection of low resolution (LR; m/\u0394m \u2248 300\u2013400), medium resolution (MR; m/\u0394m \u2248 2500\u20135000), or high resolution (HR; m/\u0394m \u2248 10,000). Multi-resolution procedures assign individual analytes to specific modes (documented in Group 4 under Mass Resolution Assignment). Procedure registers the mode(s) in use; analyst confirms at session start.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/massResolutionSettingDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "massResolutionSettingDefault"
-                              },
-                              "schema:name": {
-                                "const": "Mass Resolution Setting"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_massResolutionSetting"
                           },
                           "minContains": 0,
                           "maxContains": 1
                         },
                         {
                           "contains": {
-                            "title": "Memory Effect Mitigation",
-                            "description": "Procedure applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "memoryEffectMitigationDefault"
-                              },
-                              "schema:name": {
-                                "const": "Memory Effect Mitigation"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_memoryEffectMitigation"
                           },
                           "minContains": 0,
                           "maxContains": 1
@@ -1532,7 +692,7 @@
                                 "schema:value": {
                                   "type": "array",
                                   "items": {
-                                    "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
+                                    "description": "General description of the material type(s) this procedure is designed to analyse.",
                                     "anyOf": [
                                       {
                                         "type": "string",
@@ -1614,38 +774,6 @@
                     "if": {
                       "properties": {
                         "schema:name": {
-                          "const": "Sample preparation"
-                        }
-                      },
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    "then": {
-                      "properties": {
-                        "schema:description": {
-                          "description": "General approach to mechanical sample preparation prior to dissolution (e.g., whole-rock crushing and powdering, mineral separation). Documents how the solid material was conditioned before acid digestion.",
-                          "anyOf": [
-                            {
-                              "type": "string",
-                              "readOnly": true
-                            },
-                            {
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "readOnly": true
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "schema:name": {
                           "const": "Sample digestion"
                         }
                       },
@@ -1723,78 +851,12 @@
                         "schema:additionalProperty": {
                           "type": "array",
                           "items": {
-                            "title": "Guard Electrode",
-                            "description": "Whether a guard electrode (grounded shield electrode) is installed and active on the torch assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving ion extraction efficiency. Actively used as a design feature on Thermo Element 2 and Element XR instruments.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionSficpmsTAPP/guardElectrode"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": [
-                                  {
-                                    "@id": "ada:parameter/solutionSficpmsTAPP/guardElectrode"
-                                  }
-                                ]
-                              },
-                              "schema:name": {
-                                "const": "Guard Electrode"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_guardElectrode"
                           },
                           "allOf": [
                             {
                               "contains": {
-                                "title": "Guard Electrode",
-                                "description": "Whether a guard electrode (grounded shield electrode) is installed and active on the torch assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving ion extraction efficiency. Actively used as a design feature on Thermo Element 2 and Element XR instruments.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/guardElectrode"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValue"
-                                    ]
-                                  },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionSficpmsTAPP/guardElectrode"
-                                      }
-                                    ]
-                                  },
-                                  "schema:name": {
-                                    "const": "Guard Electrode"
-                                  },
-                                  "schema:value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:propertyID",
-                                  "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_guardElectrode"
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -1822,49 +884,8 @@
                           "items": {
                             "anyOf": [
                               {
-                                "title": "Normalization / Standards-Based Correction",
-                                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a BHVO-2 working value).",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "normalizationStandardsBasedCorrectionDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Normalization / Standards-Based Correction"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              {
                                 "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. For SF-ICP-MS instruments, the signal transitions between pulse counting (low concentrations) and analog detection (high concentrations). For triple-mode instruments (e.g., Thermo Element XR), an additional transition to Faraday cup detection occurs at the highest signal intensities. Cross-calibration factors between detector modes must be confirmed, typically measured each session.",
+                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
@@ -1904,40 +925,7 @@
                                 ]
                               },
                               {
-                                "title": "Isotope Dilution Data Reduction Method",
-                                "description": "Mass balance approach used to calculate sample mass fractions from spike\u2013sample isotope ratio measurements. Spike must have been added before digestion for accurate equilibration. Record 'None' if isotope dilution is not used.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValue"
-                                    ]
-                                  },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod"
-                                      }
-                                    ]
-                                  },
-                                  "schema:name": {
-                                    "const": "Isotope Dilution Data Reduction Method"
-                                  },
-                                  "schema:value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:propertyID",
-                                  "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod"
                               },
                               {
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.json#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
@@ -1950,53 +938,8 @@
                           "allOf": [
                             {
                               "contains": {
-                                "title": "Normalization / Standards-Based Correction",
-                                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a BHVO-2 working value).",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "normalizationStandardsBasedCorrectionDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Normalization / Standards-Based Correction"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
                                 "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. For SF-ICP-MS instruments, the signal transitions between pulse counting (low concentrations) and analog detection (high concentrations). For triple-mode instruments (e.g., Thermo Element XR), an additional transition to Faraday cup detection occurs at the highest signal intensities. Cross-calibration factors between detector modes must be confirmed, typically measured each session.",
+                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
@@ -2040,40 +983,7 @@
                             },
                             {
                               "contains": {
-                                "title": "Isotope Dilution Data Reduction Method",
-                                "description": "Mass balance approach used to calculate sample mass fractions from spike\u2013sample isotope ratio measurements. Spike must have been added before digestion for accurate equilibration. Record 'None' if isotope dilution is not used.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValue"
-                                    ]
-                                  },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod"
-                                      }
-                                    ]
-                                  },
-                                  "schema:name": {
-                                    "const": "Isotope Dilution Data Reduction Method"
-                                  },
-                                  "schema:value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:propertyID",
-                                  "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod"
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -2093,28 +1003,6 @@
                               "maxContains": 1
                             }
                           ]
-                        },
-                        "ada:detectionLimitMethod": {
-                          "description": "Method used to calculate detection limits for each reported concentration variable.",
-                          "anyOf": [
-                            {
-                              "type": "string",
-                              "enum": [
-                                "3\u03c3 blank",
-                                "3\u03c3 background",
-                                "3\u03c3 counting statistics",
-                                "3\u00d7 blank mean",
-                                "Poisson statistics",
-                                "N/A",
-                                "None",
-                                "missing"
-                              ]
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ],
-                          "readOnly": true
                         }
                       }
                     }
@@ -2122,18 +1010,6 @@
                 ]
               },
               "allOf": [
-                {
-                  "contains": {
-                    "properties": {
-                      "schema:name": {
-                        "const": "Sample preparation"
-                      }
-                    },
-                    "required": [
-                      "schema:name"
-                    ]
-                  }
-                },
                 {
                   "contains": {
                     "properties": {
@@ -2183,7 +1059,7 @@
               },
               {
                 "title": "E-scan Range",
-                "description": "Electric scan range used for peak acquisition, expressed as percentage of the centre mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition mode is not used.",
+                "description": "Electric scan range used for peak acquisition, expressed as percentage of the centre mass (%). Record 'N/A' if E-scan acquisition mode is not used.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -2230,7 +1106,7 @@
               },
               {
                 "title": "Triple Scanning Mode",
-                "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities on sector-field instruments. Triple scanning affects the effective integration time per cycle and should be reported. Record 'N/A' if not applicable to the instrument.",
+                "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Record 'N/A' if not applicable to the instrument.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -2268,130 +1144,10 @@
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.json#/$defs/Param_Procedure_internalStandardConcentration"
               },
               {
-                "title": "Spike / Outlier Filtering Approach",
-                "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproachDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "spikeOutlierFilteringApproachDefault"
-                  },
-                  "schema:name": {
-                    "const": "Spike / Outlier Filtering Approach"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_filteringApproach"
               },
               {
-                "title": "Uncertainty Propagation Method",
-                "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "uncertaintyPropagationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Uncertainty Propagation Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Detection Limit",
-                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/detectionLimitDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitDefault"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_uncertaintyPropagationMethod"
               }
             ]
           },
@@ -2406,7 +1162,7 @@
             {
               "contains": {
                 "title": "E-scan Range",
-                "description": "Electric scan range used for peak acquisition, expressed as percentage of the centre mass (%). Varies the accelerating voltage to cover masses in the vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A' if E-scan acquisition mode is not used.",
+                "description": "Electric scan range used for peak acquisition, expressed as percentage of the centre mass (%). Record 'N/A' if E-scan acquisition mode is not used.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -2457,7 +1213,7 @@
             {
               "contains": {
                 "title": "Triple Scanning Mode",
-                "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities on sector-field instruments. Triple scanning affects the effective integration time per cycle and should be reported. Record 'N/A' if not applicable to the instrument.",
+                "description": "Whether each mass peak is scanned three times per cycle and the results averaged (Y/N). Record 'N/A' if not applicable to the instrument.",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -2503,138 +1259,14 @@
             },
             {
               "contains": {
-                "title": "Spike / Outlier Filtering Approach",
-                "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproachDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "spikeOutlierFilteringApproachDefault"
-                  },
-                  "schema:name": {
-                    "const": "Spike / Outlier Filtering Approach"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_filteringApproach"
               },
               "minContains": 0,
               "maxContains": 1
             },
             {
               "contains": {
-                "title": "Uncertainty Propagation Method",
-                "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "uncertaintyPropagationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Uncertainty Propagation Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Detection Limit",
-                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/detectionLimitDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitDefault"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_uncertaintyPropagationMethod"
               },
               "minContains": 0,
               "maxContains": 1
@@ -2693,49 +1325,8 @@
                     ]
                   },
                   {
-                    "title": "Mass Resolution Assignment",
-                    "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "massResolutionAssignment"
-                      },
-                      "schema:name": {
-                        "const": "Mass Resolution Assignment"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
                     "title": "Dwell Time per Mass",
-                    "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
+                    "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -2782,12 +1373,12 @@
                     ]
                   },
                   {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction (supplementary to any interference suppression achieved through mass resolution selection).",
+                    "title": "Spectral Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -2795,10 +1386,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "isobaricInterferenceCorrectionsApplied"
+                        "const": "spectralInterferenceCorrectionsApplied"
                       },
                       "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
+                        "const": "Spectral Interference Corrections Applied"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -2824,7 +1415,7 @@
                   },
                   {
                     "title": "Interfering Species",
-                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution.",
+                    "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -2865,7 +1456,7 @@
                   },
                   {
                     "title": "Interference Correction Method",
-                    "description": "Mathematical approach used to calculate and remove residual interference contributions from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic species are measured alongside samples and used to calibrate correction factors.",
+                    "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -2906,7 +1497,7 @@
                   },
                   {
                     "title": "Limit of Quantification (LOQ) Method",
-                    "description": "Method used to determine the limit of quantification.",
+                    "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -2987,7 +1578,7 @@
                   },
                   {
                     "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                    "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported. Long-term precision is normally poorer than within-session precision and is the figure a data user should carry when comparing results from different sessions.",
+                    "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3027,7 +1618,7 @@
                   },
                   {
                     "title": "Analytical Accuracy and Assessment Method",
-                    "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+                    "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3116,53 +1707,8 @@
                 },
                 {
                   "contains": {
-                    "title": "Mass Resolution Assignment",
-                    "description": "Mass resolution mode assigned to each acquired mass. The selected resolution determines which polyatomic interferences are physically resolved by the magnetic sector. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "massResolutionAssignment"
-                      },
-                      "schema:name": {
-                        "const": "Mass Resolution Assignment"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
                     "title": "Dwell Time per Mass",
-                    "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
+                    "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3213,12 +1759,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction (supplementary to any interference suppression achieved through mass resolution selection).",
+                    "title": "Spectral Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                        "const": "ada:analyteColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -3226,10 +1772,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "isobaricInterferenceCorrectionsApplied"
+                        "const": "spectralInterferenceCorrectionsApplied"
                       },
                       "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
+                        "const": "Spectral Interference Corrections Applied"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -3259,7 +1805,7 @@
                 {
                   "contains": {
                     "title": "Interfering Species",
-                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation strategy; mathematical corrections address residual interferences not resolved at the operating resolution.",
+                    "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3304,7 +1850,7 @@
                 {
                   "contains": {
                     "title": "Interference Correction Method",
-                    "description": "Mathematical approach used to calculate and remove residual interference contributions from measured signals. In SF-ICP-MS, interference solutions isolating specific polyatomic species are measured alongside samples and used to calibrate correction factors.",
+                    "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3349,7 +1895,7 @@
                 {
                   "contains": {
                     "title": "Limit of Quantification (LOQ) Method",
-                    "description": "Method used to determine the limit of quantification.",
+                    "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3438,7 +1984,7 @@
                 {
                   "contains": {
                     "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                    "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported. Long-term precision is normally poorer than within-session precision and is the figure a data user should carry when comparing results from different sessions.",
+                    "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3482,7 +2028,7 @@
                 {
                   "contains": {
                     "title": "Analytical Accuracy and Assessment Method",
-                    "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+                    "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3528,6 +2074,129 @@
             }
           }
         },
+        "ada:channelTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:channelColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/ChannelIdentifierColumn"
+                  },
+                  {
+                    "title": "Mass Resolution Assignment",
+                    "description": "Mass resolution mode used for acquisition. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/solutionSficpmsTAPP/massResolutionAssignment"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "massResolutionAssignment"
+                      },
+                      "schema:name": {
+                        "const": "Mass Resolution Assignment"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Mass Resolution Assignment",
+                    "description": "Mass resolution mode used for acquisition. One analyte may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:channelColumn/solutionSficpmsTAPP/massResolutionAssignment"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "massResolutionAssignment"
+                      },
+                      "schema:name": {
+                        "const": "Mass Resolution Assignment"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            }
+          }
+        },
         "ada:numberOfScansPerReplicate": {
           "description": "Number of complete mass scans accumulated per analytical replicate. A scan \u2014 also called a sweep or a pass \u2014 is one complete traversal of the monitored masses by a sequentially scanning analyser, so the scan count multiplied by the per-mass dwell time gives the total integration time per replicate. Distinct from a cycle in simultaneous multi-collection, which is one readout of all detectors at once rather than a traversal of masses.",
           "anyOf": [
@@ -3541,7 +2210,7 @@
           "readOnly": true
         },
         "ada:numberOfReplicatesPerSample": {
-          "description": "Number of replicate measurements performed on the same sample, or on the same nominal location where the technique is spatially resolved. For spot analysis this is the number of individual spots per grain or location; for transects, the number of replicate lines; for mapping, the number of map acquisitions of the same area; for solution work, the number of discrete replicate measurements acquired per sample solution. The procedure registers an intended count where it has one; the analysis records the count actually acquired.",
+          "description": "Number of replicate measurements performed on the same sample, or on the same nominal location where the technique is spatially resolved. For spot analysis this is the number of individual spots per grain or location; for transects, the number of replicate lines; for mapping, the number of map acquisitions of the same area; for solution work, the number of discrete replicate measurements acquired per sample solution.",
           "anyOf": [
             {
               "type": "integer"
@@ -3550,244 +2219,6 @@
               "type": "string"
             }
           ]
-        },
-        "ada:sampleSequenceDesign": {
-          "description": "Description of the measurement order within a session: how samples, blanks, calibration standards, and reference materials are interleaved.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:internalStandardElement": {
-          "description": "Element(s) added at a known concentration to all solutions (samples, blanks, calibration standards) and used as internal standards for drift correction and matrix normalization. Specify element and monitored isotope.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:oxideProductionMethodAndThreshold": {
-          "description": "Method used to quantify plasma oxide production and the acceptance threshold applied before commencing analysis. Record both the monitored mass ratio(s) and the maximum allowed threshold(s). Measured values are recorded in Oxide Production. CeO+/Ce+ (m/z 156/140) is the standard monitor proxy; stricter thresholds than Q-ICP-MS are commonly required. BaO+/Ba+ may also be monitored.",
-          "type": "string",
-          "readOnly": true
-        },
-        "schema:variableMeasured": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "title": "Dataset variable",
-                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
-                "type": "object",
-                "required": [
-                  "@type"
-                ],
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "contains": {
-                      "enum": [
-                        "cdi:InstanceVariable",
-                        "schema:PropertyValue"
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "title": "Normalization / Standards-Based Correction",
-                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a BHVO-2 working value).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "normalizationStandardsBasedCorrectionDefault"
-                  },
-                  "schema:name": {
-                    "const": "Normalization / Standards-Based Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Detection Limit",
-                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/detectionLimitDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitDefault"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "title": "Normalization / Standards-Based Correction",
-                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a BHVO-2 working value).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "normalizationStandardsBasedCorrectionDefault"
-                  },
-                  "schema:name": {
-                    "const": "Normalization / Standards-Based Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Detection Limit",
-                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionSficpmsTAPP/detectionLimitDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitDefault"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            }
-          ]
-        },
-        "ada:primaryStandardNameDefault": {
-          "description": "Name and reference material identifier of the external calibration standard used to convert signal intensities to elemental concentrations. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
-          "type": "string"
-        },
-        "ada:internalStandardApproach": {
-          "description": "Role(s) assigned to the internal standard(s) in data reduction: drift correction only, matrix normalization, or a combination.",
-          "type": "string",
-          "enum": [
-            "Drift correction only",
-            "Matrix normalization",
-            "Drift + matrix normalization",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
         },
         "ada:driftCorrectionMethod": {
           "description": "Method used to correct for instrumental signal drift across a session.",
@@ -3801,75 +2232,12 @@
             "missing"
           ],
           "readOnly": true
-        },
-        "ada:perAnalyteCalibrationStrategy": {
-          "type": "array",
-          "items": {
-            "description": "Approach used to convert measured ion signals to elemental concentrations. Documents cases where different analytes or analyte groups are calibrated using different strategies within the same procedure. If a single strategy is applied uniformly to all analytes, record that strategy.",
-            "type": "string",
-            "enum": [
-              "External calibration (all analytes)",
-              "Isotope dilution (all analytes)",
-              "Matrix-matched bracketing with BHVO-2",
-              "ID for REE; external calibration for transition metals",
-              "N/A",
-              "None",
-              "missing"
-            ],
-            "readOnly": true
-          }
-        },
-        "ada:signalIntegrationIntervalMethod": {
-          "description": "Method used to define the integration window for each replicate measurement (e.g., full acquisition time, stable-interval selection, automated criteria).",
-          "type": "string",
-          "enum": [
-            "Full replicate",
-            "Stable interval selection",
-            "Automated peak detection",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "ada:blankBackgroundCorrectionMethod": {
-          "description": "Method used to subtract instrument background and/or procedural blank from sample signals.",
-          "type": "string",
-          "enum": [
-            "On-peak zero",
-            "Solution blank",
-            "Procedural blank",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "ada:secondaryReferenceMaterialDefault": {
-          "type": "array",
-          "items": {
-            "description": "Reference material(s) measured as unknowns to independently assess analytical accuracy. Specify material name and expected-value source.",
-            "type": "string"
-          }
-        },
-        "ada:calibrationMeasurementFrequency": {
-          "description": "How often the primary calibration standard is measured relative to unknown samples within a session.",
-          "type": "string",
-          "readOnly": true
         }
       },
       "required": [
         "ada:numberOfScansPerReplicate",
         "ada:numberOfReplicatesPerSample",
-        "ada:sampleSequenceDesign",
-        "ada:internalStandardElement",
-        "ada:oxideProductionMethodAndThreshold",
-        "ada:primaryStandardNameDefault",
-        "ada:internalStandardApproach",
-        "ada:driftCorrectionMethod",
-        "ada:signalIntegrationIntervalMethod",
-        "ada:blankBackgroundCorrectionMethod",
-        "ada:calibrationMeasurementFrequency"
+        "ada:driftCorrectionMethod"
       ]
     }
   ]

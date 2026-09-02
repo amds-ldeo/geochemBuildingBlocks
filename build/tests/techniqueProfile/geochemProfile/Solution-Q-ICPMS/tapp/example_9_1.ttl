@@ -14,9 +14,11 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -36,13 +38,11 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v35.csv)." ;
+    schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Science Tokyo" ] ;
@@ -55,61 +55,8 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Carbonaceous asteroid particles (Ryugu, Hayabusa2 TD1) and the Allende chondrite" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "54 elements: Li",
-                "Ag",
-                "Al",
-                "As",
-                "Ba",
-                "Be",
-                "Bi",
-                "Ca",
-                "Cd",
-                "Co",
-                "Cr",
-                "Cs",
-                "Cu",
-                "Fe",
-                "Ga",
-                "Hf",
-                "In",
-                "K",
-                "La-Lu",
-                "Mg",
-                "Mn",
-                "Mo",
-                "Na",
-                "Nb",
-                "Ni",
-                "P",
-                "Pb",
-                "Rb",
-                "Sc",
-                "Se",
-                "Sr",
-                "Ta",
-                "Th",
-                "Ti",
-                "Tl",
-                "U",
-                "V",
-                "W",
-                "Y",
-                "Zn",
-                "Zr" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
@@ -124,50 +71,28 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> ;
+                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
             ada:defaultChannels "54 elements measured in three groups: Group-1 trace elements",
                 "Group-2 major and minor elements",
                 "Group-3 HFSE plus Mo and W" ] ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF" ;
-    ada:internalStandardApproach "missing" ;
     ada:internalStandardElement "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "N/A" ;
+    ada:perAnalyteCalibrationStrategy "Three strategies by group: calibration curve with 103Rh internal standardisation; 113In-203Tl ID-IS (Yokoyama et al. 2017); isotope dilution for Ti, Zr, Mo, Hf and W; 91Zr and 179Hf as internal standards for Nb and Ta" ;
     ada:primaryStandardNameDefault "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3" ;
     ada:reportedProperties "Elemental abundances, CI-normalised ratios" ;
-    ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende" ;
     ada:secondaryReferenceMaterialDefault "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "N — replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material" ;
     ada:washTimeBetweenSamples -9999 .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -187,16 +112,37 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Isobaric Interference Corrections Applied" ;
-    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'" ;
     schema1:name "Analysis Inclusion and Rejection Criteria" ;
     schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Collision Gas Type" ;
+    schema1:value "He" ;
+    schema1:valueName "collisionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Reaction Gas Type" ;
+    schema1:value "N/A — KED only" ;
+    schema1:valueName "reactionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:value "ID-IS method of Kagami and Yokoyama (2021); isotope dilution for Ti, Zr, Mo, Hf and W" ;
+    schema1:valueName "isotopeDilutionDataReductionMethod" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -253,11 +199,11 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
 
 <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "KED (kinetic energy discrimination, He gas)" .
+    schema1:name "KED (He) mode" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -282,19 +228,4 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> a schema1:PropertyValue ;
-    schema1:name "Collision Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> ;
-    schema1:value "He" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
-    schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-    schema1:value "ID-IS method of Kagami and Yokoyama (2021); isotope dilution for Ti, Zr, Mo, Hf and W" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> a schema1:PropertyValue ;
-    schema1:name "Reaction Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
-    schema1:value "N/A — KED only" .
 

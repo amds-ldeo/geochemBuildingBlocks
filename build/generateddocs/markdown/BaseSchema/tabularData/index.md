@@ -149,6 +149,7 @@ allOf:
       - ada:TOFSIMSMassSpectrumData
       - ada:VNMIRSpectralPoint
       - ada:XRDTabular
+      - nil:missing
       description: ADA componentType for a tabular data file, as a single string.
         Allowed values are constrained at the technique-profile level.
       x-jsonld-id: https://ada.astromat.org/metadata/componentType

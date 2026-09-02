@@ -5180,7 +5180,8 @@
                 "ada:SVRUECWaveformData",
                 "ada:TOFSIMSMassSpectrumData",
                 "ada:VNMIRSpectralPoint",
-                "ada:XRDTabular"
+                "ada:XRDTabular",
+                "nil:missing"
               ],
               "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level.",
               "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
@@ -5856,7 +5857,8 @@
             "ada:XANESStackOverviewImage",
             "ada:XRDDiffractionPattern",
             "ada:XRDIndexedImage",
-            "ada:plot"
+            "ada:plot",
+            "nil:missing"
           ],
           "description": "ADA componentType for an image, as a single string. Allowed values are constrained at the technique-profile level.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
@@ -5942,7 +5944,8 @@
             "ada:SEMImageMap",
             "ada:SLSTextureMap",
             "ada:basemap",
-            "ada:supplementalBasemap"
+            "ada:supplementalBasemap",
+            "nil:missing"
           ],
           "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained at the technique-profile level.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
@@ -6108,7 +6111,8 @@
             "ada:SEMImageCollection",
             "ada:TOFSIMSCollection",
             "ada:XCTImageCollection",
-            "ada:shapefile"
+            "ada:shapefile",
+            "nil:missing"
           ],
           "description": "ADA componentType for a collection, as a single string. Allowed values are constrained at the technique-profile level (each adaProfile's schema:hasPart anyOf enumerates the allowed values for that technique, either inline or via a $ref to a detail<Tech> schema). No enum here so that profile-specific componentTypes (e.g. ada:XANESCollection, ada:LIT2DDataCollection) do not require updates to this branch schema.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
@@ -6218,7 +6222,8 @@
                 "ada:LCMSRawData",
                 "ada:STEMEDSCube",
                 "ada:STEMEDSTomo",
-                "ada:STEMEELSCube"
+                "ada:STEMEELSCube",
+                "nil:missing"
               ],
               "description": "ADA componentType for a data cube, as a single string. Allowed values are constrained at the technique-profile level.",
               "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
@@ -6307,7 +6312,8 @@
             "ada:processingMethod",
             "ada:report",
             "ada:samplePreparation",
-            "ada:worldFile"
+            "ada:worldFile",
+            "nil:missing"
           ],
           "description": "ADA componentType for a document, as a single string. Allowed values are constrained at the technique-profile level.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
@@ -6370,7 +6376,8 @@
             "ada:areaOfInterest",
             "ada:contextPhotography",
             "ada:quickLook",
-            "ada:supplementaryImage"
+            "ada:supplementaryImage",
+            "nil:missing"
           ],
           "description": "ADA componentType for a supplemental document image, as a single string. Allowed values are constrained at the technique-profile level.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
@@ -6423,7 +6430,8 @@
             "ada:VLMVideo",
             "ada:XCTVideo",
             "ada:contextVideo",
-            "ada:other"
+            "ada:other",
+            "nil:missing"
           ],
           "description": "ADA componentType for an other-format file, as a single string. Allowed values are constrained at the technique-profile level.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
@@ -8425,6 +8433,54 @@
         },
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/XRD/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured"
+        },
+        {
+          "if": {
+            "required": [
+              "cdif:isDefinedBy_RepresentedVariable"
+            ]
+          },
+          "then": {
+            "properties": {
+              "cdi:takesSubstantiveValuesFrom": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSubstantiveValuesFrom"
+              },
+              "cdi:takesSentinelValuesFrom": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSentinelValuesFrom"
+              },
+              "cdi:hasIntendedDataType": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasIntendedDataType"
+              },
+              "cdi:describedUnitOfMeasure": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure"
+              },
+              "cdi:unitOfMeasureKind": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/unitOfMeasureKind"
+              },
+              "cdi:measures": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/measures"
+              },
+              "cdi:externalDefinition": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/externalDefinition"
+              },
+              "cdif:uses_Concept": {
+                "not": true,
+                "x-jsonld-id": "https://w3id.org/cdif/uses_Concept"
+              },
+              "cdif:definition": {
+                "not": true,
+                "x-jsonld-id": "https://w3id.org/cdif/definition"
+              }
+            },
+            "description": "When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level properties live on that RepresentedVariable and may not be declared inline on the InstanceVariable."
+          }
         }
       ],
       "$defs": {

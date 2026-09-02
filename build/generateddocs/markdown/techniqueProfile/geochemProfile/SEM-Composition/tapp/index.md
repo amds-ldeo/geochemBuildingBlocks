@@ -30,7 +30,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Genge2025",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v24.csv).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v58.csv).",
   "schema:object": [
     {
       "@type": [
@@ -114,7 +114,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "ada:acceleratingVoltageDefault": "10 kV",
       "@type": [
         "schema:Product",
@@ -125,6 +125,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     }
   ],
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
+  "ada:primaryStandardNameDefault": "Oxford factory internal standards",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -188,8 +189,8 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -225,7 +226,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Genge2025",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v24.csv).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v58.csv).",
   "schema:object": [
     {
       "@type": [
@@ -309,7 +310,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "ada:acceleratingVoltageDefault": "10 kV",
       "@type": [
         "schema:Product",
@@ -320,6 +321,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     }
   ],
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
+  "ada:primaryStandardNameDefault": "Oxford factory internal standards",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -383,8 +385,8 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -409,15 +411,15 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v24.csv)." ;
+    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v58.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
@@ -439,16 +441,17 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "XPP (Simplified PAP)" ;
+    ada:primaryStandardNameDefault "Oxford factory internal standards" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "VP-SEM / ESEM" ;
+    schema1:description "VP-SEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
@@ -654,9 +657,10 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -842,9 +846,10 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -869,13 +874,13 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -897,9 +902,10 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
@@ -1054,20 +1060,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     }
   ],
   "ada:edsAcquisitionMode": "Map",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semCompositionTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.5,
-      "schema:description": "~0.5 wt% for most elements"
-    }
-  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1130,9 +1122,10 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -1261,20 +1254,6 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     }
   ],
   "ada:edsAcquisitionMode": "Map",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semCompositionTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.5,
-      "schema:description": "~0.5 wt% for most elements"
-    }
-  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1337,9 +1316,10 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -1371,7 +1351,6 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -1395,18 +1374,11 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
-
-<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 5e-01 ;
-    schema1:description "~0.5 wt% for most elements" ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimitDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -1559,7 +1531,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:edsAcquisitionMode": "Point / spot",
+  "ada:edsAcquisitionMode": "Point",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1622,9 +1594,10 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -1753,7 +1726,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:edsAcquisitionMode": "Point / spot",
+  "ada:edsAcquisitionMode": "Point",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1816,9 +1789,10 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -1869,13 +1843,14 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
             schema1:target [ schema1:name "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
-    ada:edsAcquisitionMode "Point / spot" ;
+    ada:edsAcquisitionMode "Point" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
@@ -1955,36 +1930,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2013,7 +1958,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -2051,7 +1996,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "ada:acceleratingVoltageDefault": "20 kV",
       "@type": [
         "schema:Product",
@@ -2120,171 +2065,34 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Si",
-      "Fe",
-      "Ni",
-      "S",
-      "Na",
-      "Ca",
-      "Al"
-    ],
-    "ada:analyteColumns": [
+  "schema:actionProcess": {
+    "schema:step": [
       {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:name": "example instrumentName"
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
       },
       {
-        "@id": "ada:analyteColumn/semCompositionTAPP/beamCurrent",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
         ],
-        "schema:valueName": "techniquePerAnalyte",
-        "schema:name": "Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCorrectionMethod",
-        "schema:name": "Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/blankCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "blankCorrection",
-        "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/primaryCalibrationStandardName",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/secondaryReferenceMaterials",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "secondaryReferenceMaterials",
-        "schema:name": "Secondary Reference Materials",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferingElements",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
+        "schema:position": 2
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -2298,9 +2106,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -2354,36 +2163,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2412,7 +2191,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -2450,7 +2229,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "ada:acceleratingVoltageDefault": "20 kV",
       "@type": [
         "schema:Product",
@@ -2519,171 +2298,34 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Si",
-      "Fe",
-      "Ni",
-      "S",
-      "Na",
-      "Ca",
-      "Al"
-    ],
-    "ada:analyteColumns": [
+  "schema:actionProcess": {
+    "schema:step": [
       {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:name": "example instrumentName"
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
       },
       {
-        "@id": "ada:analyteColumn/semCompositionTAPP/beamCurrent",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
         ],
-        "schema:valueName": "techniquePerAnalyte",
-        "schema:name": "Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCorrectionMethod",
-        "schema:name": "Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/blankCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "blankCorrection",
-        "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/primaryCalibrationStandardName",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/secondaryReferenceMaterials",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "secondaryReferenceMaterials",
-        "schema:name": "Secondary Reference Materials",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferingElements",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
+        "schema:position": 2
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -2697,9 +2339,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -2724,14 +2367,14 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -2752,131 +2395,20 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyteEstimationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalAccuracy>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalPrecision>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/blankCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/techniquePerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> ;
-            ada:defaultAnalytes "Al",
-                "Ca",
-                "Fe",
-                "Mg",
-                "Na",
-                "Ni",
-                "S",
-                "Si" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault "30 s live time per spot analysis" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ] .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Analyte Estimation Method" ;
-    schema1:valueName "analyteEstimationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Accuracy" ;
-    schema1:valueName "analyticalAccuracy" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Precision" ;
-    schema1:valueName "analyticalPrecision" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Background Correction Method" ;
-    schema1:valueName "backgroundCorrectionMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Beam Current" ;
-    schema1:valueName "beamCurrent" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Blank Correction" ;
-    schema1:valueName "blankCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
-    schema1:name "Counting Statistics Error" ;
-    schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
-    schema1:name "Interference Correction Standard" ;
-    schema1:valueName "interferenceCorrectionStandard" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interference Corrections Applied" ;
-    schema1:valueName "interferenceCorrectionsApplied" ;
-    ada:dataType "boolean" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferingElements> a schema1:PropertyValueSpecification ;
-    schema1:name "Interfering Elements" ;
-    schema1:valueName "interferingElements" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Secondary Reference Materials" ;
-    schema1:valueName "secondaryReferenceMaterials" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/techniquePerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Technique per Analyte" ;
-    schema1:valueName "techniquePerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Time-Dependent Intensity Correction" ;
-    schema1:valueName "timeDependentIntensityCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -2889,7 +2421,7 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
@@ -2911,7 +2443,7 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -2968,36 +2500,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -3026,7 +2528,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -3064,7 +2566,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "ada:acceleratingVoltageDefault": "20 kV",
       "@type": [
         "schema:Product",
@@ -3134,171 +2636,34 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "ada:analyticalMode": [
     "EDS Mapping"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Si",
-      "Fe",
-      "Ni",
-      "S",
-      "Na",
-      "Ca",
-      "Al (element mapping)"
-    ],
-    "ada:analyteColumns": [
+  "schema:actionProcess": {
+    "schema:step": [
       {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:name": "example instrumentName"
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
       },
       {
-        "@id": "ada:analyteColumn/semCompositionTAPP/beamCurrent",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
         ],
-        "schema:valueName": "techniquePerAnalyte",
-        "schema:name": "Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCorrectionMethod",
-        "schema:name": "Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/blankCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "blankCorrection",
-        "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/primaryCalibrationStandardName",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/secondaryReferenceMaterials",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "secondaryReferenceMaterials",
-        "schema:name": "Secondary Reference Materials",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferingElements",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
+        "schema:position": 2
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -3312,8 +2677,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -3367,36 +2733,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -3425,7 +2761,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -3463,7 +2799,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "ada:acceleratingVoltageDefault": "20 kV",
       "@type": [
         "schema:Product",
@@ -3533,171 +2869,34 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "ada:analyticalMode": [
     "EDS Mapping"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Si",
-      "Fe",
-      "Ni",
-      "S",
-      "Na",
-      "Ca",
-      "Al (element mapping)"
-    ],
-    "ada:analyteColumns": [
+  "schema:actionProcess": {
+    "schema:step": [
       {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:name": "example instrumentName"
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
       },
       {
-        "@id": "ada:analyteColumn/semCompositionTAPP/beamCurrent",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
         ],
-        "schema:valueName": "techniquePerAnalyte",
-        "schema:name": "Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/backgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCorrectionMethod",
-        "schema:name": "Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/blankCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "blankCorrection",
-        "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/primaryCalibrationStandardName",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/secondaryReferenceMaterials",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "secondaryReferenceMaterials",
-        "schema:name": "Secondary Reference Materials",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferingElements",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semCompositionTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
+        "schema:position": 2
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -3711,8 +2910,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -3765,131 +2965,20 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyteEstimationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalAccuracy>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalPrecision>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/blankCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/techniquePerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> ;
-            ada:defaultAnalytes "Al (element mapping)",
-                "Ca",
-                "Fe",
-                "Mg",
-                "Na",
-                "Ni",
-                "S",
-                "Si" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
     ada:edsLiveTimePerPointOrPixelDefault "5 ms dwell time per pixel" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault "2.5 µm" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Analyte Estimation Method" ;
-    schema1:valueName "analyteEstimationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Accuracy" ;
-    schema1:valueName "analyticalAccuracy" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Precision" ;
-    schema1:valueName "analyticalPrecision" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Background Correction Method" ;
-    schema1:valueName "backgroundCorrectionMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Beam Current" ;
-    schema1:valueName "beamCurrent" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Blank Correction" ;
-    schema1:valueName "blankCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
-    schema1:name "Counting Statistics Error" ;
-    schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
-    schema1:name "Interference Correction Standard" ;
-    schema1:valueName "interferenceCorrectionStandard" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interference Corrections Applied" ;
-    schema1:valueName "interferenceCorrectionsApplied" ;
-    ada:dataType "boolean" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferingElements> a schema1:PropertyValueSpecification ;
-    schema1:name "Interfering Elements" ;
-    schema1:valueName "interferingElements" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Secondary Reference Materials" ;
-    schema1:valueName "secondaryReferenceMaterials" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/techniquePerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Technique per Analyte" ;
-    schema1:valueName "techniquePerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Time-Dependent Intensity Correction" ;
-    schema1:valueName "timeDependentIntensityCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -3902,7 +2991,7 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
@@ -3924,7 +3013,7 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -3963,7 +3052,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Zega2025",
-  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v24.csv).",
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v58.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "schema:object": [
     {
       "@type": [
@@ -3981,36 +3070,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4039,7 +3098,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -4086,7 +3145,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:edsAcquisitionMode": "N/A",
+  "ada:edsAcquisitionMode": "Point",
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
   "schema:location": {
     "@type": [
@@ -4119,6 +3178,36 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4130,9 +3219,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4168,7 +3258,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Zega2025",
-  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v24.csv).",
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v58.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "schema:object": [
     {
       "@type": [
@@ -4186,36 +3276,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4244,7 +3304,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -4291,7 +3351,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:edsAcquisitionMode": "N/A",
+  "ada:edsAcquisitionMode": "Point",
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
   "schema:location": {
     "@type": [
@@ -4324,6 +3384,36 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4335,9 +3425,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4362,16 +3453,16 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v24.csv)." ;
+    schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v58.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
@@ -4389,13 +3480,14 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
             schema1:target [ schema1:name "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
-    ada:edsAcquisitionMode "N/A" ;
+    ada:edsAcquisitionMode "Point" ;
     ada:edsLiveTimePerPointOrPixelDefault "20 to 200 s (per point)" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
             ada:toolRole "acquisition" ],
@@ -4427,7 +3519,7 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -4479,36 +3571,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4615,6 +3677,36 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "ada:analyticalMode": [
     "EDS Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4627,9 +3719,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4683,36 +3776,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4819,6 +3882,36 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "ada:analyticalMode": [
     "EDS Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4831,9 +3924,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4889,14 +3983,15 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ] .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5096,9 +4191,10 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -5274,9 +4370,10 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -5330,9 +4427,10 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
@@ -5371,14 +4469,15 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)
 description: Scanning electron microscopy compositional microanalysis (EDS/WDS) extension
-  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v24.csv
+  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v58.csv
   via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     schema:object:
@@ -5412,24 +4511,21 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyse. Used for discoverability
-                              and procedure matching, and because the material type
-                              constrains sample preparation, calibration and matrix-matching
-                              requirements.
+                              this procedure is designed to analyse.
                             anyOf:
                             - type: string
                               enum:
                               - Silicate mineral
+                              - Silicate glass
                               - Oxide
                               - Sulfide
                               - Carbonate
                               - Phosphate
-                              - Metal alloy
+                              - Metal or alloy
                               - Organic matter
-                              - Glass
                               - Regolith
-                              - Whole rock / polished section
                               - Porous material
+                              - Whole rock
                               - N/A
                               - None
                               - missing
@@ -5450,150 +4546,6 @@ allOf:
                 const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
           required:
           - '@type'
-    schema:actionProcess:
-      type: object
-      properties:
-        schema:step:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  schema:name:
-                    const: Sample preparation
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:description:
-                    description: Method by which samples were prepared for SEM analysis
-                      prior to loading in the instrument. Includes mounting medium
-                      (epoxy, carbon tape, stub), polishing steps (alumina, colloidal
-                      silica, argon ion mill), and conductive coating type and thickness.
-                      For VP-SEM/ESEM analyses, note whether an uncoated sample was
-                      used and the gas type used. FIB-specific in-session operations
-                      (protective coating deposition, milling conditions, lamella
-                      preparation) are documented separately in Group 4.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-            - if:
-                properties:
-                  schema:name:
-                    const: Data reduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - title: Normalization / Standards-Based Correction
-                        description: Post-acquisition normalization applied using
-                          secondary reference materials to correct for session-to-session
-                          calibration drift.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: normalizationStandardsBasedCorrectionDefault
-                          schema:name:
-                            const: Normalization / Standards-Based Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                    allOf:
-                    - contains:
-                        title: Normalization / Standards-Based Correction
-                        description: Post-acquisition normalization applied using
-                          secondary reference materials to correct for session-to-session
-                          calibration drift.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: normalizationStandardsBasedCorrectionDefault
-                          schema:name:
-                            const: Normalization / Standards-Based Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                      minContains: 0
-                      maxContains: 1
-                  ada:detectionLimitMethod:
-                    description: Formula or approach used to calculate detection limits.
-                    anyOf:
-                    - type: string
-                      enum:
-                      - "3\u03C3 blank"
-                      - "3\u03C3 background"
-                      - "3\u03C3 counting statistics"
-                      - "3\xD7 blank mean"
-                      - Poisson statistics
-                      - N/A
-                      - None
-                      - missing
-                    - type: string
-                    readOnly: true
-          allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Sample preparation
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: Data reduction
-              required:
-              - schema:name
     schema:instrument:
       type: array
       items:
@@ -5614,10 +4566,10 @@ allOf:
                 properties:
                   schema:name:
                     description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
+                      measurement, recorded as a controlled value. Where a procedure
+                      couples a sample-introduction system to an analysing instrument,
+                      this records the analysing instrument. Instrument Model gives
+                      the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -5663,7 +4615,9 @@ allOf:
                           - type: string
                             enum:
                             - Cold-FEG
-                            - Schottky FEG
+                            - Schottky FEG (X-FEG)
+                            - Schottky FEG (standard)
+                            - "Field emission gun (FEG) \u2014 subtype not specified"
                             - LaB6 / CeB6
                             - Tungsten (W)
                             - Unknown
@@ -5676,7 +4630,9 @@ allOf:
                               type: string
                               enum:
                               - Cold-FEG
-                              - Schottky FEG
+                              - Schottky FEG (X-FEG)
+                              - Schottky FEG (standard)
+                              - "Field emission gun (FEG) \u2014 subtype not specified"
                               - LaB6 / CeB6
                               - Tungsten (W)
                               - Unknown
@@ -5695,9 +4651,11 @@ allOf:
                     then:
                       properties:
                         schema:description:
-                          description: EDS detector type, manufacturer, active area,
-                            solid angle, window type, and geometry (take-off angle,
-                            position). Multiple detectors should be listed separately.
+                          description: EDS detector type, manufacturer, number of
+                            detector elements, active area and solid angle, window
+                            type, and geometry (take-off angle, position). List multiple
+                            detectors separately. Record 'N/A' where the procedure
+                            has no EDS detector.
                           anyOf:
                           - type: string
                             readOnly: true
@@ -5737,20 +4695,25 @@ allOf:
                     required:
                     - schema:additionalType
               schema:description:
-                description: 'Broad platform type of the instrument. ''Standard SEM'':
-                  dedicated electron-only SEM column. ''FIB-SEM dual-beam'': combined
+                description: "Broad platform type of the instrument. 'Standard SEM':
+                  dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined
                   focused ion beam and SEM columns (enables TEM specimen preparation,
-                  3D serial sectioning, ion-beam milling). ''VP-SEM / ESEM'': variable-pressure
-                  or environmental SEM for imaging uncoated, hydrated, or charging
-                  specimens. An instrument may combine categories (e.g., FIB-SEM with
-                  VP capability).'
+                  3D serial sectioning, ion-beam milling). 'VP-SEM': variable-pressure
+                  SEM, a dry gas at low chamber pressure for uncoated or charging
+                  specimens. 'ESEM': environmental SEM, water vapour at higher pressure
+                  for hydrated specimens, requiring a gaseous secondary electron detector.
+                  Where an instrument combines categories, join them with '; ' \u2014
+                  'FIB-SEM dual-beam; VP-SEM' \u2014 rather than looking for a combined
+                  member. This field records the COLUMN AND CHAMBER configuration
+                  only: field emission is a source type and belongs in Electron Source,
+                  not here."
                 anyOf:
                 - type: string
                   enum:
                   - Standard SEM
                   - FIB-SEM dual-beam
-                  - VP-SEM / ESEM
-                  - FIB-SEM dual-beam + VP
+                  - VP-SEM
+                  - ESEM
                   - N/A
                   - None
                   - missing
@@ -5761,8 +4724,8 @@ allOf:
                     enum:
                     - Standard SEM
                     - FIB-SEM dual-beam
-                    - VP-SEM / ESEM
-                    - FIB-SEM dual-beam + VP
+                    - VP-SEM
+                    - ESEM
                     - N/A
                     - None
                     - missing
@@ -5770,10 +4733,10 @@ allOf:
               ada:beamMode:
                 description: Whether the electron beam was operated as a stationary
                   focused spot, defocused to a specified diameter, or rastered over
-                  a small area during analysis. Controls the effective sampling volume
-                  and irradiation footprint; critical for beam-sensitive phases such
-                  as hydrous minerals, glasses, and carbonates. Must be consistent
-                  with the Beam Diameter and Beam Raster Dimensions fields.
+                  a small area during a single-point analysis. Must be consistent
+                  with the Beam Diameter and Beam Raster Dimensions fields. For mapping,
+                  beam scanning is controlled by Step Size / Pixel Size and Stage
+                  Scan vs. Beam Scan instead.
                 anyOf:
                 - type: string
                   enum:
@@ -5783,40 +4746,24 @@ allOf:
                   - N/A
                   - None
                   - missing
-                  readOnly: true
-                - type: array
-                  items:
-                    type: string
-                    enum:
-                    - Focused
-                    - Defocused
-                    - Rastered
-                    - N/A
-                    - None
-                    - missing
-                    readOnly: true
+                - type: string
+                readOnly: true
               ada:acceleratingVoltageDefault:
-                description: Electron beam accelerating voltage in kilovolts. Affects
-                  X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging
-                  resolution, and beam penetration. Low voltages (1-5 kV) improve
-                  surface sensitivity and reduce beam damage; high voltages (15-20
-                  kV) improve X-ray generation for quantitative analysis.
+                description: Electron beam accelerating voltage in kilovolts.
                 anyOf:
                 - type: number
                 - type: string
               ada:beamDiameterDefault:
                 description: Nominal electron beam diameter (spot size) at the sample
                   surface, in nanometres or micrometres, as set by the condenser aperture
-                  and working distance. Controls the spatial resolution and X-ray
-                  excitation volume. For mapping modes, the effective spatial sampling
+                  and working distance. For mapping modes, the effective spatial sampling
                   interval is further defined by Step Size / Pixel Size.
                 anyOf:
                 - type: number
                 - type: string
               ada:workingDistanceDefault:
                 description: Distance between the objective lens pole piece and the
-                  specimen surface in millimetres. Affects spatial resolution, depth
-                  of focus, EDS X-ray take-off angle, and EBSD geometry.
+                  specimen surface in millimetres.
                 anyOf:
                 - type: number
                 - type: string
@@ -5838,10 +4785,8 @@ allOf:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
+              description: Electron beam probe current. For sub-nA values use decimal
+                notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
@@ -5871,12 +4816,10 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Technique per Analyte
-              description: For each analyte, records which X-ray detection technique
-                (EDS or WDS) was used to collect the measurement. Required when a
-                procedure employs both EDS and WDS simultaneously, assigning each
-                element to the detector appropriate to its concentration range, line
-                overlap situation, or required precision. List in the same order as
-                the Analyte field.
+              description: Records which X-ray detection technique (EDS or WDS) was
+                used to collect the measurement. Required when a procedure employs
+                both EDS and WDS simultaneously. List in the same order as the Analyte
+                field.
               type: object
               properties:
                 '@id':
@@ -5909,8 +4852,7 @@ allOf:
                 one spectrometer with intensities aggregated (aggregate intensity
                 counting), and one spectrometer serves several analytes across a run,
                 so the assignment \u2014 not the analyte \u2014 is the unit carrying
-                the spectrometer setup. Different spectrometers may have different
-                crystal configurations."
+                the spectrometer setup."
               type: object
               properties:
                 '@id':
@@ -5936,7 +4878,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: Background Correction Method
+            - title: X-ray Background Correction Method
               description: 'Method used to estimate and subtract background X-ray
                 intensity beneath the peak. For WDS: typically 2-point off-peak linear
                 interpolation or Mean Atomic Number (MAN) background model. For EDS:
@@ -5945,14 +4887,14 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/backgroundCorrectionMethod
+                  const: ada:analyteColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: backgroundCorrectionMethod
+                  const: xRayBackgroundCorrectionMethod
                 schema:name:
-                  const: Background Correction Method
+                  const: X-ray Background Correction Method
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -5971,9 +4913,7 @@ allOf:
             - title: Time-Dependent Intensity Correction
               description: Type of time-dependent intensity (TDI) correction applied
                 to compensate for beam-induced volatilisation or migration of sensitive
-                elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most
-                commonly applied in WDS point analysis; uncommon for EDS or X-ray
-                mapping.
+                elements (e.g., Na, K, F in glasses, feldspars, carbonates).
               type: object
               properties:
                 '@id':
@@ -6058,86 +4998,23 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: Primary Calibration Standard Name
-              description: Name(s) of the primary reference material(s) used for intensity
-                calibration in EDS or WDS quantification. Include the material name,
-                its source or supplier, and a citation for the accepted values used,
-                since results calibrated against different published values for the
-                same material are not directly comparable.
+            - title: X-ray Line Overlap Corrections Applied
+              description: Whether a spectral interference correction was applied.
+                Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba
+                La on Ti Ka.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/primaryCalibrationStandardName
+                  const: ada:analyteColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: xRayLineOverlapCorrectionsApplied
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: X-ray Line Overlap Corrections Applied
                 ada:dataType:
                   const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Secondary Reference Materials
-              description: Quality-control reference material(s) analyzed alongside
-                unknowns to verify calibration accuracy. Include material name, assessed
-                elements, number of analyses (n), and measured vs. accepted values
-                where available.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/secondaryReferenceMaterials
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: secondaryReferenceMaterials
-                schema:name:
-                  const: Secondary Reference Materials
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Interference Corrections Applied
-              description: Whether a spectral interference correction was applied
-                for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb
-                on Mn Ka, and Ba La on Ti Ka.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferenceCorrectionsApplied
-                schema:name:
-                  const: Interference Corrections Applied
-                ada:dataType:
-                  const: boolean
                 schema:readonlyValue:
                   const: true
                 ada:tier:
@@ -6153,7 +5030,7 @@ allOf:
               - schema:defaultValue
             - title: Interfering Elements
               description: Element(s) whose X-ray lines overlap with the measured
-                peak for one or more analytes, requiring a correction.
+                peak, requiring a correction.
               type: object
               properties:
                 '@id':
@@ -6181,7 +5058,7 @@ allOf:
               - ada:dataType
             - title: Interference Correction Standard
               description: Reference material used to quantify and calibrate the interference
-                correction for each affected analyte.
+                correction.
               type: object
               properties:
                 '@id':
@@ -6211,7 +5088,7 @@ allOf:
               description: Reproducibility of repeated measurements on the same or
                 equivalent reference material, expressed as 1-sigma relative standard
                 deviation (%). Include reference material name, number of analyses
-                (n), and value per analyte or element group.
+                (n), and the measured value.
               type: object
               properties:
                 '@id':
@@ -6240,7 +5117,7 @@ allOf:
             - title: Analytical Accuracy
               description: Offset between measured and accepted reference values for
                 secondary standards, expressed as percent relative bias. Include reference
-                material, reference value source, and per-analyte value.
+                material, reference value source, and the measured value.
               type: object
               properties:
                 '@id':
@@ -6273,9 +5150,7 @@ allOf:
                 sigma level stated. Derived from the counts on the analyte together
                 with those on any background or blank subtracted from it. Distinct
                 from the scatter actually observed within a measurement or between
-                repeated measurements, which is recorded separately: where a procedure
-                reports both, agreement indicates the measurement is shot-noise limited,
-                and a larger observed scatter indicates a further source of variance."
+                repeated measurements, which is recorded separately."
               type: object
               properties:
                 '@id':
@@ -6304,10 +5179,8 @@ allOf:
           allOf:
           - contains:
               title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
+              description: Electron beam probe current. For sub-nA values use decimal
+                notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
@@ -6340,12 +5213,10 @@ allOf:
             maxContains: 1
           - contains:
               title: Technique per Analyte
-              description: For each analyte, records which X-ray detection technique
-                (EDS or WDS) was used to collect the measurement. Required when a
-                procedure employs both EDS and WDS simultaneously, assigning each
-                element to the detector appropriate to its concentration range, line
-                overlap situation, or required precision. List in the same order as
-                the Analyte field.
+              description: Records which X-ray detection technique (EDS or WDS) was
+                used to collect the measurement. Required when a procedure employs
+                both EDS and WDS simultaneously. List in the same order as the Analyte
+                field.
               type: object
               properties:
                 '@id':
@@ -6381,8 +5252,7 @@ allOf:
                 one spectrometer with intensities aggregated (aggregate intensity
                 counting), and one spectrometer serves several analytes across a run,
                 so the assignment \u2014 not the analyte \u2014 is the unit carrying
-                the spectrometer setup. Different spectrometers may have different
-                crystal configurations."
+                the spectrometer setup."
               type: object
               properties:
                 '@id':
@@ -6411,7 +5281,7 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Background Correction Method
+              title: X-ray Background Correction Method
               description: 'Method used to estimate and subtract background X-ray
                 intensity beneath the peak. For WDS: typically 2-point off-peak linear
                 interpolation or Mean Atomic Number (MAN) background model. For EDS:
@@ -6420,14 +5290,14 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/backgroundCorrectionMethod
+                  const: ada:analyteColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: backgroundCorrectionMethod
+                  const: xRayBackgroundCorrectionMethod
                 schema:name:
-                  const: Background Correction Method
+                  const: X-ray Background Correction Method
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -6449,9 +5319,7 @@ allOf:
               title: Time-Dependent Intensity Correction
               description: Type of time-dependent intensity (TDI) correction applied
                 to compensate for beam-induced volatilisation or migration of sensitive
-                elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most
-                commonly applied in WDS point analysis; uncommon for EDS or X-ray
-                mapping.
+                elements (e.g., Na, K, F in glasses, feldspars, carbonates).
               type: object
               properties:
                 '@id':
@@ -6545,92 +5413,23 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Primary Calibration Standard Name
-              description: Name(s) of the primary reference material(s) used for intensity
-                calibration in EDS or WDS quantification. Include the material name,
-                its source or supplier, and a citation for the accepted values used,
-                since results calibrated against different published values for the
-                same material are not directly comparable.
+              title: X-ray Line Overlap Corrections Applied
+              description: Whether a spectral interference correction was applied.
+                Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba
+                La on Ti Ka.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/primaryCalibrationStandardName
+                  const: ada:analyteColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: xRayLineOverlapCorrectionsApplied
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: X-ray Line Overlap Corrections Applied
                 ada:dataType:
                   const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Secondary Reference Materials
-              description: Quality-control reference material(s) analyzed alongside
-                unknowns to verify calibration accuracy. Include material name, assessed
-                elements, number of analyses (n), and measured vs. accepted values
-                where available.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/secondaryReferenceMaterials
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: secondaryReferenceMaterials
-                schema:name:
-                  const: Secondary Reference Materials
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Interference Corrections Applied
-              description: Whether a spectral interference correction was applied
-                for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb
-                on Mn Ka, and Ba La on Ti Ka.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferenceCorrectionsApplied
-                schema:name:
-                  const: Interference Corrections Applied
-                ada:dataType:
-                  const: boolean
                 schema:readonlyValue:
                   const: true
                 ada:tier:
@@ -6649,7 +5448,7 @@ allOf:
           - contains:
               title: Interfering Elements
               description: Element(s) whose X-ray lines overlap with the measured
-                peak for one or more analytes, requiring a correction.
+                peak, requiring a correction.
               type: object
               properties:
                 '@id':
@@ -6680,7 +5479,7 @@ allOf:
           - contains:
               title: Interference Correction Standard
               description: Reference material used to quantify and calibrate the interference
-                correction for each affected analyte.
+                correction.
               type: object
               properties:
                 '@id':
@@ -6713,7 +5512,7 @@ allOf:
               description: Reproducibility of repeated measurements on the same or
                 equivalent reference material, expressed as 1-sigma relative standard
                 deviation (%). Include reference material name, number of analyses
-                (n), and value per analyte or element group.
+                (n), and the measured value.
               type: object
               properties:
                 '@id':
@@ -6745,7 +5544,7 @@ allOf:
               title: Analytical Accuracy
               description: Offset between measured and accepted reference values for
                 secondary standards, expressed as percent relative bias. Include reference
-                material, reference value source, and per-analyte value.
+                material, reference value source, and the measured value.
               type: object
               properties:
                 '@id':
@@ -6781,9 +5580,7 @@ allOf:
                 sigma level stated. Derived from the counts on the analyte together
                 with those on any background or blank subtracted from it. Distinct
                 from the scatter actually observed within a measurement or between
-                repeated measurements, which is recorded separately: where a procedure
-                reports both, agreement indicates the measurement is shot-noise limited,
-                and a larger observed scatter indicates a further source of variance."
+                repeated measurements, which is recorded separately."
               type: object
               properties:
                 '@id':
@@ -6817,10 +5614,9 @@ allOf:
         anyOf:
         - title: Beam Raster Dimensions
           description: "Dimensions of the small area over which the beam is rastered
-            during a single analysis point, reported as width \xD7 height in \xB5m.
-            Applicable when Beam Mode = Rastered; defines the effective spatial footprint
-            of the measurement and distributes dose over a larger area to reduce beam
-            damage on sensitive phases."
+            at a single analysis point, reported as width \xD7 height in \xB5m. Applicable
+            when Beam Mode = Rastered; defines the effective spatial footprint of
+            the measurement. Not applicable when mapping."
           type: object
           properties:
             '@id':
@@ -6841,7 +5637,7 @@ allOf:
             ada:tier:
               const: R
             schema:unitText:
-              type: string
+              const: "\xB5m x \xB5m"
           required:
           - '@id'
           - '@type'
@@ -6853,9 +5649,7 @@ allOf:
           description: 'Describes any measures taken to reduce electron beam damage
             to the sample during analysis. Examples: reduced accelerating voltage,
             lowered beam current, defocused or rastered beam, cooled stage, short
-            acquisition sequences, or rotating between multiple points. Particularly
-            important for volatile-bearing phases, hydrous minerals, glasses, organic
-            materials, and biological samples.'
+            acquisition sequences, or rotating between multiple points.'
           type: object
           properties:
             '@id':
@@ -6886,9 +5680,7 @@ allOf:
           description: 'Describes whether and how stage or beam drift was monitored
             and corrected during the measurement session. Examples: periodic stage
             realignment to a fiducial marker, automated beam drift correction in acquisition
-            software, or reanalysis of a reference point at regular intervals. Particularly
-            relevant for long mapping runs and high-magnification sessions where positional
-            accuracy affects data quality.'
+            software, or reanalysis of a reference point at regular intervals.'
           type: object
           properties:
             '@id':
@@ -6916,12 +5708,9 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - title: Stage Scan vs. Beam Scan
-          description: For mapping modes, records whether the map was acquired by
-            moving the stage while the beam is held fixed (stage scan) or by deflecting
-            the beam across the field while the stage is stationary (beam scan). Stage
-            scan is preferred for large areas or high-accuracy geometric fidelity;
-            beam scan is faster for smaller fields but may introduce geometric distortion
-            at the map edges.
+          description: For mapping modes, whether the map was acquired by moving the
+            stage while the beam is held fixed (stage scan), or by deflecting the
+            beam across the field while the stage is stationary (beam scan).
           type: object
           properties:
             '@id':
@@ -6992,7 +5781,7 @@ allOf:
             schema:name:
               const: Halogen Correction on Oxygen
             ada:dataType:
-              const: boolean
+              const: string
             ada:fieldScope:
               const: session
             schema:readonlyValue:
@@ -7033,46 +5822,13 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
       allOf:
       - contains:
           title: Beam Raster Dimensions
           description: "Dimensions of the small area over which the beam is rastered
-            during a single analysis point, reported as width \xD7 height in \xB5m.
-            Applicable when Beam Mode = Rastered; defines the effective spatial footprint
-            of the measurement and distributes dose over a larger area to reduce beam
-            damage on sensitive phases."
+            at a single analysis point, reported as width \xD7 height in \xB5m. Applicable
+            when Beam Mode = Rastered; defines the effective spatial footprint of
+            the measurement. Not applicable when mapping."
           type: object
           properties:
             '@id':
@@ -7093,7 +5849,7 @@ allOf:
             ada:tier:
               const: R
             schema:unitText:
-              type: string
+              const: "\xB5m x \xB5m"
           required:
           - '@id'
           - '@type'
@@ -7108,9 +5864,7 @@ allOf:
           description: 'Describes any measures taken to reduce electron beam damage
             to the sample during analysis. Examples: reduced accelerating voltage,
             lowered beam current, defocused or rastered beam, cooled stage, short
-            acquisition sequences, or rotating between multiple points. Particularly
-            important for volatile-bearing phases, hydrous minerals, glasses, organic
-            materials, and biological samples.'
+            acquisition sequences, or rotating between multiple points.'
           type: object
           properties:
             '@id':
@@ -7144,9 +5898,7 @@ allOf:
           description: 'Describes whether and how stage or beam drift was monitored
             and corrected during the measurement session. Examples: periodic stage
             realignment to a fiducial marker, automated beam drift correction in acquisition
-            software, or reanalysis of a reference point at regular intervals. Particularly
-            relevant for long mapping runs and high-magnification sessions where positional
-            accuracy affects data quality.'
+            software, or reanalysis of a reference point at regular intervals.'
           type: object
           properties:
             '@id':
@@ -7177,12 +5929,9 @@ allOf:
         maxContains: 1
       - contains:
           title: Stage Scan vs. Beam Scan
-          description: For mapping modes, records whether the map was acquired by
-            moving the stage while the beam is held fixed (stage scan) or by deflecting
-            the beam across the field while the stage is stationary (beam scan). Stage
-            scan is preferred for large areas or high-accuracy geometric fidelity;
-            beam scan is faster for smaller fields but may introduce geometric distortion
-            at the map edges.
+          description: For mapping modes, whether the map was acquired by moving the
+            stage while the beam is held fixed (stage scan), or by deflecting the
+            beam across the field while the stage is stationary (beam scan).
           type: object
           properties:
             '@id':
@@ -7259,7 +6008,7 @@ allOf:
             schema:name:
               const: Halogen Correction on Oxygen
             ada:dataType:
-              const: boolean
+              const: string
             ada:fieldScope:
               const: session
             schema:readonlyValue:
@@ -7305,41 +6054,6 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains:
-          title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
     ada:channelTemplate:
       type: object
       properties:
@@ -7352,10 +6066,7 @@ allOf:
               description: Time the electron beam dwells on each pixel during raster
                 scanning (imaging modes) or on each step position during compositional
                 mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
-                Longer dwell time improves signal-to-noise and counting statistics
-                but increases total dose and can cause beam damage or contamination
-                on sensitive materials. For WDS mapping, the dwell time is per spectrometer
-                per pixel.
+                For WDS mapping, the dwell time is per spectrometer per pixel.
               type: object
               properties:
                 '@id':
@@ -7391,9 +6102,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: X-ray Line
-              description: X-ray emission line measured on each spectrometer assignment.
-                Line choice affects sensitivity, matrix correction accuracy, and susceptibility
-                to peak overlap and spectral interference.
+              description: X-ray emission line measured.
               type: object
               properties:
                 '@id':
@@ -7425,9 +6134,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Diffracting Crystal
-              description: Analyzing crystal (monochromator) used on each spectrometer
-                assignment. Crystal choice determines the detectable wavelength range
-                and dispersion.
+              description: Analyzing crystal (monochromator).
               type: object
               properties:
                 '@id':
@@ -7460,10 +6167,8 @@ allOf:
               - schema:defaultValue
             - title: Sequence
               description: Order in which spectrometer assignments are acquired during
-                point analysis. Relevant for minimizing beam damage (volatile elements
-                measured first) and for sequential multi-channel setups. Not applicable
-                to X-ray mapping, where all assigned spectrometers collect simultaneously
-                at each pixel.
+                point analysis. Not applicable to X-ray mapping, where all assigned
+                spectrometers collect simultaneously at each pixel.
               type: object
               properties:
                 '@id':
@@ -7498,8 +6203,7 @@ allOf:
               - schema:name
               - ada:dataType
             - title: Proportional Counter / Detector
-              description: Type of detector used on each spectrometer assignment.
-                Affects sensitivity and count rate linearity.
+              description: Type of detector used.
               type: object
               properties:
                 '@id':
@@ -7565,8 +6269,7 @@ allOf:
               - ada:dataType
             - title: Peak Counting Time
               description: Time spent counting X-ray intensity at the peak position,
-                in seconds, on each spectrometer assignment. Procedure specifies standard
-                values; analysts may adjust within procedure-defined bounds.
+                in seconds. Adjustments stay within procedure-defined bounds.
               type: object
               properties:
                 '@id':
@@ -7677,10 +6380,7 @@ allOf:
               description: Time the electron beam dwells on each pixel during raster
                 scanning (imaging modes) or on each step position during compositional
                 mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
-                Longer dwell time improves signal-to-noise and counting statistics
-                but increases total dose and can cause beam damage or contamination
-                on sensitive materials. For WDS mapping, the dwell time is per spectrometer
-                per pixel.
+                For WDS mapping, the dwell time is per spectrometer per pixel.
               type: object
               properties:
                 '@id':
@@ -7719,9 +6419,7 @@ allOf:
             maxContains: 1
           - contains:
               title: X-ray Line
-              description: X-ray emission line measured on each spectrometer assignment.
-                Line choice affects sensitivity, matrix correction accuracy, and susceptibility
-                to peak overlap and spectral interference.
+              description: X-ray emission line measured.
               type: object
               properties:
                 '@id':
@@ -7756,9 +6454,7 @@ allOf:
             maxContains: 1
           - contains:
               title: Diffracting Crystal
-              description: Analyzing crystal (monochromator) used on each spectrometer
-                assignment. Crystal choice determines the detectable wavelength range
-                and dispersion.
+              description: Analyzing crystal (monochromator).
               type: object
               properties:
                 '@id':
@@ -7794,10 +6490,8 @@ allOf:
           - contains:
               title: Sequence
               description: Order in which spectrometer assignments are acquired during
-                point analysis. Relevant for minimizing beam damage (volatile elements
-                measured first) and for sequential multi-channel setups. Not applicable
-                to X-ray mapping, where all assigned spectrometers collect simultaneously
-                at each pixel.
+                point analysis. Not applicable to X-ray mapping, where all assigned
+                spectrometers collect simultaneously at each pixel.
               type: object
               properties:
                 '@id':
@@ -7835,8 +6529,7 @@ allOf:
             maxContains: 1
           - contains:
               title: Proportional Counter / Detector
-              description: Type of detector used on each spectrometer assignment.
-                Affects sensitivity and count rate linearity.
+              description: Type of detector used.
               type: object
               properties:
                 '@id':
@@ -7908,8 +6601,7 @@ allOf:
           - contains:
               title: Peak Counting Time
               description: Time spent counting X-ray intensity at the peak position,
-                in seconds, on each spectrometer assignment. Procedure specifies standard
-                values; analysts may adjust within procedure-defined bounds.
+                in seconds. Adjustments stay within procedure-defined bounds.
               type: object
               properties:
                 '@id':
@@ -8023,17 +6715,23 @@ allOf:
             minContains: 0
             maxContains: 1
     ada:edsAcquisitionMode:
-      description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam
-        point acquisition, linescan (beam stepped along a transect at defined intervals),
-        or area map (beam rastered over a pixel grid). Specifies how the beam is positioned
-        during data collection within the declared Analytical Mode. Particularly important
-        when a procedure includes linescans as a distinct acquisition approach not
-        fully captured by the mode flag columns.'
+      description: "Spatial acquisition sub-strategy for EDS measurements: stationary-beam
+        point acquisition, line scan (beam stepped along a transect at defined intervals),
+        or area map / spectrum image (beam rastered over a pixel grid). Specifies
+        how the beam is positioned during data collection within the declared analytical
+        mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers
+        what the literature also calls spot or point-spectrum analysis. 'Map' and
+        'Spectrum image' are distinct acquisitions, not synonyms: a map may retain
+        element intensities alone, whereas a spectrum image retains a full spectrum
+        at every pixel and can be requantified afterwards \u2014 record which was
+        acquired. Where more than one mode was used, join them with '; ' rather than
+        looking for a combined member."
       type: string
       enum:
-      - Point / spot
+      - Point
       - Line scan
       - Map
+      - Spectrum image
       - Automated mineralogy
       - N/A
       - None
@@ -8041,40 +6739,40 @@ allOf:
       readOnly: true
     ada:edsLiveTimePerPointOrPixelDefault:
       description: EDS spectral acquisition live time per analysis point or per pixel
-        in seconds. Longer live time improves counting statistics but increases beam
-        damage risk and total acquisition time.
+        in seconds.
       anyOf:
       - type: number
       - type: string
     ada:stepSizePixelSizeDefault:
       description: "Centre-to-centre distance between adjacent measurement points
-        (WDS mapping) or pixels (EDS mapping) in \xB5m. Defines the spatial sampling
-        interval of the map and, together with the pixel-grid dimensions, determines
-        the total mapped area. Smaller step sizes increase spatial resolution but
-        extend acquisition time."
+        (WDS mapping) or pixels (EDS mapping) in \xB5m."
       anyOf:
       - type: number
       - type: string
     ada:matrixCorrectionMethod:
-      description: X-ray matrix correction algorithm applied during quantitative EDS
-        or WDS data reduction. For X-ray mapping, applies when raw count maps are
-        converted to quantitative concentration maps.
-      type: string
-      enum:
-      - XPP (Simplified PAP)
-      - PAP (Pouchou & Pichoir Full)
-      - ZAF
-      - CITZAF (Armstrong 1995)
-      - Phi-rho-z (EPQ-91)
-      - Unknown
-      - N/A
-      - None
-      - missing
+      description: "X-ray matrix correction algorithm applied during quantitative
+        EDS or WDS data reduction. For X-ray mapping, applies when raw count maps
+        are converted to quantitative concentration maps. Where the k-factors or calibration
+        constants themselves came from \u2014 measured standards, a vendor library,
+        or theoretical cross-sections \u2014 is a separate question answered by this
+        technique's calibration-standard field, not here; a procedure may be both
+        absorption-corrected and standardless."
+      anyOf:
+      - type: string
+        enum:
+        - XPP (Simplified PAP)
+        - PAP (Pouchou & Pichoir Full)
+        - ZAF
+        - CITZAF (Armstrong 1995)
+        - Phi-rho-z (EPQ-91)
+        - Unknown
+        - N/A
+        - None
+        - missing
+      - type: string
       readOnly: true
     ada:massAbsorptionCoefficients:
       description: Database of mass absorption coefficients used in the matrix correction.
-        MAC database choice affects accuracy particularly for light elements (B, C,
-        N, O, F, Na).
       type: string
       enum:
       - LINEMU
@@ -8088,6 +6786,68 @@ allOf:
       - None
       - missing
       readOnly: true
+    ada:wdsDeadTimeCorrection:
+      description: "Method used to correct for WDS proportional counter dead time
+        at high count rates. Unlike EDS dead time \u2014 which is hardware-managed
+        and reported as a session QC percentage (see EDS Dead Time) \u2014 WDS dead
+        time correction is a user-selectable algorithm in the data reduction software.
+        No separate measured WDS dead time value is reported; the correction is applied
+        transparently during intensity-to-concentration conversion. Record the algorithm
+        here and any instrument-specific constant alongside it \u2014 'Default constant
+        (manufacturer) \u2014 3 \xB5s, Cameca'. The instrument vendor itself is recorded
+        by Instrument Manufacturer, not by this field's allowed values."
+      anyOf:
+      - type: string
+        enum:
+        - Default constant (manufacturer)
+        - Adjusted constant
+        - Logarithmic
+        - High-precision (Probe for EPMA)
+        - Super-precision (Probe for EPMA)
+        - Unknown
+        - N/A
+        - None
+        - missing
+      - type: string
+      readOnly: true
+    schema:actionProcess:
+      type: object
+      properties:
+        schema:step:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: Data reduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                    allOf:
+                    - contains:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: Data reduction
+              required:
+              - schema:name
     schema:variableMeasured:
       type: array
       items:
@@ -8107,74 +6867,11 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied using secondary reference
-            materials to correct for session-to-session calibration drift.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: normalizationStandardsBasedCorrectionDefault
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: Goodness-of-Fit or Dispersion Statistic
           description: The statistic reported to show whether scatter among the contributing
             analyses exceeds what analytical uncertainty alone predicts, together
-            with its value. Answers whether a reported aggregate is defensible as
-            a single population. Procedure-level tier is N/A because the value cannot
-            be known before the analysis; the procedure may still state an acceptance
-            threshold, which belongs with the inclusion criteria.
+            with its value. The procedure may still state an acceptance threshold,
+            which belongs with the inclusion criteria.
           type: object
           properties:
             '@id':
@@ -8203,80 +6900,11 @@ allOf:
           - ada:fieldScope
       allOf:
       - contains:
-          title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied using secondary reference
-            materials to correct for session-to-session calibration drift.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrectionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: normalizationStandardsBasedCorrectionDefault
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: Goodness-of-Fit or Dispersion Statistic
           description: The statistic reported to show whether scatter among the contributing
             analyses exceeds what analytical uncertainty alone predicts, together
-            with its value. Answers whether a reported aggregate is defensible as
-            a single population. Procedure-level tier is N/A because the value cannot
-            be known before the analysis; the procedure may still state an acceptance
-            threshold, which belongs with the inclusion criteria.
+            with its value. The procedure may still state an acceptance threshold,
+            which belongs with the inclusion criteria.
           type: object
           properties:
             '@id':
@@ -8305,26 +6933,6 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
-    ada:wdsDeadTimeCorrection:
-      description: "Method used to correct for WDS proportional counter dead time
-        at high count rates. Dead time errors are most significant for major elements
-        with high count rates (e.g., Si, Fe, Ca). Unlike EDS dead time \u2014 which
-        is hardware-managed and reported as a session QC percentage (see EDS Dead
-        Time) \u2014 WDS dead time correction is a user-selectable algorithm in the
-        data reduction software. No separate measured WDS dead time value is reported;
-        the correction is applied transparently during intensity-to-concentration
-        conversion."
-      type: string
-      enum:
-      - Default constant (manufacturer)
-      - Adjusted constant
-      - High-precision (Probe for EPMA)
-      - Logarithmic
-      - Unknown
-      - N/A
-      - None
-      - missing
-      readOnly: true
     ada:analyticalMode:
       type: array
       items:

@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P0",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M\u00fcnster (publication column of Solution_MC-ICP-MS_TAPP_v31.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M\u00fcnster (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
   "schema:object": [
     {
       "@type": [
@@ -84,16 +84,14 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "N/A \u2014 no isotope dilution applied"
           },
           {
@@ -190,29 +188,25 @@
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionMcicpmsTAPP/interfaceConeConfiguration",
+              "@id": "ada:parameter/module/ICPMS/configuration",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/interfaceConeConfiguration"
-                }
-              ],
-              "schema:name": "Interface Cone Configuration",
+              "schema:valueName": "configuration",
+              "schema:name": "Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Standard sample and (H) skimmer cones"
             },
             {
-              "@id": "ada:parameter/solutionMcicpmsTAPP/samplerAndSkimmerConeMaterial",
+              "@id": "ada:parameter/module/ICPMS/samplerAndSkimmerConeMaterial",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/samplerAndSkimmerConeMaterial"
-                }
-              ],
+              "schema:valueName": "samplerAndSkimmerConeMaterial",
               "schema:name": "Sampler and Skimmer Cone Material",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Ni"
             }
           ],
@@ -268,6 +262,20 @@
             "schema:Thing"
           ],
           "schema:additionalType": [
+            "Collector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collector"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
             "Collision Reaction Cell",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -303,20 +311,6 @@
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Torch"
-        },
-        {
-          "schema:additionalType": [
-            "Collector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "Collector",
-          "@id": "ex:instrument/part/Collector"
         }
       ],
       "@type": [
@@ -351,13 +345,7 @@
       "schema:value": "N/A \u2014 no added internal standard element"
     }
   ],
-  "ada:sampleSequenceDesign": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
-  "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:blankBackgroundCorrectionMethod": "N/A",
-  "ada:primaryStandardNameDefault": "Alfa Aesar Mo solution standard",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, \"several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples\""
-  ],
+  "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -394,54 +382,21 @@
   "ada:internalNormalizationElementAndIsotopeRatio": "98Mo/96Mo = 1.453173",
   "ada:chromatographicSeparationApplied": "Yes \u2014 two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mo (and Ba by TIMS)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "2 s.d. for external reproducibility (n = 24 for Mo, n = 14 for Ba)",
+  "ada:blankBackgroundCorrectionMethod": "On-peak-zero baseline integrations subtracted",
+  "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:secondaryReferenceMaterialDefault": [
+    "BHVO-2, \"several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples\""
+  ],
+  "ada:primaryStandardNameDefault": "Alfa Aesar Mo solution standard",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,

@@ -31,12 +31,12 @@
           ]
         },
         {
-          "@id": "ada:parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrateDefault",
+          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
           "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form / Analytical Substrate",
+          "schema:name": "Sample Form Analytical Substrate",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "In situ \u2014 polished thin section (same sections as silicate protocol)"
@@ -166,93 +166,17 @@
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign"
-        }
-      ],
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "schema:value": "Single spot analysis per location"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/detectionLimitDefault",
+      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
+      "schema:valueName": "multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi Run Sequential Analysis Design",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": 3,
-      "schema:description": "Referenced in Table 3 and Table S1; specific values not directly stated in main text; merrillite REE at 14\u2013414 ppm range above detection"
+      "schema:value": "Single spot analysis per location"
     }
   ],
-  "ada:internalStandardApproach": "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot",
-  "ada:internalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
-  "ada:elementalFractionationCorrection": [
-    "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
-  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrectionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
-            "schema:name": "Normalization / Standards-Based Correction",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "No post-acquisition normalization; EMP CaO applied directly as IS; NIST 610 for external calibration"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "ada:primaryStandardNameDefault": "NIST 610 glass standard",
-  "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -299,6 +223,55 @@
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
   ],
+  "ada:internalStandardApproach": "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot",
+  "ada:elementalFractionationCorrection": [
+    "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described"
+  ],
+  "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
+  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
+  "ada:internalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
+  "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
+  "ada:primaryStandardNameDefault": "NIST 610 glass standard",
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ]
+  },
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:carrierGasFlowRateDefault": "missing",
@@ -309,8 +282,8 @@
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:signalCollectionMode": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

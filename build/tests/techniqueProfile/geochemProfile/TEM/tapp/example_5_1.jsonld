@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Zega2025-4",
-  "schema:description": "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7).",
+  "schema:description": "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7).",
   "schema:object": [
     {
       "@type": [
@@ -47,7 +47,6 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -61,6 +60,7 @@
             "schema:defaultValue": "FEI Quanta3D600 dual-beam FIB-SEM; e-beam C cap 0.5\u20131 \u00b5m + ion-beam C cap 2\u20133 \u00b5m; milling 30 kV Ga+ \u2192 16 kV \u2192 5 kV final; ~100 nm thick; ion-beam Pt weld to Cu half grids"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -80,17 +80,6 @@
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -257,7 +246,7 @@
       "schema:defaultValue": "Successive frames until counting statistics <1% for major elements"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
   "ada:edsCalibrationStandardDefault": "k-factors from well-characterized standards (standards not specified); Thermo System7",
   "schema:measurementTechnique": [
@@ -305,6 +294,6 @@
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

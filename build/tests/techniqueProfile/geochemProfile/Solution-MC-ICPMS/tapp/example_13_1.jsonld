@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P12",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v31.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
   "schema:object": [
     {
       "@type": [
@@ -71,16 +71,14 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "N/A \u2014 no isotope dilution applied"
           }
         ],
@@ -170,16 +168,14 @@
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionMcicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "High-mass-resolution slit for K; low-mass-resolution slit for Cu and Zn"
         }
       ],
@@ -220,16 +216,14 @@
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionMcicpmsTAPP/plasmaThermalMode",
+              "@id": "ada:parameter/module/ICPMS/plasmaThermalMode",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/plasmaThermalMode"
-                }
-              ],
+              "schema:valueName": "plasmaThermalMode",
               "schema:name": "Plasma Thermal Mode",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Dry plasma for K \u2014 \"all K isotope analyses were undertaken using a 'dry plasma' technique with the Elemental Scientific APEX \u03a9 high-sensitivity desolvation system\"; wet plasma for Cu and Zn via a quartz glass dual cyclonic spray chamber"
             }
           ],
@@ -239,6 +233,20 @@
           ],
           "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Collector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -281,20 +289,6 @@
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Torch"
-        },
-        {
-          "schema:additionalType": [
-            "Collector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "Collector",
-          "@id": "ex:instrument/part/Collector"
         }
       ],
       "@type": [
@@ -329,15 +323,7 @@
       "schema:value": "N/A \u2014 no added internal standard element"
     }
   ],
-  "ada:sampleSequenceDesign": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
-  "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:perAnalyteCalibrationStrategy": [
-    "N/A"
-  ],
-  "ada:primaryStandardNameDefault": "NIST-SRM 3141a, NIST-SRM 976, JMC-Lyon",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2"
-  ],
+  "ada:analysisSequenceDefault": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -374,56 +360,24 @@
   "ada:chromatographicSeparationApplied": "Yes \u2014 AG1-X8 200\u2013400 mesh anion resin, 5 ml 1.5 M HBr to elute the matrix and 3 ml 0.5 M HNO3 to elute Zn",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:finalSolutionMatrix": "200 ppb for K and Zn; 100 ppb for Cu",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "K",
-      "Cu and Zn"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "2 s.d.",
+  "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:perAnalyteCalibrationStrategy": [
+    "One bracketing standard per analyte \u2014 NIST-SRM 3141a for K, NIST-SRM 976 for Cu, JMC-Lyon for Zn; run concentrations also differ by analyte (200 ppb for K and Zn, 100 ppb for Cu)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "BHVO-2"
+  ],
+  "ada:primaryStandardNameDefault": "NIST-SRM 3141a, NIST-SRM 976, JMC-Lyon",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,

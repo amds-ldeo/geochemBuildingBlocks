@@ -22,17 +22,17 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -56,8 +56,8 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:segmentationMethod3DDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick" ;
@@ -119,7 +119,7 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,

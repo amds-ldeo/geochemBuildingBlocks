@@ -1643,6 +1643,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -1683,9 +1684,8 @@ allOf:
                                     anyOf:
                                     - title: Accelerating Voltage
                                       description: Electron beam accelerating voltage
-                                        in kilovolts (kV). The procedure specifies
-                                        the standard operating voltage; analysts record
-                                        and justify any deviations.
+                                        in kilovolts (kV). Justify any deviation from
+                                        the standard operating voltage.
                                       type: object
                                       properties:
                                         '@id':
@@ -1746,9 +1746,8 @@ allOf:
                                   - contains:
                                       title: Accelerating Voltage
                                       description: Electron beam accelerating voltage
-                                        in kilovolts (kV). The procedure specifies
-                                        the standard operating voltage; analysts record
-                                        and justify any deviations.
+                                        in kilovolts (kV). Justify any deviation from
+                                        the standard operating voltage.
                                       type: object
                                       properties:
                                         '@id':
@@ -1849,9 +1848,10 @@ allOf:
                 - schema:name
                 - schema:value
               - title: Beam Raster Dimensions
-                description: X x Y dimensions of a small beam raster used at a single
-                  analysis point to average a coarse-grained or beam-sensitive phase.
-                  Different from X-ray mapping mode; not applicable when mapping.
+                description: "Dimensions of the small area over which the beam is
+                  rastered at a single analysis point, reported as width \xD7 height
+                  in \xB5m. Applicable when Beam Mode = Rastered; defines the effective
+                  spatial footprint of the measurement. Not applicable when mapping."
                 type: object
                 properties:
                   '@id':
@@ -1864,36 +1864,6 @@ allOf:
                     - '@id': ada:parameter/empaTAPP/beamRasterDimensions
                   schema:name:
                     const: Beam Raster Dimensions
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
-              - title: Detection Limit
-                description: Method detection limit at 99% confidence (3-sigma), one
-                  per reported concentration variable (one per analyte, these being
-                  the same set), derived from counting statistics on peak and background.
-                  Include the method and the resulting value for each.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/empaTAPP/detectionLimit
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/empaTAPP/detectionLimit
-                  schema:name:
-                    const: Detection Limit
                   schema:value:
                     anyOf:
                     - type: number
@@ -2016,7 +1986,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
             allOf:
             - contains:
                 title: Beam Damage Minimization
@@ -2048,9 +2018,10 @@ allOf:
               maxContains: 1
             - contains:
                 title: Beam Raster Dimensions
-                description: X x Y dimensions of a small beam raster used at a single
-                  analysis point to average a coarse-grained or beam-sensitive phase.
-                  Different from X-ray mapping mode; not applicable when mapping.
+                description: "Dimensions of the small area over which the beam is
+                  rastered at a single analysis point, reported as width \xD7 height
+                  in \xB5m. Applicable when Beam Mode = Rastered; defines the effective
+                  spatial footprint of the measurement. Not applicable when mapping."
                 type: object
                 properties:
                   '@id':
@@ -2063,39 +2034,6 @@ allOf:
                     - '@id': ada:parameter/empaTAPP/beamRasterDimensions
                   schema:name:
                     const: Beam Raster Dimensions
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
-              minContains: 0
-              maxContains: 1
-            - contains:
-                title: Detection Limit
-                description: Method detection limit at 99% confidence (3-sigma), one
-                  per reported concentration variable (one per analyte, these being
-                  the same set), derived from counting statistics on peak and background.
-                  Include the method and the resulting value for each.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/empaTAPP/detectionLimit
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/empaTAPP/detectionLimit
-                  schema:name:
-                    const: Detection Limit
                   schema:value:
                     anyOf:
                     - type: number
@@ -2233,7 +2171,7 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               minContains: 0
               maxContains: 1
           schema:object:
@@ -2253,12 +2191,27 @@ allOf:
                     schema:additionalProperty:
                       type: array
                       items:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                       allOf:
                       - contains:
-                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
+          ada:deadTime:
+            description: "Percent dead time reported by the EDS detector during the
+              session \u2014 the fraction of total acquisition time the detector spent
+              processing rather than counting. This field documents the resulting
+              percentage as a session QC metric. Unlike WDS dead time (see WDS Dead
+              Time Correction), no user-selectable correction algorithm is required."
+            anyOf:
+            - type: number
+            - type: string
+          ada:proceduralBlankLevel:
+            description: "The measured level of the analytical blank in the session,
+              and \u2014 where the reported quantity is a ratio \u2014 its composition,
+              since a blank subtracted from a ratio biases the result unless its own
+              composition is known. Companion to the blank correction method."
+            type: string
           schema:actionProcess:
             type: object
             properties:
@@ -2278,82 +2231,12 @@ allOf:
                         schema:additionalProperty:
                           type: array
                           items:
-                            anyOf:
-                            - title: Normalization / Standards-Based Correction
-                              description: Post-acquisition normalization applied
-                                using secondary reference materials to correct for
-                                session-to-session calibration drift.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-                                schema:name:
-                                  const: Normalization / Standards-Based Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
-                          - contains:
-                              title: Normalization / Standards-Based Correction
-                              description: Post-acquisition normalization applied
-                                using secondary reference materials to correct for
-                                session-to-session calibration drift.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-                                schema:name:
-                                  const: Normalization / Standards-Based Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            minContains: 0
-                            maxContains: 1
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             minContains: 0
                             maxContains: 1
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Sample preparation
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:description:
-                          description: Description of how samples were prepared for
-                            analysis under this procedure (mounting, polishing, coating).
-                            Analysts may document session-specific variations from
-                            the procedure standard.
-                          anyOf:
-                          - type: string
-                          - type: array
-                            items:
-                              type: string
                 allOf:
                 - contains:
                     properties:
@@ -2361,231 +2244,16 @@ allOf:
                         const: Data reduction
                     required:
                     - schema:name
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Sample preparation
-                    required:
-                    - schema:name
-          ada:deadTime:
-            description: "Percent dead time reported by the EDS detector during the
-              session \u2014 the fraction of total acquisition time the detector spent
-              processing rather than counting. EDS dead time correction is managed
-              automatically by the detector electronics; this field documents the
-              resulting percentage as a session QC metric. Values above ~40% indicate
-              excessive count rate and may degrade spectral quality and quantitative
-              accuracy. Unlike WDS dead time (see WDS Dead Time Correction), no user-selectable
-              correction algorithm is required."
-            anyOf:
-            - type: number
-            - type: string
-          ada:proceduralBlankLevel:
-            description: "The measured level of the analytical blank in the session,
-              and \u2014 where the reported quantity is a ratio \u2014 its composition,
-              since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method, which
-              is procedure-level: this field records what was actually measured. Follows
-              the criterion-versus-measurement split the library applies wherever
-              a procedure sets a threshold and an analysis reports a value against
-              it."
-            type: string
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the
-            procedure's declared reported properties. schema:variableMeasured carries
-            the dataset's actual variables; the reported-property branches above are
-            permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - title: Detection Limit
-          description: Method detection limit at 99% confidence (3-sigma), one per
-            reported concentration variable (one per analyte, these being the same
-            set), derived from counting statistics on peak and background. Include
-            the method and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/detectionLimit
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/detectionLimit
-            schema:name:
-              const: Detection Limit
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-        - title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits. Reference
-            method publication if applicable. When the procedure does not specify
-            a method, the analyst should complete this field.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        - title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied using secondary reference
-            materials to correct for session-to-session calibration drift.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-      allOf:
-      - contains:
-          title: Detection Limit
-          description: Method detection limit at 99% confidence (3-sigma), one per
-            reported concentration variable (one per analyte, these being the same
-            set), derived from counting statistics on peak and background. Include
-            the method and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/detectionLimit
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/detectionLimit
-            schema:name:
-              const: Detection Limit
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits. Reference
-            method publication if applicable. When the procedure does not specify
-            a method, the analyst should complete this field.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied using secondary reference
-            materials to correct for session-to-session calibration drift.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
     schema:additionalProperty:
       type: array
       items:
         anyOf:
         - title: Map Area
-          description: Physical dimensions of the mapped region in micrometers (X
-            x Y). Determined at analysis time based on the sample feature or region
-            of interest.
+          description: "Physical extent of the mapped region, given either as width
+            \xD7 height in \xB5m or as a total area in \xB5m\xB2 or mm\xB2, and equal
+            to (map width in pixels \xD7 step size) \xD7 (map height in pixels \xD7
+            step size). Complements the map's pixel-grid dimensions by recording the
+            physical scale of the mapped region."
           type: object
           properties:
             '@id':
@@ -2613,8 +2281,7 @@ allOf:
           - schema:unitText
         - title: Map Dimensions
           description: Number of pixels in the X-ray map in the X and Y directions.
-            Determined at analysis time based on the area of interest and selected
-            step size.
+            Based on the area of interest and selected step size.
           type: object
           properties:
             '@id':
@@ -2643,9 +2310,11 @@ allOf:
       allOf:
       - contains:
           title: Map Area
-          description: Physical dimensions of the mapped region in micrometers (X
-            x Y). Determined at analysis time based on the sample feature or region
-            of interest.
+          description: "Physical extent of the mapped region, given either as width
+            \xD7 height in \xB5m or as a total area in \xB5m\xB2 or mm\xB2, and equal
+            to (map width in pixels \xD7 step size) \xD7 (map height in pixels \xD7
+            step size). Complements the map's pixel-grid dimensions by recording the
+            physical scale of the mapped region."
           type: object
           properties:
             '@id':
@@ -2676,8 +2345,7 @@ allOf:
       - contains:
           title: Map Dimensions
           description: Number of pixels in the X-ray map in the X and Y directions.
-            Determined at analysis time based on the area of interest and selected
-            step size.
+            Based on the area of interest and selected step size.
           type: object
           properties:
             '@id':

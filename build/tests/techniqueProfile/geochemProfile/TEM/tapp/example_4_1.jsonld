@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Zega2025-3",
-  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v22.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
+  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v48.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
   "schema:object": [
     {
       "@type": [
@@ -47,7 +47,6 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Crushing / dispersion on grid",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -61,6 +60,7 @@
             "schema:defaultValue": "Grain crushed; ethanol added to powder; copper mesh grid with lacey carbon support touched to suspension until all material picked up"
           }
         ],
+        "schema:description": "Crushing / dispersion on grid",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -80,17 +80,6 @@
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -266,7 +255,7 @@
     }
   ],
   "ada:convergenceSemiAngle": "10.5 mrad",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Manual d-spacing comparison (SAED patterns; camera constant calibrated with AGAR S106 cross grating)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -312,7 +301,7 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

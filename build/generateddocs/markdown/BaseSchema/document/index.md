@@ -125,6 +125,7 @@ properties:
     - ada:report
     - ada:samplePreparation
     - ada:worldFile
+    - nil:missing
     description: ADA componentType for a document, as a single string. Allowed values
       are constrained at the technique-profile level.
     x-jsonld-id: https://ada.astromat.org/metadata/componentType

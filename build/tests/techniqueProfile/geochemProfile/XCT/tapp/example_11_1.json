@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol \u2014 Richard2019-2",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v37.csv).",
   "schema:object": [
     {
       "@type": [
@@ -40,6 +40,17 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "3 \u00d7 5 \u00d7 2 cm"
+        },
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Optical photography of the sample showing the fluid inclusion array, with inclusions numbered for correspondence with the HRXCT reconstruction (Fig. 2)"
         }
       ]
     }
@@ -184,6 +195,12 @@
       "ada:tubeCurrentDefault": "71 \u00b5A (Ag target)",
       "ada:xRayPreFilterDefault": "None (conditions did not require filtering)",
       "ada:voxelSizeDefault": "25 \u00b5m",
+      "schema:manufacturer": {
+        "schema:name": "Nikon",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "schema:model": {
         "schema:name": "Nikon XTH 320/225",
         "@type": [
@@ -200,6 +217,7 @@
   ],
   "ada:numberOfProjectionsDefault": "3141",
   "ada:exposureTimePerProjectionDefault": "0.708 s",
+  "ada:samplingUnitSelectionCriteriaDefault": "No sectioning was carried out prior to HRXCT scanning; Sample B was scanned entirely",
   "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
   "ada:segmentationMethodDefault": "Manual grayscale threshold",
   "schema:measurementTechnique": [
@@ -216,13 +234,23 @@
     ],
     "schema:name": "U. Strathclyde, Glasgow, UK"
   },
+  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
+  "ada:analyticalMode": [
+    "Single-volume"
+  ],
+  "ada:reportedProperties": [
+    "Total fluid inclusion volume (mm3); vapour volume (mm3); liquid volume (mm3); vapour volumetric fraction phi_vap (%)"
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method"
+    }
+  ],
   "ada:applicableSampleDimensionRange": "missing",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
   "ada:rotationModeDefault": "missing",
   "ada:rotationRangeDefault": -9999,
-  "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

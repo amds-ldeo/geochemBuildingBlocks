@@ -94,8 +94,7 @@ $defs:
     - ada:dataType
   empa_diffractingCrystal:
     title: Diffracting Crystal
-    description: Analyzing crystal (monochromator) used on each spectrometer assignment.
-      Crystal choice determines the detectable wavelength range and dispersion.
+    description: Analyzing crystal (monochromator).
     type: object
     properties:
       '@id':
@@ -167,9 +166,8 @@ $defs:
     - schema:defaultValue
   empa_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds,
-      on each spectrometer assignment. Procedure specifies standard values; analysts
-      may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds.
+      Adjustments stay within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -206,8 +204,7 @@ $defs:
     - schema:defaultValue
   empa_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used on each spectrometer assignment. Affects sensitivity
-      and count rate linearity.
+    description: Type of detector used.
     type: object
     properties:
       '@id':
@@ -240,9 +237,8 @@ $defs:
   empa_sequence:
     title: Sequence
     description: Order in which spectrometer assignments are acquired during point
-      analysis. Relevant for minimizing beam damage (volatile elements measured first)
-      and for sequential multi-channel setups. Not applicable to X-ray mapping, where
-      all assigned spectrometers collect simultaneously at each pixel.
+      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
+      collect simultaneously at each pixel.
     type: object
     properties:
       '@id':
@@ -312,9 +308,7 @@ $defs:
     - ada:dataType
   empa_xRayLine:
     title: X-ray Line
-    description: X-ray emission line measured on each spectrometer assignment. Line
-      choice affects sensitivity, matrix correction accuracy, and susceptibility to
-      peak overlap and spectral interference.
+    description: X-ray emission line measured.
     type: object
     properties:
       '@id':
@@ -349,10 +343,8 @@ $defs:
     title: Faraday Cup Amplifier Resistor Values
     description: "Resistance values (\u03A9) of the feedback resistors in the Faraday
       cup amplifiers. Standard amplifiers use 10\xB9\xB9 \u03A9 resistors, yielding
-      1 V per ~6.24 \xD7 10\u2076 ion counts per second. High-gain amplifiers (10\xB9\xB2
-      or 10\xB9\xB3 \u03A9) are fitted to selected cups to improve signal-to-noise
-      for very low-intensity beams (e.g., 234U, low-abundance spike isotopes). Report
-      the resistor value per cup position, or note 'all 10\xB9\xB9 \u03A9' if uniform."
+      1 V per ~6.24 \xD7 10\u2076 ion counts per second. Report the resistor value
+      per cup position, or note 'all 10\xB9\xB9 \u03A9' if uniform."
     type: object
     properties:
       '@id':
@@ -387,12 +379,11 @@ $defs:
     title: Faraday Cup Gain Calibration Method
     description: 'Method used to calibrate the relative gain (amplification factor)
       of each Faraday cup amplifier at the start of or during each analytical session.
-      Relative gain differences between amplifiers cause systematic errors in isotope
-      ratios if uncorrected. Common approaches: instrument internal gain calibration
-      routine (measures signal in each cup sequentially using a common beam), amplifier
-      rotation procedure, or measurement of a known isotope ratio solution in each
-      cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration
-      sequence. Specify frequency (per session, per block, weekly).'
+      Common approaches: instrument internal gain calibration routine (measures signal
+      in each cup sequentially using a common beam), amplifier rotation procedure,
+      or measurement of a known isotope ratio solution in each cup. For instruments
+      with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence.
+      Specify frequency (per session, per block, weekly).'
     type: object
     properties:
       '@id':
@@ -425,14 +416,9 @@ $defs:
     - schema:defaultValue
   laMcicpms_integrationTimePerCycle:
     title: Integration Time per Cycle
-    description: "Duration of signal integration per measurement cycle (seconds).
-      Determines counting statistics per cycle. Longer integration times improve shot-noise
-      precision but increase the impact of signal drift within the integration window.
-      For high-gain (10\xB9\xB2 or 10\xB9\xB3 \u03A9) amplifier channels, longer integration
-      times are often required to accumulate sufficient charge. Procedure specifies
-      the standard integration time; analyst may confirm or adjust within procedure
-      bounds. Where different isotope channels use different integration schemes,
-      record the time for each channel."
+    description: Duration of signal integration per measurement cycle (seconds). Where
+      different isotope channels use different integration schemes, record the time
+      for each channel.
     type: object
     properties:
       '@id':
@@ -469,9 +455,11 @@ $defs:
     - schema:defaultValue
   laMcicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Equation or procedure used to correct for isobaric interferences,
-      including the production rate factor and the reference material used to measure
-      it.
+    description: Equation or procedure used to calculate and remove each interference
+      contribution, together with how its magnitude was established - a monitor mass
+      measured simultaneously and scaled by natural abundance ratios, a production-rate
+      factor measured on a reference material or interference standard solution, or
+      a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -504,8 +492,10 @@ $defs:
     - schema:defaultValue
   laMcicpms_interferingSpecies:
     title: Interfering Species
-    description: Elemental or molecular species (oxides, argides, doubly charged ions)
-      overlapping with the measured isotope.
+    description: The isobaric, polyatomic and doubly charged species that overlap
+      the measured masses and are corrected in data reduction - direct isobars, oxides
+      and argides, hydrides, and abundance-sensitivity tailing from an adjacent large
+      beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -577,12 +567,10 @@ $defs:
     - schema:value
   laMcicpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode assigned to each acquired mass. The selected
-      resolution determines which polyatomic interferences are physically resolved
-      by the magnetic sector. One analyte may be acquired at more than one resolution,
-      so the assignment is per acquired mass rather than per element. The overall
-      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
-      3).
+    description: Mass resolution mode used for acquisition. One analyte may be acquired
+      at more than one resolution, so the assignment is per acquired mass rather than
+      per element. The overall mode(s) used in the procedure are recorded in Mass
+      Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -686,8 +674,7 @@ $defs:
     - ada:dataType
   semComposition_diffractingCrystal:
     title: Diffracting Crystal
-    description: Analyzing crystal (monochromator) used on each spectrometer assignment.
-      Crystal choice determines the detectable wavelength range and dispersion.
+    description: Analyzing crystal (monochromator).
     type: object
     properties:
       '@id':
@@ -722,9 +709,7 @@ $defs:
     title: Dwell Time per Pixel
     description: Time the electron beam dwells on each pixel during raster scanning
       (imaging modes) or on each step position during compositional mapping (EDS and
-      WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves
-      signal-to-noise and counting statistics but increases total dose and can cause
-      beam damage or contamination on sensitive materials. For WDS mapping, the dwell
+      WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell
       time is per spectrometer per pixel.
     type: object
     properties:
@@ -762,9 +747,8 @@ $defs:
     - schema:defaultValue
   semComposition_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds,
-      on each spectrometer assignment. Procedure specifies standard values; analysts
-      may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds.
+      Adjustments stay within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -801,8 +785,7 @@ $defs:
     - schema:defaultValue
   semComposition_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used on each spectrometer assignment. Affects sensitivity
-      and count rate linearity.
+    description: Type of detector used.
     type: object
     properties:
       '@id':
@@ -835,9 +818,8 @@ $defs:
   semComposition_sequence:
     title: Sequence
     description: Order in which spectrometer assignments are acquired during point
-      analysis. Relevant for minimizing beam damage (volatile elements measured first)
-      and for sequential multi-channel setups. Not applicable to X-ray mapping, where
-      all assigned spectrometers collect simultaneously at each pixel.
+      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
+      collect simultaneously at each pixel.
     type: object
     properties:
       '@id':
@@ -907,9 +889,7 @@ $defs:
     - ada:dataType
   semComposition_xRayLine:
     title: X-ray Line
-    description: X-ray emission line measured on each spectrometer assignment. Line
-      choice affects sensitivity, matrix correction accuracy, and susceptibility to
-      peak overlap and spectral interference.
+    description: X-ray emission line measured.
     type: object
     properties:
       '@id':
@@ -1013,8 +993,7 @@ $defs:
     - ada:dataType
   sem_diffractingCrystal:
     title: Diffracting Crystal
-    description: Analyzing crystal (monochromator) used on each spectrometer assignment.
-      Crystal choice determines the detectable wavelength range and dispersion.
+    description: Analyzing crystal (monochromator).
     type: object
     properties:
       '@id':
@@ -1049,9 +1028,7 @@ $defs:
     title: Dwell Time per Pixel
     description: Time the electron beam dwells on each pixel during raster scanning
       (imaging modes) or on each step position during compositional mapping (EDS and
-      WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves
-      signal-to-noise and counting statistics but increases total dose and can cause
-      beam damage or contamination on sensitive materials. For WDS mapping, the dwell
+      WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell
       time is per spectrometer per pixel.
     type: object
     properties:
@@ -1089,9 +1066,8 @@ $defs:
     - schema:defaultValue
   sem_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds,
-      on each spectrometer assignment. Procedure specifies standard values; analysts
-      may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds.
+      Adjustments stay within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -1128,8 +1104,7 @@ $defs:
     - schema:defaultValue
   sem_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used on each spectrometer assignment. Affects sensitivity
-      and count rate linearity.
+    description: Type of detector used.
     type: object
     properties:
       '@id':
@@ -1162,9 +1137,8 @@ $defs:
   sem_sequence:
     title: Sequence
     description: Order in which spectrometer assignments are acquired during point
-      analysis. Relevant for minimizing beam damage (volatile elements measured first)
-      and for sequential multi-channel setups. Not applicable to X-ray mapping, where
-      all assigned spectrometers collect simultaneously at each pixel.
+      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
+      collect simultaneously at each pixel.
     type: object
     properties:
       '@id':
@@ -1234,9 +1208,7 @@ $defs:
     - ada:dataType
   sem_xRayLine:
     title: X-ray Line
-    description: X-ray emission line measured on each spectrometer assignment. Line
-      choice affects sensitivity, matrix correction accuracy, and susceptibility to
-      peak overlap and spectral interference.
+    description: X-ray emission line measured.
     type: object
     properties:
       '@id':
@@ -1269,11 +1241,11 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Mathematical approach used to calculate and remove residual interference
-      contributions. For direct isobars, interference monitor masses (e.g., 202Hg
-      to correct 204Hg on 204Pb) are measured simultaneously and used with natural
-      abundance ratios to calculate the interference contribution. For abundance sensitivity,
-      the tailing factor is measured using a pure standard.
+    description: Equation or procedure used to calculate and remove each interference
+      contribution, together with how its magnitude was established - a monitor mass
+      measured simultaneously and scaled by natural abundance ratios, a production-rate
+      factor measured on a reference material or interference standard solution, or
+      a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -1306,10 +1278,10 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_interferingSpecies:
     title: Interfering Species
-    description: List of isobaric or polyatomic species mathematically corrected in
-      data reduction. Includes direct isobars (e.g., 54Cr+ on 54Fe+, 58Ni+ on 58Fe+),
-      abundance sensitivity tailing (e.g., 238U tail on 235U and 236U in U isotope
-      measurements), and hydride interferences (e.g., 238UH+ at mass 239).
+    description: The isobaric, polyatomic and doubly charged species that overlap
+      the measured masses and are corrected in data reduction - direct isobars, oxides
+      and argides, hydrides, and abundance-sensitivity tailing from an adjacent large
+      beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -1378,10 +1350,84 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  solutionMcicpms_massResolutionAssignment:
+    title: Mass Resolution Assignment
+    description: Mass resolution mode used for acquisition. One analyte may be acquired
+      at more than one resolution, so the assignment is per acquired mass rather than
+      per element. The overall mode(s) used in the procedure are recorded in Mass
+      Resolution Setting (Group 3).
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionAssignment
+      schema:name:
+        const: Mass Resolution Assignment
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionMcicpms_spectralInterferenceCorrectionsApplied:
+    title: Spectral Interference Corrections Applied
+    description: Whether mathematical corrections for isobaric, polyatomic or residual
+      interferences are applied in data reduction, supplementary to any suppression
+      already achieved by chemical separation, mass resolution, or a collision/reaction
+      cell. Detail for each affected mass is carried by Interfering Species and Interference
+      Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spectralInterferenceCorrectionsApplied
+      schema:name:
+        const: Spectral Interference Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   solutionQicpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: Integration time spent on each mass peak per sweep (ms). May differ
-      between masses where per-mass dwell times are programmed.
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -1418,9 +1464,11 @@ $defs:
     - schema:defaultValue
   solutionQicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Mathematical approach used to calculate and remove interference contributions
-      from measured signals (e.g., interference standard solutions isolating specific
-      polyatomics, mass-balance equations using empirical correction factors).
+    description: Equation or procedure used to calculate and remove each interference
+      contribution, together with how its magnitude was established - a monitor mass
+      measured simultaneously and scaled by natural abundance ratios, a production-rate
+      factor measured on a reference material or interference standard solution, or
+      a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -1453,10 +1501,10 @@ $defs:
     - schema:defaultValue
   solutionQicpms_interferingSpecies:
     title: Interfering Species
-    description: List of isobaric or polyatomic species mathematically corrected in
-      data reduction. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+
-      species on Cd isotopes, and BaO+ on Eu. Additional interference mitigation via
-      KED or DRC is documented in Group 3 and Group 4.
+    description: The isobaric, polyatomic and doubly charged species that overlap
+      the measured masses and are corrected in data reduction - direct isobars, oxides
+      and argides, hydrides, and abundance-sensitivity tailing from an adjacent large
+      beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -1522,6 +1570,79 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  solutionQicpms_spectralInterferenceCorrectionsApplied:
+    title: Spectral Interference Corrections Applied
+    description: Whether mathematical corrections for isobaric, polyatomic or residual
+      interferences are applied in data reduction, supplementary to any suppression
+      already achieved by chemical separation, mass resolution, or a collision/reaction
+      cell. Detail for each affected mass is carried by Interfering Species and Interference
+      Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spectralInterferenceCorrectionsApplied
+      schema:name:
+        const: Spectral Interference Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionSficpms_massResolutionAssignment:
+    title: Mass Resolution Assignment
+    description: Mass resolution mode used for acquisition. One analyte may be acquired
+      at more than one resolution, so the assignment is per acquired mass rather than
+      per element. The overall mode(s) used in the procedure are recorded in Mass
+      Resolution Setting (Group 3).
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/solutionSficpmsTAPP/massResolutionAssignment
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: massResolutionAssignment
+      schema:name:
+        const: Mass Resolution Assignment
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   tem_eelsBackgroundSubtractionMethod:
     title: EELS Background Subtraction Method
     description: Method used to subtract the background beneath the ionization edge
@@ -1550,6 +1671,44 @@ $defs:
         - type: array
           items:
             type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  tem_eelsDetectionLimit:
+    title: EELS Detection Limit
+    description: Estimated detection limit or minimum detectable concentration for
+      target edges under this procedure. Record 'N/A' where EELS is not listed in
+      Spectroscopic Detector(s).
+    type: object
+    properties:
+      '@id':
+        const: ada:channelColumn/temTAPP/eelsDetectionLimit
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: eelsDetectionLimit
+      schema:name:
+        const: EELS Detection Limit
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'

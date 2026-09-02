@@ -4,11 +4,11 @@ description: 'Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extens
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] entries;
   an ada:analyteTemplate carries per-element columns. Generated from tapp/Current
-  TAPPs/TEM_TAPP_v22.csv by tools/build_tapp.py.'
+  TAPPs/TEM_TAPP_v48.csv by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
@@ -44,20 +44,18 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyse. Used for discoverability
-                              and procedure matching, and because the material type
-                              constrains sample preparation, calibration and matrix-matching
-                              requirements.
+                              this procedure is designed to analyse.
                             anyOf:
                             - type: string
                               enum:
                               - Silicate mineral
+                              - Silicate glass
                               - Oxide
                               - Sulfide
                               - Carbonate
                               - Phosphate
-                              - Metal alloy
-                              - Organic matter / IOM
+                              - Metal or alloy
+                              - Organic matter
                               - Amorphous phase
                               - Nanoparticle
                               - N/A
@@ -73,7 +71,7 @@ allOf:
                     required:
                     - schema:name
                 - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
       allOf:
@@ -100,42 +98,6 @@ allOf:
                 - schema:name
               then:
                 properties:
-                  schema:description:
-                    description: Primary method by which electron-transparent sections
-                      are prepared from the sample. The procedure documents the standard
-                      approach; analysts record session-specific details and deviations
-                      in Sample Preparation Details.
-                    anyOf:
-                    - type: string
-                      enum:
-                      - FIB lift-out (Ga ion)
-                      - FIB lift-out (Xe plasma)
-                      - FIB lift-out (Ga) + ion mill
-                      - Ultramicrotomy
-                      - Crushing / dispersion on grid
-                      - Ion milling (non-FIB)
-                      - Electropolishing
-                      - Unknown
-                      - N/A
-                      - None
-                      - missing
-                      readOnly: true
-                    - type: array
-                      items:
-                        type: string
-                        enum:
-                        - FIB lift-out (Ga ion)
-                        - FIB lift-out (Xe plasma)
-                        - FIB lift-out (Ga) + ion mill
-                        - Ultramicrotomy
-                        - Crushing / dispersion on grid
-                        - Ion milling (non-FIB)
-                        - Electropolishing
-                        - Unknown
-                        - N/A
-                        - None
-                        - missing
-                        readOnly: true
                   schema:additionalProperty:
                     type: array
                     items:
@@ -149,9 +111,9 @@ allOf:
                         NanoMill, final 0.5\u20132 kV Ga+ thinning); sample transfer
                         and storage environment (ambient air, dry N\u2082 atmosphere,
                         vacuum transfer holder, glovebox); plasma cleaning before
-                        loading. Analysts record session-specific observations and
-                        deviations from the procedure standard. Includes preparation
-                        artifacts noted (Ga implantation, amorphization, curtaining)."
+                        loading. Includes session-specific observations and deviations
+                        from the procedure standard. Includes preparation artifacts
+                        noted (Ga implantation, amorphization, curtaining)."
                       type: object
                       properties:
                         '@id':
@@ -190,10 +152,10 @@ allOf:
                           Ar+ ion polishing in a Fischione NanoMill, final 0.5\u20132
                           kV Ga+ thinning); sample transfer and storage environment
                           (ambient air, dry N\u2082 atmosphere, vacuum transfer holder,
-                          glovebox); plasma cleaning before loading. Analysts record
-                          session-specific observations and deviations from the procedure
-                          standard. Includes preparation artifacts noted (Ga implantation,
-                          amorphization, curtaining)."
+                          glovebox); plasma cleaning before loading. Includes session-specific
+                          observations and deviations from the procedure standard.
+                          Includes preparation artifacts noted (Ga implantation, amorphization,
+                          curtaining)."
                         type: object
                         properties:
                           '@id':
@@ -225,7 +187,7 @@ allOf:
             - if:
                 properties:
                   schema:name:
-                    const: Data Reduction
+                    const: Data reduction
                 required:
                 - schema:name
               then:
@@ -237,9 +199,8 @@ allOf:
                       - title: EELS Plural Scattering Correction
                         description: Method applied to correct for multiple inelastic
                           scattering events (plural scattering) that broaden edge
-                          fine structure. Critical for specimens thicker than ~0.5
-                          inelastic mean free paths. Record 'N/A' where EELS is not
-                          listed in Spectroscopic Detector(s).
+                          fine structure. Record 'N/A' where EELS is not listed in
+                          Spectroscopic Detector(s).
                         type: object
                         properties:
                           '@id':
@@ -297,14 +258,15 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
                         title: EELS Plural Scattering Correction
                         description: Method applied to correct for multiple inelastic
                           scattering events (plural scattering) that broaden edge
-                          fine structure. Critical for specimens thicker than ~0.5
-                          inelastic mean free paths. Record 'N/A' where EELS is not
-                          listed in Spectroscopic Detector(s).
+                          fine structure. Record 'N/A' where EELS is not listed in
+                          Spectroscopic Detector(s).
                         type: object
                         properties:
                           '@id':
@@ -367,21 +329,6 @@ allOf:
                         - ada:fieldScope
                       minContains: 0
                       maxContains: 1
-            - if:
-                properties:
-                  schema:name:
-                    const: Data reduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                    allOf:
                     - contains:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
@@ -391,12 +338,6 @@ allOf:
                       minContains: 0
                       maxContains: 1
           allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Sample preparation
-              required:
-              - schema:name
           - contains:
               properties:
                 schema:name:
@@ -423,10 +364,10 @@ allOf:
                 properties:
                   schema:name:
                     description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
+                      measurement, recorded as a controlled value. Where a procedure
+                      couples a sample-introduction system to an analysing instrument,
+                      this records the analysing instrument. Instrument Model gives
+                      the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -473,6 +414,7 @@ allOf:
                             - Cold-FEG
                             - Schottky FEG (X-FEG)
                             - Schottky FEG (standard)
+                            - "Field emission gun (FEG) \u2014 subtype not specified"
                             - LaB6 / CeB6
                             - Tungsten (W)
                             - Unknown
@@ -487,6 +429,7 @@ allOf:
                               - Cold-FEG
                               - Schottky FEG (X-FEG)
                               - Schottky FEG (standard)
+                              - "Field emission gun (FEG) \u2014 subtype not specified"
                               - LaB6 / CeB6
                               - Tungsten (W)
                               - Unknown
@@ -505,10 +448,8 @@ allOf:
                     then:
                       properties:
                         schema:description:
-                          description: "Type of aberration corrector installed and
-                            active. Probe Cs-correction enables sub-\xC5 STEM resolution
-                            and improved analytical signal; image Cs-correction reduces
-                            delocalization artifacts in HRTEM."
+                          description: Type of aberration corrector installed and
+                            active.
                           anyOf:
                           - type: string
                             enum:
@@ -548,8 +489,7 @@ allOf:
                       properties:
                         schema:description:
                           description: Whether a monochromator is installed and was
-                            active during this procedure. Relevant for EELS energy
-                            resolution and EFTEM performance. Record 'N/A' where EELS
+                            active during this procedure. Record 'N/A' where EELS
                             is not listed in Spectroscopic Detector(s) and EFTEM is
                             not listed in Analytical Sub-mode.
                           anyOf:
@@ -587,9 +527,10 @@ allOf:
                       properties:
                         schema:description:
                           description: EDS detector type, manufacturer, number of
-                            detector elements, active solid angle, and window type.
-                            Record 'N/A' where EDS is not listed in Spectroscopic
-                            Detector(s).
+                            detector elements, active area and solid angle, window
+                            type, and geometry (take-off angle, position). List multiple
+                            detectors separately. Record 'N/A' where the procedure
+                            has no EDS detector.
                           anyOf:
                           - type: string
                             readOnly: true
@@ -690,12 +631,8 @@ allOf:
                     required:
                     - schema:additionalType
               ada:acceleratingVoltageDefault:
-                description: "Electron beam accelerating voltage in kilovolts (kV).
-                  For beam-sensitive materials (organic matter, phyllosilicates),
-                  60\u201380 kV may be used to stay below the displacement threshold
-                  for C, N, O, and S. The procedure specifies the standard operating
-                  voltage; analysts record and justify deviations. Key parameter for
-                  the beam damage regime."
+                description: Electron beam accelerating voltage in kilovolts (kV).
+                  Justify any deviation from the standard operating voltage.
                 anyOf:
                 - type: number
                 - type: string
@@ -704,10 +641,7 @@ allOf:
                 items:
                   title: TEM Objective Aperture
                   description: Objective aperture diameter used to select the imaging
-                    beam condition in TEM mode. In BF-TEM, a small aperture blocks
-                    diffracted beams to enhance mass-thickness contrast; in DF-TEM,
-                    the aperture is displaced to select a specific diffracted beam;
-                    in HRTEM, no aperture is typically used.
+                    beam condition in TEM mode.
                   type: object
                   properties:
                     '@id':
@@ -738,10 +672,7 @@ allOf:
                 - contains:
                     title: TEM Objective Aperture
                     description: Objective aperture diameter used to select the imaging
-                      beam condition in TEM mode. In BF-TEM, a small aperture blocks
-                      diffracted beams to enhance mass-thickness contrast; in DF-TEM,
-                      the aperture is displaced to select a specific diffracted beam;
-                      in HRTEM, no aperture is typically used.
+                      beam condition in TEM mode.
                     type: object
                     properties:
                       '@id':
@@ -784,9 +715,7 @@ allOf:
       items:
         anyOf:
         - title: Sample Holder
-          description: Type of specimen holder used. Cryo holders (liquid N2 to ~110
-            K) are critical for minimizing beam-induced damage to organic matter and
-            beam-sensitive phases. Heating holders enable in-situ experiments.
+          description: Type of specimen holder used.
           type: object
           properties:
             '@id':
@@ -845,12 +774,8 @@ allOf:
           - ada:fieldScope
         - title: HAADF Collection Angles
           description: Inner and outer collection angles of the HAADF detector in
-            milliradians (mrad). The inner angle determines the boundary between diffracted
-            and thermally diffuse scattered electrons; larger inner angles yield stronger
-            Z-contrast and reduced Bragg contrast. Inner angle is most critical and
-            can be derived from camera length and detector geometry. In HAADF-STEM
-            a shorter camera length increases the inner angle, yielding more thermally
-            diffuse (Z-contrast) and less Bragg-diffraction signal.
+            milliradians (mrad). Inner angle can be derived from camera length and
+            detector geometry.
           type: object
           properties:
             '@id':
@@ -879,12 +804,11 @@ allOf:
           - ada:fieldScope
         - title: STEM Probe Diameter
           description: 'Nominal or measured diameter of the focused electron probe
-            at the sample, reported in nm. Serves as a direct spatial resolution proxy
-            for STEM imaging and STEM-EDS/EELS analysis. Related to, but distinct
-            from, Convergence Semi-Angle: the two quantities are connected via aberration
-            coefficients, defocus, and probe current, which are not always published.
-            Report whichever is known; if both are known, report both fields. Also
-            governs STEM-EDS and STEM-EELS acquisition where those detectors are used.'
+            at the sample, reported in nm. Related to, but distinct from, Convergence
+            Semi-Angle: the two quantities are connected via aberration coefficients,
+            defocus, and probe current, which are not always published. Report whichever
+            is known; if both are known, report both fields. Also governs STEM-EDS
+            and STEM-EELS acquisition where those detectors are used.'
           type: object
           properties:
             '@id':
@@ -914,10 +838,8 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - title: STEM Probe Current
-          description: Probe current in picoamperes (pA) or nanoamperes (nA). Higher
-            current improves EDS/EELS signal but increases beam damage risk, especially
-            for organic matter and hydrous minerals. Also governs STEM-EDS and STEM-EELS
-            acquisition where those detectors are used.
+          description: Probe current in picoamperes (pA) or nanoamperes (nA). Also
+            governs STEM-EDS and STEM-EELS acquisition where those detectors are used.
           type: object
           properties:
             '@id':
@@ -948,8 +870,8 @@ allOf:
           - ada:fieldScope
         - title: STEM Scan Dimensions
           description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels).
-            Combined with calibrated pixel size, defines the field of view. Also governs
-            STEM-EDS and STEM-EELS acquisition where those detectors are used."
+            Also governs STEM-EDS and STEM-EELS acquisition where those detectors
+            are used."
           type: object
           properties:
             '@id':
@@ -980,9 +902,8 @@ allOf:
           - ada:fieldScope
         - title: STEM Frame Averaging
           description: Number of frames averaged (with drift correction if applicable)
-            to produce the final STEM image. Averaging reduces noise while limiting
-            per-frame dose. Also governs STEM-EDS and STEM-EELS acquisition where
-            those detectors are used.
+            to produce the final STEM image. Also governs STEM-EDS and STEM-EELS acquisition
+            where those detectors are used.
           type: object
           properties:
             '@id':
@@ -1040,10 +961,8 @@ allOf:
           - ada:fieldScope
         - title: Precession Angle
           description: Precession semi-angle in degrees for precession electron diffraction
-            (PED). Hollow-cone illumination reduces dynamical diffraction effects
-            and produces more kinematical-like intensities. Not applicable to SAED,
-            CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed
-            in Analytical Sub-mode.
+            (PED). Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A'
+            where Precession ED is not listed in Analytical Sub-mode.
           type: object
           properties:
             '@id':
@@ -1105,11 +1024,8 @@ allOf:
           - ada:fieldScope
         - title: 4D-STEM Dwell Time per Probe Position
           description: Time spent acquiring each diffraction pattern in the 4D-STEM
-            dataset in milliseconds. Longer dwell improves signal-to-noise for weakly
-            diffracting phases (e.g., smectite 001 reflection at ~1.24 nm) but increases
-            total specimen dose; risk of beam damage to phyllosilicates and organic
-            matter must be balanced against data quality. Record 'N/A' where 4D-STEM
-            is not listed in Analytical Sub-mode.
+            dataset in milliseconds. Record 'N/A' where 4D-STEM is not listed in Analytical
+            Sub-mode.
           type: object
           properties:
             '@id':
@@ -1233,9 +1149,7 @@ allOf:
           - ada:fieldScope
         - title: EELS Energy Dispersion
           description: Energy dispersion of the EELS spectrometer in eV per channel.
-            Controls the energy range acquired per readout and the effective energy
-            resolution trade-off. Record 'N/A' where EELS is not listed in Spectroscopic
-            Detector(s).
+            Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -1264,10 +1178,8 @@ allOf:
           readOnly: true
         - title: EELS Energy Resolution
           description: Full-width at half-maximum (FWHM) of the zero-loss peak in
-            eV, measured at operating conditions. Reflects combined electron source
-            energy spread and monochromator effect (if active). Critical for ELNES
-            fine-structure interpretation. Record 'N/A' where EELS is not listed in
-            Spectroscopic Detector(s).
+            eV, measured at operating conditions. Record 'N/A' where EELS is not listed
+            in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -1348,8 +1260,7 @@ allOf:
           - schema:value
           readOnly: true
         - title: Specimen Thickness Determination Method
-          description: Method used to estimate TEM foil thickness. Required for EELS
-            quantification (log-ratio) and for assessing multiple-scattering severity.
+          description: Method used to estimate TEM foil thickness.
           type: object
           properties:
             '@id':
@@ -1378,9 +1289,7 @@ allOf:
           - ada:fieldScope
         - title: EELS Energy Calibration
           description: Method and reference used to calibrate the EELS energy axis.
-            Accurate calibration is required for ELNES edge identification, chemical-state
-            analysis, and inter-lab comparability. Record 'N/A' where EELS is not
-            listed in Spectroscopic Detector(s).
+            Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -1503,12 +1412,42 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: EELS Chemical State Determination Method
+          description: Method used to determine the chemical or oxidation state of
+            an element from the fine structure of its ionization edge (ELNES), together
+            with the reference data or calibration the determination relies on. Name
+            the method family and cite the calibration curve or reference spectra
+            used. Record 'N/A' where no chemical-state determination is made.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: eelsChemicalStateDeterminationMethodDefault
+            schema:name:
+              const: EELS Chemical State Determination Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
       - contains:
           title: Sample Holder
-          description: Type of specimen holder used. Cryo holders (liquid N2 to ~110
-            K) are critical for minimizing beam-induced damage to organic matter and
-            beam-sensitive phases. Heating holders enable in-situ experiments.
+          description: Type of specimen holder used.
           type: object
           properties:
             '@id':
@@ -1573,12 +1512,8 @@ allOf:
       - contains:
           title: HAADF Collection Angles
           description: Inner and outer collection angles of the HAADF detector in
-            milliradians (mrad). The inner angle determines the boundary between diffracted
-            and thermally diffuse scattered electrons; larger inner angles yield stronger
-            Z-contrast and reduced Bragg contrast. Inner angle is most critical and
-            can be derived from camera length and detector geometry. In HAADF-STEM
-            a shorter camera length increases the inner angle, yielding more thermally
-            diffuse (Z-contrast) and less Bragg-diffraction signal.
+            milliradians (mrad). Inner angle can be derived from camera length and
+            detector geometry.
           type: object
           properties:
             '@id':
@@ -1610,12 +1545,11 @@ allOf:
       - contains:
           title: STEM Probe Diameter
           description: 'Nominal or measured diameter of the focused electron probe
-            at the sample, reported in nm. Serves as a direct spatial resolution proxy
-            for STEM imaging and STEM-EDS/EELS analysis. Related to, but distinct
-            from, Convergence Semi-Angle: the two quantities are connected via aberration
-            coefficients, defocus, and probe current, which are not always published.
-            Report whichever is known; if both are known, report both fields. Also
-            governs STEM-EDS and STEM-EELS acquisition where those detectors are used.'
+            at the sample, reported in nm. Related to, but distinct from, Convergence
+            Semi-Angle: the two quantities are connected via aberration coefficients,
+            defocus, and probe current, which are not always published. Report whichever
+            is known; if both are known, report both fields. Also governs STEM-EDS
+            and STEM-EELS acquisition where those detectors are used.'
           type: object
           properties:
             '@id':
@@ -1648,10 +1582,8 @@ allOf:
         maxContains: 1
       - contains:
           title: STEM Probe Current
-          description: Probe current in picoamperes (pA) or nanoamperes (nA). Higher
-            current improves EDS/EELS signal but increases beam damage risk, especially
-            for organic matter and hydrous minerals. Also governs STEM-EDS and STEM-EELS
-            acquisition where those detectors are used.
+          description: Probe current in picoamperes (pA) or nanoamperes (nA). Also
+            governs STEM-EDS and STEM-EELS acquisition where those detectors are used.
           type: object
           properties:
             '@id':
@@ -1685,8 +1617,8 @@ allOf:
       - contains:
           title: STEM Scan Dimensions
           description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels).
-            Combined with calibrated pixel size, defines the field of view. Also governs
-            STEM-EDS and STEM-EELS acquisition where those detectors are used."
+            Also governs STEM-EDS and STEM-EELS acquisition where those detectors
+            are used."
           type: object
           properties:
             '@id':
@@ -1720,9 +1652,8 @@ allOf:
       - contains:
           title: STEM Frame Averaging
           description: Number of frames averaged (with drift correction if applicable)
-            to produce the final STEM image. Averaging reduces noise while limiting
-            per-frame dose. Also governs STEM-EDS and STEM-EELS acquisition where
-            those detectors are used.
+            to produce the final STEM image. Also governs STEM-EDS and STEM-EELS acquisition
+            where those detectors are used.
           type: object
           properties:
             '@id':
@@ -1786,10 +1717,8 @@ allOf:
       - contains:
           title: Precession Angle
           description: Precession semi-angle in degrees for precession electron diffraction
-            (PED). Hollow-cone illumination reduces dynamical diffraction effects
-            and produces more kinematical-like intensities. Not applicable to SAED,
-            CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed
-            in Analytical Sub-mode.
+            (PED). Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A'
+            where Precession ED is not listed in Analytical Sub-mode.
           type: object
           properties:
             '@id':
@@ -1857,11 +1786,8 @@ allOf:
       - contains:
           title: 4D-STEM Dwell Time per Probe Position
           description: Time spent acquiring each diffraction pattern in the 4D-STEM
-            dataset in milliseconds. Longer dwell improves signal-to-noise for weakly
-            diffracting phases (e.g., smectite 001 reflection at ~1.24 nm) but increases
-            total specimen dose; risk of beam damage to phyllosilicates and organic
-            matter must be balanced against data quality. Record 'N/A' where 4D-STEM
-            is not listed in Analytical Sub-mode.
+            dataset in milliseconds. Record 'N/A' where 4D-STEM is not listed in Analytical
+            Sub-mode.
           type: object
           properties:
             '@id':
@@ -1997,9 +1923,7 @@ allOf:
       - contains:
           title: EELS Energy Dispersion
           description: Energy dispersion of the EELS spectrometer in eV per channel.
-            Controls the energy range acquired per readout and the effective energy
-            resolution trade-off. Record 'N/A' where EELS is not listed in Spectroscopic
-            Detector(s).
+            Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -2031,10 +1955,8 @@ allOf:
       - contains:
           title: EELS Energy Resolution
           description: Full-width at half-maximum (FWHM) of the zero-loss peak in
-            eV, measured at operating conditions. Reflects combined electron source
-            energy spread and monochromator effect (if active). Critical for ELNES
-            fine-structure interpretation. Record 'N/A' where EELS is not listed in
-            Spectroscopic Detector(s).
+            eV, measured at operating conditions. Record 'N/A' where EELS is not listed
+            in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -2124,8 +2046,7 @@ allOf:
         maxContains: 1
       - contains:
           title: Specimen Thickness Determination Method
-          description: Method used to estimate TEM foil thickness. Required for EELS
-            quantification (log-ratio) and for assessing multiple-scattering severity.
+          description: Method used to estimate TEM foil thickness.
           type: object
           properties:
             '@id':
@@ -2157,9 +2078,7 @@ allOf:
       - contains:
           title: EELS Energy Calibration
           description: Method and reference used to calibrate the EELS energy axis.
-            Accurate calibration is required for ELNES edge identification, chemical-state
-            analysis, and inter-lab comparability. Record 'N/A' where EELS is not
-            listed in Spectroscopic Detector(s).
+            Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -2293,6 +2212,41 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
+      - contains:
+          title: EELS Chemical State Determination Method
+          description: Method used to determine the chemical or oxidation state of
+            an element from the fine structure of its ionization edge (ELNES), together
+            with the reference data or calibration the determination relies on. Name
+            the method family and cite the calibration curve or reference spectra
+            used. Record 'N/A' where no chemical-state determination is made.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: eelsChemicalStateDeterminationMethodDefault
+            schema:name:
+              const: EELS Chemical State Determination Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     ada:spectroscopicDetectorDefault:
       description: Spectroscopic detectors present and used under this procedure.
         EDS and EELS parameter fields in Group 4 apply only when the corresponding
@@ -2334,42 +2288,37 @@ allOf:
         required:
         - ada:toolRole
     ada:analyticalSubModeDefault:
-      description: 'Sub-mode(s) of imaging or diffraction performed under this procedure.
-        TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM. STEM Imaging options: HAADF,
-        ABF, BF-STEM, ADF, MAADF. Electron Diffraction options: SAED, CBED, Nanobeam
-        diffraction, Precession ED, 4D-STEM. Multiple values apply when the procedure
-        covers more than one sub-mode within a given analytical mode.'
-      type: string
-      enum:
-      - BF-TEM
-      - DF-TEM
-      - HRTEM
-      - EFTEM (TEM Imaging); HAADF
-      - ABF
-      - BF-STEM
-      - ADF
-      - MAADF (STEM Imaging); SAED
-      - CBED
-      - Nanobeam diffraction
-      - Precession ED
-      - 4D-STEM (Electron Diffraction)
-      - N/A
-      - None
-      - missing
+      description: Sub-mode(s) of imaging or diffraction performed under this procedure.
+        Multiple values apply when the procedure covers more than one sub-mode within
+        a given analytical mode.
+      anyOf:
+      - type: string
+        enum:
+        - BF-TEM
+        - DF-TEM
+        - HRTEM
+        - EFTEM (TEM Imaging); HAADF
+        - ABF
+        - BF-STEM
+        - ADF
+        - MAADF (STEM Imaging); SAED
+        - CBED
+        - Nanobeam diffraction
+        - Precession ED
+        - 4D-STEM (Electron Diffraction)
+        - N/A
+        - None
+        - missing
+      - type: string
     ada:convergenceSemiAngle:
-      description: Semi-angle of the converged electron probe in milliradians. Controls
-        probe size (smaller angle = larger probe but less coherent), depth of field,
-        and in 4D-STEM, the size of diffraction discs vs. spatial resolution. For
-        near-parallel-beam 4D-STEM (e.g., phyllosilicate phase mapping), values as
-        small as 0.1 mrad are used.
+      description: Semi-angle of the converged electron probe in milliradians.
       anyOf:
       - type: number
       - type: string
       readOnly: true
     ada:stemDwellTimePerPixelDefault:
       description: Time spent acquiring signal at each pixel during STEM scanning
-        in milliseconds. Longer dwell improves signal-to-noise but increases total
-        specimen dose; for dose-sensitive materials, minimize dwell and compensate
+        in milliseconds. For dose-sensitive materials, minimize dwell and compensate
         with frame averaging. Also governs STEM-EDS and STEM-EELS acquisition where
         those detectors are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per
         Probe Position'.
@@ -2378,41 +2327,52 @@ allOf:
       - type: string
     ada:cameraLengthDefault:
       description: "Nominal camera length in millimeters used for diffraction pattern
-        acquisition. Controls the mapping between reciprocal-space scattering angle
-        and detector position; must be calibrated to convert pixel distances to d-spacings.
-        In STEM mode, also sets HAADF/ABF detector collection angles. Calibration
-        to absolute d-spacings is required \u2014 see 'Diffraction Calibration Reference'.
-        Camera length choice affects HAADF Z-contrast purity: a shorter camera length
-        (e.g. 30 mm) shifts the inner angle toward thermal diffuse scatter; a longer
-        one (e.g. 150 mm) admits more Bragg scatter."
+        acquisition. Must be calibrated to convert pixel distances to d-spacings.
+        Calibration to absolute d-spacings is required \u2014 see 'Diffraction Calibration
+        Reference'."
       anyOf:
       - type: number
       - type: string
     ada:edsAcquisitionModeDefault:
-      description: Mode of EDS data acquisition. Record 'N/A' where EDS is not listed
-        in Spectroscopic Detector(s).
+      description: "Spatial acquisition sub-strategy for EDS measurements: stationary-beam
+        point acquisition, line scan (beam stepped along a transect at defined intervals),
+        or area map / spectrum image (beam rastered over a pixel grid). Specifies
+        how the beam is positioned during data collection within the declared analytical
+        mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers
+        what the literature also calls spot or point-spectrum analysis. 'Map' and
+        'Spectrum image' are distinct acquisitions, not synonyms: a map may retain
+        element intensities alone, whereas a spectrum image retains a full spectrum
+        at every pixel and can be requantified afterwards \u2014 record which was
+        acquired. Where more than one mode was used, join them with '; ' rather than
+        looking for a combined member."
       type: string
       enum:
-      - Point analysis
+      - Point
       - Line scan
-      - Spectrum image (map)
+      - Map
+      - Spectrum image
       - Simultaneous EDS+EELS
       - N/A
       - None
       - missing
     ada:edsQuantificationMethod:
-      description: Method used to convert EDS X-ray intensities to elemental concentrations.
-        Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
-      type: string
-      enum:
-      - Cliff-Lorimer (k-factor)
-      - "\u03B6-factor (zeta-factor)"
-      - Absorption-corrected Cliff-Lorimer
-      - Standardless
-      - Direct comparison to reference spectra
-      - N/A
-      - None
-      - missing
+      description: "X-ray matrix correction algorithm applied during quantitative
+        EDS or WDS data reduction. For X-ray mapping, applies when raw count maps
+        are converted to quantitative concentration maps. Where the k-factors or calibration
+        constants themselves came from \u2014 measured standards, a vendor library,
+        or theoretical cross-sections \u2014 is a separate question answered by this
+        technique's calibration-standard field, not here; a procedure may be both
+        absorption-corrected and standardless."
+      anyOf:
+      - type: string
+        enum:
+        - Cliff-Lorimer (k-factor)
+        - "\u03B6-factor (zeta-factor)"
+        - Absorption-corrected Cliff-Lorimer
+        - N/A
+        - None
+        - missing
+      - type: string
       readOnly: true
     ada:eelsAcquisitionModeDefault:
       description: Mode of EELS data acquisition. Record 'N/A' where EELS is not listed
@@ -2434,15 +2394,12 @@ allOf:
           and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart
           to the Analyte field: while Analyte lists elements, EELS Edges documents
           which ionization edges were used and their approximate energy loss positions.
-          The procedure registers the full intended edge suite; analysts confirm or
-          narrow this list at analysis time. Record ''N/A'' where EELS is not listed
-          in Spectroscopic Detector(s).'
+          The edge list may be narrowed at analysis time. Record ''N/A'' where EELS
+          is not listed in Spectroscopic Detector(s).'
         type: string
     ada:eelsCollectionSemiAngle:
       description: Semi-angle of the EELS spectrometer entrance aperture in milliradians.
-        Controls the fraction of inelastically scattered electrons collected and the
-        spectral background level. Record 'N/A' where EELS is not listed in Spectroscopic
-        Detector(s).
+        Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
       anyOf:
       - type: number
       - type: string
@@ -2456,26 +2413,15 @@ allOf:
       - type: string
     ada:eelsEnergyLossRangeDefault:
       description: Energy loss range acquired, defined by onset energy and width in
-        eV. The procedure documents the target range for the registered analyte edges;
-        analysts record the actual range acquired. Record 'N/A' where EELS is not
-        listed in Spectroscopic Detector(s).
+        eV. The target range covers the registered analyte edges; the actual range
+        acquired may differ. Record 'N/A' where EELS is not listed in Spectroscopic
+        Detector(s).
       type: string
     ada:phaseIdentificationMethod:
       description: Method used to identify crystalline phases from electron diffraction
         patterns or d-spacings, whether from SAED patterns, spot diffraction, or diffraction
         data extracted from 4D-STEM datasets.
       type: string
-      enum:
-      - Manual d-spacing comparison to ICDD PDF database
-      - JEMS simulation
-      - CrystalMaker
-      - WinHREM
-      - py4DSTEM ACOM
-      - ESPRIT CRYSTAL
-      - ORIX
-      - N/A
-      - None
-      - missing
       readOnly: true
     ada:channelTemplate:
       type: object
@@ -2518,34 +2464,37 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: EELS Sensitivity and Detection Limit
-              description: Practical energy resolution (ZLP FWHM measured at operating
-                conditions) and estimated detection limit or minimum detectable concentration
+            - title: EELS Detection Limit
+              description: Estimated detection limit or minimum detectable concentration
                 for target edges under this procedure. Record 'N/A' where EELS is
                 not listed in Spectroscopic Detector(s).
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/temTAPP/eelsSensitivityAndDetectionLimit
+                  const: ada:channelColumn/temTAPP/eelsDetectionLimit
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: eelsSensitivityAndDetectionLimit
+                  const: eelsDetectionLimit
                 schema:name:
-                  const: EELS Sensitivity and Detection Limit
+                  const: EELS Detection Limit
                 ada:dataType:
-                  const: string
+                  const: number
                 schema:readonlyValue:
                   const: false
                 ada:tier:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
                   - type: array
                     items:
-                      type: string
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -2590,34 +2539,37 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: EELS Sensitivity and Detection Limit
-              description: Practical energy resolution (ZLP FWHM measured at operating
-                conditions) and estimated detection limit or minimum detectable concentration
+              title: EELS Detection Limit
+              description: Estimated detection limit or minimum detectable concentration
                 for target edges under this procedure. Record 'N/A' where EELS is
                 not listed in Spectroscopic Detector(s).
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/temTAPP/eelsSensitivityAndDetectionLimit
+                  const: ada:channelColumn/temTAPP/eelsDetectionLimit
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: eelsSensitivityAndDetectionLimit
+                  const: eelsDetectionLimit
                 schema:name:
-                  const: EELS Sensitivity and Detection Limit
+                  const: EELS Detection Limit
                 ada:dataType:
-                  const: string
+                  const: number
                 schema:readonlyValue:
                   const: false
                 ada:tier:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
                   - type: array
                     items:
-                      type: string
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -2628,9 +2580,8 @@ allOf:
             maxContains: 1
     ada:edsCalibrationStandardDefault:
       description: Reference material(s) used to validate EDS quantification or determine
-        experimental k-factors or zeta-factors. TEM-EDS is less standardized than
-        EPMA; many procedures rely on manufacturer k-factors without external calibration.
-        Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+        experimental k-factors or zeta-factors. Record 'N/A' where EDS is not listed
+        in Spectroscopic Detector(s).
       type: string
     schema:variableMeasured:
       type: array

@@ -15,16 +15,15 @@ ex:empaTAPP-P12 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault>,
-        <https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> ;
+                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) — unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument)." ;
     schema1:instrument <https://example.org/instrument/EPMA>,
@@ -48,138 +47,21 @@ ex:empaTAPP-P12 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyteEstimationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> ;
-            ada:defaultAnalytes "Al",
-                "Ca",
-                "Cr",
-                "Fe",
-                "K",
-                "Mg",
-                "Mn",
-                "Ni",
-                "Session 1: Al",
-                "Session 2: Na",
-                "Si",
-                "Ti" ] ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "Springwater olivine (Mg, Si); fayalite (Fe); wollastonite (Ca); albite (Na, Al); orthoclase (K); rutile (Ti); Ni metal (Ni); chromite (Cr); rhodochrosite (Mn)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Analyte Estimation Method" ;
-    schema1:valueName "analyteEstimationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Accuracy" ;
-    schema1:valueName "analyticalAccuracy" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Precision" ;
-    schema1:valueName "analyticalPrecision" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/backgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Background Correction Method" ;
-    schema1:valueName "backgroundCorrectionMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Beam Current" ;
-    schema1:valueName "beamCurrent" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Blank Correction" ;
-    schema1:valueName "blankCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
-    schema1:name "Counting Statistics Error" ;
-    schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/epmaTechniquePerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Analyte" ;
-    schema1:valueName "epmaTechniquePerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
-    schema1:name "Interference Correction Standard" ;
-    schema1:valueName "interferenceCorrectionStandard" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interference Corrections Applied" ;
-    schema1:valueName "interferenceCorrectionsApplied" ;
-    ada:dataType "boolean" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
-    schema1:name "Interfering Elements" ;
-    schema1:valueName "interferingElements" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Secondary Reference Materials" ;
-    schema1:valueName "secondaryReferenceMaterials" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Time-Dependent Intensity Correction" ;
-    schema1:valueName "timeDependentIntensityCorrection" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 5 ;
     schema1:description "5×5 µm² for carbonates" ;
     schema1:name "Beam Raster Dimensions" ;
     schema1:valueName "beamRasterDimensionsDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/empaTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 2.5e-02 ;
-    schema1:description "Mg: 0.025 wt%; Fe: 0.025 wt%; Si: 0.05 wt%; K: 0.05 wt%; Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%" ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimitDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
@@ -195,7 +77,7 @@ ex:empaTAPP-P12 a cdi:Activity,
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "20 kV" ;
     ada:beamDiameterDefault "1 µm (point analysis); 5×5 µm² raster area for carbonates" ;
-    ada:beamMode "Focused" .
+    ada:beamMode "Focused (1 µm, point analysis); Rastered 5×5 µm² for carbonates" .
 
 <https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;

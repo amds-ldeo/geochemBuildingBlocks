@@ -32,7 +32,7 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
-    schema1:description "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:description "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v37.csv)." ;
     schema1:instrument <https://example.org/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
@@ -44,6 +44,7 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "C-type asteroid particle (Bennu, OSIRIS-REx)" ] ] ;
+    ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (0.25 mm Al) + software BHC preset" ;
     ada:detectorType "missing" ;
@@ -54,10 +55,10 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
     ada:reconstructionAlgorithm "missing" ;
     ada:rotationModeDefault "Continuous rotation" ;
     ada:rotationRangeDefault -9999 ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Whole sample (single allocated Bennu particle; 928 slices)" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Internal structure; mineralogy (reconnaissance scan)" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:xRaySourceConfiguration "180 kV transmission source" ;
     bios:computationalTool [ schema1:name "Nikon CTPro3D v5.4" ;
             ada:toolRole "dataReduction" ] .
@@ -80,7 +81,7 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
     schema1:defaultValue "Flux normalization: no" ;
     schema1:name "Flat Field Correction" ;
     schema1:valueName "flatFieldCorrectionDefault" ;
-    ada:dataType "boolean" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
@@ -126,6 +127,8 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nikon XT H 320" ] ;
     schema1:name "example instrumentName" ;

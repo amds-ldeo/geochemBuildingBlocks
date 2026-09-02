@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol \u2014 Richard2019-4",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v37.csv).",
   "schema:object": [
     {
       "@type": [
@@ -50,6 +50,17 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Varies: 0.3\u00d70.4 to 11\u00d711\u00d77 mm"
+        },
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Optical microscopy under UV illumination, used to identify hydrocarbon-bearing phases within the inclusions (Fig. 9)"
         }
       ]
     }
@@ -169,6 +180,12 @@
       "ada:acceleratingVoltageDefault": "90\u2013115 kV (varies by sample)",
       "ada:tubeCurrentDefault": "65\u2013115 \u00b5A (varies by sample)",
       "ada:voxelSizeDefault": "0.77\u20133.5 \u00b5m (varies by sample)",
+      "schema:manufacturer": {
+        "schema:name": "GE / Waygate",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "schema:model": {
         "schema:name": "Phoenix Nanotom S",
         "@type": [
@@ -214,10 +231,22 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "Avizo 9.2.0"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Single-volume"
+  ],
+  "ada:reportedProperties": [
+    "Total fluid inclusion volume (mm3); phase volumes (mm3); vapour volumetric fraction phi_vap (%)"
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -226,8 +255,7 @@
   "ada:reconstructionAlgorithm": "missing",
   "ada:rotationModeDefault": "missing",
   "ada:rotationRangeDefault": -9999,
-  "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "missing"
 }

@@ -135,11 +135,9 @@ $defs:
                 schema:value:
                   description: The statistic reported to show whether scatter among
                     the contributing analyses exceeds what analytical uncertainty
-                    alone predicts, together with its value. Answers whether a reported
-                    aggregate is defensible as a single population. Procedure-level
-                    tier is N/A because the value cannot be known before the analysis;
-                    the procedure may still state an acceptance threshold, which belongs
-                    with the inclusion criteria.
+                    alone predicts, together with its value. The procedure may still
+                    state an acceptance threshold, which belongs with the inclusion
+                    criteria.
                   anyOf:
                   - type: string
                   - type: array
@@ -170,11 +168,9 @@ $defs:
                 dqv:value:
                   description: The statistic reported to show whether scatter among
                     the contributing analyses exceeds what analytical uncertainty
-                    alone predicts, together with its value. Answers whether a reported
-                    aggregate is defensible as a single population. Procedure-level
-                    tier is N/A because the value cannot be known before the analysis;
-                    the procedure may still state an acceptance threshold, which belongs
-                    with the inclusion criteria.
+                    alone predicts, together with its value. The procedure may still
+                    state an acceptance threshold, which belongs with the inclusion
+                    criteria.
                   anyOf:
                   - type: string
                   - type: array
@@ -196,8 +192,7 @@ $defs:
       analyses were acquired, how many were included, and on what grounds any were
       excluded. Distinct from within-analysis outlier filtering, which removes anomalous
       points inside a single analysis: this field decides which whole analyses enter
-      the reported value. Criteria and outcome are combined in one field because neither
-      is interpretable without the other, following the precision/accuracy precedent.'
+      the reported value.'
     type: object
     properties:
       '@id':

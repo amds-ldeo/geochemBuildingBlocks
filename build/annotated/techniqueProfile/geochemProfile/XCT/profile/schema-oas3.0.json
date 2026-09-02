@@ -884,7 +884,7 @@
                                   "anyOf": [
                                     {
                                       "title": "Sample Dimensions (L \u00d7 W \u00d7 H)",
-                                      "description": "Physical dimensions of the sample in mm, reported as length \u00d7 width \u00d7 height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
+                                      "description": "Physical dimensions of the sample in mm, reported as length \u00d7 width \u00d7 height (or equivalent three orthogonal measurements).",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
@@ -926,11 +926,11 @@
                                       ]
                                     },
                                     {
-                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening"
                                     },
                                     {
                                       "title": "Sample Mass",
-                                      "description": "Mass of the sample in grams, recorded for curatorial tracking of precious or limited materials. Particularly important for meteorite, mission-returned, and other restricted samples. This is an analysis-level field: the actual sample mass depends on the specific sample being scanned, not on the procedure design.",
+                                      "description": "Mass of the sample in grams, recorded for curatorial tracking of precious or limited materials.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
@@ -988,7 +988,7 @@
                                   {
                                     "contains": {
                                       "title": "Sample Dimensions (L \u00d7 W \u00d7 H)",
-                                      "description": "Physical dimensions of the sample in mm, reported as length \u00d7 width \u00d7 height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
+                                      "description": "Physical dimensions of the sample in mm, reported as length \u00d7 width \u00d7 height (or equivalent three orthogonal measurements).",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
@@ -1034,7 +1034,7 @@
                                   },
                                   {
                                     "contains": {
-                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
@@ -1042,7 +1042,7 @@
                                   {
                                     "contains": {
                                       "title": "Sample Mass",
-                                      "description": "Mass of the sample in grams, recorded for curatorial tracking of precious or limited materials. Particularly important for meteorite, mission-returned, and other restricted samples. This is an analysis-level field: the actual sample mass depends on the specific sample being scanned, not on the procedure design.",
+                                      "description": "Mass of the sample in grams, recorded for curatorial tracking of precious or limited materials.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
@@ -1129,7 +1129,7 @@
                       "anyOf": [
                         {
                           "title": "Sample Mounting Method",
-                          "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder type, adhesive or support material, and any alignment aids used.",
+                          "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder CLASS from the list and name the specific vessel or material alongside it \u2014 'Tube or vial \u2014 1 cm plastic straw', not 'Tube or vial'. Where the sample is sealed or bagged inside a further holder for contamination control, record both layers. Report any adhesive, support material and alignment aids used.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1172,7 +1172,7 @@
                         },
                         {
                           "title": "X-ray Power",
-                          "description": "X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) \u00d7 current (mA) = kV \u00d7 \u00b5A / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7\u201313 W).",
+                          "description": "X-ray tube power in watts (W). Derivable as voltage (kV) \u00d7 current (mA) = kV \u00d7 \u00b5A / 1000. If power was varied across samples within the session, report the full range applied (e.g., 7\u201313 W).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1226,7 +1226,7 @@
                         },
                         {
                           "title": "Source-to-Object Distance (SOD)",
-                          "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.",
+                          "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1280,7 +1280,7 @@
                         },
                         {
                           "title": "Source-to-Detector Distance (SDD)",
-                          "description": "Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size \u2248 detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
+                          "description": "Distance from the X-ray source focal spot to the detector surface, in mm. Voxel size \u2248 detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1334,7 +1334,7 @@
                         },
                         {
                           "title": "Rotation Range",
-                          "description": "Total angular range over which projection images are acquired, in degrees. Full 360\u00b0 rotation is standard for cone-beam lab XCT. 180\u00b0 rotation (half-scan) is sometimes used for faster acquisition but may introduce additional artifacts.",
+                          "description": "Total angular range over which projection images are acquired, in degrees.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1388,7 +1388,7 @@
                         },
                         {
                           "title": "Number of Projections",
-                          "description": "Total number of equally-spaced projection images acquired over the full rotation range. More projections improve reconstruction quality by reducing under-sampling streak artifacts but increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.",
+                          "description": "Total number of equally-spaced projection images acquired over the full rotation range. For Mode B (multi-volume stitching), this is the number per sub-volume.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1438,7 +1438,7 @@
                         },
                         {
                           "title": "Rotation Step Size",
-                          "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly. Finer step sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.",
+                          "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1492,7 +1492,7 @@
                         },
                         {
                           "title": "Exposure Time per Projection",
-                          "description": "Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the procedure. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within procedure-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5\u20132 s).",
+                          "description": "Duration of X-ray exposure for each individual projection image frame, in seconds. Adjustment is warranted for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5\u20132 s).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1546,7 +1546,7 @@
                         },
                         {
                           "title": "Frames Averaged per Projection",
-                          "description": "Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame \u00d7 frames averaged.",
+                          "description": "Number of individual detector frames acquired and averaged to produce each saved projection image. The effective exposure per projection = exposure time per frame \u00d7 frames averaged.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1596,7 +1596,7 @@
                         },
                         {
                           "title": "Detector Binning",
-                          "description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2\u00d72 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR and reducing file size. 1\u00d71 indicates no binning.",
+                          "description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2\u00d72 combines 4 pixels into one).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1639,7 +1639,7 @@
                         },
                         {
                           "title": "Rotation Mode",
-                          "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation has been associated with sub-volume rotational mismatch artifacts in multi-volume stitching workflows (Eckley et al. 2025).",
+                          "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1681,11 +1681,11 @@
                           ]
                         },
                         {
-                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_targetSelectionCriteria"
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Analysis_samplingUnitSelectionCriteria"
                         },
                         {
                           "title": "Reconstruction Convolution Filter",
-                          "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level tradeoff.",
+                          "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1728,7 +1728,7 @@
                         },
                         {
                           "title": "Beam Hardening Correction Parameter",
-                          "description": "Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level companion to Beam Hardening Correction Method.",
+                          "description": "Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. Companion to Beam Hardening Correction Method.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1771,7 +1771,7 @@
                         },
                         {
                           "title": "Ring Artifact Correction Method",
-                          "description": "Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the procedure-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.",
+                          "description": "Procedure specification for how ring artifacts are handled. Whether correction was applied and its outcome are recorded separately in Group 6.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1814,7 +1814,7 @@
                         },
                         {
                           "title": "CT Number Calibration",
-                          "description": "Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison and support phase identification by comparison to calculated linear attenuation coefficient (LAC) values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and session-specific.",
+                          "description": "Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1857,7 +1857,7 @@
                         },
                         {
                           "title": "Segmentation Method",
-                          "description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
+                          "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1900,7 +1900,7 @@
                         },
                         {
                           "title": "Segmentation Threshold Values or Criteria",
-                          "description": "Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. Documenting these values enables reproducibility assessment and cross-study comparison. For LAC-calibrated datasets, report values in cm\u207b\u00b9.",
+                          "description": "Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. For LAC-calibrated datasets, report values in cm\u207b\u00b9.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -1986,7 +1986,7 @@
                         },
                         {
                           "title": "VOI Selection Criteria",
-                          "description": "Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
+                          "description": "Rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2029,7 +2029,7 @@
                         },
                         {
                           "title": "Output Bit Depth",
-                          "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.",
+                          "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. A required output bit depth may be specified if downstream analysis workflows depend on a consistent grayscale range.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2072,7 +2072,7 @@
                         },
                         {
                           "title": "Total Scan Duration",
-                          "description": "Total elapsed time for the complete XCT acquisition, from the start of the first projection to the end of the last. For multi-volume acquisitions, this is the combined scan time across all sub-volumes (not including setup or reconstruction time). Useful for assessing beam stability and sample integrity concerns over long scans.",
+                          "description": "Total elapsed time for the complete XCT acquisition, from the start of the first projection to the end of the last. For multi-volume acquisitions, this is the combined scan time across all sub-volumes (not including setup or reconstruction time).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2115,7 +2115,7 @@
                         },
                         {
                           "title": "Partial Volume Effect Criteria",
-                          "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or \u00b5m), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation; state whether the criterion follows that convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported modal abundances and size distributions, so two datasets are not comparable without it.",
+                          "description": "Specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or \u00b5m), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. State whether the criterion follows the Withers et al. (2021) convention \u2014 a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation \u2014 or is SNR-limited, PVE-limited or analyst-defined.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2158,7 +2158,7 @@
                         },
                         {
                           "title": "Cross-Validation Procedure Requirement",
-                          "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
+                          "description": "Specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2205,7 +2205,7 @@
                       {
                         "contains": {
                           "title": "Sample Mounting Method",
-                          "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder type, adhesive or support material, and any alignment aids used.",
+                          "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder CLASS from the list and name the specific vessel or material alongside it \u2014 'Tube or vial \u2014 1 cm plastic straw', not 'Tube or vial'. Where the sample is sealed or bagged inside a further holder for contamination control, record both layers. Report any adhesive, support material and alignment aids used.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2252,7 +2252,7 @@
                       {
                         "contains": {
                           "title": "X-ray Power",
-                          "description": "X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) \u00d7 current (mA) = kV \u00d7 \u00b5A / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7\u201313 W).",
+                          "description": "X-ray tube power in watts (W). Derivable as voltage (kV) \u00d7 current (mA) = kV \u00d7 \u00b5A / 1000. If power was varied across samples within the session, report the full range applied (e.g., 7\u201313 W).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2310,7 +2310,7 @@
                       {
                         "contains": {
                           "title": "Source-to-Object Distance (SOD)",
-                          "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.",
+                          "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2368,7 +2368,7 @@
                       {
                         "contains": {
                           "title": "Source-to-Detector Distance (SDD)",
-                          "description": "Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size \u2248 detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
+                          "description": "Distance from the X-ray source focal spot to the detector surface, in mm. Voxel size \u2248 detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2426,7 +2426,7 @@
                       {
                         "contains": {
                           "title": "Rotation Range",
-                          "description": "Total angular range over which projection images are acquired, in degrees. Full 360\u00b0 rotation is standard for cone-beam lab XCT. 180\u00b0 rotation (half-scan) is sometimes used for faster acquisition but may introduce additional artifacts.",
+                          "description": "Total angular range over which projection images are acquired, in degrees.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2484,7 +2484,7 @@
                       {
                         "contains": {
                           "title": "Number of Projections",
-                          "description": "Total number of equally-spaced projection images acquired over the full rotation range. More projections improve reconstruction quality by reducing under-sampling streak artifacts but increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.",
+                          "description": "Total number of equally-spaced projection images acquired over the full rotation range. For Mode B (multi-volume stitching), this is the number per sub-volume.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2538,7 +2538,7 @@
                       {
                         "contains": {
                           "title": "Rotation Step Size",
-                          "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly. Finer step sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.",
+                          "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2596,7 +2596,7 @@
                       {
                         "contains": {
                           "title": "Exposure Time per Projection",
-                          "description": "Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the procedure. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within procedure-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5\u20132 s).",
+                          "description": "Duration of X-ray exposure for each individual projection image frame, in seconds. Adjustment is warranted for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5\u20132 s).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2654,7 +2654,7 @@
                       {
                         "contains": {
                           "title": "Frames Averaged per Projection",
-                          "description": "Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame \u00d7 frames averaged.",
+                          "description": "Number of individual detector frames acquired and averaged to produce each saved projection image. The effective exposure per projection = exposure time per frame \u00d7 frames averaged.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2708,7 +2708,7 @@
                       {
                         "contains": {
                           "title": "Detector Binning",
-                          "description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2\u00d72 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR and reducing file size. 1\u00d71 indicates no binning.",
+                          "description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2\u00d72 combines 4 pixels into one).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2755,7 +2755,7 @@
                       {
                         "contains": {
                           "title": "Rotation Mode",
-                          "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation has been associated with sub-volume rotational mismatch artifacts in multi-volume stitching workflows (Eckley et al. 2025).",
+                          "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2801,7 +2801,7 @@
                       },
                       {
                         "contains": {
-                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_targetSelectionCriteria"
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Analysis_samplingUnitSelectionCriteria"
                         },
                         "minContains": 0,
                         "maxContains": 1
@@ -2809,7 +2809,7 @@
                       {
                         "contains": {
                           "title": "Reconstruction Convolution Filter",
-                          "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level tradeoff.",
+                          "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2856,7 +2856,7 @@
                       {
                         "contains": {
                           "title": "Beam Hardening Correction Parameter",
-                          "description": "Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level companion to Beam Hardening Correction Method.",
+                          "description": "Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. Companion to Beam Hardening Correction Method.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2903,7 +2903,7 @@
                       {
                         "contains": {
                           "title": "Ring Artifact Correction Method",
-                          "description": "Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the procedure-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.",
+                          "description": "Procedure specification for how ring artifacts are handled. Whether correction was applied and its outcome are recorded separately in Group 6.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2950,7 +2950,7 @@
                       {
                         "contains": {
                           "title": "CT Number Calibration",
-                          "description": "Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison and support phase identification by comparison to calculated linear attenuation coefficient (LAC) values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and session-specific.",
+                          "description": "Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -2997,7 +2997,7 @@
                       {
                         "contains": {
                           "title": "Segmentation Method",
-                          "description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
+                          "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -3044,7 +3044,7 @@
                       {
                         "contains": {
                           "title": "Segmentation Threshold Values or Criteria",
-                          "description": "Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. Documenting these values enables reproducibility assessment and cross-study comparison. For LAC-calibrated datasets, report values in cm\u207b\u00b9.",
+                          "description": "Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. For LAC-calibrated datasets, report values in cm\u207b\u00b9.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -3138,7 +3138,7 @@
                       {
                         "contains": {
                           "title": "VOI Selection Criteria",
-                          "description": "Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
+                          "description": "Rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -3185,7 +3185,7 @@
                       {
                         "contains": {
                           "title": "Output Bit Depth",
-                          "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.",
+                          "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. A required output bit depth may be specified if downstream analysis workflows depend on a consistent grayscale range.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -3232,7 +3232,7 @@
                       {
                         "contains": {
                           "title": "Total Scan Duration",
-                          "description": "Total elapsed time for the complete XCT acquisition, from the start of the first projection to the end of the last. For multi-volume acquisitions, this is the combined scan time across all sub-volumes (not including setup or reconstruction time). Useful for assessing beam stability and sample integrity concerns over long scans.",
+                          "description": "Total elapsed time for the complete XCT acquisition, from the start of the first projection to the end of the last. For multi-volume acquisitions, this is the combined scan time across all sub-volumes (not including setup or reconstruction time).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -3279,7 +3279,7 @@
                       {
                         "contains": {
                           "title": "Partial Volume Effect Criteria",
-                          "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or \u00b5m), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation; state whether the criterion follows that convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported modal abundances and size distributions, so two datasets are not comparable without it.",
+                          "description": "Specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or \u00b5m), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. State whether the criterion follows the Withers et al. (2021) convention \u2014 a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation \u2014 or is SNR-limited, PVE-limited or analyst-defined.",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -3326,7 +3326,7 @@
                       {
                         "contains": {
                           "title": "Cross-Validation Procedure Requirement",
-                          "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
+                          "description": "Specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                           "type": "object",
                           "properties": {
                             "@id": {
@@ -3396,7 +3396,7 @@
                               "then": {
                                 "properties": {
                                   "schema:description": {
-                                    "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note any exceptions.",
+                                    "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. Note any exceptions.",
                                     "anyOf": [
                                       {
                                         "type": "string"
@@ -3433,7 +3433,7 @@
                                       "anyOf": [
                                         {
                                           "title": "Flat Field Correction",
-                                          "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.",
+                                          "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -3476,7 +3476,7 @@
                                         },
                                         {
                                           "title": "Sub-volume Stitching and Registration Method",
-                                          "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35\u00b0 misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
+                                          "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -3526,7 +3526,7 @@
                                       {
                                         "contains": {
                                           "title": "Flat Field Correction",
-                                          "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.",
+                                          "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -3573,7 +3573,7 @@
                                       {
                                         "contains": {
                                           "title": "Sub-volume Stitching and Registration Method",
-                                          "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35\u00b0 misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
+                                          "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -3689,7 +3689,7 @@
                                           "then": {
                                             "properties": {
                                               "schema:name": {
-                                                "description": "Software used to reconstruct 2D projection images into a 3D CT volume, including version number. Often bundled with the instrument and proprietary to the manufacturer.",
+                                                "description": "Software used to reconstruct 2D projection images into a 3D CT volume, including version number.",
                                                 "anyOf": [
                                                   {
                                                     "type": "string"
@@ -3758,7 +3758,7 @@
                                                   "anyOf": [
                                                     {
                                                       "title": "Accelerating Voltage",
-                                                      "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the procedure. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90\u2013115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
+                                                      "description": "X-ray tube accelerating voltage in kilovolts (kV). If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90\u2013115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -3812,7 +3812,7 @@
                                                     },
                                                     {
                                                       "title": "Tube Current",
-                                                      "description": "X-ray tube current in microamperes (\u00b5A) registered by the procedure. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65\u2013115 \u00b5A).",
+                                                      "description": "X-ray tube current in microamperes (\u00b5A). If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65\u2013115 \u00b5A).",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -3866,7 +3866,7 @@
                                                     },
                                                     {
                                                       "title": "X-ray Pre-filter",
-                                                      "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts and improving CT number stability across the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
+                                                      "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -3909,7 +3909,7 @@
                                                     },
                                                     {
                                                       "title": "Voxel Size",
-                                                      "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the smallest feature to be resolved (target voxel size \u2264 ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
+                                                      "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The target voxel size is set based on the smallest feature to be resolved (target voxel size \u2264 ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). Record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -3967,7 +3967,7 @@
                                                   {
                                                     "contains": {
                                                       "title": "Accelerating Voltage",
-                                                      "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the procedure. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90\u2013115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
+                                                      "description": "X-ray tube accelerating voltage in kilovolts (kV). If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90\u2013115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -4025,7 +4025,7 @@
                                                   {
                                                     "contains": {
                                                       "title": "Tube Current",
-                                                      "description": "X-ray tube current in microamperes (\u00b5A) registered by the procedure. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65\u2013115 \u00b5A).",
+                                                      "description": "X-ray tube current in microamperes (\u00b5A). If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65\u2013115 \u00b5A).",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -4083,7 +4083,7 @@
                                                   {
                                                     "contains": {
                                                       "title": "X-ray Pre-filter",
-                                                      "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts and improving CT number stability across the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
+                                                      "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -4130,7 +4130,7 @@
                                                   {
                                                     "contains": {
                                                       "title": "Voxel Size",
-                                                      "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the smallest feature to be resolved (target voxel size \u2264 ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
+                                                      "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The target voxel size is set based on the smallest feature to be resolved (target voxel size \u2264 ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). Record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -4260,7 +4260,7 @@
                 "anyOf": [
                   {
                     "title": "Effective Spatial Resolution (PSF/MTF)",
-                    "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2\u00d7 the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in \u00b5m along with the method used to determine or estimate it. Note that most XCT papers use the bare phrase \"spatial resolution\" for the voxel size; record that under Voxel Size, and leave this field as not reported unless an effective resolution was actually determined.",
+                    "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in \u00b5m along with the method used to determine or estimate it. Note that most XCT papers use the bare phrase \"spatial resolution\" for the voxel size; record that under Voxel Size, and leave this field as not reported unless an effective resolution was actually determined.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4303,7 +4303,7 @@
                   },
                   {
                     "title": "Number of Sub-volumes",
-                    "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific sample being scanned and cannot be fixed in the procedure in advance. Applies only to Mode B (multi-volume stitching).",
+                    "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. Applies only to Mode B (multi-volume stitching).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4353,7 +4353,7 @@
                   },
                   {
                     "title": "VOI Applied",
-                    "description": "Actual Volume of Interest used in this specific analysis, including dimensions or defining criteria. Analysis-level companion to VOI Selection Criteria.",
+                    "description": "Actual Volume of Interest used, including dimensions or defining criteria. Companion to VOI Selection Criteria.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4396,7 +4396,7 @@
                   },
                   {
                     "title": "Sub-volume Overlap",
-                    "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes as used in this analysis. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
+                    "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4450,7 +4450,7 @@
                 {
                   "contains": {
                     "title": "Effective Spatial Resolution (PSF/MTF)",
-                    "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. The Nyquist limit sets a theoretical floor at 2\u00d7 the voxel size. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in \u00b5m along with the method used to determine or estimate it. Note that most XCT papers use the bare phrase \"spatial resolution\" for the voxel size; record that under Voxel Size, and leave this field as not reported unless an effective resolution was actually determined.",
+                    "description": "Effective spatial resolution of the reconstructed CT volume, which typically differs from (and is coarser than) the voxel size due to the detector point spread function (PSF), geometric unsharpness, and the reconstruction filter. Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF); resolution can also be reported per ASTM E1441-11. When formal measurement is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may be recorded. Report the value in \u00b5m along with the method used to determine or estimate it. Note that most XCT papers use the bare phrase \"spatial resolution\" for the voxel size; record that under Voxel Size, and leave this field as not reported unless an effective resolution was actually determined.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4497,7 +4497,7 @@
                 {
                   "contains": {
                     "title": "Number of Sub-volumes",
-                    "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. This is an analysis-level parameter: the number of sub-volumes depends on the length of the specific sample being scanned and cannot be fixed in the procedure in advance. Applies only to Mode B (multi-volume stitching).",
+                    "description": "Total number of overlapping sub-volume scans acquired to cover the full sample length. Applies only to Mode B (multi-volume stitching).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4551,7 +4551,7 @@
                 {
                   "contains": {
                     "title": "VOI Applied",
-                    "description": "Actual Volume of Interest used in this specific analysis, including dimensions or defining criteria. Analysis-level companion to VOI Selection Criteria.",
+                    "description": "Actual Volume of Interest used, including dimensions or defining criteria. Companion to VOI Selection Criteria.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4598,7 +4598,7 @@
                 {
                   "contains": {
                     "title": "Sub-volume Overlap",
-                    "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes as used in this analysis. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
+                    "description": "Actual number of reconstructed slices overlapping between adjacent sub-volumes. May differ from the minimum sub-volume overlap required specified in the procedure (Group 4) if sample geometry or operator decisions resulted in greater or lesser overlap.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4672,7 +4672,7 @@
                     "then": {
                       "properties": {
                         "dqv:value": {
-                          "description": "Assessment of whether residual beam hardening (cupping artifact) is present in the reconstructed volume after any corrections applied during reconstruction. Beam hardening in polychromatic lab XCT produces a characteristic darker interior and brighter edges in the reconstructed CT number profile, even in compositionally uniform material. Record whether this artifact is detectable in the final dataset, what correction or mitigation was applied (e.g., linearisation, pre-filtering, iterative correction), and whether any residual effect influences the analysis region.",
+                          "description": "Assessment of whether residual beam hardening (cupping artifact) is present in the reconstructed volume after any corrections applied during reconstruction. Record whether this artifact is detectable in the final dataset, what correction or mitigation was applied (e.g., linearisation, pre-filtering, iterative correction), and whether any residual effect influences the analysis region.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -4704,7 +4704,7 @@
                     "then": {
                       "properties": {
                         "dqv:value": {
-                          "description": "Assessment of whether ring artifacts \u2014 concentric rings centred on the rotation axis arising from differential sensitivity or gain drift among detector elements \u2014 were present and whether correction was effective. Note that ring correction algorithms modify image intensity in narrow annular bands; in samples containing linear geological features oriented tangentially to the rotation axis, ring correction can alter or introduce spurious linear features in those orientations. Record whether rings were present, whether correction was applied, and whether any residual rings or correction artifacts fall within the analysis volume of interest.",
+                          "description": "Assessment of whether ring artifacts \u2014 concentric rings centred on the rotation axis arising from differential sensitivity or gain drift among detector elements \u2014 were present and whether correction was effective. Note that ring correction algorithms modify image intensity in narrow annular bands. Record whether rings were present, whether correction was applied, and whether any residual rings or correction artifacts fall within the analysis volume of interest.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -4768,7 +4768,7 @@
                     "then": {
                       "properties": {
                         "dqv:value": {
-                          "description": "Analysis-level record of PVE severity and how it was handled in this specific analysis. Documents the minimum feature size relative to the voxel size, the fraction of the feature population affected, and any PVE correction method applied (e.g., PSF-based deconvolution via Blob3D).",
+                          "description": "Record of PVE severity and how it was handled. Documents the minimum feature size relative to the voxel size, the fraction of the feature population affected, and any PVE correction method applied (e.g., PSF-based deconvolution via Blob3D).",
                           "anyOf": [
                             {
                               "type": "string"
@@ -4800,7 +4800,7 @@
                     "then": {
                       "properties": {
                         "dqv:value": {
-                          "description": "Quantitative measure of image quality in the reconstructed CT volume. Typically calculated as the mean CT number divided by the standard deviation of CT number in a homogeneous reference region (e.g., an inclusion-free zone of the matrix). SNR is controlled by photon flux (source power, exposure time, number of projections) and sample attenuation. Record the measured value and the region used for measurement, or note if SNR was not formally measured.",
+                          "description": "Quantitative measure of image quality in the reconstructed CT volume. Typically calculated as the mean CT number divided by the standard deviation of CT number in a homogeneous reference region (e.g., an inclusion-free zone of the matrix). Record the measured value and the region used for measurement, or note if SNR was not formally measured.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -4832,7 +4832,7 @@
                     "then": {
                       "properties": {
                         "dqv:value": {
-                          "description": "Analysis-level record of what independent validation was performed and its result. Report the validation method(s) used, the quantitative agreement achieved (e.g., relative difference in modal abundance, porosity), and any discrepancies and their likely causes. Where BSE imaging is the validation method, note that BSE provides a 2D section while CT provides a 3D volume.",
+                          "description": "Record of what independent validation was performed and its result. Report the validation method(s) used, the quantitative agreement achieved (e.g., relative difference in modal abundance, porosity), and any discrepancies and their likely causes. Where BSE imaging is the validation method, note that BSE provides a 2D section while CT provides a 3D volume.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -5009,7 +5009,7 @@
     },
     "ogch.techniqueProfile.geochemProfile.XCT.tapp": {
       "title": "Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)",
-      "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v21.csv by tools/build_tapp.py.",
+      "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v37.csv by tools/build_tapp.py.",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -5018,7 +5018,7 @@
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.core/$defs/ProcedureIdentification"
         },
         {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/ProcedureIdentification"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/ProcedureIdentification"
         },
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/ProcedureIdentification"
@@ -5071,7 +5071,7 @@
                                     "schema:value": {
                                       "type": "array",
                                       "items": {
-                                        "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
+                                        "description": "General description of the material type(s) this procedure is designed to analyse.",
                                         "anyOf": [
                                           {
                                             "type": "string",
@@ -5119,7 +5119,7 @@
                             {
                               "contains": {
                                 "title": "Sample Dimensions (L \u00d7 W \u00d7 H)",
-                                "description": "Physical dimensions of the sample in mm, reported as length \u00d7 width \u00d7 height (or equivalent three orthogonal measurements). The maximum dimension constrains the minimum achievable field of view and therefore the coarsest achievable voxel size. The minimum dimension determines how many voxels span the smallest feature of interest.",
+                                "description": "Physical dimensions of the sample in mm, reported as length \u00d7 width \u00d7 height (or equivalent three orthogonal measurements).",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
@@ -5175,7 +5175,7 @@
                             },
                             {
                               "contains": {
-                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Procedure_preAnalysisImagingAndScreening"
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Procedure_preAnalysisImagingAndScreening"
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -5207,12 +5207,12 @@
               ]
             },
             "ada:targetFeature": {
-              "description": "The 3D internal features or properties the procedure is designed to characterize. Defines the scientific purpose of the scan and informs resolution and contrast requirements. Used for procedure discoverability: a researcher can identify whether this procedure is suitable for their scientific question. Note for Phase 3 literature assessment: evaluate whether procedures in the literature are feature-specific (acquisition parameters tuned to a specific feature type, e.g., opaque-phase contrast) or general-purpose (designed to capture all structural features in a given sample type). This will inform whether the field warrants a controlled list or remains free text.",
+              "description": "The 3D internal features or properties the procedure is designed to characterize.",
               "type": "string",
               "readOnly": true
             },
             "ada:applicableSampleDimensionRange": {
-              "description": "The range of sample sizes compatible with this procedure at the target voxel size and geometric configuration. The upper bound is a hard constraint set by the instrument field of view (FOV) at the procedure's target magnification: FOV \u2248 detector array width \u00d7 pixel size / geometric magnification (divide additionally by optical objective multiplier for Versa-class systems using optical magnification). For Mode A (single-volume): all three sample dimensions must fall within the FOV. For Mode B (multi-volume stitching): sample diameter must fall within the FOV; sample length along the rotation axis is effectively unlimited through stitching. The lower bound is a practical guideline: samples spanning fewer than ~10 voxels in their smallest dimension are difficult to characterize reliably.",
+              "description": "The range of sample sizes compatible with this procedure at the target voxel size and geometric configuration. The upper bound is a hard constraint set by the instrument field of view (FOV) at the procedure's target magnification: FOV \u2248 detector array width \u00d7 pixel size / geometric magnification (divide additionally by optical objective multiplier for Versa-class systems using optical magnification). For Mode A (single-volume): all three sample dimensions must fall within the FOV. For Mode B (multi-volume stitching): sample diameter must fall within the FOV; sample length along the rotation axis is effectively unlimited through stitching. The lower bound is a practical guideline: ~10 voxels across the smallest dimension.",
               "type": "string",
               "readOnly": true
             },
@@ -5222,7 +5222,7 @@
                 "anyOf": [
                   {
                     "title": "Sample Mounting Method",
-                    "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder type, adhesive or support material, and any alignment aids used.",
+                    "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder CLASS from the list and name the specific vessel or material alongside it \u2014 'Tube or vial \u2014 1 cm plastic straw', not 'Tube or vial'. Where the sample is sealed or bagged inside a further holder for contamination control, record both layers. Report any adhesive, support material and alignment aids used.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5275,7 +5275,7 @@
                   },
                   {
                     "title": "X-ray Tube Anode Material",
-                    "description": "Material of the X-ray tube anode (target). Determines the characteristic line energies superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.",
+                    "description": "Material of the X-ray tube anode (target).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5319,7 +5319,7 @@
                   },
                   {
                     "title": "Detector Array Size",
-                    "description": "Number of pixels in the detector array (width \u00d7 height). Combined with detector pixel size and geometric magnification, determines the field of view.",
+                    "description": "Number of pixels in the detector array (width \u00d7 height).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5462,7 +5462,7 @@
                   },
                   {
                     "title": "X-ray Power",
-                    "description": "X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) \u00d7 current (mA) = kV \u00d7 \u00b5A / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7\u201313 W).",
+                    "description": "X-ray tube power in watts (W). Derivable as voltage (kV) \u00d7 current (mA) = kV \u00d7 \u00b5A / 1000. If power was varied across samples within the session, report the full range applied (e.g., 7\u201313 W).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5520,7 +5520,7 @@
                   },
                   {
                     "title": "Source-to-Object Distance (SOD)",
-                    "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.",
+                    "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5578,7 +5578,7 @@
                   },
                   {
                     "title": "Source-to-Detector Distance (SDD)",
-                    "description": "Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size \u2248 detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
+                    "description": "Distance from the X-ray source focal spot to the detector surface, in mm. Voxel size \u2248 detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5636,7 +5636,7 @@
                   },
                   {
                     "title": "Rotation Step Size",
-                    "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly. Finer step sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.",
+                    "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5694,7 +5694,7 @@
                   },
                   {
                     "title": "Frames Averaged per Projection",
-                    "description": "Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame \u00d7 frames averaged.",
+                    "description": "Number of individual detector frames acquired and averaged to produce each saved projection image. The effective exposure per projection = exposure time per frame \u00d7 frames averaged.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5747,7 +5747,7 @@
                   },
                   {
                     "title": "Detector Binning",
-                    "description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2\u00d72 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR and reducing file size. 1\u00d71 indicates no binning.",
+                    "description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2\u00d72 combines 4 pixels into one).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5800,7 +5800,7 @@
                   },
                   {
                     "title": "Reconstruction Convolution Filter",
-                    "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level tradeoff.",
+                    "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5853,7 +5853,7 @@
                   },
                   {
                     "title": "Beam Hardening Correction Parameter",
-                    "description": "Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level companion to Beam Hardening Correction Method.",
+                    "description": "Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. Companion to Beam Hardening Correction Method.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5906,7 +5906,7 @@
                   },
                   {
                     "title": "Ring Artifact Correction Method",
-                    "description": "Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the procedure-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.",
+                    "description": "Procedure specification for how ring artifacts are handled. Whether correction was applied and its outcome are recorded separately in Group 6.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5959,7 +5959,7 @@
                   },
                   {
                     "title": "CT Number Calibration",
-                    "description": "Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison and support phase identification by comparison to calculated linear attenuation coefficient (LAC) values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and session-specific.",
+                    "description": "Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6012,7 +6012,7 @@
                   },
                   {
                     "title": "Segmentation Threshold Values or Criteria",
-                    "description": "Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. Documenting these values enables reproducibility assessment and cross-study comparison. For LAC-calibrated datasets, report values in cm\u207b\u00b9.",
+                    "description": "Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. For LAC-calibrated datasets, report values in cm\u207b\u00b9.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6118,7 +6118,7 @@
                   },
                   {
                     "title": "VOI Selection Criteria",
-                    "description": "Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
+                    "description": "Rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6171,7 +6171,7 @@
                   },
                   {
                     "title": "Output Bit Depth",
-                    "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.",
+                    "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. A required output bit depth may be specified if downstream analysis workflows depend on a consistent grayscale range.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6224,7 +6224,7 @@
                   },
                   {
                     "title": "Partial Volume Effect Criteria",
-                    "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or \u00b5m), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation; state whether the criterion follows that convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported modal abundances and size distributions, so two datasets are not comparable without it.",
+                    "description": "Specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or \u00b5m), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. State whether the criterion follows the Withers et al. (2021) convention \u2014 a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation \u2014 or is SNR-limited, PVE-limited or analyst-defined.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6277,7 +6277,7 @@
                   },
                   {
                     "title": "Cross-Validation Procedure Requirement",
-                    "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
+                    "description": "Specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6334,7 +6334,7 @@
                 {
                   "contains": {
                     "title": "Sample Mounting Method",
-                    "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder type, adhesive or support material, and any alignment aids used.",
+                    "description": "Method used to mount or hold the sample on the instrument rotation stage. Mounting material should transmit X-rays at the selected voltage without dominating beam attenuation. Report the holder CLASS from the list and name the specific vessel or material alongside it \u2014 'Tube or vial \u2014 1 cm plastic straw', not 'Tube or vial'. Where the sample is sealed or bagged inside a further holder for contamination control, record both layers. Report any adhesive, support material and alignment aids used.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6391,7 +6391,7 @@
                 {
                   "contains": {
                     "title": "X-ray Tube Anode Material",
-                    "description": "Material of the X-ray tube anode (target). Determines the characteristic line energies superimposed on the bremsstrahlung continuum, which can affect phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend the usable energy range.",
+                    "description": "Material of the X-ray tube anode (target).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6439,7 +6439,7 @@
                 {
                   "contains": {
                     "title": "Detector Array Size",
-                    "description": "Number of pixels in the detector array (width \u00d7 height). Combined with detector pixel size and geometric magnification, determines the field of view.",
+                    "description": "Number of pixels in the detector array (width \u00d7 height).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6594,7 +6594,7 @@
                 {
                   "contains": {
                     "title": "X-ray Power",
-                    "description": "X-ray tube power in watts (W) registered by the procedure. Derivable as voltage (kV) \u00d7 current (mA) = kV \u00d7 \u00b5A / 1000. Power constrains the achievable focal spot size for microfocal tubes: higher power requires a larger focal spot, trading spatial resolution for SNR. Retained as a standalone field because it is routinely reported in the literature and directly constrains instrument operating limits. If power was varied across samples within the session, report the full range applied (e.g., 7\u201313 W).",
+                    "description": "X-ray tube power in watts (W). Derivable as voltage (kV) \u00d7 current (mA) = kV \u00d7 \u00b5A / 1000. If power was varied across samples within the session, report the full range applied (e.g., 7\u201313 W).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6656,7 +6656,7 @@
                 {
                   "contains": {
                     "title": "Source-to-Object Distance (SOD)",
-                    "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm, as registered by the procedure. Together with SDD, determines geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and reduces voxel size.",
+                    "description": "Distance from the X-ray source focal spot to the centre of the sample rotation axis, in mm.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6718,7 +6718,7 @@
                 {
                   "contains": {
                     "title": "Source-to-Detector Distance (SDD)",
-                    "description": "Distance from the X-ray source focal spot to the detector surface, in mm, as registered by the procedure. Together with SOD, determines geometric magnification M = SDD/SOD. Voxel size \u2248 detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
+                    "description": "Distance from the X-ray source focal spot to the detector surface, in mm. Voxel size \u2248 detector pixel size / M (before binning; divide additionally by optical objective for Versa-class systems).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6780,7 +6780,7 @@
                 {
                   "contains": {
                     "title": "Rotation Step Size",
-                    "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly. Finer step sizes improve angular sampling and reduce streak artifacts at the cost of longer scan time.",
+                    "description": "Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6842,7 +6842,7 @@
                 {
                   "contains": {
                     "title": "Frames Averaged per Projection",
-                    "description": "Number of individual detector frames acquired and averaged to produce each saved projection image, as registered by the procedure. Frame averaging reduces random electronic noise. The effective exposure per projection = exposure time per frame \u00d7 frames averaged.",
+                    "description": "Number of individual detector frames acquired and averaged to produce each saved projection image. The effective exposure per projection = exposure time per frame \u00d7 frames averaged.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6899,7 +6899,7 @@
                 {
                   "contains": {
                     "title": "Detector Binning",
-                    "description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2\u00d72 combines 4 pixels into one), reducing effective resolution while increasing per-pixel SNR and reducing file size. 1\u00d71 indicates no binning.",
+                    "description": "Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2\u00d72 combines 4 pixels into one).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -6956,7 +6956,7 @@
                 {
                   "contains": {
                     "title": "Reconstruction Convolution Filter",
-                    "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost of edge sharpness. The choice represents a deliberate procedure-level tradeoff.",
+                    "description": "Convolution (apodization) filter kernel applied during back-projection reconstruction.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -7013,7 +7013,7 @@
                 {
                   "contains": {
                     "title": "Beam Hardening Correction Parameter",
-                    "description": "Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. May be tuned empirically per material type or per scan session. Analysis-level companion to Beam Hardening Correction Method.",
+                    "description": "Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. Companion to Beam Hardening Correction Method.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -7070,7 +7070,7 @@
                 {
                   "contains": {
                     "title": "Ring Artifact Correction Method",
-                    "description": "Procedure specification for how ring artifacts are handled. Ring artifacts appear as concentric circular bands centred on the rotation axis and arise from defective or miscalibrated detector pixels. Method is the procedure-level specification; whether correction was applied and its outcome are recorded at analysis level in Group 6.",
+                    "description": "Procedure specification for how ring artifacts are handled. Whether correction was applied and its outcome are recorded separately in Group 6.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -7127,7 +7127,7 @@
                 {
                   "contains": {
                     "title": "CT Number Calibration",
-                    "description": "Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials. Calibrated CT numbers enable cross-instrument and cross-session comparison and support phase identification by comparison to calculated linear attenuation coefficient (LAC) values (e.g., using MuCalc; Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and session-specific.",
+                    "description": "Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -7184,7 +7184,7 @@
                 {
                   "contains": {
                     "title": "Segmentation Threshold Values or Criteria",
-                    "description": "Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. Documenting these values enables reproducibility assessment and cross-study comparison. For LAC-calibrated datasets, report values in cm\u207b\u00b9.",
+                    "description": "Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. For LAC-calibrated datasets, report values in cm\u207b\u00b9.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -7298,7 +7298,7 @@
                 {
                   "contains": {
                     "title": "VOI Selection Criteria",
-                    "description": "Procedure-level rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
+                    "description": "Rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -7355,7 +7355,7 @@
                 {
                   "contains": {
                     "title": "Output Bit Depth",
-                    "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the dynamic range available for phase segmentation and quantitative attenuation analysis. The procedure may specify a required output bit depth if downstream analysis workflows depend on a consistent grayscale range; the analyst confirms or adjusts at analysis time.",
+                    "description": "Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. A required output bit depth may be specified if downstream analysis workflows depend on a consistent grayscale range.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -7412,7 +7412,7 @@
                 {
                   "contains": {
                     "title": "Partial Volume Effect Criteria",
-                    "description": "Procedure-level specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE produces intermediate CT numbers at phase boundaries and at the surfaces of small features, because each voxel integrates the attenuation of all material within its volume. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or \u00b5m), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. Per Withers et al. (2021) a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation; state whether the criterion follows that convention or is SNR-limited, PVE-limited or analyst-defined. The criterion materially changes reported modal abundances and size distributions, so two datasets are not comparable without it.",
+                    "description": "Specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or \u00b5m), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. State whether the criterion follows the Withers et al. (2021) convention \u2014 a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation \u2014 or is SNR-limited, PVE-limited or analyst-defined.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -7469,7 +7469,7 @@
                 {
                   "contains": {
                     "title": "Cross-Validation Procedure Requirement",
-                    "description": "Procedure-level specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Cross-validation is relevant where CT grey-values alone cannot uniquely distinguish phases with similar attenuation coefficients. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
+                    "description": "Specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -7549,7 +7549,7 @@
                         "then": {
                           "properties": {
                             "schema:description": {
-                              "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. XCT is typically non-destructive with no surface preparation required; note any exceptions.",
+                              "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. Note any exceptions.",
                               "anyOf": [
                                 {
                                   "type": "string"
@@ -7586,7 +7586,7 @@
                                 "anyOf": [
                                   {
                                     "title": "Flat Field Correction",
-                                    "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.",
+                                    "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
                                     "type": "object",
                                     "properties": {
                                       "@id": {
@@ -7613,7 +7613,7 @@
                                       },
                                       "ada:dataType": {
                                         "enum": [
-                                          "boolean"
+                                          "string"
                                         ]
                                       },
                                       "ada:fieldScope": {
@@ -7639,7 +7639,7 @@
                                   },
                                   {
                                     "title": "Sub-volume Stitching and Registration Method",
-                                    "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35\u00b0 misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
+                                    "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
                                     "type": "object",
                                     "properties": {
                                       "@id": {
@@ -7699,7 +7699,7 @@
                                 {
                                   "contains": {
                                     "title": "Flat Field Correction",
-                                    "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction. Standard practice in all quantitative lab XCT;.",
+                                    "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
                                     "type": "object",
                                     "properties": {
                                       "@id": {
@@ -7726,7 +7726,7 @@
                                       },
                                       "ada:dataType": {
                                         "enum": [
-                                          "boolean"
+                                          "string"
                                         ]
                                       },
                                       "ada:fieldScope": {
@@ -7756,7 +7756,7 @@
                                 {
                                   "contains": {
                                     "title": "Sub-volume Stitching and Registration Method",
-                                    "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Note: rotational mismatch artifacts have been identified in continuous-rotation acquisitions (~0.35\u00b0 misalignment in Eckley et al. 2025); their correction via raw projection re-alignment should be documented here.",
+                                    "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
                                     "type": "object",
                                     "properties": {
                                       "@id": {
@@ -7844,7 +7844,7 @@
               }
             },
             "ada:xRaySourceConfiguration": {
-              "description": "Focal spot geometry and scale of the X-ray tube. Reflection target configurations are most common in lab XCT (X-rays emitted from the face of the anode toward the sample); transmission target configurations allow smaller focal spots by thinning the anode into a membrane and collecting X-rays from the back, enabling higher spatial resolution at the cost of lower maximum power.",
+              "description": "Focal spot geometry and scale of the X-ray tube.",
               "anyOf": [
                 {
                   "type": "string",
@@ -7864,7 +7864,7 @@
               "readOnly": true
             },
             "ada:detectorType": {
-              "description": "Type of X-ray detector used to record projection images. Flat-panel detectors (amorphous silicon) are standard in Nikon, NSI, and similar systems. CCD or CMOS detectors coupled to a scintillator via an optical objective are used in Zeiss Xradia Versa systems, enabling optical magnification for sub-micrometre voxel sizes.",
+              "description": "Type of X-ray detector used to record projection images.",
               "anyOf": [
                 {
                   "type": "string",
@@ -7904,7 +7904,7 @@
                     "then": {
                       "properties": {
                         "schema:name": {
-                          "description": "Software used to reconstruct 2D projection images into a 3D CT volume, including version number. Often bundled with the instrument and proprietary to the manufacturer.",
+                          "description": "Software used to reconstruct 2D projection images into a 3D CT volume, including version number.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -7950,7 +7950,7 @@
                     "then": {
                       "properties": {
                         "ada:acceleratingVoltageDefault": {
-                          "description": "X-ray tube accelerating voltage in kilovolts (kV) registered by the procedure. Determines the maximum X-ray photon energy and controls penetration depth and phase contrast. Higher voltages provide greater penetration for dense or large samples; lower voltages improve contrast between low-density phases. If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90\u2013115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
+                          "description": "X-ray tube accelerating voltage in kilovolts (kV). If the voltage was varied across samples within the same procedure or session, report the full range applied (e.g., 90\u2013115 kV). Note: some sources report this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical note if the unit used is keV.",
                           "anyOf": [
                             {
                               "type": "number"
@@ -7961,7 +7961,7 @@
                           ]
                         },
                         "ada:tubeCurrentDefault": {
-                          "description": "X-ray tube current in microamperes (\u00b5A) registered by the procedure. Controls photon flux and therefore projection image SNR. Higher current improves SNR but increases thermal loading on the source and may increase focal spot size. If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65\u2013115 \u00b5A).",
+                          "description": "X-ray tube current in microamperes (\u00b5A). If the current was varied across samples within the same procedure or session, report the full range applied (e.g., 65\u2013115 \u00b5A).",
                           "anyOf": [
                             {
                               "type": "number"
@@ -7972,7 +7972,7 @@
                           ]
                         },
                         "ada:xRayPreFilterDefault": {
-                          "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Hardens the beam by attenuating low-energy photons, reducing beam hardening artifacts and improving CT number stability across the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
+                          "description": "Material and thickness of the beam-hardening filter placed between the X-ray source and the sample. Both filter material and thickness must be reported. Instrument-proprietary filter codes should be decoded where possible.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -7986,7 +7986,7 @@
                           ]
                         },
                         "ada:voxelSizeDefault": {
-                          "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The procedure registers the target voxel size, set based on the smallest feature to be resolved (target voxel size \u2264 ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). At analysis level, record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
+                          "description": "Isotropic voxel edge length of the reconstructed 3D volume in micrometres. The target voxel size is set based on the smallest feature to be resolved (target voxel size \u2264 ~1/3 of that feature size; see the criterion recorded under Partial Volume Effect Criteria). Record the achieved voxel size as reported by the reconstruction software, which may differ slightly from the target due to final geometric calibration.",
                           "anyOf": [
                             {
                               "type": "number"
@@ -8000,7 +8000,7 @@
                           "type": "object",
                           "properties": {
                             "schema:name": {
-                              "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                              "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
                               "type": "string",
                               "enum": [
                                 "Nikon",
@@ -8055,7 +8055,7 @@
               ]
             },
             "ada:rotationRangeDefault": {
-              "description": "Total angular range over which projection images are acquired, in degrees. Full 360\u00b0 rotation is standard for cone-beam lab XCT. 180\u00b0 rotation (half-scan) is sometimes used for faster acquisition but may introduce additional artifacts.",
+              "description": "Total angular range over which projection images are acquired, in degrees.",
               "anyOf": [
                 {
                   "type": "number"
@@ -8066,7 +8066,7 @@
               ]
             },
             "ada:numberOfProjectionsDefault": {
-              "description": "Total number of equally-spaced projection images acquired over the full rotation range. More projections improve reconstruction quality by reducing under-sampling streak artifacts but increase scan time. For Mode B (multi-volume stitching), this is the number per sub-volume.",
+              "description": "Total number of equally-spaced projection images acquired over the full rotation range. For Mode B (multi-volume stitching), this is the number per sub-volume.",
               "anyOf": [
                 {
                   "type": "integer"
@@ -8077,7 +8077,7 @@
               ]
             },
             "ada:exposureTimePerProjectionDefault": {
-              "description": "Duration of X-ray exposure for each individual projection image frame, in seconds, as registered by the procedure. Set as a deliberate choice for the target sample type and voxel size: longer exposures increase SNR at the cost of total scan time. May be adjusted within procedure-allowed bounds for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5\u20132 s).",
+              "description": "Duration of X-ray exposure for each individual projection image frame, in seconds. Adjustment is warranted for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5\u20132 s).",
               "anyOf": [
                 {
                   "type": "number"
@@ -8088,7 +8088,7 @@
               ]
             },
             "ada:rotationModeDefault": {
-              "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur). Continuous rotation has been associated with sub-volume rotational mismatch artifacts in multi-volume stitching workflows (Eckley et al. 2025).",
+              "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur).",
               "type": "string",
               "enum": [
                 "Step rotation (stop-and-shoot)",
@@ -8099,7 +8099,7 @@
               ]
             },
             "ada:minimumSubVolumeOverlap": {
-              "description": "Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset. This is a procedure-level quality specification. Eckley et al. (2025) report that 500 slices of overlap were used in the Apollo 73001 stitching workflow, while 180 slices proved insufficient for their cone-beam geometry.",
+              "description": "Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset.",
               "anyOf": [
                 {
                   "type": "integer"
@@ -8111,7 +8111,7 @@
               "readOnly": true
             },
             "ada:reconstructionAlgorithm": {
-              "description": "Mathematical algorithm used to reconstruct the 3D CT volume from 2D projection images. The Feldkamp-Davis-Kress (FDK) algorithm is standard for cone-beam lab XCT geometry; iterative methods offer better artifact suppression at the cost of computation time.",
+              "description": "Mathematical algorithm used to reconstruct the 3D CT volume from 2D projection images.",
               "anyOf": [
                 {
                   "type": "string",
@@ -8132,11 +8132,12 @@
               "readOnly": true
             },
             "ada:beamHardeningCorrectionMethod": {
-              "description": "Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. Beam hardening causes cupping artifacts (CT numbers elevated at sample edges relative to the interior) and can bias segmentation thresholds. Hardware pre-filtering (Group 4: X-ray Pre-filter) and software correction are complementary approaches. The method is a procedure-level design choice; the specific correction parameter value is session-specific and recorded separately at analysis level.",
+              "description": "Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. The specific correction parameter value is recorded separately.",
               "anyOf": [
                 {
                   "type": "string",
                   "enum": [
+                    "Hardware pre-filtering only (no software correction)",
                     "Software polynomial correction (instrument-specific algorithm)",
                     "Ketcham & Hanna (2014) iterative BH correction",
                     "None applied",
@@ -8171,15 +8172,17 @@
               ]
             },
             "ada:segmentationMethodDefault": {
-              "description": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
+              "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
               "anyOf": [
                 {
                   "type": "string",
                   "enum": [
-                    "Global threshold (single CT number boundary)",
-                    "Multi-threshold (separate CT number range per phase)",
+                    "Global threshold (single grayscale boundary)",
+                    "Multi-threshold (separate range per phase)",
                     "Manual threshold per phase",
                     "Semi-automated: threshold + morphological filtering",
+                    "Region growing",
+                    "Manual tracing",
                     "N/A",
                     "None",
                     "missing"
@@ -12078,7 +12081,8 @@
                 "ada:SVRUECWaveformData",
                 "ada:TOFSIMSMassSpectrumData",
                 "ada:VNMIRSpectralPoint",
-                "ada:XRDTabular"
+                "ada:XRDTabular",
+                "nil:missing"
               ],
               "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level.",
               "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
@@ -12674,7 +12678,7 @@
     },
     "ogch.BaseSchema.modules.core": {
       "title": "TAPP Composition Module: Core",
-      "description": "The shared Core block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_Core.csv), composed by 16 of the sixteen delivery tables. 30 owned fields over 33 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
+      "description": "The shared Core block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_Core.csv), composed by 16 of the sixteen delivery tables. 31 owned fields over 35 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
       "$defs": {
         "ProcedureIdentification": {
           "title": "Core on the procedure",
@@ -12799,7 +12803,7 @@
                           "type": "object",
                           "properties": {
                             "schema:name": {
-                              "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset \u2014 providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                              "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset \u2014 providing calibration inputs, complementary spatial context, or required companion measurements. Name the instrument, laboratory or purpose alongside each technique where known, and join multiple techniques with '; '. Enter \"None\" if no coupling is intended.",
                               "type": "string",
                               "x-jsonld-id": "http://schema.org/name"
                             },
@@ -12819,7 +12823,7 @@
               "x-jsonld-id": "http://schema.org/relatedLink"
             },
             "ada:samplingUnit": {
-              "description": "The physical subdivision of the sample to which one row of reported values corresponds \u2014 the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined tracks within grains), state both levels.",
+              "description": "The physical subdivision of the sample to which one row of reported values corresponds \u2014 the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels.",
               "type": "string",
               "x-jsonld-id": "https://ada.astromat.org/metadata/samplingUnit"
             },
@@ -12904,7 +12908,7 @@
             "ada:analyticalMode": {
               "type": "array",
               "items": {
-                "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",
+                "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Applies even where a procedure defines no mode flag columns.",
                 "type": "string"
               },
               "x-jsonld-id": "https://ada.astromat.org/metadata/analyticalMode"
@@ -12912,7 +12916,7 @@
             "ada:reportedProperties": {
               "type": "array",
               "items": {
-                "description": "The final variable(s) this procedure reports and their units \u2014 distinct from the fields recording what was *acquired* rather than what is reported. A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A \u2014 nominal property'.",
+                "description": "The final variable(s) this procedure reports and their units \u2014 distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A \u2014 nominal property'.",
                 "type": "string"
               },
               "x-jsonld-id": "https://ada.astromat.org/metadata/reportedProperties"
@@ -12921,6 +12925,70 @@
               "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP \u2014 including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
               "type": "string",
               "x-jsonld-id": "http://schema.org/description"
+            },
+            "schema:actionProcess": {
+              "type": "object",
+              "properties": {
+                "schema:step": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "allOf": [
+                      {
+                        "if": {
+                          "properties": {
+                            "schema:name": {
+                              "enum": [
+                                "Sample preparation"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "schema:name"
+                          ]
+                        },
+                        "then": {
+                          "properties": {
+                            "schema:description": {
+                              "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form \u2014 for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              ],
+                              "x-jsonld-id": "http://schema.org/description"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "allOf": [
+                    {
+                      "contains": {
+                        "properties": {
+                          "schema:name": {
+                            "enum": [
+                              "Sample preparation"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "schema:name"
+                        ]
+                      }
+                    }
+                  ],
+                  "x-jsonld-id": "http://schema.org/step"
+                }
+              },
+              "x-jsonld-id": "http://schema.org/actionProcess"
             }
           },
           "required": [
@@ -12956,7 +13024,7 @@
                     "x-jsonld-id": "http://schema.org/location"
                   },
                   "schema:identifier": {
-                    "description": "Identifier for the analytical session this record describes \u2014 the laboratory's own run, sequence or batch identifier as generated by the instrument or acquisition software. The analysis record corresponds to one session, which may cover several samples, and this is the link back to the raw instrument files. Distinct from any persistent identifier a repository mints on submission.",
+                    "description": "Identifier for the analytical session this record describes \u2014 the laboratory's own run, sequence or batch identifier as generated by the instrument or acquisition software. Distinct from any persistent identifier a repository mints on submission.",
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/identifier"
                   },
@@ -12993,7 +13061,7 @@
                           "then": {
                             "properties": {
                               "schema:name": {
-                                "description": "Name or identifier of each sample analysed in this session, as used in the laboratory \u2014 a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks. The analysis record corresponds to one session and may cover several samples; fields whose Keyed By column declares 'sample' take one value per entry. Should match the identifier used in associated publications or data tables.",
+                                "description": "Name or identifier of each sample analysed in this session, as used in the laboratory \u2014 a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks. Should match the identifier used in associated publications or data tables.",
                                 "anyOf": [
                                   {
                                     "type": "string"
@@ -13156,6 +13224,54 @@
                     "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP \u2014 including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/description"
+                  },
+                  "schema:actionProcess": {
+                    "type": "object",
+                    "properties": {
+                      "schema:step": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "allOf": [
+                            {
+                              "if": {
+                                "properties": {
+                                  "schema:name": {
+                                    "enum": [
+                                      "Sample preparation"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "schema:name"
+                                ]
+                              },
+                              "then": {
+                                "properties": {
+                                  "schema:description": {
+                                    "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form \u2014 for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    ],
+                                    "x-jsonld-id": "http://schema.org/description"
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "x-jsonld-id": "http://schema.org/step"
+                      }
+                    },
+                    "x-jsonld-id": "http://schema.org/actionProcess"
                   }
                 }
               },
@@ -13167,7 +13283,7 @@
                 "type": "object",
                 "properties": {
                   "schema:identifier": {
-                    "description": "DOI or unique persistent identifier for the registered procedure used in this analysis, generated upon procedure submission to a data repository. This field is mandatory when submitting analytical data, to encourage formal procedure registration and ensure traceability. If a DOI has been applied for but not yet minted, enter \"pending\".",
+                    "description": "DOI or unique persistent identifier for the registered procedure used in this analysis, generated upon procedure submission to a data repository. If a DOI has been applied for but not yet minted, enter \"pending\".",
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/identifier"
                   }
@@ -13271,7 +13387,7 @@
                           "type": "object",
                           "properties": {
                             "schema:name": {
-                              "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset \u2014 providing calibration inputs, complementary spatial context, or required companion measurements. Use the same controlled vocabulary as the Technique field. Enter \"None\" if no coupling is intended.",
+                              "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset \u2014 providing calibration inputs, complementary spatial context, or required companion measurements. Name the instrument, laboratory or purpose alongside each technique where known, and join multiple techniques with '; '. Enter \"None\" if no coupling is intended.",
                               "type": "string",
                               "x-jsonld-id": "http://schema.org/name"
                             },
@@ -13305,7 +13421,7 @@
                           "type": "object",
                           "properties": {
                             "schema:url": {
-                              "description": "Registered procedure DOI for the coupled technique named above. Provides a stable, citable link to the companion method independent of whether a dataset has been deposited. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
+                              "description": "Registered procedure DOI for the coupled technique named above. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
                               "type": "string",
                               "x-jsonld-id": "http://schema.org/url"
                             }
@@ -13356,7 +13472,7 @@
         },
         "Param_Procedure_targetMaterial": {
           "title": "Target Material",
-          "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
+          "description": "General description of the material type(s) this procedure is designed to analyse.",
           "type": "object",
           "properties": {
             "@id": {
@@ -13761,33 +13877,33 @@
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "ogch.BaseSchema.modules.targetSelection": {
-      "title": "TAPP Composition Module: TargetSelection",
-      "description": "The shared TargetSelection block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_TargetSelection.csv), composed by 13 of the sixteen delivery tables. 2 owned fields over 1 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
+    "ogch.BaseSchema.modules.samplingUnitSelection": {
+      "title": "TAPP Composition Module: SamplingUnitSelection",
+      "description": "The shared SamplingUnitSelection block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_SamplingUnitSelection.csv), composed by 13 of the sixteen delivery tables. 2 owned fields over 1 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
       "$defs": {
         "ProcedureIdentification": {
-          "title": "TargetSelection on the procedure",
+          "title": "SamplingUnitSelection on the procedure",
           "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
           "type": "object",
           "properties": {
-            "ada:targetSelectionCriteriaDefault": {
-              "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+            "ada:samplingUnitSelectionCriteriaDefault": {
+              "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
               "type": "string",
-              "x-jsonld-id": "https://ada.astromat.org/metadata/targetSelectionCriteriaDefault"
+              "x-jsonld-id": "https://ada.astromat.org/metadata/samplingUnitSelectionCriteriaDefault"
             }
           },
           "required": [
-            "ada:targetSelectionCriteriaDefault"
+            "ada:samplingUnitSelectionCriteriaDefault"
           ]
         },
-        "Param_Analysis_targetSelectionCriteria": {
-          "title": "Target Selection Criteria",
-          "description": "The rules governing which part of the sample is analysed, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out.",
+        "Param_Analysis_samplingUnitSelectionCriteria": {
+          "title": "Sampling Unit Selection Criteria",
+          "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
           "type": "object",
           "properties": {
             "@id": {
               "enum": [
-                "ada:parameter/module/TargetSelection/targetSelectionCriteria"
+                "ada:parameter/module/SamplingUnitSelection/samplingUnitSelectionCriteria"
               ]
             },
             "@type": {
@@ -13801,14 +13917,14 @@
               "enum": [
                 [
                   {
-                    "@id": "ada:parameter/module/TargetSelection/targetSelectionCriteria"
+                    "@id": "ada:parameter/module/SamplingUnitSelection/samplingUnitSelectionCriteria"
                   }
                 ]
               ]
             },
             "schema:name": {
               "enum": [
-                "Target Selection Criteria"
+                "Sampling Unit Selection Criteria"
               ]
             },
             "schema:value": {
@@ -13825,12 +13941,12 @@
         },
         "Param_Analysis_preAnalysisImagingAndScreening": {
           "title": "Pre-Analysis Imaging and Screening",
-          "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+          "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
           "type": "object",
           "properties": {
             "@id": {
               "enum": [
-                "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
+                "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
               ]
             },
             "@type": {
@@ -13844,7 +13960,7 @@
               "enum": [
                 [
                   {
-                    "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
+                    "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
                   }
                 ]
               ]
@@ -13868,12 +13984,12 @@
         },
         "Param_Procedure_preAnalysisImagingAndScreening": {
           "title": "Pre-Analysis Imaging and Screening",
-          "description": "Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+          "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
           "type": "object",
           "properties": {
             "@id": {
               "enum": [
-                "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault"
+                "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault"
               ]
             },
             "@type": {
@@ -13926,7 +14042,7 @@
       "x-jsonld-prefixes": {
         "ada": "https://ada.astromat.org/metadata/"
       },
-      "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml",
+      "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "ogch.BaseSchema.geochemProduct_1": {
@@ -17267,6 +17383,54 @@
         },
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured"
+        },
+        {
+          "if": {
+            "required": [
+              "cdif:isDefinedBy_RepresentedVariable"
+            ]
+          },
+          "then": {
+            "properties": {
+              "cdi:takesSubstantiveValuesFrom": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSubstantiveValuesFrom"
+              },
+              "cdi:takesSentinelValuesFrom": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSentinelValuesFrom"
+              },
+              "cdi:hasIntendedDataType": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasIntendedDataType"
+              },
+              "cdi:describedUnitOfMeasure": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure"
+              },
+              "cdi:unitOfMeasureKind": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/unitOfMeasureKind"
+              },
+              "cdi:measures": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/measures"
+              },
+              "cdi:externalDefinition": {
+                "not": true,
+                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/externalDefinition"
+              },
+              "cdif:uses_Concept": {
+                "not": true,
+                "x-jsonld-id": "https://w3id.org/cdif/uses_Concept"
+              },
+              "cdif:definition": {
+                "not": true,
+                "x-jsonld-id": "https://w3id.org/cdif/definition"
+              }
+            },
+            "description": "When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level properties live on that RepresentedVariable and may not be declared inline on the InstanceVariable."
+          }
         }
       ],
       "$defs": {

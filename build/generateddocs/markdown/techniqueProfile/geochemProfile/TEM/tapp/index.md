@@ -52,7 +52,6 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -66,6 +65,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:defaultValue": "~0.1 µm C coating deposited with e-beam (5 kV, 0.8 nA); ~4 µm W coating deposited with ion beam (30 kV, 0.26 nA); thinning: CCS mode 30 kV / 0.75 nA → 0.26 nA → 90 nA; final thinning: CCS mode 16 kV / 0.47 nA; target foil thickness not stated"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -85,17 +85,6 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -234,9 +223,9 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "BF-TEM",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Manual d-spacing comparison: HRTEM lattice fringes; 2.5 Å → magnetite (311); 1.4 Å and 2.0 Å → metallic iron (110) and (200); 2.9 Å / 2.5 Å / 1.6 Å → magnetite (220)/(311)/(511)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -264,23 +253,6 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "O"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -289,8 +261,8 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -347,7 +319,6 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -361,6 +332,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             "schema:defaultValue": "~0.1 \u00b5m C coating deposited with e-beam (5 kV, 0.8 nA); ~4 \u00b5m W coating deposited with ion beam (30 kV, 0.26 nA); thinning: CCS mode 30 kV / 0.75 nA \u2192 0.26 nA \u2192 90 nA; final thinning: CCS mode 16 kV / 0.47 nA; target foil thickness not stated"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -380,17 +352,6 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -529,9 +490,9 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "BF-TEM",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Manual d-spacing comparison: HRTEM lattice fringes; 2.5 \u00c5 \u2192 magnetite (311); 1.4 \u00c5 and 2.0 \u00c5 \u2192 metallic iron (110) and (200); 2.9 \u00c5 / 2.5 \u00c5 / 1.6 \u00c5 \u2192 magnetite (220)/(311)/(511)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -559,23 +520,6 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "O"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -584,8 +528,8 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -617,12 +561,7 @@ ex:temTAPP-Chaves2023 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Probe size <1 nm stated for STEM-EDS maps and profiles (Sec 2.6) Reported detail: ada:analyticalSubModeDefault = BF-TEM; HRTEM (TEM Imaging); HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Line scan; Spectrum image (map)." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
@@ -641,30 +580,21 @@ ex:temTAPP-Chaves2023 a cdi:Activity,
             schema1:target [ schema1:description "FIB-SEM (Helios G4 UX, Purdue) prepared electron-transparent lamellae from irradiated pellets (performed before TEM, destructive prep step); XPS and VNIR spectroscopy performed in parallel on same irradiated pellets for chemical and spectral characterization" ;
                     schema1:name "FIB-SEM; XPS; VNIR reflectance spectroscopy" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Fe",
-                "O" ] ;
     ada:analyticalSubModeDefault "BF-TEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
+    ada:edsAcquisitionModeDefault "Spectrum image" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "Cliff-Lorimer (k-factor)" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "Manual d-spacing comparison: HRTEM lattice fringes; 2.5 Å → magnetite (311); 1.4 Å and 2.0 Å → metallic iron (110) and (200); 2.9 Å / 2.5 Å / 1.6 Å → magnetite (220)/(311)/(511)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "~0.1 µm C coating deposited with e-beam (5 kV, 0.8 nA); ~4 µm W coating deposited with ion beam (30 kV, 0.26 nA); thinning: CCS mode 30 kV / 0.75 nA → 0.26 nA → 90 nA; final thinning: CCS mode 16 kV / 0.47 nA; target foil thickness not stated" ;
@@ -759,7 +689,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Zega2025",
-  "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction).",
+  "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -781,7 +711,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -795,6 +724,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:defaultValue": "ThermoScientific Helios G3 FIB-SEM (K-ALFAA); 12-µm × 4-µm C capping layer; lamellae thinned to electron transparency at 30 keV, 2.5 to 0.8 nA; standard stair-step method"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -805,18 +735,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
         "schema:position": 1
       },
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
         "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data Reduction",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
@@ -837,7 +756,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 2
       }
     ],
     "@type": [
@@ -1006,8 +925,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "schema:defaultValue": "20 keV (2048 channels)"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "CRISP software (SAED patterns); Adobe Photoshop d-spacing measurement based on calibrated camera constants",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1041,31 +960,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "schema:name": "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Si",
-      "Mg",
-      "Al",
-      "Fe (sheet silicates)",
-      "Fe",
-      "S",
-      "Ni (sulfides)",
-      "C",
-      "Si",
-      "Fe (carbonates/nanoglobules)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -1075,7 +969,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -1110,7 +1004,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Zega2025",
-  "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction).",
+  "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -1132,7 +1026,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -1146,6 +1039,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             "schema:defaultValue": "ThermoScientific Helios G3 FIB-SEM (K-ALFAA); 12-\u00b5m \u00d7 4-\u00b5m C capping layer; lamellae thinned to electron transparency at 30 keV, 2.5 to 0.8 nA; standard stair-step method"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -1156,18 +1050,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
         "schema:position": 1
       },
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
         "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data Reduction",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
@@ -1188,7 +1071,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 2
       }
     ],
     "@type": [
@@ -1357,8 +1240,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "schema:defaultValue": "20 keV (2048 channels)"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "CRISP software (SAED patterns); Adobe Photoshop d-spacing measurement based on calibrated camera constants",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1392,31 +1275,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "schema:name": "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Si",
-      "Mg",
-      "Al",
-      "Fe (sheet silicates)",
-      "Fe",
-      "S",
-      "Ni (sulfides)",
-      "C",
-      "Si",
-      "Fe (carbonates/nanoglobules)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -1426,7 +1284,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -1449,26 +1307,21 @@ ex:temTAPP-Zega2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsEnergyRangeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction)." ;
+    schema1:description "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map)." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
@@ -1485,37 +1338,21 @@ ex:temTAPP-Zega2025 a cdi:Activity,
             schema1:target [ schema1:description "FIB-SEM (TS Helios G3, K-ALFAA) prepared TEM sections from SEM/EMPA-characterized particles; SEM/EMPA/XRD/CL provided mm–µm scale context before TEM; XANES at ALS beamline 5.3.2.2 acquired on FIB sections for Fe oxidation state" ;
                     schema1:name "FIB-SEM; SEM; EMPA; XRD; CL spectroscopy; XANES (synchrotron)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Al",
-                "C",
-                "Fe",
-                "Fe (carbonates/nanoglobules)",
-                "Fe (sheet silicates)",
-                "Mg",
-                "Ni (sulfides)",
-                "S",
-                "Si" ] ;
     ada:analyticalSubModeDefault "BF-STEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
+    ada:edsAcquisitionModeDefault "Spectrum image" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "CRISP software (SAED patterns); Adobe Photoshop d-spacing measurement based on calibrated camera constants" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS and EELS" ;
     ada:stemDwellTimePerPixelDefault "8 µs (EDS spectrum image frame time per pixel)" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)" ;
             ada:toolRole "dataReduction" ] .
 
@@ -1638,7 +1475,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Zega2025-2",
-  "schema:description": "Beam energy range 80–300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging).",
+  "schema:description": "Beam energy range 80–300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -1660,7 +1497,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -1674,6 +1510,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:defaultValue": "FEI Helios G4 UX (Molecular Foundry, LBNL); Ga+ coarse milling 16–30 keV; polishing down to 1 keV; thickness <100 to 600 nm (thicker for Fe-L XANES and tomography; thinner for C-K and TEM)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -1684,18 +1521,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
         "schema:position": 1
       },
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
         "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data Reduction",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
@@ -1716,7 +1542,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 2
       }
     ],
     "@type": [
@@ -1880,7 +1706,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
       "schema:defaultValue": "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1924,8 +1750,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -1960,7 +1786,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Zega2025-2",
-  "schema:description": "Beam energy range 80\u2013300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging).",
+  "schema:description": "Beam energy range 80\u2013300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -1982,7 +1808,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -1996,6 +1821,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             "schema:defaultValue": "FEI Helios G4 UX (Molecular Foundry, LBNL); Ga+ coarse milling 16\u201330 keV; polishing down to 1 keV; thickness <100 to 600 nm (thicker for Fe-L XANES and tomography; thinner for C-K and TEM)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -2006,18 +1832,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
         "schema:position": 1
       },
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
         "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data Reduction",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
@@ -2038,7 +1853,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 2
       }
     ],
     "@type": [
@@ -2202,7 +2017,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
       "schema:defaultValue": "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2246,8 +2061,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -2279,17 +2094,12 @@ ex:temTAPP-Zega2025-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "Beam energy range 80–300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging)." ;
+    schema1:description "Beam energy range 80–300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Spectrum image (map)." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory" ] ;
@@ -2309,7 +2119,7 @@ ex:temTAPP-Zega2025-2 a cdi:Activity,
     ada:analyticalSubModeDefault "ADF" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
+    ada:edsAcquisitionModeDefault "Spectrum image" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
@@ -2318,9 +2128,9 @@ ex:temTAPP-Zega2025-2 a cdi:Activity,
     ada:eelsEnergyLossRangeDefault "missing" ;
     ada:phaseIdentificationMethod "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Python (sequential map combination)" ;
             ada:toolRole "dataReduction" ] .
 
@@ -2439,7 +2249,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Zega2025-3",
-  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v22.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
+  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v48.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
   "schema:object": [
     {
       "@type": [
@@ -2461,7 +2271,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Crushing / dispersion on grid",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -2475,6 +2284,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:defaultValue": "Grain crushed; ethanol added to powder; copper mesh grid with lacey carbon support touched to suspension until all material picked up"
           }
         ],
+        "schema:description": "Crushing / dispersion on grid",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -2494,17 +2304,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -2680,7 +2479,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
     }
   ],
   "ada:convergenceSemiAngle": "10.5 mrad",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Manual d-spacing comparison (SAED patterns; camera constant calibrated with AGAR S106 cross grating)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2726,8 +2525,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -2762,7 +2561,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Zega2025-3",
-  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v22.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
+  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v48.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
   "schema:object": [
     {
       "@type": [
@@ -2784,7 +2583,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Crushing / dispersion on grid",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -2798,6 +2596,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             "schema:defaultValue": "Grain crushed; ethanol added to powder; copper mesh grid with lacey carbon support touched to suspension until all material picked up"
           }
         ],
+        "schema:description": "Crushing / dispersion on grid",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -2817,17 +2616,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -3003,7 +2791,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
     }
   ],
   "ada:convergenceSemiAngle": "10.5 mrad",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Manual d-spacing comparison (SAED patterns; camera constant calibrated with AGAR S106 cross grating)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3049,8 +2837,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -3073,26 +2861,21 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Crushing / dispersion on grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v22.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction)." ;
+    schema1:description "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v48.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction)." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt" ] ;
@@ -3118,11 +2901,11 @@ ex:temTAPP-Zega2025-3 a cdi:Activity,
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "Manual d-spacing comparison (SAED patterns; camera constant calibrated with AGAR S106 cross grating)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "ThermoScientific Velox" ;
             ada:toolRole "acquisition" ],
         [ schema1:name "ThermoScientific Velox" ;
@@ -3243,7 +3026,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Zega2025-4",
-  "schema:description": "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7).",
+  "schema:description": "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7).",
   "schema:object": [
     {
       "@type": [
@@ -3265,7 +3048,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -3279,6 +3061,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:defaultValue": "FEI Quanta3D600 dual-beam FIB-SEM; e-beam C cap 0.5–1 µm + ion-beam C cap 2–3 µm; milling 30 kV Ga+ → 16 kV → 5 kV final; ~100 nm thick; ion-beam Pt weld to Cu half grids"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -3298,17 +3081,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -3475,7 +3247,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
       "schema:defaultValue": "Successive frames until counting statistics <1% for major elements"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
   "ada:edsCalibrationStandardDefault": "k-factors from well-characterized standards (standards not specified); Thermo System7",
   "schema:measurementTechnique": [
@@ -3523,7 +3295,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -3558,7 +3330,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Zega2025-4",
-  "schema:description": "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7).",
+  "schema:description": "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7).",
   "schema:object": [
     {
       "@type": [
@@ -3580,7 +3352,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -3594,6 +3365,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             "schema:defaultValue": "FEI Quanta3D600 dual-beam FIB-SEM; e-beam C cap 0.5\u20131 \u00b5m + ion-beam C cap 2\u20133 \u00b5m; milling 30 kV Ga+ \u2192 16 kV \u2192 5 kV final; ~100 nm thick; ion-beam Pt weld to Cu half grids"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -3613,17 +3385,6 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -3790,7 +3551,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
       "schema:defaultValue": "Successive frames until counting statistics <1% for major elements"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
   "ada:edsCalibrationStandardDefault": "k-factors from well-characterized standards (standards not specified); Thermo System7",
   "schema:measurementTechnique": [
@@ -3838,7 +3599,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -3870,16 +3631,11 @@ ex:temTAPP-Zega2025-4 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)." ;
+    schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES Division, NASA Johnson Space Center" ] ;
@@ -3899,7 +3655,7 @@ ex:temTAPP-Zega2025-4 a cdi:Activity,
     ada:analyticalSubModeDefault "BF-STEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
+    ada:edsAcquisitionModeDefault "Spectrum image" ;
     ada:edsCalibrationStandardDefault "k-factors from well-characterized standards (standards not specified); Thermo System7" ;
     ada:edsQuantificationMethod "Cliff-Lorimer (k-factor)" ;
     ada:eelsAcquisitionModeDefault "missing" ;
@@ -3908,9 +3664,9 @@ ex:temTAPP-Zega2025-4 a cdi:Activity,
     ada:eelsEnergyLossRangeDefault "missing" ;
     ada:phaseIdentificationMethod "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS and EELS" ;
     ada:stemDwellTimePerPixelDefault "50 µs" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Thermo System7 (EDS quantification)" ;
             ada:toolRole "dataReduction" ],
         [ schema1:name "Thermo System7" ;
@@ -4048,7 +3804,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -4062,6 +3817,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:defaultValue": "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -4081,17 +3837,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -4227,7 +3972,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
     }
   ],
   "ada:analyticalSubModeDefault": "BF-TEM",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "SAED indexing: BCC structure for metallic iron; troilite 2C superstructure reflections vs NiAs 1C base reflections; NC-pyrrhotite non-integral superstructure spots (NC values 3.6–6.5); dark-field imaging using specific reflections to image phase distributions",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4265,9 +4010,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:spectroscopicDetectorDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -4324,7 +4069,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -4338,6 +4082,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             "schema:defaultValue": "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -4357,17 +4102,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -4503,7 +4237,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
     }
   ],
   "ada:analyticalSubModeDefault": "BF-TEM",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "SAED indexing: BCC structure for metallic iron; troilite 2C superstructure reflections vs NiAs 1C base reflections; NC-pyrrhotite non-integral superstructure spots (NC values 3.6\u20136.5); dark-field imaging using specific reflections to image phase distributions",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4541,9 +4275,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:spectroscopicDetectorDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -4566,21 +4300,16 @@ ex:temTAPP-Matsumoto2021 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional cleaning step after FIB thinning Reported detail: ada:analyticalSubModeDefault = BF-TEM; DF-TEM; ADF-STEM; SAED (Electron Diffraction)." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
@@ -4609,11 +4338,11 @@ ex:temTAPP-Matsumoto2021 a cdi:Activity,
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "SAED indexing: BCC structure for metallic iron; troilite 2C superstructure reflections vs NiAs 1C base reflections; NC-pyrrhotite non-integral superstructure spots (NC values 3.6–6.5); dark-field imaging using specific reflections to image phase distributions" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "missing" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)" ;
@@ -4728,7 +4457,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -4742,6 +4470,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:defaultValue": "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -4761,17 +4490,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -4909,9 +4627,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "BF-TEM",
-  "ada:edsAcquisitionModeDefault": "Point analysis",
+  "ada:edsAcquisitionModeDefault": "Line scan",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Quantitative EDX (Cliff-Lorimer): Fe/S atomic ratio to distinguish troilite (Fe/S ≈ 1.03 ± 0.04) from NC-pyrrhotite; EDX maps used to confirm elemental distributions (Fe, S, O, Si, Ca)",
   "ada:edsCalibrationStandardDefault": "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)",
   "schema:measurementTechnique": [
     {
@@ -4940,24 +4658,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "S",
-      "Ni"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:eelsAcquisitionModeDefault": "missing",
@@ -4965,8 +4665,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -5023,7 +4723,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -5037,6 +4736,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             "schema:defaultValue": "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -5056,17 +4756,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -5204,9 +4893,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "BF-TEM",
-  "ada:edsAcquisitionModeDefault": "Point analysis",
+  "ada:edsAcquisitionModeDefault": "Line scan",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Quantitative EDX (Cliff-Lorimer): Fe/S atomic ratio to distinguish troilite (Fe/S \u2248 1.03 \u00b1 0.04) from NC-pyrrhotite; EDX maps used to confirm elemental distributions (Fe, S, O, Si, Ca)",
   "ada:edsCalibrationStandardDefault": "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)",
   "schema:measurementTechnique": [
     {
@@ -5235,24 +4924,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "S",
-      "Ni"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:eelsAcquisitionModeDefault": "missing",
@@ -5260,8 +4931,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -5284,14 +4955,9 @@ ex:temTAPP-Matsumoto2021-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
@@ -5317,31 +4983,21 @@ ex:temTAPP-Matsumoto2021-2 a cdi:Activity,
             schema1:target [ schema1:description "SEM (JSM-7001F, Kyushu Univ, 2.0 kV secondary electron imaging) surveyed grain surfaces and selected iron sulfide targets; SEM-EDX (Oxford Inca X-act) identified mineral phases on grain surface; FIB (FEI Helios NanoLab G3 CX, Kyoto Univ) prepared electron-transparent foil (e-beam Pt 5 kV + Ga+ Pt 30 kV; thinned to ~100 nm; cleaned at 5 kV Ga+); additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) performed after FIB" ;
                     schema1:name "SEM (JSM-7001F); SEM-EDX (Oxford Inca X-act); FIB (FEI Helios NanoLab G3 CX)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Fe",
-                "Ni",
-                "S" ] ;
     ada:analyticalSubModeDefault "BF-TEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Point analysis" ;
+    ada:edsAcquisitionModeDefault "Line scan" ;
     ada:edsCalibrationStandardDefault "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)" ;
     ada:edsQuantificationMethod "Cliff-Lorimer (k-factor)" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "Quantitative EDX (Cliff-Lorimer): Fe/S atomic ratio to distinguish troilite (Fe/S ≈ 1.03 ± 0.04) from NC-pyrrhotite; EDX maps used to confirm elemental distributions (Fe, S, O, Si, Ca)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)" ;
@@ -5435,7 +5091,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Matsumoto2021-3",
-  "schema:description": "\"ARM\" designation implies probe Cs-correction (JEOL naming convention) but corrector type/details not stated; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM.",
+  "schema:description": "\"ARM\" designation implies probe Cs-correction (JEOL naming convention) but corrector type/details not stated; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM; ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -5457,7 +5113,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -5471,6 +5126,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:defaultValue": "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -5490,17 +5146,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -5638,8 +5283,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "ADF",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "HR-STEM + FFT: imaging of (001) plane stacking and distortions in iron sulfides; qualitative lattice fringe analysis (no explicit d-spacing phase matching stated)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5667,28 +5312,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "S",
-      "O",
-      "Si",
-      "Ca",
-      "Mg",
-      "Pt"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -5698,8 +5321,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -5734,7 +5357,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Matsumoto2021-3",
-  "schema:description": "\"ARM\" designation implies probe Cs-correction (JEOL naming convention) but corrector type/details not stated; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM.",
+  "schema:description": "\"ARM\" designation implies probe Cs-correction (JEOL naming convention) but corrector type/details not stated; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM; ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -5756,7 +5379,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -5770,6 +5392,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             "schema:defaultValue": "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -5789,17 +5412,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -5937,8 +5549,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "ADF",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "HR-STEM + FFT: imaging of (001) plane stacking and distortions in iron sulfides; qualitative lattice fringe analysis (no explicit d-spacing phase matching stated)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5966,28 +5578,6 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "S",
-      "O",
-      "Si",
-      "Ca",
-      "Mg",
-      "Pt"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -5997,8 +5587,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -6022,22 +5612,17 @@ ex:temTAPP-Matsumoto2021-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "\"ARM\" designation implies probe Cs-correction (JEOL naming convention) but corrector type/details not stated; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM." ;
+    schema1:description "\"ARM\" designation implies probe Cs-correction (JEOL naming convention) but corrector type/details not stated; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM; ada:edsAcquisitionModeDefault = Spectrum image (map)." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Ultramicroscopy Research Center, Kyushu University, Japan" ] ;
@@ -6054,35 +5639,21 @@ ex:temTAPP-Matsumoto2021-3 a cdi:Activity,
             schema1:target [ schema1:description "SEM (JSM-7001F, Kyushu Univ, 2.0 kV secondary electron imaging) surveyed grain surfaces and selected iron sulfide targets; SEM-EDX (Oxford Inca X-act) identified mineral phases on grain surface; FIB (FEI Helios NanoLab G3 CX, Kyoto Univ) prepared electron-transparent foil (e-beam Pt 5 kV + Ga+ Pt 30 kV; thinned to ~100 nm; cleaned at 5 kV Ga+); additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) performed after FIB" ;
                     schema1:name "SEM (JSM-7001F); SEM-EDX (Oxford Inca X-act); FIB (FEI Helios NanoLab G3 CX)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Ca",
-                "Fe",
-                "Mg",
-                "O",
-                "Pt",
-                "S",
-                "Si" ] ;
     ada:analyticalSubModeDefault "ADF" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
+    ada:edsAcquisitionModeDefault "Spectrum image" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "HR-STEM + FFT: imaging of (001) plane stacking and distortions in iron sulfides; qualitative lattice fringe analysis (no explicit d-spacing phase matching stated)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)" ;
@@ -6198,7 +5769,6 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Ultramicrotomy",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -6212,6 +5782,7 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:defaultValue": "Particles embedded in low-viscosity epoxy; thin sections ~60 nm thick prepared by ultramicrotomy"
           }
         ],
+        "schema:description": "Ultramicrotomy",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -6231,17 +5802,6 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -6441,8 +6001,8 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
     }
   ],
   "ada:stemDwellTimePerPixelDefault": "50 µs/pixel",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "HRTEM lattice fringes + SAED: metallic npFe0 grains (<5 nm) identified by bcc iron d-spacings (Fig. 6 FFT: iron 110 spacings); pyrrhotite superstructure reflections present in core and absent in disordered rim (SAED + FFT); olivine composition by TEM-EDX (Fo70)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6457,29 +6017,6 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
     ],
     "schema:name": "Robert M. Walker Laboratory for Space Science, Code KR, Astromaterials Research and Exploration Science (ARES), NASA Johnson Space Center"
   },
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Si",
-      "Mg",
-      "Fe",
-      "S",
-      "Al",
-      "Ca",
-      "Ti",
-      "O"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -6489,7 +6026,7 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -6546,7 +6083,6 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Ultramicrotomy",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -6560,6 +6096,7 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             "schema:defaultValue": "Particles embedded in low-viscosity epoxy; thin sections ~60 nm thick prepared by ultramicrotomy"
           }
         ],
+        "schema:description": "Ultramicrotomy",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -6579,17 +6116,6 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -6789,8 +6315,8 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
     }
   ],
   "ada:stemDwellTimePerPixelDefault": "50 \u00b5s/pixel",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "HRTEM lattice fringes + SAED: metallic npFe0 grains (<5 nm) identified by bcc iron d-spacings (Fig. 6 FFT: iron 110 spacings); pyrrhotite superstructure reflections present in core and absent in disordered rim (SAED + FFT); olivine composition by TEM-EDX (Fo70)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6805,29 +6331,6 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
     ],
     "schema:name": "Robert M. Walker Laboratory for Space Science, Code KR, Astromaterials Research and Exploration Science (ARES), NASA Johnson Space Center"
   },
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Si",
-      "Mg",
-      "Fe",
-      "S",
-      "Al",
-      "Ca",
-      "Ti",
-      "O"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -6837,7 +6340,7 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -6860,21 +6363,16 @@ ex:temTAPP-KellerBerger2014 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Ultramicrotomy" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault>,
@@ -6893,36 +6391,21 @@ ex:temTAPP-KellerBerger2014 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Itokawa olivine regolith grains (RA-QD02-0125, ~37 µm olivine single crystal; RA-QD02-0211, ~41 µm olivine single crystal); comparison: Apollo 17 lunar soil 71501 olivine grains (20–45 µm fraction)" ] ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Al",
-                "Ca",
-                "Fe",
-                "Mg",
-                "O",
-                "S",
-                "Si",
-                "Ti" ] ;
     ada:analyticalSubModeDefault "BF-STEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
+    ada:edsAcquisitionModeDefault "Spectrum image" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "HRTEM lattice fringes + SAED: metallic npFe0 grains (<5 nm) identified by bcc iron d-spacings (Fig. 6 FFT: iron 110 spacings); pyrrhotite superstructure reflections present in core and absent in disordered rim (SAED + FFT); olivine composition by TEM-EDX (Fo70)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
-    ada:stemDwellTimePerPixelDefault "50 µs/pixel" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault "50 µs/pixel" .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Successive layers averaged for >10% counting statistics" ;
@@ -7055,7 +6538,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Zeng2024",
-  "schema:description": "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping).",
+  "schema:description": "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping); ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -7077,7 +6560,6 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -7091,6 +6573,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:defaultValue": "FEI Scios dual-beam FIB/SEM (Institute of Geochemistry, CAS): glass bead coated with gold prior to FIB; FIB slice ~15 µm length × ~10 µm width × 90–100 nm thick; 30 kV, 0.4 nA beam current"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -7110,17 +6593,6 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -7273,9 +6745,9 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "schema:description": "1–2 nA (stated as beam current for analysis conditions)"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:edsQuantificationMethod": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:edsQuantificationMethod": "Brown–Powell ionization cross-section model (implemented in Velox 2.14)",
+  "ada:phaseIdentificationMethod": "FFT from BF-TEM images (no SAED): rutile (TiO2, polycrystalline 2–15 nm); trigonal Ti2O (P3̄m1, zone axis [1 1 2̄ 3]; a=2.983 Å, c=4.804 Å); triclinic Ti2O (P1, zone axis [5 16 12]; a=10.453 Å, b=10.895 Å, c=12.206 Å); d-spacings and zone axes matched to crystal structure parameters",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7313,24 +6785,6 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "schema:name": "Velox Revision 2.14 (Thermo Fisher Scientific)"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Ti",
-      "O",
-      "Fe (also Cu Kα, Cu Kβ from TEM grid detected)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -7339,8 +6793,8 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -7375,7 +6829,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Zeng2024",
-  "schema:description": "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping).",
+  "schema:description": "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping); ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -7397,7 +6851,6 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -7411,6 +6864,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             "schema:defaultValue": "FEI Scios dual-beam FIB/SEM (Institute of Geochemistry, CAS): glass bead coated with gold prior to FIB; FIB slice ~15 \u00b5m length \u00d7 ~10 \u00b5m width \u00d7 90\u2013100 nm thick; 30 kV, 0.4 nA beam current"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -7430,17 +6884,6 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -7593,9 +7036,9 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "schema:description": "1\u20132 nA (stated as beam current for analysis conditions)"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:edsQuantificationMethod": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:edsQuantificationMethod": "Brown\u2013Powell ionization cross-section model (implemented in Velox 2.14)",
+  "ada:phaseIdentificationMethod": "FFT from BF-TEM images (no SAED): rutile (TiO2, polycrystalline 2\u201315 nm); trigonal Ti2O (P3\u0304m1, zone axis [1 1 2\u0304 3]; a=2.983 \u00c5, c=4.804 \u00c5); triclinic Ti2O (P1, zone axis [5 16 12]; a=10.453 \u00c5, b=10.895 \u00c5, c=12.206 \u00c5); d-spacings and zone axes matched to crystal structure parameters",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7633,24 +7076,6 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "schema:name": "Velox Revision 2.14 (Thermo Fisher Scientific)"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Ti",
-      "O",
-      "Fe (also Cu K\u03b1, Cu K\u03b2 from TEM grid detected)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -7659,8 +7084,8 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -7685,22 +7110,17 @@ ex:temTAPP-Zeng2024 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping)." ;
+    schema1:description "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping); ada:edsAcquisitionModeDefault = Spectrum image (map)." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Analysis and Test Center, Guangdong University of Technology, Guangzhou, China" ] ;
@@ -7717,31 +7137,21 @@ ex:temTAPP-Zeng2024 a cdi:Activity,
             schema1:target [ schema1:description "FEI Scios dual-beam FIB/SEM (Institute of Geochemistry, CAS, Guiyang): BSE and SE imaging at 5 kV/0.8 nA (7 mm WD); EDS mapping at 20 kV/1.6 nA; FIB foil preparation at 30 kV/0.4 nA; STEM imaging of FIB slice at 30 kV/0.4 nA using the same FIB/SEM instrument (all performed prior to TEM on Talos F200S)" ;
                     schema1:name "FIB-SEM (FEI Scios dual-beam); SEM-BSE; SEM-EDS" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Fe (also Cu Kα, Cu Kβ from TEM grid detected)",
-                "O",
-                "Ti" ] ;
     ada:analyticalSubModeDefault "BF-TEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
+    ada:edsAcquisitionModeDefault "Spectrum image" ;
     ada:edsCalibrationStandardDefault "missing" ;
-    ada:edsQuantificationMethod "N/A" ;
+    ada:edsQuantificationMethod "Brown–Powell ionization cross-section model (implemented in Velox 2.14)" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "FFT from BF-TEM images (no SAED): rutile (TiO2, polycrystalline 2–15 nm); trigonal Ti2O (P3̄m1, zone axis [1 1 2̄ 3]; a=2.983 Å, c=4.804 Å); triclinic Ti2O (P1, zone axis [5 16 12]; a=10.453 Å, b=10.895 Å, c=12.206 Å); d-spacings and zone axes matched to crystal structure parameters" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
             ada:toolRole "dataReduction" ],
         [ schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
@@ -7870,7 +7280,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -7884,6 +7293,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:defaultValue": "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 µm thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -7903,17 +7313,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -8053,7 +7452,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:analyticalSubModeDefault": "BF-STEM",
   "ada:convergenceSemiAngle": "0.1–0.3 mrad (for nanodiffraction in STEM mode)",
   "ada:cameraLengthDefault": "295 mm (stated for nanodiffraction)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Electron nanodiffraction (STEM mode, 0.1–0.3 mrad convergence, 295 mm camera length) + EDS; SAED for crystallographic characterization; FFT from HRTEM images (dolomite, ankerite, phosphide barringerite); d-spacing comparisons for carbonate phases",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8081,30 +7480,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Ca",
-      "Fe",
-      "Mn",
-      "Si",
-      "C",
-      "O",
-      "S",
-      "P"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:edsAcquisitionModeDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
   "ada:edsQuantificationMethod": "missing",
@@ -8113,8 +7488,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -8171,7 +7546,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -8185,6 +7559,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:defaultValue": "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 \u00b5m thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -8204,17 +7579,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -8354,7 +7718,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:analyticalSubModeDefault": "BF-STEM",
   "ada:convergenceSemiAngle": "0.1\u20130.3 mrad (for nanodiffraction in STEM mode)",
   "ada:cameraLengthDefault": "295 mm (stated for nanodiffraction)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Electron nanodiffraction (STEM mode, 0.1\u20130.3 mrad convergence, 295 mm camera length) + EDS; SAED for crystallographic characterization; FFT from HRTEM images (dolomite, ankerite, phosphide barringerite); d-spacing comparisons for carbonate phases",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8382,30 +7746,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Ca",
-      "Fe",
-      "Mn",
-      "Si",
-      "C",
-      "O",
-      "S",
-      "P"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:edsAcquisitionModeDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
   "ada:edsQuantificationMethod": "missing",
@@ -8414,8 +7754,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -8438,14 +7778,9 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
@@ -8471,22 +7806,6 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
             schema1:target [ schema1:description "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): BSE imaging of polished, C-coated section for mineral identification; FIB preparation of 4 electron-transparent sections (Pt deposition: e-beam first, then ion beam; sections transferred to Cu TEM half-grids with micromanipulator; final thinning at 2 kV, 72 pA with section on TEM grid)" ;
                     schema1:name "FIB-SEM (Helios 660 dual-beam); SEM-BSE" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "C",
-                "Ca",
-                "Fe",
-                "Mg",
-                "Mn",
-                "O",
-                "P",
-                "S",
-                "Si" ] ;
     ada:analyticalSubModeDefault "BF-STEM" ;
     ada:cameraLengthDefault "295 mm (stated for nanodiffraction)" ;
     ada:convergenceSemiAngle "0.1–0.3 mrad (for nanodiffraction in STEM mode)" ;
@@ -8497,11 +7816,11 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "Electron nanodiffraction (STEM mode, 0.1–0.3 mrad convergence, 295 mm camera length) + EDS; SAED for crystallographic characterization; FFT from HRTEM images (dolomite, ankerite, phosphide barringerite); d-spacing comparisons for carbonate phases" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 µm thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)" ;
@@ -8617,7 +7936,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -8631,6 +7949,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:defaultValue": "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 µm thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -8650,17 +7969,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -8799,8 +8107,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "ADF",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3–CaCO3–(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5–10 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/temTAPP/edsDetectionLimitDefault",
@@ -8848,32 +8156,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "schema:name": "Bruker Esprit 1.9"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Ca",
-      "Fe",
-      "Mn",
-      "Si",
-      "Al",
-      "Cr",
-      "C",
-      "O",
-      "S",
-      "P (from Table 1)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -8883,8 +8165,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -8941,7 +8223,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -8955,6 +8236,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             "schema:defaultValue": "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 \u00b5m thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -8974,17 +8256,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -9123,8 +8394,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "ADF",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:phaseIdentificationMethod": "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3\u2013CaCO3\u2013(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5\u201310 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/temTAPP/edsDetectionLimitDefault",
@@ -9172,32 +8443,6 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "schema:name": "Bruker Esprit 1.9"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Ca",
-      "Fe",
-      "Mn",
-      "Si",
-      "Al",
-      "Cr",
-      "C",
-      "O",
-      "S",
-      "P (from Table 1)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -9207,8 +8452,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -9233,14 +8478,9 @@ ex:temTAPP-Dobrica2022-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -9265,39 +8505,21 @@ ex:temTAPP-Dobrica2022-2 a cdi:Activity,
             schema1:target [ schema1:description "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): BSE imaging of polished, C-coated section for mineral identification; FIB preparation of 4 electron-transparent sections (Pt deposition: e-beam first, then ion beam; sections transferred to Cu TEM half-grids with micromanipulator; final thinning at 2 kV, 72 pA with section on TEM grid)" ;
                     schema1:name "FIB-SEM (Helios 660 dual-beam); SEM-BSE" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Al",
-                "C",
-                "Ca",
-                "Cr",
-                "Fe",
-                "Mg",
-                "Mn",
-                "O",
-                "P (from Table 1)",
-                "S",
-                "Si" ] ;
     ada:analyticalSubModeDefault "ADF" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
+    ada:edsAcquisitionModeDefault "Spectrum image" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3–CaCO3–(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5–10 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Bruker Esprit 1.9" ;
             ada:toolRole "dataReduction" ] .
 
@@ -9424,7 +8646,6 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Crushing / dispersion on grid",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -9438,6 +8659,7 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:defaultValue": "Particle crushed between two glass slides; ethanol dropped onto powder; TEM copper mesh grid with lacey carbon support touched to suspension; allowed to dry; gentle plasma cleaning performed before inserting into microscope"
           }
         ],
+        "schema:description": "Crushing / dispersion on grid",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -9457,17 +8679,6 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -9643,9 +8854,9 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
     }
   ],
   "ada:convergenceSemiAngle": "10.5 mrad",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "SAED (few reflections due to beam sensitivity / poor crystallinity) matched against literature crystal structures (Dickens and Brown 1969 for gaylussite/pirssonite; McKie and Frankis 1977 for nyerereite); EDS cation ratios compared to theoretical mineral formulae (H and reliable O not measurable by EDS)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9670,30 +8881,6 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
       "schema:name": "TS Velox"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Na",
-      "Ca",
-      "C",
-      "O",
-      "Mg",
-      "Fe",
-      "Si",
-      "F",
-      "Cl (from Table 1 and A1)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
@@ -9701,8 +8888,8 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -9759,7 +8946,6 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Crushing / dispersion on grid",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -9773,6 +8959,7 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             "schema:defaultValue": "Particle crushed between two glass slides; ethanol dropped onto powder; TEM copper mesh grid with lacey carbon support touched to suspension; allowed to dry; gentle plasma cleaning performed before inserting into microscope"
           }
         ],
+        "schema:description": "Crushing / dispersion on grid",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -9792,17 +8979,6 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -9978,9 +9154,9 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
     }
   ],
   "ada:convergenceSemiAngle": "10.5 mrad",
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "SAED (few reflections due to beam sensitivity / poor crystallinity) matched against literature crystal structures (Dickens and Brown 1969 for gaylussite/pirssonite; McKie and Frankis 1977 for nyerereite); EDS cation ratios compared to theoretical mineral formulae (H and reliable O not measurable by EDS)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10005,30 +9181,6 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
       "schema:name": "TS Velox"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Na",
-      "Ca",
-      "C",
-      "O",
-      "Mg",
-      "Fe",
-      "Si",
-      "F",
-      "Cl (from Table 1 and A1)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
   "ada:eelsAcquisitionModeDefault": "missing",
@@ -10036,8 +9188,8 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -10068,11 +9220,6 @@ ex:temTAPP-Singerling2025 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
@@ -10091,37 +9238,21 @@ ex:temTAPP-Singerling2025 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Bennu particle OREX-800045-102 (OSIRIS-REx sample): Na,Ca carbonates (gaylussite/pirssonite), phyllosilicates, sulfides" ] ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "C",
-                "Ca",
-                "Cl (from Table 1 and A1)",
-                "F",
-                "Fe",
-                "Mg",
-                "Na",
-                "O",
-                "Si" ] ;
     ada:analyticalSubModeDefault "BF-TEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle "10.5 mrad" ;
-    ada:edsAcquisitionModeDefault "Spectrum image (map)" ;
+    ada:edsAcquisitionModeDefault "Spectrum image" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "Cliff-Lorimer (k-factor)" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "SAED (few reflections due to beam sensitivity / poor crystallinity) matched against literature crystal structures (Dickens and Brown 1969 for gaylussite/pirssonite; McKie and Frankis 1977 for nyerereite); EDS cation ratios compared to theoretical mineral formulae (H and reliable O not measurable by EDS)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "TS Velox" ;
             ada:toolRole "dataReduction" ],
         [ schema1:name "TS Velox" ;
@@ -10242,7 +9373,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Thompson2020",
-  "schema:description": "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used). Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles).",
+  "schema:description": "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used). Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles); ada:edsAcquisitionModeDefault = Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans.",
   "schema:object": [
     {
       "@type": [
@@ -10264,7 +9395,6 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -10278,6 +9408,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:defaultValue": "FEI Quanta 3D FIB-SEM at JSC; four electron-transparent sections (<100 nm thick): (1) 1× matrix, (2) 5× matrix, (3) 5× sulfide grain, (4) 5× olivine grain"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -10297,17 +9428,6 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -10485,8 +9605,8 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
     }
   ],
   "ada:stemDwellTimePerPixelDefault": "50 µs (kept short to prevent beam damage)",
-  "ada:edsAcquisitionModeDefault": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Map",
+  "ada:phaseIdentificationMethod": "HRTEM lattice fringe imaging + FFT; EDS composition maps (no SAED; phase ID by d-spacings from HRTEM); phases identified: pentlandite, Fe-Ni-S, magnetite, serpentine, chrysotile, olivine, metallic Fe",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10514,28 +9634,6 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "Ni",
-      "S",
-      "Si",
-      "O",
-      "Mg",
-      "Ca (EDX maps of irradiated matrix, olivine, and sulfide sections)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -10545,7 +9643,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -10580,7 +9678,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Thompson2020",
-  "schema:description": "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used). Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles).",
+  "schema:description": "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used). Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles); ada:edsAcquisitionModeDefault = Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans.",
   "schema:object": [
     {
       "@type": [
@@ -10602,7 +9700,6 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -10616,6 +9713,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             "schema:defaultValue": "FEI Quanta 3D FIB-SEM at JSC; four electron-transparent sections (<100 nm thick): (1) 1\u00d7 matrix, (2) 5\u00d7 matrix, (3) 5\u00d7 sulfide grain, (4) 5\u00d7 olivine grain"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -10635,17 +9733,6 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -10823,8 +9910,8 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
     }
   ],
   "ada:stemDwellTimePerPixelDefault": "50 \u00b5s (kept short to prevent beam damage)",
-  "ada:edsAcquisitionModeDefault": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Map",
+  "ada:phaseIdentificationMethod": "HRTEM lattice fringe imaging + FFT; EDS composition maps (no SAED; phase ID by d-spacings from HRTEM); phases identified: pentlandite, Fe-Ni-S, magnetite, serpentine, chrysotile, olivine, metallic Fe",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10852,28 +9939,6 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "Ni",
-      "S",
-      "Si",
-      "O",
-      "Mg",
-      "Ca (EDX maps of irradiated matrix, olivine, and sulfide sections)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -10883,7 +9948,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -10906,26 +9971,21 @@ ex:temTAPP-Thompson2020 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used). Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles)." ;
+    schema1:description "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used). Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles); ada:edsAcquisitionModeDefault = Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
@@ -10942,35 +10002,21 @@ ex:temTAPP-Thompson2020 a cdi:Activity,
             schema1:target [ schema1:description "Multi-technique coordinated study; TEM/STEM used for microstructural and chemical characterization of FIB-extracted sections from laser-irradiated Murchison chips; STEM results correlated with reflectance, FTIR, and organic chemistry data" ;
                     schema1:name "Pulsed laser irradiation (space weathering simulation); VIS-NIR reflectance spectroscopy (ASD FieldSpec 3); FTIR (Bruker Vertex/Hyperion); Mössbauer spectroscopy (MIMOS-II); μL2MS (two-step laser mass spectrometry); FIB-SEM (FEI Quanta 3D at JSC)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Ca (EDX maps of irradiated matrix, olivine, and sulfide sections)",
-                "Fe",
-                "Mg",
-                "Ni",
-                "O",
-                "S",
-                "Si" ] ;
     ada:analyticalSubModeDefault "BF-STEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "N/A" ;
+    ada:edsAcquisitionModeDefault "Map" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "HRTEM lattice fringe imaging + FFT; EDS composition maps (no SAED; phase ID by d-spacings from HRTEM); phases identified: pentlandite, Fe-Ni-S, magnetite, serpentine, chrysotile, olivine, metallic Fe" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "N/A" ;
-    ada:stemDwellTimePerPixelDefault "50 µs (kept short to prevent beam damage)" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault "50 µs (kept short to prevent beam damage)" .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Successive scans accumulated until major element counts achieved 1% counting statistics" ;
@@ -11090,11 +10136,28 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
   ],
   "schema:name": "tem protocol — Xing2023",
   "schema:description": "Review paper — no original analytical data. Key points: (1) FIB is dominant sample prep method in NEPS; plasma cleaning recommended to reduce contamination. (2) Aberration-corrected HAADF-STEM enables atomic-resolution phase ID. (3) Cryo-TEM holder recommended for beam-sensitive samples (clay minerals, Fe-Mn oxyhydroxides). (4) EDS detection limit ~1000 ppm; EELS preferred for trace elements and valence state analysis. DOI: 10.1021/acsearthspacechem.2c00278",
+  "ada:edsQuantificationMethod": "EDS described as \"mostly semiquantitative\"; standard-based quantification (matched thickness/composition standard) achieves ~0.1% error; quantitative EDS rarely performed without standards",
+  "ada:phaseIdentificationMethod": "Reviews SAED; NBD (nanobeam diffraction); CBED; HRTEM + FFT; aberration-corrected HAADF-STEM + FFT (atomic-resolution phase ID)",
+  "ada:edsCalibrationStandardDefault": "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/edsDetectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsDetectionLimitDefault",
+      "schema:name": "EDS Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1000,
+      "schema:description": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements"
+    }
+  ],
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Ultramicrotomy",
+        "schema:description": "Review covers: FIB (described as most important method in NEPS); ultramicrotomy; Ar ion milling; powder dispersion on carbon-film grid",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -11114,40 +10177,12 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
       "schema:HowTo"
     ]
   },
-  "ada:edsQuantificationMethod": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
-  "ada:edsCalibrationStandardDefault": "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/edsDetectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "edsDetectionLimitDefault",
-      "schema:name": "EDS Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 1000,
-      "schema:description": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11282,9 +10317,9 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:spectroscopicDetectorDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -11320,11 +10355,28 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
   ],
   "schema:name": "tem protocol \u2014 Xing2023",
   "schema:description": "Review paper \u2014 no original analytical data. Key points: (1) FIB is dominant sample prep method in NEPS; plasma cleaning recommended to reduce contamination. (2) Aberration-corrected HAADF-STEM enables atomic-resolution phase ID. (3) Cryo-TEM holder recommended for beam-sensitive samples (clay minerals, Fe-Mn oxyhydroxides). (4) EDS detection limit ~1000 ppm; EELS preferred for trace elements and valence state analysis. DOI: 10.1021/acsearthspacechem.2c00278",
+  "ada:edsQuantificationMethod": "EDS described as \"mostly semiquantitative\"; standard-based quantification (matched thickness/composition standard) achieves ~0.1% error; quantitative EDS rarely performed without standards",
+  "ada:phaseIdentificationMethod": "Reviews SAED; NBD (nanobeam diffraction); CBED; HRTEM + FFT; aberration-corrected HAADF-STEM + FFT (atomic-resolution phase ID)",
+  "ada:edsCalibrationStandardDefault": "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/edsDetectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsDetectionLimitDefault",
+      "schema:name": "EDS Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1000,
+      "schema:description": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements"
+    }
+  ],
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Ultramicrotomy",
+        "schema:description": "Review covers: FIB (described as most important method in NEPS); ultramicrotomy; Ar ion milling; powder dispersion on carbon-film grid",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -11344,40 +10396,12 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
       "schema:HowTo"
     ]
   },
-  "ada:edsQuantificationMethod": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
-  "ada:edsCalibrationStandardDefault": "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/edsDetectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "edsDetectionLimitDefault",
-      "schema:name": "EDS Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 1000,
-      "schema:description": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11512,9 +10536,9 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:spectroscopicDetectorDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -11538,19 +10562,14 @@ ex:temTAPP-Xing2023 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Ultramicrotomy" ;
+                    schema1:description "Review covers: FIB (described as most important method in NEPS); ultramicrotomy; Ar ion milling; powder dispersion on carbon-film grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Review paper — no original analytical data. Key points: (1) FIB is dominant sample prep method in NEPS; plasma cleaning recommended to reduce contamination. (2) Aberration-corrected HAADF-STEM enables atomic-resolution phase ID. (3) Cryo-TEM holder recommended for beam-sensitive samples (clay minerals, Fe-Mn oxyhydroxides). (4) EDS detection limit ~1000 ppm; EELS preferred for trace elements and valence state analysis. DOI: 10.1021/acsearthspacechem.2c00278" ;
@@ -11564,16 +10583,16 @@ ex:temTAPP-Xing2023 a cdi:Activity,
     ada:convergenceSemiAngle -9999 ;
     ada:edsAcquisitionModeDefault "missing" ;
     ada:edsCalibrationStandardDefault "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error" ;
-    ada:edsQuantificationMethod "N/A" ;
+    ada:edsQuantificationMethod "EDS described as \"mostly semiquantitative\"; standard-based quantification (matched thickness/composition standard) achieves ~0.1% error; quantitative EDS rarely performed without standards" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "Reviews SAED; NBD (nanobeam diffraction); CBED; HRTEM + FFT; aberration-corrected HAADF-STEM + FFT (atomic-resolution phase ID)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "missing" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1000 ;
@@ -11663,7 +10682,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Seifert2026",
-  "schema:description": "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5–7 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping.",
+  "schema:description": "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5–7 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color RGB maps.",
   "schema:object": [
     {
       "@type": [
@@ -11685,7 +10704,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -11699,6 +10717,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:defaultValue": "FEI Quanta 3D FEG FIB-SEM at JSC; stair-step milling; in situ extraction; thinned to electron transparency (≤100 nm); techniques following Holzapfel et al. 2009, Seifert et al. 2022, Zega et al. 2007"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -11718,17 +10737,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -11869,7 +10877,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
   "ada:analyticalSubModeDefault": "BF-STEM",
-  "ada:edsAcquisitionModeDefault": "N/A",
+  "ada:edsAcquisitionModeDefault": "Map",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11897,31 +10905,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Ca",
-      "P",
-      "Na",
-      "Mn",
-      "O",
-      "Mg",
-      "Si",
-      "F",
-      "Cl",
-      "Fe"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -11932,8 +10915,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -11968,7 +10951,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Seifert2026",
-  "schema:description": "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5\u20137 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping.",
+  "schema:description": "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5\u20137 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color RGB maps.",
   "schema:object": [
     {
       "@type": [
@@ -11990,7 +10973,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -12004,6 +10986,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             "schema:defaultValue": "FEI Quanta 3D FEG FIB-SEM at JSC; stair-step milling; in situ extraction; thinned to electron transparency (\u2264100 nm); techniques following Holzapfel et al. 2009, Seifert et al. 2022, Zega et al. 2007"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -12023,17 +11006,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -12174,7 +11146,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
   "ada:analyticalSubModeDefault": "BF-STEM",
-  "ada:edsAcquisitionModeDefault": "N/A",
+  "ada:edsAcquisitionModeDefault": "Map",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -12202,31 +11174,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Ca",
-      "P",
-      "Na",
-      "Mn",
-      "O",
-      "Mg",
-      "Si",
-      "F",
-      "Cl",
-      "Fe"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -12237,8 +11184,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -12263,21 +11210,16 @@ ex:temTAPP-Seifert2026 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5–7 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping." ;
+    schema1:description "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5–7 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color RGB maps." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Electron Beam Analysis Laboratories, ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
@@ -12294,27 +11236,10 @@ ex:temTAPP-Seifert2026 a cdi:Activity,
             schema1:target [ schema1:description "Coordinated SEM-EMPA-TEM study of Bennu apatite; TEM provides nanoscale crystallographic and chemical characterization of FIB section from apatite cluster; SAED confirms single-crystal vs. polycrystalline nature" ;
                     schema1:name "SEM (JEOL 7600F + 7900F with Oxford EDS/EBSD/CL at JSC); EMPA (JEOL 8530 at JSC, 15 kV 20 nA 2 µm probe)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Ca",
-                "Cl",
-                "F",
-                "Fe",
-                "Mg",
-                "Mn",
-                "Na",
-                "O",
-                "P",
-                "Si" ] ;
     ada:analyticalSubModeDefault "BF-STEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "N/A" ;
+    ada:edsAcquisitionModeDefault "Map" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
@@ -12323,9 +11248,9 @@ ex:temTAPP-Seifert2026 a cdi:Activity,
     ada:eelsEnergyLossRangeDefault "missing" ;
     ada:phaseIdentificationMethod "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "N/A" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Quanta 3D FEG FIB-SEM at JSC; stair-step milling; in situ extraction; thinned to electron transparency (≤100 nm); techniques following Holzapfel et al. 2009, Seifert et al. 2022, Zega et al. 2007" ;
@@ -12422,7 +11347,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Seifert2026-2",
-  "schema:description": "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping.",
+  "schema:description": "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color maps.",
   "schema:object": [
     {
       "@type": [
@@ -12444,7 +11369,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -12458,6 +11382,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:defaultValue": "FEI Quanta 3D FEG FIB-SEM at JSC; stair-step milling; in situ extraction; thinned to electron transparency (≤100 nm); techniques following Holzapfel et al. 2009, Seifert et al. 2022, Zega et al. 2007"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -12477,17 +11402,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -12639,8 +11553,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
     }
   ],
   "ada:analyticalSubModeDefault": "BF-STEM",
-  "ada:edsAcquisitionModeDefault": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Map",
+  "ada:phaseIdentificationMethod": "SAED zone-axis patterns measured with Gatan DIFPack; compared to simulated diffraction patterns using SingleCrystal software package; confirms apatite single crystal (Ap.#1) and polycrystalline assemblage (Ap.#2)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -12668,31 +11582,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Ca",
-      "P",
-      "Na",
-      "Mn",
-      "O",
-      "Mg",
-      "Si",
-      "F",
-      "Cl",
-      "Fe"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -12702,8 +11591,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -12738,7 +11627,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Seifert2026-2",
-  "schema:description": "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping.",
+  "schema:description": "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color maps.",
   "schema:object": [
     {
       "@type": [
@@ -12760,7 +11649,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -12774,6 +11662,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             "schema:defaultValue": "FEI Quanta 3D FEG FIB-SEM at JSC; stair-step milling; in situ extraction; thinned to electron transparency (\u2264100 nm); techniques following Holzapfel et al. 2009, Seifert et al. 2022, Zega et al. 2007"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -12793,17 +11682,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -12955,8 +11833,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
     }
   ],
   "ada:analyticalSubModeDefault": "BF-STEM",
-  "ada:edsAcquisitionModeDefault": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Map",
+  "ada:phaseIdentificationMethod": "SAED zone-axis patterns measured with Gatan DIFPack; compared to simulated diffraction patterns using SingleCrystal software package; confirms apatite single crystal (Ap.#1) and polycrystalline assemblage (Ap.#2)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -12984,31 +11862,6 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Ca",
-      "P",
-      "Na",
-      "Mn",
-      "O",
-      "Mg",
-      "Si",
-      "F",
-      "Cl",
-      "Fe"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -13018,8 +11871,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -13042,23 +11895,18 @@ ex:temTAPP-Seifert2026-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping." ;
+    schema1:description "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1. Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color maps." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), Lunar and Planetary Laboratory, University of Arizona, Tucson, AZ, USA" ] ;
@@ -13075,38 +11923,21 @@ ex:temTAPP-Seifert2026-2 a cdi:Activity,
             schema1:target [ schema1:description "Coordinated SEM-EMPA-TEM study of Bennu apatite; TEM provides nanoscale crystallographic and chemical characterization of FIB section from apatite cluster; SAED confirms single-crystal vs. polycrystalline nature" ;
                     schema1:name "SEM (JEOL 7600F + 7900F with Oxford EDS/EBSD/CL at JSC); EMPA (JEOL 8530 at JSC, 15 kV 20 nA 2 µm probe)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Ca",
-                "Cl",
-                "F",
-                "Fe",
-                "Mg",
-                "Mn",
-                "Na",
-                "O",
-                "P",
-                "Si" ] ;
     ada:analyticalSubModeDefault "BF-STEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "N/A" ;
+    ada:edsAcquisitionModeDefault "Map" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "SAED zone-axis patterns measured with Gatan DIFPack; compared to simulated diffraction patterns using SingleCrystal software package; confirms apatite single crystal (Ap.#1) and polycrystalline assemblage (Ap.#2)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "N/A" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "SingleCrystal (CrystalMaker Software)" ;
             ada:toolRole "dataReduction" ],
         [ schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;
@@ -13208,7 +12039,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Cymes2023",
-  "schema:description": "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2₁/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N₂ and baked 140°C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning. Reported detail: ada:analyticalSubModeDefault = BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM; ada:phaseIdentificationMethod = SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization).",
+  "schema:description": "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2₁/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N₂ and baked 140°C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning. Reported detail: ada:analyticalSubModeDefault = BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM.",
   "schema:object": [
     {
       "@type": [
@@ -13230,7 +12061,6 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -13244,6 +12074,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:defaultValue": "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1–2 µm e-beam amorphous C protection strip; initial in situ thinning to ~1–2 µm, then Pt-welded to Cu TEM half-grid; thinned to ~80–100 nm; stored under N₂; baked 140°C for 8 h under vacuum before TEM"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -13254,18 +12085,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         "schema:position": 1
       },
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
         "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data Reduction",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
@@ -13286,7 +12106,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 2
       }
     ],
     "@type": [
@@ -13455,7 +12275,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:defaultValue": "100 nm (SAED aperture)"
     }
   ],
-  "ada:phaseIdentificationMethod": "CrystalMaker",
+  "ada:phaseIdentificationMethod": "SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13493,9 +12313,9 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:spectroscopicDetectorDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -13530,7 +12350,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Cymes2023",
-  "schema:description": "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2\u2081/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N\u2082 and baked 140\u00b0C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning. Reported detail: ada:analyticalSubModeDefault = BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM; ada:phaseIdentificationMethod = SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization).",
+  "schema:description": "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2\u2081/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N\u2082 and baked 140\u00b0C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning. Reported detail: ada:analyticalSubModeDefault = BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM.",
   "schema:object": [
     {
       "@type": [
@@ -13552,7 +12372,6 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -13566,6 +12385,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:defaultValue": "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1\u20132 \u00b5m e-beam amorphous C protection strip; initial in situ thinning to ~1\u20132 \u00b5m, then Pt-welded to Cu TEM half-grid; thinned to ~80\u2013100 nm; stored under N\u2082; baked 140\u00b0C for 8 h under vacuum before TEM"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -13576,18 +12396,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         "schema:position": 1
       },
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
         "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data Reduction",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
@@ -13608,7 +12417,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 2
       }
     ],
     "@type": [
@@ -13777,7 +12586,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:defaultValue": "100 nm (SAED aperture)"
     }
   ],
-  "ada:phaseIdentificationMethod": "CrystalMaker",
+  "ada:phaseIdentificationMethod": "SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13815,9 +12624,9 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:spectroscopicDetectorDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -13842,24 +12651,19 @@ ex:temTAPP-Cymes2023 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindowDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSizeDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2₁/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N₂ and baked 140°C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning. Reported detail: ada:analyticalSubModeDefault = BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM; ada:phaseIdentificationMethod = SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization)." ;
+    schema1:description "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2₁/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N₂ and baked 140°C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning. Reported detail: ada:analyticalSubModeDefault = BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
@@ -13886,11 +12690,11 @@ ex:temTAPP-Cymes2023 a cdi:Activity,
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "CrystalMaker" ;
+    ada:phaseIdentificationMethod "SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "missing" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "SingleCrystal (CrystalMaker Software, Ltd., Oxford, UK)" ;
             ada:toolRole "dataReduction" ] .
 
@@ -14031,7 +12835,6 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -14045,6 +12848,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:defaultValue": "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1–2 µm e-beam amorphous C protection strip; initial in situ thinning to ~1–2 µm, then Pt-welded to Cu TEM half-grid; thinned to ~80–100 nm; stored under N₂; baked 140°C for 8 h under vacuum before TEM"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -14064,17 +12868,6 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -14258,21 +13051,6 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:description": "Double-arctan continuum removal (for Fe L2,3 white-line integration)"
     },
     {
-      "@id": "ada:parameter/temTAPP/eelsEnergyResolution",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEnergyResolution"
-        }
-      ],
-      "schema:name": "EELS Energy Resolution",
-      "schema:value": 3,
-      "schema:unitText": "example value",
-      "schema:description": "Integral white-line intensity ratio I(L3)/I(L2) → Van Aken & Liebscher (2002) universal calibration curve for Fe³⁺/ΣFe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps"
-    },
-    {
       "@id": "ada:parameter/temTAPP/eelsEnergyCalibrationDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -14282,6 +13060,17 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe⁰); wüstite (FeO) powder (Fe²⁺); synthetic Fe³⁺-bearing glass (Fe³⁺); magnetite Fe₃O₄ (mixed Fe²⁺/Fe³⁺) — Burgess & Stroud (2018b)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsChemicalStateDeterminationMethodDefault",
+      "schema:name": "EELS Chemical State Determination Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Integral white-line intensity ratio I(L3)/I(L2) → Van Aken & Liebscher (2002) universal calibration curve for Fe³⁺/ΣFe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps"
     }
   ],
   "ada:edsAcquisitionModeDefault": "N/A",
@@ -14293,7 +13082,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
   "ada:eelsCollectionSemiAngle": "Power-law background removal",
   "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L2,3); O (K)",
   "ada:eelsEnergyLossRangeDefault": "Fe (L2,3); O (K)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe⁰ identified by anti-correlation with O K-edge and lattice fringe measurement in HR images",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -14321,34 +13110,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Ca",
-      "Mg",
-      "Fe",
-      "Si",
-      "O",
-      "Al",
-      "Ti"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -14405,7 +13172,6 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -14419,6 +13185,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             "schema:defaultValue": "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1\u20132 \u00b5m e-beam amorphous C protection strip; initial in situ thinning to ~1\u20132 \u00b5m, then Pt-welded to Cu TEM half-grid; thinned to ~80\u2013100 nm; stored under N\u2082; baked 140\u00b0C for 8 h under vacuum before TEM"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -14438,17 +13205,6 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -14632,21 +13388,6 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:description": "Double-arctan continuum removal (for Fe L2,3 white-line integration)"
     },
     {
-      "@id": "ada:parameter/temTAPP/eelsEnergyResolution",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/temTAPP/eelsEnergyResolution"
-        }
-      ],
-      "schema:name": "EELS Energy Resolution",
-      "schema:value": 3,
-      "schema:unitText": "example value",
-      "schema:description": "Integral white-line intensity ratio I(L3)/I(L2) \u2192 Van Aken & Liebscher (2002) universal calibration curve for Fe\u00b3\u207a/\u03a3Fe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps"
-    },
-    {
       "@id": "ada:parameter/temTAPP/eelsEnergyCalibrationDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -14656,6 +13397,17 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe\u2070); w\u00fcstite (FeO) powder (Fe\u00b2\u207a); synthetic Fe\u00b3\u207a-bearing glass (Fe\u00b3\u207a); magnetite Fe\u2083O\u2084 (mixed Fe\u00b2\u207a/Fe\u00b3\u207a) \u2014 Burgess & Stroud (2018b)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsChemicalStateDeterminationMethodDefault",
+      "schema:name": "EELS Chemical State Determination Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Integral white-line intensity ratio I(L3)/I(L2) \u2192 Van Aken & Liebscher (2002) universal calibration curve for Fe\u00b3\u207a/\u03a3Fe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps"
     }
   ],
   "ada:edsAcquisitionModeDefault": "N/A",
@@ -14667,7 +13419,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
   "ada:eelsCollectionSemiAngle": "Power-law background removal",
   "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L2,3); O (K)",
   "ada:eelsEnergyLossRangeDefault": "Fe (L2,3); O (K)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe\u2070 identified by anti-correlation with O K-edge and lattice fringe measurement in HR images",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -14695,34 +13447,12 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Ca",
-      "Mg",
-      "Fe",
-      "Si",
-      "O",
-      "Al",
-      "Ti"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -14745,24 +13475,19 @@ ex:temTAPP-Cymes2023-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
+                    schema1:description "FIB lift-out (Ga+)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibrationDefault>,
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibrationDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyDispersion>,
-        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
     schema1:datePublished "missing" ;
@@ -14783,20 +13508,6 @@ ex:temTAPP-Cymes2023-2 a cdi:Activity,
             schema1:target [ schema1:description "Fe oxidation state mapping and Fe³⁺/ΣFe quantification in exsolved lunar pyroxene (Apollo 17 soil) using STEM-EELS; MLLS and integral white-line ratio methods; coordinated HAADF-STEM + EDS for compositional mapping" ;
                     schema1:name "FIB (FEI Helios G3 Dual Beam at NRL); BF/EFTEM/SAED/HRTEM (JEOL JEM-2200FS at NRL; coordinated with Nion UltraSTEM200-X)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Al",
-                "Ca",
-                "Fe",
-                "Mg",
-                "O",
-                "Si",
-                "Ti" ] ;
     ada:analyticalSubModeDefault "ADF" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
@@ -14808,11 +13519,18 @@ ex:temTAPP-Cymes2023-2 a cdi:Activity,
     ada:eelsCollectionSemiAngle "Power-law background removal" ;
     ada:eelsEdgesDefault "Fe L2,3 edge (700–735 eV); O K-edge (528–550 eV)" ;
     ada:eelsEnergyLossRangeDefault "Fe (L2,3); O (K)" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe⁰ identified by anti-correlation with O K-edge and lattice fringe measurement in HR images" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "N/A" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Integral white-line intensity ratio I(L3)/I(L2) → Van Aken & Liebscher (2002) universal calibration curve for Fe³⁺/ΣFe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps" ;
+    schema1:name "EELS Chemical State Determination Method" ;
+    schema1:valueName "eelsChemicalStateDeterminationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibrationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe⁰); wüstite (FeO) powder (Fe²⁺); synthetic Fe³⁺-bearing glass (Fe³⁺); magnetite Fe₃O₄ (mixed Fe²⁺/Fe³⁺) — Burgess & Stroud (2018b)" ;
@@ -14916,13 +13634,6 @@ ex:temTAPP-Cymes2023-2 a cdi:Activity,
     schema1:unitText "example value" ;
     schema1:value 2 .
 
-<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> a schema1:PropertyValue ;
-    schema1:description "Integral white-line intensity ratio I(L3)/I(L2) → Van Aken & Liebscher (2002) universal calibration curve for Fe³⁺/ΣFe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps" ;
-    schema1:name "EELS Energy Resolution" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> ;
-    schema1:unitText "example value" ;
-    schema1:value 3 .
-
 
 ```
 
@@ -14948,7 +13659,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Mo2022",
-  "schema:description": "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis).",
+  "schema:description": "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis); ada:edsAcquisitionModeDefault = EDS chemical mapping (Fe distribution).",
   "schema:object": [
     {
       "@type": [
@@ -14970,7 +13681,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -14984,6 +13694,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:defaultValue": "FEI Scios Dual-beam FIB-SEM at Institute of Geochemistry, CAS (IGCAS), Guiyang; Wirth method (Wirth, 2009 Chem. Geol.); ultrathin foils <100 nm; characterized in sequence: FE-STEM → Auger nanoprobe → TEM-EELS; FIB foils cleaned with 1 keV Ar+ beam (PHI 710) before Auger and EELS analysis"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -15003,17 +13714,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -15153,8 +13853,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
   "ada:analyticalSubModeDefault": "BF-TEM",
-  "ada:edsAcquisitionModeDefault": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Map",
+  "ada:phaseIdentificationMethod": "FFT of DF image lattice fringes for phase ID (olivine d-spacings); EDS composition maps",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -15182,23 +13882,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "O"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -15208,8 +13891,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -15244,7 +13927,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Mo2022",
-  "schema:description": "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis).",
+  "schema:description": "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis); ada:edsAcquisitionModeDefault = EDS chemical mapping (Fe distribution).",
   "schema:object": [
     {
       "@type": [
@@ -15266,7 +13949,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -15280,6 +13962,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:defaultValue": "FEI Scios Dual-beam FIB-SEM at Institute of Geochemistry, CAS (IGCAS), Guiyang; Wirth method (Wirth, 2009 Chem. Geol.); ultrathin foils <100 nm; characterized in sequence: FE-STEM \u2192 Auger nanoprobe \u2192 TEM-EELS; FIB foils cleaned with 1 keV Ar+ beam (PHI 710) before Auger and EELS analysis"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -15299,17 +13982,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -15449,8 +14121,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   ],
   "ada:spectroscopicDetectorDefault": "N/A",
   "ada:analyticalSubModeDefault": "BF-TEM",
-  "ada:edsAcquisitionModeDefault": "N/A",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:edsAcquisitionModeDefault": "Map",
+  "ada:phaseIdentificationMethod": "FFT of DF image lattice fringes for phase ID (olivine d-spacings); EDS composition maps",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -15478,23 +14150,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "O"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -15504,8 +14159,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -15529,22 +14184,17 @@ ex:temTAPP-Mo2022 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis)." ;
+    schema1:description "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis); ada:edsAcquisitionModeDefault = EDS chemical mapping (Fe distribution)." ;
     schema1:instrument <https://example.org/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Suzhou Institute of Nano-tech and Nano-bionics (SINANO), Chinese Academy of Sciences, Suzhou, China" ] ;
@@ -15561,30 +14211,21 @@ ex:temTAPP-Mo2022 a cdi:Activity,
             schema1:target [ schema1:description "Nanoscale characterization of Fe-bearing phases in Chang'E-5 lunar soil; HAADF-STEM + EDS for phase morphology and composition mapping; coordinated with Auger (surface Fe valence) and EELS (bulk Fe valence)" ;
                     schema1:name "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); Auger electron spectroscopy (PHI 700/710 scanning Auger nanoprobe at Tsinghua University); TEM-EELS (Hitachi HF5000 at Shanghai Institute of Ceramics CAS; coordinated)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Fe",
-                "O" ] ;
     ada:analyticalSubModeDefault "BF-TEM" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "N/A" ;
+    ada:edsAcquisitionModeDefault "Map" ;
     ada:edsCalibrationStandardDefault "missing" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "FFT of DF image lattice fringes for phase ID (olivine d-spacings); EDS composition maps" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "N/A" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Scios Dual-beam FIB-SEM at Institute of Geochemistry, CAS (IGCAS), Guiyang; Wirth method (Wirth, 2009 Chem. Geol.); ultrathin foils <100 nm; characterized in sequence: FE-STEM → Auger nanoprobe → TEM-EELS; FIB foils cleaned with 1 keV Ar+ beam (PHI 710) before Auger and EELS analysis" ;
@@ -15702,7 +14343,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -15716,6 +14356,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:defaultValue": "FEI Scios Dual-beam FIB-SEM at Institute of Geochemistry, CAS (IGCAS), Guiyang; Wirth method (Wirth, 2009 Chem. Geol.); ultrathin foils <100 nm; characterized in sequence: FE-STEM → Auger nanoprobe → TEM-EELS; FIB foils cleaned with 1 keV Ar+ beam (PHI 710) before Auger and EELS analysis"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -15735,17 +14376,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -15909,8 +14539,20 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         }
       ],
       "schema:name": "EELS Energy Resolution",
-      "schema:value": "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe⁰, Fe²⁺, Fe³⁺)",
-      "schema:unitText": "example value"
+      "schema:value": 0.5,
+      "schema:unitText": "example value",
+      "schema:description": "0.5–0.7"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsChemicalStateDeterminationMethodDefault",
+      "schema:name": "EELS Chemical State Determination Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe⁰, Fe²⁺, Fe³⁺)"
     }
   ],
   "ada:eelsAcquisitionModeDefault": "Line scan",
@@ -15919,7 +14561,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   ],
   "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
   "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "EELS peak position and lineshape comparison to reference spectra; qualitative valence state ID (np-Fe0 = metallic; matrix = Fe³⁺; olivine = Fe²⁺)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -15947,22 +14589,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsAcquisitionModeDefault": "missing",
@@ -15970,8 +14596,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   "ada:edsQuantificationMethod": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -16028,7 +14654,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -16042,6 +14667,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             "schema:defaultValue": "FEI Scios Dual-beam FIB-SEM at Institute of Geochemistry, CAS (IGCAS), Guiyang; Wirth method (Wirth, 2009 Chem. Geol.); ultrathin foils <100 nm; characterized in sequence: FE-STEM \u2192 Auger nanoprobe \u2192 TEM-EELS; FIB foils cleaned with 1 keV Ar+ beam (PHI 710) before Auger and EELS analysis"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -16061,17 +14687,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -16235,8 +14850,20 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         }
       ],
       "schema:name": "EELS Energy Resolution",
-      "schema:value": "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe\u2070, Fe\u00b2\u207a, Fe\u00b3\u207a)",
-      "schema:unitText": "example value"
+      "schema:value": 0.5,
+      "schema:unitText": "example value",
+      "schema:description": "0.5\u20130.7"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsChemicalStateDeterminationMethodDefault",
+      "schema:name": "EELS Chemical State Determination Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe\u2070, Fe\u00b2\u207a, Fe\u00b3\u207a)"
     }
   ],
   "ada:eelsAcquisitionModeDefault": "Line scan",
@@ -16245,7 +14872,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   ],
   "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
   "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "EELS peak position and lineshape comparison to reference spectra; qualitative valence state ID (np-Fe0 = metallic; matrix = Fe\u00b3\u207a; olivine = Fe\u00b2\u207a)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -16273,22 +14900,6 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsAcquisitionModeDefault": "missing",
@@ -16296,8 +14907,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   "ada:edsQuantificationMethod": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -16322,20 +14933,16 @@ ex:temTAPP-Mo2022-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "FIB lift-out (Ga) + ion mill" ;
+                    schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data Reduction" ;
-                    schema1:position 3 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution>,
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Hitachi HF5000 at Shanghai Institute of Ceramics CAS; 200 kV; 100 pA; Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer. Energy resolution: 0.5–0.7 eV FWHM at ZLP. Fe L3,2 edge: L3 peak positions 707.7 eV (Fe⁰), 707.2 eV (Fe²⁺), 709.0 eV (Fe³⁺). EELS acquired in DualEELS mode; 10 s point analysis, 18 s line scan. Reference standards: Fe metal + troilite (L6 ordinary chondrite GRV051874) for Fe⁰/Fe²⁺; terrestrial hematite for Fe³⁺; wüstite and hematite from Yao et al. 2018 (AES refs). ZLP aligned before spectral comparison. Background and continuum removal methods not stated. Valence state ID is qualitative (peak position + lineshape). Coordinated with FEI Talos F200X (EDS at SINANO) and PHI 700/710 Auger nanoprobe. Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan; ada:eelsAcquisitionModeDefault = Point analysis and line scan EELS." ;
@@ -16355,14 +14962,6 @@ ex:temTAPP-Mo2022-2 a cdi:Activity,
             schema1:target [ schema1:description "In situ Fe valence state analysis in Chang'E-5 lunar soil by TEM-EELS; Fe L3,2 edge peak position and lineshape comparison to reference standards (Fe⁰, Fe²⁺, Fe³⁺); point analysis and line scan" ;
                     schema1:name "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); HAADF-STEM + EDS (FEI Talos F200X at SINANO CAS; coordinated); Auger electron spectroscopy (PHI 700/710 at Tsinghua University)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ] ;
-            ada:defaultAnalytes "Fe" ] ;
     ada:analyticalSubModeDefault "ADF" ;
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
@@ -16374,11 +14973,18 @@ ex:temTAPP-Mo2022-2 a cdi:Activity,
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEdgesDefault "Fe L3,2 edge (~707–709 eV; L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺)" ;
     ada:eelsEnergyLossRangeDefault "Fe (L3,2)" ;
-    ada:phaseIdentificationMethod "N/A" ;
+    ada:phaseIdentificationMethod "EELS peak position and lineshape comparison to reference spectra; qualitative valence state ID (np-Fe0 = metallic; matrix = Fe³⁺; olivine = Fe²⁺)" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:spectroscopicDetectorDefault "N/A" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:stemDwellTimePerPixelDefault -9999 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe⁰, Fe²⁺, Fe³⁺)" ;
+    schema1:name "EELS Chemical State Determination Method" ;
+    schema1:valueName "eelsChemicalStateDeterminationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Scios Dual-beam FIB-SEM at Institute of Geochemistry, CAS (IGCAS), Guiyang; Wirth method (Wirth, 2009 Chem. Geol.); ultrathin foils <100 nm; characterized in sequence: FE-STEM → Auger nanoprobe → TEM-EELS; FIB foils cleaned with 1 keV Ar+ beam (PHI 710) before Auger and EELS analysis" ;
@@ -16458,10 +15064,11 @@ ex:temTAPP-Mo2022-2 a cdi:Activity,
     schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> a schema1:PropertyValue ;
+    schema1:description "0.5–0.7" ;
     schema1:name "EELS Energy Resolution" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution> ;
     schema1:unitText "example value" ;
-    schema1:value "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe⁰, Fe²⁺, Fe³⁺)" .
+    schema1:value 5e-01 .
 
 
 ```
@@ -16475,11 +15082,11 @@ description: 'Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extens
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] entries;
   an ada:analyteTemplate carries per-element columns. Generated from tapp/Current
-  TAPPs/TEM_TAPP_v22.csv by tools/build_tapp.py.'
+  TAPPs/TEM_TAPP_v48.csv by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - type: object
@@ -16515,20 +15122,18 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyse. Used for discoverability
-                              and procedure matching, and because the material type
-                              constrains sample preparation, calibration and matrix-matching
-                              requirements.
+                              this procedure is designed to analyse.
                             anyOf:
                             - type: string
                               enum:
                               - Silicate mineral
+                              - Silicate glass
                               - Oxide
                               - Sulfide
                               - Carbonate
                               - Phosphate
-                              - Metal alloy
-                              - Organic matter / IOM
+                              - Metal or alloy
+                              - Organic matter
                               - Amorphous phase
                               - Nanoparticle
                               - N/A
@@ -16544,7 +15149,7 @@ allOf:
                     required:
                     - schema:name
                 - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
       allOf:
@@ -16571,42 +15176,6 @@ allOf:
                 - schema:name
               then:
                 properties:
-                  schema:description:
-                    description: Primary method by which electron-transparent sections
-                      are prepared from the sample. The procedure documents the standard
-                      approach; analysts record session-specific details and deviations
-                      in Sample Preparation Details.
-                    anyOf:
-                    - type: string
-                      enum:
-                      - FIB lift-out (Ga ion)
-                      - FIB lift-out (Xe plasma)
-                      - FIB lift-out (Ga) + ion mill
-                      - Ultramicrotomy
-                      - Crushing / dispersion on grid
-                      - Ion milling (non-FIB)
-                      - Electropolishing
-                      - Unknown
-                      - N/A
-                      - None
-                      - missing
-                      readOnly: true
-                    - type: array
-                      items:
-                        type: string
-                        enum:
-                        - FIB lift-out (Ga ion)
-                        - FIB lift-out (Xe plasma)
-                        - FIB lift-out (Ga) + ion mill
-                        - Ultramicrotomy
-                        - Crushing / dispersion on grid
-                        - Ion milling (non-FIB)
-                        - Electropolishing
-                        - Unknown
-                        - N/A
-                        - None
-                        - missing
-                        readOnly: true
                   schema:additionalProperty:
                     type: array
                     items:
@@ -16620,9 +15189,9 @@ allOf:
                         NanoMill, final 0.5\u20132 kV Ga+ thinning); sample transfer
                         and storage environment (ambient air, dry N\u2082 atmosphere,
                         vacuum transfer holder, glovebox); plasma cleaning before
-                        loading. Analysts record session-specific observations and
-                        deviations from the procedure standard. Includes preparation
-                        artifacts noted (Ga implantation, amorphization, curtaining)."
+                        loading. Includes session-specific observations and deviations
+                        from the procedure standard. Includes preparation artifacts
+                        noted (Ga implantation, amorphization, curtaining)."
                       type: object
                       properties:
                         '@id':
@@ -16661,10 +15230,10 @@ allOf:
                           Ar+ ion polishing in a Fischione NanoMill, final 0.5\u20132
                           kV Ga+ thinning); sample transfer and storage environment
                           (ambient air, dry N\u2082 atmosphere, vacuum transfer holder,
-                          glovebox); plasma cleaning before loading. Analysts record
-                          session-specific observations and deviations from the procedure
-                          standard. Includes preparation artifacts noted (Ga implantation,
-                          amorphization, curtaining)."
+                          glovebox); plasma cleaning before loading. Includes session-specific
+                          observations and deviations from the procedure standard.
+                          Includes preparation artifacts noted (Ga implantation, amorphization,
+                          curtaining)."
                         type: object
                         properties:
                           '@id':
@@ -16696,7 +15265,7 @@ allOf:
             - if:
                 properties:
                   schema:name:
-                    const: Data Reduction
+                    const: Data reduction
                 required:
                 - schema:name
               then:
@@ -16708,9 +15277,8 @@ allOf:
                       - title: EELS Plural Scattering Correction
                         description: Method applied to correct for multiple inelastic
                           scattering events (plural scattering) that broaden edge
-                          fine structure. Critical for specimens thicker than ~0.5
-                          inelastic mean free paths. Record 'N/A' where EELS is not
-                          listed in Spectroscopic Detector(s).
+                          fine structure. Record 'N/A' where EELS is not listed in
+                          Spectroscopic Detector(s).
                         type: object
                         properties:
                           '@id':
@@ -16768,14 +15336,15 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
                         title: EELS Plural Scattering Correction
                         description: Method applied to correct for multiple inelastic
                           scattering events (plural scattering) that broaden edge
-                          fine structure. Critical for specimens thicker than ~0.5
-                          inelastic mean free paths. Record 'N/A' where EELS is not
-                          listed in Spectroscopic Detector(s).
+                          fine structure. Record 'N/A' where EELS is not listed in
+                          Spectroscopic Detector(s).
                         type: object
                         properties:
                           '@id':
@@ -16838,21 +15407,6 @@ allOf:
                         - ada:fieldScope
                       minContains: 0
                       maxContains: 1
-            - if:
-                properties:
-                  schema:name:
-                    const: Data reduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                    allOf:
                     - contains:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       minContains: 0
@@ -16862,12 +15416,6 @@ allOf:
                       minContains: 0
                       maxContains: 1
           allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Sample preparation
-              required:
-              - schema:name
           - contains:
               properties:
                 schema:name:
@@ -16894,10 +15442,10 @@ allOf:
                 properties:
                   schema:name:
                     description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
+                      measurement, recorded as a controlled value. Where a procedure
+                      couples a sample-introduction system to an analysing instrument,
+                      this records the analysing instrument. Instrument Model gives
+                      the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -16944,6 +15492,7 @@ allOf:
                             - Cold-FEG
                             - Schottky FEG (X-FEG)
                             - Schottky FEG (standard)
+                            - "Field emission gun (FEG) \u2014 subtype not specified"
                             - LaB6 / CeB6
                             - Tungsten (W)
                             - Unknown
@@ -16958,6 +15507,7 @@ allOf:
                               - Cold-FEG
                               - Schottky FEG (X-FEG)
                               - Schottky FEG (standard)
+                              - "Field emission gun (FEG) \u2014 subtype not specified"
                               - LaB6 / CeB6
                               - Tungsten (W)
                               - Unknown
@@ -16976,10 +15526,8 @@ allOf:
                     then:
                       properties:
                         schema:description:
-                          description: "Type of aberration corrector installed and
-                            active. Probe Cs-correction enables sub-\xC5 STEM resolution
-                            and improved analytical signal; image Cs-correction reduces
-                            delocalization artifacts in HRTEM."
+                          description: Type of aberration corrector installed and
+                            active.
                           anyOf:
                           - type: string
                             enum:
@@ -17019,8 +15567,7 @@ allOf:
                       properties:
                         schema:description:
                           description: Whether a monochromator is installed and was
-                            active during this procedure. Relevant for EELS energy
-                            resolution and EFTEM performance. Record 'N/A' where EELS
+                            active during this procedure. Record 'N/A' where EELS
                             is not listed in Spectroscopic Detector(s) and EFTEM is
                             not listed in Analytical Sub-mode.
                           anyOf:
@@ -17058,9 +15605,10 @@ allOf:
                       properties:
                         schema:description:
                           description: EDS detector type, manufacturer, number of
-                            detector elements, active solid angle, and window type.
-                            Record 'N/A' where EDS is not listed in Spectroscopic
-                            Detector(s).
+                            detector elements, active area and solid angle, window
+                            type, and geometry (take-off angle, position). List multiple
+                            detectors separately. Record 'N/A' where the procedure
+                            has no EDS detector.
                           anyOf:
                           - type: string
                             readOnly: true
@@ -17161,12 +15709,8 @@ allOf:
                     required:
                     - schema:additionalType
               ada:acceleratingVoltageDefault:
-                description: "Electron beam accelerating voltage in kilovolts (kV).
-                  For beam-sensitive materials (organic matter, phyllosilicates),
-                  60\u201380 kV may be used to stay below the displacement threshold
-                  for C, N, O, and S. The procedure specifies the standard operating
-                  voltage; analysts record and justify deviations. Key parameter for
-                  the beam damage regime."
+                description: Electron beam accelerating voltage in kilovolts (kV).
+                  Justify any deviation from the standard operating voltage.
                 anyOf:
                 - type: number
                 - type: string
@@ -17175,10 +15719,7 @@ allOf:
                 items:
                   title: TEM Objective Aperture
                   description: Objective aperture diameter used to select the imaging
-                    beam condition in TEM mode. In BF-TEM, a small aperture blocks
-                    diffracted beams to enhance mass-thickness contrast; in DF-TEM,
-                    the aperture is displaced to select a specific diffracted beam;
-                    in HRTEM, no aperture is typically used.
+                    beam condition in TEM mode.
                   type: object
                   properties:
                     '@id':
@@ -17209,10 +15750,7 @@ allOf:
                 - contains:
                     title: TEM Objective Aperture
                     description: Objective aperture diameter used to select the imaging
-                      beam condition in TEM mode. In BF-TEM, a small aperture blocks
-                      diffracted beams to enhance mass-thickness contrast; in DF-TEM,
-                      the aperture is displaced to select a specific diffracted beam;
-                      in HRTEM, no aperture is typically used.
+                      beam condition in TEM mode.
                     type: object
                     properties:
                       '@id':
@@ -17255,9 +15793,7 @@ allOf:
       items:
         anyOf:
         - title: Sample Holder
-          description: Type of specimen holder used. Cryo holders (liquid N2 to ~110
-            K) are critical for minimizing beam-induced damage to organic matter and
-            beam-sensitive phases. Heating holders enable in-situ experiments.
+          description: Type of specimen holder used.
           type: object
           properties:
             '@id':
@@ -17316,12 +15852,8 @@ allOf:
           - ada:fieldScope
         - title: HAADF Collection Angles
           description: Inner and outer collection angles of the HAADF detector in
-            milliradians (mrad). The inner angle determines the boundary between diffracted
-            and thermally diffuse scattered electrons; larger inner angles yield stronger
-            Z-contrast and reduced Bragg contrast. Inner angle is most critical and
-            can be derived from camera length and detector geometry. In HAADF-STEM
-            a shorter camera length increases the inner angle, yielding more thermally
-            diffuse (Z-contrast) and less Bragg-diffraction signal.
+            milliradians (mrad). Inner angle can be derived from camera length and
+            detector geometry.
           type: object
           properties:
             '@id':
@@ -17350,12 +15882,11 @@ allOf:
           - ada:fieldScope
         - title: STEM Probe Diameter
           description: 'Nominal or measured diameter of the focused electron probe
-            at the sample, reported in nm. Serves as a direct spatial resolution proxy
-            for STEM imaging and STEM-EDS/EELS analysis. Related to, but distinct
-            from, Convergence Semi-Angle: the two quantities are connected via aberration
-            coefficients, defocus, and probe current, which are not always published.
-            Report whichever is known; if both are known, report both fields. Also
-            governs STEM-EDS and STEM-EELS acquisition where those detectors are used.'
+            at the sample, reported in nm. Related to, but distinct from, Convergence
+            Semi-Angle: the two quantities are connected via aberration coefficients,
+            defocus, and probe current, which are not always published. Report whichever
+            is known; if both are known, report both fields. Also governs STEM-EDS
+            and STEM-EELS acquisition where those detectors are used.'
           type: object
           properties:
             '@id':
@@ -17385,10 +15916,8 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - title: STEM Probe Current
-          description: Probe current in picoamperes (pA) or nanoamperes (nA). Higher
-            current improves EDS/EELS signal but increases beam damage risk, especially
-            for organic matter and hydrous minerals. Also governs STEM-EDS and STEM-EELS
-            acquisition where those detectors are used.
+          description: Probe current in picoamperes (pA) or nanoamperes (nA). Also
+            governs STEM-EDS and STEM-EELS acquisition where those detectors are used.
           type: object
           properties:
             '@id':
@@ -17419,8 +15948,8 @@ allOf:
           - ada:fieldScope
         - title: STEM Scan Dimensions
           description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels).
-            Combined with calibrated pixel size, defines the field of view. Also governs
-            STEM-EDS and STEM-EELS acquisition where those detectors are used."
+            Also governs STEM-EDS and STEM-EELS acquisition where those detectors
+            are used."
           type: object
           properties:
             '@id':
@@ -17451,9 +15980,8 @@ allOf:
           - ada:fieldScope
         - title: STEM Frame Averaging
           description: Number of frames averaged (with drift correction if applicable)
-            to produce the final STEM image. Averaging reduces noise while limiting
-            per-frame dose. Also governs STEM-EDS and STEM-EELS acquisition where
-            those detectors are used.
+            to produce the final STEM image. Also governs STEM-EDS and STEM-EELS acquisition
+            where those detectors are used.
           type: object
           properties:
             '@id':
@@ -17511,10 +16039,8 @@ allOf:
           - ada:fieldScope
         - title: Precession Angle
           description: Precession semi-angle in degrees for precession electron diffraction
-            (PED). Hollow-cone illumination reduces dynamical diffraction effects
-            and produces more kinematical-like intensities. Not applicable to SAED,
-            CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed
-            in Analytical Sub-mode.
+            (PED). Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A'
+            where Precession ED is not listed in Analytical Sub-mode.
           type: object
           properties:
             '@id':
@@ -17576,11 +16102,8 @@ allOf:
           - ada:fieldScope
         - title: 4D-STEM Dwell Time per Probe Position
           description: Time spent acquiring each diffraction pattern in the 4D-STEM
-            dataset in milliseconds. Longer dwell improves signal-to-noise for weakly
-            diffracting phases (e.g., smectite 001 reflection at ~1.24 nm) but increases
-            total specimen dose; risk of beam damage to phyllosilicates and organic
-            matter must be balanced against data quality. Record 'N/A' where 4D-STEM
-            is not listed in Analytical Sub-mode.
+            dataset in milliseconds. Record 'N/A' where 4D-STEM is not listed in Analytical
+            Sub-mode.
           type: object
           properties:
             '@id':
@@ -17704,9 +16227,7 @@ allOf:
           - ada:fieldScope
         - title: EELS Energy Dispersion
           description: Energy dispersion of the EELS spectrometer in eV per channel.
-            Controls the energy range acquired per readout and the effective energy
-            resolution trade-off. Record 'N/A' where EELS is not listed in Spectroscopic
-            Detector(s).
+            Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -17735,10 +16256,8 @@ allOf:
           readOnly: true
         - title: EELS Energy Resolution
           description: Full-width at half-maximum (FWHM) of the zero-loss peak in
-            eV, measured at operating conditions. Reflects combined electron source
-            energy spread and monochromator effect (if active). Critical for ELNES
-            fine-structure interpretation. Record 'N/A' where EELS is not listed in
-            Spectroscopic Detector(s).
+            eV, measured at operating conditions. Record 'N/A' where EELS is not listed
+            in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -17819,8 +16338,7 @@ allOf:
           - schema:value
           readOnly: true
         - title: Specimen Thickness Determination Method
-          description: Method used to estimate TEM foil thickness. Required for EELS
-            quantification (log-ratio) and for assessing multiple-scattering severity.
+          description: Method used to estimate TEM foil thickness.
           type: object
           properties:
             '@id':
@@ -17849,9 +16367,7 @@ allOf:
           - ada:fieldScope
         - title: EELS Energy Calibration
           description: Method and reference used to calibrate the EELS energy axis.
-            Accurate calibration is required for ELNES edge identification, chemical-state
-            analysis, and inter-lab comparability. Record 'N/A' where EELS is not
-            listed in Spectroscopic Detector(s).
+            Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -17974,12 +16490,42 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: EELS Chemical State Determination Method
+          description: Method used to determine the chemical or oxidation state of
+            an element from the fine structure of its ionization edge (ELNES), together
+            with the reference data or calibration the determination relies on. Name
+            the method family and cite the calibration curve or reference spectra
+            used. Record 'N/A' where no chemical-state determination is made.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: eelsChemicalStateDeterminationMethodDefault
+            schema:name:
+              const: EELS Chemical State Determination Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
       - contains:
           title: Sample Holder
-          description: Type of specimen holder used. Cryo holders (liquid N2 to ~110
-            K) are critical for minimizing beam-induced damage to organic matter and
-            beam-sensitive phases. Heating holders enable in-situ experiments.
+          description: Type of specimen holder used.
           type: object
           properties:
             '@id':
@@ -18044,12 +16590,8 @@ allOf:
       - contains:
           title: HAADF Collection Angles
           description: Inner and outer collection angles of the HAADF detector in
-            milliradians (mrad). The inner angle determines the boundary between diffracted
-            and thermally diffuse scattered electrons; larger inner angles yield stronger
-            Z-contrast and reduced Bragg contrast. Inner angle is most critical and
-            can be derived from camera length and detector geometry. In HAADF-STEM
-            a shorter camera length increases the inner angle, yielding more thermally
-            diffuse (Z-contrast) and less Bragg-diffraction signal.
+            milliradians (mrad). Inner angle can be derived from camera length and
+            detector geometry.
           type: object
           properties:
             '@id':
@@ -18081,12 +16623,11 @@ allOf:
       - contains:
           title: STEM Probe Diameter
           description: 'Nominal or measured diameter of the focused electron probe
-            at the sample, reported in nm. Serves as a direct spatial resolution proxy
-            for STEM imaging and STEM-EDS/EELS analysis. Related to, but distinct
-            from, Convergence Semi-Angle: the two quantities are connected via aberration
-            coefficients, defocus, and probe current, which are not always published.
-            Report whichever is known; if both are known, report both fields. Also
-            governs STEM-EDS and STEM-EELS acquisition where those detectors are used.'
+            at the sample, reported in nm. Related to, but distinct from, Convergence
+            Semi-Angle: the two quantities are connected via aberration coefficients,
+            defocus, and probe current, which are not always published. Report whichever
+            is known; if both are known, report both fields. Also governs STEM-EDS
+            and STEM-EELS acquisition where those detectors are used.'
           type: object
           properties:
             '@id':
@@ -18119,10 +16660,8 @@ allOf:
         maxContains: 1
       - contains:
           title: STEM Probe Current
-          description: Probe current in picoamperes (pA) or nanoamperes (nA). Higher
-            current improves EDS/EELS signal but increases beam damage risk, especially
-            for organic matter and hydrous minerals. Also governs STEM-EDS and STEM-EELS
-            acquisition where those detectors are used.
+          description: Probe current in picoamperes (pA) or nanoamperes (nA). Also
+            governs STEM-EDS and STEM-EELS acquisition where those detectors are used.
           type: object
           properties:
             '@id':
@@ -18156,8 +16695,8 @@ allOf:
       - contains:
           title: STEM Scan Dimensions
           description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels).
-            Combined with calibrated pixel size, defines the field of view. Also governs
-            STEM-EDS and STEM-EELS acquisition where those detectors are used."
+            Also governs STEM-EDS and STEM-EELS acquisition where those detectors
+            are used."
           type: object
           properties:
             '@id':
@@ -18191,9 +16730,8 @@ allOf:
       - contains:
           title: STEM Frame Averaging
           description: Number of frames averaged (with drift correction if applicable)
-            to produce the final STEM image. Averaging reduces noise while limiting
-            per-frame dose. Also governs STEM-EDS and STEM-EELS acquisition where
-            those detectors are used.
+            to produce the final STEM image. Also governs STEM-EDS and STEM-EELS acquisition
+            where those detectors are used.
           type: object
           properties:
             '@id':
@@ -18257,10 +16795,8 @@ allOf:
       - contains:
           title: Precession Angle
           description: Precession semi-angle in degrees for precession electron diffraction
-            (PED). Hollow-cone illumination reduces dynamical diffraction effects
-            and produces more kinematical-like intensities. Not applicable to SAED,
-            CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed
-            in Analytical Sub-mode.
+            (PED). Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A'
+            where Precession ED is not listed in Analytical Sub-mode.
           type: object
           properties:
             '@id':
@@ -18328,11 +16864,8 @@ allOf:
       - contains:
           title: 4D-STEM Dwell Time per Probe Position
           description: Time spent acquiring each diffraction pattern in the 4D-STEM
-            dataset in milliseconds. Longer dwell improves signal-to-noise for weakly
-            diffracting phases (e.g., smectite 001 reflection at ~1.24 nm) but increases
-            total specimen dose; risk of beam damage to phyllosilicates and organic
-            matter must be balanced against data quality. Record 'N/A' where 4D-STEM
-            is not listed in Analytical Sub-mode.
+            dataset in milliseconds. Record 'N/A' where 4D-STEM is not listed in Analytical
+            Sub-mode.
           type: object
           properties:
             '@id':
@@ -18468,9 +17001,7 @@ allOf:
       - contains:
           title: EELS Energy Dispersion
           description: Energy dispersion of the EELS spectrometer in eV per channel.
-            Controls the energy range acquired per readout and the effective energy
-            resolution trade-off. Record 'N/A' where EELS is not listed in Spectroscopic
-            Detector(s).
+            Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -18502,10 +17033,8 @@ allOf:
       - contains:
           title: EELS Energy Resolution
           description: Full-width at half-maximum (FWHM) of the zero-loss peak in
-            eV, measured at operating conditions. Reflects combined electron source
-            energy spread and monochromator effect (if active). Critical for ELNES
-            fine-structure interpretation. Record 'N/A' where EELS is not listed in
-            Spectroscopic Detector(s).
+            eV, measured at operating conditions. Record 'N/A' where EELS is not listed
+            in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -18595,8 +17124,7 @@ allOf:
         maxContains: 1
       - contains:
           title: Specimen Thickness Determination Method
-          description: Method used to estimate TEM foil thickness. Required for EELS
-            quantification (log-ratio) and for assessing multiple-scattering severity.
+          description: Method used to estimate TEM foil thickness.
           type: object
           properties:
             '@id':
@@ -18628,9 +17156,7 @@ allOf:
       - contains:
           title: EELS Energy Calibration
           description: Method and reference used to calibrate the EELS energy axis.
-            Accurate calibration is required for ELNES edge identification, chemical-state
-            analysis, and inter-lab comparability. Record 'N/A' where EELS is not
-            listed in Spectroscopic Detector(s).
+            Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
           type: object
           properties:
             '@id':
@@ -18764,6 +17290,41 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
+      - contains:
+          title: EELS Chemical State Determination Method
+          description: Method used to determine the chemical or oxidation state of
+            an element from the fine structure of its ionization edge (ELNES), together
+            with the reference data or calibration the determination relies on. Name
+            the method family and cite the calibration curve or reference spectra
+            used. Record 'N/A' where no chemical-state determination is made.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: eelsChemicalStateDeterminationMethodDefault
+            schema:name:
+              const: EELS Chemical State Determination Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     ada:spectroscopicDetectorDefault:
       description: Spectroscopic detectors present and used under this procedure.
         EDS and EELS parameter fields in Group 4 apply only when the corresponding
@@ -18805,42 +17366,37 @@ allOf:
         required:
         - ada:toolRole
     ada:analyticalSubModeDefault:
-      description: 'Sub-mode(s) of imaging or diffraction performed under this procedure.
-        TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM. STEM Imaging options: HAADF,
-        ABF, BF-STEM, ADF, MAADF. Electron Diffraction options: SAED, CBED, Nanobeam
-        diffraction, Precession ED, 4D-STEM. Multiple values apply when the procedure
-        covers more than one sub-mode within a given analytical mode.'
-      type: string
-      enum:
-      - BF-TEM
-      - DF-TEM
-      - HRTEM
-      - EFTEM (TEM Imaging); HAADF
-      - ABF
-      - BF-STEM
-      - ADF
-      - MAADF (STEM Imaging); SAED
-      - CBED
-      - Nanobeam diffraction
-      - Precession ED
-      - 4D-STEM (Electron Diffraction)
-      - N/A
-      - None
-      - missing
+      description: Sub-mode(s) of imaging or diffraction performed under this procedure.
+        Multiple values apply when the procedure covers more than one sub-mode within
+        a given analytical mode.
+      anyOf:
+      - type: string
+        enum:
+        - BF-TEM
+        - DF-TEM
+        - HRTEM
+        - EFTEM (TEM Imaging); HAADF
+        - ABF
+        - BF-STEM
+        - ADF
+        - MAADF (STEM Imaging); SAED
+        - CBED
+        - Nanobeam diffraction
+        - Precession ED
+        - 4D-STEM (Electron Diffraction)
+        - N/A
+        - None
+        - missing
+      - type: string
     ada:convergenceSemiAngle:
-      description: Semi-angle of the converged electron probe in milliradians. Controls
-        probe size (smaller angle = larger probe but less coherent), depth of field,
-        and in 4D-STEM, the size of diffraction discs vs. spatial resolution. For
-        near-parallel-beam 4D-STEM (e.g., phyllosilicate phase mapping), values as
-        small as 0.1 mrad are used.
+      description: Semi-angle of the converged electron probe in milliradians.
       anyOf:
       - type: number
       - type: string
       readOnly: true
     ada:stemDwellTimePerPixelDefault:
       description: Time spent acquiring signal at each pixel during STEM scanning
-        in milliseconds. Longer dwell improves signal-to-noise but increases total
-        specimen dose; for dose-sensitive materials, minimize dwell and compensate
+        in milliseconds. For dose-sensitive materials, minimize dwell and compensate
         with frame averaging. Also governs STEM-EDS and STEM-EELS acquisition where
         those detectors are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per
         Probe Position'.
@@ -18849,41 +17405,52 @@ allOf:
       - type: string
     ada:cameraLengthDefault:
       description: "Nominal camera length in millimeters used for diffraction pattern
-        acquisition. Controls the mapping between reciprocal-space scattering angle
-        and detector position; must be calibrated to convert pixel distances to d-spacings.
-        In STEM mode, also sets HAADF/ABF detector collection angles. Calibration
-        to absolute d-spacings is required \u2014 see 'Diffraction Calibration Reference'.
-        Camera length choice affects HAADF Z-contrast purity: a shorter camera length
-        (e.g. 30 mm) shifts the inner angle toward thermal diffuse scatter; a longer
-        one (e.g. 150 mm) admits more Bragg scatter."
+        acquisition. Must be calibrated to convert pixel distances to d-spacings.
+        Calibration to absolute d-spacings is required \u2014 see 'Diffraction Calibration
+        Reference'."
       anyOf:
       - type: number
       - type: string
     ada:edsAcquisitionModeDefault:
-      description: Mode of EDS data acquisition. Record 'N/A' where EDS is not listed
-        in Spectroscopic Detector(s).
+      description: "Spatial acquisition sub-strategy for EDS measurements: stationary-beam
+        point acquisition, line scan (beam stepped along a transect at defined intervals),
+        or area map / spectrum image (beam rastered over a pixel grid). Specifies
+        how the beam is positioned during data collection within the declared analytical
+        mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers
+        what the literature also calls spot or point-spectrum analysis. 'Map' and
+        'Spectrum image' are distinct acquisitions, not synonyms: a map may retain
+        element intensities alone, whereas a spectrum image retains a full spectrum
+        at every pixel and can be requantified afterwards \u2014 record which was
+        acquired. Where more than one mode was used, join them with '; ' rather than
+        looking for a combined member."
       type: string
       enum:
-      - Point analysis
+      - Point
       - Line scan
-      - Spectrum image (map)
+      - Map
+      - Spectrum image
       - Simultaneous EDS+EELS
       - N/A
       - None
       - missing
     ada:edsQuantificationMethod:
-      description: Method used to convert EDS X-ray intensities to elemental concentrations.
-        Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
-      type: string
-      enum:
-      - Cliff-Lorimer (k-factor)
-      - "\u03B6-factor (zeta-factor)"
-      - Absorption-corrected Cliff-Lorimer
-      - Standardless
-      - Direct comparison to reference spectra
-      - N/A
-      - None
-      - missing
+      description: "X-ray matrix correction algorithm applied during quantitative
+        EDS or WDS data reduction. For X-ray mapping, applies when raw count maps
+        are converted to quantitative concentration maps. Where the k-factors or calibration
+        constants themselves came from \u2014 measured standards, a vendor library,
+        or theoretical cross-sections \u2014 is a separate question answered by this
+        technique's calibration-standard field, not here; a procedure may be both
+        absorption-corrected and standardless."
+      anyOf:
+      - type: string
+        enum:
+        - Cliff-Lorimer (k-factor)
+        - "\u03B6-factor (zeta-factor)"
+        - Absorption-corrected Cliff-Lorimer
+        - N/A
+        - None
+        - missing
+      - type: string
       readOnly: true
     ada:eelsAcquisitionModeDefault:
       description: Mode of EELS data acquisition. Record 'N/A' where EELS is not listed
@@ -18905,15 +17472,12 @@ allOf:
           and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart
           to the Analyte field: while Analyte lists elements, EELS Edges documents
           which ionization edges were used and their approximate energy loss positions.
-          The procedure registers the full intended edge suite; analysts confirm or
-          narrow this list at analysis time. Record ''N/A'' where EELS is not listed
-          in Spectroscopic Detector(s).'
+          The edge list may be narrowed at analysis time. Record ''N/A'' where EELS
+          is not listed in Spectroscopic Detector(s).'
         type: string
     ada:eelsCollectionSemiAngle:
       description: Semi-angle of the EELS spectrometer entrance aperture in milliradians.
-        Controls the fraction of inelastically scattered electrons collected and the
-        spectral background level. Record 'N/A' where EELS is not listed in Spectroscopic
-        Detector(s).
+        Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
       anyOf:
       - type: number
       - type: string
@@ -18927,26 +17491,15 @@ allOf:
       - type: string
     ada:eelsEnergyLossRangeDefault:
       description: Energy loss range acquired, defined by onset energy and width in
-        eV. The procedure documents the target range for the registered analyte edges;
-        analysts record the actual range acquired. Record 'N/A' where EELS is not
-        listed in Spectroscopic Detector(s).
+        eV. The target range covers the registered analyte edges; the actual range
+        acquired may differ. Record 'N/A' where EELS is not listed in Spectroscopic
+        Detector(s).
       type: string
     ada:phaseIdentificationMethod:
       description: Method used to identify crystalline phases from electron diffraction
         patterns or d-spacings, whether from SAED patterns, spot diffraction, or diffraction
         data extracted from 4D-STEM datasets.
       type: string
-      enum:
-      - Manual d-spacing comparison to ICDD PDF database
-      - JEMS simulation
-      - CrystalMaker
-      - WinHREM
-      - py4DSTEM ACOM
-      - ESPRIT CRYSTAL
-      - ORIX
-      - N/A
-      - None
-      - missing
       readOnly: true
     ada:channelTemplate:
       type: object
@@ -18989,34 +17542,37 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: EELS Sensitivity and Detection Limit
-              description: Practical energy resolution (ZLP FWHM measured at operating
-                conditions) and estimated detection limit or minimum detectable concentration
+            - title: EELS Detection Limit
+              description: Estimated detection limit or minimum detectable concentration
                 for target edges under this procedure. Record 'N/A' where EELS is
                 not listed in Spectroscopic Detector(s).
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/temTAPP/eelsSensitivityAndDetectionLimit
+                  const: ada:channelColumn/temTAPP/eelsDetectionLimit
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: eelsSensitivityAndDetectionLimit
+                  const: eelsDetectionLimit
                 schema:name:
-                  const: EELS Sensitivity and Detection Limit
+                  const: EELS Detection Limit
                 ada:dataType:
-                  const: string
+                  const: number
                 schema:readonlyValue:
                   const: false
                 ada:tier:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
                   - type: array
                     items:
-                      type: string
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -19061,34 +17617,37 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: EELS Sensitivity and Detection Limit
-              description: Practical energy resolution (ZLP FWHM measured at operating
-                conditions) and estimated detection limit or minimum detectable concentration
+              title: EELS Detection Limit
+              description: Estimated detection limit or minimum detectable concentration
                 for target edges under this procedure. Record 'N/A' where EELS is
                 not listed in Spectroscopic Detector(s).
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/temTAPP/eelsSensitivityAndDetectionLimit
+                  const: ada:channelColumn/temTAPP/eelsDetectionLimit
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: eelsSensitivityAndDetectionLimit
+                  const: eelsDetectionLimit
                 schema:name:
-                  const: EELS Sensitivity and Detection Limit
+                  const: EELS Detection Limit
                 ada:dataType:
-                  const: string
+                  const: number
                 schema:readonlyValue:
                   const: false
                 ada:tier:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
                   - type: array
                     items:
-                      type: string
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -19099,9 +17658,8 @@ allOf:
             maxContains: 1
     ada:edsCalibrationStandardDefault:
       description: Reference material(s) used to validate EDS quantification or determine
-        experimental k-factors or zeta-factors. TEM-EDS is less standardized than
-        EPMA; many procedures rely on manufacturer k-factors without external calibration.
-        Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+        experimental k-factors or zeta-factors. Record 'N/A' where EDS is not listed
+        in Spectroscopic Detector(s).
       type: string
     schema:variableMeasured:
       type: array

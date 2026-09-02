@@ -4604,6 +4604,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -4639,23 +4640,22 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - title: 3D Segmentation Method
-                description: Method and software used to segment phases and features
-                  in the aligned 3D image stack, transforming the grayscale stack
-                  into labelled 3D regions (pores, mineral phases, grain boundaries,
-                  organic matter).
+              - title: Segmentation Method
+                description: Method and software used to separate distinct phases
+                  or features in the reconstructed 3D volume, turning the grayscale
+                  volume into labelled regions.
                 type: object
                 properties:
                   '@id':
-                    const: ada:parameter/semTAPP/segmentationMethod3D
+                    const: ada:parameter/semTAPP/segmentationMethod
                   '@type':
                     const:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                    - '@id': ada:parameter/semTAPP/segmentationMethod3D
+                    - '@id': ada:parameter/semTAPP/segmentationMethod
                   schema:name:
-                    const: 3D Segmentation Method
+                    const: Segmentation Method
                   schema:value:
                     type: string
                 required:
@@ -4669,8 +4669,7 @@ allOf:
                   damage to the sample during analysis. Examples: reduced accelerating
                   voltage, lowered beam current, defocused or rastered beam, cooled
                   stage, short acquisition sequences, or rotating between multiple
-                  points. Particularly important for volatile-bearing phases, hydrous
-                  minerals, glasses, organic materials, and biological samples.'
+                  points.'
                 type: object
                 properties:
                   '@id':
@@ -4693,10 +4692,9 @@ allOf:
                 - schema:value
               - title: Beam Raster Dimensions
                 description: "Dimensions of the small area over which the beam is
-                  rastered during a single analysis point, reported as width \xD7
-                  height in \xB5m. Applicable when Beam Mode = Rastered; defines the
-                  effective spatial footprint of the measurement and distributes dose
-                  over a larger area to reduce beam damage on sensitive phases."
+                  rastered at a single analysis point, reported as width \xD7 height
+                  in \xB5m. Applicable when Beam Mode = Rastered; defines the effective
+                  spatial footprint of the measurement. Not applicable when mapping."
                 type: object
                 properties:
                   '@id':
@@ -4754,9 +4752,7 @@ allOf:
                 - schema:unitText
               - title: CL Integration Time
                 description: Acquisition time per pixel (hyperspectral map mode) or
-                  per spectrum (spectral point mode), in ms or s. Longer integration
-                  improves signal-to-noise but increases beam dose and acquisition
-                  time.
+                  per spectrum (spectral point mode), in ms or s.
                 type: object
                 properties:
                   '@id':
@@ -4806,42 +4802,12 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - title: Detection Limit
-                description: Method detection limit at 99% confidence, one per reported
-                  concentration variable (one per analyte, these being the same set).
-                  Include the method used and the resulting value for each.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/semTAPP/detectionLimit
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/semTAPP/detectionLimit
-                  schema:name:
-                    const: Detection Limit
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
               - title: Drift Correction
                 description: 'Describes whether and how stage or beam drift was monitored
                   and corrected during the measurement session. Examples: periodic
                   stage realignment to a fiducial marker, automated beam drift correction
                   in acquisition software, or reanalysis of a reference point at regular
-                  intervals. Particularly relevant for long mapping runs and high-magnification
-                  sessions where positional accuracy affects data quality.'
+                  intervals.'
                 type: object
                 properties:
                   '@id':
@@ -4864,8 +4830,7 @@ allOf:
                 - schema:value
               - title: EBSD Frame Time
                 description: Acquisition time per EBSD diffraction pattern frame in
-                  milliseconds. Longer frame time improves pattern quality and indexing
-                  rate but increases total acquisition time.
+                  milliseconds.
                 type: object
                 properties:
                   '@id':
@@ -4893,9 +4858,8 @@ allOf:
                 - schema:unitText
               - title: EBSD Phase List
                 description: Mineral phases included in the EBSD reference pattern
-                  library for this procedure. The procedure specifies the expected
-                  phase suite for the target material; analysts may add phases for
-                  specific sample compositions.
+                  library for this procedure. Phases may be added for specific sample
+                  compositions beyond the expected suite for the target material.
                 type: object
                 properties:
                   '@id':
@@ -4919,8 +4883,7 @@ allOf:
               - title: EBSD Step Size
                 description: "Distance between adjacent EBSD measurement points in
                   the map in nm or \xB5m. Must be smaller than the smallest grain
-                  of interest to resolve grain boundary positions and intragrain orientation
-                  gradients."
+                  of interest."
                 type: object
                 properties:
                   '@id':
@@ -4948,8 +4911,7 @@ allOf:
                 - schema:unitText
               - title: EDS Live Time per Point or Pixel
                 description: EDS spectral acquisition live time per analysis point
-                  or per pixel in seconds. Longer live time improves counting statistics
-                  but increases beam damage risk and total acquisition time.
+                  or per pixel in seconds.
                 type: object
                 properties:
                   '@id':
@@ -5002,9 +4964,8 @@ allOf:
                 - schema:value
               - title: Image Pixel Size
                 description: "Physical size of each image pixel at the sample surface,
-                  in nm or \xB5m. Defines spatial sampling of SE or BSE images. For
-                  large-area mosaic imaging, report the pixel size of individual tiles
-                  and the number and arrangement of tiles."
+                  in nm or \xB5m. For large-area mosaic imaging, report the pixel
+                  size of individual tiles and the number and arrangement of tiles."
                 type: object
                 properties:
                   '@id':
@@ -5032,10 +4993,7 @@ allOf:
                 - schema:unitText
               - title: Step Size / Pixel Size
                 description: "Centre-to-centre distance between adjacent measurement
-                  points (WDS mapping) or pixels (EDS mapping) in \xB5m. Defines the
-                  spatial sampling interval of the map and, together with the pixel-grid
-                  dimensions, determines the total mapped area. Smaller step sizes
-                  increase spatial resolution but extend acquisition time."
+                  points (WDS mapping) or pixels (EDS mapping) in \xB5m."
                 type: object
                 properties:
                   '@id':
@@ -5061,11 +5019,10 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               - title: Working Distance
                 description: Distance between the objective lens pole piece and the
-                  specimen surface in millimetres. Affects spatial resolution, depth
-                  of focus, EDS X-ray take-off angle, and EBSD geometry.
+                  specimen surface in millimetres.
                 type: object
                 properties:
                   '@id':
@@ -5120,23 +5077,22 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                title: 3D Segmentation Method
-                description: Method and software used to segment phases and features
-                  in the aligned 3D image stack, transforming the grayscale stack
-                  into labelled 3D regions (pores, mineral phases, grain boundaries,
-                  organic matter).
+                title: Segmentation Method
+                description: Method and software used to separate distinct phases
+                  or features in the reconstructed 3D volume, turning the grayscale
+                  volume into labelled regions.
                 type: object
                 properties:
                   '@id':
-                    const: ada:parameter/semTAPP/segmentationMethod3D
+                    const: ada:parameter/semTAPP/segmentationMethod
                   '@type':
                     const:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                    - '@id': ada:parameter/semTAPP/segmentationMethod3D
+                    - '@id': ada:parameter/semTAPP/segmentationMethod
                   schema:name:
-                    const: 3D Segmentation Method
+                    const: Segmentation Method
                   schema:value:
                     type: string
                 required:
@@ -5153,8 +5109,7 @@ allOf:
                   damage to the sample during analysis. Examples: reduced accelerating
                   voltage, lowered beam current, defocused or rastered beam, cooled
                   stage, short acquisition sequences, or rotating between multiple
-                  points. Particularly important for volatile-bearing phases, hydrous
-                  minerals, glasses, organic materials, and biological samples.'
+                  points.'
                 type: object
                 properties:
                   '@id':
@@ -5180,10 +5135,9 @@ allOf:
             - contains:
                 title: Beam Raster Dimensions
                 description: "Dimensions of the small area over which the beam is
-                  rastered during a single analysis point, reported as width \xD7
-                  height in \xB5m. Applicable when Beam Mode = Rastered; defines the
-                  effective spatial footprint of the measurement and distributes dose
-                  over a larger area to reduce beam damage on sensitive phases."
+                  rastered at a single analysis point, reported as width \xD7 height
+                  in \xB5m. Applicable when Beam Mode = Rastered; defines the effective
+                  spatial footprint of the measurement. Not applicable when mapping."
                 type: object
                 properties:
                   '@id':
@@ -5247,9 +5201,7 @@ allOf:
             - contains:
                 title: CL Integration Time
                 description: Acquisition time per pixel (hyperspectral map mode) or
-                  per spectrum (spectral point mode), in ms or s. Longer integration
-                  improves signal-to-noise but increases beam dose and acquisition
-                  time.
+                  per spectrum (spectral point mode), in ms or s.
                 type: object
                 properties:
                   '@id':
@@ -5305,45 +5257,12 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                title: Detection Limit
-                description: Method detection limit at 99% confidence, one per reported
-                  concentration variable (one per analyte, these being the same set).
-                  Include the method used and the resulting value for each.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/semTAPP/detectionLimit
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/semTAPP/detectionLimit
-                  schema:name:
-                    const: Detection Limit
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
-              minContains: 0
-              maxContains: 1
-            - contains:
                 title: Drift Correction
                 description: 'Describes whether and how stage or beam drift was monitored
                   and corrected during the measurement session. Examples: periodic
                   stage realignment to a fiducial marker, automated beam drift correction
                   in acquisition software, or reanalysis of a reference point at regular
-                  intervals. Particularly relevant for long mapping runs and high-magnification
-                  sessions where positional accuracy affects data quality.'
+                  intervals.'
                 type: object
                 properties:
                   '@id':
@@ -5369,8 +5288,7 @@ allOf:
             - contains:
                 title: EBSD Frame Time
                 description: Acquisition time per EBSD diffraction pattern frame in
-                  milliseconds. Longer frame time improves pattern quality and indexing
-                  rate but increases total acquisition time.
+                  milliseconds.
                 type: object
                 properties:
                   '@id':
@@ -5401,9 +5319,8 @@ allOf:
             - contains:
                 title: EBSD Phase List
                 description: Mineral phases included in the EBSD reference pattern
-                  library for this procedure. The procedure specifies the expected
-                  phase suite for the target material; analysts may add phases for
-                  specific sample compositions.
+                  library for this procedure. Phases may be added for specific sample
+                  compositions beyond the expected suite for the target material.
                 type: object
                 properties:
                   '@id':
@@ -5430,8 +5347,7 @@ allOf:
                 title: EBSD Step Size
                 description: "Distance between adjacent EBSD measurement points in
                   the map in nm or \xB5m. Must be smaller than the smallest grain
-                  of interest to resolve grain boundary positions and intragrain orientation
-                  gradients."
+                  of interest."
                 type: object
                 properties:
                   '@id':
@@ -5462,8 +5378,7 @@ allOf:
             - contains:
                 title: EDS Live Time per Point or Pixel
                 description: EDS spectral acquisition live time per analysis point
-                  or per pixel in seconds. Longer live time improves counting statistics
-                  but increases beam damage risk and total acquisition time.
+                  or per pixel in seconds.
                 type: object
                 properties:
                   '@id':
@@ -5522,9 +5437,8 @@ allOf:
             - contains:
                 title: Image Pixel Size
                 description: "Physical size of each image pixel at the sample surface,
-                  in nm or \xB5m. Defines spatial sampling of SE or BSE images. For
-                  large-area mosaic imaging, report the pixel size of individual tiles
-                  and the number and arrangement of tiles."
+                  in nm or \xB5m. For large-area mosaic imaging, report the pixel
+                  size of individual tiles and the number and arrangement of tiles."
                 type: object
                 properties:
                   '@id':
@@ -5555,10 +5469,7 @@ allOf:
             - contains:
                 title: Step Size / Pixel Size
                 description: "Centre-to-centre distance between adjacent measurement
-                  points (WDS mapping) or pixels (EDS mapping) in \xB5m. Defines the
-                  spatial sampling interval of the map and, together with the pixel-grid
-                  dimensions, determines the total mapped area. Smaller step sizes
-                  increase spatial resolution but extend acquisition time."
+                  points (WDS mapping) or pixels (EDS mapping) in \xB5m."
                 type: object
                 properties:
                   '@id':
@@ -5587,14 +5498,13 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               minContains: 0
               maxContains: 1
             - contains:
                 title: Working Distance
                 description: Distance between the objective lens pole piece and the
-                  specimen surface in millimetres. Affects spatial resolution, depth
-                  of focus, EDS X-ray take-off angle, and EBSD geometry.
+                  specimen surface in millimetres.
                 type: object
                 properties:
                   '@id':
@@ -5655,12 +5565,7 @@ allOf:
                                     anyOf:
                                     - title: Accelerating Voltage
                                       description: Electron beam accelerating voltage
-                                        in kilovolts. Affects X-ray generation depth
-                                        (EDS/WDS), EBSD pattern quality, imaging resolution,
-                                        and beam penetration. Low voltages (1-5 kV)
-                                        improve surface sensitivity and reduce beam
-                                        damage; high voltages (15-20 kV) improve X-ray
-                                        generation for quantitative analysis.
+                                        in kilovolts.
                                       type: object
                                       properties:
                                         '@id':
@@ -5690,11 +5595,9 @@ allOf:
                                       description: Nominal electron beam diameter
                                         (spot size) at the sample surface, in nanometres
                                         or micrometres, as set by the condenser aperture
-                                        and working distance. Controls the spatial
-                                        resolution and X-ray excitation volume. For
-                                        mapping modes, the effective spatial sampling
-                                        interval is further defined by Step Size /
-                                        Pixel Size.
+                                        and working distance. For mapping modes, the
+                                        effective spatial sampling interval is further
+                                        defined by Step Size / Pixel Size.
                                       type: object
                                       properties:
                                         '@id':
@@ -5724,12 +5627,7 @@ allOf:
                                   - contains:
                                       title: Accelerating Voltage
                                       description: Electron beam accelerating voltage
-                                        in kilovolts. Affects X-ray generation depth
-                                        (EDS/WDS), EBSD pattern quality, imaging resolution,
-                                        and beam penetration. Low voltages (1-5 kV)
-                                        improve surface sensitivity and reduce beam
-                                        damage; high voltages (15-20 kV) improve X-ray
-                                        generation for quantitative analysis.
+                                        in kilovolts.
                                       type: object
                                       properties:
                                         '@id':
@@ -5762,11 +5660,9 @@ allOf:
                                       description: Nominal electron beam diameter
                                         (spot size) at the sample surface, in nanometres
                                         or micrometres, as set by the condenser aperture
-                                        and working distance. Controls the spatial
-                                        resolution and X-ray excitation volume. For
-                                        mapping modes, the effective spatial sampling
-                                        interval is further defined by Step Size /
-                                        Pixel Size.
+                                        and working distance. For mapping modes, the
+                                        effective spatial sampling interval is further
+                                        defined by Step Size / Pixel Size.
                                       type: object
                                       properties:
                                         '@id':
@@ -5852,9 +5748,6 @@ allOf:
                             - title: Fine Polishing Conditions
                               description: Ion beam voltage and current for final
                                 thinning and surface polishing of the TEM lamella.
-                                Low-voltage polishing (2 kV or below) minimises Ga
-                                implantation depth, surface amorphisation, and curtaining
-                                artifacts.
                               type: object
                               properties:
                                 '@id':
@@ -5878,9 +5771,8 @@ allOf:
                             - title: Protective Coating Deposition
                               description: 'Type and deposition conditions of the
                                 protective coating applied to the sample surface before
-                                FIB milling. E-beam deposition causes less surface
-                                damage than ion-beam deposition and should be applied
-                                as the initial layer. Typical coatings: platinum (Pt)
+                                FIB milling. E-beam deposition should be applied as
+                                the initial layer. Typical coatings: platinum (Pt)
                                 or carbon (C). State material, deposition method,
                                 beam conditions, and approximate thickness.'
                               type: object
@@ -5937,9 +5829,6 @@ allOf:
                               title: Fine Polishing Conditions
                               description: Ion beam voltage and current for final
                                 thinning and surface polishing of the TEM lamella.
-                                Low-voltage polishing (2 kV or below) minimises Ga
-                                implantation depth, surface amorphisation, and curtaining
-                                artifacts.
                               type: object
                               properties:
                                 '@id':
@@ -5966,9 +5855,8 @@ allOf:
                               title: Protective Coating Deposition
                               description: 'Type and deposition conditions of the
                                 protective coating applied to the sample surface before
-                                FIB milling. E-beam deposition causes less surface
-                                damage than ion-beam deposition and should be applied
-                                as the initial layer. Typical coatings: platinum (Pt)
+                                FIB milling. E-beam deposition should be applied as
+                                the initial layer. Typical coatings: platinum (Pt)
                                 or carbon (C). State material, deposition method,
                                 beam conditions, and approximate thickness.'
                               type: object
@@ -5993,21 +5881,6 @@ allOf:
                               - schema:value
                             minContains: 0
                             maxContains: 1
-                        schema:description:
-                          description: Method by which samples were prepared for SEM
-                            analysis prior to loading in the instrument. Includes
-                            mounting medium (epoxy, carbon tape, stub), polishing
-                            steps (alumina, colloidal silica, argon ion mill), and
-                            conductive coating type and thickness. For VP-SEM/ESEM
-                            analyses, note whether an uncoated sample was used and
-                            the gas type used. FIB-specific in-session operations
-                            (protective coating deposition, milling conditions, lamella
-                            preparation) are documented separately in Group 4.
-                          anyOf:
-                          - type: string
-                          - type: array
-                            items:
-                              type: string
                   - if:
                       properties:
                         schema:name:
@@ -6036,30 +5909,6 @@ allOf:
                                   - '@id': ada:parameter/semTAPP/crystalStructureDatabase
                                 schema:name:
                                   const: Crystal Structure Database
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - title: Normalization / Standards-Based Correction
-                              description: Post-acquisition normalization applied
-                                using secondary reference materials to correct for
-                                session-to-session calibration drift.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/semTAPP/normalizationStandardsBasedCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
-                                schema:name:
-                                  const: Normalization / Standards-Based Correction
                                 schema:value:
                                   type: string
                               required:
@@ -6099,46 +5948,17 @@ allOf:
                               - schema:value
                             minContains: 0
                             maxContains: 1
-                          - contains:
-                              title: Normalization / Standards-Based Correction
-                              description: Post-acquisition normalization applied
-                                using secondary reference materials to correct for
-                                session-to-session calibration drift.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/semTAPP/normalizationStandardsBasedCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
-                                schema:name:
-                                  const: Normalization / Standards-Based Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            minContains: 0
-                            maxContains: 1
                   - if:
                       properties:
                         schema:name:
-                          const: Ion Milling
+                          const: Ion milling
                       required:
                       - schema:name
                     then:
                       properties:
                         schema:description:
                           description: Ion beam voltage and current used to mill each
-                            slice during FIB-SEM serial sectioning. These parameters
-                            determine material removal rate per slice and exposed
-                            surface quality.
+                            slice during FIB-SEM serial sectioning.
                           anyOf:
                           - type: string
                           - type: array
@@ -6160,18 +5980,15 @@ allOf:
                 - contains:
                     properties:
                       schema:name:
-                        const: Ion Milling
+                        const: Ion milling
                     required:
                     - schema:name
           ada:edsDeadTime:
             description: "Percent dead time reported by the EDS detector during the
               session \u2014 the fraction of total acquisition time the detector spent
-              processing rather than counting. EDS dead time correction is managed
-              automatically by the detector electronics; this field documents the
-              resulting percentage as a session QC metric. Values above ~40% indicate
-              excessive count rate and may degrade spectral quality and quantitative
-              accuracy. Unlike WDS dead time (see WDS Dead Time Correction), no user-selectable
-              correction algorithm is required."
+              processing rather than counting. This field documents the resulting
+              percentage as a session QC metric. Unlike WDS dead time (see WDS Dead
+              Time Correction), no user-selectable correction algorithm is required."
             anyOf:
             - type: number
             - type: string
@@ -6194,11 +6011,9 @@ allOf:
                       items:
                         anyOf:
                         - title: Foil Thickness
-                          description: 'Target thickness of the electron-transparent
+                          description: Target thickness of the electron-transparent
                             TEM lamella after final FIB polishing, in nanometres.
-                            Actual thickness may differ from target. Typical range:
-                            50-150 nm for standard TEM/STEM; 200-600 nm for XANES
-                            or tomography sections.'
+                            Actual thickness may differ from target.
                           type: object
                           properties:
                             '@id':
@@ -6224,11 +6039,10 @@ allOf:
                           - schema:name
                           - schema:value
                           - schema:unitText
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         - title: Slice Thickness
                           description: Thickness of each FIB-milled slice during serial
-                            sectioning in nanometres. Controls the Z-axis resolution
-                            of the 3D reconstruction.
+                            sectioning in nanometres.
                           type: object
                           properties:
                             '@id':
@@ -6257,11 +6071,9 @@ allOf:
                       allOf:
                       - contains:
                           title: Foil Thickness
-                          description: 'Target thickness of the electron-transparent
+                          description: Target thickness of the electron-transparent
                             TEM lamella after final FIB polishing, in nanometres.
-                            Actual thickness may differ from target. Typical range:
-                            50-150 nm for standard TEM/STEM; 200-600 nm for XANES
-                            or tomography sections.'
+                            Actual thickness may differ from target.
                           type: object
                           properties:
                             '@id':
@@ -6290,14 +6102,13 @@ allOf:
                         minContains: 0
                         maxContains: 1
                       - contains:
-                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
                       - contains:
                           title: Slice Thickness
                           description: Thickness of each FIB-milled slice during serial
-                            sectioning in nanometres. Controls the Z-axis resolution
-                            of the 3D reconstruction.
+                            sectioning in nanometres.
                           type: object
                           properties:
                             '@id':
@@ -6337,195 +6148,8 @@ allOf:
             description: "The measured level of the analytical blank in the session,
               and \u2014 where the reported quantity is a ratio \u2014 its composition,
               since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method, which
-              is procedure-level: this field records what was actually measured. Follows
-              the criterion-versus-measurement split the library applies wherever
-              a procedure sets a threshold and an analysis reports a value against
-              it."
+              composition is known. Companion to the blank correction method."
             type: string
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the
-            procedure's declared reported properties. schema:variableMeasured carries
-            the dataset's actual variables; the reported-property branches above are
-            permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/detectionLimit
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semTAPP/detectionLimit
-            schema:name:
-              const: Detection Limit
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-        - title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        - title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied using secondary reference
-            materials to correct for session-to-session calibration drift.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/normalizationStandardsBasedCorrection
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-      allOf:
-      - contains:
-          title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/detectionLimit
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semTAPP/detectionLimit
-            schema:name:
-              const: Detection Limit
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit Method
-          description: Formula or approach used to calculate detection limits.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied using secondary reference
-            materials to correct for session-to-session calibration drift.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/normalizationStandardsBasedCorrection
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
     dqv:hasQualityMeasurement:
       type: array
       items:
@@ -6541,8 +6165,7 @@ allOf:
             properties:
               dqv:value:
                 description: Fraction of EBSD map points successfully indexed, expressed
-                  as a percentage of total map points. Low indexing rate may indicate
-                  surface damage, amorphisation, severe deformation, or phase misidentification.
+                  as a percentage of total map points.
                 anyOf:
                 - type: number
                 - type: string
@@ -6557,8 +6180,7 @@ allOf:
               dqv:value:
                 description: Mean angular deviation (MAD) of the EBSD pattern indexing
                   solution in degrees. MAD quantifies the misfit between experimental
-                  Kikuchi band positions and the best-fit crystal orientation. Values
-                  above ~1.5 degrees typically indicate unreliable indexing.
+                  Kikuchi band positions and the best-fit crystal orientation.
                 anyOf:
                 - type: number
                 - type: string
@@ -6594,8 +6216,8 @@ allOf:
           required:
           - dqv:isMeasurementOf
     ada:mapDimensions:
-      description: Number of pixels in the EDS map in the X and Y directions. Determined
-        at analysis time based on the area of interest and selected pixel size.
+      description: Number of pixels in the EDS map in the X and Y directions. Based
+        on the area of interest and selected pixel size.
       anyOf:
       - type: number
       - type: string
@@ -6603,11 +6225,11 @@ allOf:
       type: array
       items:
         title: Map Area
-        description: "Physical area covered by the map in \xB5m\xB2 or mm\xB2, calculated
-          as (map width in pixels \xD7 step size) \xD7 (map height in pixels \xD7
+        description: "Physical extent of the mapped region, given either as width
+          \xD7 height in \xB5m or as a total area in \xB5m\xB2 or mm\xB2, and equal
+          to (map width in pixels \xD7 step size) \xD7 (map height in pixels \xD7
           step size). Complements the map's pixel-grid dimensions by recording the
-          physical scale of the mapped region; useful for direct comparison across
-          datasets acquired with different step sizes."
+          physical scale of the mapped region."
         type: object
         properties:
           '@id':
@@ -6636,11 +6258,11 @@ allOf:
       allOf:
       - contains:
           title: Map Area
-          description: "Physical area covered by the map in \xB5m\xB2 or mm\xB2, calculated
-            as (map width in pixels \xD7 step size) \xD7 (map height in pixels \xD7
+          description: "Physical extent of the mapped region, given either as width
+            \xD7 height in \xB5m or as a total area in \xB5m\xB2 or mm\xB2, and equal
+            to (map width in pixels \xD7 step size) \xD7 (map height in pixels \xD7
             step size). Complements the map's pixel-grid dimensions by recording the
-            physical scale of the mapped region; useful for direct comparison across
-            datasets acquired with different step sizes."
+            physical scale of the mapped region."
           type: object
           properties:
             '@id':
@@ -6671,12 +6293,12 @@ allOf:
     ada:voxelSize:
       description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres
         (X-Y pixel size from SEM image calibration; Z from slice thickness), and the
-        total number of slices in the stack. Determined at analysis time.
+        total number of slices in the stack.
       type: string
     ada:imageStackDimenstions:
       description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres
         (X-Y pixel size from SEM image calibration; Z from slice thickness), and the
-        total number of slices in the stack. Determined at analysis time.
+        total number of slices in the stack.
       type: string
   required:
   - ada:mapDimensions

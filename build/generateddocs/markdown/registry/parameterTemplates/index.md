@@ -56,11 +56,11 @@ $defs:
   empa_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -89,9 +89,10 @@ $defs:
     - ada:fieldScope
   empa_beamRasterDimensionsDefault:
     title: Beam Raster Dimensions
-    description: X x Y dimensions of a small beam raster used at a single analysis
-      point to average a coarse-grained or beam-sensitive phase. Different from X-ray
-      mapping mode; not applicable when mapping.
+    description: "Dimensions of the small area over which the beam is rastered at
+      a single analysis point, reported as width \xD7 height in \xB5m. Applicable
+      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement.
+      Not applicable when mapping."
     type: object
     properties:
       '@id':
@@ -216,8 +217,7 @@ $defs:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilization or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates). Most commonly applied in point analysis;
-      uncommon for X-ray mapping.
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':
@@ -261,7 +261,7 @@ $defs:
       schema:name:
         const: Halogen Correction on Oxygen
       ada:dataType:
-        const: boolean
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -308,8 +308,10 @@ $defs:
     - ada:fieldScope
   empa_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied using secondary reference
-      materials to correct for session-to-session calibration drift.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -338,10 +340,11 @@ $defs:
     - ada:fieldScope
   empa_detectionLimitDefault:
     title: Detection Limit
-    description: Method detection limit at 99% confidence (3-sigma), one per reported
-      concentration variable (one per analyte, these being the same set), derived
-      from counting statistics on peak and background. Include the method and the
-      resulting value for each.
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -374,8 +377,7 @@ $defs:
     title: Analytical Precision
     description: Reproducibility of repeated measurements on the same or equivalent
       reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and value per analyte or element
-      group.
+      reference material name, number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -406,7 +408,7 @@ $defs:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary
       standards, expressed as percent relative bias. Include reference material, reference
-      value source, and per-analyte value.
+      value source, and the measured value.
     type: object
     properties:
       '@id':
@@ -440,9 +442,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -537,8 +537,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -568,11 +567,11 @@ $defs:
   laMcicpms_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -602,7 +601,7 @@ $defs:
   laMcicpms_instrumentSerialNumberOrLabIdentifierDefault:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -633,9 +632,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -665,10 +661,9 @@ $defs:
   laMcicpms_laserEnergyDefault:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -700,11 +695,10 @@ $defs:
   laMcicpms_transectRateMappingRateOrStepSizeDefault:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -733,15 +727,11 @@ $defs:
     - ada:fieldScope
   laMcicpms_makeUpGasAndFlowRateDefault:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -772,12 +762,9 @@ $defs:
     - ada:fieldScope
   laMcicpms_signalSmoothingDefault:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -839,10 +826,9 @@ $defs:
   laMcicpms_doublyChargedSpeciesMonitorDefault:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -872,9 +858,8 @@ $defs:
   laMcicpms_doublyChargedSpeciesProductionDefault:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -904,8 +889,9 @@ $defs:
   laMcicpms_reactionGasFlowRateDefault:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reactive gas introduced into the dynamic reaction
-      cell (DRC), in mL/min. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration
-      does not include DRC.
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -941,8 +927,7 @@ $defs:
       spot analysis this is the number of individual spots per grain or location;
       for transects, the number of replicate lines; for mapping, the number of map
       acquisitions of the same area; for solution work, the number of discrete replicate
-      measurements acquired per sample solution. The procedure registers an intended
-      count where it has one; the analysis records the count actually acquired.
+      measurements acquired per sample solution.
     type: object
     properties:
       '@id':
@@ -956,6 +941,38 @@ $defs:
         const: Number of Replicates
       ada:dataType:
         const: integer
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpms_collisionReactionGasMixtureRatioDefault:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of
+      gases rather than a single gas, the identities and proportions of that mixture.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatioDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionReactionGasMixtureRatioDefault
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      ada:dataType:
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -1005,10 +1022,9 @@ $defs:
     - ada:fieldScope
   laMcicpms_spikeOutlierFilteringApproachDefault:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -1037,12 +1053,12 @@ $defs:
     - ada:fieldScope
   laMcicpms_memoryEffectMitigationDefault:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -1071,10 +1087,10 @@ $defs:
     - ada:fieldScope
   laMcicpms_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -1105,13 +1121,11 @@ $defs:
     title: Double-Spike Mixing Ratio
     description: "Target proportion of double-spike signal relative to total analyte
       signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. An optimal mixing ratio minimizes error propagation through the double-spike
-      inversion; the optimum is analyte-system specific and is typically determined
-      using the Double Spike Toolbox or equivalent. The achieved mixing ratio may
-      deviate from the target within acceptable bounds (typically \xB120% of optimal);
-      the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if
-      double-spike method is not used. Record 'N/A' where the procedure does not use
-      a double spike."
+      ratio. The optimum is analyte-system specific and is typically determined using
+      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
+      from the target within acceptable bounds (typically \xB120% of optimal); the
+      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
+      the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -1140,11 +1154,11 @@ $defs:
     - ada:fieldScope
   laMcicpms_detectionLimitDefault:
     title: Detection Limit
-    description: "Session detection limit, one per reported concentration variable
-      (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
-      ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to demonstrate
-      the reliability of reported near-detection-limit concentrations. The calculation
-      method is captured separately in Detection Limit Method."
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -1177,9 +1191,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -1192,7 +1204,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -1213,9 +1225,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -1244,16 +1254,13 @@ $defs:
     - ada:fieldScope
   laMcicpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: 'Precision of a single measurement, derived from the scatter of the
+    description: Precision of a single measurement, derived from the scatter of the
       cycles, sweeps or integrations that make it up, together with the method used
       to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. This is the finest
-      of the three precision levels the library records, below within-session and
-      between-session precision: it describes the repeatability of one analysis rather
-      than agreement between analyses, and is normally the smallest of the three.
-      Distinct from Counting Statistics Error, which records the uncertainty predicted
-      from the counts rather than the scatter observed; where a procedure reports
-      both, record the observed value here and the predicted value there.'
+      is computed over, and the reported quantity it applies to. Distinct from Counting
+      Statistics Error, which records the uncertainty predicted from the counts rather
+      than the scatter observed; where a procedure reports both, record the observed
+      value here and the predicted value there.
     type: object
     properties:
       '@id':
@@ -1286,9 +1293,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -1383,8 +1388,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -1414,11 +1418,11 @@ $defs:
   laMcicpmsUPb_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -1448,7 +1452,7 @@ $defs:
   laMcicpmsUPb_instrumentSerialNumberOrLabIdentifierDefault:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -1479,9 +1483,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -1511,10 +1512,9 @@ $defs:
   laMcicpmsUPb_laserEnergyDefault:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -1546,11 +1546,10 @@ $defs:
   laMcicpmsUPb_transectRateMappingRateOrStepSizeDefault:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -1579,15 +1578,11 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_makeUpGasAndFlowRateDefault:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -1618,12 +1613,9 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_signalSmoothingDefault:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -1685,10 +1677,9 @@ $defs:
   laMcicpmsUPb_doublyChargedSpeciesMonitorDefault:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -1718,9 +1709,8 @@ $defs:
   laMcicpmsUPb_doublyChargedSpeciesProductionDefault:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -1750,8 +1740,9 @@ $defs:
   laMcicpmsUPb_reactionGasFlowRateDefault:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reactive gas introduced into the dynamic reaction
-      cell (DRC), in mL/min. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration
-      does not include DRC.
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -1787,8 +1778,7 @@ $defs:
       spot analysis this is the number of individual spots per grain or location;
       for transects, the number of replicate lines; for mapping, the number of map
       acquisitions of the same area; for solution work, the number of discrete replicate
-      measurements acquired per sample solution. The procedure registers an intended
-      count where it has one; the analysis records the count actually acquired.
+      measurements acquired per sample solution.
     type: object
     properties:
       '@id':
@@ -1802,6 +1792,38 @@ $defs:
         const: Number of Replicates
       ada:dataType:
         const: integer
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpmsUPb_collisionReactionGasMixtureRatioDefault:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of
+      gases rather than a single gas, the identities and proportions of that mixture.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/collisionReactionGasMixtureRatioDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionReactionGasMixtureRatioDefault
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      ada:dataType:
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -1851,10 +1873,9 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_spikeOutlierFilteringApproachDefault:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -1883,12 +1904,12 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_memoryEffectMitigationDefault:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -1917,10 +1938,10 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -1951,13 +1972,11 @@ $defs:
     title: Double-Spike Mixing Ratio
     description: "Target proportion of double-spike signal relative to total analyte
       signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. An optimal mixing ratio minimizes error propagation through the double-spike
-      inversion; the optimum is analyte-system specific and is typically determined
-      using the Double Spike Toolbox or equivalent. The achieved mixing ratio may
-      deviate from the target within acceptable bounds (typically \xB120% of optimal);
-      the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if
-      double-spike method is not used. Record 'N/A' where the procedure does not use
-      a double spike."
+      ratio. The optimum is analyte-system specific and is typically determined using
+      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
+      from the target within acceptable bounds (typically \xB120% of optimal); the
+      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
+      the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -1988,9 +2007,9 @@ $defs:
     title: Age Datum / Reference Epoch
     description: 'The zero point from which the reported age is measured, where this
       is not the present day, and the date it corresponds to. Record ''Present day''
-      where the conventional datum applies. Explicitly required wherever the datum
-      is not the present: year of sample collection for luminescence (Mahan et al.
-      2023), end of irradiation for 40Ar/39Ar decay corrections (Schaen et al. 2021).'
+      where the conventional datum applies. Where the datum is not the present, record
+      it explicitly: year of sample collection for luminescence, end of irradiation
+      for 40Ar/39Ar decay corrections.'
     type: object
     properties:
       '@id':
@@ -2021,8 +2040,7 @@ $defs:
     title: Error Correlation Between Reported Quantities
     description: The correlation coefficient between pairs of reported quantities
       whose uncertainties are not independent, together with the pair it applies to
-      and how it was obtained. Concordia and isochron regressions cannot be reconstructed
-      without it.
+      and how it was obtained.
     type: object
     properties:
       '@id':
@@ -2053,11 +2071,11 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_detectionLimitDefault:
     title: Detection Limit
-    description: "Session detection limit, one per reported concentration variable
-      (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
-      ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to demonstrate
-      the reliability of reported near-detection-limit concentrations. The calculation
-      method is captured separately in Detection Limit Method."
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -2090,9 +2108,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -2105,7 +2121,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -2126,9 +2142,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -2157,16 +2171,13 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: 'Precision of a single measurement, derived from the scatter of the
+    description: Precision of a single measurement, derived from the scatter of the
       cycles, sweeps or integrations that make it up, together with the method used
       to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. This is the finest
-      of the three precision levels the library records, below within-session and
-      between-session precision: it describes the repeatability of one analysis rather
-      than agreement between analyses, and is normally the smallest of the three.
-      Distinct from Counting Statistics Error, which records the uncertainty predicted
-      from the counts rather than the scatter observed; where a procedure reports
-      both, record the observed value here and the predicted value there.'
+      is computed over, and the reported quantity it applies to. Distinct from Counting
+      Statistics Error, which records the uncertainty predicted from the counts rather
+      than the scatter observed; where a procedure reports both, record the observed
+      value here and the predicted value there.
     type: object
     properties:
       '@id':
@@ -2199,9 +2210,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -2296,8 +2305,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -2327,11 +2335,11 @@ $defs:
   laQicpms_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -2361,7 +2369,7 @@ $defs:
   laQicpms_instrumentSerialNumberOrLabIdentifierDefault:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -2392,9 +2400,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -2424,10 +2429,9 @@ $defs:
   laQicpms_laserEnergyDefault:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -2459,11 +2463,10 @@ $defs:
   laQicpms_transectRateMappingRateOrStepSizeDefault:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -2492,15 +2495,11 @@ $defs:
     - ada:fieldScope
   laQicpms_makeUpGasAndFlowRateDefault:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -2531,12 +2530,9 @@ $defs:
     - ada:fieldScope
   laQicpms_signalSmoothingDefault:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -2598,10 +2594,9 @@ $defs:
   laQicpms_doublyChargedSpeciesMonitorDefault:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -2631,9 +2626,8 @@ $defs:
   laQicpms_doublyChargedSpeciesProductionDefault:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -2663,7 +2657,9 @@ $defs:
   laQicpms_reactionGasFlowRateDefault:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reactive gas introduced into the dynamic reaction
-      cell (DRC), in mL/min.
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -2696,9 +2692,8 @@ $defs:
     title: Collision/Reaction Gas Mixture Ratio
     description: Where the collision or reaction cell is supplied with a mixture of
       gases rather than a single gas, the identities and proportions of that mixture.
-      Recorded separately from the gas identity because the proportions change reaction
-      efficiency and interference suppression independently of which gases are used.
-      Record 'N/A' where a single gas is used.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
     type: object
     properties:
       '@id':
@@ -2732,8 +2727,7 @@ $defs:
       spot analysis this is the number of individual spots per grain or location;
       for transects, the number of replicate lines; for mapping, the number of map
       acquisitions of the same area; for solution work, the number of discrete replicate
-      measurements acquired per sample solution. The procedure registers an intended
-      count where it has one; the analysis records the count actually acquired.
+      measurements acquired per sample solution.
     type: object
     properties:
       '@id':
@@ -2796,10 +2790,9 @@ $defs:
     - ada:fieldScope
   laQicpms_spikeOutlierFilteringApproachDefault:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -2828,8 +2821,14 @@ $defs:
     - ada:fieldScope
   laQicpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
     title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear response at the transition
-      between pulse-counting and analog detector modes.
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
     type: object
     properties:
       '@id':
@@ -2858,12 +2857,12 @@ $defs:
     - ada:fieldScope
   laQicpms_memoryEffectMitigationDefault:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -2892,10 +2891,10 @@ $defs:
     - ada:fieldScope
   laQicpms_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -2924,11 +2923,11 @@ $defs:
     - ada:fieldScope
   laQicpms_detectionLimitDefault:
     title: Detection Limit
-    description: "Session detection limit, one per reported concentration variable
-      (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
-      ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to demonstrate
-      the reliability of reported near-detection-limit concentrations. The calculation
-      method is captured separately in Detection Limit Method."
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -2961,9 +2960,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -2976,7 +2973,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -2997,9 +2994,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -3028,16 +3023,13 @@ $defs:
     - ada:fieldScope
   laQicpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: 'Precision of a single measurement, derived from the scatter of the
+    description: Precision of a single measurement, derived from the scatter of the
       cycles, sweeps or integrations that make it up, together with the method used
       to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. This is the finest
-      of the three precision levels the library records, below within-session and
-      between-session precision: it describes the repeatability of one analysis rather
-      than agreement between analyses, and is normally the smallest of the three.
-      Distinct from Counting Statistics Error, which records the uncertainty predicted
-      from the counts rather than the scatter observed; where a procedure reports
-      both, record the observed value here and the predicted value there.'
+      is computed over, and the reported quantity it applies to. Distinct from Counting
+      Statistics Error, which records the uncertainty predicted from the counts rather
+      than the scatter observed; where a procedure reports both, record the observed
+      value here and the predicted value there.
     type: object
     properties:
       '@id':
@@ -3070,9 +3062,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -3167,8 +3157,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -3198,11 +3187,11 @@ $defs:
   laQicpmsUPb_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -3232,7 +3221,7 @@ $defs:
   laQicpmsUPb_instrumentSerialNumberOrLabIdentifierDefault:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -3263,9 +3252,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -3295,10 +3281,9 @@ $defs:
   laQicpmsUPb_laserEnergyDefault:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -3330,11 +3315,10 @@ $defs:
   laQicpmsUPb_transectRateMappingRateOrStepSizeDefault:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -3363,15 +3347,11 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_makeUpGasAndFlowRateDefault:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -3402,12 +3382,9 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_signalSmoothingDefault:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -3469,10 +3446,9 @@ $defs:
   laQicpmsUPb_doublyChargedSpeciesMonitorDefault:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -3502,9 +3478,8 @@ $defs:
   laQicpmsUPb_doublyChargedSpeciesProductionDefault:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -3534,7 +3509,9 @@ $defs:
   laQicpmsUPb_reactionGasFlowRateDefault:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reactive gas introduced into the dynamic reaction
-      cell (DRC), in mL/min.
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -3567,9 +3544,8 @@ $defs:
     title: Collision/Reaction Gas Mixture Ratio
     description: Where the collision or reaction cell is supplied with a mixture of
       gases rather than a single gas, the identities and proportions of that mixture.
-      Recorded separately from the gas identity because the proportions change reaction
-      efficiency and interference suppression independently of which gases are used.
-      Record 'N/A' where a single gas is used.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
     type: object
     properties:
       '@id':
@@ -3603,8 +3579,7 @@ $defs:
       spot analysis this is the number of individual spots per grain or location;
       for transects, the number of replicate lines; for mapping, the number of map
       acquisitions of the same area; for solution work, the number of discrete replicate
-      measurements acquired per sample solution. The procedure registers an intended
-      count where it has one; the analysis records the count actually acquired.
+      measurements acquired per sample solution.
     type: object
     properties:
       '@id':
@@ -3667,10 +3642,9 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_spikeOutlierFilteringApproachDefault:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -3699,8 +3673,14 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_pulseAnalogDetectorNonlinearityCorrectionDefault:
     title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear response at the transition
-      between pulse-counting and analog detector modes.
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
     type: object
     properties:
       '@id':
@@ -3729,12 +3709,12 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_memoryEffectMitigationDefault:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -3763,10 +3743,10 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -3797,9 +3777,9 @@ $defs:
     title: Age Datum / Reference Epoch
     description: 'The zero point from which the reported age is measured, where this
       is not the present day, and the date it corresponds to. Record ''Present day''
-      where the conventional datum applies. Explicitly required wherever the datum
-      is not the present: year of sample collection for luminescence (Mahan et al.
-      2023), end of irradiation for 40Ar/39Ar decay corrections (Schaen et al. 2021).'
+      where the conventional datum applies. Where the datum is not the present, record
+      it explicitly: year of sample collection for luminescence, end of irradiation
+      for 40Ar/39Ar decay corrections.'
     type: object
     properties:
       '@id':
@@ -3830,8 +3810,7 @@ $defs:
     title: Error Correlation Between Reported Quantities
     description: The correlation coefficient between pairs of reported quantities
       whose uncertainties are not independent, together with the pair it applies to
-      and how it was obtained. Concordia and isochron regressions cannot be reconstructed
-      without it.
+      and how it was obtained.
     type: object
     properties:
       '@id':
@@ -3862,11 +3841,11 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_detectionLimitDefault:
     title: Detection Limit
-    description: "Session detection limit, one per reported concentration variable
-      (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
-      ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to demonstrate
-      the reliability of reported near-detection-limit concentrations. The calculation
-      method is captured separately in Detection Limit Method."
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -3899,9 +3878,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -3914,7 +3891,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -3935,9 +3912,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -3966,16 +3941,13 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: 'Precision of a single measurement, derived from the scatter of the
+    description: Precision of a single measurement, derived from the scatter of the
       cycles, sweeps or integrations that make it up, together with the method used
       to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. This is the finest
-      of the three precision levels the library records, below within-session and
-      between-session precision: it describes the repeatability of one analysis rather
-      than agreement between analyses, and is normally the smallest of the three.
-      Distinct from Counting Statistics Error, which records the uncertainty predicted
-      from the counts rather than the scatter observed; where a procedure reports
-      both, record the observed value here and the predicted value there.'
+      is computed over, and the reported quantity it applies to. Distinct from Counting
+      Statistics Error, which records the uncertainty predicted from the counts rather
+      than the scatter observed; where a procedure reports both, record the observed
+      value here and the predicted value there.
     type: object
     properties:
       '@id':
@@ -4008,9 +3980,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -4105,8 +4075,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -4136,11 +4105,11 @@ $defs:
   laSficpms_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -4170,7 +4139,7 @@ $defs:
   laSficpms_instrumentSerialNumberOrLabIdentifierDefault:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -4201,9 +4170,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -4233,10 +4199,9 @@ $defs:
   laSficpms_laserEnergyDefault:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -4268,11 +4233,10 @@ $defs:
   laSficpms_transectRateMappingRateOrStepSizeDefault:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -4301,15 +4265,11 @@ $defs:
     - ada:fieldScope
   laSficpms_makeUpGasAndFlowRateDefault:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -4340,12 +4300,9 @@ $defs:
     - ada:fieldScope
   laSficpms_signalSmoothingDefault:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -4407,10 +4364,9 @@ $defs:
   laSficpms_doublyChargedSpeciesMonitorDefault:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -4440,9 +4396,8 @@ $defs:
   laSficpms_doublyChargedSpeciesProductionDefault:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -4476,8 +4431,7 @@ $defs:
       spot analysis this is the number of individual spots per grain or location;
       for transects, the number of replicate lines; for mapping, the number of map
       acquisitions of the same area; for solution work, the number of discrete replicate
-      measurements acquired per sample solution. The procedure registers an intended
-      count where it has one; the analysis records the count actually acquired.
+      measurements acquired per sample solution.
     type: object
     properties:
       '@id':
@@ -4540,10 +4494,9 @@ $defs:
     - ada:fieldScope
   laSficpms_spikeOutlierFilteringApproachDefault:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -4572,8 +4525,14 @@ $defs:
     - ada:fieldScope
   laSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
     title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear response at the transition
-      between pulse-counting and analog detector modes.
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
     type: object
     properties:
       '@id':
@@ -4602,12 +4561,12 @@ $defs:
     - ada:fieldScope
   laSficpms_memoryEffectMitigationDefault:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -4636,10 +4595,10 @@ $defs:
     - ada:fieldScope
   laSficpms_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -4668,11 +4627,11 @@ $defs:
     - ada:fieldScope
   laSficpms_detectionLimitDefault:
     title: Detection Limit
-    description: "Session detection limit, one per reported concentration variable
-      (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
-      ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to demonstrate
-      the reliability of reported near-detection-limit concentrations. The calculation
-      method is captured separately in Detection Limit Method."
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -4705,9 +4664,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -4720,7 +4677,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -4741,9 +4698,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -4772,16 +4727,13 @@ $defs:
     - ada:fieldScope
   laSficpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: 'Precision of a single measurement, derived from the scatter of the
+    description: Precision of a single measurement, derived from the scatter of the
       cycles, sweeps or integrations that make it up, together with the method used
       to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. This is the finest
-      of the three precision levels the library records, below within-session and
-      between-session precision: it describes the repeatability of one analysis rather
-      than agreement between analyses, and is normally the smallest of the three.
-      Distinct from Counting Statistics Error, which records the uncertainty predicted
-      from the counts rather than the scatter observed; where a procedure reports
-      both, record the observed value here and the predicted value there.'
+      is computed over, and the reported quantity it applies to. Distinct from Counting
+      Statistics Error, which records the uncertainty predicted from the counts rather
+      than the scatter observed; where a procedure reports both, record the observed
+      value here and the predicted value there.
     type: object
     properties:
       '@id':
@@ -4814,9 +4766,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -4911,8 +4861,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -4942,11 +4891,11 @@ $defs:
   laSficpmsUPb_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -4976,7 +4925,7 @@ $defs:
   laSficpmsUPb_instrumentSerialNumberOrLabIdentifierDefault:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -5007,9 +4956,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -5039,10 +4985,9 @@ $defs:
   laSficpmsUPb_laserEnergyDefault:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -5074,11 +5019,10 @@ $defs:
   laSficpmsUPb_transectRateMappingRateOrStepSizeDefault:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -5107,15 +5051,11 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_makeUpGasAndFlowRateDefault:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -5146,12 +5086,9 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_signalSmoothingDefault:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -5213,10 +5150,9 @@ $defs:
   laSficpmsUPb_doublyChargedSpeciesMonitorDefault:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -5246,9 +5182,8 @@ $defs:
   laSficpmsUPb_doublyChargedSpeciesProductionDefault:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -5282,8 +5217,7 @@ $defs:
       spot analysis this is the number of individual spots per grain or location;
       for transects, the number of replicate lines; for mapping, the number of map
       acquisitions of the same area; for solution work, the number of discrete replicate
-      measurements acquired per sample solution. The procedure registers an intended
-      count where it has one; the analysis records the count actually acquired.
+      measurements acquired per sample solution.
     type: object
     properties:
       '@id':
@@ -5346,10 +5280,9 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_spikeOutlierFilteringApproachDefault:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -5378,8 +5311,14 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_pulseAnalogDetectorNonlinearityCorrectionDefault:
     title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear response at the transition
-      between pulse-counting and analog detector modes.
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
     type: object
     properties:
       '@id':
@@ -5408,12 +5347,12 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_memoryEffectMitigationDefault:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -5442,10 +5381,10 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -5476,9 +5415,9 @@ $defs:
     title: Age Datum / Reference Epoch
     description: 'The zero point from which the reported age is measured, where this
       is not the present day, and the date it corresponds to. Record ''Present day''
-      where the conventional datum applies. Explicitly required wherever the datum
-      is not the present: year of sample collection for luminescence (Mahan et al.
-      2023), end of irradiation for 40Ar/39Ar decay corrections (Schaen et al. 2021).'
+      where the conventional datum applies. Where the datum is not the present, record
+      it explicitly: year of sample collection for luminescence, end of irradiation
+      for 40Ar/39Ar decay corrections.'
     type: object
     properties:
       '@id':
@@ -5509,8 +5448,7 @@ $defs:
     title: Error Correlation Between Reported Quantities
     description: The correlation coefficient between pairs of reported quantities
       whose uncertainties are not independent, together with the pair it applies to
-      and how it was obtained. Concordia and isochron regressions cannot be reconstructed
-      without it.
+      and how it was obtained.
     type: object
     properties:
       '@id':
@@ -5541,11 +5479,11 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_detectionLimitDefault:
     title: Detection Limit
-    description: "Session detection limit, one per reported concentration variable
-      (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
-      ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to demonstrate
-      the reliability of reported near-detection-limit concentrations. The calculation
-      method is captured separately in Detection Limit Method."
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -5578,9 +5516,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -5593,7 +5529,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -5614,9 +5550,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -5645,16 +5579,13 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: 'Precision of a single measurement, derived from the scatter of the
+    description: Precision of a single measurement, derived from the scatter of the
       cycles, sweeps or integrations that make it up, together with the method used
       to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. This is the finest
-      of the three precision levels the library records, below within-session and
-      between-session precision: it describes the repeatability of one analysis rather
-      than agreement between analyses, and is normally the smallest of the three.
-      Distinct from Counting Statistics Error, which records the uncertainty predicted
-      from the counts rather than the scatter observed; where a procedure reports
-      both, record the observed value here and the predicted value there.'
+      is computed over, and the reported quantity it applies to. Distinct from Counting
+      Statistics Error, which records the uncertainty predicted from the counts rather
+      than the scatter observed; where a procedure reports both, record the observed
+      value here and the predicted value there.
     type: object
     properties:
       '@id':
@@ -5687,9 +5618,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -5719,10 +5648,7 @@ $defs:
   labxct_sampleDimensionsDefault:
     title: "Sample Dimensions (L \xD7 W \xD7 H)"
     description: "Physical dimensions of the sample in mm, reported as length \xD7
-      width \xD7 height (or equivalent three orthogonal measurements). The maximum
-      dimension constrains the minimum achievable field of view and therefore the
-      coarsest achievable voxel size. The minimum dimension determines how many voxels
-      span the smallest feature of interest."
+      width \xD7 height (or equivalent three orthogonal measurements)."
     type: object
     properties:
       '@id':
@@ -5751,10 +5677,13 @@ $defs:
     - ada:fieldScope
   labxct_sampleMountingMethodDefault:
     title: Sample Mounting Method
-    description: Method used to mount or hold the sample on the instrument rotation
+    description: "Method used to mount or hold the sample on the instrument rotation
       stage. Mounting material should transmit X-rays at the selected voltage without
-      dominating beam attenuation. Report the holder type, adhesive or support material,
-      and any alignment aids used.
+      dominating beam attenuation. Report the holder CLASS from the list and name
+      the specific vessel or material alongside it \u2014 'Tube or vial \u2014 1 cm
+      plastic straw', not 'Tube or vial'. Where the sample is sealed or bagged inside
+      a further holder for contamination control, record both layers. Report any adhesive,
+      support material and alignment aids used."
     type: object
     properties:
       '@id':
@@ -5817,8 +5746,7 @@ $defs:
   labxct_samplePreparationNotesDefault:
     title: Sample Preparation Notes
     description: Any preparation steps applied to the sample before scanning, including
-      cleaning, trimming, consolidation, or drying. XCT is typically non-destructive
-      with no surface preparation required; note any exceptions.
+      cleaning, trimming, consolidation, or drying. Note any exceptions.
     type: object
     properties:
       '@id':
@@ -5848,11 +5776,11 @@ $defs:
   labxct_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -5881,13 +5809,9 @@ $defs:
     - ada:fieldScope
   labxct_xRayPowerDefault:
     title: X-ray Power
-    description: "X-ray tube power in watts (W) registered by the procedure. Derivable
-      as voltage (kV) \xD7 current (mA) = kV \xD7 \xB5A / 1000. Power constrains the
-      achievable focal spot size for microfocal tubes: higher power requires a larger
-      focal spot, trading spatial resolution for SNR. Retained as a standalone field
-      because it is routinely reported in the literature and directly constrains instrument
-      operating limits. If power was varied across samples within the session, report
-      the full range applied (e.g., 7\u201313 W)."
+    description: "X-ray tube power in watts (W). Derivable as voltage (kV) \xD7 current
+      (mA) = kV \xD7 \xB5A / 1000. If power was varied across samples within the session,
+      report the full range applied (e.g., 7\u201313 W)."
     type: object
     properties:
       '@id':
@@ -5919,9 +5843,7 @@ $defs:
   labxct_sourceToObjectDistanceDefault:
     title: Source-to-Object Distance (SOD)
     description: Distance from the X-ray source focal spot to the centre of the sample
-      rotation axis, in mm, as registered by the procedure. Together with SDD, determines
-      geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and
-      reduces voxel size.
+      rotation axis, in mm.
     type: object
     properties:
       '@id':
@@ -5953,9 +5875,8 @@ $defs:
   labxct_sourceToDetectorDistanceDefault:
     title: Source-to-Detector Distance (SDD)
     description: "Distance from the X-ray source focal spot to the detector surface,
-      in mm, as registered by the procedure. Together with SOD, determines geometric
-      magnification M = SDD/SOD. Voxel size \u2248 detector pixel size / M (before
-      binning; divide additionally by optical objective for Versa-class systems)."
+      in mm. Voxel size \u2248 detector pixel size / M (before binning; divide additionally
+      by optical objective for Versa-class systems)."
     type: object
     properties:
       '@id':
@@ -5989,8 +5910,7 @@ $defs:
     description: Angular increment between successive projection images, in degrees.
       Equal to Rotation Range divided by Number of Projections when both are reported;
       however, some sources report step size as the primary rotation parameter without
-      stating the total number of projections explicitly. Finer step sizes improve
-      angular sampling and reduce streak artifacts at the cost of longer scan time.
+      stating the total number of projections explicitly.
     type: object
     properties:
       '@id':
@@ -6022,8 +5942,7 @@ $defs:
   labxct_framesAveragedPerProjectionDefault:
     title: Frames Averaged per Projection
     description: "Number of individual detector frames acquired and averaged to produce
-      each saved projection image, as registered by the procedure. Frame averaging
-      reduces random electronic noise. The effective exposure per projection = exposure
+      each saved projection image. The effective exposure per projection = exposure
       time per frame \xD7 frames averaged."
     type: object
     properties:
@@ -6054,9 +5973,7 @@ $defs:
   labxct_detectorBinningDefault:
     title: Detector Binning
     description: "Detector pixel binning factor applied during acquisition. Binning
-      combines adjacent pixels (e.g., 2\xD72 combines 4 pixels into one), reducing
-      effective resolution while increasing per-pixel SNR and reducing file size.
-      1\xD71 indicates no binning."
+      combines adjacent pixels (e.g., 2\xD72 combines 4 pixels into one)."
     type: object
     properties:
       '@id':
@@ -6086,9 +6003,7 @@ $defs:
   labxct_reconstructionConvolutionFilterDefault:
     title: Reconstruction Convolution Filter
     description: Convolution (apodization) filter kernel applied during back-projection
-      reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify
-      high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost
-      of edge sharpness. The choice represents a deliberate procedure-level tradeoff.
+      reconstruction.
     type: object
     properties:
       '@id':
@@ -6118,8 +6033,7 @@ $defs:
   labxct_beamHardeningCorrectionParameterDefault:
     title: Beam Hardening Correction Parameter
     description: Numerical value or setting applied in the software beam hardening
-      correction algorithm for this specific analysis. May be tuned empirically per
-      material type or per scan session. Analysis-level companion to Beam Hardening
+      correction algorithm for this specific analysis. Companion to Beam Hardening
       Correction Method.
     type: object
     properties:
@@ -6149,11 +6063,8 @@ $defs:
     - ada:fieldScope
   labxct_ringArtifactCorrectionMethodDefault:
     title: Ring Artifact Correction Method
-    description: Procedure specification for how ring artifacts are handled. Ring
-      artifacts appear as concentric circular bands centred on the rotation axis and
-      arise from defective or miscalibrated detector pixels. Method is the procedure-level
-      specification; whether correction was applied and its outcome are recorded at
-      analysis level in Group 6.
+    description: Procedure specification for how ring artifacts are handled. Whether
+      correction was applied and its outcome are recorded separately in Group 6.
     type: object
     properties:
       '@id':
@@ -6183,10 +6094,7 @@ $defs:
   labxct_ctNumberCalibrationDefault:
     title: CT Number Calibration
     description: Whether the raw CT grayscale values have been calibrated to physically
-      meaningful units using reference materials. Calibrated CT numbers enable cross-instrument
-      and cross-session comparison and support phase identification by comparison
-      to calculated linear attenuation coefficient (LAC) values (e.g., using MuCalc;
-      Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and session-specific.
+      meaningful units using reference materials.
     type: object
     properties:
       '@id':
@@ -6216,8 +6124,7 @@ $defs:
   labxct_segmentationThresholdValuesOrCriteriaDefault:
     title: Segmentation Threshold Values or Criteria
     description: "Specific CT number range(s) or quantitative criteria used to define
-      each segmented phase or feature. Documenting these values enables reproducibility
-      assessment and cross-study comparison. For LAC-calibrated datasets, report values
+      each segmented phase or feature. For LAC-calibrated datasets, report values
       in cm\u207B\xB9."
     type: object
     properties:
@@ -6279,11 +6186,11 @@ $defs:
     - ada:fieldScope
   labxct_voiSelectionCriteriaDefault:
     title: VOI Selection Criteria
-    description: Procedure-level rules specifying how the Volume of Interest (VOI)
-      is to be defined for quantitative analysis. Common criteria exclude cone-beam
-      artifact zones at sample edges, beam hardening halos near dense inclusions,
-      and sample holder signal. The actual VOI applied in a specific analysis is recorded
-      separately at analysis level.
+    description: Rules specifying how the Volume of Interest (VOI) is to be defined
+      for quantitative analysis. Common criteria exclude cone-beam artifact zones
+      at sample edges, beam hardening halos near dense inclusions, and sample holder
+      signal. The actual VOI applied in a specific analysis is recorded separately
+      at analysis level.
     type: object
     properties:
       '@id':
@@ -6314,11 +6221,9 @@ $defs:
     title: Output Bit Depth
     description: Bit depth of the reconstructed 3D volume (number of bits used to
       encode each voxel's grayscale value). Common values are 8-bit (256 gray levels),
-      16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the
-      dynamic range available for phase segmentation and quantitative attenuation
-      analysis. The procedure may specify a required output bit depth if downstream
-      analysis workflows depend on a consistent grayscale range; the analyst confirms
-      or adjusts at analysis time.
+      16-bit (65,536 gray levels), or 32-bit floating point. A required output bit
+      depth may be specified if downstream analysis workflows depend on a consistent
+      grayscale range.
     type: object
     properties:
       '@id':
@@ -6347,19 +6252,15 @@ $defs:
     - ada:fieldScope
   labxct_partialVolumeEffectCriteriaDefault:
     title: Partial Volume Effect Criteria
-    description: "Procedure-level specification of how partial volume effects (PVE)
-      are managed in quantitative analysis. PVE produces intermediate CT numbers at
-      phase boundaries and at the surfaces of small features, because each voxel integrates
-      the attenuation of all material within its volume. PVE correction can be implemented
-      via PSF-based deconvolution tools such as Blob3D. Record the minimum feature
-      size criterion adopted for the procedure (in voxels or \xB5m), the basis for
-      it, the treatment of boundary voxels in modal abundance or size distribution
-      calculations, and whether PVE correction is required or optional. Per Withers
-      et al. (2021) a feature must span at least 3 voxels to be positively identified
-      and at least 10 for reliable shape and volume characterisation; state whether
-      the criterion follows that convention or is SNR-limited, PVE-limited or analyst-defined.
-      The criterion materially changes reported modal abundances and size distributions,
-      so two datasets are not comparable without it."
+    description: "Specification of how partial volume effects (PVE) are managed in
+      quantitative analysis. PVE correction can be implemented via PSF-based deconvolution
+      tools such as Blob3D. Record the minimum feature size criterion adopted for
+      the procedure (in voxels or \xB5m), the basis for it, the treatment of boundary
+      voxels in modal abundance or size distribution calculations, and whether PVE
+      correction is required or optional. State whether the criterion follows the
+      Withers et al. (2021) convention \u2014 a feature must span at least 3 voxels
+      to be positively identified and at least 10 for reliable shape and volume characterisation
+      \u2014 or is SNR-limited, PVE-limited or analyst-defined."
     type: object
     properties:
       '@id':
@@ -6388,14 +6289,12 @@ $defs:
     - ada:fieldScope
   labxct_crossValidationProcedureRequirementDefault:
     title: Cross-Validation Procedure Requirement
-    description: Procedure-level specification of what independent analytical validation
-      is required to confirm CT segmentation results, phase identification, or quantitative
-      measurements. Cross-validation is relevant where CT grey-values alone cannot
-      uniquely distinguish phases with similar attenuation coefficients. Common approaches
-      include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk
-      porosity, and Raman or SIMS phase mapping. Record the required validation method(s)
-      and the sampling fraction (e.g., every sample, one per session, or a representative
-      subset).
+    description: Specification of what independent analytical validation is required
+      to confirm CT segmentation results, phase identification, or quantitative measurements.
+      Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
+      for bulk porosity, and Raman or SIMS phase mapping. Record the required validation
+      method(s) and the sampling fraction (e.g., every sample, one per session, or
+      a representative subset).
     type: object
     properties:
       '@id':
@@ -6458,11 +6357,11 @@ $defs:
   semComposition_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -6491,10 +6390,10 @@ $defs:
     - ada:fieldScope
   semComposition_beamRasterDimensionsDefault:
     title: Beam Raster Dimensions
-    description: "Dimensions of the small area over which the beam is rastered during
+    description: "Dimensions of the small area over which the beam is rastered at
       a single analysis point, reported as width \xD7 height in \xB5m. Applicable
-      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement
-      and distributes dose over a larger area to reduce beam damage on sensitive phases."
+      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement.
+      Not applicable when mapping."
     type: object
     properties:
       '@id':
@@ -6515,7 +6414,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        type: string
+        const: "\xB5m x \xB5m"
     required:
     - '@id'
     - '@type'
@@ -6528,8 +6427,7 @@ $defs:
     description: 'Describes any measures taken to reduce electron beam damage to the
       sample during analysis. Examples: reduced accelerating voltage, lowered beam
       current, defocused or rastered beam, cooled stage, short acquisition sequences,
-      or rotating between multiple points. Particularly important for volatile-bearing
-      phases, hydrous minerals, glasses, organic materials, and biological samples.'
+      or rotating between multiple points.'
     type: object
     properties:
       '@id':
@@ -6561,9 +6459,7 @@ $defs:
     description: 'Describes whether and how stage or beam drift was monitored and
       corrected during the measurement session. Examples: periodic stage realignment
       to a fiducial marker, automated beam drift correction in acquisition software,
-      or reanalysis of a reference point at regular intervals. Particularly relevant
-      for long mapping runs and high-magnification sessions where positional accuracy
-      affects data quality.'
+      or reanalysis of a reference point at regular intervals.'
     type: object
     properties:
       '@id':
@@ -6657,8 +6553,7 @@ $defs:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilisation or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point
-      analysis; uncommon for EDS or X-ray mapping.
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':
@@ -6702,7 +6597,7 @@ $defs:
       schema:name:
         const: Halogen Correction on Oxygen
       ada:dataType:
-        const: boolean
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -6749,8 +6644,10 @@ $defs:
     - ada:fieldScope
   semComposition_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied using secondary reference
-      materials to correct for session-to-session calibration drift.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -6779,9 +6676,11 @@ $defs:
     - ada:fieldScope
   semComposition_detectionLimitDefault:
     title: Detection Limit
-    description: Method detection limit at 99% confidence, one per reported concentration
-      variable (one per analyte, these being the same set). Include the method used
-      and the resulting value for each.
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -6814,8 +6713,7 @@ $defs:
     title: Analytical Precision
     description: Reproducibility of repeated measurements on the same or equivalent
       reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and value per analyte or element
-      group.
+      reference material name, number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -6846,7 +6744,7 @@ $defs:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary
       standards, expressed as percent relative bias. Include reference material, reference
-      value source, and per-analyte value.
+      value source, and the measured value.
     type: object
     properties:
       '@id':
@@ -6880,9 +6778,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -6945,11 +6841,11 @@ $defs:
   semFibsem_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -7012,11 +6908,11 @@ $defs:
   semImaging_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -7079,9 +6975,8 @@ $defs:
   semImaging_imagePixelSizeDefault:
     title: Image Pixel Size
     description: "Physical size of each image pixel at the sample surface, in nm or
-      \xB5m. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging,
-      report the pixel size of individual tiles and the number and arrangement of
-      tiles."
+      \xB5m. For large-area mosaic imaging, report the pixel size of individual tiles
+      and the number and arrangement of tiles."
     type: object
     properties:
       '@id':
@@ -7113,8 +7008,6 @@ $defs:
   semImaging_ebsdFrameTimeDefault:
     title: EBSD Frame Time
     description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
-      Longer frame time improves pattern quality and indexing rate but increases total
-      acquisition time.
     type: object
     properties:
       '@id':
@@ -7205,622 +7098,6 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  sem_samplePersistentIdentifierDefault:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in
-      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
-      for geological and cosmochemical samples, as used by Astromat, EarthChem and
-      SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/samplePersistentIdentifierDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: samplePersistentIdentifierDefault
-      schema:name:
-        const: Sample Persistent Identifier
-      ada:dataType:
-        const: uri
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_preAnalysisImagingAndScreeningDefault:
-    title: Pre-Analysis Imaging and Screening
-    description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/preAnalysisImagingAndScreeningDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: preAnalysisImagingAndScreeningDefault
-      schema:name:
-        const: Pre-Analysis Imaging and Screening
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_beamRasterDimensionsDefault:
-    title: Beam Raster Dimensions
-    description: "Dimensions of the small area over which the beam is rastered during
-      a single analysis point, reported as width \xD7 height in \xB5m. Applicable
-      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement
-      and distributes dose over a larger area to reduce beam damage on sensitive phases."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/beamRasterDimensionsDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: beamRasterDimensionsDefault
-      schema:name:
-        const: Beam Raster Dimensions
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_beamDamageMinimizationDefault:
-    title: Beam Damage Minimization
-    description: 'Describes any measures taken to reduce electron beam damage to the
-      sample during analysis. Examples: reduced accelerating voltage, lowered beam
-      current, defocused or rastered beam, cooled stage, short acquisition sequences,
-      or rotating between multiple points. Particularly important for volatile-bearing
-      phases, hydrous minerals, glasses, organic materials, and biological samples.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/beamDamageMinimizationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: beamDamageMinimizationDefault
-      schema:name:
-        const: Beam Damage Minimization
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_driftCorrectionDefault:
-    title: Drift Correction
-    description: 'Describes whether and how stage or beam drift was monitored and
-      corrected during the measurement session. Examples: periodic stage realignment
-      to a fiducial marker, automated beam drift correction in acquisition software,
-      or reanalysis of a reference point at regular intervals. Particularly relevant
-      for long mapping runs and high-magnification sessions where positional accuracy
-      affects data quality.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/driftCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: driftCorrectionDefault
-      schema:name:
-        const: Drift Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_chamberPressureDefault:
-    title: Chamber Pressure
-    description: Chamber pressure and gas type during analysis. Required for variable
-      pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit
-      (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/chamberPressureDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: chamberPressureDefault
-      schema:name:
-        const: Chamber Pressure
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_imagePixelSizeDefault:
-    title: Image Pixel Size
-    description: "Physical size of each image pixel at the sample surface, in nm or
-      \xB5m. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging,
-      report the pixel size of individual tiles and the number and arrangement of
-      tiles."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/imagePixelSizeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: imagePixelSizeDefault
-      schema:name:
-        const: Image Pixel Size
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_backgroundPositionDefault:
-    title: Background Position(s)
-    description: Location(s) of off-peak background measurement(s) relative to the
-      peak, in mm or sin-theta, and whether on the high- or low-energy side.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/backgroundPositionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundPositionDefault
-      schema:name:
-        const: Background Position(s)
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_ebsdFrameTimeDefault:
-    title: EBSD Frame Time
-    description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
-      Longer frame time improves pattern quality and indexing rate but increases total
-      acquisition time.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/ebsdFrameTimeDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: ebsdFrameTimeDefault
-      schema:name:
-        const: EBSD Frame Time
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        const: ms
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_timeDependentIntensityCorrectionDefault:
-    title: Time-Dependent Intensity Correction
-    description: Type of time-dependent intensity (TDI) correction applied to compensate
-      for beam-induced volatilisation or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point
-      analysis; uncommon for EDS or X-ray mapping.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/timeDependentIntensityCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: timeDependentIntensityCorrectionDefault
-      schema:name:
-        const: Time-Dependent Intensity Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_halogenCorrectionOnOxygenDefault:
-    title: Halogen Correction on Oxygen
-    description: Whether oxygen content was adjusted to account for halogen substitution
-      (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole,
-      and mica, where oxygen is calculated by stoichiometry.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/halogenCorrectionOnOxygenDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: halogenCorrectionOnOxygenDefault
-      schema:name:
-        const: Halogen Correction on Oxygen
-      ada:dataType:
-        const: boolean
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_blankCorrectionDefault:
-    title: Blank Correction
-    description: Method and reference material(s) used to determine and subtract blank
-      signal contributions (e.g., carbon coat contribution to C signal, or background
-      contamination for trace elements).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/blankCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: blankCorrectionDefault
-      schema:name:
-        const: Blank Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_normalizationStandardsBasedCorrectionDefault:
-    title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied using secondary reference
-      materials to correct for session-to-session calibration drift.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: normalizationStandardsBasedCorrectionDefault
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_ebsdPatternQualityThresholdDefault:
-    title: EBSD Pattern Quality Threshold
-    description: Minimum pattern quality or confidence index threshold applied during
-      EBSD data processing to exclude unreliably indexed points from orientation maps.
-      Include metric name and threshold value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/ebsdPatternQualityThresholdDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: ebsdPatternQualityThresholdDefault
-      schema:name:
-        const: EBSD Pattern Quality Threshold
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_detectionLimitDefault:
-    title: Detection Limit
-    description: Method detection limit at 99% confidence, one per reported concentration
-      variable (one per analyte, these being the same set). Include the method used
-      and the resulting value for each.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/detectionLimitDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectionLimitDefault
-      schema:name:
-        const: Detection Limit
-      ada:dataType:
-        const: number
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_analyticalPrecisionDefault:
-    title: Analytical Precision
-    description: Reproducibility of repeated measurements on the same or equivalent
-      reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and value per analyte or element
-      group.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/analyticalPrecisionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: analyticalPrecisionDefault
-      schema:name:
-        const: Analytical Precision
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_analyticalAccuracyDefault:
-    title: Analytical Accuracy
-    description: Offset between measured and accepted reference values for secondary
-      standards, expressed as percent relative bias. Include reference material, reference
-      value source, and per-analyte value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/analyticalAccuracyDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: analyticalAccuracyDefault
-      schema:name:
-        const: Analytical Accuracy
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_countingStatisticsErrorDefault:
-    title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/countingStatisticsErrorDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: countingStatisticsErrorDefault
-      schema:name:
-        const: Counting Statistics Error
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  sem_clWavelengthCalibrationReferenceDefault:
-    title: CL Wavelength Calibration Reference
-    description: Reference light source or standard material used to calibrate the
-      wavelength axis of the CL spectrometer. Required for quantitative spectral CL
-      and hyperspectral mapping.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/clWavelengthCalibrationReferenceDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: clWavelengthCalibrationReferenceDefault
-      schema:name:
-        const: CL Wavelength Calibration Reference
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
   solutionMcicpms_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in
@@ -7857,7 +7134,7 @@ $defs:
   solutionMcicpms_sampleAliquotMassOrVolumeDefault:
     title: Sample Aliquot Mass or Volume
     description: Mass (mg) of solid material digested or volume (mL) of liquid taken
-      for dissolution. Used for yield calculations and concentration back-calculation.
+      for dissolution.
     type: object
     properties:
       '@id':
@@ -7889,7 +7166,7 @@ $defs:
   solutionMcicpms_instrumentSerialNumberOrLabIdentifierDefault:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -7920,9 +7197,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -7951,15 +7225,11 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_makeUpGasAndFlowRateDefault:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -8022,10 +7292,10 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_reactionGasFlowRateDefault:
     title: Reaction Gas Flow Rate
-    description: Flow rate of the reaction gas in DRC mode (mL/min), on collision/reaction-cell-equipped
-      MC-ICP-MS instruments. Record 'N/A' if the instrument has no cell or DRC mode
-      is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration
-      does not include DRC.
+    description: Flow rate of the reactive gas introduced into the dynamic reaction
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -8054,17 +7324,47 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  solutionMcicpms_collisionReactionGasMixtureRatioDefault:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of
+      gases rather than a single gas, the identities and proportions of that mixture.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatioDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionReactionGasMixtureRatioDefault
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
   solutionMcicpms_doubleSpikeMixingRatioDefault:
     title: Double-Spike Mixing Ratio
     description: "Target proportion of double-spike signal relative to total analyte
       signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. An optimal mixing ratio minimizes error propagation through the double-spike
-      inversion; the optimum is analyte-system specific and is typically determined
-      using the Double Spike Toolbox or equivalent. The achieved mixing ratio may
-      deviate from the target within acceptable bounds (typically \xB120% of optimal);
-      the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if
-      double-spike method is not used. Record 'N/A' where the procedure does not use
-      a double spike."
+      ratio. The optimum is analyte-system specific and is typically determined using
+      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
+      from the target within acceptable bounds (typically \xB120% of optimal); the
+      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
+      the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -8093,9 +7393,9 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_spikeOutlierFilteringApproachDefault:
     title: Spike / Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous cycles or replicate
-      measurements from the calculated isotope ratio mean. Filtering is applied after
-      baseline subtraction and before mass bias correction.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -8124,12 +7424,12 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_memoryEffectMitigationDefault:
     title: Memory Effect Mitigation
-    description: Procedure applied to minimize carryover of analyte isotopes between
-      successive sample introductions. In MC-ICP-MS, extended rinse periods with the
-      same acid matrix as samples (see Wash Time Between Samples) are the primary
-      mitigation. At data processing level, documents any flagging or exclusion of
-      measurements preceded by samples with significantly different isotopic compositions
-      where carryover may be suspected.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -8192,11 +7492,10 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: "Post-acquisition normalization applied to output isotope ratio data
-      beyond the primary mass bias correction. Examples: correction of \u03B4 values
-      for decay of enriched spike isotopes between calibration and use date (double-spike
-      procedures); age correction of \u03B4238U for secular disequilibrium. Record
-      'None' if no additional normalization is applied."
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -8227,8 +7526,7 @@ $defs:
     title: Error Correlation Between Reported Quantities
     description: The correlation coefficient between pairs of reported quantities
       whose uncertainties are not independent, together with the pair it applies to
-      and how it was obtained. Concordia and isochron regressions cannot be reconstructed
-      without it.
+      and how it was obtained.
     type: object
     properties:
       '@id':
@@ -8264,9 +7562,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -8295,16 +7591,13 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: 'Precision of a single measurement, derived from the scatter of the
+    description: Precision of a single measurement, derived from the scatter of the
       cycles, sweeps or integrations that make it up, together with the method used
       to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. This is the finest
-      of the three precision levels the library records, below within-session and
-      between-session precision: it describes the repeatability of one analysis rather
-      than agreement between analyses, and is normally the smallest of the three.
-      Distinct from Counting Statistics Error, which records the uncertainty predicted
-      from the counts rather than the scatter observed; where a procedure reports
-      both, record the observed value here and the predicted value there.'
+      is computed over, and the reported quantity it applies to. Distinct from Counting
+      Statistics Error, which records the uncertainty predicted from the counts rather
+      than the scatter observed; where a procedure reports both, record the observed
+      value here and the predicted value there.
     type: object
     properties:
       '@id':
@@ -8337,9 +7630,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -8368,13 +7659,11 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_detectionLimitDefault:
     title: Detection Limit
-    description: "Elemental detection limits, one per reported concentration variable
-      (one per analyte, these being the same set), applicable when isotope dilution
-      concentrations are also reported. For pure isotope ratio procedures (no concentration
-      output), this field is N/A or reports the minimum sample mass required for a
-      measurement at target precision. Specify units \xB5g/g or \xB5g/L and whether
-      values are procedure-typical estimates or session-measured. Record 'N/A' where
-      the procedure produces isotope ratios only and reports no concentrations."
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -8405,7 +7694,9 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_limitOfQuantificationMethodDefault:
     title: Limit of Quantification (LOQ) Method
-    description: Method used to determine the limit of quantification, where applicable.
+    description: 'Reference or description of the method used to calculate the limit
+      of quantification (LOQ): the lowest concentration reliably measurable with acceptable
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -8468,7 +7759,7 @@ $defs:
   solutionQicpms_sampleAliquotMassOrVolumeDefault:
     title: Sample Aliquot Mass or Volume
     description: Mass (mg) of solid material digested or volume (mL) of liquid taken
-      for dissolution. Used for yield calculations and concentration back-calculation.
+      for dissolution.
     type: object
     properties:
       '@id':
@@ -8500,7 +7791,7 @@ $defs:
   solutionQicpms_instrumentSerialNumberOrLabIdentifierDefault:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -8531,9 +7822,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -8562,15 +7850,11 @@ $defs:
     - ada:fieldScope
   solutionQicpms_makeUpGasAndFlowRateDefault:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -8638,8 +7922,7 @@ $defs:
       spot analysis this is the number of individual spots per grain or location;
       for transects, the number of replicate lines; for mapping, the number of map
       acquisitions of the same area; for solution work, the number of discrete replicate
-      measurements acquired per sample solution. The procedure registers an intended
-      count where it has one; the analysis records the count actually acquired.
+      measurements acquired per sample solution.
     type: object
     properties:
       '@id':
@@ -8668,9 +7951,10 @@ $defs:
     - ada:fieldScope
   solutionQicpms_reactionGasFlowRateDefault:
     title: Reaction Gas Flow Rate
-    description: Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A'
-      if DRC mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration
-      does not include DRC.
+    description: Flow rate of the reactive gas introduced into the dynamic reaction
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -8703,9 +7987,8 @@ $defs:
     title: Collision/Reaction Gas Mixture Ratio
     description: Where the collision or reaction cell is supplied with a mixture of
       gases rather than a single gas, the identities and proportions of that mixture.
-      Recorded separately from the gas identity because the proportions change reaction
-      efficiency and interference suppression independently of which gases are used.
-      Record 'N/A' where a single gas is used.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
     type: object
     properties:
       '@id':
@@ -8735,9 +8018,7 @@ $defs:
   solutionQicpms_doublyChargedSpeciesMonitorDefault:
     title: Doubly-Charged Species Monitor
     description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
-      during instrument tuning. Doubly-charged ions appear at half the nominal mass
-      of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z
-      69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.
+      during instrument tuning.
     type: object
     properties:
       '@id':
@@ -8767,10 +8048,8 @@ $defs:
   solutionQicpms_doublyChargedSpeciesProductionDefault:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. Record both the acceptance threshold
-      and the measured value. Elevated doubly-charged production indicates incomplete
-      ionization and potential interference on elements at approximately half the
-      mass of abundant matrix components.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -8799,8 +8078,9 @@ $defs:
     - ada:fieldScope
   solutionQicpms_spikeOutlierFilteringApproachDefault:
     title: Spike / Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous replicate measurements
-      or data points from the calculated mean.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -8830,10 +8110,13 @@ $defs:
   solutionQicpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
     title: Pulse/Analog Detector Nonlinearity Correction
     description: Whether a correction was applied for nonlinear detector response
-      at the transition between pulse-counting and analog detection modes. For Q-ICP-MS
-      instruments with dual-mode SEM detectors, a cross-calibration factor is measured
-      and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration
-      is critical for analytes spanning a wide concentration range in the same session.
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
     type: object
     properties:
       '@id':
@@ -8862,12 +8145,12 @@ $defs:
     - ada:fieldScope
   solutionQicpms_memoryEffectMitigationDefault:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimize carry-over of high-concentration
-      elements between successive sample introductions. For solution ICP-MS, mitigation
-      is implemented primarily at measurement time through extended rinse periods
-      (see Wash Time Between Samples, Group 4). At data processing level, documents
-      any flagging or exclusion of measurements preceded by high-concentration samples
-      or standards where the required washout time may not have been achieved.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -8930,9 +8213,10 @@ $defs:
     - ada:fieldScope
   solutionQicpms_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied to output concentrations relative
-      to a reference value (e.g., correction to a monitor element's certified value
-      in the calibration standard).
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -8961,10 +8245,11 @@ $defs:
     - ada:fieldScope
   solutionQicpms_detectionLimitDefault:
     title: Detection Limit
-    description: "Elemental detection limits, one per reported concentration variable
-      (one per analyte, these being the same set). Specify units (\xB5g/g or \xB5g/L)
-      and whether values are procedure-typical estimates or session-specific measured
-      values."
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
     type: object
     properties:
       '@id':
@@ -8995,7 +8280,9 @@ $defs:
     - ada:fieldScope
   solutionQicpms_limitOfQuantificationMethodDefault:
     title: Limit of Quantification (LOQ) Method
-    description: Method used to determine the limit of quantification.
+    description: 'Reference or description of the method used to calculate the limit
+      of quantification (LOQ): the lowest concentration reliably measurable with acceptable
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -9029,9 +8316,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -9060,16 +8345,13 @@ $defs:
     - ada:fieldScope
   solutionQicpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: 'Precision of a single measurement, derived from the scatter of the
+    description: Precision of a single measurement, derived from the scatter of the
       cycles, sweeps or integrations that make it up, together with the method used
       to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. This is the finest
-      of the three precision levels the library records, below within-session and
-      between-session precision: it describes the repeatability of one analysis rather
-      than agreement between analyses, and is normally the smallest of the three.
-      Distinct from Counting Statistics Error, which records the uncertainty predicted
-      from the counts rather than the scatter observed; where a procedure reports
-      both, record the observed value here and the predicted value there.'
+      is computed over, and the reported quantity it applies to. Distinct from Counting
+      Statistics Error, which records the uncertainty predicted from the counts rather
+      than the scatter observed; where a procedure reports both, record the observed
+      value here and the predicted value there.
     type: object
     properties:
       '@id':
@@ -9102,9 +8384,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -9131,7 +8411,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_samplePersistentIdentifierDefault:
+  sem_samplePersistentIdentifierDefault:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in
       Sample Name. IGSN (International Geo Sample Number) is the recommended standard
@@ -9141,7 +8421,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/samplePersistentIdentifierDefault
+        const: ada:parameter/semTAPP/samplePersistentIdentifierDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -9164,21 +8444,57 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_sampleAliquotMassOrVolumeDefault:
-    title: Sample Aliquot Mass or Volume
-    description: Mass (mg) of solid material digested or volume (mL) of liquid taken
-      for dissolution. Used for yield calculations and concentration back-calculation.
+  sem_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault
+        const: ada:parameter/semTAPP/preAnalysisImagingAndScreeningDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: sampleAliquotMassOrVolumeDefault
+        const: preAnalysisImagingAndScreeningDefault
       schema:name:
-        const: Sample Aliquot Mass or Volume
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_beamRasterDimensionsDefault:
+    title: Beam Raster Dimensions
+    description: "Dimensions of the small area over which the beam is rastered at
+      a single analysis point, reported as width \xD7 height in \xB5m. Applicable
+      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement.
+      Not applicable when mapping."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/beamRasterDimensionsDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: beamRasterDimensionsDefault
+      schema:name:
+        const: Beam Raster Dimensions
       ada:dataType:
         const: number
       ada:fieldScope:
@@ -9188,7 +8504,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        const: mg or mL
+        const: "\xB5m x \xB5m"
     required:
     - '@id'
     - '@type'
@@ -9196,21 +8512,23 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_instrumentSerialNumberOrLabIdentifierDefault:
-    title: Instrument Serial Number or Lab Identifier
-    description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+  sem_beamDamageMinimizationDefault:
+    title: Beam Damage Minimization
+    description: 'Describes any measures taken to reduce electron beam damage to the
+      sample during analysis. Examples: reduced accelerating voltage, lowered beam
+      current, defocused or rastered beam, cooled stage, short acquisition sequences,
+      or rotating between multiple points.'
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
+        const: ada:parameter/semTAPP/beamDamageMinimizationDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: instrumentSerialNumberOrLabIdentifierDefault
+        const: beamDamageMinimizationDefault
       schema:name:
-        const: Instrument Serial Number or Lab Identifier
+        const: Beam Damage Minimization
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -9226,24 +8544,23 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_torchDepthDefault:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also
-      called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
+  sem_driftCorrectionDefault:
+    title: Drift Correction
+    description: 'Describes whether and how stage or beam drift was monitored and
+      corrected during the measurement session. Examples: periodic stage realignment
+      to a fiducial marker, automated beam drift correction in acquisition software,
+      or reanalysis of a reference point at regular intervals.'
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/torchDepthDefault
+        const: ada:parameter/semTAPP/driftCorrectionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: torchDepthDefault
+        const: driftCorrectionDefault
       schema:name:
-        const: Torch Depth
+        const: Drift Correction
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -9259,28 +8576,22 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_makeUpGasAndFlowRateDefault:
-    title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
-      sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+  sem_chamberPressureDefault:
+    title: Chamber Pressure
+    description: Chamber pressure and gas type during analysis. Required for variable
+      pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit
+      (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRateDefault
+        const: ada:parameter/semTAPP/chamberPressureDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: makeUpGasAndFlowRateDefault
+        const: chamberPressureDefault
       schema:name:
-        const: Make-up Gas and Flow Rate
+        const: Chamber Pressure
       ada:dataType:
         const: number
       ada:fieldScope:
@@ -9290,7 +8601,7 @@ $defs:
       ada:tier:
         const: R
       schema:unitText:
-        const: L/min
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9298,23 +8609,54 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_icpTuningDefault:
-    title: ICP Tuning
-    description: Description of the approach used to optimise ICP plasma conditions
-      prior to analysis, including the reference material used for tuning and the
-      acceptance criteria (e.g., oxide production threshold, sensitivity targets,
-      mass calibration).
+  sem_imagePixelSizeDefault:
+    title: Image Pixel Size
+    description: "Physical size of each image pixel at the sample surface, in nm or
+      \xB5m. For large-area mosaic imaging, report the pixel size of individual tiles
+      and the number and arrangement of tiles."
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/icpTuningDefault
+        const: ada:parameter/semTAPP/imagePixelSizeDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: icpTuningDefault
+        const: imagePixelSizeDefault
       schema:name:
-        const: ICP Tuning
+        const: Image Pixel Size
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_backgroundPositionDefault:
+    title: Background Position(s)
+    description: Location(s) of off-peak background measurement(s) relative to the
+      peak, in mm or sin-theta, and whether on the high- or low-energy side.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/backgroundPositionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: backgroundPositionDefault
+      schema:name:
+        const: Background Position(s)
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -9330,34 +8672,30 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_numberOfReplicatesDefault:
-    title: Number of Replicates
-    description: Number of replicate measurements performed on the same sample, or
-      on the same nominal location where the technique is spatially resolved. For
-      spot analysis this is the number of individual spots per grain or location;
-      for transects, the number of replicate lines; for mapping, the number of map
-      acquisitions of the same area; for solution work, the number of discrete replicate
-      measurements acquired per sample solution. The procedure registers an intended
-      count where it has one; the analysis records the count actually acquired.
+  sem_ebsdFrameTimeDefault:
+    title: EBSD Frame Time
+    description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/numberOfReplicatesDefault
+        const: ada:parameter/semTAPP/ebsdFrameTimeDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: numberOfReplicatesDefault
+        const: ebsdFrameTimeDefault
       schema:name:
-        const: Number of Replicates
+        const: EBSD Frame Time
       ada:dataType:
-        const: integer
+        const: number
       ada:fieldScope:
         const: session
       schema:readonlyValue:
         const: false
       ada:tier:
         const: R
+      schema:unitText:
+        const: ms
     required:
     - '@id'
     - '@type'
@@ -9365,24 +8703,22 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_doublyChargedSpeciesMonitorDefault:
-    title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
-      during instrument tuning. Doubly-charged ions appear at half the nominal mass
-      of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS,
-      doubly-charged species are not suppressed by collision cells and require monitoring
-      through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
+  sem_timeDependentIntensityCorrectionDefault:
+    title: Time-Dependent Intensity Correction
+    description: Type of time-dependent intensity (TDI) correction applied to compensate
+      for beam-induced volatilisation or migration of sensitive elements (e.g., Na,
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitorDefault
+        const: ada:parameter/semTAPP/timeDependentIntensityCorrectionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: doublyChargedSpeciesMonitorDefault
+        const: timeDependentIntensityCorrectionDefault
       schema:name:
-        const: Doubly-Charged Species Monitor
+        const: Time-Dependent Intensity Correction
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -9398,24 +8734,22 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_doublyChargedSpeciesProductionDefault:
-    title: Doubly-Charged Species Production
-    description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. Record both the acceptance threshold
-      and the measured value. Elevated doubly-charged production indicates incomplete
-      ionization and potential interference on elements at approximately half the
-      mass of abundant matrix components.
+  sem_halogenCorrectionOnOxygenDefault:
+    title: Halogen Correction on Oxygen
+    description: Whether oxygen content was adjusted to account for halogen substitution
+      (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole,
+      and mica, where oxygen is calculated by stoichiometry.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProductionDefault
+        const: ada:parameter/semTAPP/halogenCorrectionOnOxygenDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: doublyChargedSpeciesProductionDefault
+        const: halogenCorrectionOnOxygenDefault
       schema:name:
-        const: Doubly-Charged Species Production
+        const: Halogen Correction on Oxygen
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -9431,21 +8765,22 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_spikeOutlierFilteringApproachDefault:
-    title: Spike / Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous replicate measurements
-      or data points from the calculated mean.
+  sem_blankCorrectionDefault:
+    title: Blank Correction
+    description: Method and reference material(s) used to determine and subtract blank
+      signal contributions (e.g., carbon coat contribution to C signal, or background
+      contamination for trace elements).
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproachDefault
+        const: ada:parameter/semTAPP/blankCorrectionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: spikeOutlierFilteringApproachDefault
+        const: blankCorrectionDefault
       schema:name:
-        const: Spike / Outlier Filtering Approach
+        const: Blank Correction
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -9461,117 +8796,16 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
-    title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear detector response
-      at the transition between pulse-counting and analog (and Faraday, for triple-mode
-      instruments) detection modes. For SF-ICP-MS instruments, the signal transitions
-      between pulse counting (low concentrations) and analog detection (high concentrations).
-      For triple-mode instruments (e.g., Thermo Element XR), an additional transition
-      to Faraday cup detection occurs at the highest signal intensities. Cross-calibration
-      factors between detector modes must be confirmed, typically measured each session.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: pulseAnalogDetectorNonlinearityCorrectionDefault
-      schema:name:
-        const: Pulse/Analog Detector Nonlinearity Correction
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_memoryEffectMitigationDefault:
-    title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimize carry-over of high-concentration
-      elements between successive sample introductions. For solution ICP-MS, mitigation
-      is implemented primarily at measurement time through extended rinse periods
-      (see Wash Time Between Samples, Group 4). At data processing level, documents
-      any flagging or exclusion of measurements preceded by high-concentration samples
-      or standards where the required washout time may not have been achieved.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: memoryEffectMitigationDefault
-      schema:name:
-        const: Memory Effect Mitigation
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_uncertaintyPropagationMethodDefault:
-    title: Uncertainty Propagation Method
-    description: 'The approach used to propagate analytical uncertainty through the
-      data reduction chain to the final reported value. State which sources are included
-      in the propagation: counting statistics, calibration standard uncertainty, internal
-      standard uncertainty, drift correction, and any systematic contributions. Distinct
-      from Uncertainty Level, which states the convention at which the resulting uncertainty
-      is quoted.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: uncertaintyPropagationMethodDefault
-      schema:name:
-        const: Uncertainty Propagation Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_normalizationStandardsBasedCorrectionDefault:
+  sem_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied to output concentrations relative
-      to a reference value (e.g., correction to a BHVO-2 working value).
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault
+        const: ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -9594,16 +8828,48 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_detectionLimitDefault:
-    title: Detection Limit
-    description: "Elemental detection limits, one per reported concentration variable
-      (one per analyte, these being the same set). Specify units (\xB5g/g or \xB5g/L)
-      and whether values are procedure-typical estimates or session-specific measured
-      values."
+  sem_ebsdPatternQualityThresholdDefault:
+    title: EBSD Pattern Quality Threshold
+    description: Minimum pattern quality or confidence index threshold applied during
+      EBSD data processing to exclude unreliably indexed points from orientation maps.
+      Include metric name and threshold value.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/detectionLimitDefault
+        const: ada:parameter/semTAPP/ebsdPatternQualityThresholdDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: ebsdPatternQualityThresholdDefault
+      schema:name:
+        const: EBSD Pattern Quality Threshold
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_detectionLimitDefault:
+    title: Detection Limit
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/detectionLimitDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -9628,20 +8894,22 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_limitOfQuantificationMethodDefault:
-    title: Limit of Quantification (LOQ) Method
-    description: Method used to determine the limit of quantification.
+  sem_analyticalPrecisionDefault:
+    title: Analytical Precision
+    description: Reproducibility of repeated measurements on the same or equivalent
+      reference material, expressed as 1-sigma relative standard deviation (%). Include
+      reference material name, number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/limitOfQuantificationMethodDefault
+        const: ada:parameter/semTAPP/analyticalPrecisionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: limitOfQuantificationMethodDefault
+        const: analyticalPrecisionDefault
       schema:name:
-        const: Limit of Quantification (LOQ) Method
+        const: Analytical Precision
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -9657,20 +8925,49 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_countingStatisticsErrorDefault:
+  sem_analyticalAccuracyDefault:
+    title: Analytical Accuracy
+    description: Offset between measured and accepted reference values for secondary
+      standards, expressed as percent relative bias. Include reference material, reference
+      value source, and the measured value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/analyticalAccuracyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: analyticalAccuracyDefault
+      schema:name:
+        const: Analytical Accuracy
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_countingStatisticsErrorDefault:
     title: Counting Statistics Error
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/countingStatisticsErrorDefault
+        const: ada:parameter/semTAPP/countingStatisticsErrorDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -9693,64 +8990,22 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  solutionSficpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
-    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: 'Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. This is the finest
-      of the three precision levels the library records, below within-session and
-      between-session precision: it describes the repeatability of one analysis rather
-      than agreement between analyses, and is normally the smallest of the three.
-      Distinct from Counting Statistics Error, which records the uncertainty predicted
-      from the counts rather than the scatter observed; where a procedure reports
-      both, record the observed value here and the predicted value there.'
+  sem_clWavelengthCalibrationReferenceDefault:
+    title: CL Wavelength Calibration Reference
+    description: Reference light source or standard material used to calibrate the
+      wavelength axis of the CL spectrometer. Required for quantitative spectral CL
+      and hyperspectral mapping.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethodDefault
+        const: ada:parameter/semTAPP/clWavelengthCalibrationReferenceDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: internalAnalyticalPrecisionAndAssessmentMethodDefault
+        const: clWavelengthCalibrationReferenceDefault
       schema:name:
-        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
-      ada:dataType:
-        const: string
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
-    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-    description: "Precision of measurements across multiple analytical sessions over
-      weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
-      schema:name:
-        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+        const: CL Wavelength Calibration Reference
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -9775,9 +9030,9 @@ $defs:
       surface cleanup (e.g., low-energy Ar+ ion polishing in a Fischione NanoMill,
       final 0.5\u20132 kV Ga+ thinning); sample transfer and storage environment (ambient
       air, dry N\u2082 atmosphere, vacuum transfer holder, glovebox); plasma cleaning
-      before loading. Analysts record session-specific observations and deviations
-      from the procedure standard. Includes preparation artifacts noted (Ga implantation,
-      amorphization, curtaining)."
+      before loading. Includes session-specific observations and deviations from the
+      procedure standard. Includes preparation artifacts noted (Ga implantation, amorphization,
+      curtaining)."
     type: object
     properties:
       '@id':
@@ -9840,11 +9095,11 @@ $defs:
   tem_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -9873,9 +9128,7 @@ $defs:
     - ada:fieldScope
   tem_sampleHolderDefault:
     title: Sample Holder
-    description: Type of specimen holder used. Cryo holders (liquid N2 to ~110 K)
-      are critical for minimizing beam-induced damage to organic matter and beam-sensitive
-      phases. Heating holders enable in-situ experiments.
+    description: Type of specimen holder used.
     type: object
     properties:
       '@id':
@@ -9938,9 +9191,7 @@ $defs:
   tem_temObjectiveApertureDefault:
     title: TEM Objective Aperture
     description: Objective aperture diameter used to select the imaging beam condition
-      in TEM mode. In BF-TEM, a small aperture blocks diffracted beams to enhance
-      mass-thickness contrast; in DF-TEM, the aperture is displaced to select a specific
-      diffracted beam; in HRTEM, no aperture is typically used.
+      in TEM mode.
     type: object
     properties:
       '@id':
@@ -10001,12 +9252,7 @@ $defs:
   tem_haadfCollectionAnglesDefault:
     title: HAADF Collection Angles
     description: Inner and outer collection angles of the HAADF detector in milliradians
-      (mrad). The inner angle determines the boundary between diffracted and thermally
-      diffuse scattered electrons; larger inner angles yield stronger Z-contrast and
-      reduced Bragg contrast. Inner angle is most critical and can be derived from
-      camera length and detector geometry. In HAADF-STEM a shorter camera length increases
-      the inner angle, yielding more thermally diffuse (Z-contrast) and less Bragg-diffraction
-      signal.
+      (mrad). Inner angle can be derived from camera length and detector geometry.
     type: object
     properties:
       '@id':
@@ -10036,11 +9282,10 @@ $defs:
   tem_stemProbeDiameterDefault:
     title: STEM Probe Diameter
     description: 'Nominal or measured diameter of the focused electron probe at the
-      sample, reported in nm. Serves as a direct spatial resolution proxy for STEM
-      imaging and STEM-EDS/EELS analysis. Related to, but distinct from, Convergence
-      Semi-Angle: the two quantities are connected via aberration coefficients, defocus,
-      and probe current, which are not always published. Report whichever is known;
-      if both are known, report both fields. Also governs STEM-EDS and STEM-EELS acquisition
+      sample, reported in nm. Related to, but distinct from, Convergence Semi-Angle:
+      the two quantities are connected via aberration coefficients, defocus, and probe
+      current, which are not always published. Report whichever is known; if both
+      are known, report both fields. Also governs STEM-EDS and STEM-EELS acquisition
       where those detectors are used.'
     type: object
     properties:
@@ -10072,10 +9317,8 @@ $defs:
     - ada:fieldScope
   tem_stemProbeCurrentDefault:
     title: STEM Probe Current
-    description: Probe current in picoamperes (pA) or nanoamperes (nA). Higher current
-      improves EDS/EELS signal but increases beam damage risk, especially for organic
-      matter and hydrous minerals. Also governs STEM-EDS and STEM-EELS acquisition
-      where those detectors are used.
+    description: Probe current in picoamperes (pA) or nanoamperes (nA). Also governs
+      STEM-EDS and STEM-EELS acquisition where those detectors are used.
     type: object
     properties:
       '@id':
@@ -10106,9 +9349,8 @@ $defs:
     - ada:fieldScope
   tem_stemScanDimensionsDefault:
     title: STEM Scan Dimensions
-    description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels). Combined
-      with calibrated pixel size, defines the field of view. Also governs STEM-EDS
-      and STEM-EELS acquisition where those detectors are used."
+    description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels). Also
+      governs STEM-EDS and STEM-EELS acquisition where those detectors are used."
     type: object
     properties:
       '@id':
@@ -10140,9 +9382,8 @@ $defs:
   tem_stemFrameAveragingDefault:
     title: STEM Frame Averaging
     description: Number of frames averaged (with drift correction if applicable) to
-      produce the final STEM image. Averaging reduces noise while limiting per-frame
-      dose. Also governs STEM-EDS and STEM-EELS acquisition where those detectors
-      are used.
+      produce the final STEM image. Also governs STEM-EDS and STEM-EELS acquisition
+      where those detectors are used.
     type: object
     properties:
       '@id':
@@ -10202,9 +9443,8 @@ $defs:
   tem_precessionAngleDefault:
     title: Precession Angle
     description: Precession semi-angle in degrees for precession electron diffraction
-      (PED). Hollow-cone illumination reduces dynamical diffraction effects and produces
-      more kinematical-like intensities. Not applicable to SAED, CBED, or standard
-      4D-STEM. Record 'N/A' where Precession ED is not listed in Analytical Sub-mode.
+      (PED). Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A' where
+      Precession ED is not listed in Analytical Sub-mode.
     type: object
     properties:
       '@id':
@@ -10268,11 +9508,7 @@ $defs:
   tem_stemDwellTimePerProbePosition4DDefault:
     title: 4D-STEM Dwell Time per Probe Position
     description: Time spent acquiring each diffraction pattern in the 4D-STEM dataset
-      in milliseconds. Longer dwell improves signal-to-noise for weakly diffracting
-      phases (e.g., smectite 001 reflection at ~1.24 nm) but increases total specimen
-      dose; risk of beam damage to phyllosilicates and organic matter must be balanced
-      against data quality. Record 'N/A' where 4D-STEM is not listed in Analytical
-      Sub-mode.
+      in milliseconds. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.
     type: object
     properties:
       '@id':
@@ -10429,9 +9665,8 @@ $defs:
   tem_eelsPluralScatteringCorrectionDefault:
     title: EELS Plural Scattering Correction
     description: Method applied to correct for multiple inelastic scattering events
-      (plural scattering) that broaden edge fine structure. Critical for specimens
-      thicker than ~0.5 inelastic mean free paths. Record 'N/A' where EELS is not
-      listed in Spectroscopic Detector(s).
+      (plural scattering) that broaden edge fine structure. Record 'N/A' where EELS
+      is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -10443,6 +9678,39 @@ $defs:
         const: eelsPluralScatteringCorrectionDefault
       schema:name:
         const: EELS Plural Scattering Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  tem_eelsChemicalStateDeterminationMethodDefault:
+    title: EELS Chemical State Determination Method
+    description: Method used to determine the chemical or oxidation state of an element
+      from the fine structure of its ionization edge (ELNES), together with the reference
+      data or calibration the determination relies on. Name the method family and
+      cite the calibration curve or reference spectra used. Record 'N/A' where no
+      chemical-state determination is made.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: eelsChemicalStateDeterminationMethodDefault
+      schema:name:
+        const: EELS Chemical State Determination Method
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -10491,8 +9759,7 @@ $defs:
     - ada:fieldScope
   tem_specimenThicknessDeterminationMethodDefault:
     title: Specimen Thickness Determination Method
-    description: Method used to estimate TEM foil thickness. Required for EELS quantification
-      (log-ratio) and for assessing multiple-scattering severity.
+    description: Method used to estimate TEM foil thickness.
     type: object
     properties:
       '@id':
@@ -10521,10 +9788,8 @@ $defs:
     - ada:fieldScope
   tem_eelsEnergyCalibrationDefault:
     title: EELS Energy Calibration
-    description: Method and reference used to calibrate the EELS energy axis. Accurate
-      calibration is required for ELNES edge identification, chemical-state analysis,
-      and inter-lab comparability. Record 'N/A' where EELS is not listed in Spectroscopic
-      Detector(s).
+    description: Method and reference used to calibrate the EELS energy axis. Record
+      'N/A' where EELS is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -10650,23 +9915,646 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  tem_eelsSensitivityAndDetectionLimitDefault:
-    title: EELS Sensitivity and Detection Limit
-    description: Practical energy resolution (ZLP FWHM measured at operating conditions)
-      and estimated detection limit or minimum detectable concentration for target
-      edges under this procedure. Record 'N/A' where EELS is not listed in Spectroscopic
-      Detector(s).
+  tem_eelsDetectionLimitDefault:
+    title: EELS Detection Limit
+    description: Estimated detection limit or minimum detectable concentration for
+      target edges under this procedure. Record 'N/A' where EELS is not listed in
+      Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
-        const: ada:parameter/temTAPP/eelsSensitivityAndDetectionLimitDefault
+        const: ada:parameter/temTAPP/eelsDetectionLimitDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: eelsSensitivityAndDetectionLimitDefault
+        const: eelsDetectionLimitDefault
       schema:name:
-        const: EELS Sensitivity and Detection Limit
+        const: EELS Detection Limit
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_sampleAliquotMassOrVolumeDefault:
+    title: Sample Aliquot Mass or Volume
+    description: Mass (mg) of solid material digested or volume (mL) of liquid taken
+      for dissolution.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolumeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: sampleAliquotMassOrVolumeDefault
+      schema:name:
+        const: Sample Aliquot Mass or Volume
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: mg or mL
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_instrumentSerialNumberOrLabIdentifierDefault:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific
+      instrument unit.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: instrumentSerialNumberOrLabIdentifierDefault
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_torchDepthDefault:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also
+      called injector depth or torch position depending on the instrument manufacturer.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/torchDepthDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: torchDepthDefault
+      schema:name:
+        const: Torch Depth
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_makeUpGasAndFlowRateDefault:
+    title: Make-up Gas and Flow Rate
+    description: Supplementary gas added to the sample-carrying stream between the
+      sample introduction system and the plasma, with its identity and the procedure-registered
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRateDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: makeUpGasAndFlowRateDefault
+      schema:name:
+        const: Make-up Gas and Flow Rate
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        const: L/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_icpTuningDefault:
+    title: ICP Tuning
+    description: Description of the approach used to optimise ICP plasma conditions
+      prior to analysis, including the reference material used for tuning and the
+      acceptance criteria (e.g., oxide production threshold, sensitivity targets,
+      mass calibration).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/icpTuningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: icpTuningDefault
+      schema:name:
+        const: ICP Tuning
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_numberOfReplicatesDefault:
+    title: Number of Replicates
+    description: Number of replicate measurements performed on the same sample, or
+      on the same nominal location where the technique is spatially resolved. For
+      spot analysis this is the number of individual spots per grain or location;
+      for transects, the number of replicate lines; for mapping, the number of map
+      acquisitions of the same area; for solution work, the number of discrete replicate
+      measurements acquired per sample solution.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/numberOfReplicatesDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: numberOfReplicatesDefault
+      schema:name:
+        const: Number of Replicates
+      ada:dataType:
+        const: integer
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_doublyChargedSpeciesMonitorDefault:
+    title: Doubly-Charged Species Monitor
+    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
+      during instrument tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesMonitorDefault
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_doublyChargedSpeciesProductionDefault:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProductionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesProductionDefault
+      schema:name:
+        const: Doubly-Charged Species Production
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_spikeOutlierFilteringApproachDefault:
+    title: Spike / Outlier Filtering Approach
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproachDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spikeOutlierFilteringApproachDefault
+      schema:name:
+        const: Spike / Outlier Filtering Approach
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
+    title: Pulse/Analog Detector Nonlinearity Correction
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: pulseAnalogDetectorNonlinearityCorrectionDefault
+      schema:name:
+        const: Pulse/Analog Detector Nonlinearity Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_memoryEffectMitigationDefault:
+    title: Memory Effect Mitigation
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: memoryEffectMitigationDefault
+      schema:name:
+        const: Memory Effect Mitigation
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_uncertaintyPropagationMethodDefault:
+    title: Uncertainty Propagation Method
+    description: 'The approach used to propagate analytical uncertainty through the
+      data reduction chain to the final reported value. State which sources are included
+      in the propagation: counting statistics, calibration standard uncertainty, internal
+      standard uncertainty, drift correction, and any systematic contributions. Distinct
+      from Uncertainty Level, which states the convention at which the resulting uncertainty
+      is quoted.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: uncertaintyPropagationMethodDefault
+      schema:name:
+        const: Uncertainty Propagation Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_normalizationStandardsBasedCorrectionDefault:
+    title: Normalization / Standards-Based Correction
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrectionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: normalizationStandardsBasedCorrectionDefault
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_detectionLimitDefault:
+    title: Detection Limit
+    description: Detection limit, one per reported concentration variable (one per
+      analyte, these being the same set). State the units and whether the values are
+      procedure-typical estimates or session-specific measured values. The calculation
+      method is recorded separately in Detection Limit Method. Record 'N/A' where
+      the procedure reports no concentrations.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/detectionLimitDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: detectionLimitDefault
+      schema:name:
+        const: Detection Limit
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_limitOfQuantificationMethodDefault:
+    title: Limit of Quantification (LOQ) Method
+    description: 'Reference or description of the method used to calculate the limit
+      of quantification (LOQ): the lowest concentration reliably measurable with acceptable
+      precision and accuracy. Required when concentrations near the LOD are reported.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/limitOfQuantificationMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: limitOfQuantificationMethodDefault
+      schema:name:
+        const: Limit of Quantification (LOQ) Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_countingStatisticsErrorDefault:
+    title: Counting Statistics Error
+    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
+      limit set by the Poisson distribution of the counts accumulated \u2014 for each
+      reported quantity per analysis, with the sigma level stated. Derived from the
+      counts on the analyte together with those on any background or blank subtracted
+      from it. Distinct from the scatter actually observed within a measurement or
+      between repeated measurements, which is recorded separately."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/countingStatisticsErrorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: countingStatisticsErrorDefault
+      schema:name:
+        const: Counting Statistics Error
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: Precision of a single measurement, derived from the scatter of the
+      cycles, sweeps or integrations that make it up, together with the method used
+      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
+      is computed over, and the reported quantity it applies to. Distinct from Counting
+      Statistics Error, which records the uncertainty predicted from the counts rather
+      than the scatter observed; where a procedure reports both, record the observed
+      value here and the predicted value there.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: internalAnalyticalPrecisionAndAssessmentMethodDefault
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault:
+    title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+    description: "Precision of measurements across multiple analytical sessions over
+      weeks to months \u2014 long-term or intermediate precision \u2014 and the method
+      used to assess it. Report both the assessment method and the precision values,
+      specifying the reference material, the number of measurements and sessions,
+      the time span covered, and the statistic reported."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault
+      schema:name:
+        const: Between-Session (Long-Term) Analytical Precision and Assessment Method
       ada:dataType:
         const: string
       ada:fieldScope:

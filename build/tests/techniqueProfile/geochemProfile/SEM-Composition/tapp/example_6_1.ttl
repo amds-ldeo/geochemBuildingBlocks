@@ -43,131 +43,20 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyteEstimationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalAccuracy>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalPrecision>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/blankCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/techniquePerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> ;
-            ada:defaultAnalytes "Al (element mapping)",
-                "Ca",
-                "Fe",
-                "Mg",
-                "Na",
-                "Ni",
-                "S",
-                "Si" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
     ada:edsLiveTimePerPointOrPixelDefault "5 ms dwell time per pixel" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault "2.5 µm" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Analyte Estimation Method" ;
-    schema1:valueName "analyteEstimationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Accuracy" ;
-    schema1:valueName "analyticalAccuracy" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Precision" ;
-    schema1:valueName "analyticalPrecision" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/backgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Background Correction Method" ;
-    schema1:valueName "backgroundCorrectionMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Beam Current" ;
-    schema1:valueName "beamCurrent" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Blank Correction" ;
-    schema1:valueName "blankCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
-    schema1:name "Counting Statistics Error" ;
-    schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
-    schema1:name "Interference Correction Standard" ;
-    schema1:valueName "interferenceCorrectionStandard" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interference Corrections Applied" ;
-    schema1:valueName "interferenceCorrectionsApplied" ;
-    ada:dataType "boolean" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/interferingElements> a schema1:PropertyValueSpecification ;
-    schema1:name "Interfering Elements" ;
-    schema1:valueName "interferingElements" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Secondary Reference Materials" ;
-    schema1:valueName "secondaryReferenceMaterials" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/techniquePerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Technique per Analyte" ;
-    schema1:valueName "techniquePerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Time-Dependent Intensity Correction" ;
-    schema1:valueName "timeDependentIntensityCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semCompositionTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -180,7 +69,7 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
@@ -202,7 +91,7 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,

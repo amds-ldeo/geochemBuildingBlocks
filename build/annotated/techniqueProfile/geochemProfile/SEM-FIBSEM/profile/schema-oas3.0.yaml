@@ -621,6 +621,386 @@ x-defs:
           items:
             type: object
             properties:
+              schema:additionalProperty:
+                type: array
+                items:
+                  anyOf:
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Analysis_samplingUnitSelectionCriteria
+                  - title: Dwell Time per Pixel
+                    description: Time the electron beam dwells on each pixel during
+                      raster scanning, or on each step position during mapping, in
+                      microseconds or milliseconds.
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/semFibsemTAPP/dwellTimePerPixel
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/semFibsemTAPP/dwellTimePerPixel
+                      schema:name:
+                        enum:
+                        - Dwell Time per Pixel
+                      schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    - schema:unitText
+                  - title: 3D Image Registration
+                    description: Method used to align consecutive SEM image slices
+                      in the 3D stack to correct for drift, vibration, and curtaining
+                      artifacts. Include software used.
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/semFibsemTAPP/imageRegistration3D
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/semFibsemTAPP/imageRegistration3D
+                      schema:name:
+                        enum:
+                        - 3D Image Registration
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                  - title: Segmentation Method
+                    description: Method and software used to separate distinct phases
+                      or features in the reconstructed 3D volume, turning the grayscale
+                      volume into labelled regions.
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/semFibsemTAPP/segmentationMethod
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/semFibsemTAPP/segmentationMethod
+                      schema:name:
+                        enum:
+                        - Segmentation Method
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                allOf:
+                - contains:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Analysis_samplingUnitSelectionCriteria
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    title: Dwell Time per Pixel
+                    description: Time the electron beam dwells on each pixel during
+                      raster scanning, or on each step position during mapping, in
+                      microseconds or milliseconds.
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/semFibsemTAPP/dwellTimePerPixel
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/semFibsemTAPP/dwellTimePerPixel
+                      schema:name:
+                        enum:
+                        - Dwell Time per Pixel
+                      schema:value:
+                        anyOf:
+                        - type: number
+                        - type: string
+                      schema:unitText:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                    - schema:unitText
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    title: 3D Image Registration
+                    description: Method used to align consecutive SEM image slices
+                      in the 3D stack to correct for drift, vibration, and curtaining
+                      artifacts. Include software used.
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/semFibsemTAPP/imageRegistration3D
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/semFibsemTAPP/imageRegistration3D
+                      schema:name:
+                        enum:
+                        - 3D Image Registration
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    title: Segmentation Method
+                    description: Method and software used to separate distinct phases
+                      or features in the reconstructed 3D volume, turning the grayscale
+                      volume into labelled regions.
+                    type: object
+                    properties:
+                      '@id':
+                        enum:
+                        - ada:parameter/semFibsemTAPP/segmentationMethod
+                      '@type':
+                        enum:
+                        - - schema:PropertyValue
+                      schema:propertyID:
+                        enum:
+                        - - '@id': ada:parameter/semFibsemTAPP/segmentationMethod
+                      schema:name:
+                        enum:
+                        - Segmentation Method
+                      schema:value:
+                        type: string
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:propertyID
+                    - schema:name
+                    - schema:value
+                  minContains: 0
+                  maxContains: 1
+              schema:object:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                  - if:
+                      properties:
+                        '@type':
+                          contains:
+                            enum:
+                            - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                      required:
+                      - '@type'
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                          allOf:
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                            minContains: 0
+                            maxContains: 1
+              prov:used:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                  - if:
+                      required:
+                      - schema:instrument
+                    then:
+                      properties:
+                        schema:instrument:
+                          type: array
+                          items:
+                            allOf:
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.instrument
+                            - type: object
+                              allOf:
+                              - if:
+                                  properties:
+                                    schema:additionalType:
+                                      contains:
+                                        enum:
+                                        - SEM
+                                      schema:inDefinedTermSet: ada:vocab/instrumentType
+                                  required:
+                                  - schema:additionalType
+                                then:
+                                  properties:
+                                    schema:additionalProperty:
+                                      type: array
+                                      items:
+                                        anyOf:
+                                        - title: Accelerating Voltage
+                                          description: Electron beam accelerating
+                                            voltage in kilovolts.
+                                          type: object
+                                          properties:
+                                            '@id':
+                                              enum:
+                                              - ada:parameter/semFibsemTAPP/acceleratingVoltage
+                                            '@type':
+                                              enum:
+                                              - - schema:PropertyValue
+                                            schema:propertyID:
+                                              enum:
+                                              - - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
+                                            schema:name:
+                                              enum:
+                                              - Accelerating Voltage
+                                            schema:value:
+                                              anyOf:
+                                              - type: number
+                                              - type: string
+                                            schema:unitText:
+                                              type: string
+                                          required:
+                                          - '@id'
+                                          - '@type'
+                                          - schema:propertyID
+                                          - schema:name
+                                          - schema:value
+                                          - schema:unitText
+                                        - title: Working Distance
+                                          description: Distance between the objective
+                                            lens pole piece and the specimen surface
+                                            in millimetres.
+                                          type: object
+                                          properties:
+                                            '@id':
+                                              enum:
+                                              - ada:parameter/semFibsemTAPP/workingDistance
+                                            '@type':
+                                              enum:
+                                              - - schema:PropertyValue
+                                            schema:propertyID:
+                                              enum:
+                                              - - '@id': ada:parameter/semFibsemTAPP/workingDistance
+                                            schema:name:
+                                              enum:
+                                              - Working Distance
+                                            schema:value:
+                                              anyOf:
+                                              - type: number
+                                              - type: string
+                                            schema:unitText:
+                                              type: string
+                                          required:
+                                          - '@id'
+                                          - '@type'
+                                          - schema:propertyID
+                                          - schema:name
+                                          - schema:value
+                                          - schema:unitText
+                                      allOf:
+                                      - contains:
+                                          title: Accelerating Voltage
+                                          description: Electron beam accelerating
+                                            voltage in kilovolts.
+                                          type: object
+                                          properties:
+                                            '@id':
+                                              enum:
+                                              - ada:parameter/semFibsemTAPP/acceleratingVoltage
+                                            '@type':
+                                              enum:
+                                              - - schema:PropertyValue
+                                            schema:propertyID:
+                                              enum:
+                                              - - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
+                                            schema:name:
+                                              enum:
+                                              - Accelerating Voltage
+                                            schema:value:
+                                              anyOf:
+                                              - type: number
+                                              - type: string
+                                            schema:unitText:
+                                              type: string
+                                          required:
+                                          - '@id'
+                                          - '@type'
+                                          - schema:propertyID
+                                          - schema:name
+                                          - schema:value
+                                          - schema:unitText
+                                        minContains: 0
+                                        maxContains: 1
+                                      - contains:
+                                          title: Working Distance
+                                          description: Distance between the objective
+                                            lens pole piece and the specimen surface
+                                            in millimetres.
+                                          type: object
+                                          properties:
+                                            '@id':
+                                              enum:
+                                              - ada:parameter/semFibsemTAPP/workingDistance
+                                            '@type':
+                                              enum:
+                                              - - schema:PropertyValue
+                                            schema:propertyID:
+                                              enum:
+                                              - - '@id': ada:parameter/semFibsemTAPP/workingDistance
+                                            schema:name:
+                                              enum:
+                                              - Working Distance
+                                            schema:value:
+                                              anyOf:
+                                              - type: number
+                                              - type: string
+                                            schema:unitText:
+                                              type: string
+                                          required:
+                                          - '@id'
+                                          - '@type'
+                                          - schema:propertyID
+                                          - schema:name
+                                          - schema:value
+                                          - schema:unitText
+                                        minContains: 0
+                                        maxContains: 1
+                          allOf:
+                          - contains:
+                              properties:
+                                schema:additionalType:
+                                  contains:
+                                    enum:
+                                    - SEM
+                                  schema:inDefinedTermSet: ada:vocab/instrumentType
+                              required:
+                              - schema:additionalType
               schema:actionProcess:
                 type: object
                 properties:
@@ -638,22 +1018,6 @@ x-defs:
                           - schema:name
                         then:
                           properties:
-                            schema:description:
-                              description: Method by which samples were prepared for
-                                SEM analysis prior to loading in the instrument. Includes
-                                mounting medium (epoxy, carbon tape, stub), polishing
-                                steps (alumina, colloidal silica, argon ion mill),
-                                and conductive coating type and thickness. For VP-SEM/ESEM
-                                analyses, note whether an uncoated sample was used
-                                and the gas type used. FIB-specific in-session operations
-                                (protective coating deposition, milling conditions,
-                                lamella preparation) are documented separately in
-                                Group 4.
-                              anyOf:
-                              - type: string
-                              - type: array
-                                items:
-                                  type: string
                             schema:additionalProperty:
                               type: array
                               items:
@@ -661,9 +1025,8 @@ x-defs:
                                 - title: Protective Coating Deposition
                                   description: 'Type and deposition conditions of
                                     the protective coating applied to the sample surface
-                                    before FIB milling. E-beam deposition causes less
-                                    surface damage than ion-beam deposition and should
-                                    be applied as the initial layer. Typical coatings:
+                                    before FIB milling. E-beam deposition should be
+                                    applied as the initial layer. Typical coatings:
                                     platinum (Pt) or carbon (C). State material, deposition
                                     method, beam conditions, and approximate thickness.'
                                   type: object
@@ -722,9 +1085,8 @@ x-defs:
                                   title: Protective Coating Deposition
                                   description: 'Type and deposition conditions of
                                     the protective coating applied to the sample surface
-                                    before FIB milling. E-beam deposition causes less
-                                    surface damage than ion-beam deposition and should
-                                    be applied as the initial layer. Typical coatings:
+                                    before FIB milling. E-beam deposition should be
+                                    applied as the initial layer. Typical coatings:
                                     platinum (Pt) or carbon (C). State material, deposition
                                     method, beam conditions, and approximate thickness.'
                                   type: object
@@ -799,9 +1161,6 @@ x-defs:
                                 - title: Fine Polishing Conditions
                                   description: Ion beam voltage and current for final
                                     thinning and surface polishing of the TEM lamella.
-                                    Low-voltage polishing (2 kV or below) minimises
-                                    Ga implantation depth, surface amorphisation,
-                                    and curtaining artifacts.
                                   type: object
                                   properties:
                                     '@id':
@@ -825,11 +1184,9 @@ x-defs:
                                   - schema:name
                                   - schema:value
                                 - title: Foil Thickness
-                                  description: 'Target thickness of the electron-transparent
+                                  description: Target thickness of the electron-transparent
                                     TEM lamella after final FIB polishing, in nanometres.
-                                    Actual thickness may differ from target. Typical
-                                    range: 50-150 nm for standard TEM/STEM; 200-600
-                                    nm for XANES or tomography sections.'
+                                    Actual thickness may differ from target.
                                   type: object
                                   properties:
                                     '@id':
@@ -859,8 +1216,7 @@ x-defs:
                                   - schema:unitText
                                 - title: Slice Thickness
                                   description: Thickness of each FIB-milled slice
-                                    during serial sectioning in nanometres. Controls
-                                    the Z-axis resolution of the 3D reconstruction.
+                                    during serial sectioning in nanometres.
                                   type: object
                                   properties:
                                     '@id':
@@ -893,9 +1249,6 @@ x-defs:
                                   title: Fine Polishing Conditions
                                   description: Ion beam voltage and current for final
                                     thinning and surface polishing of the TEM lamella.
-                                    Low-voltage polishing (2 kV or below) minimises
-                                    Ga implantation depth, surface amorphisation,
-                                    and curtaining artifacts.
                                   type: object
                                   properties:
                                     '@id':
@@ -922,11 +1275,9 @@ x-defs:
                                 maxContains: 1
                               - contains:
                                   title: Foil Thickness
-                                  description: 'Target thickness of the electron-transparent
+                                  description: Target thickness of the electron-transparent
                                     TEM lamella after final FIB polishing, in nanometres.
-                                    Actual thickness may differ from target. Typical
-                                    range: 50-150 nm for standard TEM/STEM; 200-600
-                                    nm for XANES or tomography sections.'
+                                    Actual thickness may differ from target.
                                   type: object
                                   properties:
                                     '@id':
@@ -959,8 +1310,7 @@ x-defs:
                               - contains:
                                   title: Slice Thickness
                                   description: Thickness of each FIB-milled slice
-                                    during serial sectioning in nanometres. Controls
-                                    the Z-axis resolution of the 3D reconstruction.
+                                    during serial sectioning in nanometres.
                                   type: object
                                   properties:
                                     '@id':
@@ -992,9 +1342,7 @@ x-defs:
                                 maxContains: 1
                             schema:description:
                               description: Ion beam voltage and current used to mill
-                                each slice during FIB-SEM serial sectioning. These
-                                parameters determine material removal rate per slice
-                                and exposed surface quality.
+                                each slice during FIB-SEM serial sectioning.
                               anyOf:
                               - type: string
                               - type: array
@@ -1040,416 +1388,10 @@ x-defs:
                             - Data reduction
                         required:
                         - schema:name
-              schema:additionalProperty:
-                type: array
-                items:
-                  anyOf:
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_targetSelectionCriteria
-                  - title: Dwell Time per Pixel
-                    description: Time the electron beam dwells on each pixel during
-                      raster scanning (imaging modes) or on each step position during
-                      compositional mapping (EDS and WDS mapping modes), in microseconds
-                      or milliseconds. Longer dwell time improves signal-to-noise
-                      and counting statistics but increases total dose and can cause
-                      beam damage or contamination on sensitive materials. For WDS
-                      mapping, the dwell time is per spectrometer per pixel.
-                    type: object
-                    properties:
-                      '@id':
-                        enum:
-                        - ada:parameter/semFibsemTAPP/dwellTimePerPixel
-                      '@type':
-                        enum:
-                        - - schema:PropertyValue
-                      schema:propertyID:
-                        enum:
-                        - - '@id': ada:parameter/semFibsemTAPP/dwellTimePerPixel
-                      schema:name:
-                        enum:
-                        - Dwell Time per Pixel
-                      schema:value:
-                        anyOf:
-                        - type: number
-                        - type: string
-                      schema:unitText:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    - schema:unitText
-                  - title: 3D Image Registration
-                    description: Method used to align consecutive SEM image slices
-                      in the 3D stack to correct for drift, vibration, and curtaining
-                      artifacts. Include software used.
-                    type: object
-                    properties:
-                      '@id':
-                        enum:
-                        - ada:parameter/semFibsemTAPP/imageRegistration3D
-                      '@type':
-                        enum:
-                        - - schema:PropertyValue
-                      schema:propertyID:
-                        enum:
-                        - - '@id': ada:parameter/semFibsemTAPP/imageRegistration3D
-                      schema:name:
-                        enum:
-                        - 3D Image Registration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                  - title: 3D Segmentation Method
-                    description: Method and software used to segment phases and features
-                      in the aligned 3D image stack, transforming the grayscale stack
-                      into labelled 3D regions (pores, mineral phases, grain boundaries,
-                      organic matter).
-                    type: object
-                    properties:
-                      '@id':
-                        enum:
-                        - ada:parameter/semFibsemTAPP/segmentationMethod3D
-                      '@type':
-                        enum:
-                        - - schema:PropertyValue
-                      schema:propertyID:
-                        enum:
-                        - - '@id': ada:parameter/semFibsemTAPP/segmentationMethod3D
-                      schema:name:
-                        enum:
-                        - 3D Segmentation Method
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                allOf:
-                - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_targetSelectionCriteria
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    title: Dwell Time per Pixel
-                    description: Time the electron beam dwells on each pixel during
-                      raster scanning (imaging modes) or on each step position during
-                      compositional mapping (EDS and WDS mapping modes), in microseconds
-                      or milliseconds. Longer dwell time improves signal-to-noise
-                      and counting statistics but increases total dose and can cause
-                      beam damage or contamination on sensitive materials. For WDS
-                      mapping, the dwell time is per spectrometer per pixel.
-                    type: object
-                    properties:
-                      '@id':
-                        enum:
-                        - ada:parameter/semFibsemTAPP/dwellTimePerPixel
-                      '@type':
-                        enum:
-                        - - schema:PropertyValue
-                      schema:propertyID:
-                        enum:
-                        - - '@id': ada:parameter/semFibsemTAPP/dwellTimePerPixel
-                      schema:name:
-                        enum:
-                        - Dwell Time per Pixel
-                      schema:value:
-                        anyOf:
-                        - type: number
-                        - type: string
-                      schema:unitText:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    - schema:unitText
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    title: 3D Image Registration
-                    description: Method used to align consecutive SEM image slices
-                      in the 3D stack to correct for drift, vibration, and curtaining
-                      artifacts. Include software used.
-                    type: object
-                    properties:
-                      '@id':
-                        enum:
-                        - ada:parameter/semFibsemTAPP/imageRegistration3D
-                      '@type':
-                        enum:
-                        - - schema:PropertyValue
-                      schema:propertyID:
-                        enum:
-                        - - '@id': ada:parameter/semFibsemTAPP/imageRegistration3D
-                      schema:name:
-                        enum:
-                        - 3D Image Registration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                  minContains: 0
-                  maxContains: 1
-                - contains:
-                    title: 3D Segmentation Method
-                    description: Method and software used to segment phases and features
-                      in the aligned 3D image stack, transforming the grayscale stack
-                      into labelled 3D regions (pores, mineral phases, grain boundaries,
-                      organic matter).
-                    type: object
-                    properties:
-                      '@id':
-                        enum:
-                        - ada:parameter/semFibsemTAPP/segmentationMethod3D
-                      '@type':
-                        enum:
-                        - - schema:PropertyValue
-                      schema:propertyID:
-                        enum:
-                        - - '@id': ada:parameter/semFibsemTAPP/segmentationMethod3D
-                      schema:name:
-                        enum:
-                        - 3D Segmentation Method
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                  minContains: 0
-                  maxContains: 1
-              schema:object:
-                type: array
-                items:
-                  type: object
-                  allOf:
-                  - if:
-                      properties:
-                        '@type':
-                          contains:
-                            enum:
-                            - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-                      required:
-                      - '@type'
-                    then:
-                      properties:
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening
-                          allOf:
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/Param_Analysis_preAnalysisImagingAndScreening
-                            minContains: 0
-                            maxContains: 1
-              prov:used:
-                type: array
-                items:
-                  type: object
-                  allOf:
-                  - if:
-                      required:
-                      - schema:instrument
-                    then:
-                      properties:
-                        schema:instrument:
-                          type: array
-                          items:
-                            allOf:
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.instrument
-                            - type: object
-                              allOf:
-                              - if:
-                                  properties:
-                                    schema:additionalType:
-                                      contains:
-                                        enum:
-                                        - SEM
-                                      schema:inDefinedTermSet: ada:vocab/instrumentType
-                                  required:
-                                  - schema:additionalType
-                                then:
-                                  properties:
-                                    schema:additionalProperty:
-                                      type: array
-                                      items:
-                                        anyOf:
-                                        - title: Accelerating Voltage
-                                          description: Electron beam accelerating
-                                            voltage in kilovolts. Affects X-ray generation
-                                            depth (EDS/WDS), EBSD pattern quality,
-                                            imaging resolution, and beam penetration.
-                                            Low voltages (1-5 kV) improve surface
-                                            sensitivity and reduce beam damage; high
-                                            voltages (15-20 kV) improve X-ray generation
-                                            for quantitative analysis.
-                                          type: object
-                                          properties:
-                                            '@id':
-                                              enum:
-                                              - ada:parameter/semFibsemTAPP/acceleratingVoltage
-                                            '@type':
-                                              enum:
-                                              - - schema:PropertyValue
-                                            schema:propertyID:
-                                              enum:
-                                              - - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
-                                            schema:name:
-                                              enum:
-                                              - Accelerating Voltage
-                                            schema:value:
-                                              anyOf:
-                                              - type: number
-                                              - type: string
-                                            schema:unitText:
-                                              type: string
-                                          required:
-                                          - '@id'
-                                          - '@type'
-                                          - schema:propertyID
-                                          - schema:name
-                                          - schema:value
-                                          - schema:unitText
-                                        - title: Working Distance
-                                          description: Distance between the objective
-                                            lens pole piece and the specimen surface
-                                            in millimetres. Affects spatial resolution,
-                                            depth of focus, EDS X-ray take-off angle,
-                                            and EBSD geometry.
-                                          type: object
-                                          properties:
-                                            '@id':
-                                              enum:
-                                              - ada:parameter/semFibsemTAPP/workingDistance
-                                            '@type':
-                                              enum:
-                                              - - schema:PropertyValue
-                                            schema:propertyID:
-                                              enum:
-                                              - - '@id': ada:parameter/semFibsemTAPP/workingDistance
-                                            schema:name:
-                                              enum:
-                                              - Working Distance
-                                            schema:value:
-                                              anyOf:
-                                              - type: number
-                                              - type: string
-                                            schema:unitText:
-                                              type: string
-                                          required:
-                                          - '@id'
-                                          - '@type'
-                                          - schema:propertyID
-                                          - schema:name
-                                          - schema:value
-                                          - schema:unitText
-                                      allOf:
-                                      - contains:
-                                          title: Accelerating Voltage
-                                          description: Electron beam accelerating
-                                            voltage in kilovolts. Affects X-ray generation
-                                            depth (EDS/WDS), EBSD pattern quality,
-                                            imaging resolution, and beam penetration.
-                                            Low voltages (1-5 kV) improve surface
-                                            sensitivity and reduce beam damage; high
-                                            voltages (15-20 kV) improve X-ray generation
-                                            for quantitative analysis.
-                                          type: object
-                                          properties:
-                                            '@id':
-                                              enum:
-                                              - ada:parameter/semFibsemTAPP/acceleratingVoltage
-                                            '@type':
-                                              enum:
-                                              - - schema:PropertyValue
-                                            schema:propertyID:
-                                              enum:
-                                              - - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
-                                            schema:name:
-                                              enum:
-                                              - Accelerating Voltage
-                                            schema:value:
-                                              anyOf:
-                                              - type: number
-                                              - type: string
-                                            schema:unitText:
-                                              type: string
-                                          required:
-                                          - '@id'
-                                          - '@type'
-                                          - schema:propertyID
-                                          - schema:name
-                                          - schema:value
-                                          - schema:unitText
-                                        minContains: 0
-                                        maxContains: 1
-                                      - contains:
-                                          title: Working Distance
-                                          description: Distance between the objective
-                                            lens pole piece and the specimen surface
-                                            in millimetres. Affects spatial resolution,
-                                            depth of focus, EDS X-ray take-off angle,
-                                            and EBSD geometry.
-                                          type: object
-                                          properties:
-                                            '@id':
-                                              enum:
-                                              - ada:parameter/semFibsemTAPP/workingDistance
-                                            '@type':
-                                              enum:
-                                              - - schema:PropertyValue
-                                            schema:propertyID:
-                                              enum:
-                                              - - '@id': ada:parameter/semFibsemTAPP/workingDistance
-                                            schema:name:
-                                              enum:
-                                              - Working Distance
-                                            schema:value:
-                                              anyOf:
-                                              - type: number
-                                              - type: string
-                                            schema:unitText:
-                                              type: string
-                                          required:
-                                          - '@id'
-                                          - '@type'
-                                          - schema:propertyID
-                                          - schema:name
-                                          - schema:value
-                                          - schema:unitText
-                                        minContains: 0
-                                        maxContains: 1
-                          allOf:
-                          - contains:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    enum:
-                                    - SEM
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
         ada:voxelSize:
           description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres
             (X-Y pixel size from SEM image calibration; Z from slice thickness), and
-            the total number of slices in the stack. Determined at analysis time.
+            the total number of slices in the stack.
           type: string
       required:
       - ada:voxelSize
@@ -1585,12 +1527,12 @@ x-defs:
     description: 'Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension
       of the base TAPP definition. Basic protocol-tier fields are required top-level
       ada: properties; Advanced protocol-tier fields are schema:additionalProperty[]
-      entries. No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v15.csv
+      entries. No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v30.csv
       by tools/build_tapp.py.'
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/ProcedureIdentification
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.targetSelection/$defs/ProcedureIdentification
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/ProcedureIdentification
     - type: object
       properties:
         schema:object:
@@ -1626,24 +1568,21 @@ x-defs:
                               type: array
                               items:
                                 description: General description of the material type(s)
-                                  this procedure is designed to analyse. Used for
-                                  discoverability and procedure matching, and because
-                                  the material type constrains sample preparation,
-                                  calibration and matrix-matching requirements.
+                                  this procedure is designed to analyse.
                                 anyOf:
                                 - type: string
                                   enum:
                                   - Silicate mineral
+                                  - Silicate glass
                                   - Oxide
                                   - Sulfide
                                   - Carbonate
                                   - Phosphate
-                                  - Metal alloy
+                                  - Metal or alloy
                                   - Organic matter
-                                  - Glass
                                   - Regolith
-                                  - Whole rock / polished section
                                   - Porous material
+                                  - Whole rock
                                   - N/A
                                   - None
                                   - missing
@@ -1666,490 +1605,6 @@ x-defs:
                     - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
               required:
               - '@type'
-        schema:actionProcess:
-          type: object
-          properties:
-            schema:step:
-              type: array
-              items:
-                type: object
-                allOf:
-                - if:
-                    properties:
-                      schema:name:
-                        enum:
-                        - Sample preparation
-                    required:
-                    - schema:name
-                  then:
-                    properties:
-                      schema:description:
-                        description: Method by which samples were prepared for SEM
-                          analysis prior to loading in the instrument. Includes mounting
-                          medium (epoxy, carbon tape, stub), polishing steps (alumina,
-                          colloidal silica, argon ion mill), and conductive coating
-                          type and thickness. For VP-SEM/ESEM analyses, note whether
-                          an uncoated sample was used and the gas type used. FIB-specific
-                          in-session operations (protective coating deposition, milling
-                          conditions, lamella preparation) are documented separately
-                          in Group 4.
-                        anyOf:
-                        - type: string
-                        - type: array
-                          items:
-                            type: string
-                      schema:additionalProperty:
-                        type: array
-                        items:
-                          title: Protective Coating Deposition
-                          description: 'Type and deposition conditions of the protective
-                            coating applied to the sample surface before FIB milling.
-                            E-beam deposition causes less surface damage than ion-beam
-                            deposition and should be applied as the initial layer.
-                            Typical coatings: platinum (Pt) or carbon (C). State material,
-                            deposition method, beam conditions, and approximate thickness.'
-                          type: object
-                          properties:
-                            '@id':
-                              enum:
-                              - ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault
-                            '@type':
-                              enum:
-                              - - schema:PropertyValueSpecification
-                            schema:valueName:
-                              enum:
-                              - protectiveCoatingDepositionDefault
-                            schema:name:
-                              enum:
-                              - Protective Coating Deposition
-                            ada:dataType:
-                              enum:
-                              - string
-                            ada:fieldScope:
-                              enum:
-                              - session
-                            schema:readonlyValue: {}
-                            ada:tier:
-                              enum:
-                              - R
-                          required:
-                          - '@id'
-                          - '@type'
-                          - schema:valueName
-                          - schema:name
-                          - ada:dataType
-                          - ada:fieldScope
-                        allOf:
-                        - contains:
-                            title: Protective Coating Deposition
-                            description: 'Type and deposition conditions of the protective
-                              coating applied to the sample surface before FIB milling.
-                              E-beam deposition causes less surface damage than ion-beam
-                              deposition and should be applied as the initial layer.
-                              Typical coatings: platinum (Pt) or carbon (C). State
-                              material, deposition method, beam conditions, and approximate
-                              thickness.'
-                            type: object
-                            properties:
-                              '@id':
-                                enum:
-                                - ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault
-                              '@type':
-                                enum:
-                                - - schema:PropertyValueSpecification
-                              schema:valueName:
-                                enum:
-                                - protectiveCoatingDepositionDefault
-                              schema:name:
-                                enum:
-                                - Protective Coating Deposition
-                              ada:dataType:
-                                enum:
-                                - string
-                              ada:fieldScope:
-                                enum:
-                                - session
-                              schema:readonlyValue: {}
-                              ada:tier:
-                                enum:
-                                - R
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - ada:fieldScope
-                          minContains: 0
-                          maxContains: 1
-                      ada:coarseMillingConditionsDefault:
-                        description: 'Ion beam voltage and current used for bulk material
-                          removal during FIB milling. For TEM specimen preparation:
-                          bulk trenching to isolate the lamella and intermediate thinning.
-                          For 3D tomography: face preparation and initial slice removal.'
-                        anyOf:
-                        - type: string
-                        - type: array
-                          items:
-                            type: string
-                - if:
-                    properties:
-                      schema:name:
-                        enum:
-                        - Ion milling
-                    required:
-                    - schema:name
-                  then:
-                    properties:
-                      schema:additionalProperty:
-                        type: array
-                        items:
-                          anyOf:
-                          - title: Fine Polishing Conditions
-                            description: Ion beam voltage and current for final thinning
-                              and surface polishing of the TEM lamella. Low-voltage
-                              polishing (2 kV or below) minimises Ga implantation
-                              depth, surface amorphisation, and curtaining artifacts.
-                            type: object
-                            properties:
-                              '@id':
-                                enum:
-                                - ada:parameter/semFibsemTAPP/finePolishingConditionsDefault
-                              '@type':
-                                enum:
-                                - - schema:PropertyValueSpecification
-                              schema:valueName:
-                                enum:
-                                - finePolishingConditionsDefault
-                              schema:name:
-                                enum:
-                                - Fine Polishing Conditions
-                              ada:dataType:
-                                enum:
-                                - string
-                              ada:fieldScope:
-                                enum:
-                                - session
-                              schema:readonlyValue: {}
-                              ada:tier:
-                                enum:
-                                - R
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - ada:fieldScope
-                          - title: Foil Thickness
-                            description: 'Target thickness of the electron-transparent
-                              TEM lamella after final FIB polishing, in nanometres.
-                              Actual thickness may differ from target. Typical range:
-                              50-150 nm for standard TEM/STEM; 200-600 nm for XANES
-                              or tomography sections.'
-                            type: object
-                            properties:
-                              '@id':
-                                enum:
-                                - ada:parameter/semFibsemTAPP/foilThicknessDefault
-                              '@type':
-                                enum:
-                                - - schema:PropertyValueSpecification
-                              schema:valueName:
-                                enum:
-                                - foilThicknessDefault
-                              schema:name:
-                                enum:
-                                - Foil Thickness
-                              ada:dataType:
-                                enum:
-                                - number
-                              ada:fieldScope:
-                                enum:
-                                - session
-                              schema:readonlyValue: {}
-                              ada:tier:
-                                enum:
-                                - R
-                              schema:unitText:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - ada:fieldScope
-                          - title: Lift-out Method
-                            description: Method used to transfer the FIB-prepared
-                              lamella to the TEM support grid. In-situ lift-out uses
-                              a micromanipulator inside the FIB-SEM chamber and is
-                              the standard method for small or precious specimens.
-                            type: object
-                            properties:
-                              '@id':
-                                enum:
-                                - ada:parameter/semFibsemTAPP/liftOutMethod
-                              '@type':
-                                enum:
-                                - - schema:PropertyValue
-                              schema:propertyID:
-                                enum:
-                                - - '@id': ada:parameter/semFibsemTAPP/liftOutMethod
-                              schema:name:
-                                enum:
-                                - Lift-out Method
-                              schema:value:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:propertyID
-                            - schema:name
-                            - schema:value
-                            readOnly: true
-                          - title: Slice Thickness
-                            description: Thickness of each FIB-milled slice during
-                              serial sectioning in nanometres. Controls the Z-axis
-                              resolution of the 3D reconstruction.
-                            type: object
-                            properties:
-                              '@id':
-                                enum:
-                                - ada:parameter/semFibsemTAPP/sliceThicknessDefault
-                              '@type':
-                                enum:
-                                - - schema:PropertyValueSpecification
-                              schema:valueName:
-                                enum:
-                                - sliceThicknessDefault
-                              schema:name:
-                                enum:
-                                - Slice Thickness
-                              ada:dataType:
-                                enum:
-                                - number
-                              ada:fieldScope:
-                                enum:
-                                - session
-                              schema:readonlyValue: {}
-                              ada:tier:
-                                enum:
-                                - R
-                              schema:unitText:
-                                enum:
-                                - nm
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - ada:fieldScope
-                        allOf:
-                        - contains:
-                            title: Fine Polishing Conditions
-                            description: Ion beam voltage and current for final thinning
-                              and surface polishing of the TEM lamella. Low-voltage
-                              polishing (2 kV or below) minimises Ga implantation
-                              depth, surface amorphisation, and curtaining artifacts.
-                            type: object
-                            properties:
-                              '@id':
-                                enum:
-                                - ada:parameter/semFibsemTAPP/finePolishingConditionsDefault
-                              '@type':
-                                enum:
-                                - - schema:PropertyValueSpecification
-                              schema:valueName:
-                                enum:
-                                - finePolishingConditionsDefault
-                              schema:name:
-                                enum:
-                                - Fine Polishing Conditions
-                              ada:dataType:
-                                enum:
-                                - string
-                              ada:fieldScope:
-                                enum:
-                                - session
-                              schema:readonlyValue: {}
-                              ada:tier:
-                                enum:
-                                - R
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - ada:fieldScope
-                          minContains: 0
-                          maxContains: 1
-                        - contains:
-                            title: Foil Thickness
-                            description: 'Target thickness of the electron-transparent
-                              TEM lamella after final FIB polishing, in nanometres.
-                              Actual thickness may differ from target. Typical range:
-                              50-150 nm for standard TEM/STEM; 200-600 nm for XANES
-                              or tomography sections.'
-                            type: object
-                            properties:
-                              '@id':
-                                enum:
-                                - ada:parameter/semFibsemTAPP/foilThicknessDefault
-                              '@type':
-                                enum:
-                                - - schema:PropertyValueSpecification
-                              schema:valueName:
-                                enum:
-                                - foilThicknessDefault
-                              schema:name:
-                                enum:
-                                - Foil Thickness
-                              ada:dataType:
-                                enum:
-                                - number
-                              ada:fieldScope:
-                                enum:
-                                - session
-                              schema:readonlyValue: {}
-                              ada:tier:
-                                enum:
-                                - R
-                              schema:unitText:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - ada:fieldScope
-                          minContains: 0
-                          maxContains: 1
-                        - contains:
-                            title: Lift-out Method
-                            description: Method used to transfer the FIB-prepared
-                              lamella to the TEM support grid. In-situ lift-out uses
-                              a micromanipulator inside the FIB-SEM chamber and is
-                              the standard method for small or precious specimens.
-                            type: object
-                            properties:
-                              '@id':
-                                enum:
-                                - ada:parameter/semFibsemTAPP/liftOutMethod
-                              '@type':
-                                enum:
-                                - - schema:PropertyValue
-                              schema:propertyID:
-                                enum:
-                                - - '@id': ada:parameter/semFibsemTAPP/liftOutMethod
-                              schema:name:
-                                enum:
-                                - Lift-out Method
-                              schema:value:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:propertyID
-                            - schema:name
-                            - schema:value
-                            readOnly: true
-                          minContains: 0
-                          maxContains: 1
-                        - contains:
-                            title: Slice Thickness
-                            description: Thickness of each FIB-milled slice during
-                              serial sectioning in nanometres. Controls the Z-axis
-                              resolution of the 3D reconstruction.
-                            type: object
-                            properties:
-                              '@id':
-                                enum:
-                                - ada:parameter/semFibsemTAPP/sliceThicknessDefault
-                              '@type':
-                                enum:
-                                - - schema:PropertyValueSpecification
-                              schema:valueName:
-                                enum:
-                                - sliceThicknessDefault
-                              schema:name:
-                                enum:
-                                - Slice Thickness
-                              ada:dataType:
-                                enum:
-                                - number
-                              ada:fieldScope:
-                                enum:
-                                - session
-                              schema:readonlyValue: {}
-                              ada:tier:
-                                enum:
-                                - R
-                              schema:unitText:
-                                enum:
-                                - nm
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - ada:fieldScope
-                          minContains: 0
-                          maxContains: 1
-                      schema:description:
-                        description: Ion beam voltage and current used to mill each
-                          slice during FIB-SEM serial sectioning. These parameters
-                          determine material removal rate per slice and exposed surface
-                          quality.
-                        anyOf:
-                        - type: string
-                        - type: array
-                          items:
-                            type: string
-                - if:
-                    properties:
-                      schema:name:
-                        enum:
-                        - Data reduction
-                    required:
-                    - schema:name
-                  then:
-                    properties:
-                      schema:additionalProperty:
-                        type: array
-                        items:
-                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues
-                        allOf:
-                        - contains:
-                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues
-                          minContains: 0
-                          maxContains: 1
-              allOf:
-              - contains:
-                  properties:
-                    schema:name:
-                      enum:
-                      - Sample preparation
-                  required:
-                  - schema:name
-              - contains:
-                  properties:
-                    schema:name:
-                      enum:
-                      - Ion milling
-                  required:
-                  - schema:name
-              - contains:
-                  properties:
-                    schema:name:
-                      enum:
-                      - Data reduction
-                  required:
-                  - schema:name
         schema:instrument:
           type: array
           items:
@@ -2171,11 +1626,10 @@ x-defs:
                     properties:
                       schema:name:
                         description: Manufacturer of the instrument that performs
-                          the measurement, recorded as a controlled value so that
-                          procedures can be found by vendor. Where a procedure couples
-                          a sample-introduction system to an analysing instrument,
-                          this records the analysing instrument. Instrument Model
-                          gives the specific designation.
+                          the measurement, recorded as a controlled value. Where a
+                          procedure couples a sample-introduction system to an analysing
+                          instrument, this records the analysing instrument. Instrument
+                          Model gives the specific designation.
                         type: string
                         enum:
                         - JEOL
@@ -2223,7 +1677,9 @@ x-defs:
                               - type: string
                                 enum:
                                 - Cold-FEG
-                                - Schottky FEG
+                                - Schottky FEG (X-FEG)
+                                - Schottky FEG (standard)
+                                - "Field emission gun (FEG) \u2014 subtype not specified"
                                 - LaB6 / CeB6
                                 - Tungsten (W)
                                 - Unknown
@@ -2236,7 +1692,9 @@ x-defs:
                                   type: string
                                   enum:
                                   - Cold-FEG
-                                  - Schottky FEG
+                                  - Schottky FEG (X-FEG)
+                                  - Schottky FEG (standard)
+                                  - "Field emission gun (FEG) \u2014 subtype not specified"
                                   - LaB6 / CeB6
                                   - Tungsten (W)
                                   - Unknown
@@ -2299,19 +1757,17 @@ x-defs:
                           properties:
                             schema:name:
                               description: Type of backscattered electron detector.
-                                Solid-state diode detectors (single or segmented)
-                                are standard; YAG scintillator detectors offer high
-                                sensitivity at low voltage. Segmented detectors can
-                                operate in composition mode (segments summed) or topography
-                                mode (differential signal between segments). In-lens
-                                BSE detectors provide improved BSE collection at short
-                                working distances.
+                                Segmented detectors can operate in composition mode
+                                (segments summed) or topography mode (differential
+                                signal between segments).
                               anyOf:
                               - type: string
                                 enum:
                                 - Solid-state diode (single)
                                 - Solid-state diode (segmented, composition mode)
                                 - Solid-state diode (segmented, topography mode)
+                                - Solid-state diode (segmented, mode not specified)
+                                - Solid-state diode (type not specified)
                                 - In-lens BSE
                                 - YAG scintillator
                                 - N/A
@@ -2325,6 +1781,8 @@ x-defs:
                                   - Solid-state diode (single)
                                   - Solid-state diode (segmented, composition mode)
                                   - Solid-state diode (segmented, topography mode)
+                                  - Solid-state diode (segmented, mode not specified)
+                                  - Solid-state diode (type not specified)
                                   - In-lens BSE
                                   - YAG scintillator
                                   - N/A
@@ -2360,20 +1818,25 @@ x-defs:
                         required:
                         - schema:additionalType
                   schema:description:
-                    description: 'Broad platform type of the instrument. ''Standard
-                      SEM'': dedicated electron-only SEM column. ''FIB-SEM dual-beam'':
+                    description: "Broad platform type of the instrument. 'Standard
+                      SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam':
                       combined focused ion beam and SEM columns (enables TEM specimen
-                      preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM
-                      / ESEM'': variable-pressure or environmental SEM for imaging
-                      uncoated, hydrated, or charging specimens. An instrument may
-                      combine categories (e.g., FIB-SEM with VP capability).'
+                      preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM':
+                      variable-pressure SEM, a dry gas at low chamber pressure for
+                      uncoated or charging specimens. 'ESEM': environmental SEM, water
+                      vapour at higher pressure for hydrated specimens, requiring
+                      a gaseous secondary electron detector. Where an instrument combines
+                      categories, join them with '; ' \u2014 'FIB-SEM dual-beam; VP-SEM'
+                      \u2014 rather than looking for a combined member. This field
+                      records the COLUMN AND CHAMBER configuration only: field emission
+                      is a source type and belongs in Electron Source, not here."
                     anyOf:
                     - type: string
                       enum:
                       - Standard SEM
                       - FIB-SEM dual-beam
-                      - VP-SEM / ESEM
-                      - FIB-SEM dual-beam + VP
+                      - VP-SEM
+                      - ESEM
                       - N/A
                       - None
                       - missing
@@ -2384,26 +1847,20 @@ x-defs:
                         enum:
                         - Standard SEM
                         - FIB-SEM dual-beam
-                        - VP-SEM / ESEM
-                        - FIB-SEM dual-beam + VP
+                        - VP-SEM
+                        - ESEM
                         - N/A
                         - None
                         - missing
                         readOnly: true
                   ada:acceleratingVoltageDefault:
                     description: Electron beam accelerating voltage in kilovolts.
-                      Affects X-ray generation depth (EDS/WDS), EBSD pattern quality,
-                      imaging resolution, and beam penetration. Low voltages (1-5
-                      kV) improve surface sensitivity and reduce beam damage; high
-                      voltages (15-20 kV) improve X-ray generation for quantitative
-                      analysis.
                     anyOf:
                     - type: number
                     - type: string
                   ada:workingDistanceDefault:
                     description: Distance between the objective lens pole piece and
-                      the specimen surface in millimetres. Affects spatial resolution,
-                      depth of focus, EDS X-ray take-off angle, and EBSD geometry.
+                      the specimen surface in millimetres.
                     anyOf:
                     - type: number
                     - type: string
@@ -2436,11 +1893,7 @@ x-defs:
                           properties:
                             schema:name:
                               description: Ion beam source type in a FIB-SEM dual-beam
-                                system. Gallium LMIS (Ga+) is the most common ion
-                                source; xenon plasma FIB (PFIB) provides higher material
-                                removal rates for large-volume milling; helium and
-                                neon ion microscopes (GFIS) provide nanometre-resolution
-                                imaging and low-damage milling.
+                                system.
                               anyOf:
                               - type: string
                                 enum:
@@ -2502,10 +1955,8 @@ x-defs:
                 anyOf:
                 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/AnalyteIdentifierColumn
                 - title: Beam Current
-                  description: Electron beam probe current. Higher current improves
-                    signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but
-                    may increase beam damage and reduce spatial resolution. Express
-                    in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).
+                  description: Electron beam probe current. For sub-nA values use
+                    decimal notation (e.g., 0.4 nA).
                   type: object
                   properties:
                     '@id':
@@ -2541,10 +1992,8 @@ x-defs:
               allOf:
               - contains:
                   title: Beam Current
-                  description: Electron beam probe current. Higher current improves
-                    signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but
-                    may increase beam damage and reduce spatial resolution. Express
-                    in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).
+                  description: Electron beam probe current. For sub-nA values use
+                    decimal notation (e.g., 0.4 nA).
                   type: object
                   properties:
                     '@id':
@@ -2580,25 +2029,486 @@ x-defs:
                 minContains: 0
                 maxContains: 1
         ada:dwellTimePerPixelDefault:
-          description: Time the electron beam dwells on each pixel during raster scanning
-            (imaging modes) or on each step position during compositional mapping
-            (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell
-            time improves signal-to-noise and counting statistics but increases total
-            dose and can cause beam damage or contamination on sensitive materials.
-            For WDS mapping, the dwell time is per spectrometer per pixel.
+          description: Time the electron beam dwells on each pixel during raster scanning,
+            or on each step position during mapping, in microseconds or milliseconds.
           anyOf:
           - type: number
           - type: string
+        schema:actionProcess:
+          type: object
+          properties:
+            schema:step:
+              type: array
+              items:
+                type: object
+                allOf:
+                - if:
+                    properties:
+                      schema:name:
+                        enum:
+                        - Sample preparation
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          title: Protective Coating Deposition
+                          description: 'Type and deposition conditions of the protective
+                            coating applied to the sample surface before FIB milling.
+                            E-beam deposition should be applied as the initial layer.
+                            Typical coatings: platinum (Pt) or carbon (C). State material,
+                            deposition method, beam conditions, and approximate thickness.'
+                          type: object
+                          properties:
+                            '@id':
+                              enum:
+                              - ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault
+                            '@type':
+                              enum:
+                              - - schema:PropertyValueSpecification
+                            schema:valueName:
+                              enum:
+                              - protectiveCoatingDepositionDefault
+                            schema:name:
+                              enum:
+                              - Protective Coating Deposition
+                            ada:dataType:
+                              enum:
+                              - string
+                            ada:fieldScope:
+                              enum:
+                              - session
+                            schema:readonlyValue: {}
+                            ada:tier:
+                              enum:
+                              - R
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:valueName
+                          - schema:name
+                          - ada:dataType
+                          - ada:fieldScope
+                        allOf:
+                        - contains:
+                            title: Protective Coating Deposition
+                            description: 'Type and deposition conditions of the protective
+                              coating applied to the sample surface before FIB milling.
+                              E-beam deposition should be applied as the initial layer.
+                              Typical coatings: platinum (Pt) or carbon (C). State
+                              material, deposition method, beam conditions, and approximate
+                              thickness.'
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - protectiveCoatingDepositionDefault
+                              schema:name:
+                                enum:
+                                - Protective Coating Deposition
+                              ada:dataType:
+                                enum:
+                                - string
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
+                          minContains: 0
+                          maxContains: 1
+                      ada:coarseMillingConditionsDefault:
+                        description: 'Ion beam voltage and current used for bulk material
+                          removal during FIB milling. For TEM specimen preparation:
+                          bulk trenching to isolate the lamella and intermediate thinning.
+                          For 3D tomography: face preparation and initial slice removal.'
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                - if:
+                    properties:
+                      schema:name:
+                        enum:
+                        - Ion milling
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          anyOf:
+                          - title: Fine Polishing Conditions
+                            description: Ion beam voltage and current for final thinning
+                              and surface polishing of the TEM lamella.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semFibsemTAPP/finePolishingConditionsDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - finePolishingConditionsDefault
+                              schema:name:
+                                enum:
+                                - Fine Polishing Conditions
+                              ada:dataType:
+                                enum:
+                                - string
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
+                          - title: Foil Thickness
+                            description: Target thickness of the electron-transparent
+                              TEM lamella after final FIB polishing, in nanometres.
+                              Actual thickness may differ from target.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semFibsemTAPP/foilThicknessDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - foilThicknessDefault
+                              schema:name:
+                                enum:
+                                - Foil Thickness
+                              ada:dataType:
+                                enum:
+                                - number
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                              schema:unitText:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
+                          - title: Lift-out Method
+                            description: Method used to transfer the FIB-prepared
+                              lamella to the TEM support grid. In-situ lift-out uses
+                              a micromanipulator inside the FIB-SEM chamber.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semFibsemTAPP/liftOutMethod
+                              '@type':
+                                enum:
+                                - - schema:PropertyValue
+                              schema:propertyID:
+                                enum:
+                                - - '@id': ada:parameter/semFibsemTAPP/liftOutMethod
+                              schema:name:
+                                enum:
+                                - Lift-out Method
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                            readOnly: true
+                          - title: Slice Thickness
+                            description: Thickness of each FIB-milled slice during
+                              serial sectioning in nanometres.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semFibsemTAPP/sliceThicknessDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - sliceThicknessDefault
+                              schema:name:
+                                enum:
+                                - Slice Thickness
+                              ada:dataType:
+                                enum:
+                                - number
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                              schema:unitText:
+                                enum:
+                                - nm
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
+                        allOf:
+                        - contains:
+                            title: Fine Polishing Conditions
+                            description: Ion beam voltage and current for final thinning
+                              and surface polishing of the TEM lamella.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semFibsemTAPP/finePolishingConditionsDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - finePolishingConditionsDefault
+                              schema:name:
+                                enum:
+                                - Fine Polishing Conditions
+                              ada:dataType:
+                                enum:
+                                - string
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
+                          minContains: 0
+                          maxContains: 1
+                        - contains:
+                            title: Foil Thickness
+                            description: Target thickness of the electron-transparent
+                              TEM lamella after final FIB polishing, in nanometres.
+                              Actual thickness may differ from target.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semFibsemTAPP/foilThicknessDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - foilThicknessDefault
+                              schema:name:
+                                enum:
+                                - Foil Thickness
+                              ada:dataType:
+                                enum:
+                                - number
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                              schema:unitText:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
+                          minContains: 0
+                          maxContains: 1
+                        - contains:
+                            title: Lift-out Method
+                            description: Method used to transfer the FIB-prepared
+                              lamella to the TEM support grid. In-situ lift-out uses
+                              a micromanipulator inside the FIB-SEM chamber.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semFibsemTAPP/liftOutMethod
+                              '@type':
+                                enum:
+                                - - schema:PropertyValue
+                              schema:propertyID:
+                                enum:
+                                - - '@id': ada:parameter/semFibsemTAPP/liftOutMethod
+                              schema:name:
+                                enum:
+                                - Lift-out Method
+                              schema:value:
+                                type: string
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:propertyID
+                            - schema:name
+                            - schema:value
+                            readOnly: true
+                          minContains: 0
+                          maxContains: 1
+                        - contains:
+                            title: Slice Thickness
+                            description: Thickness of each FIB-milled slice during
+                              serial sectioning in nanometres.
+                            type: object
+                            properties:
+                              '@id':
+                                enum:
+                                - ada:parameter/semFibsemTAPP/sliceThicknessDefault
+                              '@type':
+                                enum:
+                                - - schema:PropertyValueSpecification
+                              schema:valueName:
+                                enum:
+                                - sliceThicknessDefault
+                              schema:name:
+                                enum:
+                                - Slice Thickness
+                              ada:dataType:
+                                enum:
+                                - number
+                              ada:fieldScope:
+                                enum:
+                                - session
+                              schema:readonlyValue: {}
+                              ada:tier:
+                                enum:
+                                - R
+                              schema:unitText:
+                                enum:
+                                - nm
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - ada:fieldScope
+                          minContains: 0
+                          maxContains: 1
+                      schema:description:
+                        description: Ion beam voltage and current used to mill each
+                          slice during FIB-SEM serial sectioning.
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                - if:
+                    properties:
+                      schema:name:
+                        enum:
+                        - Data reduction
+                    required:
+                    - schema:name
+                  then:
+                    properties:
+                      schema:additionalProperty:
+                        type: array
+                        items:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues
+                        allOf:
+                        - contains:
+                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues
+                          minContains: 0
+                          maxContains: 1
+              allOf:
+              - contains:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Sample preparation
+                  required:
+                  - schema:name
+              - contains:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Ion milling
+                  required:
+                  - schema:name
+              - contains:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Data reduction
+                  required:
+                  - schema:name
         ada:imageRegistration3DDefault:
           description: Method used to align consecutive SEM image slices in the 3D
             stack to correct for drift, vibration, and curtaining artifacts. Include
             software used.
           type: string
         ada:segmentationMethod3DDefault:
-          description: Method and software used to segment phases and features in
-            the aligned 3D image stack, transforming the grayscale stack into labelled
-            3D regions (pores, mineral phases, grain boundaries, organic matter).
-          type: string
+          description: Method and software used to separate distinct phases or features
+            in the reconstructed 3D volume, turning the grayscale volume into labelled
+            regions.
+          anyOf:
+          - type: string
+            enum:
+            - Global threshold (single grayscale boundary)
+            - Multi-threshold (separate range per phase)
+            - Manual threshold per phase
+            - 'Semi-automated: threshold + morphological filtering'
+            - Region growing
+            - Manual tracing
+            - N/A
+            - None
+            - missing
+          - type: string
         ada:analyticalMode:
           type: array
           items:
@@ -5384,6 +5294,7 @@ x-defs:
           - ada:TOFSIMSMassSpectrumData
           - ada:VNMIRSpectralPoint
           - ada:XRDTabular
+          - nil:missing
           description: ADA componentType for a tabular data file, as a single string.
             Allowed values are constrained at the technique-profile level.
           x-jsonld-id: https://ada.astromat.org/metadata/componentType
@@ -5805,8 +5716,8 @@ x-defs:
   ogch.BaseSchema.modules.core:
     title: 'TAPP Composition Module: Core'
     description: "The shared Core block of the 2026-08-11 TAPP library (Claude Skills
-      for TAPP/Module_Core.csv), composed by 16 of the sixteen delivery tables. 30
-      owned fields over 33 schema paths.\n\nGENERATED by tools/build_module_bb.py
+      for TAPP/Module_Core.csv), composed by 16 of the sixteen delivery tables. 31
+      owned fields over 35 schema paths.\n\nGENERATED by tools/build_module_bb.py
       from the module's CSV and its schema-path sidecar \u2014 edit those, not this
       file. Requiredness follows the TAPP tier matrix: a field Basic on a side is
       required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
@@ -5917,9 +5828,10 @@ x-defs:
                             together with data from this procedure. Document coupling
                             with any technique whose results are functionally linked
                             to this dataset \u2014 providing calibration inputs, complementary
-                            spatial context, or required companion measurements. Use
-                            the same controlled vocabulary as the Technique field.
-                            Enter \"None\" if no coupling is intended."
+                            spatial context, or required companion measurements. Name
+                            the instrument, laboratory or purpose alongside each technique
+                            where known, and join multiple techniques with '; '. Enter
+                            \"None\" if no coupling is intended."
                           type: string
                           x-jsonld-id: http://schema.org/name
                         schema:description:
@@ -5939,9 +5851,8 @@ x-defs:
           ada:samplingUnit:
             description: "The physical subdivision of the sample to which one row
               of reported values corresponds \u2014 the unit that is analysed and
-              reported, as distinct from the sample as a whole. State the unit type
-              at procedure level and the units actually analysed at analysis level.
-              Where units nest (e.g. confined tracks within grains), state both levels."
+              reported, as distinct from the sample as a whole. Where units nest (e.g.
+              confined tracks within grains), state both levels."
             type: string
             x-jsonld-id: https://ada.astromat.org/metadata/samplingUnit
           bios:computationalTool:
@@ -5998,11 +5909,8 @@ x-defs:
             items:
               description: Primary analytical mode(s) executed under this procedure.
                 Records one value for a single-mode procedure and all applicable modes
-                for a multi-mode one. Serves as the procedure-level declaration of
-                measurement type, distinct from the mode flag columns, which state
-                per-field applicability. Required even where a procedure defines no
-                mode flag columns, so that every procedure record is self-describing
-                and comparable across the library.
+                for a multi-mode one. Applies even where a procedure defines no mode
+                flag columns.
               type: string
             x-jsonld-id: https://ada.astromat.org/metadata/analyticalMode
           ada:reportedProperties:
@@ -6010,12 +5918,10 @@ x-defs:
             items:
               description: "The final variable(s) this procedure reports and their
                 units \u2014 distinct from the fields recording what was *acquired*
-                rather than what is reported. A procedure may acquire many channels
-                and report a small number of derived quantities; without this field
-                a data consumer cannot tell which. Record every reported variable,
-                including intermediate quantities reported alongside final ones (e.g.
-                both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported
-                variable is a nominal property with no magnitude (e.g. a mineral identification),
+                rather than what is reported. Record every reported variable, including
+                intermediate quantities reported alongside final ones (e.g. both the
+                206Pb/238U ratio and the 206Pb/238U date). Where a reported variable
+                is a nominal property with no magnitude (e.g. a mineral identification),
                 record the variable and give the unit as 'N/A \u2014 nominal property'."
               type: string
             x-jsonld-id: https://ada.astromat.org/metadata/reportedProperties
@@ -6028,6 +5934,46 @@ x-defs:
               a structured field is preferred for anything that can be formally categorised."
             type: string
             x-jsonld-id: http://schema.org/description
+          schema:actionProcess:
+            type: object
+            properties:
+              schema:step:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                  - if:
+                      properties:
+                        schema:name:
+                          enum:
+                          - Sample preparation
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:description:
+                          description: "The form in which the sample is presented
+                            to the instrument, and the preparation that brought it
+                            to that form \u2014 for example mounting, sectioning,
+                            polishing, coating, crushing, fusion, or extraction of
+                            an electron-transparent section. Record 'None' where the
+                            material is analysed as received."
+                          anyOf:
+                          - type: string
+                          - type: array
+                            items:
+                              type: string
+                          x-jsonld-id: http://schema.org/description
+                allOf:
+                - contains:
+                    properties:
+                      schema:name:
+                        enum:
+                        - Sample preparation
+                    required:
+                    - schema:name
+                x-jsonld-id: http://schema.org/step
+            x-jsonld-id: http://schema.org/actionProcess
         required:
         - ada:samplingUnit
         - schema:datePublished
@@ -6060,9 +6006,7 @@ x-defs:
                 schema:identifier:
                   description: "Identifier for the analytical session this record
                     describes \u2014 the laboratory's own run, sequence or batch identifier
-                    as generated by the instrument or acquisition software. The analysis
-                    record corresponds to one session, which may cover several samples,
-                    and this is the link back to the raw instrument files. Distinct
+                    as generated by the instrument or acquisition software. Distinct
                     from any persistent identifier a repository mints on submission."
                   type: string
                   x-jsonld-id: http://schema.org/identifier
@@ -6096,11 +6040,9 @@ x-defs:
                             description: "Name or identifier of each sample analysed
                               in this session, as used in the laboratory \u2014 a
                               sample mount, section or aliquot counts as one entry
-                              where that is what the laboratory tracks. The analysis
-                              record corresponds to one session and may cover several
-                              samples; fields whose Keyed By column declares 'sample'
-                              take one value per entry. Should match the identifier
-                              used in associated publications or data tables."
+                              where that is what the laboratory tracks. Should match
+                              the identifier used in associated publications or data
+                              tables."
                             anyOf:
                             - type: string
                             - type: array
@@ -6206,6 +6148,38 @@ x-defs:
                     anything that can be formally categorised."
                   type: string
                   x-jsonld-id: http://schema.org/description
+                schema:actionProcess:
+                  type: object
+                  properties:
+                    schema:step:
+                      type: array
+                      items:
+                        type: object
+                        allOf:
+                        - if:
+                            properties:
+                              schema:name:
+                                enum:
+                                - Sample preparation
+                            required:
+                            - schema:name
+                          then:
+                            properties:
+                              schema:description:
+                                description: "The form in which the sample is presented
+                                  to the instrument, and the preparation that brought
+                                  it to that form \u2014 for example mounting, sectioning,
+                                  polishing, coating, crushing, fusion, or extraction
+                                  of an electron-transparent section. Record 'None'
+                                  where the material is analysed as received."
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                                x-jsonld-id: http://schema.org/description
+                      x-jsonld-id: http://schema.org/step
+                  x-jsonld-id: http://schema.org/actionProcess
             x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
           schema:measurementTechnique:
             type: array
@@ -6215,9 +6189,7 @@ x-defs:
                 schema:identifier:
                   description: DOI or unique persistent identifier for the registered
                     procedure used in this analysis, generated upon procedure submission
-                    to a data repository. This field is mandatory when submitting
-                    analytical data, to encourage formal procedure registration and
-                    ensure traceability. If a DOI has been applied for but not yet
+                    to a data repository. If a DOI has been applied for but not yet
                     minted, enter "pending".
                   type: string
                   x-jsonld-id: http://schema.org/identifier
@@ -6290,9 +6262,10 @@ x-defs:
                             together with data from this procedure. Document coupling
                             with any technique whose results are functionally linked
                             to this dataset \u2014 providing calibration inputs, complementary
-                            spatial context, or required companion measurements. Use
-                            the same controlled vocabulary as the Technique field.
-                            Enter \"None\" if no coupling is intended."
+                            spatial context, or required companion measurements. Name
+                            the instrument, laboratory or purpose alongside each technique
+                            where known, and join multiple techniques with '; '. Enter
+                            \"None\" if no coupling is intended."
                           type: string
                           x-jsonld-id: http://schema.org/name
                         schema:description:
@@ -6322,11 +6295,10 @@ x-defs:
                       properties:
                         schema:url:
                           description: Registered procedure DOI for the coupled technique
-                            named above. Provides a stable, citable link to the companion
-                            method independent of whether a dataset has been deposited.
-                            If the coupled procedure has not yet been registered,
-                            enter the DOI of a publication describing the coupled
-                            method, or "pending". Enter "None" if no coupling is planned.
+                            named above. If the coupled procedure has not yet been
+                            registered, enter the DOI of a publication describing
+                            the coupled method, or "pending". Enter "None" if no coupling
+                            is planned.
                           type: string
                           x-jsonld-id: http://schema.org/url
                       x-jsonld-id: http://schema.org/target
@@ -6359,9 +6331,7 @@ x-defs:
       Param_Procedure_targetMaterial:
         title: Target Material
         description: General description of the material type(s) this procedure is
-          designed to analyse. Used for discoverability and procedure matching, and
-          because the material type constrains sample preparation, calibration and
-          matrix-matching requirements.
+          designed to analyse.
         type: object
         properties:
           '@id':
@@ -6490,60 +6460,63 @@ x-defs:
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  ogch.BaseSchema.modules.targetSelection:
-    title: 'TAPP Composition Module: TargetSelection'
-    description: "The shared TargetSelection block of the 2026-08-11 TAPP library
-      (Claude Skills for TAPP/Module_TargetSelection.csv), composed by 13 of the sixteen
-      delivery tables. 2 owned fields over 1 schema paths.\n\nGENERATED by tools/build_module_bb.py
-      from the module's CSV and its schema-path sidecar \u2014 edit those, not this
-      file. Requiredness follows the TAPP tier matrix: a field Basic on a side is
-      required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
-      is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure
-      or analysis carries. Column F (Example / Allowed Content) is consumer-owned
-      per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may
-      narrow a value space, never widen it."
+  ogch.BaseSchema.modules.samplingUnitSelection:
+    title: 'TAPP Composition Module: SamplingUnitSelection'
+    description: "The shared SamplingUnitSelection block of the 2026-08-11 TAPP library
+      (Claude Skills for TAPP/Module_SamplingUnitSelection.csv), composed by 13 of
+      the sixteen delivery tables. 2 owned fields over 1 schema paths.\n\nGENERATED
+      by tools/build_module_bb.py from the module's CSV and its schema-path sidecar
+      \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix:
+      a field Basic on a side is required there, Advanced is permitted, N/A is absent
+      from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts
+      which properties a conforming procedure or analysis carries. Column F (Example
+      / Allowed Content) is consumer-owned per the module manifest, so no enum is
+      pinned here \u2014 a consuming TAPP may narrow a value space, never widen it."
     $defs:
       ProcedureIdentification:
-        title: TargetSelection on the procedure
+        title: SamplingUnitSelection on the procedure
         description: 'Composed into a TAPP (prov:Plan) schema: what the procedure
           asserts once, for every analysis that follows it.'
         type: object
         properties:
-          ada:targetSelectionCriteriaDefault:
-            description: "The rules governing which part of the sample is analysed,
-              and why. Covers the criteria applied when choosing grains, aliquots,
-              spots, or a region of interest \u2014 size, morphology, clarity, freedom
-              from inclusions or alteration, phase identity, or spatial position.
-              Distinct from Target Material, which states the material type the procedure
-              is designed for: this field states how, within such a sample, the analysed
-              portion is picked out."
+          ada:samplingUnitSelectionCriteriaDefault:
+            description: "The rules governing which sampling unit(s) within a sample
+              are selected for analysis, and why. Covers the criteria applied when
+              choosing grains, aliquots, spots, or a region of interest \u2014 size,
+              morphology, clarity, freedom from inclusions or alteration, phase identity,
+              or spatial position. Distinct from Target Material, which states the
+              material type the procedure is designed for, and from Sampling Unit,
+              which names the kind of subdivision one row of reported values corresponds
+              to: this field states how, within such a sample, the unit actually analysed
+              is picked out."
             type: string
-            x-jsonld-id: https://ada.astromat.org/metadata/targetSelectionCriteriaDefault
+            x-jsonld-id: https://ada.astromat.org/metadata/samplingUnitSelectionCriteriaDefault
         required:
-        - ada:targetSelectionCriteriaDefault
-      Param_Analysis_targetSelectionCriteria:
-        title: Target Selection Criteria
-        description: "The rules governing which part of the sample is analysed, and
-          why. Covers the criteria applied when choosing grains, aliquots, spots,
-          or a region of interest \u2014 size, morphology, clarity, freedom from inclusions
-          or alteration, phase identity, or spatial position. Distinct from Target
-          Material, which states the material type the procedure is designed for:
-          this field states how, within such a sample, the analysed portion is picked
-          out."
+        - ada:samplingUnitSelectionCriteriaDefault
+      Param_Analysis_samplingUnitSelectionCriteria:
+        title: Sampling Unit Selection Criteria
+        description: "The rules governing which sampling unit(s) within a sample are
+          selected for analysis, and why. Covers the criteria applied when choosing
+          grains, aliquots, spots, or a region of interest \u2014 size, morphology,
+          clarity, freedom from inclusions or alteration, phase identity, or spatial
+          position. Distinct from Target Material, which states the material type
+          the procedure is designed for, and from Sampling Unit, which names the kind
+          of subdivision one row of reported values corresponds to: this field states
+          how, within such a sample, the unit actually analysed is picked out."
         type: object
         properties:
           '@id':
             enum:
-            - ada:parameter/module/TargetSelection/targetSelectionCriteria
+            - ada:parameter/module/SamplingUnitSelection/samplingUnitSelectionCriteria
           '@type':
             enum:
             - - schema:PropertyValue
           schema:propertyID:
             enum:
-            - - '@id': ada:parameter/module/TargetSelection/targetSelectionCriteria
+            - - '@id': ada:parameter/module/SamplingUnitSelection/samplingUnitSelectionCriteria
           schema:name:
             enum:
-            - Target Selection Criteria
+            - Sampling Unit Selection Criteria
           schema:value:
             type: string
         required:
@@ -6555,22 +6528,22 @@ x-defs:
       Param_Analysis_preAnalysisImagingAndScreening:
         title: Pre-Analysis Imaging and Screening
         description: Imaging or other characterisation performed before the measurement
-          in order to select or locate the analysed target, including the technique,
-          instrument and settings used, and how individual analyses are linked back
-          to the images. Distinct from any imaging the procedure performs as its own
-          measurement. Where the imaging is performed on a separate instrument, it
-          should also be recorded in the Group 1 coupling fields.
+          in order to select or locate the sampling unit to be analysed, including
+          the technique, instrument and settings used, and how individual analyses
+          are linked back to the images. Distinct from any imaging the procedure performs
+          as its own measurement. Where the imaging is performed on a separate instrument,
+          it should also be recorded in the Group 1 coupling fields.
         type: object
         properties:
           '@id':
             enum:
-            - ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening
+            - ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening
           '@type':
             enum:
             - - schema:PropertyValue
           schema:propertyID:
             enum:
-            - - '@id': ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening
+            - - '@id': ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening
           schema:name:
             enum:
             - Pre-Analysis Imaging and Screening
@@ -6585,16 +6558,16 @@ x-defs:
       Param_Procedure_preAnalysisImagingAndScreening:
         title: Pre-Analysis Imaging and Screening
         description: Imaging or other characterisation performed before the measurement
-          in order to select or locate the analysed target, including the technique,
-          instrument and settings used, and how individual analyses are linked back
-          to the images. Distinct from any imaging the procedure performs as its own
-          measurement. Where the imaging is performed on a separate instrument, it
-          should also be recorded in the Group 1 coupling fields.
+          in order to select or locate the sampling unit to be analysed, including
+          the technique, instrument and settings used, and how individual analyses
+          are linked back to the images. Distinct from any imaging the procedure performs
+          as its own measurement. Where the imaging is performed on a separate instrument,
+          it should also be recorded in the Group 1 coupling fields.
         type: object
         properties:
           '@id':
             enum:
-            - ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault
+            - ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault
           '@type':
             enum:
             - - schema:PropertyValueSpecification
@@ -6626,7 +6599,7 @@ x-defs:
         - ada:fieldScope
     x-jsonld-prefixes:
       ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.instrument:
     title: Instrument Description
@@ -8449,6 +8422,41 @@ x-defs:
     - required:
       - '@type'
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured
+    - if:
+        required:
+        - cdif:isDefinedBy_RepresentedVariable
+      then:
+        properties:
+          cdi:takesSubstantiveValuesFrom:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSubstantiveValuesFrom
+          cdi:takesSentinelValuesFrom:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSentinelValuesFrom
+          cdi:hasIntendedDataType:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasIntendedDataType
+          cdi:describedUnitOfMeasure:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure
+          cdi:unitOfMeasureKind:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/unitOfMeasureKind
+          cdi:measures:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/measures
+          cdi:externalDefinition:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/externalDefinition
+          cdif:uses_Concept:
+            not: true
+            x-jsonld-id: https://w3id.org/cdif/uses_Concept
+          cdif:definition:
+            not: true
+            x-jsonld-id: https://w3id.org/cdif/definition
+        description: When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level
+          properties live on that RepresentedVariable and may not be declared inline
+          on the InstanceVariable.
     $defs:
       cdifConceptOrTermOrString:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString

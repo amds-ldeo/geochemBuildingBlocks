@@ -288,7 +288,7 @@ $defs:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary
       standards, expressed as percent relative bias. Include reference material, reference
-      value source, and per-analyte value.
+      value source, and the measured value.
     type: object
     properties:
       '@id':
@@ -318,8 +318,7 @@ $defs:
     title: Analytical Precision
     description: Reproducibility of repeated measurements on the same or equivalent
       reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and value per analyte or element
-      group.
+      reference material name, number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -413,9 +412,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -504,8 +501,8 @@ $defs:
     - schema:defaultValue
   empa_epmaTechniquePerAnalyte:
     title: EPMA Technique per Analyte
-    description: Whether each analyte was measured by WDS or EDS. In a WDS+EDS procedure,
-      some elements may be assigned to WDS and others to EDS.
+    description: Whether the measurement was made by WDS or EDS. Applies where a procedure
+      uses both WDS and EDS.
     type: object
     properties:
       '@id':
@@ -747,6 +744,68 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  empa_xRayBackgroundCorrectionMethod:
+    title: X-ray Background Correction Method
+    description: 'Method used to estimate and subtract background X-ray intensity
+      beneath the peak. For WDS: typically 2-point off-peak linear interpolation or
+      Mean Atomic Number (MAN) background model. For EDS: spectral background fitting
+      or top-hat filter applied during spectral processing.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/empaTAPP/xRayBackgroundCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayBackgroundCorrectionMethod
+      schema:name:
+        const: X-ray Background Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  empa_xRayLineOverlapCorrectionsApplied:
+    title: X-ray Line Overlap Corrections Applied
+    description: Whether a spectral interference correction was applied. Common interferences
+      include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/empaTAPP/xRayLineOverlapCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayLineOverlapCorrectionsApplied
+      schema:name:
+        const: X-ray Line Overlap Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   epmaTechnique:
     title: EPMA Technique per Element
     description: Whether this element was measured by WDS or EDS.
@@ -806,7 +865,7 @@ $defs:
   interferenceCorrectionStandard:
     title: Interference Correction Standard
     description: Reference material used to quantify and calibrate the interference
-      correction for this analyte.
+      correction.
     type: object
     properties:
       '@id':
@@ -834,8 +893,8 @@ $defs:
     - ada:dataType
   interferingElements:
     title: Interfering Elements
-    description: Element(s) whose X-ray lines overlap with the measured peak for this
-      analyte, requiring a correction.
+    description: Element(s) whose X-ray lines overlap with the measured peak, requiring
+      a correction.
     type: object
     properties:
       '@id':
@@ -863,11 +922,12 @@ $defs:
     - ada:dataType
   laMcicpmsUPb_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
-    description: 'Offset between measured and accepted reference values for secondary
-      reference materials, expressed as % relative bias. Report both the assessment
-      method and the accuracy values. Specify: (1) secondary RM used and source of
-      reference values, (2) number of analyses, and (3) elements or element groups
-      assessed. Report any systematic biases and likely causes.'
+    description: Offset between measured and accepted values for secondary reference
+      materials, and the method used to assess it. Specify the reference material
+      and the source of its accepted values, the number of analyses, and the quantities
+      assessed. Report systematic biases and their likely causes. Express the offset
+      in the form appropriate to what the procedure reports - percent relative bias
+      for concentrations, or deviation in delta or ratio units for isotopic quantities.
     type: object
     properties:
       '@id':
@@ -900,9 +960,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -1021,9 +1079,11 @@ $defs:
     - ada:dataType
   laMcicpmsUPb_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Equation or procedure used to correct for isobaric interferences,
-      including the production rate factor and the reference material used to measure
-      it.
+    description: Equation or procedure used to calculate and remove each interference
+      contribution, together with how its magnitude was established - a monitor mass
+      measured simultaneously and scaled by natural abundance ratios, a production-rate
+      factor measured on a reference material or interference standard solution, or
+      a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -1052,8 +1112,10 @@ $defs:
     - schema:defaultValue
   laMcicpmsUPb_interferingSpecies:
     title: Interfering Species
-    description: Elemental or molecular species (oxides, argides, doubly charged ions)
-      overlapping with the measured isotope.
+    description: The isobaric, polyatomic and doubly charged species that overlap
+      the measured masses and are corrected in data reduction - direct isobars, oxides
+      and argides, hydrides, and abundance-sensitivity tailing from an adjacent large
+      beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -1116,9 +1178,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -1131,7 +1191,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       schema:readonlyValue:
         const: false
       ada:tier:
@@ -1146,12 +1206,10 @@ $defs:
     - ada:dataType
   laMcicpmsUPb_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode assigned to each acquired mass. The selected
-      resolution determines which polyatomic interferences are physically resolved
-      by the magnetic sector. One analyte may be acquired at more than one resolution,
-      so the assignment is per acquired mass rather than per element. The overall
-      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
-      3).
+    description: Mass resolution mode used for acquisition. One analyte may be acquired
+      at more than one resolution, so the assignment is per acquired mass rather than
+      per element. The overall mode(s) used in the procedure are recorded in Mass
+      Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -1302,6 +1360,39 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpmsUPb_spectralInterferenceCorrectionsApplied:
+    title: Spectral Interference Corrections Applied
+    description: Whether mathematical corrections for isobaric, polyatomic or residual
+      interferences are applied in data reduction, supplementary to any suppression
+      already achieved by chemical separation, mass resolution, or a collision/reaction
+      cell. Detail for each affected mass is carried by Interfering Species and Interference
+      Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spectralInterferenceCorrectionsApplied
+      schema:name:
+        const: Spectral Interference Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpmsUPb_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
     description: Precision of repeated measurements within a single analytical session
@@ -1501,11 +1592,8 @@ $defs:
       either as detected signal per unit concentration or per unit mass of analyte
       delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
       \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
     type: object
     properties:
       '@id':
@@ -1626,9 +1714,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -1641,7 +1727,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       schema:readonlyValue:
         const: false
       ada:tier:
@@ -1656,12 +1742,10 @@ $defs:
     - ada:dataType
   laMcicpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode assigned to each acquired mass. The selected
-      resolution determines which polyatomic interferences are physically resolved
-      by the magnetic sector. One analyte may be acquired at more than one resolution,
-      so the assignment is per acquired mass rather than per element. The overall
-      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
-      3).
+    description: Mass resolution mode used for acquisition. One analyte may be acquired
+      at more than one resolution, so the assignment is per acquired mass rather than
+      per element. The overall mode(s) used in the procedure are recorded in Mass
+      Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -1915,11 +1999,12 @@ $defs:
     - schema:defaultValue
   laQicpmsUPb_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
-    description: 'Offset between measured and accepted reference values for secondary
-      reference materials, expressed as % relative bias. Report both the assessment
-      method and the accuracy values. Specify: (1) secondary RM used and source of
-      reference values, (2) number of analyses, and (3) elements or element groups
-      assessed. Report any systematic biases and likely causes.'
+    description: Offset between measured and accepted values for secondary reference
+      materials, and the method used to assess it. Specify the reference material
+      and the source of its accepted values, the number of analyses, and the quantities
+      assessed. Report systematic biases and their likely causes. Express the offset
+      in the form appropriate to what the procedure reports - percent relative bias
+      for concentrations, or deviation in delta or ratio units for isotopic quantities.
     type: object
     properties:
       '@id':
@@ -1952,9 +2037,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -2047,11 +2130,9 @@ $defs:
     - schema:defaultValue
   laQicpmsUPb_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: 'Count time (dwell time) per mass position for each measured isotope
-      in milliseconds. Longer dwell times improve counting statistics and lower detection
-      limits but reduce the number of isotopes measurable within a given scan cycle
-      time. For mapping, scan cycle time directly determines spatial resolution at
-      a given scan speed: shorter cycle time = finer spatial resolution.'
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -2082,9 +2163,11 @@ $defs:
     - schema:defaultValue
   laQicpmsUPb_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Equation or procedure used to correct for isobaric interferences,
-      including the production rate factor and the reference material used to measure
-      it.
+    description: Equation or procedure used to calculate and remove each interference
+      contribution, together with how its magnitude was established - a monitor mass
+      measured simultaneously and scaled by natural abundance ratios, a production-rate
+      factor measured on a reference material or interference standard solution, or
+      a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -2113,8 +2196,10 @@ $defs:
     - schema:defaultValue
   laQicpmsUPb_interferingSpecies:
     title: Interfering Species
-    description: Elemental or molecular species (oxides, argides, doubly charged ions)
-      overlapping with the measured isotope.
+    description: The isobaric, polyatomic and doubly charged species that overlap
+      the measured masses and are corrected in data reduction - direct isobars, oxides
+      and argides, hydrides, and abundance-sensitivity tailing from an adjacent large
+      beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -2177,9 +2262,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -2192,7 +2275,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       schema:readonlyValue:
         const: false
       ada:tier:
@@ -2329,6 +2412,39 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laQicpmsUPb_spectralInterferenceCorrectionsApplied:
+    title: Spectral Interference Corrections Applied
+    description: Whether mathematical corrections for isobaric, polyatomic or residual
+      interferences are applied in data reduction, supplementary to any suppression
+      already achieved by chemical separation, mass resolution, or a collision/reaction
+      cell. Detail for each affected mass is carried by Interfering Species and Interference
+      Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spectralInterferenceCorrectionsApplied
+      schema:name:
+        const: Spectral Interference Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laQicpmsUPb_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
     description: Precision of repeated measurements within a single analytical session
@@ -2366,11 +2482,12 @@ $defs:
     - schema:defaultValue
   laQicpms_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
-    description: 'Offset between measured and accepted reference values for secondary
-      reference materials, expressed as % relative bias. Report both the assessment
-      method and the accuracy values. Specify: (1) secondary RM used and source of
-      reference values, (2) number of analyses, and (3) elements or element groups
-      assessed. Report any systematic biases and likely causes.'
+    description: Offset between measured and accepted values for secondary reference
+      materials, and the method used to assess it. Specify the reference material
+      and the source of its accepted values, the number of analyses, and the quantities
+      assessed. Report systematic biases and their likely causes. Express the offset
+      in the form appropriate to what the procedure reports - percent relative bias
+      for concentrations, or deviation in delta or ratio units for isotopic quantities.
     type: object
     properties:
       '@id':
@@ -2403,9 +2520,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -2498,11 +2613,9 @@ $defs:
     - schema:defaultValue
   laQicpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: 'Count time (dwell time) per mass position for each measured isotope
-      in milliseconds. Longer dwell times improve counting statistics and lower detection
-      limits but reduce the number of isotopes measurable within a given scan cycle
-      time. For mapping, scan cycle time directly determines spatial resolution at
-      a given scan speed: shorter cycle time = finer spatial resolution.'
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -2533,9 +2646,11 @@ $defs:
     - schema:defaultValue
   laQicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Equation or procedure used to correct for isobaric interferences,
-      including the production rate factor and the reference material used to measure
-      it.
+    description: Equation or procedure used to calculate and remove each interference
+      contribution, together with how its magnitude was established - a monitor mass
+      measured simultaneously and scaled by natural abundance ratios, a production-rate
+      factor measured on a reference material or interference standard solution, or
+      a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -2564,8 +2679,10 @@ $defs:
     - schema:defaultValue
   laQicpms_interferingSpecies:
     title: Interfering Species
-    description: Elemental or molecular species (oxides, argides, doubly charged ions)
-      overlapping with the measured isotope.
+    description: The isobaric, polyatomic and doubly charged species that overlap
+      the measured masses and are corrected in data reduction - direct isobars, oxides
+      and argides, hydrides, and abundance-sensitivity tailing from an adjacent large
+      beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -2628,9 +2745,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -2643,7 +2758,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       schema:readonlyValue:
         const: false
       ada:tier:
@@ -2780,6 +2895,39 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laQicpms_spectralInterferenceCorrectionsApplied:
+    title: Spectral Interference Corrections Applied
+    description: Whether mathematical corrections for isobaric, polyatomic or residual
+      interferences are applied in data reduction, supplementary to any suppression
+      already achieved by chemical separation, mass resolution, or a collision/reaction
+      cell. Detail for each affected mass is carried by Interfering Species and Interference
+      Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spectralInterferenceCorrectionsApplied
+      schema:name:
+        const: Spectral Interference Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laQicpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
     description: Precision of repeated measurements within a single analytical session
@@ -2817,11 +2965,12 @@ $defs:
     - schema:defaultValue
   laSficpmsUPb_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
-    description: 'Offset between measured and accepted reference values for secondary
-      reference materials, expressed as % relative bias. Report both the assessment
-      method and the accuracy values. Specify: (1) secondary RM used and source of
-      reference values, (2) number of analyses, and (3) elements or element groups
-      assessed. Report any systematic biases and likely causes.'
+    description: Offset between measured and accepted values for secondary reference
+      materials, and the method used to assess it. Specify the reference material
+      and the source of its accepted values, the number of analyses, and the quantities
+      assessed. Report systematic biases and their likely causes. Express the offset
+      in the form appropriate to what the procedure reports - percent relative bias
+      for concentrations, or deviation in delta or ratio units for isotopic quantities.
     type: object
     properties:
       '@id':
@@ -2854,9 +3003,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -2949,11 +3096,9 @@ $defs:
     - schema:defaultValue
   laSficpmsUPb_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: 'Count time (dwell time) per mass position for each measured isotope
-      in milliseconds. Longer dwell times improve counting statistics and lower detection
-      limits but reduce the number of isotopes measurable within a given scan cycle
-      time. For mapping, scan cycle time directly determines spatial resolution at
-      a given scan speed: shorter cycle time = finer spatial resolution.'
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -2984,9 +3129,11 @@ $defs:
     - schema:defaultValue
   laSficpmsUPb_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Equation or procedure used to correct for isobaric interferences,
-      including the production rate factor and the reference material used to measure
-      it.
+    description: Equation or procedure used to calculate and remove each interference
+      contribution, together with how its magnitude was established - a monitor mass
+      measured simultaneously and scaled by natural abundance ratios, a production-rate
+      factor measured on a reference material or interference standard solution, or
+      a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -3015,8 +3162,10 @@ $defs:
     - schema:defaultValue
   laSficpmsUPb_interferingSpecies:
     title: Interfering Species
-    description: Elemental or molecular species (oxides, argides, doubly charged ions)
-      overlapping with the measured isotope.
+    description: The isobaric, polyatomic and doubly charged species that overlap
+      the measured masses and are corrected in data reduction - direct isobars, oxides
+      and argides, hydrides, and abundance-sensitivity tailing from an adjacent large
+      beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -3079,9 +3228,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -3094,7 +3241,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       schema:readonlyValue:
         const: false
       ada:tier:
@@ -3109,12 +3256,10 @@ $defs:
     - ada:dataType
   laSficpmsUPb_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode assigned to each acquired mass. The selected
-      resolution determines which polyatomic interferences are physically resolved
-      by the magnetic sector. One analyte may be acquired at more than one resolution,
-      so the assignment is per acquired mass rather than per element. The overall
-      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
-      3).
+    description: Mass resolution mode used for acquisition. One analyte may be acquired
+      at more than one resolution, so the assignment is per acquired mass rather than
+      per element. The overall mode(s) used in the procedure are recorded in Mass
+      Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -3265,6 +3410,39 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laSficpmsUPb_spectralInterferenceCorrectionsApplied:
+    title: Spectral Interference Corrections Applied
+    description: Whether mathematical corrections for isobaric, polyatomic or residual
+      interferences are applied in data reduction, supplementary to any suppression
+      already achieved by chemical separation, mass resolution, or a collision/reaction
+      cell. Detail for each affected mass is carried by Interfering Species and Interference
+      Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spectralInterferenceCorrectionsApplied
+      schema:name:
+        const: Spectral Interference Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpmsUPb_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
     description: Precision of repeated measurements within a single analytical session
@@ -3302,11 +3480,12 @@ $defs:
     - schema:defaultValue
   laSficpms_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
-    description: 'Offset between measured and accepted reference values for secondary
-      reference materials, expressed as % relative bias. Report both the assessment
-      method and the accuracy values. Specify: (1) secondary RM used and source of
-      reference values, (2) number of analyses, and (3) elements or element groups
-      assessed. Report any systematic biases and likely causes.'
+    description: Offset between measured and accepted values for secondary reference
+      materials, and the method used to assess it. Specify the reference material
+      and the source of its accepted values, the number of analyses, and the quantities
+      assessed. Report systematic biases and their likely causes. Express the offset
+      in the form appropriate to what the procedure reports - percent relative bias
+      for concentrations, or deviation in delta or ratio units for isotopic quantities.
     type: object
     properties:
       '@id':
@@ -3339,9 +3518,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -3434,11 +3611,9 @@ $defs:
     - schema:defaultValue
   laSficpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: 'Count time (dwell time) per mass position for each measured isotope
-      in milliseconds. Longer dwell times improve counting statistics and lower detection
-      limits but reduce the number of isotopes measurable within a given scan cycle
-      time. For mapping, scan cycle time directly determines spatial resolution at
-      a given scan speed: shorter cycle time = finer spatial resolution.'
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -3469,9 +3644,11 @@ $defs:
     - schema:defaultValue
   laSficpms_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Equation or procedure used to correct for isobaric interferences,
-      including the production rate factor and the reference material used to measure
-      it.
+    description: Equation or procedure used to calculate and remove each interference
+      contribution, together with how its magnitude was established - a monitor mass
+      measured simultaneously and scaled by natural abundance ratios, a production-rate
+      factor measured on a reference material or interference standard solution, or
+      a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -3500,8 +3677,10 @@ $defs:
     - schema:defaultValue
   laSficpms_interferingSpecies:
     title: Interfering Species
-    description: Elemental or molecular species (oxides, argides, doubly charged ions)
-      overlapping with the measured isotope.
+    description: The isobaric, polyatomic and doubly charged species that overlap
+      the measured masses and are corrected in data reduction - direct isobars, oxides
+      and argides, hydrides, and abundance-sensitivity tailing from an adjacent large
+      beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -3564,9 +3743,7 @@ $defs:
     title: Limit of Quantification (LOQ) Method
     description: 'Reference or description of the method used to calculate the limit
       of quantification (LOQ): the lowest concentration reliably measurable with acceptable
-      precision and accuracy. Mandatory at analysis level when concentrations near
-      the LOD are reported. Concentrations between LOD and LOQ are detectable but
-      not reliably quantifiable.'
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -3579,7 +3756,7 @@ $defs:
       schema:name:
         const: Limit of Quantification (LOQ) Method
       ada:dataType:
-        const: uri
+        const: string
       schema:readonlyValue:
         const: false
       ada:tier:
@@ -3594,12 +3771,10 @@ $defs:
     - ada:dataType
   laSficpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode assigned to each acquired mass. The selected
-      resolution determines which polyatomic interferences are physically resolved
-      by the magnetic sector. One analyte may be acquired at more than one resolution,
-      so the assignment is per acquired mass rather than per element. The overall
-      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
-      3).
+    description: Mass resolution mode used for acquisition. One analyte may be acquired
+      at more than one resolution, so the assignment is per acquired mass rather than
+      per element. The overall mode(s) used in the procedure are recorded in Mass
+      Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -3750,6 +3925,39 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laSficpms_spectralInterferenceCorrectionsApplied:
+    title: Spectral Interference Corrections Applied
+    description: Whether mathematical corrections for isobaric, polyatomic or residual
+      interferences are applied in data reduction, supplementary to any suppression
+      already achieved by chemical separation, mass resolution, or a collision/reaction
+      cell. Detail for each affected mass is carried by Interfering Species and Interference
+      Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spectralInterferenceCorrectionsApplied
+      schema:name:
+        const: Spectral Interference Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
     description: Precision of repeated measurements within a single analytical session
@@ -3988,7 +4196,7 @@ $defs:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary
       standards, expressed as percent relative bias. Include reference material, reference
-      value source, and per-analyte value.
+      value source, and the measured value.
     type: object
     properties:
       '@id':
@@ -4018,8 +4226,7 @@ $defs:
     title: Analytical Precision
     description: Reproducibility of repeated measurements on the same or equivalent
       reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and value per analyte or element
-      group.
+      reference material name, number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -4140,10 +4347,8 @@ $defs:
     - ada:dataType
   semComposition_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. Higher current improves signal-to-noise
-      for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce
-      spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g.,
-      0.4 nA).
+    description: Electron beam probe current. For sub-nA values use decimal notation
+      (e.g., 0.4 nA).
     type: object
     properties:
       '@id':
@@ -4209,9 +4414,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -4329,7 +4532,7 @@ $defs:
   semComposition_interferenceCorrectionStandard:
     title: Interference Correction Standard
     description: Reference material used to quantify and calibrate the interference
-      correction for each affected analyte.
+      correction.
     type: object
     properties:
       '@id':
@@ -4388,8 +4591,8 @@ $defs:
     - schema:defaultValue
   semComposition_interferingElements:
     title: Interfering Elements
-    description: Element(s) whose X-ray lines overlap with the measured peak for one
-      or more analytes, requiring a correction.
+    description: Element(s) whose X-ray lines overlap with the measured peak, requiring
+      a correction.
     type: object
     properties:
       '@id':
@@ -4571,11 +4774,9 @@ $defs:
     - schema:defaultValue
   semComposition_techniquePerAnalyte:
     title: Technique per Analyte
-    description: For each analyte, records which X-ray detection technique (EDS or
-      WDS) was used to collect the measurement. Required when a procedure employs
-      both EDS and WDS simultaneously, assigning each element to the detector appropriate
-      to its concentration range, line overlap situation, or required precision. List
-      in the same order as the Analyte field.
+    description: Records which X-ray detection technique (EDS or WDS) was used to
+      collect the measurement. Required when a procedure employs both EDS and WDS
+      simultaneously. List in the same order as the Analyte field.
     type: object
     properties:
       '@id':
@@ -4606,8 +4807,7 @@ $defs:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilisation or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point
-      analysis; uncommon for EDS or X-ray mapping.
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':
@@ -4669,8 +4869,7 @@ $defs:
       per assignment. An analyte may be assigned to more than one spectrometer with
       intensities aggregated (aggregate intensity counting), and one spectrometer
       serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup. Different spectrometers
-      may have different crystal configurations."
+      \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -4696,12 +4895,72 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  semComposition_xRayBackgroundCorrectionMethod:
+    title: X-ray Background Correction Method
+    description: 'Method used to estimate and subtract background X-ray intensity
+      beneath the peak. For WDS: typically 2-point off-peak linear interpolation or
+      Mean Atomic Number (MAN) background model. For EDS: spectral background fitting
+      or top-hat filter applied during spectral processing.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayBackgroundCorrectionMethod
+      schema:name:
+        const: X-ray Background Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  semComposition_xRayLineOverlapCorrectionsApplied:
+    title: X-ray Line Overlap Corrections Applied
+    description: Whether a spectral interference correction was applied. Common interferences
+      include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayLineOverlapCorrectionsApplied
+      schema:name:
+        const: X-ray Line Overlap Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   semFibsem_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. Higher current improves signal-to-noise
-      for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce
-      spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g.,
-      0.4 nA).
+    description: Electron beam probe current. For sub-nA values use decimal notation
+      (e.g., 0.4 nA).
     type: object
     properties:
       '@id':
@@ -4732,10 +4991,8 @@ $defs:
     - schema:defaultValue
   semImaging_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. Higher current improves signal-to-noise
-      for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce
-      spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g.,
-      0.4 nA).
+    description: Electron beam probe current. For sub-nA values use decimal notation
+      (e.g., 0.4 nA).
     type: object
     properties:
       '@id':
@@ -4798,7 +5055,7 @@ $defs:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary
       standards, expressed as percent relative bias. Include reference material, reference
-      value source, and per-analyte value.
+      value source, and the measured value.
     type: object
     properties:
       '@id':
@@ -4828,8 +5085,7 @@ $defs:
     title: Analytical Precision
     description: Reproducibility of repeated measurements on the same or equivalent
       reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and value per analyte or element
-      group.
+      reference material name, number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -4950,10 +5206,8 @@ $defs:
     - ada:dataType
   sem_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. Higher current improves signal-to-noise
-      for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce
-      spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g.,
-      0.4 nA).
+    description: Electron beam probe current. For sub-nA values use decimal notation
+      (e.g., 0.4 nA).
     type: object
     properties:
       '@id':
@@ -5019,9 +5273,7 @@ $defs:
       reported quantity per analysis, with the sigma level stated. Derived from the
       counts on the analyte together with those on any background or blank subtracted
       from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately: where a procedure
-      reports both, agreement indicates the measurement is shot-noise limited, and
-      a larger observed scatter indicates a further source of variance."
+      between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -5139,7 +5391,7 @@ $defs:
   sem_interferenceCorrectionStandard:
     title: Interference Correction Standard
     description: Reference material used to quantify and calibrate the interference
-      correction for each affected analyte.
+      correction.
     type: object
     properties:
       '@id':
@@ -5198,8 +5450,8 @@ $defs:
     - schema:defaultValue
   sem_interferingElements:
     title: Interfering Elements
-    description: Element(s) whose X-ray lines overlap with the measured peak for one
-      or more analytes, requiring a correction.
+    description: Element(s) whose X-ray lines overlap with the measured peak, requiring
+      a correction.
     type: object
     properties:
       '@id':
@@ -5381,11 +5633,9 @@ $defs:
     - schema:defaultValue
   sem_techniquePerAnalyte:
     title: Technique per Analyte
-    description: For each analyte, records which X-ray detection technique (EDS or
-      WDS) was used to collect the measurement. Required when a procedure employs
-      both EDS and WDS simultaneously, assigning each element to the detector appropriate
-      to its concentration range, line overlap situation, or required precision. List
-      in the same order as the Analyte field.
+    description: Records which X-ray detection technique (EDS or WDS) was used to
+      collect the measurement. Required when a procedure employs both EDS and WDS
+      simultaneously. List in the same order as the Analyte field.
     type: object
     properties:
       '@id':
@@ -5416,8 +5666,7 @@ $defs:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilisation or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point
-      analysis; uncommon for EDS or X-ray mapping.
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':
@@ -5479,8 +5728,7 @@ $defs:
       per assignment. An analyte may be assigned to more than one spectrometer with
       intensities aggregated (aggregate intensity counting), and one spectrometer
       serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup. Different spectrometers
-      may have different crystal configurations."
+      \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -5506,13 +5754,76 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  sem_xRayBackgroundCorrectionMethod:
+    title: X-ray Background Correction Method
+    description: 'Method used to estimate and subtract background X-ray intensity
+      beneath the peak. For WDS: typically 2-point off-peak linear interpolation or
+      Mean Atomic Number (MAN) background model. For EDS: spectral background fitting
+      or top-hat filter applied during spectral processing.'
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semTAPP/xRayBackgroundCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayBackgroundCorrectionMethod
+      schema:name:
+        const: X-ray Background Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  sem_xRayLineOverlapCorrectionsApplied:
+    title: X-ray Line Overlap Corrections Applied
+    description: Whether a spectral interference correction was applied. Common interferences
+      include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semTAPP/xRayLineOverlapCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayLineOverlapCorrectionsApplied
+      schema:name:
+        const: X-ray Line Overlap Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   solutionMcicpms_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
-    description: "Accuracy of isotope ratio or \u03B4-value measurements relative
-      to certified or published consensus values and the method used to assess it.
-      For isotope ratio procedures, accuracy is typically assessed by comparing measured
-      \u03B4 values for secondary geological reference materials against published
-      interlaboratory compilations or certified values."
+    description: Offset between measured and accepted values for secondary reference
+      materials, and the method used to assess it. Specify the reference material
+      and the source of its accepted values, the number of analyses, and the quantities
+      assessed. Report systematic biases and their likely causes. Express the offset
+      in the form appropriate to what the procedure reports - percent relative bias
+      for concentrations, or deviation in delta or ratio units for isotopic quantities.
     type: object
     properties:
       '@id':
@@ -5607,7 +5918,9 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_limitOfQuantificationMethod:
     title: Limit of Quantification (LOQ) Method
-    description: Method used to determine the limit of quantification, where applicable.
+    description: 'Reference or description of the method used to calculate the limit
+      of quantification (LOQ): the lowest concentration reliably measurable with acceptable
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -5635,8 +5948,12 @@ $defs:
     - ada:dataType
   solutionQicpms_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
-    description: Accuracy of final concentration measurements relative to certified
-      or consensus values and the method used to assess it.
+    description: Offset between measured and accepted values for secondary reference
+      materials, and the method used to assess it. Specify the reference material
+      and the source of its accepted values, the number of analyses, and the quantities
+      assessed. Report systematic biases and their likely causes. Express the offset
+      in the form appropriate to what the procedure reports - percent relative bias
+      for concentrations, or deviation in delta or ratio units for isotopic quantities.
     type: object
     properties:
       '@id':
@@ -5669,9 +5986,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -5888,7 +6203,9 @@ $defs:
     - schema:defaultValue
   solutionQicpms_limitOfQuantificationMethod:
     title: Limit of Quantification (LOQ) Method
-    description: Method used to determine the limit of quantification.
+    description: 'Reference or description of the method used to calculate the limit
+      of quantification (LOQ): the lowest concentration reliably measurable with acceptable
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -5981,8 +6298,12 @@ $defs:
     - schema:defaultValue
   solutionSficpms_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
-    description: Accuracy of final concentration measurements relative to certified
-      or consensus values and the method used to assess it.
+    description: Offset between measured and accepted values for secondary reference
+      materials, and the method used to assess it. Specify the reference material
+      and the source of its accepted values, the number of analyses, and the quantities
+      assessed. Report systematic biases and their likely causes. Express the offset
+      in the form appropriate to what the procedure reports - percent relative bias
+      for concentrations, or deviation in delta or ratio units for isotopic quantities.
     type: object
     properties:
       '@id':
@@ -6015,9 +6336,7 @@ $defs:
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
       used to assess it. Report both the assessment method and the precision values,
       specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported. Long-term precision is normally
-      poorer than within-session precision and is the figure a data user should carry
-      when comparing results from different sessions."
+      the time span covered, and the statistic reported."
     type: object
     properties:
       '@id':
@@ -6108,8 +6427,9 @@ $defs:
     - schema:defaultValue
   solutionSficpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: Integration time spent on each mass peak per sweep (ms). May differ
-      between masses where per-mass dwell times are programmed.
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -6140,10 +6460,11 @@ $defs:
     - schema:defaultValue
   solutionSficpms_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Mathematical approach used to calculate and remove residual interference
-      contributions from measured signals. In SF-ICP-MS, interference solutions isolating
-      specific polyatomic species are measured alongside samples and used to calibrate
-      correction factors.
+    description: Equation or procedure used to calculate and remove each interference
+      contribution, together with how its magnitude was established - a monitor mass
+      measured simultaneously and scaled by natural abundance ratios, a production-rate
+      factor measured on a reference material or interference standard solution, or
+      a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -6172,10 +6493,10 @@ $defs:
     - schema:defaultValue
   solutionSficpms_interferingSpecies:
     title: Interfering Species
-    description: List of isobaric or polyatomic species mathematically corrected in
-      data reduction. In SF-ICP-MS, mass resolution is the primary interference mitigation
-      strategy; mathematical corrections address residual interferences not resolved
-      at the operating resolution.
+    description: The isobaric, polyatomic and doubly charged species that overlap
+      the measured masses and are corrected in data reduction - direct isobars, oxides
+      and argides, hydrides, and abundance-sensitivity tailing from an adjacent large
+      beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -6235,7 +6556,9 @@ $defs:
     - schema:defaultValue
   solutionSficpms_limitOfQuantificationMethod:
     title: Limit of Quantification (LOQ) Method
-    description: Method used to determine the limit of quantification.
+    description: 'Reference or description of the method used to calculate the limit
+      of quantification (LOQ): the lowest concentration reliably measurable with acceptable
+      precision and accuracy. Required when concentrations near the LOD are reported.'
     type: object
     properties:
       '@id':
@@ -6263,12 +6586,10 @@ $defs:
     - ada:dataType
   solutionSficpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode assigned to each acquired mass. The selected
-      resolution determines which polyatomic interferences are physically resolved
-      by the magnetic sector. One analyte may be acquired at more than one resolution,
-      so the assignment is per acquired mass rather than per element. The overall
-      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
-      3).
+    description: Mass resolution mode used for acquisition. One analyte may be acquired
+      at more than one resolution, so the assignment is per acquired mass rather than
+      per element. The overall mode(s) used in the procedure are recorded in Mass
+      Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -6395,6 +6716,39 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  solutionSficpms_spectralInterferenceCorrectionsApplied:
+    title: Spectral Interference Corrections Applied
+    description: Whether mathematical corrections for isobaric, polyatomic or residual
+      interferences are applied in data reduction, supplementary to any suppression
+      already achieved by chemical separation, mass resolution, or a collision/reaction
+      cell. Detail for each affected mass is carried by Interfering Species and Interference
+      Correction Method.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: spectralInterferenceCorrectionsApplied
+      schema:name:
+        const: Spectral Interference Corrections Applied
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   solutionSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethod:
     title: Within-Session Analytical Precision and Assessment Method
     description: Precision of repeated measurements within a single analytical session
@@ -6460,8 +6814,7 @@ $defs:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilization or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates). Most commonly applied in point analysis;
-      uncommon for X-ray mapping.
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':

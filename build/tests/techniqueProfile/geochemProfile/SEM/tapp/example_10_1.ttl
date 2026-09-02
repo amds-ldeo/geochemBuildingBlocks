@@ -20,14 +20,13 @@ ex:semTAPP-Izawa2010-3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/detectionLimitDefault> ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -58,22 +57,15 @@ ex:semTAPP-Izawa2010-3 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
-
-<https://ada.astromat.org/metadata/parameter/semTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 5e-01 ;
-    schema1:description "~0.5 wt% for most elements" ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimitDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;

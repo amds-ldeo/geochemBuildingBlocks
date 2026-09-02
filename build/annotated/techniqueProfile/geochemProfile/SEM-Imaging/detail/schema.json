@@ -14,6 +14,965 @@
           "items": {
             "type": "object",
             "properties": {
+              "schema:additionalProperty": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
+                    },
+                    {
+                      "title": "Chamber Pressure",
+                      "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/chamberPressure"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/chamberPressure"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Chamber Pressure"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    {
+                      "title": "Image Pixel Size",
+                      "description": "Physical size of each image pixel at the sample surface, in nm or \u00b5m. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/imagePixelSize"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/imagePixelSize"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Image Pixel Size"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    {
+                      "title": "Dwell Time per Pixel",
+                      "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Dwell Time per Pixel"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    {
+                      "title": "CL Integration Time",
+                      "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/clIntegrationTime"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/clIntegrationTime"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "CL Integration Time"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    {
+                      "title": "EBSD Step Size",
+                      "description": "Distance between adjacent EBSD measurement points in the map in nm or \u00b5m. Must be smaller than the smallest grain of interest.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/ebsdStepSize"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/ebsdStepSize"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "EBSD Step Size"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    {
+                      "title": "EBSD Phase List",
+                      "description": "Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/ebsdPhaseList"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/ebsdPhaseList"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "EBSD Phase List"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "title": "CL Wavelength Calibration Reference",
+                      "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "CL Wavelength Calibration Reference"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    }
+                  ]
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Chamber Pressure",
+                      "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/chamberPressure"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/chamberPressure"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Chamber Pressure"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Image Pixel Size",
+                      "description": "Physical size of each image pixel at the sample surface, in nm or \u00b5m. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/imagePixelSize"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/imagePixelSize"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Image Pixel Size"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Dwell Time per Pixel",
+                      "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Dwell Time per Pixel"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "CL Integration Time",
+                      "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/clIntegrationTime"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/clIntegrationTime"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "CL Integration Time"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "EBSD Step Size",
+                      "description": "Distance between adjacent EBSD measurement points in the map in nm or \u00b5m. Must be smaller than the smallest grain of interest.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/ebsdStepSize"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/ebsdStepSize"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "EBSD Step Size"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "EBSD Phase List",
+                      "description": "Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/ebsdPhaseList"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/ebsdPhaseList"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "EBSD Phase List"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "CL Wavelength Calibration Reference",
+                      "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "CL Wavelength Calibration Reference"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  }
+                ]
+              },
+              "schema:object": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "@type": {
+                            "contains": {
+                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                            }
+                          }
+                        },
+                        "required": [
+                          "@type"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:additionalProperty": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                            },
+                            "allOf": [
+                              {
+                                "contains": {
+                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "prov:used": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "required": [
+                          "schema:instrument"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:instrument": {
+                            "type": "array",
+                            "items": {
+                              "allOf": [
+                                {
+                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.json"
+                                },
+                                {
+                                  "type": "object",
+                                  "allOf": [
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "schema:additionalType": {
+                                            "contains": {
+                                              "const": "SEM"
+                                            },
+                                            "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                                          }
+                                        },
+                                        "required": [
+                                          "schema:additionalType"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "schema:additionalProperty": {
+                                            "type": "array",
+                                            "items": {
+                                              "anyOf": [
+                                                {
+                                                  "title": "Accelerating Voltage",
+                                                  "description": "Electron beam accelerating voltage in kilovolts.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Accelerating Voltage"
+                                                    },
+                                                    "schema:value": {
+                                                      "anyOf": [
+                                                        {
+                                                          "type": "number"
+                                                        },
+                                                        {
+                                                          "type": "string"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:unitText": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value",
+                                                    "schema:unitText"
+                                                  ]
+                                                },
+                                                {
+                                                  "title": "Working Distance",
+                                                  "description": "Distance between the objective lens pole piece and the specimen surface in millimetres.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/semImagingTAPP/workingDistance"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Working Distance"
+                                                    },
+                                                    "schema:value": {
+                                                      "anyOf": [
+                                                        {
+                                                          "type": "number"
+                                                        },
+                                                        {
+                                                          "type": "string"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:unitText": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value",
+                                                    "schema:unitText"
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            "allOf": [
+                                              {
+                                                "contains": {
+                                                  "title": "Accelerating Voltage",
+                                                  "description": "Electron beam accelerating voltage in kilovolts.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Accelerating Voltage"
+                                                    },
+                                                    "schema:value": {
+                                                      "anyOf": [
+                                                        {
+                                                          "type": "number"
+                                                        },
+                                                        {
+                                                          "type": "string"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:unitText": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value",
+                                                    "schema:unitText"
+                                                  ]
+                                                },
+                                                "minContains": 0,
+                                                "maxContains": 1
+                                              },
+                                              {
+                                                "contains": {
+                                                  "title": "Working Distance",
+                                                  "description": "Distance between the objective lens pole piece and the specimen surface in millimetres.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/semImagingTAPP/workingDistance"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Working Distance"
+                                                    },
+                                                    "schema:value": {
+                                                      "anyOf": [
+                                                        {
+                                                          "type": "number"
+                                                        },
+                                                        {
+                                                          "type": "string"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:unitText": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value",
+                                                    "schema:unitText"
+                                                  ]
+                                                },
+                                                "minContains": 0,
+                                                "maxContains": 1
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "allOf": [
+                              {
+                                "contains": {
+                                  "properties": {
+                                    "schema:additionalType": {
+                                      "contains": {
+                                        "const": "SEM"
+                                      },
+                                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                                    }
+                                  },
+                                  "required": [
+                                    "schema:additionalType"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
               "schema:actionProcess": {
                 "type": "object",
                 "properties": {
@@ -22,36 +981,6 @@
                     "items": {
                       "type": "object",
                       "allOf": [
-                        {
-                          "if": {
-                            "properties": {
-                              "schema:name": {
-                                "const": "Sample preparation"
-                              }
-                            },
-                            "required": [
-                              "schema:name"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "schema:description": {
-                                "description": "Method by which samples were prepared for SEM analysis prior to loading in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing steps (alumina, colloidal silica, argon ion mill), and conductive coating type and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was used and the gas type used. FIB-specific in-session operations (protective coating deposition, milling conditions, lamella preparation) are documented separately in Group 4.",
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                ]
-                              }
-                            }
-                          }
-                        },
                         {
                           "if": {
                             "properties": {
@@ -168,18 +1097,6 @@
                         "contains": {
                           "properties": {
                             "schema:name": {
-                              "const": "Sample preparation"
-                            }
-                          },
-                          "required": [
-                            "schema:name"
-                          ]
-                        }
-                      },
-                      {
-                        "contains": {
-                          "properties": {
-                            "schema:name": {
                               "const": "Data reduction"
                             }
                           },
@@ -191,971 +1108,12 @@
                     ]
                   }
                 }
-              },
-              "schema:additionalProperty": {
-                "type": "array",
-                "items": {
-                  "anyOf": [
-                    {
-                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.json#/$defs/Param_Analysis_targetSelectionCriteria"
-                    },
-                    {
-                      "title": "Chamber Pressure",
-                      "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/chamberPressure"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/chamberPressure"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Chamber Pressure"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    {
-                      "title": "Image Pixel Size",
-                      "description": "Physical size of each image pixel at the sample surface, in nm or \u00b5m. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/imagePixelSize"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/imagePixelSize"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Image Pixel Size"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    {
-                      "title": "Dwell Time per Pixel",
-                      "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Dwell Time per Pixel"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    {
-                      "title": "CL Integration Time",
-                      "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/clIntegrationTime"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/clIntegrationTime"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "CL Integration Time"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    {
-                      "title": "EBSD Step Size",
-                      "description": "Distance between adjacent EBSD measurement points in the map in nm or \u00b5m. Must be smaller than the smallest grain of interest to resolve grain boundary positions and intragrain orientation gradients.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/ebsdStepSize"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/ebsdStepSize"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "EBSD Step Size"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    {
-                      "title": "EBSD Phase List",
-                      "description": "Mineral phases included in the EBSD reference pattern library for this procedure. The procedure specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/ebsdPhaseList"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/ebsdPhaseList"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "EBSD Phase List"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
-                    },
-                    {
-                      "title": "CL Wavelength Calibration Reference",
-                      "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "CL Wavelength Calibration Reference"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
-                    }
-                  ]
-                },
-                "allOf": [
-                  {
-                    "contains": {
-                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.json#/$defs/Param_Analysis_targetSelectionCriteria"
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "Chamber Pressure",
-                      "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/chamberPressure"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/chamberPressure"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Chamber Pressure"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "Image Pixel Size",
-                      "description": "Physical size of each image pixel at the sample surface, in nm or \u00b5m. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/imagePixelSize"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/imagePixelSize"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Image Pixel Size"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "Dwell Time per Pixel",
-                      "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/dwellTimePerPixel"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Dwell Time per Pixel"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "CL Integration Time",
-                      "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/clIntegrationTime"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/clIntegrationTime"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "CL Integration Time"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "EBSD Step Size",
-                      "description": "Distance between adjacent EBSD measurement points in the map in nm or \u00b5m. Must be smaller than the smallest grain of interest to resolve grain boundary positions and intragrain orientation gradients.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/ebsdStepSize"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/ebsdStepSize"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "EBSD Step Size"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "EBSD Phase List",
-                      "description": "Mineral phases included in the EBSD reference pattern library for this procedure. The procedure specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/ebsdPhaseList"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/ebsdPhaseList"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "EBSD Phase List"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "CL Wavelength Calibration Reference",
-                      "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/semImagingTAPP/clWavelengthCalibrationReference"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "CL Wavelength Calibration Reference"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  }
-                ]
-              },
-              "schema:object": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "if": {
-                        "properties": {
-                          "@type": {
-                            "contains": {
-                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                            }
-                          }
-                        },
-                        "required": [
-                          "@type"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:additionalProperty": {
-                            "type": "array",
-                            "items": {
-                              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.json#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
-                            },
-                            "allOf": [
-                              {
-                                "contains": {
-                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.json#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
-                                },
-                                "minContains": 0,
-                                "maxContains": 1
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "prov:used": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "if": {
-                        "required": [
-                          "schema:instrument"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:instrument": {
-                            "type": "array",
-                            "items": {
-                              "allOf": [
-                                {
-                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.json"
-                                },
-                                {
-                                  "type": "object",
-                                  "allOf": [
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "schema:additionalType": {
-                                            "contains": {
-                                              "const": "SEM"
-                                            },
-                                            "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                                          }
-                                        },
-                                        "required": [
-                                          "schema:additionalType"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:additionalProperty": {
-                                            "type": "array",
-                                            "items": {
-                                              "anyOf": [
-                                                {
-                                                  "title": "Accelerating Voltage",
-                                                  "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "@id": {
-                                                      "const": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                                                    },
-                                                    "@type": {
-                                                      "const": [
-                                                        "schema:PropertyValue"
-                                                      ]
-                                                    },
-                                                    "schema:propertyID": {
-                                                      "const": [
-                                                        {
-                                                          "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "schema:name": {
-                                                      "const": "Accelerating Voltage"
-                                                    },
-                                                    "schema:value": {
-                                                      "anyOf": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "string"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "schema:unitText": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "@id",
-                                                    "@type",
-                                                    "schema:propertyID",
-                                                    "schema:name",
-                                                    "schema:value",
-                                                    "schema:unitText"
-                                                  ]
-                                                },
-                                                {
-                                                  "title": "Working Distance",
-                                                  "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "@id": {
-                                                      "const": "ada:parameter/semImagingTAPP/workingDistance"
-                                                    },
-                                                    "@type": {
-                                                      "const": [
-                                                        "schema:PropertyValue"
-                                                      ]
-                                                    },
-                                                    "schema:propertyID": {
-                                                      "const": [
-                                                        {
-                                                          "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "schema:name": {
-                                                      "const": "Working Distance"
-                                                    },
-                                                    "schema:value": {
-                                                      "anyOf": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "string"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "schema:unitText": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "@id",
-                                                    "@type",
-                                                    "schema:propertyID",
-                                                    "schema:name",
-                                                    "schema:value",
-                                                    "schema:unitText"
-                                                  ]
-                                                }
-                                              ]
-                                            },
-                                            "allOf": [
-                                              {
-                                                "contains": {
-                                                  "title": "Accelerating Voltage",
-                                                  "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "@id": {
-                                                      "const": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                                                    },
-                                                    "@type": {
-                                                      "const": [
-                                                        "schema:PropertyValue"
-                                                      ]
-                                                    },
-                                                    "schema:propertyID": {
-                                                      "const": [
-                                                        {
-                                                          "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "schema:name": {
-                                                      "const": "Accelerating Voltage"
-                                                    },
-                                                    "schema:value": {
-                                                      "anyOf": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "string"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "schema:unitText": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "@id",
-                                                    "@type",
-                                                    "schema:propertyID",
-                                                    "schema:name",
-                                                    "schema:value",
-                                                    "schema:unitText"
-                                                  ]
-                                                },
-                                                "minContains": 0,
-                                                "maxContains": 1
-                                              },
-                                              {
-                                                "contains": {
-                                                  "title": "Working Distance",
-                                                  "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "@id": {
-                                                      "const": "ada:parameter/semImagingTAPP/workingDistance"
-                                                    },
-                                                    "@type": {
-                                                      "const": [
-                                                        "schema:PropertyValue"
-                                                      ]
-                                                    },
-                                                    "schema:propertyID": {
-                                                      "const": [
-                                                        {
-                                                          "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "schema:name": {
-                                                      "const": "Working Distance"
-                                                    },
-                                                    "schema:value": {
-                                                      "anyOf": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "string"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "schema:unitText": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "@id",
-                                                    "@type",
-                                                    "schema:propertyID",
-                                                    "schema:name",
-                                                    "schema:value",
-                                                    "schema:unitText"
-                                                  ]
-                                                },
-                                                "minContains": 0,
-                                                "maxContains": 1
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            "allOf": [
-                              {
-                                "contains": {
-                                  "properties": {
-                                    "schema:additionalType": {
-                                      "contains": {
-                                        "const": "SEM"
-                                      },
-                                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:additionalType"
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
               }
             }
           }
         },
         "ada:frameTime": {
-          "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds. Longer frame time improves pattern quality and indexing rate but increases total acquisition time.",
+          "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds.",
           "anyOf": [
             {
               "type": "number"
@@ -1214,7 +1172,7 @@
                 "then": {
                   "properties": {
                     "dqv:value": {
-                      "description": "Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees. MAD quantifies the misfit between experimental Kikuchi band positions and the best-fit crystal orientation. Values above ~1.5 degrees typically indicate unreliable indexing.",
+                      "description": "Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees. MAD quantifies the misfit between experimental Kikuchi band positions and the best-fit crystal orientation.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -1241,7 +1199,7 @@
                 "then": {
                   "properties": {
                     "dqv:value": {
-                      "description": "Fraction of EBSD map points successfully indexed, expressed as a percentage of total map points. Low indexing rate may indicate surface damage, amorphisation, severe deformation, or phase misidentification.",
+                      "description": "Fraction of EBSD map points successfully indexed, expressed as a percentage of total map points.",
                       "anyOf": [
                         {
                           "type": "number"

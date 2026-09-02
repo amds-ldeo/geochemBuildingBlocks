@@ -258,44 +258,6 @@
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/detectionLimit",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Detection Limit",
-      "schema:description": "Detection Limit reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/detectionLimit"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Detection Limit Method",
-      "schema:description": "Detection Limit Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitMethod"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
       "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod",
       "@type": [
         "schema:PropertyValue",
@@ -306,25 +268,6 @@
       "schema:propertyID": [
         {
           "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Normalization / Standards-Based Correction",
-      "schema:description": "Normalization / Standards-Based Correction reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/normalizationStandardsBasedCorrection"
         }
       ],
       "schema:unitText": "counts",
@@ -360,6 +303,23 @@
       ],
       "schema:name": "Goodness-of-Fit or Dispersion Statistic",
       "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Detection Limit",
+      "schema:description": "Detection Limit reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -541,13 +501,14 @@
       "dqv:value": "example goodnessOfFitOrDispersionStatistic"
     },
     {
-      "dqv:isMeasurementOf": "Oxide production ratio",
-      "dqv:value": "example oxideProduction"
-    },
-    {
       "dqv:isMeasurementOf": "Peak Flatness",
       "dqv:value": "example peakFlatness"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "example oxideProduction"
     }
   ],
+  "ada:sensitivityYield": 1.0,
   "ada:spotDiameterMeasured": 1.0
 }

@@ -3887,6 +3887,7 @@ x-defs:
           - ada:TOFSIMSMassSpectrumData
           - ada:VNMIRSpectralPoint
           - ada:XRDTabular
+          - nil:missing
           description: ADA componentType for a tabular data file, as a single string.
             Allowed values are constrained at the technique-profile level.
           x-jsonld-id: https://ada.astromat.org/metadata/componentType
@@ -4375,6 +4376,7 @@ x-defs:
         - ada:XRDDiffractionPattern
         - ada:XRDIndexedImage
         - ada:plot
+        - nil:missing
         description: ADA componentType for an image, as a single string. Allowed values
           are constrained at the technique-profile level.
         x-jsonld-id: https://ada.astromat.org/metadata/componentType
@@ -4442,6 +4444,7 @@ x-defs:
         - ada:SLSTextureMap
         - ada:basemap
         - ada:supplementalBasemap
+        - nil:missing
         description: ADA componentType for an imageMap, as a single string. Allowed
           values are constrained at the technique-profile level.
         x-jsonld-id: https://ada.astromat.org/metadata/componentType
@@ -4565,6 +4568,7 @@ x-defs:
         - ada:TOFSIMSCollection
         - ada:XCTImageCollection
         - ada:shapefile
+        - nil:missing
         description: ADA componentType for a collection, as a single string. Allowed
           values are constrained at the technique-profile level (each adaProfile's
           schema:hasPart anyOf enumerates the allowed values for that technique, either
@@ -4647,6 +4651,7 @@ x-defs:
           - ada:STEMEDSCube
           - ada:STEMEDSTomo
           - ada:STEMEELSCube
+          - nil:missing
           description: ADA componentType for a data cube, as a single string. Allowed
             values are constrained at the technique-profile level.
           x-jsonld-id: https://ada.astromat.org/metadata/componentType
@@ -4718,6 +4723,7 @@ x-defs:
         - ada:report
         - ada:samplePreparation
         - ada:worldFile
+        - nil:missing
         description: ADA componentType for a document, as a single string. Allowed
           values are constrained at the technique-profile level.
         x-jsonld-id: https://ada.astromat.org/metadata/componentType
@@ -4764,6 +4770,7 @@ x-defs:
         - ada:contextPhotography
         - ada:quickLook
         - ada:supplementaryImage
+        - nil:missing
         description: ADA componentType for a supplemental document image, as a single
           string. Allowed values are constrained at the technique-profile level.
         x-jsonld-id: https://ada.astromat.org/metadata/componentType
@@ -4806,6 +4813,7 @@ x-defs:
         - ada:XCTVideo
         - ada:contextVideo
         - ada:other
+        - nil:missing
         description: ADA componentType for an other-format file, as a single string.
           Allowed values are constrained at the technique-profile level.
         x-jsonld-id: https://ada.astromat.org/metadata/componentType
@@ -6298,6 +6306,41 @@ x-defs:
     - required:
       - '@type'
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/ICPMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.variableMeasured
+    - if:
+        required:
+        - cdif:isDefinedBy_RepresentedVariable
+      then:
+        properties:
+          cdi:takesSubstantiveValuesFrom:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSubstantiveValuesFrom
+          cdi:takesSentinelValuesFrom:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSentinelValuesFrom
+          cdi:hasIntendedDataType:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasIntendedDataType
+          cdi:describedUnitOfMeasure:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure
+          cdi:unitOfMeasureKind:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/unitOfMeasureKind
+          cdi:measures:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/measures
+          cdi:externalDefinition:
+            not: true
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/externalDefinition
+          cdif:uses_Concept:
+            not: true
+            x-jsonld-id: https://w3id.org/cdif/uses_Concept
+          cdif:definition:
+            not: true
+            x-jsonld-id: https://w3id.org/cdif/definition
+        description: When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level
+          properties live on that RepresentedVariable and may not be declared inline
+          on the InstanceVariable.
     $defs:
       cdifConceptOrTermOrString:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/ICPMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString

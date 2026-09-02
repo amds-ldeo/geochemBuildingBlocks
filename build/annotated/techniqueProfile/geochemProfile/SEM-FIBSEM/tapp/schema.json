@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)",
-  "description": "Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v15.csv by tools/build_tapp.py.",
+  "description": "Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v30.csv by tools/build_tapp.py.",
   "allOf": [
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json"
@@ -10,7 +10,7 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/ProcedureIdentification"
     },
     {
-      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.json#/$defs/ProcedureIdentification"
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/ProcedureIdentification"
     },
     {
       "type": "object",
@@ -56,22 +56,22 @@
                                 "schema:value": {
                                   "type": "array",
                                   "items": {
-                                    "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
+                                    "description": "General description of the material type(s) this procedure is designed to analyse.",
                                     "anyOf": [
                                       {
                                         "type": "string",
                                         "enum": [
                                           "Silicate mineral",
+                                          "Silicate glass",
                                           "Oxide",
                                           "Sulfide",
                                           "Carbonate",
                                           "Phosphate",
-                                          "Metal alloy",
+                                          "Metal or alloy",
                                           "Organic matter",
-                                          "Glass",
                                           "Regolith",
-                                          "Whole rock / polished section",
                                           "Porous material",
+                                          "Whole rock",
                                           "N/A",
                                           "None",
                                           "missing"
@@ -126,608 +126,6 @@
             }
           ]
         },
-        "schema:actionProcess": {
-          "type": "object",
-          "properties": {
-            "schema:step": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "allOf": [
-                  {
-                    "if": {
-                      "properties": {
-                        "schema:name": {
-                          "const": "Sample preparation"
-                        }
-                      },
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    "then": {
-                      "properties": {
-                        "schema:description": {
-                          "description": "Method by which samples were prepared for SEM analysis prior to loading in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing steps (alumina, colloidal silica, argon ion mill), and conductive coating type and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was used and the gas type used. FIB-specific in-session operations (protective coating deposition, milling conditions, lamella preparation) are documented separately in Group 4.",
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
-                            }
-                          ]
-                        },
-                        "schema:additionalProperty": {
-                          "type": "array",
-                          "items": {
-                            "title": "Protective Coating Deposition",
-                            "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "protectiveCoatingDepositionDefault"
-                              },
-                              "schema:name": {
-                                "const": "Protective Coating Deposition"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
-                          },
-                          "allOf": [
-                            {
-                              "contains": {
-                                "title": "Protective Coating Deposition",
-                                "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition causes less surface damage than ion-beam deposition and should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "protectiveCoatingDepositionDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Protective Coating Deposition"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            }
-                          ]
-                        },
-                        "ada:coarseMillingConditionsDefault": {
-                          "description": "Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.",
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "schema:name": {
-                          "const": "Ion milling"
-                        }
-                      },
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    "then": {
-                      "properties": {
-                        "schema:additionalProperty": {
-                          "type": "array",
-                          "items": {
-                            "anyOf": [
-                              {
-                                "title": "Fine Polishing Conditions",
-                                "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation depth, surface amorphisation, and curtaining artifacts.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "finePolishingConditionsDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Fine Polishing Conditions"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              {
-                                "title": "Foil Thickness",
-                                "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/semFibsemTAPP/foilThicknessDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "foilThicknessDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Foil Thickness"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "number"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  },
-                                  "schema:unitText": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              {
-                                "title": "Lift-out Method",
-                                "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber and is the standard method for small or precious specimens.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/semFibsemTAPP/liftOutMethod"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValue"
-                                    ]
-                                  },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
-                                      }
-                                    ]
-                                  },
-                                  "schema:name": {
-                                    "const": "Lift-out Method"
-                                  },
-                                  "schema:value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:propertyID",
-                                  "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
-                              },
-                              {
-                                "title": "Slice Thickness",
-                                "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres. Controls the Z-axis resolution of the 3D reconstruction.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/semFibsemTAPP/sliceThicknessDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "sliceThicknessDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Slice Thickness"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "number"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  },
-                                  "schema:unitText": {
-                                    "const": "nm"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              }
-                            ]
-                          },
-                          "allOf": [
-                            {
-                              "contains": {
-                                "title": "Fine Polishing Conditions",
-                                "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation depth, surface amorphisation, and curtaining artifacts.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "finePolishingConditionsDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Fine Polishing Conditions"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
-                                "title": "Foil Thickness",
-                                "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/semFibsemTAPP/foilThicknessDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "foilThicknessDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Foil Thickness"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "number"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  },
-                                  "schema:unitText": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
-                                "title": "Lift-out Method",
-                                "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber and is the standard method for small or precious specimens.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/semFibsemTAPP/liftOutMethod"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValue"
-                                    ]
-                                  },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
-                                      }
-                                    ]
-                                  },
-                                  "schema:name": {
-                                    "const": "Lift-out Method"
-                                  },
-                                  "schema:value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:propertyID",
-                                  "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
-                                "title": "Slice Thickness",
-                                "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres. Controls the Z-axis resolution of the 3D reconstruction.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/semFibsemTAPP/sliceThicknessDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "sliceThicknessDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Slice Thickness"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "number"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  },
-                                  "schema:unitText": {
-                                    "const": "nm"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            }
-                          ]
-                        },
-                        "schema:description": {
-                          "description": "Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning. These parameters determine material removal rate per slice and exposed surface quality.",
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "schema:name": {
-                          "const": "Data reduction"
-                        }
-                      },
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    "then": {
-                      "properties": {
-                        "schema:additionalProperty": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/Param_Procedure_constantsReferenceValues"
-                          },
-                          "allOf": [
-                            {
-                              "contains": {
-                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/Param_Procedure_constantsReferenceValues"
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  }
-                ]
-              },
-              "allOf": [
-                {
-                  "contains": {
-                    "properties": {
-                      "schema:name": {
-                        "const": "Sample preparation"
-                      }
-                    },
-                    "required": [
-                      "schema:name"
-                    ]
-                  }
-                },
-                {
-                  "contains": {
-                    "properties": {
-                      "schema:name": {
-                        "const": "Ion milling"
-                      }
-                    },
-                    "required": [
-                      "schema:name"
-                    ]
-                  }
-                },
-                {
-                  "contains": {
-                    "properties": {
-                      "schema:name": {
-                        "const": "Data reduction"
-                      }
-                    },
-                    "required": [
-                      "schema:name"
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        },
         "schema:instrument": {
           "type": "array",
           "items": {
@@ -753,7 +151,7 @@
                       "type": "object",
                       "properties": {
                         "schema:name": {
-                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
                           "type": "string",
                           "enum": [
                             "JEOL",
@@ -809,7 +207,9 @@
                                       "type": "string",
                                       "enum": [
                                         "Cold-FEG",
-                                        "Schottky FEG",
+                                        "Schottky FEG (X-FEG)",
+                                        "Schottky FEG (standard)",
+                                        "Field emission gun (FEG) \u2014 subtype not specified",
                                         "LaB6 / CeB6",
                                         "Tungsten (W)",
                                         "Unknown",
@@ -825,7 +225,9 @@
                                         "type": "string",
                                         "enum": [
                                           "Cold-FEG",
-                                          "Schottky FEG",
+                                          "Schottky FEG (X-FEG)",
+                                          "Schottky FEG (standard)",
+                                          "Field emission gun (FEG) \u2014 subtype not specified",
                                           "LaB6 / CeB6",
                                           "Tungsten (W)",
                                           "Unknown",
@@ -911,7 +313,7 @@
                             "then": {
                               "properties": {
                                 "schema:name": {
-                                  "description": "Type of backscattered electron detector. Solid-state diode detectors (single or segmented) are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments). In-lens BSE detectors provide improved BSE collection at short working distances.",
+                                  "description": "Type of backscattered electron detector. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments).",
                                   "anyOf": [
                                     {
                                       "type": "string",
@@ -919,6 +321,8 @@
                                         "Solid-state diode (single)",
                                         "Solid-state diode (segmented, composition mode)",
                                         "Solid-state diode (segmented, topography mode)",
+                                        "Solid-state diode (segmented, mode not specified)",
+                                        "Solid-state diode (type not specified)",
                                         "In-lens BSE",
                                         "YAG scintillator",
                                         "N/A",
@@ -935,6 +339,8 @@
                                           "Solid-state diode (single)",
                                           "Solid-state diode (segmented, composition mode)",
                                           "Solid-state diode (segmented, topography mode)",
+                                          "Solid-state diode (segmented, mode not specified)",
+                                          "Solid-state diode (type not specified)",
                                           "In-lens BSE",
                                           "YAG scintillator",
                                           "N/A",
@@ -1000,15 +406,15 @@
                       ]
                     },
                     "schema:description": {
-                      "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM / ESEM': variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine categories (e.g., FIB-SEM with VP capability).",
+                      "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM': variable-pressure SEM, a dry gas at low chamber pressure for uncoated or charging specimens. 'ESEM': environmental SEM, water vapour at higher pressure for hydrated specimens, requiring a gaseous secondary electron detector. Where an instrument combines categories, join them with '; ' \u2014 'FIB-SEM dual-beam; VP-SEM' \u2014 rather than looking for a combined member. This field records the COLUMN AND CHAMBER configuration only: field emission is a source type and belongs in Electron Source, not here.",
                       "anyOf": [
                         {
                           "type": "string",
                           "enum": [
                             "Standard SEM",
                             "FIB-SEM dual-beam",
-                            "VP-SEM / ESEM",
-                            "FIB-SEM dual-beam + VP",
+                            "VP-SEM",
+                            "ESEM",
                             "N/A",
                             "None",
                             "missing"
@@ -1022,8 +428,8 @@
                             "enum": [
                               "Standard SEM",
                               "FIB-SEM dual-beam",
-                              "VP-SEM / ESEM",
-                              "FIB-SEM dual-beam + VP",
+                              "VP-SEM",
+                              "ESEM",
                               "N/A",
                               "None",
                               "missing"
@@ -1034,7 +440,7 @@
                       ]
                     },
                     "ada:acceleratingVoltageDefault": {
-                      "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
+                      "description": "Electron beam accelerating voltage in kilovolts.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -1045,7 +451,7 @@
                       ]
                     },
                     "ada:workingDistanceDefault": {
-                      "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
+                      "description": "Distance between the objective lens pole piece and the specimen surface in millimetres.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -1096,7 +502,7 @@
                             "then": {
                               "properties": {
                                 "schema:name": {
-                                  "description": "Ion beam source type in a FIB-SEM dual-beam system. Gallium LMIS (Ga+) is the most common ion source; xenon plasma FIB (PFIB) provides higher material removal rates for large-volume milling; helium and neon ion microscopes (GFIS) provide nanometre-resolution imaging and low-damage milling.",
+                                  "description": "Ion beam source type in a FIB-SEM dual-beam system.",
                                   "anyOf": [
                                     {
                                       "type": "string",
@@ -1202,7 +608,7 @@
                   },
                   {
                     "title": "Beam Current",
-                    "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+                    "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -1254,7 +660,7 @@
                 {
                   "contains": {
                     "title": "Beam Current",
-                    "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+                    "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -1308,7 +714,7 @@
           }
         },
         "ada:dwellTimePerPixelDefault": {
-          "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
+          "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
           "anyOf": [
             {
               "type": "number"
@@ -1318,13 +724,619 @@
             }
           ]
         },
+        "schema:actionProcess": {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Sample preparation"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "items": {
+                            "title": "Protective Coating Deposition",
+                            "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "protectiveCoatingDepositionDefault"
+                              },
+                              "schema:name": {
+                                "const": "Protective Coating Deposition"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "title": "Protective Coating Deposition",
+                                "description": "Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "protectiveCoatingDepositionDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Protective Coating Deposition"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            }
+                          ]
+                        },
+                        "ada:coarseMillingConditionsDefault": {
+                          "description": "Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.",
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Ion milling"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "title": "Fine Polishing Conditions",
+                                "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "finePolishingConditionsDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Fine Polishing Conditions"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
+                                "title": "Foil Thickness",
+                                "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semFibsemTAPP/foilThicknessDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "foilThicknessDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Foil Thickness"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "number"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  },
+                                  "schema:unitText": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
+                                "title": "Lift-out Method",
+                                "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semFibsemTAPP/liftOutMethod"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": [
+                                      {
+                                        "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+                                      }
+                                    ]
+                                  },
+                                  "schema:name": {
+                                    "const": "Lift-out Method"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
+                              },
+                              {
+                                "title": "Slice Thickness",
+                                "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semFibsemTAPP/sliceThicknessDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "sliceThicknessDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Slice Thickness"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "number"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  },
+                                  "schema:unitText": {
+                                    "const": "nm"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              }
+                            ]
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "title": "Fine Polishing Conditions",
+                                "description": "Ion beam voltage and current for final thinning and surface polishing of the TEM lamella.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "finePolishingConditionsDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Fine Polishing Conditions"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "string"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Foil Thickness",
+                                "description": "Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semFibsemTAPP/foilThicknessDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "foilThicknessDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Foil Thickness"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "number"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  },
+                                  "schema:unitText": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Lift-out Method",
+                                "description": "Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semFibsemTAPP/liftOutMethod"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValue"
+                                    ]
+                                  },
+                                  "schema:propertyID": {
+                                    "const": [
+                                      {
+                                        "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+                                      }
+                                    ]
+                                  },
+                                  "schema:name": {
+                                    "const": "Lift-out Method"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:propertyID",
+                                  "schema:name",
+                                  "schema:value"
+                                ],
+                                "readOnly": true
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Slice Thickness",
+                                "description": "Thickness of each FIB-milled slice during serial sectioning in nanometres.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "const": "ada:parameter/semFibsemTAPP/sliceThicknessDefault"
+                                  },
+                                  "@type": {
+                                    "const": [
+                                      "schema:PropertyValueSpecification"
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "const": "sliceThicknessDefault"
+                                  },
+                                  "schema:name": {
+                                    "const": "Slice Thickness"
+                                  },
+                                  "ada:dataType": {
+                                    "const": "number"
+                                  },
+                                  "ada:fieldScope": {
+                                    "const": "session"
+                                  },
+                                  "schema:readonlyValue": {
+                                    "const": false
+                                  },
+                                  "ada:tier": {
+                                    "const": "R"
+                                  },
+                                  "schema:unitText": {
+                                    "const": "nm"
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            }
+                          ]
+                        },
+                        "schema:description": {
+                          "description": "Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning.",
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Data reduction"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/Param_Procedure_constantsReferenceValues"
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/Param_Procedure_constantsReferenceValues"
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Sample preparation"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Ion milling"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Data reduction"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
         "ada:imageRegistration3DDefault": {
           "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
           "type": "string"
         },
         "ada:segmentationMethod3DDefault": {
-          "description": "Method and software used to segment phases and features in the aligned 3D image stack, transforming the grayscale stack into labelled 3D regions (pores, mineral phases, grain boundaries, organic matter).",
-          "type": "string"
+          "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Global threshold (single grayscale boundary)",
+                "Multi-threshold (separate range per phase)",
+                "Manual threshold per phase",
+                "Semi-automated: threshold + morphological filtering",
+                "Region growing",
+                "Manual tracing",
+                "N/A",
+                "None",
+                "missing"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "ada:analyticalMode": {
           "type": "array",

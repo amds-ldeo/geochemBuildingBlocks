@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol \u2014 Zega2025-2",
-  "schema:description": "Beam energy range 80\u2013300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging).",
+  "schema:description": "Beam energy range 80\u2013300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Spectrum image (map).",
   "schema:object": [
     {
       "@type": [
@@ -47,7 +47,6 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga ion)",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -61,6 +60,7 @@
             "schema:defaultValue": "FEI Helios G4 UX (Molecular Foundry, LBNL); Ga+ coarse milling 16\u201330 keV; polishing down to 1 keV; thickness <100 to 600 nm (thicker for Fe-L XANES and tomography; thinner for C-K and TEM)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -71,18 +71,7 @@
         "schema:position": 1
       },
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
         "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data Reduction",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
@@ -103,7 +92,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 2
       }
     ],
     "@type": [
@@ -267,7 +256,7 @@
       "schema:defaultValue": "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image (map)",
+  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -311,7 +300,7 @@
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

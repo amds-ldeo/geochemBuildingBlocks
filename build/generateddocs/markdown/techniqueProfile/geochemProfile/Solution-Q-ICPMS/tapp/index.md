@@ -30,7 +30,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — Gao2008",
-  "schema:description": "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1); ada:perAnalyteCalibrationStrategy = External calibration (all analytes; stated section 3.1).",
+  "schema:description": "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1).",
   "schema:object": [
     {
       "@type": [
@@ -89,16 +89,14 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "None"
           },
           {
@@ -211,16 +209,14 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         },
         {
@@ -246,7 +242,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
           "schema:defaultValue": "Ce2+/Ce+ < 2.5% threshold (stated section 3.1)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -258,20 +254,6 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         }
       ],
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Collision Reaction Cell",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "STD (standard mode, no gas)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
-        },
         {
           "schema:additionalType": [
             "Sample Introduction System",
@@ -331,7 +313,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/rfPowerDefault",
+              "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -343,19 +325,19 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
               "schema:description": "1350 W (stated section 3.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
-              "schema:valueName": "coolantGasFlowRateDefault",
-              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "schema:valueName": "coolantPlasmaGasFlowRateDefault",
+              "schema:name": "Coolant Plasma Gas Flow Rate",
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 14,
               "schema:description": "14 L/min (outer ICP gas; stated section 3.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -367,16 +349,14 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
               "schema:description": "1.2 L/min (intermediate gas; stated section 3.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode",
+              "@id": "ada:parameter/module/ICPMS/plasmaThermalMode",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                }
-              ],
+              "schema:valueName": "plasmaThermalMode",
               "schema:name": "Plasma Thermal Mode",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Normal plasma (1350 W; stated section 3.1)"
             }
           ],
@@ -386,6 +366,20 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
           ],
           "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "STD (standard mode, no gas; stated section 3.1)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -438,17 +432,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
     }
   ],
   "ada:massCyclesPerReplicate": "3 sweeps/reading x 3 readings/replicate (= 9 sweeps/replicate; stated section 3.1)",
-  "ada:internalStandardElement": "Rh (stated section 3.1)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)",
-  "ada:internalStandardApproach": "N/A",
   "ada:driftCorrectionMethod": "Standard bracketing",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:primaryStandardNameDefault": "Multi-element calibration solution (not formally named; stated section 3.1)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -473,109 +457,26 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:chromatographicSeparationApplied": "None (direct analysis of digested solution)",
   "ada:isotopeDilutionSpike": "None",
   "ada:finalSolutionMatrix": "Dilute HNO3 (~3%; 1.5 ml conc. HNO3 in ~50 ml; stated section 3.3)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "48 trace elements: Li",
-      "Be",
-      "B",
-      "Sc",
-      "V",
-      "Cr",
-      "Co",
-      "Ni",
-      "Cu",
-      "Zn",
-      "Ga",
-      "Ge",
-      "As",
-      "Rb",
-      "Sr",
-      "Y",
-      "Zr",
-      "Nb",
-      "Mo",
-      "Cd",
-      "In",
-      "Sn",
-      "Sb",
-      "Te",
-      "Cs",
-      "Ba",
-      "La-Lu",
-      "Hf",
-      "Ta",
-      "W",
-      "Tl",
-      "Pb",
-      "Bi",
-      "Th",
-      "U (stated section 3.1)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)",
+  "ada:internalStandardElement": "Rh (stated section 3.1)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (all analytes; stated section 3.1)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
+  ],
+  "ada:primaryStandardNameDefault": "Multi-element calibration solution (not formally named; stated section 3.1)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -613,7 +514,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 Gao2008",
-  "schema:description": "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1); ada:perAnalyteCalibrationStrategy = External calibration (all analytes; stated section 3.1).",
+  "schema:description": "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1).",
   "schema:object": [
     {
       "@type": [
@@ -672,16 +573,14 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "None"
           },
           {
@@ -794,16 +693,14 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         },
         {
@@ -829,7 +726,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
           "schema:defaultValue": "Ce2+/Ce+ < 2.5% threshold (stated section 3.1)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -841,20 +738,6 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         }
       ],
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Collision Reaction Cell",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "STD (standard mode, no gas)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
-        },
         {
           "schema:additionalType": [
             "Sample Introduction System",
@@ -914,7 +797,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/rfPowerDefault",
+              "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -926,19 +809,19 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
               "schema:description": "1350 W (stated section 3.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
-              "schema:valueName": "coolantGasFlowRateDefault",
-              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "schema:valueName": "coolantPlasmaGasFlowRateDefault",
+              "schema:name": "Coolant Plasma Gas Flow Rate",
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 14,
               "schema:description": "14 L/min (outer ICP gas; stated section 3.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -950,16 +833,14 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
               "schema:description": "1.2 L/min (intermediate gas; stated section 3.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode",
+              "@id": "ada:parameter/module/ICPMS/plasmaThermalMode",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                }
-              ],
+              "schema:valueName": "plasmaThermalMode",
               "schema:name": "Plasma Thermal Mode",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Normal plasma (1350 W; stated section 3.1)"
             }
           ],
@@ -969,6 +850,20 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
           ],
           "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "STD (standard mode, no gas; stated section 3.1)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -1021,17 +916,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
     }
   ],
   "ada:massCyclesPerReplicate": "3 sweeps/reading x 3 readings/replicate (= 9 sweeps/replicate; stated section 3.1)",
-  "ada:internalStandardElement": "Rh (stated section 3.1)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)",
-  "ada:internalStandardApproach": "N/A",
   "ada:driftCorrectionMethod": "Standard bracketing",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:primaryStandardNameDefault": "Multi-element calibration solution (not formally named; stated section 3.1)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1056,109 +941,26 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:chromatographicSeparationApplied": "None (direct analysis of digested solution)",
   "ada:isotopeDilutionSpike": "None",
   "ada:finalSolutionMatrix": "Dilute HNO3 (~3%; 1.5 ml conc. HNO3 in ~50 ml; stated section 3.3)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "48 trace elements: Li",
-      "Be",
-      "B",
-      "Sc",
-      "V",
-      "Cr",
-      "Co",
-      "Ni",
-      "Cu",
-      "Zn",
-      "Ga",
-      "Ge",
-      "As",
-      "Rb",
-      "Sr",
-      "Y",
-      "Zr",
-      "Nb",
-      "Mo",
-      "Cd",
-      "In",
-      "Sn",
-      "Sb",
-      "Te",
-      "Cs",
-      "Ba",
-      "La-Lu",
-      "Hf",
-      "Ta",
-      "W",
-      "Tl",
-      "Pb",
-      "Bi",
-      "Th",
-      "U (stated section 3.1)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)",
+  "ada:internalStandardElement": "Rh (stated section 3.1)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (all analytes; stated section 3.1)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
+  ],
+  "ada:primaryStandardNameDefault": "Multi-element calibration solution (not formally named; stated section 3.1)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -1185,13 +987,18 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder (50 mg; stated section 3.3)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
@@ -1205,15 +1012,10 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Step 1: conc. HNO3 (1 ml) + conc. HF (1 ml); Steps 2-3: conc. HNO3 fuming to dryness (twice); Step 4: HNO3 (1.5 ml) + ultra-pure water (2.5 ml); stated section 3.3" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "Step 1: conc. HNO3 (1 ml) + conc. HF (1 ml); Steps 2-3: conc. HNO3 fuming to dryness (twice); Step 4: HNO3 (1.5 ml) + ultra-pure water (2.5 ml); stated section 3.3" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
-    schema1:description "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1); ada:perAnalyteCalibrationStrategy = External calibration (all analytes; stated section 3.1)." ;
+    schema1:description "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)" ] ;
@@ -1226,104 +1028,87 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Geological reference materials (basalt, andesite, granite, shale); upper continental crust samples (stated abstract)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "48 trace elements: Li",
-                "As",
-                "B",
-                "Ba",
-                "Be",
-                "Bi",
-                "Cd",
-                "Co",
-                "Cr",
-                "Cs",
-                "Cu",
-                "Ga",
-                "Ge",
-                "Hf",
-                "In",
-                "La-Lu",
-                "Mo",
-                "Nb",
-                "Ni",
-                "Pb",
-                "Rb",
-                "Sb",
-                "Sc",
-                "Sn",
-                "Sr",
-                "Ta",
-                "Te",
-                "Th",
-                "Tl",
-                "U (stated section 3.1)",
-                "V",
-                "W",
-                "Y",
-                "Zn",
-                "Zr" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
     ada:chromatographicSeparationApplied "None (direct analysis of digested solution)" ;
     ada:driftCorrectionMethod "Standard bracketing" ;
     ada:finalSolutionMatrix "Dilute HNO3 (~3%; 1.5 ml conc. HNO3 in ~50 ml; stated section 3.3)" ;
-    ada:internalStandardApproach "N/A" ;
     ada:internalStandardElement "Rh (stated section 3.1)" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "None" ;
     ada:massCyclesPerReplicate "3 sweeps/reading x 3 readings/replicate (= 9 sweeps/replicate; stated section 3.1)" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)" ;
-    ada:perAnalyteCalibrationStrategy "External calibration (all analytes)" ;
+    ada:perAnalyteCalibrationStrategy "External calibration (all analytes; stated section 3.1)" ;
     ada:primaryStandardNameDefault "Multi-element calibration solution (not formally named; stated section 3.1)" ;
     ada:reportedProperties "Forty-eight trace element concentrations (ppm); blanks (ppb)" ;
-    ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml" ;
     ada:secondaryReferenceMaterialDefault "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material" ;
     ada:washTimeBetweenSamples -9999 .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
     schema1:name "Analysis Inclusion and Rejection Criteria" ;
     schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.2e+00 ;
+    schema1:description "1.2 L/min (intermediate gas; stated section 3.1)" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:valueName "auxiliaryGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 14 ;
+    schema1:description "14 L/min (outer ICP gas; stated section 3.1)" ;
+    schema1:name "Coolant Plasma Gas Flow Rate" ;
+    schema1:valueName "coolantPlasmaGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:value "None" ;
+    schema1:valueName "isotopeDilutionDataReductionMethod" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)" ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:valueName "memoryEffectMitigationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
+    schema1:name "Plasma Thermal Mode" ;
+    schema1:value "Normal plasma (1350 W; stated section 3.1)" ;
+    schema1:valueName "plasmaThermalMode" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1350 ;
+    schema1:description "1350 W (stated section 3.1)" ;
+    schema1:name "RF Power" ;
+    schema1:valueName "rfPowerDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
@@ -1393,22 +1178,6 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1.2e+00 ;
-    schema1:description "1.2 L/min (intermediate gas; stated section 3.1)" ;
-    schema1:name "Auxiliary Gas Flow Rate" ;
-    schema1:valueName "auxiliaryGasFlowRateDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 14 ;
-    schema1:description "14 L/min (outer ICP gas; stated section 3.1)" ;
-    schema1:name "Coolant (Plasma) Gas Flow Rate" ;
-    schema1:valueName "coolantGasFlowRateDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Ce2+/Ce+ (m/z 70/140; stated section 3.1)" ;
     schema1:name "Doubly-Charged Species Monitor" ;
@@ -1423,27 +1192,12 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)" ;
-    schema1:name "Memory Effect Mitigation" ;
-    schema1:valueName "memoryEffectMitigationDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/rfPowerDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1350 ;
-    schema1:description "1350 W (stated section 3.1)" ;
-    schema1:name "RF Power" ;
-    schema1:valueName "rfPowerDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
@@ -1460,14 +1214,14 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "STD (standard mode, no gas)" .
+    schema1:name "STD (standard mode, no gas; stated section 3.1)" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/rfPowerDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
@@ -1492,21 +1246,6 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
-    schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-    schema1:value "None" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> a schema1:PropertyValue ;
-    schema1:name "Mass Resolution Setting" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> ;
-    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/plasmaThermalMode> a schema1:PropertyValue ;
-    schema1:name "Plasma Thermal Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/plasmaThermalMode> ;
-    schema1:value "Normal plasma (1350 W; stated section 3.1)" .
 
 
 ```
@@ -1533,7 +1272,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — P1",
-  "schema:description": "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2); ada:perAnalyteCalibrationStrategy = External calibration with matrix-matched standards at 100 ppm Ca (stated section 2); ada:blankBackgroundCorrectionMethod = On-peak zero (stated implicitly; calibration standards include procedural blank equivalent).",
+  "schema:description": "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2).",
   "schema:object": [
     {
       "@type": [
@@ -1580,16 +1319,14 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "None"
           },
           {
@@ -1671,20 +1408,18 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -1696,20 +1431,6 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         }
       ],
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Collision Reaction Cell",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "STD (standard mode, no gas)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
-        },
         {
           "schema:additionalType": [
             "Sample Introduction System",
@@ -1781,7 +1502,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/rfPowerDefault",
+              "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -1793,19 +1514,19 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
               "schema:description": "1300 W (Table 1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
-              "schema:valueName": "coolantGasFlowRateDefault",
-              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "schema:valueName": "coolantPlasmaGasFlowRateDefault",
+              "schema:name": "Coolant Plasma Gas Flow Rate",
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 15,
               "schema:description": "15 L/min (Table 1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -1817,16 +1538,14 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
               "schema:description": "1.2 L/min (Table 1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode",
+              "@id": "ada:parameter/module/ICPMS/plasmaThermalMode",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                }
-              ],
+              "schema:valueName": "plasmaThermalMode",
               "schema:name": "Plasma Thermal Mode",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Normal plasma (1300 W; Table 1)"
             }
           ],
@@ -1836,6 +1555,20 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
           ],
           "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "STD (standard mode, no gas; DRC II instrument but no reaction gas stated; stated section 2)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -1924,12 +1657,12 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -1958,14 +1691,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:massCyclesPerReplicate": "250 sweeps per replicate (Table 1)",
   "ada:numberOfReplicatesPerSample": "6 replicates (Table 1)",
   "ada:signalCollectionMode": "Peak hopping",
-  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
-  "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
   "ada:driftCorrectionMethod": "Standard bracketing",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:blankBackgroundCorrectionMethod": "Procedural blank",
-  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2004,82 +1730,22 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:isotopeDilutionSpike": "None",
   "ada:finalSolutionMatrix": "0.075 M HNO3 at 100 ppm Ca (stated section 2)",
   "ada:washTimeBetweenSamples": "60 s (Table 1)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "9 Me/Ca ratios: Li",
-      "B",
-      "Mg",
-      "Al",
-      "Mn",
-      "Zn",
-      "Sr",
-      "Cd",
-      "U relative to Ca (stated Table 1)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\"",
+  "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
+  "ada:blankBackgroundCorrectionMethod": "On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)",
+  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration with matrix-matched standards at 100 ppm Ca (stated section 2)"
+  ],
+  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:internalStandardApproach": "missing",
-  "ada:sampleSequenceDesign": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -2115,7 +1781,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 P1",
-  "schema:description": "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2); ada:perAnalyteCalibrationStrategy = External calibration with matrix-matched standards at 100 ppm Ca (stated section 2); ada:blankBackgroundCorrectionMethod = On-peak zero (stated implicitly; calibration standards include procedural blank equivalent).",
+  "schema:description": "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2).",
   "schema:object": [
     {
       "@type": [
@@ -2162,16 +1828,14 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "None"
           },
           {
@@ -2253,20 +1917,18 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -2278,20 +1940,6 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         }
       ],
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Collision Reaction Cell",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "STD (standard mode, no gas)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
-        },
         {
           "schema:additionalType": [
             "Sample Introduction System",
@@ -2363,7 +2011,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/rfPowerDefault",
+              "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -2375,19 +2023,19 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
               "schema:description": "1300 W (Table 1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
-              "schema:valueName": "coolantGasFlowRateDefault",
-              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "schema:valueName": "coolantPlasmaGasFlowRateDefault",
+              "schema:name": "Coolant Plasma Gas Flow Rate",
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 15,
               "schema:description": "15 L/min (Table 1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -2399,16 +2047,14 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
               "schema:description": "1.2 L/min (Table 1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode",
+              "@id": "ada:parameter/module/ICPMS/plasmaThermalMode",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                }
-              ],
+              "schema:valueName": "plasmaThermalMode",
               "schema:name": "Plasma Thermal Mode",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Normal plasma (1300 W; Table 1)"
             }
           ],
@@ -2418,6 +2064,20 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
           ],
           "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "STD (standard mode, no gas; DRC II instrument but no reaction gas stated; stated section 2)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -2506,12 +2166,12 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -2540,14 +2200,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:massCyclesPerReplicate": "250 sweeps per replicate (Table 1)",
   "ada:numberOfReplicatesPerSample": "6 replicates (Table 1)",
   "ada:signalCollectionMode": "Peak hopping",
-  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
-  "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
   "ada:driftCorrectionMethod": "Standard bracketing",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:blankBackgroundCorrectionMethod": "Procedural blank",
-  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2586,82 +2239,22 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:isotopeDilutionSpike": "None",
   "ada:finalSolutionMatrix": "0.075 M HNO3 at 100 ppm Ca (stated section 2)",
   "ada:washTimeBetweenSamples": "60 s (Table 1)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "9 Me/Ca ratios: Li",
-      "B",
-      "Mg",
-      "Al",
-      "Mn",
-      "Zn",
-      "Sr",
-      "Cd",
-      "U relative to Ca (stated Table 1)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\"",
+  "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
+  "ada:blankBackgroundCorrectionMethod": "On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)",
+  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration with matrix-matched standards at 100 ppm Ca (stated section 2)"
+  ],
+  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:internalStandardApproach": "missing",
-  "ada:sampleSequenceDesign": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -2685,15 +2278,12 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -2702,15 +2292,18 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
-    schema1:description "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2); ada:perAnalyteCalibrationStrategy = External calibration with matrix-matched standards at 100 ppm Ca (stated section 2); ada:blankBackgroundCorrectionMethod = On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)." ;
+    schema1:description "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Cambridge (affiliation)" ] ;
@@ -2727,31 +2320,10 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
             schema1:target [ schema1:description "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)" ;
                     schema1:name "ICP-AES (for initial [Ca] determination; stated section 2)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "9 Me/Ca ratios: Li",
-                "Al",
-                "B",
-                "Cd",
-                "Mg",
-                "Mn",
-                "Sr",
-                "U relative to Ca (stated Table 1)",
-                "Zn" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler" ;
-    ada:blankBackgroundCorrectionMethod "Procedural blank" ;
+    ada:blankBackgroundCorrectionMethod "On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)" ;
     ada:calibrationMeasurementFrequency "missing" ;
     ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -2764,7 +2336,7 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> ;
+                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
             ada:defaultChannels "111Cd",
                 "11B",
                 "238U (Table 1)",
@@ -2778,42 +2350,20 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     ada:chromatographicSeparationApplied "None (direct analysis of dissolved foraminifera)" ;
     ada:driftCorrectionMethod "Standard bracketing" ;
     ada:finalSolutionMatrix "0.075 M HNO3 at 100 ppm Ca (stated section 2)" ;
-    ada:internalStandardApproach "missing" ;
     ada:internalStandardElement "None (matrix-matched external calibration; stated section 2)" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "None" ;
     ada:massCyclesPerReplicate "250 sweeps per replicate (Table 1)" ;
     ada:numberOfReplicatesPerSample "6 replicates (Table 1)" ;
     ada:oxideProductionMethodAndThreshold "CeO/Ce < 3% (stated section 2)" ;
-    ada:perAnalyteCalibrationStrategy "External calibration (all analytes)" ;
+    ada:perAnalyteCalibrationStrategy "External calibration with matrix-matched standards at 100 ppm Ca (stated section 2)" ;
     ada:primaryStandardNameDefault "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)" ;
     ada:reportedProperties "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)" ;
-    ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)" ;
     ada:signalCollectionMode "Peak hopping" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\"" ;
     ada:washTimeBetweenSamples "60 s (Table 1)" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -2833,10 +2383,10 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Isobaric Interference Corrections Applied" ;
-    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
@@ -2851,6 +2401,58 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     schema1:name "Constants Reference Values" ;
     schema1:valueName "constantsReferenceValuesDefault" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.2e+00 ;
+    schema1:description "1.2 L/min (Table 1)" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:valueName "auxiliaryGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 15 ;
+    schema1:description "15 L/min (Table 1)" ;
+    schema1:name "Coolant Plasma Gas Flow Rate" ;
+    schema1:valueName "coolantPlasmaGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:value "None" ;
+    schema1:valueName "isotopeDilutionDataReductionMethod" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "60 s wash between samples (stated Table 1)" ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:valueName "memoryEffectMitigationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
+    schema1:name "Plasma Thermal Mode" ;
+    schema1:value "Normal plasma (1300 W; Table 1)" ;
+    schema1:valueName "plasmaThermalMode" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1300 ;
+    schema1:description "1300 W (Table 1)" ;
+    schema1:name "RF Power" ;
+    schema1:valueName "rfPowerDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
@@ -2898,41 +2500,10 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1.2e+00 ;
-    schema1:description "1.2 L/min (Table 1)" ;
-    schema1:name "Auxiliary Gas Flow Rate" ;
-    schema1:valueName "auxiliaryGasFlowRateDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 15 ;
-    schema1:description "15 L/min (Table 1)" ;
-    schema1:name "Coolant (Plasma) Gas Flow Rate" ;
-    schema1:valueName "coolantGasFlowRateDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "60 s wash between samples (stated Table 1)" ;
-    schema1:name "Memory Effect Mitigation" ;
-    schema1:valueName "memoryEffectMitigationDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/rfPowerDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1300 ;
-    schema1:description "1300 W (Table 1)" ;
-    schema1:name "RF Power" ;
-    schema1:valueName "rfPowerDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
@@ -2949,14 +2520,14 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "STD (standard mode, no gas)" .
+    schema1:name "STD (standard mode, no gas; DRC II instrument but no reaction gas stated; stated section 2)" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/rfPowerDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
@@ -2983,21 +2554,6 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
-    schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-    schema1:value "None" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> a schema1:PropertyValue ;
-    schema1:name "Mass Resolution Setting" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> ;
-    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/plasmaThermalMode> a schema1:PropertyValue ;
-    schema1:name "Plasma Thermal Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/plasmaThermalMode> ;
-    schema1:value "Normal plasma (1300 W; Table 1)" .
-
 
 ```
 
@@ -3023,7 +2579,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — Agilent7500",
-  "schema:description": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2).",
+  "schema:description": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2).",
   "schema:object": [
     {
       "@type": [
@@ -3082,16 +2638,14 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "IUPAC isotope dilution equations with ID-IS internal standard normalization (stated section 2)"
           },
           {
@@ -3193,20 +2747,18 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -3332,12 +2884,12 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -3363,31 +2915,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       }
     ]
   },
-  "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
-  "ada:internalStandardApproach": "N/A",
   "ada:driftCorrectionMethod": "IS normalization",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution (all analytes)"
-  ],
-  "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.04,
-      "schema:description": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3413,79 +2941,27 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:isotopeDilutionSpike": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)",
   "ada:finalSolutionMatrix": "0.5 mol/l HNO3 (stated section 2)",
   "ada:washTimeBetweenSamples": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Cd",
-      "In",
-      "Tl",
-      "Bi (with 149Sm as ID-IS reference; stated section 2)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
+  "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
+  ],
+  "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -3522,7 +2998,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 Agilent7500",
-  "schema:description": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2).",
+  "schema:description": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2).",
   "schema:object": [
     {
       "@type": [
@@ -3581,16 +3057,14 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "IUPAC isotope dilution equations with ID-IS internal standard normalization (stated section 2)"
           },
           {
@@ -3692,20 +3166,18 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -3831,12 +3303,12 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -3862,31 +3334,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       }
     ]
   },
-  "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
-  "ada:internalStandardApproach": "N/A",
   "ada:driftCorrectionMethod": "IS normalization",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution (all analytes)"
-  ],
-  "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.04,
-      "schema:description": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3912,79 +3360,27 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:isotopeDilutionSpike": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)",
   "ada:finalSolutionMatrix": "0.5 mol/l HNO3 (stated section 2)",
   "ada:washTimeBetweenSamples": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Cd",
-      "In",
-      "Tl",
-      "Bi (with 149Sm as ID-IS reference; stated section 2)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
+  "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
+  ],
+  "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -4009,13 +3405,9 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF + HClO4 (basalt/glass, ultrasonic); HF alone in TFE bomb (peridotite/chondrite; stated section 2)" ] ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -4024,21 +3416,24 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "3 sigma blank (stated section 2)" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> ;
+                    ada:detectionLimitMethod "3 sigma blank (stated section 2)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF + HClO4 (basalt/glass, ultrasonic); HF alone in TFE bomb (peridotite/chondrite; stated section 2)" ] ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)." ;
+    schema1:description "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)" ] ;
@@ -4051,24 +3446,8 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate reference materials (basalt, andesite, peridotite), NIST SRM glasses, carbonaceous chondrites (stated section 2)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "Bi (with 149Sm as ID-IS reference; stated section 2)",
-                "Cd",
-                "In",
-                "Tl" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
@@ -4083,7 +3462,7 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> ;
+                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
             ada:defaultChannels "111Cd",
                 "113Cd",
                 "115In",
@@ -4095,43 +3474,21 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     ada:chromatographicSeparationApplied "None (direct analysis)" ;
     ada:driftCorrectionMethod "IS normalization" ;
     ada:finalSolutionMatrix "0.5 mol/l HNO3 (stated section 2)" ;
-    ada:internalStandardApproach "N/A" ;
     ada:internalStandardElement "149Sm (as ID-IS reference; stated section 2)" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 0.01 (= <1%; stated section 2)" ;
-    ada:perAnalyteCalibrationStrategy "Isotope dilution (all analytes)" ;
+    ada:perAnalyteCalibrationStrategy "Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)" ;
     ada:primaryStandardNameDefault "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)" ;
     ada:reportedProperties "Cd, In, Tl and Bi mass fractions (ng g-1)" ;
-    ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"" ;
     ada:secondaryReferenceMaterialDefault "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"" ;
     ada:washTimeBetweenSamples ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -4151,10 +3508,10 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Isobaric Interference Corrections Applied" ;
-    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
@@ -4168,6 +3525,27 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     schema1:defaultValue "\"113In/115In = 0.0448 (Rosman and Taylor 1998)\" used in the In correction; \"For a 94Mo/95Mo value of 0.58\" and MoOH+/MoO+ \"a value of ~0.15 was obtained\", both used in the Mo-oxide correction" ;
     schema1:name "Constants Reference Values" ;
     schema1:valueName "constantsReferenceValuesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:value "IUPAC isotope dilution equations with ID-IS internal standard normalization (stated section 2)" ;
+    schema1:valueName "isotopeDilutionDataReductionMethod" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)" ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:valueName "memoryEffectMitigationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -4194,25 +3572,10 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 4e-02 ;
-    schema1:description "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)" ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimitDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)" ;
-    schema1:name "Memory Effect Mitigation" ;
-    schema1:valueName "memoryEffectMitigationDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
@@ -4255,16 +3618,6 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
-    schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-    schema1:value "IUPAC isotope dilution equations with ID-IS internal standard normalization (stated section 2)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> a schema1:PropertyValue ;
-    schema1:name "Mass Resolution Setting" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> ;
-    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" .
-
 
 ```
 
@@ -4290,7 +3643,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — Agilent7900",
-  "schema:description": "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods); ada:perAnalyteCalibrationStrategy = External calibration (stated Methods).",
+  "schema:description": "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods).",
   "schema:object": [
     {
       "@type": [
@@ -4325,61 +3678,18 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         }
       ],
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Collision Reaction Cell",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "KED (kinetic energy discrimination, He gas)",
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
-              "schema:name": "Collision Gas Type",
-              "schema:value": "He (stated Methods)"
-            },
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collisionGasFlowRateDefault",
-              "schema:name": "Collision Gas Flow Rate",
-              "ada:dataType": "number",
-              "ada:fieldScope": "session",
-              "schema:defaultValue": 5,
-              "schema:description": "5 mL/min (stated Methods)"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
-        },
         {
           "schema:additionalType": [
             "Sample Introduction System",
@@ -4429,6 +3739,45 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
           ],
           "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
           "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "collisionGasType",
+              "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "He (stated Methods)"
+            },
+            {
+              "@id": "ada:parameter/module/CollisionCell/gasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "gasFlowRateDefault",
+              "schema:name": "Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 5,
+              "schema:description": "5 mL/min (stated Methods)"
+            }
+          ],
+          "schema:name": "KED (He); He at 5 mL/min applied for masses 23-75 (stated Methods)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -4494,12 +3843,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       "schema:value": "None"
     }
   ],
-  "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
-  "ada:internalStandardApproach": "N/A",
   "ada:driftCorrectionMethod": "IS normalization",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -4528,16 +3872,14 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "None"
           }
         ],
@@ -4566,7 +3908,6 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       "schema:HowTo"
     ]
   },
-  "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4603,78 +3944,25 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis; stated Methods)",
   "ada:isotopeDilutionSpike": "None",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Major and trace elements (masses 23-75, Na to As; stated Methods)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results",
+  "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (stated Methods)"
+  ],
+  "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -4712,7 +4000,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 Agilent7900",
-  "schema:description": "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods); ada:perAnalyteCalibrationStrategy = External calibration (stated Methods).",
+  "schema:description": "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods).",
   "schema:object": [
     {
       "@type": [
@@ -4747,61 +4035,18 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         }
       ],
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Collision Reaction Cell",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "KED (kinetic energy discrimination, He gas)",
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
-              "schema:name": "Collision Gas Type",
-              "schema:value": "He (stated Methods)"
-            },
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collisionGasFlowRateDefault",
-              "schema:name": "Collision Gas Flow Rate",
-              "ada:dataType": "number",
-              "ada:fieldScope": "session",
-              "schema:defaultValue": 5,
-              "schema:description": "5 mL/min (stated Methods)"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
-        },
         {
           "schema:additionalType": [
             "Sample Introduction System",
@@ -4851,6 +4096,45 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
           ],
           "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
           "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "collisionGasType",
+              "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "He (stated Methods)"
+            },
+            {
+              "@id": "ada:parameter/module/CollisionCell/gasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "gasFlowRateDefault",
+              "schema:name": "Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 5,
+              "schema:description": "5 mL/min (stated Methods)"
+            }
+          ],
+          "schema:name": "KED (He); He at 5 mL/min applied for masses 23-75 (stated Methods)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -4916,12 +4200,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       "schema:value": "None"
     }
   ],
-  "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
-  "ada:internalStandardApproach": "N/A",
   "ada:driftCorrectionMethod": "IS normalization",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -4950,16 +4229,14 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "None"
           }
         ],
@@ -4988,7 +4265,6 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       "schema:HowTo"
     ]
   },
-  "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5025,78 +4301,25 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis; stated Methods)",
   "ada:isotopeDilutionSpike": "None",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Major and trace elements (masses 23-75, Na to As; stated Methods)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results",
+  "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (stated Methods)"
+  ],
+  "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -5123,19 +4346,19 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -5143,7 +4366,7 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
-    schema1:description "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods); ada:perAnalyteCalibrationStrategy = External calibration (stated Methods)." ;
+    schema1:description "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut de Physique du Globe de Paris (IPGP), France (affiliation)" ] ;
@@ -5160,63 +4383,57 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
             schema1:target [ schema1:description "Same dissolved aliquots analyzed by Q-ICP-MS (major/trace elements, masses 23-75) and MC-ICP-MS (Zn isotopes); stated Methods" ;
                     schema1:name "MC-ICP-MS (Neptune Plus at IPGP; for Zn isotope measurements; stated Methods)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "Major and trace elements (masses 23-75, Na to As; stated Methods)" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"The sample was introduced into a Scott spray chamber through a MicroMist nebulizer at an uptake rate of 0.2 mL/min\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
     ada:chromatographicSeparationApplied "None (direct analysis; stated Methods)" ;
     ada:driftCorrectionMethod "IS normalization" ;
     ada:finalSolutionMatrix "missing" ;
-    ada:internalStandardApproach "N/A" ;
     ada:internalStandardElement "Sc, In, Re (stated Methods)" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "None" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "External calibration (all analytes)" ;
+    ada:perAnalyteCalibrationStrategy "External calibration (stated Methods)" ;
     ada:primaryStandardNameDefault "Mixture of certified standards (not formally named; stated Methods)" ;
     ada:reportedProperties "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper" ;
-    ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Collision Gas Type" ;
+    schema1:value "He (stated Methods)" ;
+    schema1:valueName "collisionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/gasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 5 ;
+    schema1:description "5 mL/min (stated Methods)" ;
+    schema1:name "Gas Flow Rate" ;
+    schema1:valueName "gasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:value "None" ;
+    schema1:valueName "isotopeDilutionDataReductionMethod" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
     schema1:name "Desolvation System" ;
@@ -5247,17 +4464,9 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 5 ;
-    schema1:description "5 mL/min (stated Methods)" ;
-    schema1:name "Collision Gas Flow Rate" ;
-    schema1:valueName "collisionGasFlowRateDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
@@ -5272,11 +4481,11 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
 
 <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/gasFlowRateDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "KED (kinetic energy discrimination, He gas)" .
+    schema1:name "KED (He); He at 5 mL/min applied for masses 23-75 (stated Methods)" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -5305,21 +4514,6 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> a schema1:PropertyValue ;
-    schema1:name "Collision Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> ;
-    schema1:value "He (stated Methods)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
-    schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-    schema1:value "None" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> a schema1:PropertyValue ;
-    schema1:name "Mass Resolution Setting" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> ;
-    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" .
-
 
 ```
 
@@ -5345,7 +4539,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — Agilent7500-2",
-  "schema:description": "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (all analytes; stated section 2.1).",
+  "schema:description": "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1).",
   "schema:object": [
     {
       "@type": [
@@ -5381,16 +4575,14 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:name": "Data acquisition",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode",
+            "@id": "ada:parameter/module/ICPMS/guardElectrode",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
-              }
-            ],
+            "schema:valueName": "guardElectrode",
             "schema:name": "Guard Electrode",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "On (shield torch system used; stated section 2.1.1)"
           }
         ],
@@ -5407,16 +4599,14 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "IUPAC isotope dilution equations (ID-IS method; stated section 2.1)"
           },
           {
@@ -5506,20 +4696,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Torch",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "Quartz glass torch with Pt injector (stated Table in section 2.1.1)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Torch"
-        },
-        {
-          "schema:additionalType": [
             "Interface Cone",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -5527,29 +4703,25 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration",
+              "@id": "ada:parameter/module/ICPMS/configuration",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
-                }
-              ],
-              "schema:name": "Interface Cone Configuration",
+              "schema:valueName": "configuration",
+              "schema:name": "Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "1 mm Pt sampler + 0.4 mm Pt skimmer (stated Table in section 2.1.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial",
+              "@id": "ada:parameter/module/ICPMS/samplerAndSkimmerConeMaterial",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
-                }
-              ],
+              "schema:valueName": "samplerAndSkimmerConeMaterial",
               "schema:name": "Sampler and Skimmer Cone Material",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Pt sampler and Pt skimmer (stated Table in section 2.1.1)"
             }
           ],
@@ -5559,20 +4731,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           ],
           "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
-        },
-        {
-          "schema:additionalType": [
-            "Collision Reaction Cell",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "STD (standard mode, no gas)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "schema:additionalType": [
@@ -5645,7 +4803,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/rfPowerDefault",
+              "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -5657,19 +4815,19 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
               "schema:description": "1.6 kW (stated Table in section 2.1.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
-              "schema:valueName": "coolantGasFlowRateDefault",
-              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "schema:valueName": "coolantPlasmaGasFlowRateDefault",
+              "schema:name": "Coolant Plasma Gas Flow Rate",
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 15,
               "schema:description": "15 L/min (stated Table in section 2.1.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -5681,16 +4839,14 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
               "schema:description": "0.90 L/min (stated Table in section 2.1.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode",
+              "@id": "ada:parameter/module/ICPMS/plasmaThermalMode",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                }
-              ],
+              "schema:valueName": "plasmaThermalMode",
               "schema:name": "Plasma Thermal Mode",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Normal plasma (1.6 kW; stated section 2.1.1)"
             }
           ],
@@ -5700,20 +4856,46 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           ],
           "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "Quartz glass torch with Pt injector (stated Table in section 2.1.1)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Torch"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "STD (standard mode, no gas; collision gases not introduced into cell; stated section 2.1.1)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         }
       ],
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         },
         {
@@ -5730,7 +4912,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           "schema:value": "Dual mode: pulse counting + analog (crossover ~10^6 cps; stated section 2.1.1)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRateDefault",
+          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -5742,7 +4924,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           "schema:description": "0.25 L/min supplementary Ar for PFA micronebulizer (stated Table in section 2.1.1)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -5815,12 +4997,12 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -5847,18 +5029,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     ]
   },
   "ada:massCyclesPerReplicate": "48 scans per 30 s acquisition (stated section 2.1.1)",
-  "ada:sampleSequenceDesign": "Standard solution measured every two samples (stated section 2.1.1)",
-  "ada:internalStandardElement": "None (ID-IS method: spike isotope ratios used; stated section 2.1)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.1)",
+  "ada:analysisSequenceDefault": "Standard solution measured every two samples (stated section 2.1.1)",
   "ada:driftCorrectionMethod": "Standard bracketing",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution (all analytes)"
-  ],
-  "ada:primaryStandardNameDefault": "Multi-element standard solution (not formally named; stated section 2.1.1)",
-  "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.1)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5897,80 +5069,24 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:isotopeDilutionSpike": "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)",
   "ada:finalSolutionMatrix": "0.5 mol/l HF (stated section 2.1.1)",
   "ada:washTimeBetweenSamples": "~180 s (~3 min; stated: each measurement ~6 min including ~3 min wash; section 2.1.1)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "B",
-      "Zr",
-      "Nb",
-      "Mo",
-      "Sn",
-      "Sb",
-      "Hf",
-      "Ta (stated Table 2a)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "RSD% with observed ranges in parentheses",
+  "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.1)",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.1)",
+  "ada:internalStandardElement": "None (ID-IS method: spike isotope ratios used; stated section 2.1)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Isotope dilution with ID-IS normalization (all analytes; stated section 2.1)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
+  ],
+  "ada:primaryStandardNameDefault": "Multi-element standard solution (not formally named; stated section 2.1.1)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -6008,7 +5124,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 Agilent7500-2",
-  "schema:description": "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (all analytes; stated section 2.1).",
+  "schema:description": "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1).",
   "schema:object": [
     {
       "@type": [
@@ -6044,16 +5160,14 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:name": "Data acquisition",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode",
+            "@id": "ada:parameter/module/ICPMS/guardElectrode",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
-              }
-            ],
+            "schema:valueName": "guardElectrode",
             "schema:name": "Guard Electrode",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "On (shield torch system used; stated section 2.1.1)"
           }
         ],
@@ -6070,16 +5184,14 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "IUPAC isotope dilution equations (ID-IS method; stated section 2.1)"
           },
           {
@@ -6169,20 +5281,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       "schema:hasPart": [
         {
           "schema:additionalType": [
-            "Torch",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "Quartz glass torch with Pt injector (stated Table in section 2.1.1)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Torch"
-        },
-        {
-          "schema:additionalType": [
             "Interface Cone",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
@@ -6190,29 +5288,25 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration",
+              "@id": "ada:parameter/module/ICPMS/configuration",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
-                }
-              ],
-              "schema:name": "Interface Cone Configuration",
+              "schema:valueName": "configuration",
+              "schema:name": "Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "1 mm Pt sampler + 0.4 mm Pt skimmer (stated Table in section 2.1.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial",
+              "@id": "ada:parameter/module/ICPMS/samplerAndSkimmerConeMaterial",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
-                }
-              ],
+              "schema:valueName": "samplerAndSkimmerConeMaterial",
               "schema:name": "Sampler and Skimmer Cone Material",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Pt sampler and Pt skimmer (stated Table in section 2.1.1)"
             }
           ],
@@ -6222,20 +5316,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           ],
           "@id": "ex:instrument/ICPMS/part/Interface-Cone",
           "schema:name": "missing"
-        },
-        {
-          "schema:additionalType": [
-            "Collision Reaction Cell",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "STD (standard mode, no gas)",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "schema:additionalType": [
@@ -6308,7 +5388,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/rfPowerDefault",
+              "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -6320,19 +5400,19 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
               "schema:description": "1.6 kW (stated Table in section 2.1.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
-              "schema:valueName": "coolantGasFlowRateDefault",
-              "schema:name": "Coolant (Plasma) Gas Flow Rate",
+              "schema:valueName": "coolantPlasmaGasFlowRateDefault",
+              "schema:name": "Coolant Plasma Gas Flow Rate",
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 15,
               "schema:description": "15 L/min (stated Table in section 2.1.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault",
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -6344,16 +5424,14 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
               "schema:description": "0.90 L/min (stated Table in section 2.1.1)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode",
+              "@id": "ada:parameter/module/ICPMS/plasmaThermalMode",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                }
-              ],
+              "schema:valueName": "plasmaThermalMode",
               "schema:name": "Plasma Thermal Mode",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Normal plasma (1.6 kW; stated section 2.1.1)"
             }
           ],
@@ -6363,20 +5441,46 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           ],
           "@id": "ex:instrument/ICPMS/part/ICP-Source",
           "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "Quartz glass torch with Pt injector (stated Table in section 2.1.1)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Torch"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "STD (standard mode, no gas; collision gases not introduced into cell; stated section 2.1.1)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         }
       ],
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         },
         {
@@ -6393,7 +5497,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           "schema:value": "Dual mode: pulse counting + analog (crossover ~10^6 cps; stated section 2.1.1)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRateDefault",
+          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -6405,7 +5509,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           "schema:description": "0.25 L/min supplementary Ar for PFA micronebulizer (stated Table in section 2.1.1)"
         },
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -6478,12 +5582,12 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -6510,18 +5614,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     ]
   },
   "ada:massCyclesPerReplicate": "48 scans per 30 s acquisition (stated section 2.1.1)",
-  "ada:sampleSequenceDesign": "Standard solution measured every two samples (stated section 2.1.1)",
-  "ada:internalStandardElement": "None (ID-IS method: spike isotope ratios used; stated section 2.1)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.1)",
+  "ada:analysisSequenceDefault": "Standard solution measured every two samples (stated section 2.1.1)",
   "ada:driftCorrectionMethod": "Standard bracketing",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution (all analytes)"
-  ],
-  "ada:primaryStandardNameDefault": "Multi-element standard solution (not formally named; stated section 2.1.1)",
-  "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.1)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6560,80 +5654,24 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:isotopeDilutionSpike": "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)",
   "ada:finalSolutionMatrix": "0.5 mol/l HF (stated section 2.1.1)",
   "ada:washTimeBetweenSamples": "~180 s (~3 min; stated: each measurement ~6 min including ~3 min wash; section 2.1.1)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "B",
-      "Zr",
-      "Nb",
-      "Mo",
-      "Sn",
-      "Sb",
-      "Hf",
-      "Ta (stated Table 2a)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "RSD% with observed ranges in parentheses",
+  "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.1)",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.1)",
+  "ada:internalStandardElement": "None (ID-IS method: spike isotope ratios used; stated section 2.1)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Isotope dilution with ID-IS normalization (all analytes; stated section 2.1)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
+  ],
+  "ada:primaryStandardNameDefault": "Multi-element standard solution (not formally named; stated section 2.1.1)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -6659,6 +5697,20 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
@@ -6667,27 +5719,13 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                             schema1:name "0.5 mol/l HF (stated section 2.1.1)" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/guardElectrode> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
-    schema1:description "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1); ada:perAnalyteCalibrationStrategy = Isotope dilution with ID-IS normalization (all analytes; stated section 2.1)." ;
+    schema1:description "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1)" ] ;
@@ -6704,28 +5742,8 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
             schema1:target [ schema1:description "Q-ICP-MS (7500cs) measured B, Zr, Nb, Mo, Sn, Sb, Hf, Ta; SF-ICP-MS (ELEMENT) measured Ti and Nb; both techniques on same digested solutions; stated section 2.1" ;
                     schema1:name "SF-ICP-MS (Finnigan ELEMENT at PML; for Ti measurements; stated section 2.1.2)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "B",
-                "Hf",
-                "Mo",
-                "Nb",
-                "Sb",
-                "Sn",
-                "Ta (stated Table 2a)",
-                "Zr" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "Standard solution measured every two samples (stated section 2.1.1)" ;
     ada:analyticalMode "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "Every two samples (stated section 2.1.1)" ;
@@ -6740,7 +5758,7 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> ;
+                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
             ada:defaultChannels "10B",
                 "118Sn",
                 "119Sn",
@@ -6758,43 +5776,21 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     ada:chromatographicSeparationApplied "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.1)" ;
     ada:driftCorrectionMethod "Standard bracketing" ;
     ada:finalSolutionMatrix "0.5 mol/l HF (stated section 2.1.1)" ;
-    ada:internalStandardApproach "missing" ;
     ada:internalStandardElement "None (ID-IS method: spike isotope ratios used; stated section 2.1)" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)" ;
     ada:massCyclesPerReplicate "48 scans per 30 s acquisition (stated section 2.1.1)" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 1% (stated section 2.1.1)" ;
-    ada:perAnalyteCalibrationStrategy "Isotope dilution (all analytes)" ;
+    ada:perAnalyteCalibrationStrategy "Isotope dilution with ID-IS normalization (all analytes; stated section 2.1)" ;
     ada:primaryStandardNameDefault "Multi-element standard solution (not formally named; stated section 2.1.1)" ;
     ada:reportedProperties "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]" ;
-    ada:sampleSequenceDesign "Standard solution measured every two samples (stated section 2.1.1)" ;
     ada:samplingUnit "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites" ;
     ada:secondaryReferenceMaterialDefault "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "RSD% with observed ranges in parentheses" ;
     ada:washTimeBetweenSamples "~180 s (~3 min; stated: each measurement ~6 min including ~3 min wash; section 2.1.1)" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -6814,10 +5810,10 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Isobaric Interference Corrections Applied" ;
-    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
@@ -6831,6 +5827,87 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     schema1:defaultValue "Partially -- the ID equation is built on spike and natural isotope ratios, and the mixed standard solution is referenced to the B isotope ratio standard of Makishima et al. (1997). No constant values or their sources are tabulated" ;
     schema1:name "Constants Reference Values" ;
     schema1:valueName "constantsReferenceValuesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 9e-01 ;
+    schema1:description "0.90 L/min (stated Table in section 2.1.1)" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:valueName "auxiliaryGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> a schema1:PropertyValueSpecification ;
+    schema1:name "Configuration" ;
+    schema1:value "1 mm Pt sampler + 0.4 mm Pt skimmer (stated Table in section 2.1.1)" ;
+    schema1:valueName "configuration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 15 ;
+    schema1:description "15 L/min (stated Table in section 2.1.1)" ;
+    schema1:name "Coolant Plasma Gas Flow Rate" ;
+    schema1:valueName "coolantPlasmaGasFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> a schema1:PropertyValueSpecification ;
+    schema1:name "Guard Electrode" ;
+    schema1:value "On (shield torch system used; stated section 2.1.1)" ;
+    schema1:valueName "guardElectrode" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:value "IUPAC isotope dilution equations (ID-IS method; stated section 2.1)" ;
+    schema1:valueName "isotopeDilutionDataReductionMethod" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2.5e-01 ;
+    schema1:description "0.25 L/min supplementary Ar for PFA micronebulizer (stated Table in section 2.1.1)" ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:valueName "makeUpGasAndFlowRateDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "~3 min washout; ~3 min uptake stabilization (stated section 2.1.1)" ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:valueName "memoryEffectMitigationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
+    schema1:name "Plasma Thermal Mode" ;
+    schema1:value "Normal plasma (1.6 kW; stated section 2.1.1)" ;
+    schema1:valueName "plasmaThermalMode" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.6e+00 ;
+    schema1:description "1.6 kW (stated Table in section 2.1.1)" ;
+    schema1:name "RF Power" ;
+    schema1:valueName "rfPowerDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> a schema1:PropertyValueSpecification ;
+    schema1:name "Sampler and Skimmer Cone Material" ;
+    schema1:value "Pt sampler and Pt skimmer (stated Table in section 2.1.1)" ;
+    schema1:valueName "samplerAndSkimmerConeMaterial" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -6878,51 +5955,12 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 9e-01 ;
-    schema1:description "0.90 L/min (stated Table in section 2.1.1)" ;
-    schema1:name "Auxiliary Gas Flow Rate" ;
-    schema1:valueName "auxiliaryGasFlowRateDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 15 ;
-    schema1:description "15 L/min (stated Table in section 2.1.1)" ;
-    schema1:name "Coolant (Plasma) Gas Flow Rate" ;
-    schema1:valueName "coolantGasFlowRateDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/makeUpGasAndFlowRateDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 2.5e-01 ;
-    schema1:description "0.25 L/min supplementary Ar for PFA micronebulizer (stated Table in section 2.1.1)" ;
-    schema1:name "Make-up Gas and Flow Rate" ;
-    schema1:valueName "makeUpGasAndFlowRateDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "~3 min washout; ~3 min uptake stabilization (stated section 2.1.1)" ;
-    schema1:name "Memory Effect Mitigation" ;
-    schema1:valueName "memoryEffectMitigationDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/rfPowerDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1.6e+00 ;
-    schema1:description "1.6 kW (stated Table in section 2.1.1)" ;
-    schema1:name "RF Power" ;
-    schema1:valueName "rfPowerDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectorConfiguration>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
@@ -6939,22 +5977,22 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "STD (standard mode, no gas)" .
+    schema1:name "STD (standard mode, no gas; collision gases not introduced into cell; stated section 2.1.1)" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/rfPowerDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/interfaceConeConfiguration>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
@@ -6979,36 +6017,6 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     schema1:name "Detector Configuration" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectorConfiguration> ;
     schema1:value "Dual mode: pulse counting + analog (crossover ~10^6 cps; stated section 2.1.1)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/guardElectrode> a schema1:PropertyValue ;
-    schema1:name "Guard Electrode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/guardElectrode> ;
-    schema1:value "On (shield torch system used; stated section 2.1.1)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/interfaceConeConfiguration> a schema1:PropertyValue ;
-    schema1:name "Interface Cone Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/interfaceConeConfiguration> ;
-    schema1:value "1 mm Pt sampler + 0.4 mm Pt skimmer (stated Table in section 2.1.1)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
-    schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-    schema1:value "IUPAC isotope dilution equations (ID-IS method; stated section 2.1)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> a schema1:PropertyValue ;
-    schema1:name "Mass Resolution Setting" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/massResolutionSetting> ;
-    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/plasmaThermalMode> a schema1:PropertyValue ;
-    schema1:name "Plasma Thermal Mode" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/plasmaThermalMode> ;
-    schema1:value "Normal plasma (1.6 kW; stated section 2.1.1)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial> a schema1:PropertyValue ;
-    schema1:name "Sampler and Skimmer Cone Material" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial> ;
-    schema1:value "Pt sampler and Pt skimmer (stated Table in section 2.1.1)" .
 
 
 ```
@@ -7035,7 +6043,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — Agilent8800",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v35.csv). Reported detail: ada:perAnalyteCalibrationStrategy = External calibration for both Te and Se.",
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -7076,35 +6084,31 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "ICP-MS/MS (triple-quadrupole mode)",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "O2 (used as the collision/reaction gas for the mass shift)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "O2"
             }
           ],
+          "schema:name": "ICP-MS/MS (triple-quadrupole mode), oxygen-shift with O2 as cell gas",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -7205,12 +6209,12 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -7236,10 +6240,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       }
     ]
   },
-  "ada:internalStandardElement": "103Rh, to correct for matrix effects",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7260,63 +6260,11 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   "ada:reportedProperties": [
     "Te and Se concentrations (ug L-1; mg kg-1)"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Te and Se"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "Mean +/- SD",
+  "ada:internalStandardElement": "103Rh, to correct for matrix effects",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration for both Te and Se"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -7370,24 +6318,21 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
   "ada:finalSolutionMatrix": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -7426,7 +6371,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 Agilent8800",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v35.csv). Reported detail: ada:perAnalyteCalibrationStrategy = External calibration for both Te and Se.",
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -7467,35 +6412,31 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "ICP-MS/MS (triple-quadrupole mode)",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "O2 (used as the collision/reaction gas for the mass shift)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "O2"
             }
           ],
+          "schema:name": "ICP-MS/MS (triple-quadrupole mode), oxygen-shift with O2 as cell gas",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -7596,12 +6537,12 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -7627,10 +6568,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       }
     ]
   },
-  "ada:internalStandardElement": "103Rh, to correct for matrix effects",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7651,63 +6588,11 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   "ada:reportedProperties": [
     "Te and Se concentrations (ug L-1; mg kg-1)"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Te and Se"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "Mean +/- SD",
+  "ada:internalStandardElement": "103Rh, to correct for matrix effects",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration for both Te and Se"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -7761,24 +6646,21 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
   "ada:finalSolutionMatrix": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -7806,13 +6688,13 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -7821,10 +6703,10 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v35.csv). Reported detail: ada:perAnalyteCalibrationStrategy = External calibration for both Te and Se." ;
+    schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "N — 'Agilent 8800, Basel, Switzerland'; the Basel-area author affiliation is FHNW" ] ;
@@ -7836,21 +6718,8 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Estuarine suspended particulate matter and sediment (Gironde Estuary sorption experiments)" ] ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "Te and Se" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
@@ -7865,48 +6734,26 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> ;
+                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
             ada:defaultChannels "125Te",
                 "77Se" ] ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "missing" ;
-    ada:internalStandardApproach "missing" ;
     ada:internalStandardElement "103Rh, to correct for matrix effects" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "External calibration (all analytes)" ;
+    ada:perAnalyteCalibrationStrategy "External calibration for both Te and Se" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:reportedProperties "Te and Se concentrations (ug L-1; mg kg-1)" ;
-    ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "missing" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "Mean +/- SD" ;
     ada:washTimeBetweenSamples -9999 .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -7926,11 +6773,25 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Isobaric Interference Corrections Applied" ;
-    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Collision Gas Type" ;
+    schema1:value "O2 (used as the collision/reaction gas for the mass shift)" ;
+    schema1:valueName "collisionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Reaction Gas Type" ;
+    schema1:value "O2" ;
+    schema1:valueName "reactionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
@@ -7948,11 +6809,11 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
 
 <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "ICP-MS/MS (triple-quadrupole mode)" .
+    schema1:name "ICP-MS/MS (triple-quadrupole mode), oxygen-shift with O2 as cell gas" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -7977,16 +6838,6 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> a schema1:PropertyValue ;
-    schema1:name "Collision Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> ;
-    schema1:value "O2 (used as the collision/reaction gas for the mass shift)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> a schema1:PropertyValue ;
-    schema1:name "Reaction Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
-    schema1:value "O2" .
 
 
 ```
@@ -8013,7 +6864,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — P6",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v35.csv).",
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -8162,35 +7013,31 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "N/A",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "He for KED; O2 for the mass-shift mode"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "O2 (for the 125Te mass-shift mode)"
             }
           ],
+          "schema:name": "Per analyte: KED (He) for 126Te; ICP-MS/MS O2 mass-shift mode for spiked/experimental 125Te",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -8290,12 +7137,12 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -8321,26 +7168,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       }
     ]
   },
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "NCS 73307 stream sediment"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.1,
-      "schema:description": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8364,82 +7191,29 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   ],
   "ada:chromatographicSeparationApplied": "No — sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography",
   "ada:finalSolutionMatrix": "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Te"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "Mean +/- SD",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "NCS 73307 stream sediment"
+  ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:internalStandardApproach": "missing",
   "ada:internalStandardElement": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -8477,7 +7251,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 P6",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v35.csv).",
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -8626,35 +7400,31 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "N/A",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "He for KED; O2 for the mass-shift mode"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "O2 (for the 125Te mass-shift mode)"
             }
           ],
+          "schema:name": "Per analyte: KED (He) for 126Te; ICP-MS/MS O2 mass-shift mode for spiked/experimental 125Te",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -8754,12 +7524,12 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -8785,26 +7555,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       }
     ]
   },
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "NCS 73307 stream sediment"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.1,
-      "schema:description": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8828,82 +7578,29 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   ],
   "ada:chromatographicSeparationApplied": "No \u2014 sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography",
   "ada:finalSolutionMatrix": "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Te"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "Mean +/- SD",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "NCS 73307 stream sediment"
+  ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:internalStandardApproach": "missing",
   "ada:internalStandardElement": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -8930,11 +7627,6 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Dried at 50 C and homogenised in an agate mortar before microwave digestion" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -8945,6 +7637,11 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -8953,9 +7650,8 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "Tri-acid HNO3+HCl+HF: 750 uL HNO3 (14M), 1.5 mL HCl (10M), 2.5 mL HF (29M); re-dissolved in 250 uL HNO3. Microwave route for Se: 3 mL HNO3, 0.5 mL H2O2, 0.25 mL HF, 0.5 mL Milli-Q" ] ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v35.csv)." ;
+    schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "N — instrument given as 'iCAP-TQ, Thermo' with no laboratory stated" ] ;
@@ -8968,21 +7664,8 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Estuarine sediment — total digestions and selective extraction fractions" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "Te" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
@@ -8997,48 +7680,26 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> ;
+                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
             ada:defaultChannels "125Te and 126Te (and their O-shifted products)" ] ;
     ada:chromatographicSeparationApplied "No — sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL" ;
-    ada:internalStandardApproach "missing" ;
     ada:internalStandardElement "missing" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "External calibration (all analytes)" ;
+    ada:perAnalyteCalibrationStrategy "External calibration" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:reportedProperties "Particulate Te concentration (mg kg-1)" ;
-    ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction" ;
     ada:secondaryReferenceMaterialDefault "NCS 73307 stream sediment" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "Mean +/- SD" ;
     ada:washTimeBetweenSamples -9999 .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -9058,11 +7719,25 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Isobaric Interference Corrections Applied" ;
-    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Collision Gas Type" ;
+    schema1:value "He for KED; O2 for the mass-shift mode" ;
+    schema1:valueName "collisionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Reaction Gas Type" ;
+    schema1:value "O2 (for the 125Te mass-shift mode)" ;
+    schema1:valueName "reactionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "2 h at 110 C; microwave 10 min at 210 C then cooling overnight" ;
@@ -9094,14 +7769,6 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1e-01 ;
-    schema1:description "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD" ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimitDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -9118,11 +7785,11 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
 
 <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "N/A" .
+    schema1:name "Per analyte: KED (He) for 126Te; ICP-MS/MS O2 mass-shift mode for spiked/experimental 125Te" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -9147,16 +7814,6 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> a schema1:PropertyValue ;
-    schema1:name "Collision Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> ;
-    schema1:value "He for KED; O2 for the mass-shift mode" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> a schema1:PropertyValue ;
-    schema1:name "Reaction Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
-    schema1:value "O2 (for the 125Te mass-shift mode)" .
 
 
 ```
@@ -9183,7 +7840,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — P7",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v35.csv).",
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -9224,35 +7881,31 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "N/A",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "He+H2 mixture at 92% : 8%, to minimise 40Ar37Cl interferences"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "N/A — collision mode only"
             }
           ],
+          "schema:name": "CCT mode (collision cell) with a He:H2 mixture",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -9352,12 +8005,12 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -9383,27 +8036,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       }
     ]
   },
-  "ada:internalStandardElement": "103Rh and 115In",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "CRM-TMDW drinking water and NIST 1643f freshwater"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.01,
-      "schema:description": "LOD 0.01 ug L-1 (N = 10)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9425,63 +8057,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   "ada:reportedProperties": [
     "Dissolved Se concentration (ug L-1)"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Se"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:internalStandardElement": "103Rh and 115In",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "CRM-TMDW drinking water and NIST 1643f freshwater"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -9535,26 +8117,24 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
   "ada:finalSolutionMatrix": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:uncertaintyLevel": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"
 }
@@ -9590,7 +8170,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 P7",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v35.csv).",
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -9631,35 +8211,31 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "N/A",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "He+H2 mixture at 92% : 8%, to minimise 40Ar37Cl interferences"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "N/A \u2014 collision mode only"
             }
           ],
+          "schema:name": "CCT mode (collision cell) with a He:H2 mixture",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -9759,12 +8335,12 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -9790,27 +8366,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       }
     ]
   },
-  "ada:internalStandardElement": "103Rh and 115In",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "CRM-TMDW drinking water and NIST 1643f freshwater"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.01,
-      "schema:description": "LOD 0.01 ug L-1 (N = 10)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9832,63 +8387,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   "ada:reportedProperties": [
     "Dissolved Se concentration (ug L-1)"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Se"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:internalStandardElement": "103Rh and 115In",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "CRM-TMDW drinking water and NIST 1643f freshwater"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -9942,26 +8447,24 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
   "ada:finalSolutionMatrix": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:uncertaintyLevel": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"
 }
@@ -10003,9 +8506,8 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v35.csv)." ;
+    schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Karlsruhe Institute of Technology (KIT), Germany" ] ;
@@ -10017,21 +8519,8 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Estuarine water — dissolved Se from sorption kinetics and isotherms" ] ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "Se" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
@@ -10046,48 +8535,26 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> ;
+                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
             ada:defaultChannels "N — Se isotopes not individually stated" ] ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "missing" ;
-    ada:internalStandardApproach "missing" ;
     ada:internalStandardElement "103Rh and 115In" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "External calibration (all analytes)" ;
+    ada:perAnalyteCalibrationStrategy "External calibration" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:reportedProperties "Dissolved Se concentration (ug L-1)" ;
-    ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "N — sub-sampled water aliquots" ;
     ada:secondaryReferenceMaterialDefault "CRM-TMDW drinking water and NIST 1643f freshwater" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "missing" ;
     ada:washTimeBetweenSamples -9999 .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -10107,18 +8574,24 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Isobaric Interference Corrections Applied" ;
-    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1e-02 ;
-    schema1:description "LOD 0.01 ug L-1 (N = 10)" ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimitDefault" ;
-    ada:dataType "number" ;
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Collision Gas Type" ;
+    schema1:value "He+H2 mixture at 92% : 8%, to minimise 40Ar37Cl interferences" ;
+    schema1:valueName "collisionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Reaction Gas Type" ;
+    schema1:value "N/A — collision mode only" ;
+    schema1:valueName "reactionGasType" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://example.org/instrument/ICPMS> a schema1:Product,
@@ -10137,11 +8610,11 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
 
 <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "N/A" .
+    schema1:name "CCT mode (collision cell) with a He:H2 mixture" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -10166,16 +8639,6 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> a schema1:PropertyValue ;
-    schema1:name "Collision Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> ;
-    schema1:value "He+H2 mixture at 92% : 8%, to minimise 40Ar37Cl interferences" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> a schema1:PropertyValue ;
-    schema1:name "Reaction Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
-    schema1:value "N/A — collision mode only" .
 
 
 ```
@@ -10202,7 +8665,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — P8",
-  "schema:description": "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v35.csv).",
+  "schema:description": "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -10261,16 +8724,14 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "ID-IS method of Kagami and Yokoyama (2021); isotope dilution for Ti, Zr, Mo, Hf and W"
           },
           {
@@ -10388,35 +8849,31 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "KED (kinetic energy discrimination, He gas)",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "He"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "N/A — KED only"
             }
           ],
+          "schema:name": "KED (He) mode",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -10518,12 +8975,12 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -10549,14 +9006,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       }
     ]
   },
-  "ada:internalStandardElement": "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta",
-  "ada:perAnalyteCalibrationStrategy": [
-    "N/A"
-  ],
-  "ada:primaryStandardNameDefault": "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3",
-  "ada:secondaryReferenceMaterialDefault": [
-    "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10580,120 +9029,29 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   ],
   "ada:isotopeDilutionSpike": "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF",
   "ada:finalSolutionMatrix": "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "54 elements: Li",
-      "Be",
-      "Sc",
-      "Ga",
-      "As",
-      "Se",
-      "Rb",
-      "Sr",
-      "Y",
-      "Ag",
-      "Cd",
-      "In",
-      "Cs",
-      "Ba",
-      "La-Lu",
-      "Tl",
-      "Pb",
-      "Bi",
-      "Th",
-      "U",
-      "Na",
-      "Mg",
-      "Al",
-      "P",
-      "K",
-      "Ca",
-      "V",
-      "Cr",
-      "Mn",
-      "Fe",
-      "Co",
-      "Ni",
-      "Cu",
-      "Zn",
-      "Ti",
-      "Zr",
-      "Nb",
-      "Hf",
-      "Ta",
-      "Mo",
-      "W"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "N — replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material",
+  "ada:internalStandardElement": "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Three strategies by group: calibration curve with 103Rh internal standardisation; 113In-203Tl ID-IS (Yokoyama et al. 2017); isotope dilution for Ti, Zr, Mo, Hf and W; 91Zr and 179Hf as internal standards for Nb and Ta"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure"
+  ],
+  "ada:primaryStandardNameDefault": "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -10731,7 +9089,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 P8",
-  "schema:description": "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v35.csv).",
+  "schema:description": "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -10790,16 +9148,14 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "ID-IS method of Kagami and Yokoyama (2021); isotope dilution for Ti, Zr, Mo, Hf and W"
           },
           {
@@ -10917,35 +9273,31 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "KED (kinetic energy discrimination, He gas)",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "He"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "N/A \u2014 KED only"
             }
           ],
+          "schema:name": "KED (He) mode",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -11047,12 +9399,12 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -11078,14 +9430,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       }
     ]
   },
-  "ada:internalStandardElement": "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta",
-  "ada:perAnalyteCalibrationStrategy": [
-    "N/A"
-  ],
-  "ada:primaryStandardNameDefault": "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3",
-  "ada:secondaryReferenceMaterialDefault": [
-    "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11109,120 +9453,29 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   ],
   "ada:isotopeDilutionSpike": "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF",
   "ada:finalSolutionMatrix": "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "54 elements: Li",
-      "Be",
-      "Sc",
-      "Ga",
-      "As",
-      "Se",
-      "Rb",
-      "Sr",
-      "Y",
-      "Ag",
-      "Cd",
-      "In",
-      "Cs",
-      "Ba",
-      "La-Lu",
-      "Tl",
-      "Pb",
-      "Bi",
-      "Th",
-      "U",
-      "Na",
-      "Mg",
-      "Al",
-      "P",
-      "K",
-      "Ca",
-      "V",
-      "Cr",
-      "Mn",
-      "Fe",
-      "Co",
-      "Ni",
-      "Cu",
-      "Zn",
-      "Ti",
-      "Zr",
-      "Nb",
-      "Hf",
-      "Ta",
-      "Mo",
-      "W"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "N \u2014 replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material",
+  "ada:internalStandardElement": "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta",
+  "ada:perAnalyteCalibrationStrategy": [
+    "Three strategies by group: calibration curve with 103Rh internal standardisation; 113In-203Tl ID-IS (Yokoyama et al. 2017); isotope dilution for Ti, Zr, Mo, Hf and W; 91Zr and 179Hf as internal standards for Nb and Ta"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure"
+  ],
+  "ada:primaryStandardNameDefault": "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -11248,9 +9501,11 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -11270,13 +9525,11 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v35.csv)." ;
+    schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Science Tokyo" ] ;
@@ -11289,61 +9542,8 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Carbonaceous asteroid particles (Ryugu, Hayabusa2 TD1) and the Allende chondrite" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:defaultAnalytes "54 elements: Li",
-                "Ag",
-                "Al",
-                "As",
-                "Ba",
-                "Be",
-                "Bi",
-                "Ca",
-                "Cd",
-                "Co",
-                "Cr",
-                "Cs",
-                "Cu",
-                "Fe",
-                "Ga",
-                "Hf",
-                "In",
-                "K",
-                "La-Lu",
-                "Mg",
-                "Mn",
-                "Mo",
-                "Na",
-                "Nb",
-                "Ni",
-                "P",
-                "Pb",
-                "Rb",
-                "Sc",
-                "Se",
-                "Sr",
-                "Ta",
-                "Th",
-                "Ti",
-                "Tl",
-                "U",
-                "V",
-                "W",
-                "Y",
-                "Zn",
-                "Zr" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
@@ -11358,50 +9558,28 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
                 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> ;
+                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
             ada:defaultChannels "54 elements measured in three groups: Group-1 trace elements",
                 "Group-2 major and minor elements",
                 "Group-3 HFSE plus Mo and W" ] ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF" ;
-    ada:internalStandardApproach "missing" ;
     ada:internalStandardElement "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta" ;
+    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "N/A" ;
+    ada:perAnalyteCalibrationStrategy "Three strategies by group: calibration curve with 103Rh internal standardisation; 113In-203Tl ID-IS (Yokoyama et al. 2017); isotope dilution for Ti, Zr, Mo, Hf and W; 91Zr and 179Hf as internal standards for Nb and Ta" ;
     ada:primaryStandardNameDefault "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3" ;
     ada:reportedProperties "Elemental abundances, CI-normalised ratios" ;
-    ada:sampleSequenceDesign "missing" ;
     ada:samplingUnit "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende" ;
     ada:secondaryReferenceMaterialDefault "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:uncertaintyLevel "N — replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material" ;
     ada:washTimeBetweenSamples -9999 .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:valueName "limitOfQuantificationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -11421,16 +9599,37 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
-    schema1:name "Isobaric Interference Corrections Applied" ;
-    schema1:valueName "isobaricInterferenceCorrectionsApplied" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'" ;
     schema1:name "Analysis Inclusion and Rejection Criteria" ;
     schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Collision Gas Type" ;
+    schema1:value "He" ;
+    schema1:valueName "collisionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> a schema1:PropertyValueSpecification ;
+    schema1:name "Reaction Gas Type" ;
+    schema1:value "N/A — KED only" ;
+    schema1:valueName "reactionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Isotope Dilution Data Reduction Method" ;
+    schema1:value "ID-IS method of Kagami and Yokoyama (2021); isotope dilution for Ti, Zr, Mo, Hf and W" ;
+    schema1:valueName "isotopeDilutionDataReductionMethod" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -11487,11 +9686,11 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
 
 <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "KED (kinetic energy discrimination, He gas)" .
+    schema1:name "KED (He) mode" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -11517,21 +9716,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> a schema1:PropertyValue ;
-    schema1:name "Collision Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionGasType> ;
-    schema1:value "He" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> a schema1:PropertyValue ;
-    schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod> ;
-    schema1:value "ID-IS method of Kagami and Yokoyama (2021); isotope dilution for Ti, Zr, Mo, Hf and W" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> a schema1:PropertyValue ;
-    schema1:name "Reaction Gas Type" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionGasType> ;
-    schema1:value "N/A — KED only" .
-
 
 ```
 
@@ -11541,13 +9725,16 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution Q-ICP-MS Technique-Aligned Protocol Profile (solutionQicpmsTAPP)
 description: Solution quadrupole ICP-MS extension of the base TAPP definition, generated
-  from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v35.csv via the path-driven pipeline.
+  from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v73.csv via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     schema:object:
@@ -11581,10 +9768,7 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyse. Used for discoverability
-                              and procedure matching, and because the material type
-                              constrains sample preparation, calibration and matrix-matching
-                              requirements.
+                              this procedure is designed to analyse.
                             anyOf:
                             - type: string
                               enum:
@@ -11624,26 +9808,6 @@ allOf:
           items:
             type: object
             allOf:
-            - if:
-                properties:
-                  schema:name:
-                    const: Sample preparation
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:description:
-                    description: General approach to mechanical sample preparation
-                      prior to dissolution (e.g., whole-rock crushing and powdering,
-                      mineral separation). Documents how the solid material was conditioned
-                      before acid digestion.
-                    anyOf:
-                    - type: string
-                      readOnly: true
-                    - type: array
-                      items:
-                        type: string
-                        readOnly: true
             - if:
                 properties:
                   schema:name:
@@ -11688,60 +9852,10 @@ allOf:
                   schema:additionalProperty:
                     type: array
                     items:
-                      title: Guard Electrode
-                      description: Whether a guard electrode (grounded shield electrode)
-                        is installed and active on the torch assembly. Capacitively
-                        decouples the plasma from the load coil, reducing secondary
-                        discharge and improving ion extraction efficiency.
-                      type: object
-                      properties:
-                        '@id':
-                          const: ada:parameter/solutionQicpmsTAPP/guardElectrode
-                        '@type':
-                          const:
-                          - schema:PropertyValue
-                        schema:propertyID:
-                          const:
-                          - '@id': ada:parameter/solutionQicpmsTAPP/guardElectrode
-                        schema:name:
-                          const: Guard Electrode
-                        schema:value:
-                          type: string
-                      required:
-                      - '@id'
-                      - '@type'
-                      - schema:propertyID
-                      - schema:name
-                      - schema:value
-                      readOnly: true
+                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_guardElectrode
                     allOf:
                     - contains:
-                        title: Guard Electrode
-                        description: Whether a guard electrode (grounded shield electrode)
-                          is installed and active on the torch assembly. Capacitively
-                          decouples the plasma from the load coil, reducing secondary
-                          discharge and improving ion extraction efficiency.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionQicpmsTAPP/guardElectrode
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionQicpmsTAPP/guardElectrode
-                          schema:name:
-                            const: Guard Electrode
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_guardElectrode
                       minContains: 0
                       maxContains: 1
             - if:
@@ -11759,11 +9873,14 @@ allOf:
                       - title: Pulse/Analog Detector Nonlinearity Correction
                         description: Whether a correction was applied for nonlinear
                           detector response at the transition between pulse-counting
-                          and analog detection modes. For Q-ICP-MS instruments with
-                          dual-mode SEM detectors, a cross-calibration factor is measured
-                          and applied at the pulse-to-analog crossover threshold.
-                          Accurate cross-calibration is critical for analytes spanning
-                          a wide concentration range in the same session.
+                          and analog (and Faraday, for triple-mode instruments) detection
+                          modes. Cross-calibration factors between detector modes
+                          must be confirmed, typically measured each session. Record
+                          'Applied' and describe the method, the detector modes involved
+                          and the analytes affected; 'None' where a crossover exists
+                          on this instrument but no correction was made, giving the
+                          reason; and 'N/A' where the detector is pulse-counting only
+                          and no crossover exists.
                         type: object
                         properties:
                           '@id':
@@ -11790,62 +9907,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - title: Isotope Dilution Data Reduction Method
-                        description: "Mass balance approach used to calculate sample
-                          mass fractions from spike\u2013sample isotope ratio measurements.
-                          Record 'None' if isotope dilution is not used."
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod
-                          schema:name:
-                            const: Isotope Dilution Data Reduction Method
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      - title: Normalization / Standards-Based Correction
-                        description: Post-acquisition normalization applied to output
-                          concentrations relative to a reference value (e.g., correction
-                          to a monitor element's certified value in the calibration
-                          standard).
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: normalizationStandardsBasedCorrectionDefault
-                          schema:name:
-                            const: Normalization / Standards-Based Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
@@ -11853,11 +9915,14 @@ allOf:
                         title: Pulse/Analog Detector Nonlinearity Correction
                         description: Whether a correction was applied for nonlinear
                           detector response at the transition between pulse-counting
-                          and analog detection modes. For Q-ICP-MS instruments with
-                          dual-mode SEM detectors, a cross-calibration factor is measured
-                          and applied at the pulse-to-analog crossover threshold.
-                          Accurate cross-calibration is critical for analytes spanning
-                          a wide concentration range in the same session.
+                          and analog (and Faraday, for triple-mode instruments) detection
+                          modes. Cross-calibration factors between detector modes
+                          must be confirmed, typically measured each session. Record
+                          'Applied' and describe the method, the detector modes involved
+                          and the analytes affected; 'None' where a crossover exists
+                          on this instrument but no correction was made, giving the
+                          reason; and 'N/A' where the detector is pulse-counting only
+                          and no crossover exists.
                         type: object
                         properties:
                           '@id':
@@ -11887,65 +9952,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Isotope Dilution Data Reduction Method
-                        description: "Mass balance approach used to calculate sample
-                          mass fractions from spike\u2013sample isotope ratio measurements.
-                          Record 'None' if isotope dilution is not used."
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod
-                          schema:name:
-                            const: Isotope Dilution Data Reduction Method
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        title: Normalization / Standards-Based Correction
-                        description: Post-acquisition normalization applied to output
-                          concentrations relative to a reference value (e.g., correction
-                          to a monitor element's certified value in the calibration
-                          standard).
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: normalizationStandardsBasedCorrectionDefault
-                          schema:name:
-                            const: Normalization / Standards-Based Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -11956,29 +9963,7 @@ allOf:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       minContains: 0
                       maxContains: 1
-                  ada:detectionLimitMethod:
-                    description: Method used to calculate detection limits for each
-                      reported concentration variable.
-                    anyOf:
-                    - type: string
-                      enum:
-                      - "3\u03C3 blank"
-                      - "3\u03C3 background"
-                      - "3\u03C3 counting statistics"
-                      - "3\xD7 blank mean"
-                      - Poisson statistics
-                      - N/A
-                      - None
-                      - missing
-                    - type: string
-                    readOnly: true
           allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Sample preparation
-              required:
-              - schema:name
           - contains:
               properties:
                 schema:name:
@@ -12027,70 +10012,12 @@ allOf:
                 type: array
                 items:
                   anyOf:
-                  - title: Instrument Serial Number or Lab Identifier
-                    description: Serial number or laboratory-internal identifier for
-                      the specific instrument unit. Supports traceability to instrument
-                      service records.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: instrumentSerialNumberOrLabIdentifierDefault
-                      schema:name:
-                        const: Instrument Serial Number or Lab Identifier
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
-                  - title: Mass Resolution Setting
-                    description: "Mass resolution of the quadrupole analyser. For
-                      quadrupole instruments, mass resolution is fixed at unit resolution
-                      by instrument design (m/\u0394m \u2248 300); no operator selection
-                      is possible. This field documents the instrument class constraint
-                      at procedure level."
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/massResolutionSetting
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/solutionQicpmsTAPP/massResolutionSetting
-                      schema:name:
-                        const: Mass Resolution Setting
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
                   - title: Detector Configuration
                     description: Type(s) of detector(s) installed in the mass spectrometer
-                      and whether dual pulse-counting/analog mode is used. Most Q-ICP-MS
-                      instruments use a single SEM in dual mode (pulse counting at
-                      low signals, analog at high signals), with an instrument-specific
-                      crossover threshold. The pulse-to-analog cross-calibration correction
-                      is documented in Group 5.
+                      and whether dual pulse-counting/analog mode is used. The pulse-to-analog
+                      cross-calibration correction is documented in Group 5.
                     type: object
                     properties:
                       '@id':
@@ -12112,52 +10039,10 @@ allOf:
                     - schema:name
                     - schema:value
                     readOnly: true
-                  - title: Make-up Gas and Flow Rate
-                    description: "Supplementary gas added to the sample-carrying stream
-                      between the sample introduction system and the plasma, with
-                      its identity and the procedure-registered target flow rate.
-                      Argon make-up is standard and maintains total gas delivery where
-                      the carrier flow alone is insufficient \u2014 downstream of
-                      an ablation cell, or of a desolvation system that has removed
-                      solvent load. Small nitrogen or hydrogen additions are also
-                      made here to enhance sensitivity for some elements; record them
-                      with their own flow, whose unit commonly differs from the make-up
-                      flow. Record 'None' explicitly where no supplementary gas is
-                      added, to distinguish it from not reported."
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRateDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: makeUpGasAndFlowRateDefault
-                      schema:name:
-                        const: Make-up Gas and Flow Rate
-                      ada:dataType:
-                        const: number
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                      schema:unitText:
-                        const: L/min
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
                   - title: Doubly-Charged Species Monitor
                     description: Mass ratio monitored to estimate doubly-charged ion
-                      (M2+) formation during instrument tuning. Doubly-charged ions
-                      appear at half the nominal mass of the parent ion and can interfere
-                      with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+
-                      (m/z 70/140) are the most common proxies for solution ICP-MS.
+                      (M2+) formation during instrument tuning.
                     type: object
                     properties:
                       '@id':
@@ -12187,10 +10072,8 @@ allOf:
                   - title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production
                       for the monitored species at the time of instrument tuning.
-                      Record both the acceptance threshold and the measured value.
-                      Elevated doubly-charged production indicates incomplete ionization
-                      and potential interference on elements at approximately half
-                      the mass of abundant matrix components.
+                      The acceptable threshold is typically <1% or <3%. Record both
+                      the threshold and the measured value.
                     type: object
                     properties:
                       '@id':
@@ -12217,113 +10100,21 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - title: Memory Effect Mitigation
-                    description: Procedure applied to identify and minimize carry-over
-                      of high-concentration elements between successive sample introductions.
-                      For solution ICP-MS, mitigation is implemented primarily at
-                      measurement time through extended rinse periods (see Wash Time
-                      Between Samples, Group 4). At data processing level, documents
-                      any flagging or exclusion of measurements preceded by high-concentration
-                      samples or standards where the required washout time may not
-                      have been achieved.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: memoryEffectMitigationDefault
-                      schema:name:
-                        const: Memory Effect Mitigation
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation
                 allOf:
                 - contains:
-                    title: Instrument Serial Number or Lab Identifier
-                    description: Serial number or laboratory-internal identifier for
-                      the specific instrument unit. Supports traceability to instrument
-                      service records.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: instrumentSerialNumberOrLabIdentifierDefault
-                      schema:name:
-                        const: Instrument Serial Number or Lab Identifier
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    title: Mass Resolution Setting
-                    description: "Mass resolution of the quadrupole analyser. For
-                      quadrupole instruments, mass resolution is fixed at unit resolution
-                      by instrument design (m/\u0394m \u2248 300); no operator selection
-                      is possible. This field documents the instrument class constraint
-                      at procedure level."
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/massResolutionSetting
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/solutionQicpmsTAPP/massResolutionSetting
-                      schema:name:
-                        const: Mass Resolution Setting
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
                   minContains: 0
                   maxContains: 1
                 - contains:
                     title: Detector Configuration
                     description: Type(s) of detector(s) installed in the mass spectrometer
-                      and whether dual pulse-counting/analog mode is used. Most Q-ICP-MS
-                      instruments use a single SEM in dual mode (pulse counting at
-                      low signals, analog at high signals), with an instrument-specific
-                      crossover threshold. The pulse-to-analog cross-calibration correction
-                      is documented in Group 5.
+                      and whether dual pulse-counting/analog mode is used. The pulse-to-analog
+                      cross-calibration correction is documented in Group 5.
                     type: object
                     properties:
                       '@id':
@@ -12348,55 +10139,13 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    title: Make-up Gas and Flow Rate
-                    description: "Supplementary gas added to the sample-carrying stream
-                      between the sample introduction system and the plasma, with
-                      its identity and the procedure-registered target flow rate.
-                      Argon make-up is standard and maintains total gas delivery where
-                      the carrier flow alone is insufficient \u2014 downstream of
-                      an ablation cell, or of a desolvation system that has removed
-                      solvent load. Small nitrogen or hydrogen additions are also
-                      made here to enhance sensitivity for some elements; record them
-                      with their own flow, whose unit commonly differs from the make-up
-                      flow. Record 'None' explicitly where no supplementary gas is
-                      added, to distinguish it from not reported."
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRateDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: makeUpGasAndFlowRateDefault
-                      schema:name:
-                        const: Make-up Gas and Flow Rate
-                      ada:dataType:
-                        const: number
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                      schema:unitText:
-                        const: L/min
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
                   minContains: 0
                   maxContains: 1
                 - contains:
                     title: Doubly-Charged Species Monitor
                     description: Mass ratio monitored to estimate doubly-charged ion
-                      (M2+) formation during instrument tuning. Doubly-charged ions
-                      appear at half the nominal mass of the parent ion and can interfere
-                      with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+
-                      (m/z 70/140) are the most common proxies for solution ICP-MS.
+                      (M2+) formation during instrument tuning.
                     type: object
                     properties:
                       '@id':
@@ -12429,10 +10178,8 @@ allOf:
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production
                       for the monitored species at the time of instrument tuning.
-                      Record both the acceptance threshold and the measured value.
-                      Elevated doubly-charged production indicates incomplete ionization
-                      and potential interference on elements at approximately half
-                      the mass of abundant matrix components.
+                      The acceptable threshold is typically <1% or <3%. Record both
+                      the threshold and the measured value.
                     type: object
                     properties:
                       '@id':
@@ -12462,41 +10209,7 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    title: Memory Effect Mitigation
-                    description: Procedure applied to identify and minimize carry-over
-                      of high-concentration elements between successive sample introductions.
-                      For solution ICP-MS, mitigation is implemented primarily at
-                      measurement time through extended rinse periods (see Wash Time
-                      Between Samples, Group 4). At data processing level, documents
-                      any flagging or exclusion of measurements preceded by high-concentration
-                      samples or standards where the required washout time may not
-                      have been achieved.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault
-                      '@type':
-                        const:
-                        - schema:PropertyValueSpecification
-                      schema:valueName:
-                        const: memoryEffectMitigationDefault
-                      schema:name:
-                        const: Memory Effect Mitigation
-                      ada:dataType:
-                        const: string
-                      ada:fieldScope:
-                        const: session
-                      schema:readonlyValue:
-                        const: false
-                      ada:tier:
-                        const: R
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:valueName
-                    - schema:name
-                    - ada:dataType
-                    - ada:fieldScope
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation
                   minContains: 0
                   maxContains: 1
               schema:hasPart:
@@ -12504,102 +10217,6 @@ allOf:
                 items:
                   type: object
                   allOf:
-                  - if:
-                      properties:
-                        schema:additionalType:
-                          contains:
-                            const: Torch
-                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                      required:
-                      - schema:additionalType
-                    then:
-                      properties:
-                        schema:name:
-                          description: Type of plasma torch used (e.g., standard quartz,
-                            high-matrix, low-flow).
-                          anyOf:
-                          - type: string
-                            readOnly: true
-                          - type: array
-                            items:
-                              type: string
-                              readOnly: true
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            title: Torch Depth
-                            description: Distance between the load coil and the sampling
-                              cone tip (mm), also called injector depth or torch position
-                              depending on the instrument manufacturer. Affects ion
-                              transmission efficiency, oxide formation, and doubly-charged
-                              species production. The procedure specifies a target
-                              value optimised during initial setup; the analyst confirms
-                              or fine-adjusts during session tuning.
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:parameter/solutionQicpmsTAPP/torchDepthDefault
-                              '@type':
-                                const:
-                                - schema:PropertyValueSpecification
-                              schema:valueName:
-                                const: torchDepthDefault
-                              schema:name:
-                                const: Torch Depth
-                              ada:dataType:
-                                const: string
-                              ada:fieldScope:
-                                const: session
-                              schema:readonlyValue:
-                                const: false
-                              ada:tier:
-                                const: R
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - ada:fieldScope
-                          allOf:
-                          - contains:
-                              title: Torch Depth
-                              description: Distance between the load coil and the
-                                sampling cone tip (mm), also called injector depth
-                                or torch position depending on the instrument manufacturer.
-                                Affects ion transmission efficiency, oxide formation,
-                                and doubly-charged species production. The procedure
-                                specifies a target value optimised during initial
-                                setup; the analyst confirms or fine-adjusts during
-                                session tuning.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/torchDepthDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: torchDepthDefault
-                                schema:name:
-                                  const: Torch Depth
-                                ada:dataType:
-                                  const: string
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                            minContains: 0
-                            maxContains: 1
                   - if:
                       properties:
                         schema:additionalType:
@@ -12614,494 +10231,34 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - title: Interface Cone Configuration
-                              description: Geometry and designation of the sampler
-                                and skimmer cones installed during analysis. Some
-                                instruments offer multiple skimmer cone geometries
-                                (standard, high-sensitivity) that differ in aperture
-                                size and affect ion transmission efficiency and matrix
-                                tolerance.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration
-                                schema:name:
-                                  const: Interface Cone Configuration
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            - title: Sampler and Skimmer Cone Material
-                              description: Material composition of the sampler and
-                                skimmer cones. Nickel (Ni) is standard for most aqueous
-                                matrices. Platinum (Pt) is used for samples in HCl-rich
-                                or organic matrices due to greater corrosion resistance.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
-                                schema:name:
-                                  const: Sampler and Skimmer Cone Material
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_configuration
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_samplerAndSkimmerConeMaterial
                           allOf:
                           - contains:
-                              title: Interface Cone Configuration
-                              description: Geometry and designation of the sampler
-                                and skimmer cones installed during analysis. Some
-                                instruments offer multiple skimmer cone geometries
-                                (standard, high-sensitivity) that differ in aperture
-                                size and affect ion transmission efficiency and matrix
-                                tolerance.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration
-                                schema:name:
-                                  const: Interface Cone Configuration
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_configuration
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Sampler and Skimmer Cone Material
-                              description: Material composition of the sampler and
-                                skimmer cones. Nickel (Ni) is standard for most aqueous
-                                matrices. Platinum (Pt) is used for samples in HCl-rich
-                                or organic matrices due to greater corrosion resistance.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
-                                schema:name:
-                                  const: Sampler and Skimmer Cone Material
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_samplerAndSkimmerConeMaterial
                             minContains: 0
                             maxContains: 1
                   - if:
                       properties:
                         schema:additionalType:
                           contains:
-                            const: Collision Reaction Cell
+                            const: Torch
                           schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                       required:
                       - schema:additionalType
                     then:
                       properties:
-                        schema:name:
-                          description: Whether a collision or reaction cell is installed
-                            and its operating mode for this procedure. STD = standard
-                            mode with no cell gas; KED = kinetic energy discrimination
-                            with He or H2 collision gas to suppress polyatomic interferences;
-                            DRC = dynamic reaction cell with reactive gas (e.g., NH3).
-                            Specific gas types, flow rates, and voltages are documented
-                            in Group 4.
-                          anyOf:
-                          - type: string
-                            enum:
-                            - Not installed
-                            - STD (standard mode, no gas)
-                            - KED (kinetic energy discrimination, He gas)
-                            - DRC (dynamic reaction cell, reactive gas)
-                            - KED+DRC
-                            - ICP-MS/MS (triple-quadrupole mode)
-                            - N/A
-                            - None
-                            - missing
-                            readOnly: true
-                          - type: array
-                            items:
-                              type: string
-                              enum:
-                              - Not installed
-                              - STD (standard mode, no gas)
-                              - KED (kinetic energy discrimination, He gas)
-                              - DRC (dynamic reaction cell, reactive gas)
-                              - KED+DRC
-                              - ICP-MS/MS (triple-quadrupole mode)
-                              - N/A
-                              - None
-                              - missing
-                              readOnly: true
                         schema:additionalProperty:
                           type: array
                           items:
-                            anyOf:
-                            - title: Collision Gas Type
-                              description: Type of collision gas used in KED mode
-                                for polyatomic interference suppression. Record 'N/A'
-                                if KED mode is not used. Record 'N/A' where Collision/Reaction
-                                Cell (CRC) Configuration does not include KED.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/collisionGasType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/collisionGasType
-                                schema:name:
-                                  const: Collision Gas Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            - title: Collision Gas Flow Rate
-                              description: Flow rate of the collision gas in KED mode
-                                (mL/min). Higher flow rates provide greater interference
-                                suppression at the cost of analyte sensitivity. Record
-                                'N/A' if KED mode is not used. Record 'N/A' where
-                                Collision/Reaction Cell (CRC) Configuration does not
-                                include KED.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: collisionGasFlowRateDefault
-                                schema:name:
-                                  const: Collision Gas Flow Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: mL/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                            - title: Cell Exit Discrimination Voltage
-                              description: Kinetic energy discrimination offset voltage
-                                applied at the exit of the collision cell (V). Controls
-                                the degree of polyatomic ion suppression. Record 'N/A'
-                                if KED mode is not used. Record 'N/A' where Collision/Reaction
-                                Cell (CRC) Configuration does not include KED.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltageDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: cellExitDiscriminationVoltageDefault
-                                schema:name:
-                                  const: Cell Exit Discrimination Voltage
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: V
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                            - title: Reaction Gas Type
-                              description: Type of reactive gas introduced into the
-                                dynamic reaction cell (e.g., NH3, O2, CH4). Record
-                                'N/A' if DRC mode is not used. Record 'N/A' where
-                                Collision/Reaction Cell (CRC) Configuration does not
-                                include DRC.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/reactionGasType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/reactionGasType
-                                schema:name:
-                                  const: Reaction Gas Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            - title: Reaction Gas Flow Rate
-                              description: Flow rate of the reaction gas in DRC mode
-                                (mL/min). Record 'N/A' if DRC mode is not used. Record
-                                'N/A' where Collision/Reaction Cell (CRC) Configuration
-                                does not include DRC.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: reactionGasFlowRateDefault
-                                schema:name:
-                                  const: Reaction Gas Flow Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: mL/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_torchDepth
                           allOf:
                           - contains:
-                              title: Collision Gas Type
-                              description: Type of collision gas used in KED mode
-                                for polyatomic interference suppression. Record 'N/A'
-                                if KED mode is not used. Record 'N/A' where Collision/Reaction
-                                Cell (CRC) Configuration does not include KED.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/collisionGasType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/collisionGasType
-                                schema:name:
-                                  const: Collision Gas Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              title: Collision Gas Flow Rate
-                              description: Flow rate of the collision gas in KED mode
-                                (mL/min). Higher flow rates provide greater interference
-                                suppression at the cost of analyte sensitivity. Record
-                                'N/A' if KED mode is not used. Record 'N/A' where
-                                Collision/Reaction Cell (CRC) Configuration does not
-                                include KED.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: collisionGasFlowRateDefault
-                                schema:name:
-                                  const: Collision Gas Flow Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: mL/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              title: Cell Exit Discrimination Voltage
-                              description: Kinetic energy discrimination offset voltage
-                                applied at the exit of the collision cell (V). Controls
-                                the degree of polyatomic ion suppression. Record 'N/A'
-                                if KED mode is not used. Record 'N/A' where Collision/Reaction
-                                Cell (CRC) Configuration does not include KED.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltageDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: cellExitDiscriminationVoltageDefault
-                                schema:name:
-                                  const: Cell Exit Discrimination Voltage
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: V
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              title: Reaction Gas Type
-                              description: Type of reactive gas introduced into the
-                                dynamic reaction cell (e.g., NH3, O2, CH4). Record
-                                'N/A' if DRC mode is not used. Record 'N/A' where
-                                Collision/Reaction Cell (CRC) Configuration does not
-                                include DRC.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/reactionGasType
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/reactionGasType
-                                schema:name:
-                                  const: Reaction Gas Type
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              title: Reaction Gas Flow Rate
-                              description: Flow rate of the reaction gas in DRC mode
-                                (mL/min). Record 'N/A' if DRC mode is not used. Record
-                                'N/A' where Collision/Reaction Cell (CRC) Configuration
-                                does not include DRC.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: reactionGasFlowRateDefault
-                                schema:name:
-                                  const: Reaction Gas Flow Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: mL/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_torchDepth
                             minContains: 0
                             maxContains: 1
                   - if:
@@ -13153,267 +10310,65 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - title: RF Power
-                              description: Radiofrequency forward power applied to
-                                the plasma (W). Controls ionization efficiency and
-                                oxide production rates.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/rfPowerDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: rfPowerDefault
-                                schema:name:
-                                  const: RF Power
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: W
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                            - title: Coolant (Plasma) Gas Flow Rate
-                              description: Flow rate of the outer (coolant) argon
-                                gas stream (L/min). Influences plasma temperature
-                                and oxide ion formation.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: coolantGasFlowRateDefault
-                                schema:name:
-                                  const: Coolant (Plasma) Gas Flow Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: L/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                            - title: Auxiliary Gas Flow Rate
-                              description: Flow rate of the intermediate (auxiliary)
-                                argon gas stream between torch body and injector tube
-                                (L/min).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: auxiliaryGasFlowRateDefault
-                                schema:name:
-                                  const: Auxiliary Gas Flow Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: L/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
-                            - title: Plasma Thermal Mode
-                              description: "Whether the ICP plasma is operated under
-                                cool plasma or normal (hot) plasma conditions. Normal
-                                plasma (>1000 W RF) is standard for most solution
-                                ICP-MS analyses. Cool plasma (\u2264900 W RF) reduces
-                                argide-based interferences (e.g., 40Ar12C+ on 52Cr)
-                                at the cost of reduced sensitivity and ionization
-                                efficiency for most elements."
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/plasmaThermalMode
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/plasmaThermalMode
-                                schema:name:
-                                  const: Plasma Thermal Mode
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_rfPower
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_coolantPlasmaGasFlowRate
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_auxiliaryGasFlowRate
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_plasmaThermalMode
                           allOf:
                           - contains:
-                              title: RF Power
-                              description: Radiofrequency forward power applied to
-                                the plasma (W). Controls ionization efficiency and
-                                oxide production rates.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/rfPowerDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: rfPowerDefault
-                                schema:name:
-                                  const: RF Power
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: W
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_rfPower
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Coolant (Plasma) Gas Flow Rate
-                              description: Flow rate of the outer (coolant) argon
-                                gas stream (L/min). Influences plasma temperature
-                                and oxide ion formation.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: coolantGasFlowRateDefault
-                                schema:name:
-                                  const: Coolant (Plasma) Gas Flow Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: L/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_coolantPlasmaGasFlowRate
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Auxiliary Gas Flow Rate
-                              description: Flow rate of the intermediate (auxiliary)
-                                argon gas stream between torch body and injector tube
-                                (L/min).
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: auxiliaryGasFlowRateDefault
-                                schema:name:
-                                  const: Auxiliary Gas Flow Rate
-                                ada:dataType:
-                                  const: number
-                                ada:fieldScope:
-                                  const: session
-                                schema:readonlyValue:
-                                  const: false
-                                ada:tier:
-                                  const: R
-                                schema:unitText:
-                                  const: L/min
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - ada:fieldScope
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_auxiliaryGasFlowRate
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Plasma Thermal Mode
-                              description: "Whether the ICP plasma is operated under
-                                cool plasma or normal (hot) plasma conditions. Normal
-                                plasma (>1000 W RF) is standard for most solution
-                                ICP-MS analyses. Cool plasma (\u2264900 W RF) reduces
-                                argide-based interferences (e.g., 40Ar12C+ on 52Cr)
-                                at the cost of reduced sensitivity and ionization
-                                efficiency for most elements."
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/solutionQicpmsTAPP/plasmaThermalMode
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/solutionQicpmsTAPP/plasmaThermalMode
-                                schema:name:
-                                  const: Plasma Thermal Mode
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                              readOnly: true
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_plasmaThermalMode
+                            minContains: 0
+                            maxContains: 1
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
+                            const: Collision Reaction Cell
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            anyOf:
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_collisionGasType
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_gasFlowRate
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_cellExitDiscriminationVoltage
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_reactionGasType
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_reactionGasFlowRate
+                          allOf:
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_collisionGasType
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_gasFlowRate
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_cellExitDiscriminationVoltage
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_reactionGasType
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_reactionGasFlowRate
                             minContains: 0
                             maxContains: 1
                 allOf:
@@ -13422,14 +10377,6 @@ allOf:
                       schema:additionalType:
                         contains:
                           const: Interface Cone
-                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                    required:
-                    - schema:additionalType
-                - contains:
-                    properties:
-                      schema:additionalType:
-                        contains:
-                          const: Collision Reaction Cell
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
@@ -13449,6 +10396,14 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+                - contains:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: Collision Reaction Cell
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                    required:
+                    - schema:additionalType
       allOf:
       - contains:
           properties:
@@ -13464,101 +10419,8 @@ allOf:
         anyOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_internalStandardConcentration
-        - title: Spike / Outlier Filtering Approach
-          description: Criteria used to identify and exclude anomalous replicate measurements
-            or data points from the calculated mean.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproachDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: spikeOutlierFilteringApproachDefault
-            schema:name:
-              const: Spike / Outlier Filtering Approach
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Uncertainty Propagation Method
-          description: 'The approach used to propagate analytical uncertainty through
-            the data reduction chain to the final reported value. State which sources
-            are included in the propagation: counting statistics, calibration standard
-            uncertainty, internal standard uncertainty, drift correction, and any
-            systematic contributions. Distinct from Uncertainty Level, which states
-            the convention at which the resulting uncertainty is quoted.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: uncertaintyPropagationMethodDefault
-            schema:name:
-              const: Uncertainty Propagation Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Detection Limit
-          description: "Elemental detection limits, one per reported concentration
-            variable (one per analyte, these being the same set). Specify units (\xB5g/g
-            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
-            measured values."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
       allOf:
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
@@ -13569,107 +10431,11 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Spike / Outlier Filtering Approach
-          description: Criteria used to identify and exclude anomalous replicate measurements
-            or data points from the calculated mean.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproachDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: spikeOutlierFilteringApproachDefault
-            schema:name:
-              const: Spike / Outlier Filtering Approach
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
         minContains: 0
         maxContains: 1
       - contains:
-          title: Uncertainty Propagation Method
-          description: 'The approach used to propagate analytical uncertainty through
-            the data reduction chain to the final reported value. State which sources
-            are included in the propagation: counting statistics, calibration standard
-            uncertainty, internal standard uncertainty, drift correction, and any
-            systematic contributions. Distinct from Uncertainty Level, which states
-            the convention at which the resulting uncertainty is quoted.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: uncertaintyPropagationMethodDefault
-            schema:name:
-              const: Uncertainty Propagation Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit
-          description: "Elemental detection limits, one per reported concentration
-            variable (one per analyte, these being the same set). Specify units (\xB5g/g
-            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
-            measured values."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
         minContains: 0
         maxContains: 1
     ada:channelTemplate:
@@ -13687,8 +10453,9 @@ allOf:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
             - title: Dwell Time per Mass
-              description: Integration time spent on each mass peak per sweep (ms).
-                May differ between masses where per-mass dwell times are programmed.
+              description: Count (dwell) time at the mass position, in milliseconds.
+                Where the procedure defines it per sweep or per scan rather than per
+                measurement, state that basis.
               type: object
               properties:
                 '@id':
@@ -13723,21 +10490,23 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Isobaric Interference Corrections Applied
-              description: Whether mathematical corrections for isobaric or polyatomic
-                interferences are applied during data reduction (in addition to any
-                KED or DRC mitigation in the instrument).
+            - title: Spectral Interference Corrections Applied
+              description: Whether mathematical corrections for isobaric, polyatomic
+                or residual interferences are applied in data reduction, supplementary
+                to any suppression already achieved by chemical separation, mass resolution,
+                or a collision/reaction cell. Detail for each affected mass is carried
+                by Interfering Species and Interference Correction Method.
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
+                  const: ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: isobaricInterferenceCorrectionsApplied
+                  const: spectralInterferenceCorrectionsApplied
                 schema:name:
-                  const: Isobaric Interference Corrections Applied
+                  const: Spectral Interference Corrections Applied
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -13758,10 +10527,11 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Interfering Species
-              description: List of isobaric or polyatomic species mathematically corrected
-                in data reduction. For Q-ICP-MS, common interferences include ArCl+
-                on 75As, MoO+ species on Cd isotopes, and BaO+ on Eu. Additional interference
-                mitigation via KED or DRC is documented in Group 3 and Group 4.
+              description: The isobaric, polyatomic and doubly charged species that
+                overlap the measured masses and are corrected in data reduction -
+                direct isobars, oxides and argides, hydrides, and abundance-sensitivity
+                tailing from an adjacent large beam. Name each species and the mass
+                it affects.
               type: object
               properties:
                 '@id':
@@ -13793,10 +10563,12 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Interference Correction Method
-              description: Mathematical approach used to calculate and remove interference
-                contributions from measured signals (e.g., interference standard solutions
-                isolating specific polyatomics, mass-balance equations using empirical
-                correction factors).
+              description: Equation or procedure used to calculate and remove each
+                interference contribution, together with how its magnitude was established
+                - a monitor mass measured simultaneously and scaled by natural abundance
+                ratios, a production-rate factor measured on a reference material
+                or interference standard solution, or a tailing factor measured on
+                a pure standard. Name the reference material used.
               type: object
               properties:
                 '@id':
@@ -13830,8 +10602,9 @@ allOf:
           allOf:
           - contains:
               title: Dwell Time per Mass
-              description: Integration time spent on each mass peak per sweep (ms).
-                May differ between masses where per-mass dwell times are programmed.
+              description: Count (dwell) time at the mass position, in milliseconds.
+                Where the procedure defines it per sweep or per scan rather than per
+                measurement, state that basis.
               type: object
               properties:
                 '@id':
@@ -13869,21 +10642,23 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Isobaric Interference Corrections Applied
-              description: Whether mathematical corrections for isobaric or polyatomic
-                interferences are applied during data reduction (in addition to any
-                KED or DRC mitigation in the instrument).
+              title: Spectral Interference Corrections Applied
+              description: Whether mathematical corrections for isobaric, polyatomic
+                or residual interferences are applied in data reduction, supplementary
+                to any suppression already achieved by chemical separation, mass resolution,
+                or a collision/reaction cell. Detail for each affected mass is carried
+                by Interfering Species and Interference Correction Method.
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
+                  const: ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: isobaricInterferenceCorrectionsApplied
+                  const: spectralInterferenceCorrectionsApplied
                 schema:name:
-                  const: Isobaric Interference Corrections Applied
+                  const: Spectral Interference Corrections Applied
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -13907,10 +10682,11 @@ allOf:
             maxContains: 1
           - contains:
               title: Interfering Species
-              description: List of isobaric or polyatomic species mathematically corrected
-                in data reduction. For Q-ICP-MS, common interferences include ArCl+
-                on 75As, MoO+ species on Cd isotopes, and BaO+ on Eu. Additional interference
-                mitigation via KED or DRC is documented in Group 3 and Group 4.
+              description: The isobaric, polyatomic and doubly charged species that
+                overlap the measured masses and are corrected in data reduction -
+                direct isobars, oxides and argides, hydrides, and abundance-sensitivity
+                tailing from an adjacent large beam. Name each species and the mass
+                it affects.
               type: object
               properties:
                 '@id':
@@ -13945,10 +10721,12 @@ allOf:
             maxContains: 1
           - contains:
               title: Interference Correction Method
-              description: Mathematical approach used to calculate and remove interference
-                contributions from measured signals (e.g., interference standard solutions
-                isolating specific polyatomics, mass-balance equations using empirical
-                correction factors).
+              description: Equation or procedure used to calculate and remove each
+                interference contribution, together with how its magnitude was established
+                - a monitor mass measured simultaneously and scaled by natural abundance
+                ratios, a production-rate factor measured on a reference material
+                or interference standard solution, or a tailing factor measured on
+                a pure standard. Name the reference material used.
               type: object
               properties:
                 '@id':
@@ -13998,51 +10776,19 @@ allOf:
         For spot analysis this is the number of individual spots per grain or location;
         for transects, the number of replicate lines; for mapping, the number of map
         acquisitions of the same area; for solution work, the number of discrete replicate
-        measurements acquired per sample solution. The procedure registers an intended
-        count where it has one; the analysis records the count actually acquired.
+        measurements acquired per sample solution.
       anyOf:
       - type: integer
       - type: string
-    ada:sampleSequenceDesign:
-      description: 'Description of the measurement order within a session: how samples,
-        blanks, calibration standards, and reference materials are interleaved.'
-      type: string
-      readOnly: true
     ada:signalCollectionMode:
       description: Mode used to collect ion signal across the monitored masses. In
         peak hopping mode, the quadrupole jumps sequentially between pre-set mass
         positions and dwells at each peak; in scanning mode, the quadrupole sweeps
-        continuously across a defined mass range. Peak hopping is standard for multi-element
-        trace analysis as it maximises integration time at each mass.
+        continuously across a defined mass range.
       type: string
       enum:
       - Peak hopping
       - Scanning
-      - N/A
-      - None
-      - missing
-      readOnly: true
-    ada:internalStandardElement:
-      description: Element(s) added at a known concentration to all solutions (samples,
-        blanks, calibration standards) and used as internal standards for drift correction
-        and matrix normalization. Specify element and monitored isotope.
-      type: string
-      readOnly: true
-    ada:oxideProductionMethodAndThreshold:
-      description: Method used to quantify plasma oxide production and the acceptance
-        threshold applied before commencing analysis. Record both the monitored mass
-        ratio(s) and the maximum allowed threshold(s). Measured values are recorded
-        in Oxide Production. CeO+/Ce+ (m/z 156/140) is the standard monitor proxy.
-      type: string
-      readOnly: true
-    ada:internalStandardApproach:
-      description: 'Role(s) assigned to the internal standard(s) in data reduction:
-        drift correction only, matrix normalization, or a combination.'
-      type: string
-      enum:
-      - Drift correction only
-      - Matrix normalization
-      - Drift + matrix normalization
       - N/A
       - None
       - missing
@@ -14058,218 +10804,6 @@ allOf:
       - N/A
       - missing
       readOnly: true
-    ada:perAnalyteCalibrationStrategy:
-      type: array
-      items:
-        description: Approach used to convert measured ion signals to elemental concentrations.
-          Documents cases where different analytes or analyte groups are calibrated
-          using different strategies within the same procedure. If a single strategy
-          is applied uniformly to all analytes, record that strategy.
-        type: string
-        enum:
-        - External calibration (all analytes)
-        - Isotope dilution (all analytes)
-        - ID for Zn (67Zn spike); external calibration for all other elements
-        - External calibration + standard addition
-        - N/A
-        - None
-        - missing
-        readOnly: true
-    ada:signalIntegrationIntervalMethod:
-      description: Method used to define the integration window for each replicate
-        measurement (e.g., full acquisition time, stable-interval selection, automated
-        criteria).
-      type: string
-      enum:
-      - Full replicate
-      - Stable interval selection
-      - Automated peak detection
-      - N/A
-      - None
-      - missing
-      readOnly: true
-    ada:blankBackgroundCorrectionMethod:
-      description: Method used to subtract instrument background and/or procedural
-        blank from sample signals.
-      type: string
-      enum:
-      - On-peak zero
-      - Solution blank
-      - Procedural blank
-      - N/A
-      - None
-      - missing
-      readOnly: true
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the
-            procedure's declared reported properties. schema:variableMeasured carries
-            the dataset's actual variables; the reported-property branches above are
-            permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied to output concentrations
-            relative to a reference value (e.g., correction to a monitor element's
-            certified value in the calibration standard).
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: normalizationStandardsBasedCorrectionDefault
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Detection Limit
-          description: "Elemental detection limits, one per reported concentration
-            variable (one per analyte, these being the same set). Specify units (\xB5g/g
-            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
-            measured values."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-      allOf:
-      - contains:
-          title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied to output concentrations
-            relative to a reference value (e.g., correction to a monitor element's
-            certified value in the calibration standard).
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: normalizationStandardsBasedCorrectionDefault
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit
-          description: "Elemental detection limits, one per reported concentration
-            variable (one per analyte, these being the same set). Specify units (\xB5g/g
-            or \xB5g/L) and whether values are procedure-typical estimates or session-specific
-            measured values."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/solutionQicpmsTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-    ada:primaryStandardNameDefault:
-      description: Name and reference material identifier of the external calibration
-        standard used to convert signal intensities to elemental concentrations. Include
-        the material name, its source or supplier, and a citation for the accepted
-        values used, since results calibrated against different published values for
-        the same material are not directly comparable.
-      type: string
-    ada:calibrationMeasurementFrequency:
-      description: How often the primary calibration standard is measured relative
-        to unknown samples within a session.
-      type: string
-      readOnly: true
-    ada:secondaryReferenceMaterialDefault:
-      type: array
-      items:
-        description: Reference material(s) measured as unknowns to independently assess
-          analytical accuracy. Specify material name and expected-value source.
-        type: string
     ada:analyteTemplate:
       type: object
       properties:
@@ -14279,7 +10813,10 @@ allOf:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Limit of Quantification (LOQ) Method
-              description: Method used to determine the limit of quantification.
+              description: 'Reference or description of the method used to calculate
+                the limit of quantification (LOQ): the lowest concentration reliably
+                measurable with acceptable precision and accuracy. Required when concentrations
+                near the LOD are reported.'
               type: object
               properties:
                 '@id':
@@ -14347,9 +10884,7 @@ allOf:
                 and the method used to assess it. Report both the assessment method
                 and the precision values, specifying the reference material, the number
                 of measurements and sessions, the time span covered, and the statistic
-                reported. Long-term precision is normally poorer than within-session
-                precision and is the figure a data user should carry when comparing
-                results from different sessions."
+                reported."
               type: object
               properties:
                 '@id':
@@ -14377,8 +10912,13 @@ allOf:
               - schema:name
               - ada:dataType
             - title: Analytical Accuracy and Assessment Method
-              description: Accuracy of final concentration measurements relative to
-                certified or consensus values and the method used to assess it.
+              description: Offset between measured and accepted values for secondary
+                reference materials, and the method used to assess it. Specify the
+                reference material and the source of its accepted values, the number
+                of analyses, and the quantities assessed. Report systematic biases
+                and their likely causes. Express the offset in the form appropriate
+                to what the procedure reports - percent relative bias for concentrations,
+                or deviation in delta or ratio units for isotopic quantities.
               type: object
               properties:
                 '@id':
@@ -14408,7 +10948,10 @@ allOf:
           allOf:
           - contains:
               title: Limit of Quantification (LOQ) Method
-              description: Method used to determine the limit of quantification.
+              description: 'Reference or description of the method used to calculate
+                the limit of quantification (LOQ): the lowest concentration reliably
+                measurable with acceptable precision and accuracy. Required when concentrations
+                near the LOD are reported.'
               type: object
               properties:
                 '@id':
@@ -14482,9 +11025,7 @@ allOf:
                 and the method used to assess it. Report both the assessment method
                 and the precision values, specifying the reference material, the number
                 of measurements and sessions, the time span covered, and the statistic
-                reported. Long-term precision is normally poorer than within-session
-                precision and is the figure a data user should carry when comparing
-                results from different sessions."
+                reported."
               type: object
               properties:
                 '@id':
@@ -14515,8 +11056,13 @@ allOf:
             maxContains: 1
           - contains:
               title: Analytical Accuracy and Assessment Method
-              description: Accuracy of final concentration measurements relative to
-                certified or consensus values and the method used to assess it.
+              description: Offset between measured and accepted values for secondary
+                reference materials, and the method used to assess it. Specify the
+                reference material and the source of its accepted values, the number
+                of analyses, and the quantities assessed. Report systematic biases
+                and their likely causes. Express the offset in the form appropriate
+                to what the procedure reports - percent relative bias for concentrations,
+                or deviation in delta or ratio units for isotopic quantities.
               type: object
               properties:
                 '@id':
@@ -14548,16 +11094,8 @@ allOf:
   required:
   - ada:massCyclesPerReplicate
   - ada:numberOfReplicatesPerSample
-  - ada:sampleSequenceDesign
   - ada:signalCollectionMode
-  - ada:internalStandardElement
-  - ada:oxideProductionMethodAndThreshold
-  - ada:internalStandardApproach
   - ada:driftCorrectionMethod
-  - ada:signalIntegrationIntervalMethod
-  - ada:blankBackgroundCorrectionMethod
-  - ada:primaryStandardNameDefault
-  - ada:calibrationMeasurementFrequency
 
 ```
 

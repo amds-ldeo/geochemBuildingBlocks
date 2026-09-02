@@ -48,36 +48,6 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -175,6 +145,36 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -193,7 +193,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -246,36 +246,6 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -373,6 +343,36 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -391,7 +391,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -415,14 +415,14 @@ ex:semImagingTAPP-Garvie2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -451,7 +451,7 @@ ex:semImagingTAPP-Garvie2008 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -513,7 +513,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Genge2025",
-  "schema:description": "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v15.csv).",
+  "schema:description": "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v29.csv).",
   "schema:object": [
     {
       "@type": [
@@ -596,7 +596,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "ada:acceleratingVoltageDefault": "10 kV",
       "@type": [
         "schema:Product",
@@ -674,7 +674,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -709,7 +709,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol \u2014 Genge2025",
-  "schema:description": "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v15.csv).",
+  "schema:description": "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v29.csv).",
   "schema:object": [
     {
       "@type": [
@@ -792,7 +792,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "ada:acceleratingVoltageDefault": "10 kV",
       "@type": [
         "schema:Product",
@@ -870,7 +870,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -894,15 +894,15 @@ ex:semImagingTAPP-Genge2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v15.csv)." ;
+    schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v29.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
@@ -929,13 +929,13 @@ ex:semImagingTAPP-Genge2025 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "VP-SEM / ESEM" ;
+    schema1:description "VP-SEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
@@ -1073,7 +1073,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "ada:acceleratingVoltageDefault": "20 kV",
       "@type": [
         "schema:Product",
@@ -1178,7 +1178,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   "ada:ebsdPhaseListDefault": "missing",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -1296,7 +1296,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "ada:acceleratingVoltageDefault": "20 kV",
       "@type": [
         "schema:Product",
@@ -1401,7 +1401,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   "ada:ebsdPhaseListDefault": "missing",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -1462,7 +1462,7 @@ ex:semImagingTAPP-Genge2025-2 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle "70 degrees" ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 25 ;
@@ -1483,7 +1483,7 @@ ex:semImagingTAPP-Genge2025-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "VP-SEM / ESEM" ;
+    schema1:description "VP-SEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
@@ -1719,7 +1719,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -1935,7 +1935,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -1959,13 +1959,13 @@ ex:semImagingTAPP-Gucsik2013 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -1992,7 +1992,7 @@ ex:semImagingTAPP-Gucsik2013 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -2081,36 +2081,6 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2249,6 +2219,36 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:analyticalMode": [
     "CL Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2264,7 +2264,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -2317,36 +2317,6 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2485,6 +2455,36 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:analyticalMode": [
     "CL Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2500,7 +2500,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -2561,7 +2561,7 @@ ex:semImagingTAPP-Izawa2010 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
             ada:toolRole "acquisition" ],
         [ schema1:name "Gatan DigitalMicrograph" ;
@@ -2640,7 +2640,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Izawa2010-2",
-  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v15.csv).",
+  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v29.csv).",
   "schema:object": [
     {
       "@type": [
@@ -2799,7 +2799,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -2834,7 +2834,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol \u2014 Izawa2010-2",
-  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v15.csv).",
+  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v29.csv).",
   "schema:object": [
     {
       "@type": [
@@ -2993,7 +2993,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -3025,7 +3025,7 @@ ex:semImagingTAPP-Izawa2010-2 a cdi:Activity,
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v15.csv)." ;
+    schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v29.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Surface Science Western" ] ;
@@ -3052,7 +3052,7 @@ ex:semImagingTAPP-Izawa2010-2 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -3111,7 +3111,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Izawa2010-3",
-  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v15.csv).",
+  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v29.csv).",
   "schema:object": [
     {
       "@type": [
@@ -3271,7 +3271,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -3306,7 +3306,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol \u2014 Izawa2010-3",
-  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v15.csv).",
+  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v29.csv).",
   "schema:object": [
     {
       "@type": [
@@ -3466,7 +3466,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -3490,15 +3490,15 @@ ex:semImagingTAPP-Izawa2010-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v15.csv)." ;
+    schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v29.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
@@ -3525,7 +3525,7 @@ ex:semImagingTAPP-Izawa2010-3 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -3603,36 +3603,6 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -3653,7 +3623,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -3740,6 +3710,36 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3758,7 +3758,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -3811,36 +3811,6 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -3861,7 +3831,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -3948,6 +3918,36 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3966,7 +3966,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -4027,7 +4027,7 @@ ex:semImagingTAPP-Liu2017 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -4040,7 +4040,7 @@ ex:semImagingTAPP-Liu2017 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
@@ -4111,36 +4111,6 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4169,7 +4139,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -4206,7 +4176,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -4249,6 +4219,36 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4267,7 +4267,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -4320,36 +4320,6 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4378,7 +4348,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -4415,7 +4385,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -4458,6 +4428,36 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4476,7 +4476,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -4500,14 +4500,14 @@ ex:semImagingTAPP-Liu2017-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
@@ -4537,7 +4537,7 @@ ex:semImagingTAPP-Liu2017-2 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -4550,7 +4550,7 @@ ex:semImagingTAPP-Liu2017-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
@@ -4570,7 +4570,7 @@ ex:semImagingTAPP-Liu2017-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -4622,36 +4622,6 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4680,7 +4650,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -4747,6 +4717,36 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4765,7 +4765,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -4818,36 +4818,6 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4876,7 +4846,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -4943,6 +4913,36 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4961,7 +4961,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -5021,7 +5021,7 @@ ex:semImagingTAPP-Ma2017 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5047,7 +5047,7 @@ ex:semImagingTAPP-Ma2017 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -5099,49 +5099,6 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "crystalStructureDatabaseDefault",
-            "schema:name": "Crystal Structure Database",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Literature crystal structures: Black et al. 1961 (Cmc21 (Al,Cu)Fe6 for kryachkoite); Zhang et al. 2005 (Pm3m AlCu for stolperite)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5170,7 +5127,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -5217,6 +5174,49 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     }
   ],
   "ada:ebsdPhaseListDefault": "Hollisterite (C2/m FeAl3); kryachkoite (Cmc21 (Al,Cu)Fe6); stolperite (Pm3m AlCu)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "crystalStructureDatabaseDefault",
+            "schema:name": "Crystal Structure Database",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Literature crystal structures: Black et al. 1961 (Cmc21 (Al,Cu)Fe6 for kryachkoite); Zhang et al. 2005 (Pm3m AlCu for stolperite)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -5255,7 +5255,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -5308,49 +5308,6 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "crystalStructureDatabaseDefault",
-            "schema:name": "Crystal Structure Database",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Literature crystal structures: Black et al. 1961 (Cmc21 (Al,Cu)Fe6 for kryachkoite); Zhang et al. 2005 (Pm3m AlCu for stolperite)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5379,7 +5336,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -5426,6 +5383,49 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     }
   ],
   "ada:ebsdPhaseListDefault": "Hollisterite (C2/m FeAl3); kryachkoite (Cmc21 (Al,Cu)Fe6); stolperite (Pm3m AlCu)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "crystalStructureDatabaseDefault",
+            "schema:name": "Crystal Structure Database",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Literature crystal structures: Black et al. 1961 (Cmc21 (Al,Cu)Fe6 for kryachkoite); Zhang et al. 2005 (Pm3m AlCu for stolperite)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -5464,7 +5464,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -5525,7 +5525,7 @@ ex:semImagingTAPP-Ma2017-2 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Literature crystal structures: Black et al. 1961 (Cmc21 (Al,Cu)Fe6 for kryachkoite); Zhang et al. 2005 (Pm3m AlCu for stolperite)" ;
@@ -5558,7 +5558,7 @@ ex:semImagingTAPP-Ma2017-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -5610,36 +5610,6 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5668,7 +5638,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -5705,7 +5675,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "ada:acceleratingVoltageDefault": "20 kV",
       "ada:workingDistanceDefault": "8 mm",
       "@type": [
@@ -5756,6 +5726,36 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5774,7 +5774,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -5827,36 +5827,6 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5885,7 +5855,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -5922,7 +5892,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "ada:acceleratingVoltageDefault": "20 kV",
       "ada:workingDistanceDefault": "8 mm",
       "@type": [
@@ -5973,6 +5943,36 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5991,7 +5991,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -6015,14 +6015,14 @@ ex:semImagingTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
@@ -6052,7 +6052,7 @@ ex:semImagingTAPP-Pascucci2026 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ] .
 
@@ -6067,7 +6067,7 @@ ex:semImagingTAPP-Pascucci2026 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
@@ -6089,7 +6089,7 @@ ex:semImagingTAPP-Pascucci2026 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -6141,36 +6141,6 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6199,7 +6169,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -6236,7 +6206,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -6266,6 +6236,36 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6284,7 +6284,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -6337,36 +6337,6 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6395,7 +6365,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -6432,7 +6402,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -6462,6 +6432,36 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6480,7 +6480,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -6540,13 +6540,13 @@ ex:semImagingTAPP-Pascucci2026-2 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
@@ -6566,7 +6566,7 @@ ex:semImagingTAPP-Pascucci2026-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -6618,36 +6618,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6676,7 +6646,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -6749,6 +6719,36 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6767,7 +6767,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -6820,36 +6820,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6878,7 +6848,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -6951,6 +6921,36 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6969,7 +6969,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -7029,7 +7029,7 @@ ex:semImagingTAPP-Zega2025 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
             ada:toolRole "acquisition" ] .
 
@@ -7057,7 +7057,7 @@ ex:semImagingTAPP-Zega2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -7109,36 +7109,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7233,6 +7203,36 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7251,7 +7251,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -7304,36 +7304,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7428,6 +7398,36 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7446,7 +7446,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -7506,7 +7506,7 @@ ex:semImagingTAPP-Zega2025-2 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -7583,36 +7583,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7707,6 +7677,36 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7725,7 +7725,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -7778,36 +7778,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7902,6 +7872,36 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7920,7 +7920,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -7980,7 +7980,7 @@ ex:semImagingTAPP-Zega2025-3 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -8057,36 +8057,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -8115,7 +8085,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -8176,7 +8146,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:clAcquisitionMode": "Panchromatic",
+  "ada:clAcquisitionMode": "Monochromatic imaging",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -8198,6 +8168,36 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:analyticalMode": [
     "CL Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8215,7 +8215,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -8268,36 +8268,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -8326,7 +8296,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -8387,7 +8357,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:clAcquisitionMode": "Panchromatic",
+  "ada:clAcquisitionMode": "Monochromatic imaging",
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -8409,6 +8379,36 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:analyticalMode": [
     "CL Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8426,7 +8426,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -8477,7 +8477,7 @@ ex:semImagingTAPP-Zega2025-4 a cdi:Activity,
             schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "CL Mapping" ;
-    ada:clAcquisitionMode "Panchromatic" ;
+    ada:clAcquisitionMode "Monochromatic imaging" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
@@ -8486,7 +8486,7 @@ ex:semImagingTAPP-Zega2025-4 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -8513,7 +8513,7 @@ ex:semImagingTAPP-Zega2025-4 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -8663,7 +8663,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -8809,7 +8809,7 @@ semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particl
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -8857,7 +8857,7 @@ ex:semImagingTAPP-Barnes2025 a cdi:Activity,
     ada:ebsdStepSizeDefault -9999 ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -8897,12 +8897,12 @@ title: SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)
 description: 'Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the
   base TAPP definition. Basic protocol-tier fields are required top-level ada: properties;
   Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate
-  (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v15.csv
+  (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v29.csv
   by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     schema:object:
@@ -8936,24 +8936,21 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyse. Used for discoverability
-                              and procedure matching, and because the material type
-                              constrains sample preparation, calibration and matrix-matching
-                              requirements.
+                              this procedure is designed to analyse.
                             anyOf:
                             - type: string
                               enum:
                               - Silicate mineral
+                              - Silicate glass
                               - Oxide
                               - Sulfide
                               - Carbonate
                               - Phosphate
-                              - Metal alloy
+                              - Metal or alloy
                               - Organic matter
-                              - Glass
                               - Regolith
-                              - Whole rock / polished section
                               - Porous material
+                              - Whole rock
                               - N/A
                               - None
                               - missing
@@ -8974,157 +8971,6 @@ allOf:
                 const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
           required:
           - '@type'
-    schema:actionProcess:
-      type: object
-      properties:
-        schema:step:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  schema:name:
-                    const: Sample preparation
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:description:
-                    description: Method by which samples were prepared for SEM analysis
-                      prior to loading in the instrument. Includes mounting medium
-                      (epoxy, carbon tape, stub), polishing steps (alumina, colloidal
-                      silica, argon ion mill), and conductive coating type and thickness.
-                      For VP-SEM/ESEM analyses, note whether an uncoated sample was
-                      used and the gas type used. FIB-specific in-session operations
-                      (protective coating deposition, milling conditions, lamella
-                      preparation) are documented separately in Group 4.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-            - if:
-                properties:
-                  schema:name:
-                    const: Data reduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  ada:ebsdIndexingMethod:
-                    description: Algorithm used to index EBSD diffraction patterns
-                      and assign crystal orientations. Hough-transform methods fit
-                      Kikuchi band positions analytically; dictionary indexing (DI)
-                      matches experimental patterns to a pre-computed library of simulated
-                      patterns.
-                    anyOf:
-                    - type: string
-                      enum:
-                      - Hough transform
-                      - Dictionary indexing (DI)
-                      - Neural network
-                      - Unknown
-                      - N/A
-                      - None
-                      - missing
-                      readOnly: true
-                    - type: array
-                      items:
-                        type: string
-                        enum:
-                        - Hough transform
-                        - Dictionary indexing (DI)
-                        - Neural network
-                        - Unknown
-                        - N/A
-                        - None
-                        - missing
-                        readOnly: true
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - title: Crystal Structure Database
-                        description: Crystal structure database used for EBSD phase
-                          identification and Kikuchi pattern simulation.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: crystalStructureDatabaseDefault
-                          schema:name:
-                            const: Crystal Structure Database
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                    allOf:
-                    - contains:
-                        title: Crystal Structure Database
-                        description: Crystal structure database used for EBSD phase
-                          identification and Kikuchi pattern simulation.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: crystalStructureDatabaseDefault
-                          schema:name:
-                            const: Crystal Structure Database
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                      minContains: 0
-                      maxContains: 1
-          allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Sample preparation
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: Data reduction
-              required:
-              - schema:name
     schema:instrument:
       type: array
       items:
@@ -9145,10 +8991,10 @@ allOf:
                 properties:
                   schema:name:
                     description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
+                      measurement, recorded as a controlled value. Where a procedure
+                      couples a sample-introduction system to an analysing instrument,
+                      this records the analysing instrument. Instrument Model gives
+                      the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -9194,7 +9040,9 @@ allOf:
                           - type: string
                             enum:
                             - Cold-FEG
-                            - Schottky FEG
+                            - Schottky FEG (X-FEG)
+                            - Schottky FEG (standard)
+                            - "Field emission gun (FEG) \u2014 subtype not specified"
                             - LaB6 / CeB6
                             - Tungsten (W)
                             - Unknown
@@ -9207,7 +9055,9 @@ allOf:
                               type: string
                               enum:
                               - Cold-FEG
-                              - Schottky FEG
+                              - Schottky FEG (X-FEG)
+                              - Schottky FEG (standard)
+                              - "Field emission gun (FEG) \u2014 subtype not specified"
                               - LaB6 / CeB6
                               - Tungsten (W)
                               - Unknown
@@ -9266,19 +9116,17 @@ allOf:
                     then:
                       properties:
                         schema:name:
-                          description: Type of backscattered electron detector. Solid-state
-                            diode detectors (single or segmented) are standard; YAG
-                            scintillator detectors offer high sensitivity at low voltage.
-                            Segmented detectors can operate in composition mode (segments
-                            summed) or topography mode (differential signal between
-                            segments). In-lens BSE detectors provide improved BSE
-                            collection at short working distances.
+                          description: Type of backscattered electron detector. Segmented
+                            detectors can operate in composition mode (segments summed)
+                            or topography mode (differential signal between segments).
                           anyOf:
                           - type: string
                             enum:
                             - Solid-state diode (single)
                             - Solid-state diode (segmented, composition mode)
                             - Solid-state diode (segmented, topography mode)
+                            - Solid-state diode (segmented, mode not specified)
+                            - Solid-state diode (type not specified)
                             - In-lens BSE
                             - YAG scintillator
                             - N/A
@@ -9292,6 +9140,8 @@ allOf:
                               - Solid-state diode (single)
                               - Solid-state diode (segmented, composition mode)
                               - Solid-state diode (segmented, topography mode)
+                              - Solid-state diode (segmented, mode not specified)
+                              - Solid-state diode (type not specified)
                               - In-lens BSE
                               - YAG scintillator
                               - N/A
@@ -9324,20 +9174,25 @@ allOf:
                     required:
                     - schema:additionalType
               schema:description:
-                description: 'Broad platform type of the instrument. ''Standard SEM'':
-                  dedicated electron-only SEM column. ''FIB-SEM dual-beam'': combined
+                description: "Broad platform type of the instrument. 'Standard SEM':
+                  dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined
                   focused ion beam and SEM columns (enables TEM specimen preparation,
-                  3D serial sectioning, ion-beam milling). ''VP-SEM / ESEM'': variable-pressure
-                  or environmental SEM for imaging uncoated, hydrated, or charging
-                  specimens. An instrument may combine categories (e.g., FIB-SEM with
-                  VP capability).'
+                  3D serial sectioning, ion-beam milling). 'VP-SEM': variable-pressure
+                  SEM, a dry gas at low chamber pressure for uncoated or charging
+                  specimens. 'ESEM': environmental SEM, water vapour at higher pressure
+                  for hydrated specimens, requiring a gaseous secondary electron detector.
+                  Where an instrument combines categories, join them with '; ' \u2014
+                  'FIB-SEM dual-beam; VP-SEM' \u2014 rather than looking for a combined
+                  member. This field records the COLUMN AND CHAMBER configuration
+                  only: field emission is a source type and belongs in Electron Source,
+                  not here."
                 anyOf:
                 - type: string
                   enum:
                   - Standard SEM
                   - FIB-SEM dual-beam
-                  - VP-SEM / ESEM
-                  - FIB-SEM dual-beam + VP
+                  - VP-SEM
+                  - ESEM
                   - N/A
                   - None
                   - missing
@@ -9348,8 +9203,8 @@ allOf:
                     enum:
                     - Standard SEM
                     - FIB-SEM dual-beam
-                    - VP-SEM / ESEM
-                    - FIB-SEM dual-beam + VP
+                    - VP-SEM
+                    - ESEM
                     - N/A
                     - None
                     - missing
@@ -9468,18 +9323,13 @@ allOf:
                   minContains: 0
                   maxContains: 1
               ada:acceleratingVoltageDefault:
-                description: Electron beam accelerating voltage in kilovolts. Affects
-                  X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging
-                  resolution, and beam penetration. Low voltages (1-5 kV) improve
-                  surface sensitivity and reduce beam damage; high voltages (15-20
-                  kV) improve X-ray generation for quantitative analysis.
+                description: Electron beam accelerating voltage in kilovolts.
                 anyOf:
                 - type: number
                 - type: string
               ada:workingDistanceDefault:
                 description: Distance between the objective lens pole piece and the
-                  specimen surface in millimetres. Affects spatial resolution, depth
-                  of focus, EDS X-ray take-off angle, and EBSD geometry.
+                  specimen surface in millimetres.
                 anyOf:
                 - type: number
                 - type: string
@@ -9507,10 +9357,8 @@ allOf:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
+              description: Electron beam probe current. For sub-nA values use decimal
+                notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
@@ -9542,10 +9390,8 @@ allOf:
           allOf:
           - contains:
               title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
+              description: Electron beam probe current. For sub-nA values use decimal
+                notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
@@ -9615,9 +9461,8 @@ allOf:
           - ada:fieldScope
         - title: Image Pixel Size
           description: "Physical size of each image pixel at the sample surface, in
-            nm or \xB5m. Defines spatial sampling of SE or BSE images. For large-area
-            mosaic imaging, report the pixel size of individual tiles and the number
-            and arrangement of tiles."
+            nm or \xB5m. For large-area mosaic imaging, report the pixel size of individual
+            tiles and the number and arrangement of tiles."
           type: object
           properties:
             '@id':
@@ -9716,9 +9561,8 @@ allOf:
       - contains:
           title: Image Pixel Size
           description: "Physical size of each image pixel at the sample surface, in
-            nm or \xB5m. Defines spatial sampling of SE or BSE images. For large-area
-            mosaic imaging, report the pixel size of individual tiles and the number
-            and arrangement of tiles."
+            nm or \xB5m. For large-area mosaic imaging, report the pixel size of individual
+            tiles and the number and arrangement of tiles."
           type: object
           properties:
             '@id':
@@ -9783,12 +9627,8 @@ allOf:
         minContains: 0
         maxContains: 1
     ada:dwellTimePerPixelDefault:
-      description: Time the electron beam dwells on each pixel during raster scanning
-        (imaging modes) or on each step position during compositional mapping (EDS
-        and WDS mapping modes), in microseconds or milliseconds. Longer dwell time
-        improves signal-to-noise and counting statistics but increases total dose
-        and can cause beam damage or contamination on sensitive materials. For WDS
-        mapping, the dwell time is per spectrometer per pixel.
+      description: Time the electron beam dwells on each pixel during raster scanning,
+        or on each step position during mapping, in microseconds or milliseconds.
       anyOf:
       - type: number
       - type: string
@@ -9800,6 +9640,7 @@ allOf:
       type: string
       enum:
       - Panchromatic
+      - Monochromatic imaging
       - Spectral point
       - Hyperspectral map
       - Multi-channel pseudo-color
@@ -9808,39 +9649,158 @@ allOf:
       - missing
       readOnly: true
     ada:clWavelengthRange:
-      description: Detection wavelength range of the CL system in nm. The range is
-        set by the detector sensitivity and any optical filters installed.
+      description: Detection wavelength range of the CL system in nm.
       anyOf:
       - type: number
       - type: string
       readOnly: true
     ada:clIntegrationTimeDefault:
       description: Acquisition time per pixel (hyperspectral map mode) or per spectrum
-        (spectral point mode), in ms or s. Longer integration improves signal-to-noise
-        but increases beam dose and acquisition time.
+        (spectral point mode), in ms or s.
       anyOf:
       - type: number
       - type: string
     ada:sampleTiltAngle:
       description: Sample tilt angle for EBSD acquisition in degrees, measured from
-        horizontal. Standard EBSD geometry uses 70 degrees tilt toward the EBSD camera
-        to maximise diffracted electron signal.
+        horizontal.
       anyOf:
       - type: number
       - type: string
       readOnly: true
     ada:ebsdStepSizeDefault:
       description: "Distance between adjacent EBSD measurement points in the map in
-        nm or \xB5m. Must be smaller than the smallest grain of interest to resolve
-        grain boundary positions and intragrain orientation gradients."
+        nm or \xB5m. Must be smaller than the smallest grain of interest."
       anyOf:
       - type: number
       - type: string
     ada:ebsdPhaseListDefault:
       description: Mineral phases included in the EBSD reference pattern library for
-        this procedure. The procedure specifies the expected phase suite for the target
-        material; analysts may add phases for specific sample compositions.
+        this procedure. Phases may be added for specific sample compositions beyond
+        the expected suite for the target material.
       type: string
+    schema:actionProcess:
+      type: object
+      properties:
+        schema:step:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: Data reduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  ada:ebsdIndexingMethod:
+                    description: Algorithm used to index EBSD diffraction patterns
+                      and assign crystal orientations. Hough-transform methods fit
+                      Kikuchi band positions analytically; dictionary indexing (DI)
+                      matches experimental patterns to a pre-computed library of simulated
+                      patterns.
+                    anyOf:
+                    - type: string
+                      enum:
+                      - Hough transform
+                      - Dictionary indexing (DI)
+                      - Neural network
+                      - Unknown
+                      - N/A
+                      - None
+                      - missing
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        enum:
+                        - Hough transform
+                        - Dictionary indexing (DI)
+                        - Neural network
+                        - Unknown
+                        - N/A
+                        - None
+                        - missing
+                        readOnly: true
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - title: Crystal Structure Database
+                        description: Crystal structure database used for EBSD phase
+                          identification and Kikuchi pattern simulation.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: crystalStructureDatabaseDefault
+                          schema:name:
+                            const: Crystal Structure Database
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                    allOf:
+                    - contains:
+                        title: Crystal Structure Database
+                        description: Crystal structure database used for EBSD phase
+                          identification and Kikuchi pattern simulation.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: crystalStructureDatabaseDefault
+                          schema:name:
+                            const: Crystal Structure Database
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: Data reduction
+              required:
+              - schema:name
     dqv:hasQualityMeasurement:
       type: array
       items:

@@ -126,16 +126,16 @@ The procedure half of the Geochronology module, with every property populated. G
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
-            schema1:value "example value" ],
-        [ schema1:defaultValue "example value" ;
+[] schema1:variableMeasured [ schema1:defaultValue "example value" ;
             schema1:name "Age Model" ],
         [ schema1:defaultValue "example value" ;
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "example value" ;
-            schema1:name "Age Datum / Reference Epoch" ],
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "example value" ],
         [ schema1:defaultValue "example value" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Age Datum / Reference Epoch" ] ;
     ada:ageCalculationMethod "example value" ;
     ada:ageModelDefault "example value" ;
     ada:inheritedOrInitialSignalCorrectionDefault "example value" ;
@@ -229,17 +229,17 @@ The analysis half of the Geochronology module, with every property populated. Ge
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:variableMeasured [ schema1:name "Radiogenic Fraction of Measured Signal" ;
-            schema1:value "example value" ],
-        [ schema1:name "Age Model" ;
-            schema1:value "example value" ],
-        [ schema1:name "Inherited or Initial Signal Correction" ;
+[] schema1:variableMeasured [ schema1:name "Age Model" ;
             schema1:value "example value" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "example value" ],
-        [ schema1:name "Reported Date Type" ;
-            schema1:value "example value" ],
         [ schema1:name "Age Datum / Reference Epoch" ;
+            schema1:value "example value" ],
+        [ schema1:name "Radiogenic Fraction of Measured Signal" ;
+            schema1:value "example value" ],
+        [ schema1:name "Inherited or Initial Signal Correction" ;
+            schema1:value "example value" ],
+        [ schema1:name "Reported Date Type" ;
             schema1:value "example value" ] ;
     ada:reportedDateType "example value" .
 
@@ -274,11 +274,9 @@ $defs:
           description: The equation used to convert the measured quantities into an
             age or date, together with a citation for that equation. Name the equation
             unambiguously; where a procedure supports more than one, state which is
-            used and under what conditions. Required by every geochronology reporting
-            standard surveyed (Condon et al. 2024; Schaen et al. 2021; Rooney et al.
-            2024; Flowers et al. 2024; Kohn et al. 2024; Mahan et al. 2023). Distinct
-            from Age Model and Software, which records how multiple analyses are combined
-            into a single reported result.
+            used and under what conditions. Distinct from Age Model and Software,
+            which records how multiple analyses are combined into a single reported
+            result.
           type: string
         x-jsonld-id: https://ada.astromat.org/metadata/ageCalculationMethod
       schema:variableMeasured:
@@ -298,12 +296,9 @@ $defs:
                   description: The equation used to convert the measured quantities
                     into an age or date, together with a citation for that equation.
                     Name the equation unambiguously; where a procedure supports more
-                    than one, state which is used and under what conditions. Required
-                    by every geochronology reporting standard surveyed (Condon et
-                    al. 2024; Schaen et al. 2021; Rooney et al. 2024; Flowers et al.
-                    2024; Kohn et al. 2024; Mahan et al. 2023). Distinct from Age
-                    Model and Software, which records how multiple analyses are combined
-                    into a single reported result.
+                    than one, state which is used and under what conditions. Distinct
+                    from Age Model and Software, which records how multiple analyses
+                    are combined into a single reported result.
                   anyOf:
                   - type: string
                   - type: array
@@ -319,13 +314,8 @@ $defs:
             then:
               properties:
                 schema:defaultValue:
-                  description: The kind of date or age the procedure reports. Most
-                    dating systems derive several different date types from the same
-                    measurements, so a reported age is ambiguous without this. Where
+                  description: The kind of date or age the procedure reports. Where
                     more than one type is reported, list all, separated by semicolons.
-                    Kohn et al. (2024) carry this as a named required item ("fission-track
-                    age type"); the equivalent distinction is required by all five
-                    other standards surveyed.
                   anyOf:
                   - type: string
                   - type: array
@@ -341,20 +331,11 @@ $defs:
             then:
               properties:
                 schema:defaultValue:
-                  description: 'How any non-radiogenic, inherited or pre-existing
-                    component of the measured signal was accounted for, including
-                    the composition assumed, its source, and its uncertainty. Record
-                    ''None'' where the measured quantity accumulates from zero and
-                    no such component exists. Applies to five of the six dating systems
-                    surveyed; fission track is the sole genuine exception, as tracks
-                    accumulate from zero. D=Editable rather than Read-Only: the procedure
-                    registers the correction method and any default composition, but
-                    the value actually applied is frequently sample-specific (a two-stage
-                    model composition is evaluated at the interpreted age) or session-derived
-                    (a trapped composition solved from an isochron intercept), and
-                    a revision to the assumed composition should not require registering
-                    a new procedure. Same reasoning as Rule 5''s Constants and Reference
-                    Values Used.'
+                  description: How any non-radiogenic, inherited or pre-existing component
+                    of the measured signal was accounted for, including the composition
+                    assumed, its source, and its uncertainty. Record 'None' where
+                    the measured quantity accumulates from zero and no such component
+                    exists.
                   anyOf:
                   - type: string
                   - type: array
@@ -372,14 +353,10 @@ $defs:
                 schema:defaultValue:
                   description: "The statistical model used to combine individual analyses
                     into a single reported age, including any criteria governing which
-                    model is applied. This is a methodological choice that changes
-                    the result: a Model-1 and a Model-3 regression of the same data
-                    yield different ages and different uncertainties. Record the model
-                    only \u2014 the software implementing it belongs in Data Reduction
-                    Software (Group 3), whose scope already extends to age calculation;
-                    where reduction and age regression use different packages, list
-                    both there. Required in some form by all six geochronology reporting
-                    standards surveyed."
+                    model is applied. Record the model only \u2014 the software implementing
+                    it belongs in Data Reduction Software (Group 3), whose scope already
+                    extends to age calculation; where reduction and age regression
+                    use different packages, list both there."
                   anyOf:
                   - type: string
                   - type: array
@@ -398,10 +375,9 @@ $defs:
                   description: 'The zero point from which the reported age is measured,
                     where this is not the present day, and the date it corresponds
                     to. Record ''Present day'' where the conventional datum applies.
-                    Explicitly required wherever the datum is not the present: year
-                    of sample collection for luminescence (Mahan et al. 2023), end
-                    of irradiation for 40Ar/39Ar decay corrections (Schaen et al.
-                    2021).'
+                    Where the datum is not the present, record it explicitly: year
+                    of sample collection for luminescence, end of irradiation for
+                    40Ar/39Ar decay corrections.'
                   anyOf:
                   - type: string
                   - type: array
@@ -437,38 +413,23 @@ $defs:
       ada:reportedDateType:
         type: array
         items:
-          description: The kind of date or age the procedure reports. Most dating
-            systems derive several different date types from the same measurements,
-            so a reported age is ambiguous without this. Where more than one type
-            is reported, list all, separated by semicolons. Kohn et al. (2024) carry
-            this as a named required item ("fission-track age type"); the equivalent
-            distinction is required by all five other standards surveyed.
+          description: The kind of date or age the procedure reports. Where more than
+            one type is reported, list all, separated by semicolons.
           type: string
         x-jsonld-id: https://ada.astromat.org/metadata/reportedDateType
       ada:inheritedOrInitialSignalCorrectionDefault:
-        description: 'How any non-radiogenic, inherited or pre-existing component
-          of the measured signal was accounted for, including the composition assumed,
-          its source, and its uncertainty. Record ''None'' where the measured quantity
-          accumulates from zero and no such component exists. Applies to five of the
-          six dating systems surveyed; fission track is the sole genuine exception,
-          as tracks accumulate from zero. D=Editable rather than Read-Only: the procedure
-          registers the correction method and any default composition, but the value
-          actually applied is frequently sample-specific (a two-stage model composition
-          is evaluated at the interpreted age) or session-derived (a trapped composition
-          solved from an isochron intercept), and a revision to the assumed composition
-          should not require registering a new procedure. Same reasoning as Rule 5''s
-          Constants and Reference Values Used.'
+        description: How any non-radiogenic, inherited or pre-existing component of
+          the measured signal was accounted for, including the composition assumed,
+          its source, and its uncertainty. Record 'None' where the measured quantity
+          accumulates from zero and no such component exists.
         type: string
         x-jsonld-id: https://ada.astromat.org/metadata/inheritedOrInitialSignalCorrectionDefault
       ada:ageModelDefault:
         description: "The statistical model used to combine individual analyses into
           a single reported age, including any criteria governing which model is applied.
-          This is a methodological choice that changes the result: a Model-1 and a
-          Model-3 regression of the same data yield different ages and different uncertainties.
           Record the model only \u2014 the software implementing it belongs in Data
           Reduction Software (Group 3), whose scope already extends to age calculation;
-          where reduction and age regression use different packages, list both there.
-          Required in some form by all six geochronology reporting standards surveyed."
+          where reduction and age regression use different packages, list both there."
         type: string
         x-jsonld-id: https://ada.astromat.org/metadata/ageModelDefault
     required:
@@ -497,12 +458,9 @@ $defs:
                   description: The equation used to convert the measured quantities
                     into an age or date, together with a citation for that equation.
                     Name the equation unambiguously; where a procedure supports more
-                    than one, state which is used and under what conditions. Required
-                    by every geochronology reporting standard surveyed (Condon et
-                    al. 2024; Schaen et al. 2021; Rooney et al. 2024; Flowers et al.
-                    2024; Kohn et al. 2024; Mahan et al. 2023). Distinct from Age
-                    Model and Software, which records how multiple analyses are combined
-                    into a single reported result.
+                    than one, state which is used and under what conditions. Distinct
+                    from Age Model and Software, which records how multiple analyses
+                    are combined into a single reported result.
                   anyOf:
                   - type: string
                   - type: array
@@ -518,13 +476,8 @@ $defs:
             then:
               properties:
                 schema:value:
-                  description: The kind of date or age the procedure reports. Most
-                    dating systems derive several different date types from the same
-                    measurements, so a reported age is ambiguous without this. Where
+                  description: The kind of date or age the procedure reports. Where
                     more than one type is reported, list all, separated by semicolons.
-                    Kohn et al. (2024) carry this as a named required item ("fission-track
-                    age type"); the equivalent distinction is required by all five
-                    other standards surveyed.
                   anyOf:
                   - type: string
                   - type: array
@@ -540,20 +493,11 @@ $defs:
             then:
               properties:
                 schema:value:
-                  description: 'How any non-radiogenic, inherited or pre-existing
-                    component of the measured signal was accounted for, including
-                    the composition assumed, its source, and its uncertainty. Record
-                    ''None'' where the measured quantity accumulates from zero and
-                    no such component exists. Applies to five of the six dating systems
-                    surveyed; fission track is the sole genuine exception, as tracks
-                    accumulate from zero. D=Editable rather than Read-Only: the procedure
-                    registers the correction method and any default composition, but
-                    the value actually applied is frequently sample-specific (a two-stage
-                    model composition is evaluated at the interpreted age) or session-derived
-                    (a trapped composition solved from an isochron intercept), and
-                    a revision to the assumed composition should not require registering
-                    a new procedure. Same reasoning as Rule 5''s Constants and Reference
-                    Values Used.'
+                  description: How any non-radiogenic, inherited or pre-existing component
+                    of the measured signal was accounted for, including the composition
+                    assumed, its source, and its uncertainty. Record 'None' where
+                    the measured quantity accumulates from zero and no such component
+                    exists.
                   anyOf:
                   - type: string
                   - type: array
@@ -569,16 +513,9 @@ $defs:
             then:
               properties:
                 schema:value:
-                  description: "The proportion of the measured signal that is radiogenic,
+                  description: The proportion of the measured signal that is radiogenic,
                     as opposed to inherited, initial or otherwise non-radiogenic.
-                    Measured companion to Inherited or Initial Signal Correction,
-                    which is procedure-level: this field records what the session
-                    actually produced. It indicates how strongly the reported age
-                    depends on the assumed non-radiogenic composition \u2014 a result
-                    derived from a low radiogenic fraction is sensitive to that assumption
-                    in a way a high-fraction result is not, and that sensitivity is
-                    invisible from the age and its uncertainty alone. Follows the
-                    criterion-versus-measurement split used for Oxide Production."
+                    Measured companion to Inherited or Initial Signal Correction.
                   anyOf:
                   - type: string
                   - type: array
@@ -596,14 +533,10 @@ $defs:
                 schema:value:
                   description: "The statistical model used to combine individual analyses
                     into a single reported age, including any criteria governing which
-                    model is applied. This is a methodological choice that changes
-                    the result: a Model-1 and a Model-3 regression of the same data
-                    yield different ages and different uncertainties. Record the model
-                    only \u2014 the software implementing it belongs in Data Reduction
-                    Software (Group 3), whose scope already extends to age calculation;
-                    where reduction and age regression use different packages, list
-                    both there. Required in some form by all six geochronology reporting
-                    standards surveyed."
+                    model is applied. Record the model only \u2014 the software implementing
+                    it belongs in Data Reduction Software (Group 3), whose scope already
+                    extends to age calculation; where reduction and age regression
+                    use different packages, list both there."
                   anyOf:
                   - type: string
                   - type: array
@@ -622,10 +555,9 @@ $defs:
                   description: 'The zero point from which the reported age is measured,
                     where this is not the present day, and the date it corresponds
                     to. Record ''Present day'' where the conventional datum applies.
-                    Explicitly required wherever the datum is not the present: year
-                    of sample collection for luminescence (Mahan et al. 2023), end
-                    of irradiation for 40Ar/39Ar decay corrections (Schaen et al.
-                    2021).'
+                    Where the datum is not the present, record it explicitly: year
+                    of sample collection for luminescence, end of irradiation for
+                    40Ar/39Ar decay corrections.'
                   anyOf:
                   - type: string
                   - type: array
@@ -649,27 +581,16 @@ $defs:
       ada:reportedDateType:
         type: array
         items:
-          description: The kind of date or age the procedure reports. Most dating
-            systems derive several different date types from the same measurements,
-            so a reported age is ambiguous without this. Where more than one type
-            is reported, list all, separated by semicolons. Kohn et al. (2024) carry
-            this as a named required item ("fission-track age type"); the equivalent
-            distinction is required by all five other standards surveyed.
+          description: The kind of date or age the procedure reports. Where more than
+            one type is reported, list all, separated by semicolons.
           type: string
         x-jsonld-id: https://ada.astromat.org/metadata/reportedDateType
   Param_Analysis_inheritedOrInitialSignalCorrection:
     title: Inherited or Initial Signal Correction
-    description: 'How any non-radiogenic, inherited or pre-existing component of the
+    description: How any non-radiogenic, inherited or pre-existing component of the
       measured signal was accounted for, including the composition assumed, its source,
-      and its uncertainty. Record ''None'' where the measured quantity accumulates
-      from zero and no such component exists. Applies to five of the six dating systems
-      surveyed; fission track is the sole genuine exception, as tracks accumulate
-      from zero. D=Editable rather than Read-Only: the procedure registers the correction
-      method and any default composition, but the value actually applied is frequently
-      sample-specific (a two-stage model composition is evaluated at the interpreted
-      age) or session-derived (a trapped composition solved from an isochron intercept),
-      and a revision to the assumed composition should not require registering a new
-      procedure. Same reasoning as Rule 5''s Constants and Reference Values Used.'
+      and its uncertainty. Record 'None' where the measured quantity accumulates from
+      zero and no such component exists.
     type: object
     properties:
       '@id':
@@ -697,12 +618,9 @@ $defs:
     title: Age Model
     description: "The statistical model used to combine individual analyses into a
       single reported age, including any criteria governing which model is applied.
-      This is a methodological choice that changes the result: a Model-1 and a Model-3
-      regression of the same data yield different ages and different uncertainties.
       Record the model only \u2014 the software implementing it belongs in Data Reduction
       Software (Group 3), whose scope already extends to age calculation; where reduction
-      and age regression use different packages, list both there. Required in some
-      form by all six geochronology reporting standards surveyed."
+      and age regression use different packages, list both there."
     type: object
     properties:
       '@id':
@@ -730,9 +648,9 @@ $defs:
     title: Age Datum / Reference Epoch
     description: 'The zero point from which the reported age is measured, where this
       is not the present day, and the date it corresponds to. Record ''Present day''
-      where the conventional datum applies. Explicitly required wherever the datum
-      is not the present: year of sample collection for luminescence (Mahan et al.
-      2023), end of irradiation for 40Ar/39Ar decay corrections (Schaen et al. 2021).'
+      where the conventional datum applies. Where the datum is not the present, record
+      it explicitly: year of sample collection for luminescence, end of irradiation
+      for 40Ar/39Ar decay corrections.'
     type: object
     properties:
       '@id':
@@ -760,9 +678,9 @@ $defs:
     title: Age Datum / Reference Epoch
     description: 'The zero point from which the reported age is measured, where this
       is not the present day, and the date it corresponds to. Record ''Present day''
-      where the conventional datum applies. Explicitly required wherever the datum
-      is not the present: year of sample collection for luminescence (Mahan et al.
-      2023), end of irradiation for 40Ar/39Ar decay corrections (Schaen et al. 2021).'
+      where the conventional datum applies. Where the datum is not the present, record
+      it explicitly: year of sample collection for luminescence, end of irradiation
+      for 40Ar/39Ar decay corrections.'
     type: object
     properties:
       '@id':

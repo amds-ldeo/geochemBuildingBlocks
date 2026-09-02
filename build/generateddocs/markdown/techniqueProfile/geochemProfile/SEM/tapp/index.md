@@ -120,47 +120,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:seDetectorType": "In-lens / TLD (through-the-lens)",
   "schema:object": [
     {
@@ -201,6 +160,47 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -221,11 +221,12 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -351,47 +352,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:seDetectorType": "In-lens / TLD (through-the-lens)",
   "schema:object": [
     {
@@ -432,6 +392,47 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -452,11 +453,12 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -487,7 +489,7 @@ ex:semTAPP-Garvie2008 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
@@ -524,12 +526,13 @@ ex:semTAPP-Garvie2008 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "In-lens / TLD (through-the-lens)" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "0.5–5.4 mm" .
 
@@ -599,7 +602,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Garvie2008-2",
-  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v59.csv).",
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -631,7 +634,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -790,12 +793,13 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -831,7 +835,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Garvie2008-2",
-  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v59.csv).",
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -863,7 +867,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -1022,12 +1026,13 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -1052,22 +1057,22 @@ ex:semTAPP-Garvie2008-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ] ] ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v24.csv)." ;
+    schema1:description "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v59.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
@@ -1096,12 +1101,13 @@ ex:semTAPP-Garvie2008-2 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" .
 
@@ -1171,7 +1177,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Genge2025",
-  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v59.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1252,7 +1258,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:ProductModel"
         ]
       },
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1340,7 +1346,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -1359,12 +1365,13 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -1401,7 +1408,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Genge2025",
-  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v59.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1482,7 +1489,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:ProductModel"
         ]
       },
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1570,7 +1577,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -1589,12 +1596,13 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -1620,20 +1628,20 @@ ex:semTAPP-Genge2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v24.csv)." ;
+    schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v59.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
@@ -1662,12 +1670,13 @@ ex:semTAPP-Genge2025 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -1675,7 +1684,7 @@ ex:semTAPP-Genge2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "VP-SEM / ESEM" ;
+    schema1:description "VP-SEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -1737,7 +1746,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Genge2025-2",
-  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v59.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1819,7 +1828,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:ProductModel"
         ]
       },
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1829,6 +1838,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     }
   ],
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
+  "ada:primaryStandardNameDefault": "Oxford factory internal standards",
   "schema:object": [
     {
       "@type": [
@@ -1908,7 +1918,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -1928,10 +1938,10 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
   "ada:massAbsorptionCoefficients": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -1968,7 +1978,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Genge2025-2",
-  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v59.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2050,7 +2060,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:ProductModel"
         ]
       },
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -2060,6 +2070,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     }
   ],
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
+  "ada:primaryStandardNameDefault": "Oxford factory internal standards",
   "schema:object": [
     {
       "@type": [
@@ -2139,7 +2150,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -2159,10 +2170,10 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
   "ada:massAbsorptionCoefficients": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -2193,7 +2204,7 @@ ex:semTAPP-Genge2025-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
@@ -2201,7 +2212,7 @@ ex:semTAPP-Genge2025-2 a cdi:Activity,
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v24.csv)." ;
+    schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v59.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
@@ -2230,12 +2241,13 @@ ex:semTAPP-Genge2025-2 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "XPP (Simplified PAP)" ;
+    ada:primaryStandardNameDefault "Oxford factory internal standards" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -2243,7 +2255,7 @@ ex:semTAPP-Genge2025-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "VP-SEM / ESEM" ;
+    schema1:description "VP-SEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -2387,7 +2399,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:ProductModel"
         ]
       },
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -2452,7 +2464,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -2522,11 +2534,12 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -2644,7 +2657,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:ProductModel"
         ]
       },
-      "schema:description": "VP-SEM / ESEM",
+      "schema:description": "VP-SEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -2709,7 +2722,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -2779,11 +2792,12 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -2809,6 +2823,11 @@ ex:semTAPP-Genge2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
@@ -2816,12 +2835,7 @@ ex:semTAPP-Genge2025-3 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
@@ -2853,12 +2867,13 @@ ex:semTAPP-Genge2025-3 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle "70 degrees" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -2881,7 +2896,7 @@ ex:semTAPP-Genge2025-3 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "VP-SEM / ESEM" ;
+    schema1:description "VP-SEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -3133,7 +3148,7 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -3151,12 +3166,13 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -3383,7 +3399,7 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -3401,12 +3417,13 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -3442,7 +3459,7 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
@@ -3472,12 +3489,13 @@ ex:semTAPP-Gucsik2013 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -3720,7 +3738,7 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -3739,12 +3757,13 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -3944,7 +3963,7 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -3963,12 +3982,13 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -3994,7 +4014,7 @@ ex:semTAPP-Gucsik2013-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
@@ -4034,12 +4054,13 @@ ex:semTAPP-Gucsik2013-2 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -4230,47 +4251,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
   "ada:clAcquisitionMode": "Multi-channel pseudo-color",
   "ada:clIntegrationTimeDefault": "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)",
   "ada:clWavelengthRange": "300–850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -4320,6 +4300,47 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
   "ada:analyticalMode": [
     "CL Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4337,12 +4358,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4499,47 +4521,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
   "ada:clAcquisitionMode": "Multi-channel pseudo-color",
   "ada:clIntegrationTimeDefault": "80\u2013500 ms per pixel (varied based on IR luminescence duration in carbonates)",
   "ada:clWavelengthRange": "300\u2013850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -4589,6 +4570,47 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
   "ada:analyticalMode": [
     "CL Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4606,12 +4628,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -4636,7 +4659,7 @@ ex:semTAPP-Izawa2010 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
@@ -4680,12 +4703,13 @@ ex:semTAPP-Izawa2010 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "~10 mm" ;
     bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
@@ -4772,7 +4796,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Izawa2010-2",
-  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v59.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4939,7 +4963,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -4958,12 +4982,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -5000,7 +5025,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-2",
-  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v59.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5167,7 +5192,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -5186,12 +5211,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -5217,20 +5243,20 @@ ex:semTAPP-Izawa2010-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v24.csv)." ;
+    schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v59.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Surface Science Western" ] ;
@@ -5259,12 +5285,13 @@ ex:semTAPP-Izawa2010-2 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -5333,20 +5360,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   ],
   "schema:name": "sem protocol — Izawa2010-3",
   "schema:description": "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.5,
-      "schema:description": "~0.5 wt% for most elements"
-    }
-  ],
   "ada:edsAcquisitionMode": "Map",
   "schema:instrument": [
     {
@@ -5515,7 +5528,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -5533,12 +5546,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -5576,20 +5590,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-3",
   "schema:description": "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.5,
-      "schema:description": "~0.5 wt% for most elements"
-    }
-  ],
   "ada:edsAcquisitionMode": "Map",
   "schema:instrument": [
     {
@@ -5758,7 +5758,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -5776,12 +5776,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -5812,14 +5813,13 @@ ex:semTAPP-Izawa2010-3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/detectionLimitDefault> ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -5850,22 +5850,15 @@ ex:semTAPP-Izawa2010-3 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
-
-<https://ada.astromat.org/metadata/parameter/semTAPP/detectionLimitDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 5e-01 ;
-    schema1:description "~0.5 wt% for most elements" ;
-    schema1:name "Detection Limit" ;
-    schema1:valueName "detectionLimitDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5932,7 +5925,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Izawa2010-4",
-  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v59.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6100,7 +6093,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -6119,12 +6112,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -6161,7 +6155,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-4",
-  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v59.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6329,7 +6323,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -6348,12 +6342,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -6379,20 +6374,20 @@ ex:semTAPP-Izawa2010-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v24.csv)." ;
+    schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v59.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
@@ -6421,12 +6416,13 @@ ex:semTAPP-Izawa2010-4 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -6496,7 +6492,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   ],
   "schema:name": "sem protocol — Izawa2010-5",
   "schema:description": "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map.",
-  "ada:edsAcquisitionMode": "Point / spot",
+  "ada:edsAcquisitionMode": "Point",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6665,7 +6661,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -6683,12 +6679,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -6726,7 +6723,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-5",
   "schema:description": "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) \u2014 not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map.",
-  "ada:edsAcquisitionMode": "Point / spot",
+  "ada:edsAcquisitionMode": "Point",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6895,7 +6892,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -6913,12 +6910,13 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -6944,18 +6942,18 @@ ex:semTAPP-Izawa2010-5 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -6981,17 +6979,18 @@ ex:semTAPP-Izawa2010-5 a cdi:Activity,
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:edsAcquisitionMode "Point / spot" ;
+    ada:edsAcquisitionMode "Point" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -7061,7 +7060,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Liu2017",
-  "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v59.csv).",
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:instrument": [
     {
@@ -7180,7 +7179,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -7256,11 +7255,12 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -7297,7 +7297,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Liu2017",
-  "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v59.csv).",
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:instrument": [
     {
@@ -7416,7 +7416,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -7492,11 +7492,12 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -7534,10 +7535,10 @@ ex:semTAPP-Liu2017 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v24.csv)." ;
+    schema1:description "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v59.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
@@ -7567,12 +7568,13 @@ ex:semTAPP-Liu2017 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
     bios:computationalTool [ schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
@@ -7675,7 +7677,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -7742,47 +7744,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -7821,6 +7782,47 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7841,12 +7843,13 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -7917,7 +7920,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -7984,47 +7987,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -8063,6 +8025,47 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8083,12 +8086,13 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -8114,13 +8118,13 @@ ex:semTAPP-Liu2017-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -8158,12 +8162,13 @@ ex:semTAPP-Liu2017-2 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -8178,7 +8183,7 @@ ex:semTAPP-Liu2017-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -8268,7 +8273,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -8331,7 +8336,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -8340,47 +8345,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -8419,6 +8383,47 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8439,12 +8444,13 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -8511,7 +8517,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -8574,7 +8580,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -8583,47 +8589,6 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -8662,6 +8627,47 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8682,12 +8688,13 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -8713,18 +8720,18 @@ ex:semTAPP-Liu2017-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
@@ -8757,12 +8764,13 @@ ex:semTAPP-Liu2017-3 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -8777,7 +8785,7 @@ ex:semTAPP-Liu2017-3 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -8804,7 +8812,7 @@ ex:semTAPP-Liu2017-3 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -8869,7 +8877,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -8927,47 +8935,6 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -9006,6 +8973,47 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9026,12 +9034,13 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -9099,7 +9108,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -9157,47 +9166,6 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -9236,6 +9204,47 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9256,12 +9265,13 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -9287,19 +9297,19 @@ ex:semTAPP-Ma2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -9330,12 +9340,13 @@ ex:semTAPP-Ma2017 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -9370,7 +9381,7 @@ ex:semTAPP-Ma2017 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -9448,7 +9459,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -9476,7 +9487,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -9605,12 +9616,13 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -9691,7 +9703,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -9719,7 +9731,7 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -9848,12 +9860,13 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -9879,9 +9892,8 @@ ex:semTAPP-Ma2017-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabaseDefault> ;
@@ -9891,8 +9903,9 @@ ex:semTAPP-Ma2017-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -9923,12 +9936,13 @@ ex:semTAPP-Ma2017-2 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -9970,7 +9984,7 @@ ex:semTAPP-Ma2017-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -10036,7 +10050,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -10085,7 +10099,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -10107,47 +10121,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
       "schema:defaultValue": "High vacuum"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -10193,6 +10166,47 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10213,12 +10227,13 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -10286,7 +10301,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -10335,7 +10350,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -10357,47 +10372,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
       "schema:defaultValue": "High vacuum"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -10443,6 +10417,47 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10463,12 +10478,13 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -10493,19 +10509,19 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
@@ -10537,12 +10553,13 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "8 mm" ;
     bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
@@ -10559,7 +10576,7 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -10587,7 +10604,7 @@ ex:semTAPP-Pascucci2026 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -10654,7 +10671,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -10703,7 +10720,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -10740,47 +10757,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   ],
   "ada:edsAcquisitionMode": "N/A",
   "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -10829,171 +10805,45 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Si",
-      "Fe",
-      "Ni",
-      "S",
-      "Na",
-      "Ca",
-      "Al"
-    ],
-    "ada:analyteColumns": [
+  "schema:actionProcess": {
+    "schema:step": [
       {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:name": "example instrumentName"
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/analyteEstimationMethod",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/analyticalAccuracy",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
         ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/backgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCorrectionMethod",
-        "schema:name": "Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/beamCurrent",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/blankCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "blankCorrection",
-        "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionStandard",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferingElements",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/primaryCalibrationStandardName",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/secondaryReferenceMaterials",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "secondaryReferenceMaterials",
-        "schema:name": "Secondary Reference Materials",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/techniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "techniquePerAnalyte",
-        "schema:name": "Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/timeDependentIntensityCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
+        "schema:position": 3
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -11014,12 +10864,13 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -11089,7 +10940,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -11138,7 +10989,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -11175,47 +11026,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   ],
   "ada:edsAcquisitionMode": "N/A",
   "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -11264,171 +11074,45 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Si",
-      "Fe",
-      "Ni",
-      "S",
-      "Na",
-      "Ca",
-      "Al"
-    ],
-    "ada:analyteColumns": [
+  "schema:actionProcess": {
+    "schema:step": [
       {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:name": "example instrumentName"
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/analyteEstimationMethod",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/analyticalAccuracy",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
         ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/backgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCorrectionMethod",
-        "schema:name": "Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/beamCurrent",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/blankCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "blankCorrection",
-        "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionStandard",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferingElements",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/primaryCalibrationStandardName",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/secondaryReferenceMaterials",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "secondaryReferenceMaterials",
-        "schema:name": "Secondary Reference Materials",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/techniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "techniquePerAnalyte",
-        "schema:name": "Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/timeDependentIntensityCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
+        "schema:position": 3
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -11449,12 +11133,13 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -11485,14 +11170,14 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -11513,37 +11198,6 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyteEstimationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyticalAccuracy>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyticalPrecision>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/beamCurrent>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/blankCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferenceCorrectionStandard>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/techniquePerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/wdsSpectrometerChannel> ;
-            ada:defaultAnalytes "Al",
-                "Ca",
-                "Fe",
-                "Mg",
-                "Na",
-                "Ni",
-                "S",
-                "Si" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -11556,99 +11210,19 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Analyte Estimation Method" ;
-    schema1:valueName "analyteEstimationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Accuracy" ;
-    schema1:valueName "analyticalAccuracy" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Precision" ;
-    schema1:valueName "analyticalPrecision" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/backgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Background Correction Method" ;
-    schema1:valueName "backgroundCorrectionMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Beam Current" ;
-    schema1:valueName "beamCurrent" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Blank Correction" ;
-    schema1:valueName "blankCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
-    schema1:name "Counting Statistics Error" ;
-    schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
-    schema1:name "Interference Correction Standard" ;
-    schema1:valueName "interferenceCorrectionStandard" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interference Corrections Applied" ;
-    schema1:valueName "interferenceCorrectionsApplied" ;
-    ada:dataType "boolean" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferingElements> a schema1:PropertyValueSpecification ;
-    schema1:name "Interfering Elements" ;
-    schema1:valueName "interferingElements" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Secondary Reference Materials" ;
-    schema1:valueName "secondaryReferenceMaterials" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/techniquePerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Technique per Analyte" ;
-    schema1:valueName "techniquePerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Time-Dependent Intensity Correction" ;
-    schema1:valueName "timeDependentIntensityCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -11661,7 +11235,7 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -11690,7 +11264,7 @@ ex:semTAPP-Pascucci2026-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -11762,7 +11336,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -11811,7 +11385,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -11848,47 +11422,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   ],
   "ada:edsAcquisitionMode": "Map",
   "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:stepSizePixelSizeDefault": "2.5 µm",
   "schema:object": [
     {
@@ -11938,171 +11471,45 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   "ada:analyticalMode": [
     "EDS Mapping"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Si",
-      "Fe",
-      "Ni",
-      "S",
-      "Na",
-      "Ca",
-      "Al (element mapping)"
-    ],
-    "ada:analyteColumns": [
+  "schema:actionProcess": {
+    "schema:step": [
       {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:name": "example instrumentName"
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/analyteEstimationMethod",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/analyticalAccuracy",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
         ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/backgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCorrectionMethod",
-        "schema:name": "Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/beamCurrent",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/blankCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "blankCorrection",
-        "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionStandard",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferingElements",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/primaryCalibrationStandardName",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/secondaryReferenceMaterials",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "secondaryReferenceMaterials",
-        "schema:name": "Secondary Reference Materials",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/techniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "techniquePerAnalyte",
-        "schema:name": "Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/timeDependentIntensityCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
+        "schema:position": 3
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -12123,11 +11530,12 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -12197,7 +11605,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -12246,7 +11654,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -12283,47 +11691,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   ],
   "ada:edsAcquisitionMode": "Map",
   "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:stepSizePixelSizeDefault": "2.5 \u00b5m",
   "schema:object": [
     {
@@ -12373,171 +11740,45 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   "ada:analyticalMode": [
     "EDS Mapping"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Mg",
-      "Si",
-      "Fe",
-      "Ni",
-      "S",
-      "Na",
-      "Ca",
-      "Al (element mapping)"
-    ],
-    "ada:analyteColumns": [
+  "schema:actionProcess": {
+    "schema:step": [
       {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:name": "example instrumentName"
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/analyteEstimationMethod",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "analyteEstimationMethod",
-        "schema:name": "Analyte Estimation Method",
-        "ada:dataType": "string"
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
       },
       {
-        "@id": "ada:analyteColumn/semTAPP/analyticalAccuracy",
         "@type": [
-          "schema:PropertyValueSpecification"
+          "cdi:Activity",
+          "schema:Action"
         ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
         ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/backgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCorrectionMethod",
-        "schema:name": "Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/beamCurrent",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/blankCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "blankCorrection",
-        "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionStandard",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionStandard",
-        "schema:name": "Interference Correction Standard",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionsApplied",
-        "schema:name": "Interference Corrections Applied",
-        "ada:dataType": "boolean",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/interferingElements",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingElements",
-        "schema:name": "Interfering Elements",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/primaryCalibrationStandardName",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/secondaryReferenceMaterials",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "secondaryReferenceMaterials",
-        "schema:name": "Secondary Reference Materials",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/techniquePerAnalyte",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "techniquePerAnalyte",
-        "schema:name": "Technique per Analyte",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/timeDependentIntensityCorrection",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "timeDependentIntensityCorrection",
-        "schema:name": "Time-Dependent Intensity Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/semTAPP/wdsSpectrometerChannel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsSpectrometerChannel",
-        "schema:name": "WDS Spectrometer Channel",
-        "ada:dataType": "string"
+        "schema:position": 3
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -12558,11 +11799,12 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -12599,7 +11841,7 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
@@ -12621,37 +11863,6 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    ada:analyteTemplate [ ada:analyteColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "analyte" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyteEstimationMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyticalAccuracy>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyticalPrecision>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/backgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/beamCurrent>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/blankCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferenceCorrectionStandard>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferingElements>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/primaryCalibrationStandardName>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/secondaryReferenceMaterials>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/techniquePerAnalyte>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/analyteColumn/semTAPP/wdsSpectrometerChannel> ;
-            ada:defaultAnalytes "Al (element mapping)",
-                "Ca",
-                "Fe",
-                "Mg",
-                "Na",
-                "Ni",
-                "S",
-                "Si" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -12664,99 +11875,19 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault "2.5 µm" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyteEstimationMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Analyte Estimation Method" ;
-    schema1:valueName "analyteEstimationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Accuracy" ;
-    schema1:valueName "analyticalAccuracy" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Precision" ;
-    schema1:valueName "analyticalPrecision" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/backgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Background Correction Method" ;
-    schema1:valueName "backgroundCorrectionMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
-    schema1:name "Beam Current" ;
-    schema1:valueName "beamCurrent" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Blank Correction" ;
-    schema1:valueName "blankCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
-    schema1:name "Counting Statistics Error" ;
-    schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
-    schema1:name "Interference Correction Standard" ;
-    schema1:valueName "interferenceCorrectionStandard" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interference Corrections Applied" ;
-    schema1:valueName "interferenceCorrectionsApplied" ;
-    ada:dataType "boolean" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/interferingElements> a schema1:PropertyValueSpecification ;
-    schema1:name "Interfering Elements" ;
-    schema1:valueName "interferingElements" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/secondaryReferenceMaterials> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Secondary Reference Materials" ;
-    schema1:valueName "secondaryReferenceMaterials" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/techniquePerAnalyte> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Technique per Analyte" ;
-    schema1:valueName "techniquePerAnalyte" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
-    schema1:name "Time-Dependent Intensity Correction" ;
-    schema1:valueName "timeDependentIntensityCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/analyteColumn/semTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS Spectrometer Channel" ;
-    schema1:valueName "wdsSpectrometerChannel" ;
-    ada:dataType "string" .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -12769,7 +11900,7 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -12798,7 +11929,7 @@ ex:semTAPP-Pascucci2026-3 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -12854,7 +11985,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -12917,7 +12048,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -12926,47 +12057,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -13005,6 +12095,47 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13025,12 +12156,13 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -13084,7 +12216,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -13147,7 +12279,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
           "schema:ProductModel"
         ]
       },
-      "schema:description": "N/A",
+      "schema:description": "ESEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -13156,47 +12288,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -13235,6 +12326,47 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13255,12 +12387,13 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -13286,19 +12419,19 @@ ex:semTAPP-Pascucci2026-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -13329,12 +12462,13 @@ ex:semTAPP-Pascucci2026-4 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -13342,7 +12476,7 @@ ex:semTAPP-Pascucci2026-4 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
-    schema1:description "N/A" ;
+    schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
@@ -13369,7 +12503,7 @@ ex:semTAPP-Pascucci2026-4 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -13494,47 +12628,6 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -13568,6 +12661,47 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
   "ada:analyticalMode": [
     "3D Tomography"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13587,11 +12721,12 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -13718,47 +12853,6 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Cuboidal samples (~0.5\u00d71\u00d71 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -13792,6 +12886,47 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
   "ada:analyticalMode": [
     "3D Tomography"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Cuboidal samples (~0.5\u00d71\u00d71 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13811,11 +12946,12 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -13840,19 +12976,19 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -13879,12 +13015,13 @@ ex:semTAPP-Zhou2017 a cdi:Activity,
     ada:imageRegistration3DDefault "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "4 mm" ;
     bios:computationalTool [ schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
@@ -13973,7 +13110,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -14044,47 +13181,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -14129,6 +13225,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -14149,12 +13286,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -14209,7 +13347,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -14280,47 +13418,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -14365,6 +13462,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -14385,12 +13523,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -14416,7 +13555,7 @@ ex:semTAPP-Zega2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
@@ -14459,12 +13598,13 @@ ex:semTAPP-Zega2025 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
     bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
@@ -14501,7 +13641,7 @@ ex:semTAPP-Zega2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -14535,7 +13675,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Zega2025-2",
-  "schema:description": "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v59.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -14568,7 +13708,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -14625,49 +13765,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:edsAcquisitionMode": "N/A",
+  "ada:edsAcquisitionMode": "Point",
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -14716,6 +13815,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -14734,12 +13874,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -14776,7 +13917,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Zega2025-2",
-  "schema:description": "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v24.csv).",
+  "schema:description": "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v59.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -14809,7 +13950,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -14866,49 +14007,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:edsAcquisitionMode": "N/A",
+  "ada:edsAcquisitionMode": "Point",
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -14957,6 +14057,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -14975,12 +14116,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -15006,21 +14148,21 @@ ex:semTAPP-Zega2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v24.csv)." ;
+    schema1:description "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v59.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
@@ -15044,17 +14186,18 @@ ex:semTAPP-Zega2025-2 a cdi:Activity,
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:edsAcquisitionMode "N/A" ;
+    ada:edsAcquisitionMode "Point" ;
     ada:edsLiveTimePerPointOrPixelDefault "20 to 200 s (per point)" ;
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
     bios:computationalTool [ schema1:name "Oxford AZtec" ;
@@ -15094,7 +14237,7 @@ ex:semTAPP-Zega2025-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -15216,47 +14359,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -15295,6 +14397,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -15315,12 +14458,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -15445,47 +14589,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -15524,6 +14627,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "SE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -15544,12 +14688,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -15580,7 +14725,7 @@ ex:semTAPP-Zega2025-3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
@@ -15618,12 +14763,13 @@ ex:semTAPP-Zega2025-3 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -15779,47 +14925,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -15858,6 +14963,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -15878,12 +15024,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -16008,47 +15155,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -16087,6 +15193,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -16107,12 +15254,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -16143,14 +15291,14 @@ ex:semTAPP-Zega2025-4 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -16181,12 +15329,13 @@ ex:semTAPP-Zega2025-4 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -16344,47 +15493,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -16433,6 +15541,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "EDS Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -16452,12 +15601,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -16584,47 +15734,6 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:object": [
     {
       "@type": [
@@ -16673,6 +15782,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "EDS Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -16692,12 +15842,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -16723,19 +15874,19 @@ ex:semTAPP-Zega2025-5 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -16766,12 +15917,13 @@ ex:semTAPP-Zega2025-5 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
     bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
@@ -16862,7 +16014,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -16967,7 +16119,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -17036,12 +16188,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -17096,7 +16249,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -17201,7 +16354,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -17270,12 +16423,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -17306,17 +16460,17 @@ ex:semTAPP-Zega2025-6 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ;
                     ada:liftOutMethod "In-situ (micromanipulator, Cu or Mo TEM half-grid)" ;
-                    ada:protectiveCoatingDepositionDefault "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:protectiveCoatingDepositionDefault "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -17347,12 +16501,13 @@ ex:semTAPP-Zega2025-6 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -17388,7 +16543,7 @@ ex:semTAPP-Zega2025-6 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -17440,7 +16595,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -17545,7 +16700,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -17615,12 +16770,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -17675,7 +16831,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -17780,7 +16936,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -17850,12 +17006,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -17881,8 +17038,11 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
+                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ;
+                    ada:finePolishingConditionsDefault "Various voltages down to 1 keV (polishing)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -17891,11 +17051,8 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ;
-                    ada:finePolishingConditionsDefault "Various voltages down to 1 keV (polishing)" ] ] ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -17927,12 +17084,13 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -17969,7 +17127,7 @@ ex:semTAPP-Zega2025-7 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -18021,7 +17179,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -18128,7 +17286,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -18198,12 +17356,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -18258,7 +17417,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -18365,7 +17524,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -18435,12 +17594,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -18466,6 +17626,11 @@ ex:semTAPP-Zega2025-8 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -18473,11 +17638,6 @@ ex:semTAPP-Zega2025-8 a cdi:Activity,
                     ada:finePolishingConditionsDefault "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick" ;
                     ada:liftOutMethod "In-situ (micromanipulator, Cu or Mo TEM half-grid)" ;
                     ada:protectiveCoatingDepositionDefault "Electron-beam deposited carbon (~0.5–1 µm); followed by ion beam-deposited carbon (~2–3 µm capping layer)" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -18514,12 +17674,13 @@ ex:semTAPP-Zega2025-8 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -18556,7 +17717,7 @@ ex:semTAPP-Zega2025-8 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -18623,7 +17784,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -18694,48 +17855,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:clAcquisitionMode": "Panchromatic",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:clAcquisitionMode": "Monochromatic imaging",
   "schema:object": [
     {
       "@type": [
@@ -18774,6 +17894,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "CL Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -18793,12 +17954,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -18868,7 +18030,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -18939,48 +18101,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:clAcquisitionMode": "Panchromatic",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion Milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:clAcquisitionMode": "Monochromatic imaging",
   "schema:object": [
     {
       "@type": [
@@ -19019,6 +18140,47 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:analyticalMode": [
     "CL Mapping"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -19038,12 +18200,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -19069,19 +18232,19 @@ ex:semTAPP-Zega2025-9 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -19101,7 +18264,7 @@ ex:semTAPP-Zega2025-9 a cdi:Activity,
             schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "CL Mapping" ;
-    ada:clAcquisitionMode "Panchromatic" ;
+    ada:clAcquisitionMode "Monochromatic imaging" ;
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:ebsdDetectorConfiguration "missing" ;
@@ -19112,12 +18275,13 @@ ex:semTAPP-Zega2025-9 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -19153,7 +18317,7 @@ ex:semTAPP-Zega2025-9 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -19271,7 +18435,7 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -19364,12 +18528,13 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -19485,7 +18650,7 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -19578,12 +18743,13 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -19609,18 +18775,18 @@ ex:semTAPP-Barnes2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
+                    schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -19650,12 +18816,13 @@ ex:semTAPP-Barnes2025 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -19763,7 +18930,7 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -19856,12 +19023,13 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -19943,7 +19111,7 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -20036,12 +19204,13 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -20067,18 +19236,18 @@ ex:semTAPP-Barnes2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No BSE imaging with FEI Quanta 3D DualBeam or Helios DualBeam at NASA JSC described in this paper (Barnes et al. 2025). BSE mosaic imaging was performed using a Hitachi TM4000plus at the University of Arizona (K-ALFAA) at 15-keV electron beam to identify suitable matrix areas for NanoSIMS analysis (Methods, p.11). No JSC BSE imaging conditions or instrument stated." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -20098,12 +19267,13 @@ ex:semTAPP-Barnes2025-2 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -20211,7 +19381,7 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -20304,12 +19474,13 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -20391,7 +19562,7 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -20484,12 +19655,13 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -20515,18 +19687,18 @@ ex:semTAPP-Barnes2025-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. FIB-based TEM foil preparation using FEI Helios G4 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -20546,12 +19718,13 @@ ex:semTAPP-Barnes2025-3 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -20659,7 +19832,7 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -20752,12 +19925,13 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -20839,7 +20013,7 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Ion Milling",
+        "schema:name": "Ion milling",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -20932,12 +20106,13 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
+  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "missing"
@@ -20968,13 +20143,13 @@ ex:semTAPP-Barnes2025-4 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion Milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. TEM foil preparation using FEI Helios 660 G3 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -20994,12 +20169,13 @@ ex:semTAPP-Barnes2025-4 a cdi:Activity,
     ada:imageRegistration3DDefault "missing" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:primaryStandardNameDefault "missing" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
@@ -21047,13 +20223,14 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Technique-Aligned Protocol Profile (semTAPP)
 description: Scanning electron microscopy superset (imaging + EDS/WDS composition
   + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current
-  TAPPs/SEM_TAPP_v24.csv via the path-driven pipeline.
+  TAPPs/SEM_TAPP_v59.csv via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     ada:imageRegistration3DDefault:
@@ -21062,10 +20239,22 @@ allOf:
         used.
       type: string
     ada:segmentationMethod3DDefault:
-      description: Method and software used to segment phases and features in the
-        aligned 3D image stack, transforming the grayscale stack into labelled 3D
-        regions (pores, mineral phases, grain boundaries, organic matter).
-      type: string
+      description: Method and software used to separate distinct phases or features
+        in the reconstructed 3D volume, turning the grayscale volume into labelled
+        regions.
+      anyOf:
+      - type: string
+        enum:
+        - Global threshold (single grayscale boundary)
+        - Multi-threshold (separate range per phase)
+        - Manual threshold per phase
+        - 'Semi-automated: threshold + morphological filtering'
+        - Region growing
+        - Manual tracing
+        - N/A
+        - None
+        - missing
+      - type: string
     schema:instrument:
       type: array
       items:
@@ -21082,19 +20271,14 @@ allOf:
           then:
             properties:
               ada:acceleratingVoltageDefault:
-                description: Electron beam accelerating voltage in kilovolts. Affects
-                  X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging
-                  resolution, and beam penetration. Low voltages (1-5 kV) improve
-                  surface sensitivity and reduce beam damage; high voltages (15-20
-                  kV) improve X-ray generation for quantitative analysis.
+                description: Electron beam accelerating voltage in kilovolts.
                 anyOf:
                 - type: number
                 - type: string
               ada:beamDiameterDefault:
                 description: Nominal electron beam diameter (spot size) at the sample
                   surface, in nanometres or micrometres, as set by the condenser aperture
-                  and working distance. Controls the spatial resolution and X-ray
-                  excitation volume. For mapping modes, the effective spatial sampling
+                  and working distance. For mapping modes, the effective spatial sampling
                   interval is further defined by Step Size / Pixel Size.
                 anyOf:
                 - type: number
@@ -21102,10 +20286,10 @@ allOf:
               ada:beamMode:
                 description: Whether the electron beam was operated as a stationary
                   focused spot, defocused to a specified diameter, or rastered over
-                  a small area during analysis. Controls the effective sampling volume
-                  and irradiation footprint; critical for beam-sensitive phases such
-                  as hydrous minerals, glasses, and carbonates. Must be consistent
-                  with the Beam Diameter and Beam Raster Dimensions fields.
+                  a small area during a single-point analysis. Must be consistent
+                  with the Beam Diameter and Beam Raster Dimensions fields. For mapping,
+                  beam scanning is controlled by Step Size / Pixel Size and Stage
+                  Scan vs. Beam Scan instead.
                 anyOf:
                 - type: string
                   enum:
@@ -21115,18 +20299,8 @@ allOf:
                   - N/A
                   - None
                   - missing
-                  readOnly: true
-                - type: array
-                  items:
-                    type: string
-                    enum:
-                    - Focused
-                    - Defocused
-                    - Rastered
-                    - N/A
-                    - None
-                    - missing
-                    readOnly: true
+                - type: string
+                readOnly: true
               schema:hasPart:
                 type: array
                 items:
@@ -21143,19 +20317,17 @@ allOf:
                     then:
                       properties:
                         schema:name:
-                          description: Type of backscattered electron detector. Solid-state
-                            diode detectors (single or segmented) are standard; YAG
-                            scintillator detectors offer high sensitivity at low voltage.
-                            Segmented detectors can operate in composition mode (segments
-                            summed) or topography mode (differential signal between
-                            segments). In-lens BSE detectors provide improved BSE
-                            collection at short working distances.
+                          description: Type of backscattered electron detector. Segmented
+                            detectors can operate in composition mode (segments summed)
+                            or topography mode (differential signal between segments).
                           anyOf:
                           - type: string
                             enum:
                             - Solid-state diode (single)
                             - Solid-state diode (segmented, composition mode)
                             - Solid-state diode (segmented, topography mode)
+                            - Solid-state diode (segmented, mode not specified)
+                            - Solid-state diode (type not specified)
                             - In-lens BSE
                             - YAG scintillator
                             - N/A
@@ -21169,6 +20341,8 @@ allOf:
                               - Solid-state diode (single)
                               - Solid-state diode (segmented, composition mode)
                               - Solid-state diode (segmented, topography mode)
+                              - Solid-state diode (segmented, mode not specified)
+                              - Solid-state diode (type not specified)
                               - In-lens BSE
                               - YAG scintillator
                               - N/A
@@ -21186,9 +20360,11 @@ allOf:
                     then:
                       properties:
                         schema:description:
-                          description: EDS detector type, manufacturer, active area,
-                            solid angle, window type, and geometry (take-off angle,
-                            position). Multiple detectors should be listed separately.
+                          description: EDS detector type, manufacturer, number of
+                            detector elements, active area and solid angle, window
+                            type, and geometry (take-off angle, position). List multiple
+                            detectors separately. Record 'N/A' where the procedure
+                            has no EDS detector.
                           anyOf:
                           - type: string
                             readOnly: true
@@ -21212,7 +20388,9 @@ allOf:
                           - type: string
                             enum:
                             - Cold-FEG
-                            - Schottky FEG
+                            - Schottky FEG (X-FEG)
+                            - Schottky FEG (standard)
+                            - "Field emission gun (FEG) \u2014 subtype not specified"
                             - LaB6 / CeB6
                             - Tungsten (W)
                             - Unknown
@@ -21225,7 +20403,9 @@ allOf:
                               type: string
                               enum:
                               - Cold-FEG
-                              - Schottky FEG
+                              - Schottky FEG (X-FEG)
+                              - Schottky FEG (standard)
+                              - "Field emission gun (FEG) \u2014 subtype not specified"
                               - LaB6 / CeB6
                               - Tungsten (W)
                               - Unknown
@@ -21390,10 +20570,10 @@ allOf:
                 properties:
                   schema:name:
                     description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
+                      measurement, recorded as a controlled value. Where a procedure
+                      couples a sample-introduction system to an analysing instrument,
+                      this records the analysing instrument. Instrument Model gives
+                      the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -21419,20 +20599,25 @@ allOf:
                     type: string
                     readOnly: true
               schema:description:
-                description: 'Broad platform type of the instrument. ''Standard SEM'':
-                  dedicated electron-only SEM column. ''FIB-SEM dual-beam'': combined
+                description: "Broad platform type of the instrument. 'Standard SEM':
+                  dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined
                   focused ion beam and SEM columns (enables TEM specimen preparation,
-                  3D serial sectioning, ion-beam milling). ''VP-SEM / ESEM'': variable-pressure
-                  or environmental SEM for imaging uncoated, hydrated, or charging
-                  specimens. An instrument may combine categories (e.g., FIB-SEM with
-                  VP capability).'
+                  3D serial sectioning, ion-beam milling). 'VP-SEM': variable-pressure
+                  SEM, a dry gas at low chamber pressure for uncoated or charging
+                  specimens. 'ESEM': environmental SEM, water vapour at higher pressure
+                  for hydrated specimens, requiring a gaseous secondary electron detector.
+                  Where an instrument combines categories, join them with '; ' \u2014
+                  'FIB-SEM dual-beam; VP-SEM' \u2014 rather than looking for a combined
+                  member. This field records the COLUMN AND CHAMBER configuration
+                  only: field emission is a source type and belongs in Electron Source,
+                  not here."
                 anyOf:
                 - type: string
                   enum:
                   - Standard SEM
                   - FIB-SEM dual-beam
-                  - VP-SEM / ESEM
-                  - FIB-SEM dual-beam + VP
+                  - VP-SEM
+                  - ESEM
                   - N/A
                   - None
                   - missing
@@ -21443,18 +20628,14 @@ allOf:
                     enum:
                     - Standard SEM
                     - FIB-SEM dual-beam
-                    - VP-SEM / ESEM
-                    - FIB-SEM dual-beam + VP
+                    - VP-SEM
+                    - ESEM
                     - N/A
                     - None
                     - missing
                     readOnly: true
               ada:ionBeamSource:
-                description: Ion beam source type in a FIB-SEM dual-beam system. Gallium
-                  LMIS (Ga+) is the most common ion source; xenon plasma FIB (PFIB)
-                  provides higher material removal rates for large-volume milling;
-                  helium and neon ion microscopes (GFIS) provide nanometre-resolution
-                  imaging and low-damage milling.
+                description: Ion beam source type in a FIB-SEM dual-beam system.
                 anyOf:
                 - type: string
                   enum:
@@ -21538,36 +20719,6 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - title: Normalization / Standards-Based Correction
-                        description: Post-acquisition normalization applied using
-                          secondary reference materials to correct for session-to-session
-                          calibration drift.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: normalizationStandardsBasedCorrectionDefault
-                          schema:name:
-                            const: Normalization / Standards-Based Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
                     allOf:
                     - contains:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
@@ -21609,54 +20760,6 @@ allOf:
                         - ada:fieldScope
                       minContains: 0
                       maxContains: 1
-                    - contains:
-                        title: Normalization / Standards-Based Correction
-                        description: Post-acquisition normalization applied using
-                          secondary reference materials to correct for session-to-session
-                          calibration drift.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: normalizationStandardsBasedCorrectionDefault
-                          schema:name:
-                            const: Normalization / Standards-Based Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      minContains: 0
-                      maxContains: 1
-                  ada:detectionLimitMethod:
-                    description: Formula or approach used to calculate detection limits.
-                    anyOf:
-                    - type: string
-                      enum:
-                      - "3\u03C3 blank"
-                      - "3\u03C3 background"
-                      - "3\u03C3 counting statistics"
-                      - "3\xD7 blank mean"
-                      - Poisson statistics
-                      - N/A
-                      - None
-                      - missing
-                    - type: string
-                    readOnly: true
                   ada:ebsdIndexingMethod:
                     description: Algorithm used to index EBSD diffraction patterns
                       and assign crystal orientations. Hough-transform methods fit
@@ -21706,9 +20809,7 @@ allOf:
                         type: string
                   ada:finePolishingConditionsDefault:
                     description: Ion beam voltage and current for final thinning and
-                      surface polishing of the TEM lamella. Low-voltage polishing
-                      (2 kV or below) minimises Ga implantation depth, surface amorphisation,
-                      and curtaining artifacts.
+                      surface polishing of the TEM lamella.
                     anyOf:
                     - type: string
                     - type: array
@@ -21717,8 +20818,7 @@ allOf:
                   ada:liftOutMethod:
                     description: Method used to transfer the FIB-prepared lamella
                       to the TEM support grid. In-situ lift-out uses a micromanipulator
-                      inside the FIB-SEM chamber and is the standard method for small
-                      or precious specimens.
+                      inside the FIB-SEM chamber.
                     anyOf:
                     - type: string
                       enum:
@@ -21741,24 +20841,9 @@ allOf:
                   ada:protectiveCoatingDepositionDefault:
                     description: 'Type and deposition conditions of the protective
                       coating applied to the sample surface before FIB milling. E-beam
-                      deposition causes less surface damage than ion-beam deposition
-                      and should be applied as the initial layer. Typical coatings:
+                      deposition should be applied as the initial layer. Typical coatings:
                       platinum (Pt) or carbon (C). State material, deposition method,
                       beam conditions, and approximate thickness.'
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-                  schema:description:
-                    description: Method by which samples were prepared for SEM analysis
-                      prior to loading in the instrument. Includes mounting medium
-                      (epoxy, carbon tape, stub), polishing steps (alumina, colloidal
-                      silica, argon ion mill), and conductive coating type and thickness.
-                      For VP-SEM/ESEM analyses, note whether an uncoated sample was
-                      used and the gas type used. FIB-specific in-session operations
-                      (protective coating deposition, milling conditions, lamella
-                      preparation) are documented separately in Group 4.
                     anyOf:
                     - type: string
                     - type: array
@@ -21767,15 +20852,14 @@ allOf:
             - if:
                 properties:
                   schema:name:
-                    const: Ion Milling
+                    const: Ion milling
                 required:
                 - schema:name
               then:
                 properties:
                   schema:description:
                     description: Ion beam voltage and current used to mill each slice
-                      during FIB-SEM serial sectioning. These parameters determine
-                      material removal rate per slice and exposed surface quality.
+                      during FIB-SEM serial sectioning.
                     anyOf:
                     - type: string
                     - type: array
@@ -21797,7 +20881,7 @@ allOf:
           - contains:
               properties:
                 schema:name:
-                  const: Ion Milling
+                  const: Ion milling
               required:
               - schema:name
     ada:analyteTemplate:
@@ -21841,7 +20925,7 @@ allOf:
             - title: Analytical Accuracy
               description: Offset between measured and accepted reference values for
                 secondary standards, expressed as percent relative bias. Include reference
-                material, reference value source, and per-analyte value.
+                material, reference value source, and the measured value.
               type: object
               properties:
                 '@id':
@@ -21871,7 +20955,7 @@ allOf:
               description: Reproducibility of repeated measurements on the same or
                 equivalent reference material, expressed as 1-sigma relative standard
                 deviation (%). Include reference material name, number of analyses
-                (n), and value per analyte or element group.
+                (n), and the measured value.
               type: object
               properties:
                 '@id':
@@ -21897,7 +20981,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: Background Correction Method
+            - title: X-ray Background Correction Method
               description: 'Method used to estimate and subtract background X-ray
                 intensity beneath the peak. For WDS: typically 2-point off-peak linear
                 interpolation or Mean Atomic Number (MAN) background model. For EDS:
@@ -21906,14 +20990,14 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/backgroundCorrectionMethod
+                  const: ada:analyteColumn/semTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: backgroundCorrectionMethod
+                  const: xRayBackgroundCorrectionMethod
                 schema:name:
-                  const: Background Correction Method
+                  const: X-ray Background Correction Method
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -21930,10 +21014,8 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
+              description: Electron beam probe current. For sub-nA values use decimal
+                notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
@@ -21998,9 +21080,7 @@ allOf:
                 sigma level stated. Derived from the counts on the analyte together
                 with those on any background or blank subtracted from it. Distinct
                 from the scatter actually observed within a measurement or between
-                repeated measurements, which is recorded separately: where a procedure
-                reports both, agreement indicates the measurement is shot-noise limited,
-                and a larger observed scatter indicates a further source of variance."
+                repeated measurements, which is recorded separately."
               type: object
               properties:
                 '@id':
@@ -22028,7 +21108,7 @@ allOf:
               - ada:dataType
             - title: Interference Correction Standard
               description: Reference material used to quantify and calibrate the interference
-                correction for each affected analyte.
+                correction.
               type: object
               properties:
                 '@id':
@@ -22054,23 +21134,23 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: Interference Corrections Applied
-              description: Whether a spectral interference correction was applied
-                for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb
-                on Mn Ka, and Ba La on Ti Ka.
+            - title: X-ray Line Overlap Corrections Applied
+              description: Whether a spectral interference correction was applied.
+                Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba
+                La on Ti Ka.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/interferenceCorrectionsApplied
+                  const: ada:analyteColumn/semTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: interferenceCorrectionsApplied
+                  const: xRayLineOverlapCorrectionsApplied
                 schema:name:
-                  const: Interference Corrections Applied
+                  const: X-ray Line Overlap Corrections Applied
                 ada:dataType:
-                  const: boolean
+                  const: string
                 schema:readonlyValue:
                   const: true
                 ada:tier:
@@ -22086,7 +21166,7 @@ allOf:
               - schema:defaultValue
             - title: Interfering Elements
               description: Element(s) whose X-ray lines overlap with the measured
-                peak for one or more analytes, requiring a correction.
+                peak, requiring a correction.
               type: object
               properties:
                 '@id':
@@ -22112,76 +21192,11 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: Primary Calibration Standard Name
-              description: Name(s) of the primary reference material(s) used for intensity
-                calibration in EDS or WDS quantification. Include the material name,
-                its source or supplier, and a citation for the accepted values used,
-                since results calibrated against different published values for the
-                same material are not directly comparable.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semTAPP/primaryCalibrationStandardName
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: primaryCalibrationStandardName
-                schema:name:
-                  const: Primary Calibration Standard Name
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Secondary Reference Materials
-              description: Quality-control reference material(s) analyzed alongside
-                unknowns to verify calibration accuracy. Include material name, assessed
-                elements, number of analyses (n), and measured vs. accepted values
-                where available.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semTAPP/secondaryReferenceMaterials
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: secondaryReferenceMaterials
-                schema:name:
-                  const: Secondary Reference Materials
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Technique per Analyte
-              description: For each analyte, records which X-ray detection technique
-                (EDS or WDS) was used to collect the measurement. Required when a
-                procedure employs both EDS and WDS simultaneously, assigning each
-                element to the detector appropriate to its concentration range, line
-                overlap situation, or required precision. List in the same order as
-                the Analyte field.
+              description: Records which X-ray detection technique (EDS or WDS) was
+                used to collect the measurement. Required when a procedure employs
+                both EDS and WDS simultaneously. List in the same order as the Analyte
+                field.
               type: object
               properties:
                 '@id':
@@ -22211,9 +21226,7 @@ allOf:
             - title: Time-Dependent Intensity Correction
               description: Type of time-dependent intensity (TDI) correction applied
                 to compensate for beam-induced volatilisation or migration of sensitive
-                elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most
-                commonly applied in WDS point analysis; uncommon for EDS or X-ray
-                mapping.
+                elements (e.g., Na, K, F in glasses, feldspars, carbonates).
               type: object
               properties:
                 '@id':
@@ -22245,8 +21258,7 @@ allOf:
                 one spectrometer with intensities aggregated (aggregate intensity
                 counting), and one spectrometer serves several analytes across a run,
                 so the assignment \u2014 not the analyte \u2014 is the unit carrying
-                the spectrometer setup. Different spectrometers may have different
-                crystal configurations."
+                the spectrometer setup."
               type: object
               properties:
                 '@id':
@@ -22310,7 +21322,7 @@ allOf:
               title: Analytical Accuracy
               description: Offset between measured and accepted reference values for
                 secondary standards, expressed as percent relative bias. Include reference
-                material, reference value source, and per-analyte value.
+                material, reference value source, and the measured value.
               type: object
               properties:
                 '@id':
@@ -22343,7 +21355,7 @@ allOf:
               description: Reproducibility of repeated measurements on the same or
                 equivalent reference material, expressed as 1-sigma relative standard
                 deviation (%). Include reference material name, number of analyses
-                (n), and value per analyte or element group.
+                (n), and the measured value.
               type: object
               properties:
                 '@id':
@@ -22372,7 +21384,7 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Background Correction Method
+              title: X-ray Background Correction Method
               description: 'Method used to estimate and subtract background X-ray
                 intensity beneath the peak. For WDS: typically 2-point off-peak linear
                 interpolation or Mean Atomic Number (MAN) background model. For EDS:
@@ -22381,14 +21393,14 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/backgroundCorrectionMethod
+                  const: ada:analyteColumn/semTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: backgroundCorrectionMethod
+                  const: xRayBackgroundCorrectionMethod
                 schema:name:
-                  const: Background Correction Method
+                  const: X-ray Background Correction Method
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -22408,10 +21420,8 @@ allOf:
             maxContains: 1
           - contains:
               title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
+              description: Electron beam probe current. For sub-nA values use decimal
+                notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
@@ -22482,9 +21492,7 @@ allOf:
                 sigma level stated. Derived from the counts on the analyte together
                 with those on any background or blank subtracted from it. Distinct
                 from the scatter actually observed within a measurement or between
-                repeated measurements, which is recorded separately: where a procedure
-                reports both, agreement indicates the measurement is shot-noise limited,
-                and a larger observed scatter indicates a further source of variance."
+                repeated measurements, which is recorded separately."
               type: object
               properties:
                 '@id':
@@ -22515,7 +21523,7 @@ allOf:
           - contains:
               title: Interference Correction Standard
               description: Reference material used to quantify and calibrate the interference
-                correction for each affected analyte.
+                correction.
               type: object
               properties:
                 '@id':
@@ -22544,23 +21552,23 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Interference Corrections Applied
-              description: Whether a spectral interference correction was applied
-                for each analyte. Common interferences include Ti Kb on V Ka, Cr Kb
-                on Mn Ka, and Ba La on Ti Ka.
+              title: X-ray Line Overlap Corrections Applied
+              description: Whether a spectral interference correction was applied.
+                Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba
+                La on Ti Ka.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/interferenceCorrectionsApplied
+                  const: ada:analyteColumn/semTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: interferenceCorrectionsApplied
+                  const: xRayLineOverlapCorrectionsApplied
                 schema:name:
-                  const: Interference Corrections Applied
+                  const: X-ray Line Overlap Corrections Applied
                 ada:dataType:
-                  const: boolean
+                  const: string
                 schema:readonlyValue:
                   const: true
                 ada:tier:
@@ -22579,7 +21587,7 @@ allOf:
           - contains:
               title: Interfering Elements
               description: Element(s) whose X-ray lines overlap with the measured
-                peak for one or more analytes, requiring a correction.
+                peak, requiring a correction.
               type: object
               properties:
                 '@id':
@@ -22608,82 +21616,11 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Primary Calibration Standard Name
-              description: Name(s) of the primary reference material(s) used for intensity
-                calibration in EDS or WDS quantification. Include the material name,
-                its source or supplier, and a citation for the accepted values used,
-                since results calibrated against different published values for the
-                same material are not directly comparable.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semTAPP/primaryCalibrationStandardName
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: primaryCalibrationStandardName
-                schema:name:
-                  const: Primary Calibration Standard Name
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Secondary Reference Materials
-              description: Quality-control reference material(s) analyzed alongside
-                unknowns to verify calibration accuracy. Include material name, assessed
-                elements, number of analyses (n), and measured vs. accepted values
-                where available.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/semTAPP/secondaryReferenceMaterials
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: secondaryReferenceMaterials
-                schema:name:
-                  const: Secondary Reference Materials
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Technique per Analyte
-              description: For each analyte, records which X-ray detection technique
-                (EDS or WDS) was used to collect the measurement. Required when a
-                procedure employs both EDS and WDS simultaneously, assigning each
-                element to the detector appropriate to its concentration range, line
-                overlap situation, or required precision. List in the same order as
-                the Analyte field.
+              description: Records which X-ray detection technique (EDS or WDS) was
+                used to collect the measurement. Required when a procedure employs
+                both EDS and WDS simultaneously. List in the same order as the Analyte
+                field.
               type: object
               properties:
                 '@id':
@@ -22716,9 +21653,7 @@ allOf:
               title: Time-Dependent Intensity Correction
               description: Type of time-dependent intensity (TDI) correction applied
                 to compensate for beam-induced volatilisation or migration of sensitive
-                elements (e.g., Na, K, F in glasses, feldspars, carbonates). Most
-                commonly applied in WDS point analysis; uncommon for EDS or X-ray
-                mapping.
+                elements (e.g., Na, K, F in glasses, feldspars, carbonates).
               type: object
               properties:
                 '@id':
@@ -22753,8 +21688,7 @@ allOf:
                 one spectrometer with intensities aggregated (aggregate intensity
                 counting), and one spectrometer serves several analytes across a run,
                 so the assignment \u2014 not the analyte \u2014 is the unit carrying
-                the spectrometer setup. Different spectrometers may have different
-                crystal configurations."
+                the spectrometer setup."
               type: object
               properties:
                 '@id':
@@ -22861,9 +21795,7 @@ allOf:
               - schema:name
               - ada:dataType
             - title: Diffracting Crystal
-              description: Analyzing crystal (monochromator) used on each spectrometer
-                assignment. Crystal choice determines the detectable wavelength range
-                and dispersion.
+              description: Analyzing crystal (monochromator).
               type: object
               properties:
                 '@id':
@@ -22898,10 +21830,7 @@ allOf:
               description: Time the electron beam dwells on each pixel during raster
                 scanning (imaging modes) or on each step position during compositional
                 mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
-                Longer dwell time improves signal-to-noise and counting statistics
-                but increases total dose and can cause beam damage or contamination
-                on sensitive materials. For WDS mapping, the dwell time is per spectrometer
-                per pixel.
+                For WDS mapping, the dwell time is per spectrometer per pixel.
               type: object
               properties:
                 '@id':
@@ -22938,8 +21867,7 @@ allOf:
               - schema:defaultValue
             - title: Peak Counting Time
               description: Time spent counting X-ray intensity at the peak position,
-                in seconds, on each spectrometer assignment. Procedure specifies standard
-                values; analysts may adjust within procedure-defined bounds.
+                in seconds. Adjustments stay within procedure-defined bounds.
               type: object
               properties:
                 '@id':
@@ -22975,8 +21903,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Proportional Counter / Detector
-              description: Type of detector used on each spectrometer assignment.
-                Affects sensitivity and count rate linearity.
+              description: Type of detector used.
               type: object
               properties:
                 '@id':
@@ -23008,10 +21935,8 @@ allOf:
               - ada:dataType
             - title: Sequence
               description: Order in which spectrometer assignments are acquired during
-                point analysis. Relevant for minimizing beam damage (volatile elements
-                measured first) and for sequential multi-channel setups. Not applicable
-                to X-ray mapping, where all assigned spectrometers collect simultaneously
-                at each pixel.
+                point analysis. Not applicable to X-ray mapping, where all assigned
+                spectrometers collect simultaneously at each pixel.
               type: object
               properties:
                 '@id':
@@ -23080,9 +22005,7 @@ allOf:
               - schema:name
               - ada:dataType
             - title: X-ray Line
-              description: X-ray emission line measured on each spectrometer assignment.
-                Line choice affects sensitivity, matrix correction accuracy, and susceptibility
-                to peak overlap and spectral interference.
+              description: X-ray emission line measured.
               type: object
               properties:
                 '@id':
@@ -23192,9 +22115,7 @@ allOf:
             maxContains: 1
           - contains:
               title: Diffracting Crystal
-              description: Analyzing crystal (monochromator) used on each spectrometer
-                assignment. Crystal choice determines the detectable wavelength range
-                and dispersion.
+              description: Analyzing crystal (monochromator).
               type: object
               properties:
                 '@id':
@@ -23232,10 +22153,7 @@ allOf:
               description: Time the electron beam dwells on each pixel during raster
                 scanning (imaging modes) or on each step position during compositional
                 mapping (EDS and WDS mapping modes), in microseconds or milliseconds.
-                Longer dwell time improves signal-to-noise and counting statistics
-                but increases total dose and can cause beam damage or contamination
-                on sensitive materials. For WDS mapping, the dwell time is per spectrometer
-                per pixel.
+                For WDS mapping, the dwell time is per spectrometer per pixel.
               type: object
               properties:
                 '@id':
@@ -23275,8 +22193,7 @@ allOf:
           - contains:
               title: Peak Counting Time
               description: Time spent counting X-ray intensity at the peak position,
-                in seconds, on each spectrometer assignment. Procedure specifies standard
-                values; analysts may adjust within procedure-defined bounds.
+                in seconds. Adjustments stay within procedure-defined bounds.
               type: object
               properties:
                 '@id':
@@ -23315,8 +22232,7 @@ allOf:
             maxContains: 1
           - contains:
               title: Proportional Counter / Detector
-              description: Type of detector used on each spectrometer assignment.
-                Affects sensitivity and count rate linearity.
+              description: Type of detector used.
               type: object
               properties:
                 '@id':
@@ -23351,10 +22267,8 @@ allOf:
           - contains:
               title: Sequence
               description: Order in which spectrometer assignments are acquired during
-                point analysis. Relevant for minimizing beam damage (volatile elements
-                measured first) and for sequential multi-channel setups. Not applicable
-                to X-ray mapping, where all assigned spectrometers collect simultaneously
-                at each pixel.
+                point analysis. Not applicable to X-ray mapping, where all assigned
+                spectrometers collect simultaneously at each pixel.
               type: object
               properties:
                 '@id':
@@ -23429,9 +22343,7 @@ allOf:
             maxContains: 1
           - contains:
               title: X-ray Line
-              description: X-ray emission line measured on each spectrometer assignment.
-                Line choice affects sensitivity, matrix correction accuracy, and susceptibility
-                to peak overlap and spectral interference.
+              description: X-ray emission line measured.
               type: object
               properties:
                 '@id':
@@ -23472,9 +22384,7 @@ allOf:
           description: 'Describes any measures taken to reduce electron beam damage
             to the sample during analysis. Examples: reduced accelerating voltage,
             lowered beam current, defocused or rastered beam, cooled stage, short
-            acquisition sequences, or rotating between multiple points. Particularly
-            important for volatile-bearing phases, hydrous minerals, glasses, organic
-            materials, and biological samples.'
+            acquisition sequences, or rotating between multiple points.'
           type: object
           properties:
             '@id':
@@ -23503,10 +22413,9 @@ allOf:
           - ada:fieldScope
         - title: Beam Raster Dimensions
           description: "Dimensions of the small area over which the beam is rastered
-            during a single analysis point, reported as width \xD7 height in \xB5m.
-            Applicable when Beam Mode = Rastered; defines the effective spatial footprint
-            of the measurement and distributes dose over a larger area to reduce beam
-            damage on sensitive phases."
+            at a single analysis point, reported as width \xD7 height in \xB5m. Applicable
+            when Beam Mode = Rastered; defines the effective spatial footprint of
+            the measurement. Not applicable when mapping."
           type: object
           properties:
             '@id':
@@ -23527,7 +22436,7 @@ allOf:
             ada:tier:
               const: R
             schema:unitText:
-              type: string
+              const: "\xB5m x \xB5m"
           required:
           - '@id'
           - '@type'
@@ -23598,45 +22507,11 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
         - title: Drift Correction
           description: 'Describes whether and how stage or beam drift was monitored
             and corrected during the measurement session. Examples: periodic stage
             realignment to a fiducial marker, automated beam drift correction in acquisition
-            software, or reanalysis of a reference point at regular intervals. Particularly
-            relevant for long mapping runs and high-magnification sessions where positional
-            accuracy affects data quality.'
+            software, or reanalysis of a reference point at regular intervals.'
           type: object
           properties:
             '@id':
@@ -23665,8 +22540,6 @@ allOf:
           - ada:fieldScope
         - title: EBSD Frame Time
           description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
-            Longer frame time improves pattern quality and indexing rate but increases
-            total acquisition time.
           type: object
           properties:
             '@id':
@@ -23738,7 +22611,7 @@ allOf:
             schema:name:
               const: Halogen Correction on Oxygen
             ada:dataType:
-              const: boolean
+              const: string
             ada:fieldScope:
               const: session
             schema:readonlyValue:
@@ -23754,9 +22627,8 @@ allOf:
           - ada:fieldScope
         - title: Image Pixel Size
           description: "Physical size of each image pixel at the sample surface, in
-            nm or \xB5m. Defines spatial sampling of SE or BSE images. For large-area
-            mosaic imaging, report the pixel size of individual tiles and the number
-            and arrangement of tiles."
+            nm or \xB5m. For large-area mosaic imaging, report the pixel size of individual
+            tiles and the number and arrangement of tiles."
           type: object
           properties:
             '@id':
@@ -23786,12 +22658,9 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - title: Stage Scan vs. Beam Scan
-          description: For mapping modes, records whether the map was acquired by
-            moving the stage while the beam is held fixed (stage scan) or by deflecting
-            the beam across the field while the stage is stationary (beam scan). Stage
-            scan is preferred for large areas or high-accuracy geometric fidelity;
-            beam scan is faster for smaller fields but may introduce geometric distortion
-            at the map edges.
+          description: For mapping modes, whether the map was acquired by moving the
+            stage while the beam is held fixed (stage scan), or by deflecting the
+            beam across the field while the stage is stationary (beam scan).
           type: object
           properties:
             '@id':
@@ -23819,9 +22688,7 @@ allOf:
           description: 'Describes any measures taken to reduce electron beam damage
             to the sample during analysis. Examples: reduced accelerating voltage,
             lowered beam current, defocused or rastered beam, cooled stage, short
-            acquisition sequences, or rotating between multiple points. Particularly
-            important for volatile-bearing phases, hydrous minerals, glasses, organic
-            materials, and biological samples.'
+            acquisition sequences, or rotating between multiple points.'
           type: object
           properties:
             '@id':
@@ -23853,10 +22720,9 @@ allOf:
       - contains:
           title: Beam Raster Dimensions
           description: "Dimensions of the small area over which the beam is rastered
-            during a single analysis point, reported as width \xD7 height in \xB5m.
-            Applicable when Beam Mode = Rastered; defines the effective spatial footprint
-            of the measurement and distributes dose over a larger area to reduce beam
-            damage on sensitive phases."
+            at a single analysis point, reported as width \xD7 height in \xB5m. Applicable
+            when Beam Mode = Rastered; defines the effective spatial footprint of
+            the measurement. Not applicable when mapping."
           type: object
           properties:
             '@id':
@@ -23877,7 +22743,7 @@ allOf:
             ada:tier:
               const: R
             schema:unitText:
-              type: string
+              const: "\xB5m x \xB5m"
           required:
           - '@id'
           - '@type'
@@ -23957,48 +22823,11 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
           title: Drift Correction
           description: 'Describes whether and how stage or beam drift was monitored
             and corrected during the measurement session. Examples: periodic stage
             realignment to a fiducial marker, automated beam drift correction in acquisition
-            software, or reanalysis of a reference point at regular intervals. Particularly
-            relevant for long mapping runs and high-magnification sessions where positional
-            accuracy affects data quality.'
+            software, or reanalysis of a reference point at regular intervals.'
           type: object
           properties:
             '@id':
@@ -24030,8 +22859,6 @@ allOf:
       - contains:
           title: EBSD Frame Time
           description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
-            Longer frame time improves pattern quality and indexing rate but increases
-            total acquisition time.
           type: object
           properties:
             '@id':
@@ -24109,7 +22936,7 @@ allOf:
             schema:name:
               const: Halogen Correction on Oxygen
             ada:dataType:
-              const: boolean
+              const: string
             ada:fieldScope:
               const: session
             schema:readonlyValue:
@@ -24128,9 +22955,8 @@ allOf:
       - contains:
           title: Image Pixel Size
           description: "Physical size of each image pixel at the sample surface, in
-            nm or \xB5m. Defines spatial sampling of SE or BSE images. For large-area
-            mosaic imaging, report the pixel size of individual tiles and the number
-            and arrangement of tiles."
+            nm or \xB5m. For large-area mosaic imaging, report the pixel size of individual
+            tiles and the number and arrangement of tiles."
           type: object
           properties:
             '@id':
@@ -24163,12 +22989,9 @@ allOf:
         maxContains: 1
       - contains:
           title: Stage Scan vs. Beam Scan
-          description: For mapping modes, records whether the map was acquired by
-            moving the stage while the beam is held fixed (stage scan) or by deflecting
-            the beam across the field while the stage is stationary (beam scan). Stage
-            scan is preferred for large areas or high-accuracy geometric fidelity;
-            beam scan is faster for smaller fields but may introduce geometric distortion
-            at the map edges.
+          description: For mapping modes, whether the map was acquired by moving the
+            stage while the beam is held fixed (stage scan), or by deflecting the
+            beam across the field while the stage is stationary (beam scan).
           type: object
           properties:
             '@id':
@@ -24200,6 +23023,7 @@ allOf:
       type: string
       enum:
       - Panchromatic
+      - Monochromatic imaging
       - Spectral point
       - Hyperspectral map
       - Multi-channel pseudo-color
@@ -24209,166 +23033,16 @@ allOf:
       readOnly: true
     ada:clIntegrationTimeDefault:
       description: Acquisition time per pixel (hyperspectral map mode) or per spectrum
-        (spectral point mode), in ms or s. Longer integration improves signal-to-noise
-        but increases beam dose and acquisition time.
+        (spectral point mode), in ms or s.
       anyOf:
       - type: number
       - type: string
     ada:clWavelengthRange:
-      description: Detection wavelength range of the CL system in nm. The range is
-        set by the detector sensitivity and any optical filters installed.
+      description: Detection wavelength range of the CL system in nm.
       anyOf:
       - type: number
       - type: string
       readOnly: true
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the
-            procedure's declared reported properties. schema:variableMeasured carries
-            the dataset's actual variables; the reported-property branches above are
-            permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied using secondary reference
-            materials to correct for session-to-session calibration drift.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: normalizationStandardsBasedCorrectionDefault
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-      allOf:
-      - contains:
-          title: Detection Limit
-          description: Method detection limit at 99% confidence, one per reported
-            concentration variable (one per analyte, these being the same set). Include
-            the method used and the resulting value for each.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/detectionLimitDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: detectionLimitDefault
-            schema:name:
-              const: Detection Limit
-            ada:dataType:
-              const: number
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Normalization / Standards-Based Correction
-          description: Post-acquisition normalization applied using secondary reference
-            materials to correct for session-to-session calibration drift.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semTAPP/normalizationStandardsBasedCorrectionDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: normalizationStandardsBasedCorrectionDefault
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
     ada:ebsdDetectorConfiguration:
       description: EBSD detector manufacturer, model, and camera resolution. Include
         whether EBSD and EDS are acquired simultaneously (common on modern combined
@@ -24400,28 +23074,33 @@ allOf:
                     type: string
     ada:ebsdPhaseListDefault:
       description: Mineral phases included in the EBSD reference pattern library for
-        this procedure. The procedure specifies the expected phase suite for the target
-        material; analysts may add phases for specific sample compositions.
+        this procedure. Phases may be added for specific sample compositions beyond
+        the expected suite for the target material.
       type: string
     ada:ebsdStepSizeDefault:
       description: "Distance between adjacent EBSD measurement points in the map in
-        nm or \xB5m. Must be smaller than the smallest grain of interest to resolve
-        grain boundary positions and intragrain orientation gradients."
+        nm or \xB5m. Must be smaller than the smallest grain of interest."
       anyOf:
       - type: number
       - type: string
     ada:edsAcquisitionMode:
-      description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam
-        point acquisition, linescan (beam stepped along a transect at defined intervals),
-        or area map (beam rastered over a pixel grid). Specifies how the beam is positioned
-        during data collection within the declared Analytical Mode. Particularly important
-        when a procedure includes linescans as a distinct acquisition approach not
-        fully captured by the mode flag columns.'
+      description: "Spatial acquisition sub-strategy for EDS measurements: stationary-beam
+        point acquisition, line scan (beam stepped along a transect at defined intervals),
+        or area map / spectrum image (beam rastered over a pixel grid). Specifies
+        how the beam is positioned during data collection within the declared analytical
+        mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers
+        what the literature also calls spot or point-spectrum analysis. 'Map' and
+        'Spectrum image' are distinct acquisitions, not synonyms: a map may retain
+        element intensities alone, whereas a spectrum image retains a full spectrum
+        at every pixel and can be requantified afterwards \u2014 record which was
+        acquired. Where more than one mode was used, join them with '; ' rather than
+        looking for a combined member."
       type: string
       enum:
-      - Point / spot
+      - Point
       - Line scan
       - Map
+      - Spectrum image
       - Automated mineralogy
       - N/A
       - None
@@ -24429,8 +23108,7 @@ allOf:
       readOnly: true
     ada:edsLiveTimePerPointOrPixelDefault:
       description: EDS spectral acquisition live time per analysis point or per pixel
-        in seconds. Longer live time improves counting statistics but increases beam
-        damage risk and total acquisition time.
+        in seconds.
       anyOf:
       - type: number
       - type: string
@@ -24449,16 +23127,15 @@ allOf:
           then:
             properties:
               ada:foilThicknessDefault:
-                description: 'Target thickness of the electron-transparent TEM lamella
+                description: Target thickness of the electron-transparent TEM lamella
                   after final FIB polishing, in nanometres. Actual thickness may differ
-                  from target. Typical range: 50-150 nm for standard TEM/STEM; 200-600
-                  nm for XANES or tomography sections.'
+                  from target.
                 anyOf:
                 - type: number
                 - type: string
               ada:sliceThicknessDefault:
                 description: Thickness of each FIB-milled slice during serial sectioning
-                  in nanometres. Controls the Z-axis resolution of the 3D reconstruction.
+                  in nanometres.
                 anyOf:
                 - type: number
                 - type: string
@@ -24479,24 +23156,21 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyse. Used for discoverability
-                              and procedure matching, and because the material type
-                              constrains sample preparation, calibration and matrix-matching
-                              requirements.
+                              this procedure is designed to analyse.
                             anyOf:
                             - type: string
                               enum:
                               - Silicate mineral
+                              - Silicate glass
                               - Oxide
                               - Sulfide
                               - Carbonate
                               - Phosphate
-                              - Metal alloy
+                              - Metal or alloy
                               - Organic matter
-                              - Glass
                               - Regolith
-                              - Whole rock / polished section
                               - Porous material
+                              - Whole rock
                               - N/A
                               - None
                               - missing
@@ -24519,8 +23193,6 @@ allOf:
           - '@type'
     ada:massAbsorptionCoefficients:
       description: Database of mass absorption coefficients used in the matrix correction.
-        MAC database choice affects accuracy particularly for light elements (B, C,
-        N, O, F, Na).
       type: string
       enum:
       - LINEMU
@@ -24535,25 +23207,30 @@ allOf:
       - missing
       readOnly: true
     ada:matrixCorrectionMethod:
-      description: X-ray matrix correction algorithm applied during quantitative EDS
-        or WDS data reduction. For X-ray mapping, applies when raw count maps are
-        converted to quantitative concentration maps.
-      type: string
-      enum:
-      - XPP (Simplified PAP)
-      - PAP (Pouchou & Pichoir Full)
-      - ZAF
-      - CITZAF (Armstrong 1995)
-      - Phi-rho-z (EPQ-91)
-      - Unknown
-      - N/A
-      - None
-      - missing
+      description: "X-ray matrix correction algorithm applied during quantitative
+        EDS or WDS data reduction. For X-ray mapping, applies when raw count maps
+        are converted to quantitative concentration maps. Where the k-factors or calibration
+        constants themselves came from \u2014 measured standards, a vendor library,
+        or theoretical cross-sections \u2014 is a separate question answered by this
+        technique's calibration-standard field, not here; a procedure may be both
+        absorption-corrected and standardless."
+      anyOf:
+      - type: string
+        enum:
+        - XPP (Simplified PAP)
+        - PAP (Pouchou & Pichoir Full)
+        - ZAF
+        - CITZAF (Armstrong 1995)
+        - Phi-rho-z (EPQ-91)
+        - Unknown
+        - N/A
+        - None
+        - missing
+      - type: string
       readOnly: true
     ada:sampleTiltAngle:
       description: Sample tilt angle for EBSD acquisition in degrees, measured from
-        horizontal. Standard EBSD geometry uses 70 degrees tilt toward the EBSD camera
-        to maximise diffracted electron signal.
+        horizontal.
       anyOf:
       - type: number
       - type: string
@@ -24576,37 +23253,37 @@ allOf:
       readOnly: true
     ada:stepSizePixelSizeDefault:
       description: "Centre-to-centre distance between adjacent measurement points
-        (WDS mapping) or pixels (EDS mapping) in \xB5m. Defines the spatial sampling
-        interval of the map and, together with the pixel-grid dimensions, determines
-        the total mapped area. Smaller step sizes increase spatial resolution but
-        extend acquisition time."
+        (WDS mapping) or pixels (EDS mapping) in \xB5m."
       anyOf:
       - type: number
       - type: string
     ada:wdsDeadTimeCorrection:
       description: "Method used to correct for WDS proportional counter dead time
-        at high count rates. Dead time errors are most significant for major elements
-        with high count rates (e.g., Si, Fe, Ca). Unlike EDS dead time \u2014 which
-        is hardware-managed and reported as a session QC percentage (see EDS Dead
-        Time) \u2014 WDS dead time correction is a user-selectable algorithm in the
-        data reduction software. No separate measured WDS dead time value is reported;
-        the correction is applied transparently during intensity-to-concentration
-        conversion."
-      type: string
-      enum:
-      - Default constant (manufacturer)
-      - Adjusted constant
-      - High-precision (Probe for EPMA)
-      - Logarithmic
-      - Unknown
-      - N/A
-      - None
-      - missing
+        at high count rates. Unlike EDS dead time \u2014 which is hardware-managed
+        and reported as a session QC percentage (see EDS Dead Time) \u2014 WDS dead
+        time correction is a user-selectable algorithm in the data reduction software.
+        No separate measured WDS dead time value is reported; the correction is applied
+        transparently during intensity-to-concentration conversion. Record the algorithm
+        here and any instrument-specific constant alongside it \u2014 'Default constant
+        (manufacturer) \u2014 3 \xB5s, Cameca'. The instrument vendor itself is recorded
+        by Instrument Manufacturer, not by this field's allowed values."
+      anyOf:
+      - type: string
+        enum:
+        - Default constant (manufacturer)
+        - Adjusted constant
+        - Logarithmic
+        - High-precision (Probe for EPMA)
+        - Super-precision (Probe for EPMA)
+        - Unknown
+        - N/A
+        - None
+        - missing
+      - type: string
       readOnly: true
     ada:workingDistanceDefault:
       description: Distance between the objective lens pole piece and the specimen
-        surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray
-        take-off angle, and EBSD geometry.
+        surface in millimetres.
       anyOf:
       - type: number
       - type: string

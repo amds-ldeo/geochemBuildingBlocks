@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Solution Q-ICP-MS Technique-Aligned Protocol Profile (solutionQicpmsTAPP)",
-  "description": "Solution quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v35.csv via the path-driven pipeline.",
+  "description": "Solution quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v73.csv via the path-driven pipeline.",
   "allOf": [
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json"
@@ -17,6 +17,15 @@
     },
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/ProcedureIdentification"
     },
     {
       "type": "object",
@@ -62,7 +71,7 @@
                                 "schema:value": {
                                   "type": "array",
                                   "items": {
-                                    "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
+                                    "description": "General description of the material type(s) this procedure is designed to analyse.",
                                     "anyOf": [
                                       {
                                         "type": "string",
@@ -144,38 +153,6 @@
                     "if": {
                       "properties": {
                         "schema:name": {
-                          "const": "Sample preparation"
-                        }
-                      },
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    "then": {
-                      "properties": {
-                        "schema:description": {
-                          "description": "General approach to mechanical sample preparation prior to dissolution (e.g., whole-rock crushing and powdering, mineral separation). Documents how the solid material was conditioned before acid digestion.",
-                          "anyOf": [
-                            {
-                              "type": "string",
-                              "readOnly": true
-                            },
-                            {
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "readOnly": true
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "if": {
-                      "properties": {
-                        "schema:name": {
                           "const": "Sample digestion"
                         }
                       },
@@ -253,78 +230,12 @@
                         "schema:additionalProperty": {
                           "type": "array",
                           "items": {
-                            "title": "Guard Electrode",
-                            "description": "Whether a guard electrode (grounded shield electrode) is installed and active on the torch assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving ion extraction efficiency.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": [
-                                  {
-                                    "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
-                                  }
-                                ]
-                              },
-                              "schema:name": {
-                                "const": "Guard Electrode"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_guardElectrode"
                           },
                           "allOf": [
                             {
                               "contains": {
-                                "title": "Guard Electrode",
-                                "description": "Whether a guard electrode (grounded shield electrode) is installed and active on the torch assembly. Capacitively decouples the plasma from the load coil, reducing secondary discharge and improving ion extraction efficiency.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValue"
-                                    ]
-                                  },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionQicpmsTAPP/guardElectrode"
-                                      }
-                                    ]
-                                  },
-                                  "schema:name": {
-                                    "const": "Guard Electrode"
-                                  },
-                                  "schema:value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:propertyID",
-                                  "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_guardElectrode"
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -353,7 +264,7 @@
                             "anyOf": [
                               {
                                 "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors, a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration is critical for analytes spanning a wide concentration range in the same session.",
+                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
@@ -393,81 +304,7 @@
                                 ]
                               },
                               {
-                                "title": "Isotope Dilution Data Reduction Method",
-                                "description": "Mass balance approach used to calculate sample mass fractions from spike\u2013sample isotope ratio measurements. Record 'None' if isotope dilution is not used.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValue"
-                                    ]
-                                  },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-                                      }
-                                    ]
-                                  },
-                                  "schema:name": {
-                                    "const": "Isotope Dilution Data Reduction Method"
-                                  },
-                                  "schema:value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:propertyID",
-                                  "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
-                              },
-                              {
-                                "title": "Normalization / Standards-Based Correction",
-                                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "normalizationStandardsBasedCorrectionDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Normalization / Standards-Based Correction"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod"
                               },
                               {
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.json#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
@@ -481,7 +318,7 @@
                             {
                               "contains": {
                                 "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog detection modes. For Q-ICP-MS instruments with dual-mode SEM detectors, a cross-calibration factor is measured and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration is critical for analytes spanning a wide concentration range in the same session.",
+                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
@@ -525,85 +362,7 @@
                             },
                             {
                               "contains": {
-                                "title": "Isotope Dilution Data Reduction Method",
-                                "description": "Mass balance approach used to calculate sample mass fractions from spike\u2013sample isotope ratio measurements. Record 'None' if isotope dilution is not used.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValue"
-                                    ]
-                                  },
-                                  "schema:propertyID": {
-                                    "const": [
-                                      {
-                                        "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-                                      }
-                                    ]
-                                  },
-                                  "schema:name": {
-                                    "const": "Isotope Dilution Data Reduction Method"
-                                  },
-                                  "schema:value": {
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:propertyID",
-                                  "schema:name",
-                                  "schema:value"
-                                ],
-                                "readOnly": true
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
-                                "title": "Normalization / Standards-Based Correction",
-                                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "normalizationStandardsBasedCorrectionDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Normalization / Standards-Based Correction"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod"
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -623,28 +382,6 @@
                               "maxContains": 1
                             }
                           ]
-                        },
-                        "ada:detectionLimitMethod": {
-                          "description": "Method used to calculate detection limits for each reported concentration variable.",
-                          "anyOf": [
-                            {
-                              "type": "string",
-                              "enum": [
-                                "3\u03c3 blank",
-                                "3\u03c3 background",
-                                "3\u03c3 counting statistics",
-                                "3\u00d7 blank mean",
-                                "Poisson statistics",
-                                "N/A",
-                                "None",
-                                "missing"
-                              ]
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ],
-                          "readOnly": true
                         }
                       }
                     }
@@ -652,18 +389,6 @@
                 ]
               },
               "allOf": [
-                {
-                  "contains": {
-                    "properties": {
-                      "schema:name": {
-                        "const": "Sample preparation"
-                      }
-                    },
-                    "required": [
-                      "schema:name"
-                    ]
-                  }
-                },
                 {
                   "contains": {
                     "properties": {
@@ -740,85 +465,14 @@
                       "items": {
                         "anyOf": [
                           {
-                            "title": "Instrument Serial Number or Lab Identifier",
-                            "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "instrumentSerialNumberOrLabIdentifierDefault"
-                              },
-                              "schema:name": {
-                                "const": "Instrument Serial Number or Lab Identifier"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier"
                           },
                           {
-                            "title": "Mass Resolution Setting",
-                            "description": "Mass resolution of the quadrupole analyser. For quadrupole instruments, mass resolution is fixed at unit resolution by instrument design (m/\u0394m \u2248 300); no operator selection is possible. This field documents the instrument class constraint at procedure level.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": [
-                                  {
-                                    "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-                                  }
-                                ]
-                              },
-                              "schema:name": {
-                                "const": "Mass Resolution Setting"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_massResolutionSetting"
                           },
                           {
                             "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer and whether dual pulse-counting/analog mode is used. Most Q-ICP-MS instruments use a single SEM in dual mode (pulse counting at low signals, analog at high signals), with an instrument-specific crossover threshold. The pulse-to-analog cross-calibration correction is documented in Group 5.",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and whether dual pulse-counting/analog mode is used. The pulse-to-analog cross-calibration correction is documented in Group 5.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -853,52 +507,11 @@
                             "readOnly": true
                           },
                           {
-                            "title": "Make-up Gas and Flow Rate",
-                            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient \u2014 downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRateDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "makeUpGasAndFlowRateDefault"
-                              },
-                              "schema:name": {
-                                "const": "Make-up Gas and Flow Rate"
-                              },
-                              "ada:dataType": {
-                                "const": "number"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              },
-                              "schema:unitText": {
-                                "const": "L/min"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_makeUpGasAndFlowRate"
                           },
                           {
                             "title": "Doubly-Charged Species Monitor",
-                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.",
+                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -939,7 +552,7 @@
                           },
                           {
                             "title": "Doubly-Charged Species Production",
-                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
+                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -979,130 +592,21 @@
                             ]
                           },
                           {
-                            "title": "Memory Effect Mitigation",
-                            "description": "Procedure applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "memoryEffectMitigationDefault"
-                              },
-                              "schema:name": {
-                                "const": "Memory Effect Mitigation"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_memoryEffectMitigation"
                           }
                         ]
                       },
                       "allOf": [
                         {
                           "contains": {
-                            "title": "Instrument Serial Number or Lab Identifier",
-                            "description": "Serial number or laboratory-internal identifier for the specific instrument unit. Supports traceability to instrument service records.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifierDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "instrumentSerialNumberOrLabIdentifierDefault"
-                              },
-                              "schema:name": {
-                                "const": "Instrument Serial Number or Lab Identifier"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier"
                           },
                           "minContains": 0,
                           "maxContains": 1
                         },
                         {
                           "contains": {
-                            "title": "Mass Resolution Setting",
-                            "description": "Mass resolution of the quadrupole analyser. For quadrupole instruments, mass resolution is fixed at unit resolution by instrument design (m/\u0394m \u2248 300); no operator selection is possible. This field documents the instrument class constraint at procedure level.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": [
-                                  {
-                                    "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-                                  }
-                                ]
-                              },
-                              "schema:name": {
-                                "const": "Mass Resolution Setting"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_massResolutionSetting"
                           },
                           "minContains": 0,
                           "maxContains": 1
@@ -1110,7 +614,7 @@
                         {
                           "contains": {
                             "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer and whether dual pulse-counting/analog mode is used. Most Q-ICP-MS instruments use a single SEM in dual mode (pulse counting at low signals, analog at high signals), with an instrument-specific crossover threshold. The pulse-to-analog cross-calibration correction is documented in Group 5.",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and whether dual pulse-counting/analog mode is used. The pulse-to-analog cross-calibration correction is documented in Group 5.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -1149,48 +653,7 @@
                         },
                         {
                           "contains": {
-                            "title": "Make-up Gas and Flow Rate",
-                            "description": "Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate. Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient \u2014 downstream of an ablation cell, or of a desolvation system that has removed solvent load. Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRateDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "makeUpGasAndFlowRateDefault"
-                              },
-                              "schema:name": {
-                                "const": "Make-up Gas and Flow Rate"
-                              },
-                              "ada:dataType": {
-                                "const": "number"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              },
-                              "schema:unitText": {
-                                "const": "L/min"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_makeUpGasAndFlowRate"
                           },
                           "minContains": 0,
                           "maxContains": 1
@@ -1198,7 +661,7 @@
                         {
                           "contains": {
                             "title": "Doubly-Charged Species Monitor",
-                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning. Doubly-charged ions appear at half the nominal mass of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z 69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.",
+                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -1243,7 +706,7 @@
                         {
                           "contains": {
                             "title": "Doubly-Charged Species Production",
-                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. Record both the acceptance threshold and the measured value. Elevated doubly-charged production indicates incomplete ionization and potential interference on elements at approximately half the mass of abundant matrix components.",
+                            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -1287,45 +750,7 @@
                         },
                         {
                           "contains": {
-                            "title": "Memory Effect Mitigation",
-                            "description": "Procedure applied to identify and minimize carry-over of high-concentration elements between successive sample introductions. For solution ICP-MS, mitigation is implemented primarily at measurement time through extended rinse periods (see Wash Time Between Samples, Group 4). At data processing level, documents any flagging or exclusion of measurements preceded by high-concentration samples or standards where the required washout time may not have been achieved.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/memoryEffectMitigationDefault"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValueSpecification"
-                                ]
-                              },
-                              "schema:valueName": {
-                                "const": "memoryEffectMitigationDefault"
-                              },
-                              "schema:name": {
-                                "const": "Memory Effect Mitigation"
-                              },
-                              "ada:dataType": {
-                                "const": "string"
-                              },
-                              "ada:fieldScope": {
-                                "const": "session"
-                              },
-                              "schema:readonlyValue": {
-                                "const": false
-                              },
-                              "ada:tier": {
-                                "const": "R"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:valueName",
-                              "schema:name",
-                              "ada:dataType",
-                              "ada:fieldScope"
-                            ]
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_memoryEffectMitigation"
                           },
                           "minContains": 0,
                           "maxContains": 1
@@ -1337,132 +762,6 @@
                       "items": {
                         "type": "object",
                         "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "Torch"
-                                  },
-                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:name": {
-                                  "description": "Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).",
-                                  "anyOf": [
-                                    {
-                                      "type": "string",
-                                      "readOnly": true
-                                    },
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string",
-                                        "readOnly": true
-                                      }
-                                    }
-                                  ]
-                                },
-                                "schema:additionalProperty": {
-                                  "type": "array",
-                                  "items": {
-                                    "title": "Torch Depth",
-                                    "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/solutionQicpmsTAPP/torchDepthDefault"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
-                                        ]
-                                      },
-                                      "schema:valueName": {
-                                        "const": "torchDepthDefault"
-                                      },
-                                      "schema:name": {
-                                        "const": "Torch Depth"
-                                      },
-                                      "ada:dataType": {
-                                        "const": "string"
-                                      },
-                                      "ada:fieldScope": {
-                                        "const": "session"
-                                      },
-                                      "schema:readonlyValue": {
-                                        "const": false
-                                      },
-                                      "ada:tier": {
-                                        "const": "R"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
-                                    ]
-                                  },
-                                  "allOf": [
-                                    {
-                                      "contains": {
-                                        "title": "Torch Depth",
-                                        "description": "Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer. Affects ion transmission efficiency, oxide formation, and doubly-charged species production. The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/torchDepthDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "torchDepthDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Torch Depth"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          },
                           {
                             "if": {
                               "properties": {
@@ -1484,156 +783,24 @@
                                   "items": {
                                     "anyOf": [
                                       {
-                                        "title": "Interface Cone Configuration",
-                                        "description": "Geometry and designation of the sampler and skimmer cones installed during analysis. Some instruments offer multiple skimmer cone geometries (standard, high-sensitivity) that differ in aperture size and affect ion transmission efficiency and matrix tolerance.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Interface Cone Configuration"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_configuration"
                                       },
                                       {
-                                        "title": "Sampler and Skimmer Cone Material",
-                                        "description": "Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most aqueous matrices. Platinum (Pt) is used for samples in HCl-rich or organic matrices due to greater corrosion resistance.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Sampler and Skimmer Cone Material"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_samplerAndSkimmerConeMaterial"
                                       }
                                     ]
                                   },
                                   "allOf": [
                                     {
                                       "contains": {
-                                        "title": "Interface Cone Configuration",
-                                        "description": "Geometry and designation of the sampler and skimmer cones installed during analysis. Some instruments offer multiple skimmer cone geometries (standard, high-sensitivity) that differ in aperture size and affect ion transmission efficiency and matrix tolerance.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/interfaceConeConfiguration"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Interface Cone Configuration"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_configuration"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
                                     },
                                     {
                                       "contains": {
-                                        "title": "Sampler and Skimmer Cone Material",
-                                        "description": "Material composition of the sampler and skimmer cones. Nickel (Ni) is standard for most aqueous matrices. Platinum (Pt) is used for samples in HCl-rich or organic matrices due to greater corrosion resistance.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Sampler and Skimmer Cone Material"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_samplerAndSkimmerConeMaterial"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
@@ -1648,7 +815,7 @@
                               "properties": {
                                 "schema:additionalType": {
                                   "contains": {
-                                    "const": "Collision Reaction Cell"
+                                    "const": "Torch"
                                   },
                                   "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                                 }
@@ -1659,475 +826,15 @@
                             },
                             "then": {
                               "properties": {
-                                "schema:name": {
-                                  "description": "Whether a collision or reaction cell is installed and its operating mode for this procedure. STD = standard mode with no cell gas; KED = kinetic energy discrimination with He or H2 collision gas to suppress polyatomic interferences; DRC = dynamic reaction cell with reactive gas (e.g., NH3). Specific gas types, flow rates, and voltages are documented in Group 4.",
-                                  "anyOf": [
-                                    {
-                                      "type": "string",
-                                      "enum": [
-                                        "Not installed",
-                                        "STD (standard mode, no gas)",
-                                        "KED (kinetic energy discrimination, He gas)",
-                                        "DRC (dynamic reaction cell, reactive gas)",
-                                        "KED+DRC",
-                                        "ICP-MS/MS (triple-quadrupole mode)",
-                                        "N/A",
-                                        "None",
-                                        "missing"
-                                      ],
-                                      "readOnly": true
-                                    },
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string",
-                                        "enum": [
-                                          "Not installed",
-                                          "STD (standard mode, no gas)",
-                                          "KED (kinetic energy discrimination, He gas)",
-                                          "DRC (dynamic reaction cell, reactive gas)",
-                                          "KED+DRC",
-                                          "ICP-MS/MS (triple-quadrupole mode)",
-                                          "N/A",
-                                          "None",
-                                          "missing"
-                                        ],
-                                        "readOnly": true
-                                      }
-                                    }
-                                  ]
-                                },
                                 "schema:additionalProperty": {
                                   "type": "array",
                                   "items": {
-                                    "anyOf": [
-                                      {
-                                        "title": "Collision Gas Type",
-                                        "description": "Type of collision gas used in KED mode for polyatomic interference suppression. Record 'N/A' if KED mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Collision Gas Type"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
-                                      },
-                                      {
-                                        "title": "Collision Gas Flow Rate",
-                                        "description": "Flow rate of the collision gas in KED mode (mL/min). Higher flow rates provide greater interference suppression at the cost of analyte sensitivity. Record 'N/A' if KED mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "collisionGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Collision Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "mL/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
-                                      },
-                                      {
-                                        "title": "Cell Exit Discrimination Voltage",
-                                        "description": "Kinetic energy discrimination offset voltage applied at the exit of the collision cell (V). Controls the degree of polyatomic ion suppression. Record 'N/A' if KED mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltageDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "cellExitDiscriminationVoltageDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Cell Exit Discrimination Voltage"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "V"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
-                                      },
-                                      {
-                                        "title": "Reaction Gas Type",
-                                        "description": "Type of reactive gas introduced into the dynamic reaction cell (e.g., NH3, O2, CH4). Record 'N/A' if DRC mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include DRC.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Reaction Gas Type"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
-                                      },
-                                      {
-                                        "title": "Reaction Gas Flow Rate",
-                                        "description": "Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A' if DRC mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include DRC.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "reactionGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Reaction Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "mL/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
-                                      }
-                                    ]
+                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_torchDepth"
                                   },
                                   "allOf": [
                                     {
                                       "contains": {
-                                        "title": "Collision Gas Type",
-                                        "description": "Type of collision gas used in KED mode for polyatomic interference suppression. Record 'N/A' if KED mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Collision Gas Type"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Collision Gas Flow Rate",
-                                        "description": "Flow rate of the collision gas in KED mode (mL/min). Higher flow rates provide greater interference suppression at the cost of analyte sensitivity. Record 'N/A' if KED mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "collisionGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Collision Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "mL/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Cell Exit Discrimination Voltage",
-                                        "description": "Kinetic energy discrimination offset voltage applied at the exit of the collision cell (V). Controls the degree of polyatomic ion suppression. Record 'N/A' if KED mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltageDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "cellExitDiscriminationVoltageDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Cell Exit Discrimination Voltage"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "V"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Reaction Gas Type",
-                                        "description": "Type of reactive gas introduced into the dynamic reaction cell (e.g., NH3, O2, CH4). Record 'N/A' if DRC mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include DRC.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Reaction Gas Type"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Reaction Gas Flow Rate",
-                                        "description": "Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A' if DRC mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include DRC.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/reactionGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "reactionGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Reaction Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "mL/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_torchDepth"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
@@ -2226,356 +933,122 @@
                                   "items": {
                                     "anyOf": [
                                       {
-                                        "title": "RF Power",
-                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/rfPowerDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "rfPowerDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "RF Power"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "W"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_rfPower"
                                       },
                                       {
-                                        "title": "Coolant (Plasma) Gas Flow Rate",
-                                        "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "coolantGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Coolant (Plasma) Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "L/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_coolantPlasmaGasFlowRate"
                                       },
                                       {
-                                        "title": "Auxiliary Gas Flow Rate",
-                                        "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "auxiliaryGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Auxiliary Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "L/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_auxiliaryGasFlowRate"
                                       },
                                       {
-                                        "title": "Plasma Thermal Mode",
-                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution ICP-MS analyses. Cool plasma (\u2264900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Plasma Thermal Mode"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_plasmaThermalMode"
                                       }
                                     ]
                                   },
                                   "allOf": [
                                     {
                                       "contains": {
-                                        "title": "RF Power",
-                                        "description": "Radiofrequency forward power applied to the plasma (W). Controls ionization efficiency and oxide production rates.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/rfPowerDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "rfPowerDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "RF Power"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "W"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_rfPower"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
                                     },
                                     {
                                       "contains": {
-                                        "title": "Coolant (Plasma) Gas Flow Rate",
-                                        "description": "Flow rate of the outer (coolant) argon gas stream (L/min). Influences plasma temperature and oxide ion formation.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/coolantGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "coolantGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Coolant (Plasma) Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "L/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_coolantPlasmaGasFlowRate"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
                                     },
                                     {
                                       "contains": {
-                                        "title": "Auxiliary Gas Flow Rate",
-                                        "description": "Flow rate of the intermediate (auxiliary) argon gas stream between torch body and injector tube (L/min).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRateDefault"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "auxiliaryGasFlowRateDefault"
-                                          },
-                                          "schema:name": {
-                                            "const": "Auxiliary Gas Flow Rate"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "ada:fieldScope": {
-                                            "const": "session"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "R"
-                                          },
-                                          "schema:unitText": {
-                                            "const": "L/min"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "ada:fieldScope"
-                                        ]
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_auxiliaryGasFlowRate"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
                                     },
                                     {
                                       "contains": {
-                                        "title": "Plasma Thermal Mode",
-                                        "description": "Whether the ICP plasma is operated under cool plasma or normal (hot) plasma conditions. Normal plasma (>1000 W RF) is standard for most solution ICP-MS analyses. Cool plasma (\u2264900 W RF) reduces argide-based interferences (e.g., 40Ar12C+ on 52Cr) at the cost of reduced sensitivity and ionization efficiency for most elements.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValue"
-                                            ]
-                                          },
-                                          "schema:propertyID": {
-                                            "const": [
-                                              {
-                                                "@id": "ada:parameter/solutionQicpmsTAPP/plasmaThermalMode"
-                                              }
-                                            ]
-                                          },
-                                          "schema:name": {
-                                            "const": "Plasma Thermal Mode"
-                                          },
-                                          "schema:value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:propertyID",
-                                          "schema:name",
-                                          "schema:value"
-                                        ],
-                                        "readOnly": true
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_plasmaThermalMode"
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "Collision Reaction Cell"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:additionalProperty": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_collisionGasType"
+                                      },
+                                      {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_gasFlowRate"
+                                      },
+                                      {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_cellExitDiscriminationVoltage"
+                                      },
+                                      {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_reactionGasType"
+                                      },
+                                      {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_reactionGasFlowRate"
+                                      }
+                                    ]
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_collisionGasType"
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_gasFlowRate"
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_cellExitDiscriminationVoltage"
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_reactionGasType"
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.json#/$defs/Param_Procedure_reactionGasFlowRate"
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
@@ -2608,21 +1081,6 @@
                             "properties": {
                               "schema:additionalType": {
                                 "contains": {
-                                  "const": "Collision Reaction Cell"
-                                },
-                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
-                              }
-                            },
-                            "required": [
-                              "schema:additionalType"
-                            ]
-                          }
-                        },
-                        {
-                          "contains": {
-                            "properties": {
-                              "schema:additionalType": {
-                                "contains": {
                                   "const": "Sample Introduction System"
                                 },
                                 "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
@@ -2639,6 +1097,21 @@
                               "schema:additionalType": {
                                 "contains": {
                                   "const": "ICP Source"
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        },
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "Collision Reaction Cell"
                                 },
                                 "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
                               }
@@ -2684,130 +1157,10 @@
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.json#/$defs/Param_Procedure_internalStandardConcentration"
               },
               {
-                "title": "Spike / Outlier Filtering Approach",
-                "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproachDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "spikeOutlierFilteringApproachDefault"
-                  },
-                  "schema:name": {
-                    "const": "Spike / Outlier Filtering Approach"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_filteringApproach"
               },
               {
-                "title": "Uncertainty Propagation Method",
-                "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "uncertaintyPropagationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Uncertainty Propagation Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Detection Limit",
-                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitDefault"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_uncertaintyPropagationMethod"
               }
             ]
           },
@@ -2828,138 +1181,14 @@
             },
             {
               "contains": {
-                "title": "Spike / Outlier Filtering Approach",
-                "description": "Criteria used to identify and exclude anomalous replicate measurements or data points from the calculated mean.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproachDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "spikeOutlierFilteringApproachDefault"
-                  },
-                  "schema:name": {
-                    "const": "Spike / Outlier Filtering Approach"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_filteringApproach"
               },
               "minContains": 0,
               "maxContains": 1
             },
             {
               "contains": {
-                "title": "Uncertainty Propagation Method",
-                "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethodDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "uncertaintyPropagationMethodDefault"
-                  },
-                  "schema:name": {
-                    "const": "Uncertainty Propagation Method"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Detection Limit",
-                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitDefault"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_uncertaintyPropagationMethod"
               },
               "minContains": 0,
               "maxContains": 1
@@ -2991,7 +1220,7 @@
                   },
                   {
                     "title": "Dwell Time per Mass",
-                    "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
+                    "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3055,12 +1284,12 @@
                     ]
                   },
                   {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for isobaric or polyatomic interferences are applied during data reduction (in addition to any KED or DRC mitigation in the instrument).",
+                    "title": "Spectral Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                        "const": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -3068,10 +1297,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "isobaricInterferenceCorrectionsApplied"
+                        "const": "spectralInterferenceCorrectionsApplied"
                       },
                       "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
+                        "const": "Spectral Interference Corrections Applied"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -3107,7 +1336,7 @@
                   },
                   {
                     "title": "Interfering Species",
-                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species on Cd isotopes, and BaO+ on Eu. Additional interference mitigation via KED or DRC is documented in Group 3 and Group 4.",
+                    "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3158,7 +1387,7 @@
                   },
                   {
                     "title": "Interference Correction Method",
-                    "description": "Mathematical approach used to calculate and remove interference contributions from measured signals (e.g., interference standard solutions isolating specific polyatomics, mass-balance equations using empirical correction factors).",
+                    "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3213,7 +1442,7 @@
                 {
                   "contains": {
                     "title": "Dwell Time per Mass",
-                    "description": "Integration time spent on each mass peak per sweep (ms). May differ between masses where per-mass dwell times are programmed.",
+                    "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3281,12 +1510,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Isobaric Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for isobaric or polyatomic interferences are applied during data reduction (in addition to any KED or DRC mitigation in the instrument).",
+                    "title": "Spectral Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied"
+                        "const": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -3294,10 +1523,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "isobaricInterferenceCorrectionsApplied"
+                        "const": "spectralInterferenceCorrectionsApplied"
                       },
                       "schema:name": {
-                        "const": "Isobaric Interference Corrections Applied"
+                        "const": "Spectral Interference Corrections Applied"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -3337,7 +1566,7 @@
                 {
                   "contains": {
                     "title": "Interfering Species",
-                    "description": "List of isobaric or polyatomic species mathematically corrected in data reduction. For Q-ICP-MS, common interferences include ArCl+ on 75As, MoO+ species on Cd isotopes, and BaO+ on Eu. Additional interference mitigation via KED or DRC is documented in Group 3 and Group 4.",
+                    "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3392,7 +1621,7 @@
                 {
                   "contains": {
                     "title": "Interference Correction Method",
-                    "description": "Mathematical approach used to calculate and remove interference contributions from measured signals (e.g., interference standard solutions isolating specific polyatomics, mass-balance equations using empirical correction factors).",
+                    "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3461,7 +1690,7 @@
           "readOnly": true
         },
         "ada:numberOfReplicatesPerSample": {
-          "description": "Number of replicate measurements performed on the same sample, or on the same nominal location where the technique is spatially resolved. For spot analysis this is the number of individual spots per grain or location; for transects, the number of replicate lines; for mapping, the number of map acquisitions of the same area; for solution work, the number of discrete replicate measurements acquired per sample solution. The procedure registers an intended count where it has one; the analysis records the count actually acquired.",
+          "description": "Number of replicate measurements performed on the same sample, or on the same nominal location where the technique is spatially resolved. For spot analysis this is the number of individual spots per grain or location; for transects, the number of replicate lines; for mapping, the number of map acquisitions of the same area; for solution work, the number of discrete replicate measurements acquired per sample solution.",
           "anyOf": [
             {
               "type": "integer"
@@ -3471,40 +1700,12 @@
             }
           ]
         },
-        "ada:sampleSequenceDesign": {
-          "description": "Description of the measurement order within a session: how samples, blanks, calibration standards, and reference materials are interleaved.",
-          "type": "string",
-          "readOnly": true
-        },
         "ada:signalCollectionMode": {
-          "description": "Mode used to collect ion signal across the monitored masses. In peak hopping mode, the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning mode, the quadrupole sweeps continuously across a defined mass range. Peak hopping is standard for multi-element trace analysis as it maximises integration time at each mass.",
+          "description": "Mode used to collect ion signal across the monitored masses. In peak hopping mode, the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning mode, the quadrupole sweeps continuously across a defined mass range.",
           "type": "string",
           "enum": [
             "Peak hopping",
             "Scanning",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "ada:internalStandardElement": {
-          "description": "Element(s) added at a known concentration to all solutions (samples, blanks, calibration standards) and used as internal standards for drift correction and matrix normalization. Specify element and monitored isotope.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:oxideProductionMethodAndThreshold": {
-          "description": "Method used to quantify plasma oxide production and the acceptance threshold applied before commencing analysis. Record both the monitored mass ratio(s) and the maximum allowed threshold(s). Measured values are recorded in Oxide Production. CeO+/Ce+ (m/z 156/140) is the standard monitor proxy.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:internalStandardApproach": {
-          "description": "Role(s) assigned to the internal standard(s) in data reduction: drift correction only, matrix normalization, or a combination.",
-          "type": "string",
-          "enum": [
-            "Drift correction only",
-            "Matrix normalization",
-            "Drift + matrix normalization",
             "N/A",
             "None",
             "missing"
@@ -3524,271 +1725,6 @@
           ],
           "readOnly": true
         },
-        "ada:perAnalyteCalibrationStrategy": {
-          "type": "array",
-          "items": {
-            "description": "Approach used to convert measured ion signals to elemental concentrations. Documents cases where different analytes or analyte groups are calibrated using different strategies within the same procedure. If a single strategy is applied uniformly to all analytes, record that strategy.",
-            "type": "string",
-            "enum": [
-              "External calibration (all analytes)",
-              "Isotope dilution (all analytes)",
-              "ID for Zn (67Zn spike); external calibration for all other elements",
-              "External calibration + standard addition",
-              "N/A",
-              "None",
-              "missing"
-            ],
-            "readOnly": true
-          }
-        },
-        "ada:signalIntegrationIntervalMethod": {
-          "description": "Method used to define the integration window for each replicate measurement (e.g., full acquisition time, stable-interval selection, automated criteria).",
-          "type": "string",
-          "enum": [
-            "Full replicate",
-            "Stable interval selection",
-            "Automated peak detection",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "ada:blankBackgroundCorrectionMethod": {
-          "description": "Method used to subtract instrument background and/or procedural blank from sample signals.",
-          "type": "string",
-          "enum": [
-            "On-peak zero",
-            "Solution blank",
-            "Procedural blank",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "schema:variableMeasured": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "title": "Dataset variable",
-                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
-                "type": "object",
-                "required": [
-                  "@type"
-                ],
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "contains": {
-                      "enum": [
-                        "cdi:InstanceVariable",
-                        "schema:PropertyValue"
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "title": "Normalization / Standards-Based Correction",
-                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "normalizationStandardsBasedCorrectionDefault"
-                  },
-                  "schema:name": {
-                    "const": "Normalization / Standards-Based Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Detection Limit",
-                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitDefault"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "title": "Normalization / Standards-Based Correction",
-                "description": "Post-acquisition normalization applied to output concentrations relative to a reference value (e.g., correction to a monitor element's certified value in the calibration standard).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrectionDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "normalizationStandardsBasedCorrectionDefault"
-                  },
-                  "schema:name": {
-                    "const": "Normalization / Standards-Based Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Detection Limit",
-                "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "detectionLimitDefault"
-                  },
-                  "schema:name": {
-                    "const": "Detection Limit"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            }
-          ]
-        },
-        "ada:primaryStandardNameDefault": {
-          "description": "Name and reference material identifier of the external calibration standard used to convert signal intensities to elemental concentrations. Include the material name, its source or supplier, and a citation for the accepted values used, since results calibrated against different published values for the same material are not directly comparable.",
-          "type": "string"
-        },
-        "ada:calibrationMeasurementFrequency": {
-          "description": "How often the primary calibration standard is measured relative to unknown samples within a session.",
-          "type": "string",
-          "readOnly": true
-        },
-        "ada:secondaryReferenceMaterialDefault": {
-          "type": "array",
-          "items": {
-            "description": "Reference material(s) measured as unknowns to independently assess analytical accuracy. Specify material name and expected-value source.",
-            "type": "string"
-          }
-        },
         "ada:analyteTemplate": {
           "type": "object",
           "properties": {
@@ -3801,7 +1737,7 @@
                   },
                   {
                     "title": "Limit of Quantification (LOQ) Method",
-                    "description": "Method used to determine the limit of quantification.",
+                    "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3882,7 +1818,7 @@
                   },
                   {
                     "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                    "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported. Long-term precision is normally poorer than within-session precision and is the figure a data user should carry when comparing results from different sessions.",
+                    "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3922,7 +1858,7 @@
                   },
                   {
                     "title": "Analytical Accuracy and Assessment Method",
-                    "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+                    "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3967,7 +1903,7 @@
                 {
                   "contains": {
                     "title": "Limit of Quantification (LOQ) Method",
-                    "description": "Method used to determine the limit of quantification.",
+                    "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4056,7 +1992,7 @@
                 {
                   "contains": {
                     "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                    "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported. Long-term precision is normally poorer than within-session precision and is the figure a data user should carry when comparing results from different sessions.",
+                    "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4100,7 +2036,7 @@
                 {
                   "contains": {
                     "title": "Analytical Accuracy and Assessment Method",
-                    "description": "Accuracy of final concentration measurements relative to certified or consensus values and the method used to assess it.",
+                    "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -4150,16 +2086,8 @@
       "required": [
         "ada:massCyclesPerReplicate",
         "ada:numberOfReplicatesPerSample",
-        "ada:sampleSequenceDesign",
         "ada:signalCollectionMode",
-        "ada:internalStandardElement",
-        "ada:oxideProductionMethodAndThreshold",
-        "ada:internalStandardApproach",
-        "ada:driftCorrectionMethod",
-        "ada:signalIntegrationIntervalMethod",
-        "ada:blankBackgroundCorrectionMethod",
-        "ada:primaryStandardNameDefault",
-        "ada:calibrationMeasurementFrequency"
+        "ada:driftCorrectionMethod"
       ]
     }
   ]

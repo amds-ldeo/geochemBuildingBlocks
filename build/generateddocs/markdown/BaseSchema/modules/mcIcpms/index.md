@@ -206,8 +206,7 @@ $defs:
                               static multi-collection procedures, one configuration
                               applies throughout the measurement. For multi-dynamic
                               procedures, list all configurations and the cycling
-                              sequence. Different element systems require different
-                              mass assignments within the collector array span."
+                              sequence."
                             anyOf:
                             - type: string
                             - type: array
@@ -235,15 +234,11 @@ $defs:
             - schema:additionalType
         x-jsonld-id: http://schema.org/instrument
       ada:internalNormalizationElementAndIsotopeRatio:
-        description: "Element and isotope ratio used as the internal normalization
-          standard for mass bias correction. The measured ratio of the normalizing
-          element is used to calculate the mass bias factor \u03B2 using the chosen
-          mass fractionation law, which is then applied to correct the analyte isotope
-          ratios assuming \u03B2_norm \u2248 \u03B2_analyte. Specify the element,
-          the monitored isotope ratio (e.g., 113Cd/111Cd for Sb measurements), and
-          the certified or consensus value used for correction. Record 'N/A' if internal
-          normalization is not used. Record 'N/A' where the procedure does not use
-          internal normalization."
+        description: Element and isotope ratio used as the internal normalization
+          standard for mass bias correction. Specify the element, the monitored isotope
+          ratio (e.g., 113Cd/111Cd for Sb measurements), and the certified or consensus
+          value used for correction. Record 'N/A' where the procedure does not use
+          internal normalization.
         type: string
         x-jsonld-id: https://ada.astromat.org/metadata/internalNormalizationElementAndIsotopeRatio
     required:
@@ -269,9 +264,7 @@ $defs:
               properties:
                 dqv:value:
                   description: Peak flatness actually achieved in the session, assessed
-                    against the criterion registered by the procedure. Companion measured
-                    value to Peak Flatness Method and Threshold, following the criterion-versus-measurement
-                    split used for Oxide Production.
+                    against the criterion registered by the procedure.
                   anyOf:
                   - type: string
                   - type: array
@@ -292,8 +285,6 @@ $defs:
       total number of Faraday cup detectors (fixed and moveable), their labeled positions
       (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence
       and position of any ion counter (SEM) or Daly detector in the collector block.
-      The number and span of cups constrains which isotope combinations can be simultaneously
-      collected.
     type: object
     properties:
       '@id':
@@ -330,10 +321,8 @@ $defs:
     title: Faraday Cup Amplifier Resistor Values
     description: "Resistance values (\u03A9) of the feedback resistors in the Faraday
       cup amplifiers. Standard amplifiers use 10\xB9\xB9 \u03A9 resistors, yielding
-      1 V per ~6.24 \xD7 10\u2076 ion counts per second. High-gain amplifiers (10\xB9\xB2
-      or 10\xB9\xB3 \u03A9) are fitted to selected cups to improve signal-to-noise
-      for very low-intensity beams (e.g., 234U, low-abundance spike isotopes). Report
-      the resistor value per cup position, or note 'all 10\xB9\xB9 \u03A9' if uniform."
+      1 V per ~6.24 \xD7 10\u2076 ion counts per second. Report the resistor value
+      per cup position, or note 'all 10\xB9\xB9 \u03A9' if uniform."
     type: object
     properties:
       '@id':
@@ -370,12 +359,11 @@ $defs:
     title: Faraday Cup Gain Calibration Method
     description: 'Method used to calibrate the relative gain (amplification factor)
       of each Faraday cup amplifier at the start of or during each analytical session.
-      Relative gain differences between amplifiers cause systematic errors in isotope
-      ratios if uncorrected. Common approaches: instrument internal gain calibration
-      routine (measures signal in each cup sequentially using a common beam), amplifier
-      rotation procedure, or measurement of a known isotope ratio solution in each
-      cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration
-      sequence. Specify frequency (per session, per block, weekly).'
+      Common approaches: instrument internal gain calibration routine (measures signal
+      in each cup sequentially using a common beam), amplifier rotation procedure,
+      or measurement of a known isotope ratio solution in each cup. For instruments
+      with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence.
+      Specify frequency (per session, per block, weekly).'
     type: object
     properties:
       '@id':
@@ -413,9 +401,7 @@ $defs:
     description: Number of measurement blocks acquired per sample or standard solution
       introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block
       typically begins with a baseline (on-peak zero) measurement before the analytical
-      cycles. Multiple blocks per sample allow inspection of signal stability and
-      within-measurement drift. Procedure specifies the standard number; analyst may
-      adjust for samples with low signal or for high-precision requirements.
+      cycles. Adjust for samples with low signal or where higher precision is required.
     type: object
     properties:
       '@id':
@@ -446,9 +432,7 @@ $defs:
     description: Number of measurement blocks acquired per sample or standard solution
       introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block
       typically begins with a baseline (on-peak zero) measurement before the analytical
-      cycles. Multiple blocks per sample allow inspection of signal stability and
-      within-measurement drift. Procedure specifies the standard number; analyst may
-      adjust for samples with low signal or for high-precision requirements.
+      cycles. Adjust for samples with low signal or where higher precision is required.
     type: object
     properties:
       '@id':
@@ -487,8 +471,7 @@ $defs:
       to a single set of simultaneous Faraday cup readings integrated for the duration
       specified in Integration Time per Cycle. Total integration time per sample =
       (Number of Cycles per Block) \xD7 (Integration Time per Cycle) \xD7 (Number
-      of Blocks per Measurement). Procedure specifies the standard value; analyst
-      may adjust within procedure bounds."
+      of Blocks per Measurement)."
     type: object
     properties:
       '@id':
@@ -520,8 +503,7 @@ $defs:
       to a single set of simultaneous Faraday cup readings integrated for the duration
       specified in Integration Time per Cycle. Total integration time per sample =
       (Number of Cycles per Block) \xD7 (Integration Time per Cycle) \xD7 (Number
-      of Blocks per Measurement). Procedure specifies the standard value; analyst
-      may adjust within procedure bounds."
+      of Blocks per Measurement)."
     type: object
     properties:
       '@id':
@@ -556,14 +538,9 @@ $defs:
     - ada:fieldScope
   Param_Analysis_integrationTimePerCycle:
     title: Integration Time per Cycle
-    description: "Duration of signal integration per measurement cycle (seconds).
-      Determines counting statistics per cycle. Longer integration times improve shot-noise
-      precision but increase the impact of signal drift within the integration window.
-      For high-gain (10\xB9\xB2 or 10\xB9\xB3 \u03A9) amplifier channels, longer integration
-      times are often required to accumulate sufficient charge. Procedure specifies
-      the standard integration time; analyst may confirm or adjust within procedure
-      bounds. Where different isotope channels use different integration schemes,
-      record the time for each channel."
+    description: Duration of signal integration per measurement cycle (seconds). Where
+      different isotope channels use different integration schemes, record the time
+      for each channel.
     type: object
     properties:
       '@id':
@@ -595,14 +572,9 @@ $defs:
     - schema:unitText
   Param_Procedure_integrationTimePerCycle:
     title: Integration Time per Cycle
-    description: "Duration of signal integration per measurement cycle (seconds).
-      Determines counting statistics per cycle. Longer integration times improve shot-noise
-      precision but increase the impact of signal drift within the integration window.
-      For high-gain (10\xB9\xB2 or 10\xB9\xB3 \u03A9) amplifier channels, longer integration
-      times are often required to accumulate sufficient charge. Procedure specifies
-      the standard integration time; analyst may confirm or adjust within procedure
-      bounds. Where different isotope channels use different integration schemes,
-      record the time for each channel."
+    description: Duration of signal integration per measurement cycle (seconds). Where
+      different isotope channels use different integration schemes, record the time
+      for each channel.
     type: object
     properties:
       '@id':
@@ -642,12 +614,9 @@ $defs:
     title: Baseline Measurement Approach
     description: 'Method and timing for measuring the ion beam baseline (on-peak zero)
       during acquisition, and the portion of the acquisition it is taken from. Three
-      approaches are in use and the choice depends on how sample reaches the plasma:
-      deflecting the ion beam (beam-off or electrostatic deflector); aspirating an
-      acid blank, which applies only to solution introduction; or, for laser ablation,
-      collecting a defined number of laser-off cycles at the start of the same block,
-      since no blank can be aspirated mid-ablation. State which, and how many cycles
-      or how long.'
+      approaches are in use: deflecting the ion beam (beam-off or electrostatic deflector);
+      aspirating an acid blank; or collecting a defined number of laser-off cycles
+      at the start of the same block. State which, and how many cycles or how long.'
     type: object
     properties:
       '@id':
@@ -682,13 +651,11 @@ $defs:
     - ada:fieldScope
   Param_Procedure_massFractionationLaw:
     title: Mass Fractionation Law
-    description: "Mathematical law used to parameterize instrumental isotope mass
-      fractionation as a function of mass difference. The exponential law (Mar\xE9chal
-      et al. 1999) is most widely used and theoretically best justified for MC-ICP-MS.
-      The linear law assumes fractionation proportional to mass difference. The power
-      law is an alternative formulation. For double-spike procedures, the law is embedded
-      in the inversion algorithm and must be consistent between spike calibration
-      and sample data reduction."
+    description: Mathematical law used to parameterize instrumental isotope mass fractionation
+      as a function of mass difference. The linear law assumes fractionation proportional
+      to mass difference. The power law is an alternative formulation. For double-spike
+      procedures, the law is embedded in the inversion algorithm and must be consistent
+      between spike calibration and sample data reduction.
     type: object
     properties:
       '@id':
@@ -724,11 +691,10 @@ $defs:
   Param_Procedure_doubleSpikeIsotopePair:
     title: Double Spike Isotope Pair
     description: The pair of enriched isotopes used to construct the double spike.
-      Both isotopes must be naturally rare, free from isobaric interferences, and
-      chosen to minimize error magnification in the inversion. The double spike composition
-      must be accurately calibrated before use. Specify both isotope masses and the
-      spike certificate or calibration reference. Record 'N/A' if double-spike method
-      is not used. Record 'N/A' where the procedure does not use a double spike.
+      Both isotopes must be naturally rare and free from isobaric interferences. The
+      double spike composition must be accurately calibrated before use. Specify both
+      isotope masses and the spike certificate or calibration reference. Record 'N/A'
+      where the procedure does not use a double spike.
     type: object
     properties:
       '@id':
@@ -765,13 +731,11 @@ $defs:
     title: Double Spike Mixing Ratio
     description: "Target proportion of double-spike signal relative to total analyte
       signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. An optimal mixing ratio minimizes error propagation through the double-spike
-      inversion; the optimum is analyte-system specific and is typically determined
-      using the Double Spike Toolbox or equivalent. The achieved mixing ratio may
-      deviate from the target within acceptable bounds (typically \xB120% of optimal);
-      the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if
-      double-spike method is not used. Record 'N/A' where the procedure does not use
-      a double spike."
+      ratio. The optimum is analyte-system specific and is typically determined using
+      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
+      from the target within acceptable bounds (typically \xB120% of optimal); the
+      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
+      the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -799,13 +763,11 @@ $defs:
     title: Double Spike Mixing Ratio
     description: "Target proportion of double-spike signal relative to total analyte
       signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. An optimal mixing ratio minimizes error propagation through the double-spike
-      inversion; the optimum is analyte-system specific and is typically determined
-      using the Double Spike Toolbox or equivalent. The achieved mixing ratio may
-      deviate from the target within acceptable bounds (typically \xB120% of optimal);
-      the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if
-      double-spike method is not used. Record 'N/A' where the procedure does not use
-      a double spike."
+      ratio. The optimum is analyte-system specific and is typically determined using
+      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
+      from the target within acceptable bounds (typically \xB120% of optimal); the
+      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
+      the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -844,9 +806,8 @@ $defs:
       sample isotope ratio and the mass fractionation factor from the measured spike-sample
       mixture. Common implementations: iterative Newton-Raphson solution, matrix algebraic
       approach, or published software (e.g., Rudge et al. 2009 Double Spike Toolbox).
-      Specify the algorithm or software reference and version. Record ''N/A'' if double-spike
-      method is not used. Record ''N/A'' where the procedure does not use a double
-      spike.'
+      Specify the algorithm or software reference and version. Record ''N/A'' where
+      the procedure does not use a double spike.'
     type: object
     properties:
       '@id':
@@ -881,13 +842,10 @@ $defs:
     - ada:fieldScope
   Param_Procedure_peakFlatnessMethodAndThreshold:
     title: Peak Flatness Method and Threshold
-    description: 'Method used to verify that every collector sits on a flat region
+    description: Method used to verify that every collector sits on a flat region
       of its peak top simultaneously, and the acceptance threshold applied before
-      analysis begins. Specific to simultaneous collection: a sequential instrument
-      centres one mass at a time, whereas a multi-collector array must have all cups
-      on flat peak tops at once or the measured ratio carries a peak-shape bias that
-      no downstream correction removes. Typically assessed by scanning across the
-      peak plateau, or by comparing ratios measured at slightly offset mass positions.'
+      analysis begins. Typically assessed by scanning across the peak plateau, or
+      by comparing ratios measured at slightly offset mass positions.
     type: object
     properties:
       '@id':

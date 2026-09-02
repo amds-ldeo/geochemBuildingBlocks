@@ -34,17 +34,17 @@ Supplemental documents for calibration, methods, and analysis info. Defines prop
 
 Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
 
-### `ogch.BaseSchema.image` — Image Type
-
-**Type:** schema
-
-ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
-
 ### `ogch.BaseSchema.otherFile` — Other File Type
 
 **Type:** schema
 
 Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
+
+### `ogch.BaseSchema.image` — Image Type
+
+**Type:** schema
+
+ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
 
 ### `ogch.BaseSchema.spatialRegistration` — Spatial Registration Type
 
@@ -70,6 +70,12 @@ The shared Blank block of the 2026-08-11 TAPP library, composed by 12 of the six
 
 The shared CalibrationFactor block of the 2026-08-11 TAPP library, composed by 14 of the sixteen delivery tables. 1 owned fields over 2 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
+### `ogch.BaseSchema.modules.collisionCell` — TAPP Composition Module: CollisionCell
+
+**Type:** schema
+
+The shared CollisionCell block of the 2026-08-11 TAPP library, composed by 6 of the sixteen delivery tables. 8 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
 ### `ogch.BaseSchema.modules.geochronology` — TAPP Composition Module: Geochronology
 
 **Type:** schema
@@ -88,17 +94,17 @@ The shared MCICPMS block of the 2026-08-11 TAPP library, composed by 3 of the si
 
 The shared ReportingCore block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 6 owned fields over 3 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
+### `ogch.BaseSchema.modules.samplingUnitSelection` — TAPP Composition Module: SamplingUnitSelection
+
+**Type:** schema
+
+The shared SamplingUnitSelection block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 2 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
 ### `ogch.BaseSchema.modules.solutionIntroduction` — TAPP Composition Module: SolutionIntroduction
 
 **Type:** schema
 
 The shared SolutionIntroduction block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 16 owned fields over 5 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
-
-### `ogch.BaseSchema.modules.targetSelection` — TAPP Composition Module: TargetSelection
-
-**Type:** schema
-
-The shared TargetSelection block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 2 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.uPb` — TAPP Composition Module: UPb
 
@@ -274,11 +280,17 @@ ADA analytical instrument extending the core CDIF instrument building block. Typ
 
 DataDownload with checksum, size, encoding format, and file detail. Defines properties: schema:additionalType, schema:description, schema:size, resultTarget, schema:relatedLink. Uses building blocks: dataDownload (schemaorgProperties), stringArray (geochemProperties), image (geochemProperties), imageMap (geochemProperties), tabularData (geochemProperties), collection (geochemProperties), dataCube (geochemProperties), document (geochemProperties), supDocImage (geochemProperties), otherFile (geochemProperties).
 
+### `ogch.BaseSchema.modules.icpms` — TAPP Composition Module: ICPMS
+
+**Type:** schema
+
+The shared ICPMS block of the 2026-08-11 TAPP library, composed by 9 of the sixteen delivery tables. 39 owned fields over 14 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
 ### `ogch.BaseSchema.modules.laserAblation` — TAPP Composition Module: LaserAblation
 
 **Type:** schema
 
-The shared LaserAblation block of the 2026-08-11 TAPP library, composed by 6 of the sixteen delivery tables. 18 owned fields over 17 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared LaserAblation block of the 2026-08-11 TAPP library, composed by 6 of the sixteen delivery tables. 29 owned fields over 22 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.tappDefinition` — Technique-Aligned Protocol Profile (TAPP) Definition
 
@@ -304,11 +316,17 @@ The shared Analyte block of the 2026-08-11 TAPP library, composed by 13 of the s
 
 Top-level ADA product metadata profile composing all ADA building blocks
 
+### `ogch.BaseSchema.modules.compositionQC` — TAPP Composition Module: CompositionQC
+
+**Type:** schema
+
+The shared CompositionQC block of the 2026-08-11 TAPP library, composed by 12 of the sixteen delivery tables. 6 owned fields over 10 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
 ### `ogch.BaseSchema.modules.core` — TAPP Composition Module: Core
 
 **Type:** schema
 
-The shared Core block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 30 owned fields over 33 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared Core block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 31 owned fields over 35 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.techniqueProfile.adaProfile.AIVA.profile-ada` — ADA AIVA Profile
 

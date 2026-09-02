@@ -35,7 +35,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "OREX-800099-0",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (single allocated Bennu particle; 928 slices)",
   "ada:voiApplied": "missing"
 }
 
@@ -72,7 +72,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "OREX-800099-0",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (single allocated Bennu particle; 928 slices)",
   "ada:voiApplied": "missing"
 }
 ```
@@ -92,7 +92,7 @@ ex:detail-Eckley2024 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "OREX-800099-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Whole sample (single allocated Bennu particle; 928 slices)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
@@ -126,7 +126,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "1.592 × 0.756 × 0.985 mm",
   "ada:sampleName": "A0180 (A0180-A and A0180-B)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -178,7 +178,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "1.592 \u00d7 0.756 \u00d7 0.985 mm",
   "ada:sampleName": "A0180 (A0180-A and A0180-B)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -214,7 +214,7 @@ ex:detail-Genge2025 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "1.592 × 0.756 × 0.985 mm" ;
     ada:sampleName "A0180 (A0180-A and A0180-B)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
@@ -253,7 +253,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73002",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)",
   "ada:numberOfSubVolumes": 6,
   "ada:voiApplied": "Full core length per sub-volume",
   "ada:subVolumeOverlap": "~380 slices per sub-volume overlap"
@@ -292,7 +292,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73002",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)",
   "ada:numberOfSubVolumes": 6,
   "ada:voiApplied": "Full core length per sub-volume",
   "ada:subVolumeOverlap": "~380 slices per sub-volume overlap"
@@ -316,7 +316,7 @@ ex:detail-Neuman2025 a ada:XCTVolume ;
     ada:numberOfSubVolumes 6 ;
     ada:sampleDimensions "~35 cm length core" ;
     ada:sampleName "Apollo 17 core 73002" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)" ;
     ada:sessionIdentifier "missing" ;
     ada:subVolumeOverlap "~380 slices per sub-volume overlap" ;
     ada:voiApplied "Full core length per sub-volume" .
@@ -351,7 +351,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73001",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)",
   "ada:numberOfSubVolumes": 9,
   "ada:voiApplied": "Full core length per sub-volume"
 }
@@ -389,7 +389,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73001",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)",
   "ada:numberOfSubVolumes": 9,
   "ada:voiApplied": "Full core length per sub-volume"
 }
@@ -412,7 +412,7 @@ ex:detail-Neuman2025-2 a ada:XCTVolume ;
     ada:numberOfSubVolumes 9 ;
     ada:sampleDimensions "~35 cm length core" ;
     ada:sampleName "Apollo 17 core 73001" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full core length per sub-volume" .
 
@@ -446,7 +446,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "73001 CSVC",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (the 73001 CSVC container assembly)",
   "ada:voiApplied": "missing",
   "schema:additionalProperty": [
     {
@@ -498,7 +498,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "73001 CSVC",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (the 73001 CSVC container assembly)",
   "ada:voiApplied": "missing",
   "schema:additionalProperty": [
     {
@@ -534,7 +534,7 @@ ex:detail-Shearer2024 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "73001 CSVC" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Whole sample (the 73001 CSVC container assembly)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
@@ -573,7 +573,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Multiple particles from 73001 and 73002",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Grain (individual extracted particles >4 mm, each individually bagged and scanned)",
   "ada:voiApplied": "missing",
   "schema:additionalProperty": [
     {
@@ -625,7 +625,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Multiple particles from 73001 and 73002",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Grain (individual extracted particles >4 mm, each individually bagged and scanned)",
   "ada:voiApplied": "missing",
   "schema:additionalProperty": [
     {
@@ -661,7 +661,7 @@ ex:detail-Shearer2024-2 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "Multiple particles from 73001 and 73002" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Grain (individual extracted particles >4 mm, each individually bagged and scanned)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
@@ -700,7 +700,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1.1 × 1.2 × 0.8 cm",
   "ada:sampleName": "NWA 5790",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)",
   "ada:voiApplied": "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy",
   "schema:additionalProperty": [
     {
@@ -752,7 +752,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1.1 \u00d7 1.2 \u00d7 0.8 cm",
   "ada:sampleName": "NWA 5790",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)",
   "ada:voiApplied": "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy",
   "schema:additionalProperty": [
     {
@@ -788,7 +788,7 @@ ex:detail-Tomkinson2015 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "~1.1 × 1.2 × 0.8 cm" ;
     ada:sampleName "NWA 5790" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy" .
 
@@ -827,7 +827,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Murchison B (USNM 5453,1)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Aliquot (~1 g crushed Murchison B in a glass vial)",
   "ada:voiApplied": "Full vial volume (2000 × 2000 × 2000 voxels)",
   "schema:additionalProperty": [
     {
@@ -879,7 +879,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Murchison B (USNM 5453,1)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Aliquot (~1 g crushed Murchison B in a glass vial)",
   "ada:voiApplied": "Full vial volume (2000 \u00d7 2000 \u00d7 2000 voxels)",
   "schema:additionalProperty": [
     {
@@ -915,7 +915,7 @@ ex:detail-Glavin2023 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "Murchison B (USNM 5453,1)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Aliquot (~1 g crushed Murchison B in a glass vial)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full vial volume (2000 × 2000 × 2000 voxels)" .
 
@@ -954,7 +954,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~4 mm fragments",
   "ada:sampleName": "NWA 8277; NWA 6963",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)",
   "ada:voiApplied": "5.39 mm³ total analyzed volume (NWA 8277)",
   "schema:additionalProperty": [
     {
@@ -1006,7 +1006,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~4 mm fragments",
   "ada:sampleName": "NWA 8277; NWA 6963",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)",
   "ada:voiApplied": "5.39 mm\u00b3 total analyzed volume (NWA 8277)",
   "schema:additionalProperty": [
     {
@@ -1042,7 +1042,7 @@ ex:detail-Dias2019 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "~4 mm fragments" ;
     ada:sampleName "NWA 8277; NWA 6963" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "5.39 mm³ total analyzed volume (NWA 8277)" .
 
@@ -1081,7 +1081,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1 mm olivine",
   "ada:sampleName": "Sample A (olivine)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Region of interest (individual melt inclusion) > Phase (glass, clinopyroxene, spinel, vapour)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1133,7 +1133,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1 mm olivine",
   "ada:sampleName": "Sample A (olivine)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Region of interest (individual melt inclusion) > Phase (glass, clinopyroxene, spinel, vapour)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1169,7 +1169,7 @@ ex:detail-Richard2019 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "~1 mm olivine" ;
     ada:sampleName "Sample A (olivine)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Region of interest (individual melt inclusion) > Phase (glass, clinopyroxene, spinel, vapour)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
@@ -1208,7 +1208,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 × 5 × 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1260,7 +1260,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 \u00d7 5 \u00d7 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1296,7 +1296,7 @@ ex:detail-Richard2019-2 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "3 × 5 × 2 cm" ;
     ada:sampleName "Sample B (synthetic quartz)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
@@ -1335,7 +1335,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 × 5 × 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1387,7 +1387,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 \u00d7 5 \u00d7 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1423,7 +1423,7 @@ ex:detail-Richard2019-3 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "3 × 5 × 2 cm" ;
     ada:sampleName "Sample B (synthetic quartz)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
@@ -1462,7 +1462,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "Varies: 0.3×0.4 to 11×11×7 mm",
   "ada:sampleName": "Samples C–I (various)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)",
   "ada:voiApplied": "Full scan volume per sample",
   "schema:additionalProperty": [
     {
@@ -1514,7 +1514,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "Varies: 0.3\u00d70.4 to 11\u00d711\u00d77 mm",
   "ada:sampleName": "Samples C\u2013I (various)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)",
   "ada:voiApplied": "Full scan volume per sample",
   "schema:additionalProperty": [
     {
@@ -1550,7 +1550,7 @@ ex:detail-Richard2019-4 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "Varies: 0.3×0.4 to 11×11×7 mm" ;
     ada:sampleName "Samples C–I (various)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume per sample" .
 
@@ -1589,7 +1589,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "8 mm diameter core",
   "ada:sampleName": "Watson 012",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (8 mm core) > Phase (plagioclase network)",
   "ada:voiApplied": "Full 8 mm core volume",
   "schema:additionalProperty": [
     {
@@ -1641,7 +1641,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "8 mm diameter core",
   "ada:sampleName": "Watson 012",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnit": "Whole sample (8 mm core) > Phase (plagioclase network)",
   "ada:voiApplied": "Full 8 mm core volume",
   "schema:additionalProperty": [
     {
@@ -1677,7 +1677,7 @@ ex:detail-Tait2014 a ada:XCTVolume ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "8 mm diameter core" ;
     ada:sampleName "Watson 012" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Whole sample (8 mm core) > Phase (plagioclase network)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full 8 mm core volume" .
 
@@ -1685,260 +1685,6 @@ ex:detail-Tait2014 a ada:XCTVolume ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     schema1:value "N — voxel size only (1.923 µm); no spatial resolution reported" .
-
-
-```
-
-
-### detail example Charles2018
-detail instance derived from Charles et al. 2018 (MAPS) NWA 801 CR2 chondrite Single-volume GE eXplore speCZT U. Western Ontario.
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Charles2018",
-  "@type": [
-    "ada:XCTVolume"
-  ],
-  "ada:componentType": "ada:XCTVolume",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:labxctTAPP-Charles2018"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleDimensions": "Analysis zone ~3 × 0.7 × 4.1 cm",
-  "ada:sampleName": "NWA 801",
-  "ada:samplingUnit": "missing",
-  "ada:voiApplied": "~8.6 cm³ parallelepiped (three neighboring zones)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
-        }
-      ],
-      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
-      "schema:value": "N — voxel size only (49.8 µm); no spatial resolution reported"
-    }
-  ]
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Charles2018",
-  "@type": [
-    "ada:XCTVolume"
-  ],
-  "ada:componentType": "ada:XCTVolume",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:labxctTAPP-Charles2018"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleDimensions": "Analysis zone ~3 \u00d7 0.7 \u00d7 4.1 cm",
-  "ada:sampleName": "NWA 801",
-  "ada:samplingUnit": "missing",
-  "ada:voiApplied": "~8.6 cm\u00b3 parallelepiped (three neighboring zones)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
-        }
-      ],
-      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
-      "schema:value": "N \u2014 voxel size only (49.8 \u00b5m); no spatial resolution reported"
-    }
-  ]
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-
-ex:detail-Charles2018 a ada:XCTVolume ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Charles2018 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:componentType "ada:XCTVolume" ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:sampleDimensions "Analysis zone ~3 × 0.7 × 4.1 cm" ;
-    ada:sampleName "NWA 801" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:voiApplied "~8.6 cm³ parallelepiped (three neighboring zones)" .
-
-<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
-    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:value "N — voxel size only (49.8 µm); no spatial resolution reported" .
-
-
-```
-
-
-### detail example Treiman2022
-detail instance derived from Treiman et al. 2022 (MAPS) EET 87503 howardite Single-volume NIST-NeXT (NXCT) NCNR-NIST.
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Treiman2022",
-  "@type": [
-    "ada:XCTVolume"
-  ],
-  "ada:componentType": "ada:XCTVolume",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:labxctTAPP-Treiman2022"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleDimensions": "missing",
-  "ada:sampleName": "EET 87503,73; GRA 06100,84",
-  "ada:samplingUnit": "missing",
-  "ada:voiApplied": "Full sample volumes; GRA 06100 cropped to remove plastic region",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
-        }
-      ],
-      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
-      "schema:value": "N for XCT — the paper's only resolution statement (\"reconstructed voxel dimension of 15 µm with a minimum resolution of 30 µm\") is explicitly for the NCT (neutron) tomograms; no XCT resolution is reported"
-    }
-  ]
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Treiman2022",
-  "@type": [
-    "ada:XCTVolume"
-  ],
-  "ada:componentType": "ada:XCTVolume",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:labxctTAPP-Treiman2022"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleDimensions": "missing",
-  "ada:sampleName": "EET 87503,73; GRA 06100,84",
-  "ada:samplingUnit": "missing",
-  "ada:voiApplied": "Full sample volumes; GRA 06100 cropped to remove plastic region",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution"
-        }
-      ],
-      "schema:name": "Effective Spatial Resolution (PSF/MTF)",
-      "schema:value": "N for XCT \u2014 the paper's only resolution statement (\"reconstructed voxel dimension of 15 \u00b5m with a minimum resolution of 30 \u00b5m\") is explicitly for the NCT (neutron) tomograms; no XCT resolution is reported"
-    }
-  ]
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
-@prefix schema1: <http://schema.org/> .
-
-ex:detail-Treiman2022 a ada:XCTVolume ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Treiman2022 ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:componentType "ada:XCTVolume" ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:sampleDimensions "missing" ;
-    ada:sampleName "EET 87503,73; GRA 06100,84" ;
-    ada:samplingUnit "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:voiApplied "Full sample volumes; GRA 06100 cropped to remove plastic region" .
-
-<https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
-    schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:value "N for XCT — the paper's only resolution statement (\"reconstructed voxel dimension of 15 µm with a minimum resolution of 30 µm\") is explicitly for the NCT (neutron) tomograms; no XCT resolution is reported" .
 
 
 ```
@@ -1983,11 +1729,7 @@ allOf:
                         - title: "Sample Dimensions (L \xD7 W \xD7 H)"
                           description: "Physical dimensions of the sample in mm, reported
                             as length \xD7 width \xD7 height (or equivalent three
-                            orthogonal measurements). The maximum dimension constrains
-                            the minimum achievable field of view and therefore the
-                            coarsest achievable voxel size. The minimum dimension
-                            determines how many voxels span the smallest feature of
-                            interest."
+                            orthogonal measurements)."
                           type: object
                           properties:
                             '@id':
@@ -2008,14 +1750,10 @@ allOf:
                           - schema:propertyID
                           - schema:name
                           - schema:value
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         - title: Sample Mass
-                          description: 'Mass of the sample in grams, recorded for
-                            curatorial tracking of precious or limited materials.
-                            Particularly important for meteorite, mission-returned,
-                            and other restricted samples. This is an analysis-level
-                            field: the actual sample mass depends on the specific
-                            sample being scanned, not on the procedure design.'
+                          description: Mass of the sample in grams, recorded for curatorial
+                            tracking of precious or limited materials.
                           type: object
                           properties:
                             '@id':
@@ -2046,11 +1784,7 @@ allOf:
                           title: "Sample Dimensions (L \xD7 W \xD7 H)"
                           description: "Physical dimensions of the sample in mm, reported
                             as length \xD7 width \xD7 height (or equivalent three
-                            orthogonal measurements). The maximum dimension constrains
-                            the minimum achievable field of view and therefore the
-                            coarsest achievable voxel size. The minimum dimension
-                            determines how many voxels span the smallest feature of
-                            interest."
+                            orthogonal measurements)."
                           type: object
                           properties:
                             '@id':
@@ -2074,17 +1808,13 @@ allOf:
                         minContains: 0
                         maxContains: 1
                       - contains:
-                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
                       - contains:
                           title: Sample Mass
-                          description: 'Mass of the sample in grams, recorded for
-                            curatorial tracking of precious or limited materials.
-                            Particularly important for meteorite, mission-returned,
-                            and other restricted samples. This is an analysis-level
-                            field: the actual sample mass depends on the specific
-                            sample being scanned, not on the procedure design.'
+                          description: Mass of the sample in grams, recorded for curatorial
+                            tracking of precious or limited materials.
                           type: object
                           properties:
                             '@id':
@@ -2125,11 +1855,14 @@ allOf:
             items:
               anyOf:
               - title: Sample Mounting Method
-                description: Method used to mount or hold the sample on the instrument
+                description: "Method used to mount or hold the sample on the instrument
                   rotation stage. Mounting material should transmit X-rays at the
                   selected voltage without dominating beam attenuation. Report the
-                  holder type, adhesive or support material, and any alignment aids
-                  used.
+                  holder CLASS from the list and name the specific vessel or material
+                  alongside it \u2014 'Tube or vial \u2014 1 cm plastic straw', not
+                  'Tube or vial'. Where the sample is sealed or bagged inside a further
+                  holder for contamination control, record both layers. Report any
+                  adhesive, support material and alignment aids used."
                 type: object
                 properties:
                   '@id':
@@ -2151,14 +1884,10 @@ allOf:
                 - schema:name
                 - schema:value
               - title: X-ray Power
-                description: "X-ray tube power in watts (W) registered by the procedure.
-                  Derivable as voltage (kV) \xD7 current (mA) = kV \xD7 \xB5A / 1000.
-                  Power constrains the achievable focal spot size for microfocal tubes:
-                  higher power requires a larger focal spot, trading spatial resolution
-                  for SNR. Retained as a standalone field because it is routinely
-                  reported in the literature and directly constrains instrument operating
-                  limits. If power was varied across samples within the session, report
-                  the full range applied (e.g., 7\u201313 W)."
+                description: "X-ray tube power in watts (W). Derivable as voltage
+                  (kV) \xD7 current (mA) = kV \xD7 \xB5A / 1000. If power was varied
+                  across samples within the session, report the full range applied
+                  (e.g., 7\u201313 W)."
                 type: object
                 properties:
                   '@id':
@@ -2186,9 +1915,7 @@ allOf:
                 - schema:unitText
               - title: Source-to-Object Distance (SOD)
                 description: Distance from the X-ray source focal spot to the centre
-                  of the sample rotation axis, in mm, as registered by the procedure.
-                  Together with SDD, determines geometric magnification (M = SDD/SOD).
-                  Shorter SOD increases magnification and reduces voxel size.
+                  of the sample rotation axis, in mm.
                 type: object
                 properties:
                   '@id':
@@ -2216,10 +1943,9 @@ allOf:
                 - schema:unitText
               - title: Source-to-Detector Distance (SDD)
                 description: "Distance from the X-ray source focal spot to the detector
-                  surface, in mm, as registered by the procedure. Together with SOD,
-                  determines geometric magnification M = SDD/SOD. Voxel size \u2248
-                  detector pixel size / M (before binning; divide additionally by
-                  optical objective for Versa-class systems)."
+                  surface, in mm. Voxel size \u2248 detector pixel size / M (before
+                  binning; divide additionally by optical objective for Versa-class
+                  systems)."
                 type: object
                 properties:
                   '@id':
@@ -2246,10 +1972,8 @@ allOf:
                 - schema:value
                 - schema:unitText
               - title: Rotation Range
-                description: "Total angular range over which projection images are
-                  acquired, in degrees. Full 360\xB0 rotation is standard for cone-beam
-                  lab XCT. 180\xB0 rotation (half-scan) is sometimes used for faster
-                  acquisition but may introduce additional artifacts."
+                description: Total angular range over which projection images are
+                  acquired, in degrees.
                 type: object
                 properties:
                   '@id':
@@ -2277,10 +2001,8 @@ allOf:
                 - schema:unitText
               - title: Number of Projections
                 description: Total number of equally-spaced projection images acquired
-                  over the full rotation range. More projections improve reconstruction
-                  quality by reducing under-sampling streak artifacts but increase
-                  scan time. For Mode B (multi-volume stitching), this is the number
-                  per sub-volume.
+                  over the full rotation range. For Mode B (multi-volume stitching),
+                  this is the number per sub-volume.
                 type: object
                 properties:
                   '@id':
@@ -2308,8 +2030,7 @@ allOf:
                   in degrees. Equal to Rotation Range divided by Number of Projections
                   when both are reported; however, some sources report step size as
                   the primary rotation parameter without stating the total number
-                  of projections explicitly. Finer step sizes improve angular sampling
-                  and reduce streak artifacts at the cost of longer scan time.
+                  of projections explicitly.
                 type: object
                 properties:
                   '@id':
@@ -2337,13 +2058,10 @@ allOf:
                 - schema:unitText
               - title: Exposure Time per Projection
                 description: "Duration of X-ray exposure for each individual projection
-                  image frame, in seconds, as registered by the procedure. Set as
-                  a deliberate choice for the target sample type and voxel size: longer
-                  exposures increase SNR at the cost of total scan time. May be adjusted
-                  within procedure-allowed bounds for samples that are unusually dense
-                  or unusually transparent. If the exposure time was varied across
-                  samples within the same procedure or session, report the full range
-                  applied (e.g., 0.5\u20132 s)."
+                  image frame, in seconds. Adjustment is warranted for samples that
+                  are unusually dense or unusually transparent. If the exposure time
+                  was varied across samples within the same procedure or session,
+                  report the full range applied (e.g., 0.5\u20132 s)."
                 type: object
                 properties:
                   '@id':
@@ -2371,9 +2089,8 @@ allOf:
                 - schema:unitText
               - title: Frames Averaged per Projection
                 description: "Number of individual detector frames acquired and averaged
-                  to produce each saved projection image, as registered by the procedure.
-                  Frame averaging reduces random electronic noise. The effective exposure
-                  per projection = exposure time per frame \xD7 frames averaged."
+                  to produce each saved projection image. The effective exposure per
+                  projection = exposure time per frame \xD7 frames averaged."
                 type: object
                 properties:
                   '@id':
@@ -2399,8 +2116,7 @@ allOf:
               - title: Detector Binning
                 description: "Detector pixel binning factor applied during acquisition.
                   Binning combines adjacent pixels (e.g., 2\xD72 combines 4 pixels
-                  into one), reducing effective resolution while increasing per-pixel
-                  SNR and reducing file size. 1\xD71 indicates no binning."
+                  into one)."
                 type: object
                 properties:
                   '@id':
@@ -2425,9 +2141,7 @@ allOf:
                 description: Whether projection images are acquired during continuous
                   sample rotation (faster; may introduce slight motion blur at high
                   rotation speeds) or at discrete step positions with the stage stationary
-                  during each exposure (stop-and-shoot; eliminates motion blur). Continuous
-                  rotation has been associated with sub-volume rotational mismatch
-                  artifacts in multi-volume stitching workflows (Eckley et al. 2025).
+                  during each exposure (stop-and-shoot; eliminates motion blur).
                 type: object
                 properties:
                   '@id':
@@ -2448,13 +2162,10 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               - title: Reconstruction Convolution Filter
                 description: Convolution (apodization) filter kernel applied during
-                  back-projection reconstruction. Sharper filters (Ram-Lak) enhance
-                  edge definition but amplify high-frequency noise; smoother filters
-                  (Hann, Hamming) reduce noise at the cost of edge sharpness. The
-                  choice represents a deliberate procedure-level tradeoff.
+                  back-projection reconstruction.
                 type: object
                 properties:
                   '@id':
@@ -2477,9 +2188,8 @@ allOf:
                 - schema:value
               - title: Beam Hardening Correction Parameter
                 description: Numerical value or setting applied in the software beam
-                  hardening correction algorithm for this specific analysis. May be
-                  tuned empirically per material type or per scan session. Analysis-level
-                  companion to Beam Hardening Correction Method.
+                  hardening correction algorithm for this specific analysis. Companion
+                  to Beam Hardening Correction Method.
                 type: object
                 properties:
                   '@id':
@@ -2502,11 +2212,8 @@ allOf:
                 - schema:value
               - title: Ring Artifact Correction Method
                 description: Procedure specification for how ring artifacts are handled.
-                  Ring artifacts appear as concentric circular bands centred on the
-                  rotation axis and arise from defective or miscalibrated detector
-                  pixels. Method is the procedure-level specification; whether correction
-                  was applied and its outcome are recorded at analysis level in Group
-                  6.
+                  Whether correction was applied and its outcome are recorded separately
+                  in Group 6.
                 type: object
                 properties:
                   '@id':
@@ -2529,12 +2236,7 @@ allOf:
                 - schema:value
               - title: CT Number Calibration
                 description: Whether the raw CT grayscale values have been calibrated
-                  to physically meaningful units using reference materials. Calibrated
-                  CT numbers enable cross-instrument and cross-session comparison
-                  and support phase identification by comparison to calculated linear
-                  attenuation coefficient (LAC) values (e.g., using MuCalc; Hanna
-                  & Ketcham 2017). Uncalibrated grayscale values are instrument- and
-                  session-specific.
+                  to physically meaningful units using reference materials.
                 type: object
                 properties:
                   '@id':
@@ -2556,9 +2258,9 @@ allOf:
                 - schema:name
                 - schema:value
               - title: Segmentation Method
-                description: General approach used to separate distinct phases or
-                  features in the reconstructed CT volume. The method must be reported
-                  for any quantitative result to be reproducible.
+                description: Method and software used to separate distinct phases
+                  or features in the reconstructed 3D volume, turning the grayscale
+                  volume into labelled regions.
                 type: object
                 properties:
                   '@id':
@@ -2581,9 +2283,8 @@ allOf:
                 - schema:value
               - title: Segmentation Threshold Values or Criteria
                 description: "Specific CT number range(s) or quantitative criteria
-                  used to define each segmented phase or feature. Documenting these
-                  values enables reproducibility assessment and cross-study comparison.
-                  For LAC-calibrated datasets, report values in cm\u207B\xB9."
+                  used to define each segmented phase or feature. For LAC-calibrated
+                  datasets, report values in cm\u207B\xB9."
                 type: object
                 properties:
                   '@id':
@@ -2631,12 +2332,11 @@ allOf:
                 - schema:name
                 - schema:value
               - title: VOI Selection Criteria
-                description: Procedure-level rules specifying how the Volume of Interest
-                  (VOI) is to be defined for quantitative analysis. Common criteria
-                  exclude cone-beam artifact zones at sample edges, beam hardening
-                  halos near dense inclusions, and sample holder signal. The actual
-                  VOI applied in a specific analysis is recorded separately at analysis
-                  level.
+                description: Rules specifying how the Volume of Interest (VOI) is
+                  to be defined for quantitative analysis. Common criteria exclude
+                  cone-beam artifact zones at sample edges, beam hardening halos near
+                  dense inclusions, and sample holder signal. The actual VOI applied
+                  in a specific analysis is recorded separately at analysis level.
                 type: object
                 properties:
                   '@id':
@@ -2661,11 +2361,8 @@ allOf:
                 description: Bit depth of the reconstructed 3D volume (number of bits
                   used to encode each voxel's grayscale value). Common values are
                   8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit
-                  floating point. Bit depth affects the dynamic range available for
-                  phase segmentation and quantitative attenuation analysis. The procedure
-                  may specify a required output bit depth if downstream analysis workflows
-                  depend on a consistent grayscale range; the analyst confirms or
-                  adjusts at analysis time.
+                  floating point. A required output bit depth may be specified if
+                  downstream analysis workflows depend on a consistent grayscale range.
                 type: object
                 properties:
                   '@id':
@@ -2690,9 +2387,7 @@ allOf:
                 description: Total elapsed time for the complete XCT acquisition,
                   from the start of the first projection to the end of the last. For
                   multi-volume acquisitions, this is the combined scan time across
-                  all sub-volumes (not including setup or reconstruction time). Useful
-                  for assessing beam stability and sample integrity concerns over
-                  long scans.
+                  all sub-volumes (not including setup or reconstruction time).
                 type: object
                 properties:
                   '@id':
@@ -2714,21 +2409,17 @@ allOf:
                 - schema:name
                 - schema:value
               - title: Partial Volume Effect Criteria
-                description: "Procedure-level specification of how partial volume
-                  effects (PVE) are managed in quantitative analysis. PVE produces
-                  intermediate CT numbers at phase boundaries and at the surfaces
-                  of small features, because each voxel integrates the attenuation
-                  of all material within its volume. PVE correction can be implemented
+                description: "Specification of how partial volume effects (PVE) are
+                  managed in quantitative analysis. PVE correction can be implemented
                   via PSF-based deconvolution tools such as Blob3D. Record the minimum
                   feature size criterion adopted for the procedure (in voxels or \xB5m),
                   the basis for it, the treatment of boundary voxels in modal abundance
                   or size distribution calculations, and whether PVE correction is
-                  required or optional. Per Withers et al. (2021) a feature must span
-                  at least 3 voxels to be positively identified and at least 10 for
-                  reliable shape and volume characterisation; state whether the criterion
-                  follows that convention or is SNR-limited, PVE-limited or analyst-defined.
-                  The criterion materially changes reported modal abundances and size
-                  distributions, so two datasets are not comparable without it."
+                  required or optional. State whether the criterion follows the Withers
+                  et al. (2021) convention \u2014 a feature must span at least 3 voxels
+                  to be positively identified and at least 10 for reliable shape and
+                  volume characterisation \u2014 or is SNR-limited, PVE-limited or
+                  analyst-defined."
                 type: object
                 properties:
                   '@id':
@@ -2750,15 +2441,13 @@ allOf:
                 - schema:name
                 - schema:value
               - title: Cross-Validation Procedure Requirement
-                description: Procedure-level specification of what independent analytical
-                  validation is required to confirm CT segmentation results, phase
-                  identification, or quantitative measurements. Cross-validation is
-                  relevant where CT grey-values alone cannot uniquely distinguish
-                  phases with similar attenuation coefficients. Common approaches
-                  include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
-                  for bulk porosity, and Raman or SIMS phase mapping. Record the required
-                  validation method(s) and the sampling fraction (e.g., every sample,
-                  one per session, or a representative subset).
+                description: Specification of what independent analytical validation
+                  is required to confirm CT segmentation results, phase identification,
+                  or quantitative measurements. Common approaches include BSE imaging,
+                  SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity,
+                  and Raman or SIMS phase mapping. Record the required validation
+                  method(s) and the sampling fraction (e.g., every sample, one per
+                  session, or a representative subset).
                 type: object
                 properties:
                   '@id':
@@ -2782,11 +2471,14 @@ allOf:
             allOf:
             - contains:
                 title: Sample Mounting Method
-                description: Method used to mount or hold the sample on the instrument
+                description: "Method used to mount or hold the sample on the instrument
                   rotation stage. Mounting material should transmit X-rays at the
                   selected voltage without dominating beam attenuation. Report the
-                  holder type, adhesive or support material, and any alignment aids
-                  used.
+                  holder CLASS from the list and name the specific vessel or material
+                  alongside it \u2014 'Tube or vial \u2014 1 cm plastic straw', not
+                  'Tube or vial'. Where the sample is sealed or bagged inside a further
+                  holder for contamination control, record both layers. Report any
+                  adhesive, support material and alignment aids used."
                 type: object
                 properties:
                   '@id':
@@ -2811,14 +2503,10 @@ allOf:
               maxContains: 1
             - contains:
                 title: X-ray Power
-                description: "X-ray tube power in watts (W) registered by the procedure.
-                  Derivable as voltage (kV) \xD7 current (mA) = kV \xD7 \xB5A / 1000.
-                  Power constrains the achievable focal spot size for microfocal tubes:
-                  higher power requires a larger focal spot, trading spatial resolution
-                  for SNR. Retained as a standalone field because it is routinely
-                  reported in the literature and directly constrains instrument operating
-                  limits. If power was varied across samples within the session, report
-                  the full range applied (e.g., 7\u201313 W)."
+                description: "X-ray tube power in watts (W). Derivable as voltage
+                  (kV) \xD7 current (mA) = kV \xD7 \xB5A / 1000. If power was varied
+                  across samples within the session, report the full range applied
+                  (e.g., 7\u201313 W)."
                 type: object
                 properties:
                   '@id':
@@ -2849,9 +2537,7 @@ allOf:
             - contains:
                 title: Source-to-Object Distance (SOD)
                 description: Distance from the X-ray source focal spot to the centre
-                  of the sample rotation axis, in mm, as registered by the procedure.
-                  Together with SDD, determines geometric magnification (M = SDD/SOD).
-                  Shorter SOD increases magnification and reduces voxel size.
+                  of the sample rotation axis, in mm.
                 type: object
                 properties:
                   '@id':
@@ -2882,10 +2568,9 @@ allOf:
             - contains:
                 title: Source-to-Detector Distance (SDD)
                 description: "Distance from the X-ray source focal spot to the detector
-                  surface, in mm, as registered by the procedure. Together with SOD,
-                  determines geometric magnification M = SDD/SOD. Voxel size \u2248
-                  detector pixel size / M (before binning; divide additionally by
-                  optical objective for Versa-class systems)."
+                  surface, in mm. Voxel size \u2248 detector pixel size / M (before
+                  binning; divide additionally by optical objective for Versa-class
+                  systems)."
                 type: object
                 properties:
                   '@id':
@@ -2915,10 +2600,8 @@ allOf:
               maxContains: 1
             - contains:
                 title: Rotation Range
-                description: "Total angular range over which projection images are
-                  acquired, in degrees. Full 360\xB0 rotation is standard for cone-beam
-                  lab XCT. 180\xB0 rotation (half-scan) is sometimes used for faster
-                  acquisition but may introduce additional artifacts."
+                description: Total angular range over which projection images are
+                  acquired, in degrees.
                 type: object
                 properties:
                   '@id':
@@ -2949,10 +2632,8 @@ allOf:
             - contains:
                 title: Number of Projections
                 description: Total number of equally-spaced projection images acquired
-                  over the full rotation range. More projections improve reconstruction
-                  quality by reducing under-sampling streak artifacts but increase
-                  scan time. For Mode B (multi-volume stitching), this is the number
-                  per sub-volume.
+                  over the full rotation range. For Mode B (multi-volume stitching),
+                  this is the number per sub-volume.
                 type: object
                 properties:
                   '@id':
@@ -2983,8 +2664,7 @@ allOf:
                   in degrees. Equal to Rotation Range divided by Number of Projections
                   when both are reported; however, some sources report step size as
                   the primary rotation parameter without stating the total number
-                  of projections explicitly. Finer step sizes improve angular sampling
-                  and reduce streak artifacts at the cost of longer scan time.
+                  of projections explicitly.
                 type: object
                 properties:
                   '@id':
@@ -3015,13 +2695,10 @@ allOf:
             - contains:
                 title: Exposure Time per Projection
                 description: "Duration of X-ray exposure for each individual projection
-                  image frame, in seconds, as registered by the procedure. Set as
-                  a deliberate choice for the target sample type and voxel size: longer
-                  exposures increase SNR at the cost of total scan time. May be adjusted
-                  within procedure-allowed bounds for samples that are unusually dense
-                  or unusually transparent. If the exposure time was varied across
-                  samples within the same procedure or session, report the full range
-                  applied (e.g., 0.5\u20132 s)."
+                  image frame, in seconds. Adjustment is warranted for samples that
+                  are unusually dense or unusually transparent. If the exposure time
+                  was varied across samples within the same procedure or session,
+                  report the full range applied (e.g., 0.5\u20132 s)."
                 type: object
                 properties:
                   '@id':
@@ -3052,9 +2729,8 @@ allOf:
             - contains:
                 title: Frames Averaged per Projection
                 description: "Number of individual detector frames acquired and averaged
-                  to produce each saved projection image, as registered by the procedure.
-                  Frame averaging reduces random electronic noise. The effective exposure
-                  per projection = exposure time per frame \xD7 frames averaged."
+                  to produce each saved projection image. The effective exposure per
+                  projection = exposure time per frame \xD7 frames averaged."
                 type: object
                 properties:
                   '@id':
@@ -3083,8 +2759,7 @@ allOf:
                 title: Detector Binning
                 description: "Detector pixel binning factor applied during acquisition.
                   Binning combines adjacent pixels (e.g., 2\xD72 combines 4 pixels
-                  into one), reducing effective resolution while increasing per-pixel
-                  SNR and reducing file size. 1\xD71 indicates no binning."
+                  into one)."
                 type: object
                 properties:
                   '@id':
@@ -3112,9 +2787,7 @@ allOf:
                 description: Whether projection images are acquired during continuous
                   sample rotation (faster; may introduce slight motion blur at high
                   rotation speeds) or at discrete step positions with the stage stationary
-                  during each exposure (stop-and-shoot; eliminates motion blur). Continuous
-                  rotation has been associated with sub-volume rotational mismatch
-                  artifacts in multi-volume stitching workflows (Eckley et al. 2025).
+                  during each exposure (stop-and-shoot; eliminates motion blur).
                 type: object
                 properties:
                   '@id':
@@ -3138,16 +2811,13 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               minContains: 0
               maxContains: 1
             - contains:
                 title: Reconstruction Convolution Filter
                 description: Convolution (apodization) filter kernel applied during
-                  back-projection reconstruction. Sharper filters (Ram-Lak) enhance
-                  edge definition but amplify high-frequency noise; smoother filters
-                  (Hann, Hamming) reduce noise at the cost of edge sharpness. The
-                  choice represents a deliberate procedure-level tradeoff.
+                  back-projection reconstruction.
                 type: object
                 properties:
                   '@id':
@@ -3173,9 +2843,8 @@ allOf:
             - contains:
                 title: Beam Hardening Correction Parameter
                 description: Numerical value or setting applied in the software beam
-                  hardening correction algorithm for this specific analysis. May be
-                  tuned empirically per material type or per scan session. Analysis-level
-                  companion to Beam Hardening Correction Method.
+                  hardening correction algorithm for this specific analysis. Companion
+                  to Beam Hardening Correction Method.
                 type: object
                 properties:
                   '@id':
@@ -3201,11 +2870,8 @@ allOf:
             - contains:
                 title: Ring Artifact Correction Method
                 description: Procedure specification for how ring artifacts are handled.
-                  Ring artifacts appear as concentric circular bands centred on the
-                  rotation axis and arise from defective or miscalibrated detector
-                  pixels. Method is the procedure-level specification; whether correction
-                  was applied and its outcome are recorded at analysis level in Group
-                  6.
+                  Whether correction was applied and its outcome are recorded separately
+                  in Group 6.
                 type: object
                 properties:
                   '@id':
@@ -3231,12 +2897,7 @@ allOf:
             - contains:
                 title: CT Number Calibration
                 description: Whether the raw CT grayscale values have been calibrated
-                  to physically meaningful units using reference materials. Calibrated
-                  CT numbers enable cross-instrument and cross-session comparison
-                  and support phase identification by comparison to calculated linear
-                  attenuation coefficient (LAC) values (e.g., using MuCalc; Hanna
-                  & Ketcham 2017). Uncalibrated grayscale values are instrument- and
-                  session-specific.
+                  to physically meaningful units using reference materials.
                 type: object
                 properties:
                   '@id':
@@ -3261,9 +2922,9 @@ allOf:
               maxContains: 1
             - contains:
                 title: Segmentation Method
-                description: General approach used to separate distinct phases or
-                  features in the reconstructed CT volume. The method must be reported
-                  for any quantitative result to be reproducible.
+                description: Method and software used to separate distinct phases
+                  or features in the reconstructed 3D volume, turning the grayscale
+                  volume into labelled regions.
                 type: object
                 properties:
                   '@id':
@@ -3289,9 +2950,8 @@ allOf:
             - contains:
                 title: Segmentation Threshold Values or Criteria
                 description: "Specific CT number range(s) or quantitative criteria
-                  used to define each segmented phase or feature. Documenting these
-                  values enables reproducibility assessment and cross-study comparison.
-                  For LAC-calibrated datasets, report values in cm\u207B\xB9."
+                  used to define each segmented phase or feature. For LAC-calibrated
+                  datasets, report values in cm\u207B\xB9."
                 type: object
                 properties:
                   '@id':
@@ -3345,12 +3005,11 @@ allOf:
               maxContains: 1
             - contains:
                 title: VOI Selection Criteria
-                description: Procedure-level rules specifying how the Volume of Interest
-                  (VOI) is to be defined for quantitative analysis. Common criteria
-                  exclude cone-beam artifact zones at sample edges, beam hardening
-                  halos near dense inclusions, and sample holder signal. The actual
-                  VOI applied in a specific analysis is recorded separately at analysis
-                  level.
+                description: Rules specifying how the Volume of Interest (VOI) is
+                  to be defined for quantitative analysis. Common criteria exclude
+                  cone-beam artifact zones at sample edges, beam hardening halos near
+                  dense inclusions, and sample holder signal. The actual VOI applied
+                  in a specific analysis is recorded separately at analysis level.
                 type: object
                 properties:
                   '@id':
@@ -3378,11 +3037,8 @@ allOf:
                 description: Bit depth of the reconstructed 3D volume (number of bits
                   used to encode each voxel's grayscale value). Common values are
                   8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit
-                  floating point. Bit depth affects the dynamic range available for
-                  phase segmentation and quantitative attenuation analysis. The procedure
-                  may specify a required output bit depth if downstream analysis workflows
-                  depend on a consistent grayscale range; the analyst confirms or
-                  adjusts at analysis time.
+                  floating point. A required output bit depth may be specified if
+                  downstream analysis workflows depend on a consistent grayscale range.
                 type: object
                 properties:
                   '@id':
@@ -3410,9 +3066,7 @@ allOf:
                 description: Total elapsed time for the complete XCT acquisition,
                   from the start of the first projection to the end of the last. For
                   multi-volume acquisitions, this is the combined scan time across
-                  all sub-volumes (not including setup or reconstruction time). Useful
-                  for assessing beam stability and sample integrity concerns over
-                  long scans.
+                  all sub-volumes (not including setup or reconstruction time).
                 type: object
                 properties:
                   '@id':
@@ -3437,21 +3091,17 @@ allOf:
               maxContains: 1
             - contains:
                 title: Partial Volume Effect Criteria
-                description: "Procedure-level specification of how partial volume
-                  effects (PVE) are managed in quantitative analysis. PVE produces
-                  intermediate CT numbers at phase boundaries and at the surfaces
-                  of small features, because each voxel integrates the attenuation
-                  of all material within its volume. PVE correction can be implemented
+                description: "Specification of how partial volume effects (PVE) are
+                  managed in quantitative analysis. PVE correction can be implemented
                   via PSF-based deconvolution tools such as Blob3D. Record the minimum
                   feature size criterion adopted for the procedure (in voxels or \xB5m),
                   the basis for it, the treatment of boundary voxels in modal abundance
                   or size distribution calculations, and whether PVE correction is
-                  required or optional. Per Withers et al. (2021) a feature must span
-                  at least 3 voxels to be positively identified and at least 10 for
-                  reliable shape and volume characterisation; state whether the criterion
-                  follows that convention or is SNR-limited, PVE-limited or analyst-defined.
-                  The criterion materially changes reported modal abundances and size
-                  distributions, so two datasets are not comparable without it."
+                  required or optional. State whether the criterion follows the Withers
+                  et al. (2021) convention \u2014 a feature must span at least 3 voxels
+                  to be positively identified and at least 10 for reliable shape and
+                  volume characterisation \u2014 or is SNR-limited, PVE-limited or
+                  analyst-defined."
                 type: object
                 properties:
                   '@id':
@@ -3476,15 +3126,13 @@ allOf:
               maxContains: 1
             - contains:
                 title: Cross-Validation Procedure Requirement
-                description: Procedure-level specification of what independent analytical
-                  validation is required to confirm CT segmentation results, phase
-                  identification, or quantitative measurements. Cross-validation is
-                  relevant where CT grey-values alone cannot uniquely distinguish
-                  phases with similar attenuation coefficients. Common approaches
-                  include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
-                  for bulk porosity, and Raman or SIMS phase mapping. Record the required
-                  validation method(s) and the sampling fraction (e.g., every sample,
-                  one per session, or a representative subset).
+                description: Specification of what independent analytical validation
+                  is required to confirm CT segmentation results, phase identification,
+                  or quantitative measurements. Common approaches include BSE imaging,
+                  SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity,
+                  and Raman or SIMS phase mapping. Record the required validation
+                  method(s) and the sampling fraction (e.g., every sample, one per
+                  session, or a representative subset).
                 type: object
                 properties:
                   '@id':
@@ -3526,8 +3174,7 @@ allOf:
                         schema:description:
                           description: Any preparation steps applied to the sample
                             before scanning, including cleaning, trimming, consolidation,
-                            or drying. XCT is typically non-destructive with no surface
-                            preparation required; note any exceptions.
+                            or drying. Note any exceptions.
                           anyOf:
                           - type: string
                           - type: array
@@ -3550,8 +3197,7 @@ allOf:
                                 X-ray source off; electronic noise baseline) and bright-field
                                 (source on, no sample; gain calibration) reference
                                 images are acquired and applied to normalize detector
-                                response before reconstruction. Standard practice
-                                in all quantitative lab XCT;.
+                                response before reconstruction.
                               type: object
                               properties:
                                 '@id':
@@ -3573,15 +3219,13 @@ allOf:
                               - schema:name
                               - schema:value
                             - title: Sub-volume Stitching and Registration Method
-                              description: "Method used to register adjacent sub-volume
+                              description: Method used to register adjacent sub-volume
                                 datasets to each other and stitch them into a single
                                 continuous 3D volume. Report the alignment strategy
                                 (manual, automated, fiducial-based), the software
-                                used, and any correction steps applied. Note: rotational
-                                mismatch artifacts have been identified in continuous-rotation
-                                acquisitions (~0.35\xB0 misalignment in Eckley et
-                                al. 2025); their correction via raw projection re-alignment
-                                should be documented here."
+                                used, and any correction steps applied. Where rotational
+                                mismatch has been corrected via raw projection re-alignment,
+                                document it here.
                               type: object
                               properties:
                                 '@id':
@@ -3610,8 +3254,7 @@ allOf:
                                 X-ray source off; electronic noise baseline) and bright-field
                                 (source on, no sample; gain calibration) reference
                                 images are acquired and applied to normalize detector
-                                response before reconstruction. Standard practice
-                                in all quantitative lab XCT;.
+                                response before reconstruction.
                               type: object
                               properties:
                                 '@id':
@@ -3636,15 +3279,13 @@ allOf:
                             maxContains: 1
                           - contains:
                               title: Sub-volume Stitching and Registration Method
-                              description: "Method used to register adjacent sub-volume
+                              description: Method used to register adjacent sub-volume
                                 datasets to each other and stitch them into a single
                                 continuous 3D volume. Report the alignment strategy
                                 (manual, automated, fiducial-based), the software
-                                used, and any correction steps applied. Note: rotational
-                                mismatch artifacts have been identified in continuous-rotation
-                                acquisitions (~0.35\xB0 misalignment in Eckley et
-                                al. 2025); their correction via raw projection re-alignment
-                                should be documented here."
+                                used, and any correction steps applied. Where rotational
+                                mismatch has been corrected via raw projection re-alignment,
+                                document it here.
                               type: object
                               properties:
                                 '@id':
@@ -3706,8 +3347,7 @@ allOf:
                                 schema:name:
                                   description: Software used to reconstruct 2D projection
                                     images into a 3D CT volume, including version
-                                    number. Often bundled with the instrument and
-                                    proprietary to the manufacturer.
+                                    number.
                                   anyOf:
                                   - type: string
                                   - type: array
@@ -3743,21 +3383,15 @@ allOf:
                                     anyOf:
                                     - title: Accelerating Voltage
                                       description: "X-ray tube accelerating voltage
-                                        in kilovolts (kV) registered by the procedure.
-                                        Determines the maximum X-ray photon energy
-                                        and controls penetration depth and phase contrast.
-                                        Higher voltages provide greater penetration
-                                        for dense or large samples; lower voltages
-                                        improve contrast between low-density phases.
-                                        If the voltage was varied across samples within
-                                        the same procedure or session, report the
-                                        full range applied (e.g., 90\u2013115 kV).
-                                        Note: some sources report this parameter as
-                                        'X keV' (maximum Bremsstrahlung photon energy)
-                                        rather than 'X kV' (tube voltage). For polychromatic
-                                        lab XCT, these are numerically equivalent:
-                                        E_max [keV] = V [kV]. Record the value as
-                                        originally reported, and add a parenthetical
+                                        in kilovolts (kV). If the voltage was varied
+                                        across samples within the same procedure or
+                                        session, report the full range applied (e.g.,
+                                        90\u2013115 kV). Note: some sources report
+                                        this parameter as 'X keV' (maximum Bremsstrahlung
+                                        photon energy) rather than 'X kV' (tube voltage).
+                                        For polychromatic lab XCT, these are numerically
+                                        equivalent: E_max [keV] = V [kV]. Record the
+                                        value as originally reported, and add a parenthetical
                                         note if the unit used is keV."
                                       type: object
                                       properties:
@@ -3786,14 +3420,10 @@ allOf:
                                       - schema:unitText
                                     - title: Tube Current
                                       description: "X-ray tube current in microamperes
-                                        (\xB5A) registered by the procedure. Controls
-                                        photon flux and therefore projection image
-                                        SNR. Higher current improves SNR but increases
-                                        thermal loading on the source and may increase
-                                        focal spot size. If the current was varied
-                                        across samples within the same procedure or
-                                        session, report the full range applied (e.g.,
-                                        65\u2013115 \xB5A)."
+                                        (\xB5A). If the current was varied across
+                                        samples within the same procedure or session,
+                                        report the full range applied (e.g., 65\u2013115
+                                        \xB5A)."
                                       type: object
                                       properties:
                                         '@id':
@@ -3822,12 +3452,9 @@ allOf:
                                     - title: X-ray Pre-filter
                                       description: Material and thickness of the beam-hardening
                                         filter placed between the X-ray source and
-                                        the sample. Hardens the beam by attenuating
-                                        low-energy photons, reducing beam hardening
-                                        artifacts and improving CT number stability
-                                        across the sample. Both filter material and
-                                        thickness must be reported. Instrument-proprietary
-                                        filter codes should be decoded where possible.
+                                        the sample. Both filter material and thickness
+                                        must be reported. Instrument-proprietary filter
+                                        codes should be decoded where possible.
                                       type: object
                                       properties:
                                         '@id':
@@ -3851,15 +3478,14 @@ allOf:
                                     - title: Voxel Size
                                       description: "Isotropic voxel edge length of
                                         the reconstructed 3D volume in micrometres.
-                                        The procedure registers the target voxel size,
-                                        set based on the smallest feature to be resolved
-                                        (target voxel size \u2264 ~1/3 of that feature
-                                        size; see the criterion recorded under Partial
-                                        Volume Effect Criteria). At analysis level,
-                                        record the achieved voxel size as reported
-                                        by the reconstruction software, which may
-                                        differ slightly from the target due to final
-                                        geometric calibration."
+                                        The target voxel size is set based on the
+                                        smallest feature to be resolved (target voxel
+                                        size \u2264 ~1/3 of that feature size; see
+                                        the criterion recorded under Partial Volume
+                                        Effect Criteria). Record the achieved voxel
+                                        size as reported by the reconstruction software,
+                                        which may differ slightly from the target
+                                        due to final geometric calibration."
                                       type: object
                                       properties:
                                         '@id':
@@ -3889,21 +3515,15 @@ allOf:
                                   - contains:
                                       title: Accelerating Voltage
                                       description: "X-ray tube accelerating voltage
-                                        in kilovolts (kV) registered by the procedure.
-                                        Determines the maximum X-ray photon energy
-                                        and controls penetration depth and phase contrast.
-                                        Higher voltages provide greater penetration
-                                        for dense or large samples; lower voltages
-                                        improve contrast between low-density phases.
-                                        If the voltage was varied across samples within
-                                        the same procedure or session, report the
-                                        full range applied (e.g., 90\u2013115 kV).
-                                        Note: some sources report this parameter as
-                                        'X keV' (maximum Bremsstrahlung photon energy)
-                                        rather than 'X kV' (tube voltage). For polychromatic
-                                        lab XCT, these are numerically equivalent:
-                                        E_max [keV] = V [kV]. Record the value as
-                                        originally reported, and add a parenthetical
+                                        in kilovolts (kV). If the voltage was varied
+                                        across samples within the same procedure or
+                                        session, report the full range applied (e.g.,
+                                        90\u2013115 kV). Note: some sources report
+                                        this parameter as 'X keV' (maximum Bremsstrahlung
+                                        photon energy) rather than 'X kV' (tube voltage).
+                                        For polychromatic lab XCT, these are numerically
+                                        equivalent: E_max [keV] = V [kV]. Record the
+                                        value as originally reported, and add a parenthetical
                                         note if the unit used is keV."
                                       type: object
                                       properties:
@@ -3935,14 +3555,10 @@ allOf:
                                   - contains:
                                       title: Tube Current
                                       description: "X-ray tube current in microamperes
-                                        (\xB5A) registered by the procedure. Controls
-                                        photon flux and therefore projection image
-                                        SNR. Higher current improves SNR but increases
-                                        thermal loading on the source and may increase
-                                        focal spot size. If the current was varied
-                                        across samples within the same procedure or
-                                        session, report the full range applied (e.g.,
-                                        65\u2013115 \xB5A)."
+                                        (\xB5A). If the current was varied across
+                                        samples within the same procedure or session,
+                                        report the full range applied (e.g., 65\u2013115
+                                        \xB5A)."
                                       type: object
                                       properties:
                                         '@id':
@@ -3974,12 +3590,9 @@ allOf:
                                       title: X-ray Pre-filter
                                       description: Material and thickness of the beam-hardening
                                         filter placed between the X-ray source and
-                                        the sample. Hardens the beam by attenuating
-                                        low-energy photons, reducing beam hardening
-                                        artifacts and improving CT number stability
-                                        across the sample. Both filter material and
-                                        thickness must be reported. Instrument-proprietary
-                                        filter codes should be decoded where possible.
+                                        the sample. Both filter material and thickness
+                                        must be reported. Instrument-proprietary filter
+                                        codes should be decoded where possible.
                                       type: object
                                       properties:
                                         '@id':
@@ -4006,15 +3619,14 @@ allOf:
                                       title: Voxel Size
                                       description: "Isotropic voxel edge length of
                                         the reconstructed 3D volume in micrometres.
-                                        The procedure registers the target voxel size,
-                                        set based on the smallest feature to be resolved
-                                        (target voxel size \u2264 ~1/3 of that feature
-                                        size; see the criterion recorded under Partial
-                                        Volume Effect Criteria). At analysis level,
-                                        record the achieved voxel size as reported
-                                        by the reconstruction software, which may
-                                        differ slightly from the target due to final
-                                        geometric calibration."
+                                        The target voxel size is set based on the
+                                        smallest feature to be resolved (target voxel
+                                        size \u2264 ~1/3 of that feature size; see
+                                        the criterion recorded under Partial Volume
+                                        Effect Criteria). Record the achieved voxel
+                                        size as reported by the reconstruction software,
+                                        which may differ slightly from the target
+                                        due to final geometric calibration."
                                       type: object
                                       properties:
                                         '@id':
@@ -4081,8 +3693,7 @@ allOf:
           description: "Effective spatial resolution of the reconstructed CT volume,
             which typically differs from (and is coarser than) the voxel size due
             to the detector point spread function (PSF), geometric unsharpness, and
-            the reconstruction filter. The Nyquist limit sets a theoretical floor
-            at 2\xD7 the voxel size. Formal measurement uses the PSF method described
+            the reconstruction filter. Formal measurement uses the PSF method described
             in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF);
             resolution can also be reported per ASTM E1441-11. When formal measurement
             is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss
@@ -4112,11 +3723,8 @@ allOf:
           - schema:name
           - schema:value
         - title: Number of Sub-volumes
-          description: 'Total number of overlapping sub-volume scans acquired to cover
-            the full sample length. This is an analysis-level parameter: the number
-            of sub-volumes depends on the length of the specific sample being scanned
-            and cannot be fixed in the procedure in advance. Applies only to Mode
-            B (multi-volume stitching).'
+          description: Total number of overlapping sub-volume scans acquired to cover
+            the full sample length. Applies only to Mode B (multi-volume stitching).
           type: object
           properties:
             '@id':
@@ -4140,9 +3748,8 @@ allOf:
           - schema:name
           - schema:value
         - title: VOI Applied
-          description: Actual Volume of Interest used in this specific analysis, including
-            dimensions or defining criteria. Analysis-level companion to VOI Selection
-            Criteria.
+          description: Actual Volume of Interest used, including dimensions or defining
+            criteria. Companion to VOI Selection Criteria.
           type: object
           properties:
             '@id':
@@ -4165,9 +3772,9 @@ allOf:
           - schema:value
         - title: Sub-volume Overlap
           description: Actual number of reconstructed slices overlapping between adjacent
-            sub-volumes as used in this analysis. May differ from the minimum sub-volume
-            overlap required specified in the procedure (Group 4) if sample geometry
-            or operator decisions resulted in greater or lesser overlap.
+            sub-volumes. May differ from the minimum sub-volume overlap required specified
+            in the procedure (Group 4) if sample geometry or operator decisions resulted
+            in greater or lesser overlap.
           type: object
           properties:
             '@id':
@@ -4196,8 +3803,7 @@ allOf:
           description: "Effective spatial resolution of the reconstructed CT volume,
             which typically differs from (and is coarser than) the voxel size due
             to the detector point spread function (PSF), geometric unsharpness, and
-            the reconstruction filter. The Nyquist limit sets a theoretical floor
-            at 2\xD7 the voxel size. Formal measurement uses the PSF method described
+            the reconstruction filter. Formal measurement uses the PSF method described
             in Ketcham & Hildebrandt (2014) or the modulation transfer function (MTF);
             resolution can also be reported per ASTM E1441-11. When formal measurement
             is unavailable, an estimate based on acquisition geometry (e.g., the Brenner-Weiss
@@ -4230,11 +3836,8 @@ allOf:
         maxContains: 1
       - contains:
           title: Number of Sub-volumes
-          description: 'Total number of overlapping sub-volume scans acquired to cover
-            the full sample length. This is an analysis-level parameter: the number
-            of sub-volumes depends on the length of the specific sample being scanned
-            and cannot be fixed in the procedure in advance. Applies only to Mode
-            B (multi-volume stitching).'
+          description: Total number of overlapping sub-volume scans acquired to cover
+            the full sample length. Applies only to Mode B (multi-volume stitching).
           type: object
           properties:
             '@id':
@@ -4261,9 +3864,8 @@ allOf:
         maxContains: 1
       - contains:
           title: VOI Applied
-          description: Actual Volume of Interest used in this specific analysis, including
-            dimensions or defining criteria. Analysis-level companion to VOI Selection
-            Criteria.
+          description: Actual Volume of Interest used, including dimensions or defining
+            criteria. Companion to VOI Selection Criteria.
           type: object
           properties:
             '@id':
@@ -4289,9 +3891,9 @@ allOf:
       - contains:
           title: Sub-volume Overlap
           description: Actual number of reconstructed slices overlapping between adjacent
-            sub-volumes as used in this analysis. May differ from the minimum sub-volume
-            overlap required specified in the procedure (Group 4) if sample geometry
-            or operator decisions resulted in greater or lesser overlap.
+            sub-volumes. May differ from the minimum sub-volume overlap required specified
+            in the procedure (Group 4) if sample geometry or operator decisions resulted
+            in greater or lesser overlap.
           type: object
           properties:
             '@id':
@@ -4332,13 +3934,10 @@ allOf:
               dqv:value:
                 description: Assessment of whether residual beam hardening (cupping
                   artifact) is present in the reconstructed volume after any corrections
-                  applied during reconstruction. Beam hardening in polychromatic lab
-                  XCT produces a characteristic darker interior and brighter edges
-                  in the reconstructed CT number profile, even in compositionally
-                  uniform material. Record whether this artifact is detectable in
-                  the final dataset, what correction or mitigation was applied (e.g.,
-                  linearisation, pre-filtering, iterative correction), and whether
-                  any residual effect influences the analysis region.
+                  applied during reconstruction. Record whether this artifact is detectable
+                  in the final dataset, what correction or mitigation was applied
+                  (e.g., linearisation, pre-filtering, iterative correction), and
+                  whether any residual effect influences the analysis region.
                 anyOf:
                 - type: string
                 - type: array
@@ -4357,12 +3956,10 @@ allOf:
                   rings centred on the rotation axis arising from differential sensitivity
                   or gain drift among detector elements \u2014 were present and whether
                   correction was effective. Note that ring correction algorithms modify
-                  image intensity in narrow annular bands; in samples containing linear
-                  geological features oriented tangentially to the rotation axis,
-                  ring correction can alter or introduce spurious linear features
-                  in those orientations. Record whether rings were present, whether
-                  correction was applied, and whether any residual rings or correction
-                  artifacts fall within the analysis volume of interest."
+                  image intensity in narrow annular bands. Record whether rings were
+                  present, whether correction was applied, and whether any residual
+                  rings or correction artifacts fall within the analysis volume of
+                  interest."
                 anyOf:
                 - type: string
                 - type: array
@@ -4398,11 +3995,10 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Analysis-level record of PVE severity and how it was
-                  handled in this specific analysis. Documents the minimum feature
-                  size relative to the voxel size, the fraction of the feature population
-                  affected, and any PVE correction method applied (e.g., PSF-based
-                  deconvolution via Blob3D).
+                description: Record of PVE severity and how it was handled. Documents
+                  the minimum feature size relative to the voxel size, the fraction
+                  of the feature population affected, and any PVE correction method
+                  applied (e.g., PSF-based deconvolution via Blob3D).
                 anyOf:
                 - type: string
                 - type: array
@@ -4420,10 +4016,9 @@ allOf:
                 description: Quantitative measure of image quality in the reconstructed
                   CT volume. Typically calculated as the mean CT number divided by
                   the standard deviation of CT number in a homogeneous reference region
-                  (e.g., an inclusion-free zone of the matrix). SNR is controlled
-                  by photon flux (source power, exposure time, number of projections)
-                  and sample attenuation. Record the measured value and the region
-                  used for measurement, or note if SNR was not formally measured.
+                  (e.g., an inclusion-free zone of the matrix). Record the measured
+                  value and the region used for measurement, or note if SNR was not
+                  formally measured.
                 anyOf:
                 - type: string
                 - type: array
@@ -4438,12 +4033,12 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Analysis-level record of what independent validation
-                  was performed and its result. Report the validation method(s) used,
-                  the quantitative agreement achieved (e.g., relative difference in
-                  modal abundance, porosity), and any discrepancies and their likely
-                  causes. Where BSE imaging is the validation method, note that BSE
-                  provides a 2D section while CT provides a 3D volume.
+                description: Record of what independent validation was performed and
+                  its result. Report the validation method(s) used, the quantitative
+                  agreement achieved (e.g., relative difference in modal abundance,
+                  porosity), and any discrepancies and their likely causes. Where
+                  BSE imaging is the validation method, note that BSE provides a 2D
+                  section while CT provides a 3D volume.
                 anyOf:
                 - type: string
                 - type: array

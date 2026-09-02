@@ -21,11 +21,10 @@ type: object
 $defs:
   empa_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -77,9 +76,10 @@ $defs:
     - schema:value
   empa_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Description of how samples were prepared for analysis under this
-      procedure (mounting, polishing, coating). Analysts may document session-specific
-      variations from the procedure standard.
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -127,26 +127,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  empa_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/targetSelectionCriteria
+        const: ada:parameter/empaTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/empaTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -158,11 +160,11 @@ $defs:
   empa_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -211,8 +213,8 @@ $defs:
     - schema:value
   empa_acceleratingVoltage:
     title: Accelerating Voltage
-    description: Electron beam accelerating voltage in kilovolts (kV). The procedure
-      specifies the standard operating voltage; analysts record and justify any deviations.
+    description: Electron beam accelerating voltage in kilovolts (kV). Justify any
+      deviation from the standard operating voltage.
     type: object
     properties:
       '@id':
@@ -299,9 +301,10 @@ $defs:
     - schema:unitText
   empa_beamRasterDimensions:
     title: Beam Raster Dimensions
-    description: X x Y dimensions of a small beam raster used at a single analysis
-      point to average a coarse-grained or beam-sensitive phase. Different from X-ray
-      mapping mode; not applicable when mapping.
+    description: "Dimensions of the small area over which the beam is rastered at
+      a single analysis point, reported as width \xD7 height in \xB5m. Applicable
+      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement.
+      Not applicable when mapping."
     type: object
     properties:
       '@id':
@@ -379,9 +382,8 @@ $defs:
     - schema:value
   empa_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds,
-      on each spectrometer assignment. Procedure specifies standard values; analysts
-      may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds.
+      Adjustments stay within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -552,8 +554,8 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_backgroundCorrectionMethod:
-    title: Background Correction Method
+  empa_xRayBackgroundCorrectionMethod:
+    title: X-ray Background Correction Method
     description: 'Method used to estimate and subtract background X-ray intensity
       beneath the peak. For WDS: typically 2-point off-peak linear interpolation or
       Mean Atomic Number (MAN) background model. For EDS: spectral background fitting
@@ -561,15 +563,15 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/backgroundCorrectionMethod
+        const: ada:parameter/empaTAPP/xRayBackgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/backgroundCorrectionMethod
+        - '@id': ada:parameter/empaTAPP/xRayBackgroundCorrectionMethod
       schema:name:
-        const: Background Correction Method
+        const: X-ray Background Correction Method
       schema:value:
         type: string
     required:
@@ -582,8 +584,7 @@ $defs:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilization or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates). Most commonly applied in point analysis;
-      uncommon for X-ray mapping.
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':
@@ -656,8 +657,10 @@ $defs:
     - schema:value
   empa_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied using secondary reference
-      materials to correct for session-to-session calibration drift.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -738,10 +741,15 @@ $defs:
     - schema:value
   empa_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
-    description: Name(s) of the primary reference material(s) used for element standardization
-      (intensity calibration). Include the material name, its source or supplier,
-      and a citation for the accepted values used, since results calibrated against
-      different published values for the same material are not directly comparable.
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
     type: object
     properties:
       '@id':
@@ -764,9 +772,10 @@ $defs:
     - schema:value
   empa_secondaryReferenceMaterials:
     title: Secondary Reference Materials
-    description: Quality-control reference material(s) analyzed alongside unknowns
-      to verify calibration accuracy. Include material name, assessed elements, number
-      of analyses (n), and measured vs. accepted values.
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
     type: object
     properties:
       '@id':
@@ -814,8 +823,10 @@ $defs:
     - schema:value
   empa_edsDetectorConfiguration:
     title: EDS Detector Configuration
-    description: EDS detector type, manufacturer, window type, active area, and detector
-      geometry (take-off angle, position).
+    description: EDS detector type, manufacturer, number of detector elements, active
+      area and solid angle, window type, and geometry (take-off angle, position).
+      List multiple detectors separately. Record 'N/A' where the procedure has no
+      EDS detector.
     type: object
     properties:
       '@id':
@@ -842,8 +853,7 @@ $defs:
       per assignment. An analyte may be assigned to more than one spectrometer with
       intensities aggregated (aggregate intensity counting), and one spectrometer
       serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup. Different spectrometers
-      may have different crystal configurations."
+      \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -867,9 +877,8 @@ $defs:
   empa_sequence:
     title: Sequence
     description: Order in which spectrometer assignments are acquired during point
-      analysis. Relevant for minimizing beam damage (volatile elements measured first)
-      and for sequential multi-channel setups. Not applicable to X-ray mapping, where
-      all assigned spectrometers collect simultaneously at each pixel.
+      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
+      collect simultaneously at each pixel.
     type: object
     properties:
       '@id':
@@ -894,8 +903,7 @@ $defs:
     - schema:value
   empa_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used on each spectrometer assignment. Affects sensitivity
-      and count rate linearity.
+    description: Type of detector used.
     type: object
     properties:
       '@id':
@@ -943,10 +951,9 @@ $defs:
     - schema:value
   empa_stageScanVsBeamScan:
     title: Stage Scan vs. Beam Scan
-    description: Whether the X-ray map was acquired by moving the sample stage (stage
-      scan) or by deflecting the electron beam (beam scan). Stage scan preserves beam
-      geometry and spot size across the full map but is slower; beam scan is faster
-      but may introduce geometric distortion at large deflections.
+    description: For mapping modes, whether the map was acquired by moving the stage
+      while the beam is held fixed (stage scan), or by deflecting the beam across
+      the field while the stage is stationary (beam scan).
     type: object
     properties:
       '@id':
@@ -1021,8 +1028,8 @@ $defs:
     - schema:value
   empa_interferingElements:
     title: Interfering Elements
-    description: Element(s) whose X-ray lines overlap with the measured peak for this
-      analyte, requiring a correction.
+    description: Element(s) whose X-ray lines overlap with the measured peak, requiring
+      a correction.
     type: object
     properties:
       '@id':
@@ -1046,7 +1053,7 @@ $defs:
   empa_interferenceCorrectionStandard:
     title: Interference Correction Standard
     description: Reference material used to quantify and calibrate the interference
-      correction for this analyte.
+      correction.
     type: object
     properties:
       '@id':
@@ -1069,11 +1076,10 @@ $defs:
     - schema:value
   laMcicpms_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -1125,9 +1131,9 @@ $defs:
     - schema:value
   laMcicpms_sampleFormAnalyticalSubstrate:
     title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Editable
-      to accommodate legitimate variations (e.g., thin section vs. mount) that do
-      not alter the analytical procedure.
+    description: Physical form of the material as it enters the ablation cell. Variations
+      that do not alter the analytical procedure (e.g., thin section vs. mount) are
+      legitimate.
     type: object
     properties:
       '@id':
@@ -1201,8 +1207,10 @@ $defs:
     - schema:value
   laMcicpms_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Description of how samples were prepared for analysis (mounting,
-      polishing, coating, fusion procedure, etc.).
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -1228,8 +1236,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -1250,26 +1257,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laMcicpms_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  laMcicpms_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/laMcicpmsTAPP/targetSelectionCriteria
+        const: ada:parameter/laMcicpmsTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laMcicpmsTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/laMcicpmsTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -1281,11 +1290,11 @@ $defs:
   laMcicpms_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -1309,7 +1318,7 @@ $defs:
   laMcicpms_instrumentSerialNumberOrLabIdentifier:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -1334,9 +1343,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -1359,10 +1365,9 @@ $defs:
     - schema:value
   laMcicpms_massResolutionSetting:
     title: Mass Resolution Setting
-    description: Operating mass resolution of the mass analyser. For quadrupole instruments
-      this is fixed at unit resolution by instrument design. For sector-field instruments
-      the analyst selects low, medium, or high resolution to balance sensitivity against
-      spectral interference suppression.
+    description: Operating mass resolution of the mass analyser. Where the analyser
+      permits selection, state the mode; where individual analytes are assigned to
+      different modes, state each.
     type: object
     properties:
       '@id':
@@ -1413,8 +1418,7 @@ $defs:
     title: Laser Spot Geometry
     description: "Shape and dimensions of the laser ablation spot in micrometres registered
       by the procedure. For circular spots, report diameter; for square or rectangular
-      spots, report width \xD7 length. The procedure registers the typical geometry;
-      analysts may adjust within procedure-allowed range."
+      spots, report width \xD7 length."
     type: object
     properties:
       '@id':
@@ -1438,10 +1442,9 @@ $defs:
   laMcicpms_laserEnergy:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -1470,10 +1473,8 @@ $defs:
   laMcicpms_laserFluence:
     title: Laser Fluence (Energy Density)
     description: "Laser pulse energy per unit area at the sample surface in J cm\u207B\xB2,
-      as registered by the procedure. Fluence is the physically meaningful quantity
-      controlling ablation rate, crater morphology, elemental fractionation, and particle
-      size distribution. If the system reports only as % of maximum output, include
-      that value and note the system maximum where known."
+      as registered by the procedure. If the system reports only as % of maximum output,
+      include that value and note the system maximum where known."
     type: object
     properties:
       '@id':
@@ -1502,9 +1503,6 @@ $defs:
   laMcicpms_laserRepetitionRate:
     title: Laser Repetition Rate
     description: Laser pulse repetition rate in hertz registered by the procedure.
-      For mapping methods, repetition rate together with scan speed and spot size
-      determines pixel size and spatial resolution. Analysts may adjust within procedure-allowed
-      bounds.
     type: object
     properties:
       '@id':
@@ -1532,14 +1530,11 @@ $defs:
     - schema:unitText
   laMcicpms_ablationDurationPerSpot:
     title: Ablation Duration per Spot
-    description: 'Total on-sample ablation (signal acquisition) time per individual
-      spot in seconds, as set in the acquisition method. This is a procedure-level
-      parameter for spot analysis: it reflects the deliberate trade-off between signal
-      accumulation (longer = lower LOD), sample consumption, and session throughput.
-      For transect analysis, the equivalent procedure-level parameter is scan speed
-      (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis,
-      total acquisition time is sample-area-dependent and therefore analysis-level,
-      not captured here.'
+    description: Total on-sample ablation (signal acquisition) time per individual
+      spot in seconds, as set in the acquisition method. For transect analysis, the
+      equivalent procedure-level parameter is scan speed (captured in Transect Rate,
+      Mapping Rate or Step Size). For mapping analysis, total acquisition time is
+      sample-area-dependent and is not captured here.
     type: object
     properties:
       '@id':
@@ -1568,9 +1563,8 @@ $defs:
   laMcicpms_ablationPitDepthAndAblationRate:
     title: Ablation Pit Depth and Ablation Rate
     description: Depth of the ablation pit produced under the registered laser conditions,
-      the method used to measure it, and the resulting per-pulse ablation rate. Sets
-      the achievable depth resolution and governs downhole elemental fractionation.
-      For transect and mapping the equivalent quantity is trench depth under the same
+      the method used to measure it, and the resulting per-pulse ablation rate. For
+      transect and mapping the equivalent quantity is trench depth under the same
       conditions.
     type: object
     properties:
@@ -1595,11 +1589,10 @@ $defs:
   laMcicpms_transectRateMappingRateOrStepSize:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -1623,10 +1616,8 @@ $defs:
   laMcicpms_rasterLineSpacing:
     title: Raster Line Spacing (Mapping Only)
     description: Distance between adjacent raster lines in a 2D elemental map, measured
-      perpendicular to the scan direction, in micrometres. Together with spot size,
-      this determines whether adjacent lines are contiguous (line spacing = spot size),
-      overlapping (line spacing < spot size), or have gaps (line spacing > spot size).
-      Applies to raster mapping only.
+      perpendicular to the scan direction, in micrometres. Applies to raster mapping
+      only.
     type: object
     properties:
       '@id':
@@ -1650,10 +1641,8 @@ $defs:
   laMcicpms_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
-      the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
-      is standard for most UV laser systems due to superior aerosol transport. Flow
-      rates are procedure targets; actual session values may be adjusted within \xB110%
-      during tuning."
+      the ICP-MS torch, with the procedure-registered target flow rate(s). Adjustment
+      during tuning stays within \xB110% of the target."
     type: object
     properties:
       '@id':
@@ -1676,15 +1665,11 @@ $defs:
     - schema:value
   laMcicpms_makeUpGasAndFlowRate:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -1713,8 +1698,7 @@ $defs:
   laMcicpms_coolantGasFlowRate:
     title: Coolant (Plasma) Gas Flow Rate
     description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains
-      the ICP plasma, in L/min. Determines plasma volume and stability. Set during
-      initial plasma optimisation and confirmed at each session start.
+      the ICP plasma, in L/min.
     type: object
     properties:
       '@id':
@@ -1742,10 +1726,10 @@ $defs:
     - schema:unitText
   laMcicpms_auxiliaryGasFlowRate:
     title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream that positions
-      the plasma relative to the load coil, in L/min. Affects ion extraction efficiency
-      and oxide production rates. Distinct from the carrier gas (which transports
-      ablation aerosol) and the coolant (plasma) gas.
+    description: Flow rate of the intermediate (auxiliary) argon gas stream, between
+      the torch body and the injector tube, which positions the plasma relative to
+      the load coil, in L/min. Distinct from the outer coolant (plasma) gas and from
+      the gas stream that carries sample into the plasma.
     type: object
     properties:
       '@id':
@@ -1773,10 +1757,7 @@ $defs:
     - schema:unitText
   laMcicpms_rfPower:
     title: RF Power
-    description: ICP radiofrequency forward power in watts. Affects plasma temperature,
-      ionisation efficiency, oxide formation, and whether cool or normal plasma conditions
-      are in effect. The procedure registers a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
+    description: Radiofrequency forward power applied to the ICP, in watts.
     type: object
     properties:
       '@id':
@@ -1804,12 +1785,9 @@ $defs:
     - schema:unitText
   laMcicpms_signalSmoothing:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -1863,11 +1841,8 @@ $defs:
       either as detected signal per unit concentration or per unit mass of analyte
       delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
       \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
     type: object
     properties:
       '@id':
@@ -1896,10 +1871,9 @@ $defs:
   laMcicpms_doublyChargedSpeciesMonitor:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -1923,9 +1897,8 @@ $defs:
   laMcicpms_doublyChargedSpeciesProduction:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -1948,10 +1921,10 @@ $defs:
     - schema:value
   laMcicpms_analysisSequence:
     title: Analysis Sequence
-    description: Repeating order of primary calibration standard(s), quality control
-      standard(s), and unknown analyses within a measurement session. Editable to
-      allow minor adjustments while maintaining the bracketing strategy defined in
-      the procedure.
+    description: The repeating order in which calibration or bracketing standards,
+      quality-control and secondary reference materials, blanks and unknowns are interleaved
+      within a measurement session. Adjustments must maintain the bracketing strategy
+      defined in the procedure.
     type: object
     properties:
       '@id':
@@ -2005,10 +1978,10 @@ $defs:
     - schema:unitText
   laMcicpms_collisionGasFlowRate:
     title: Collision Gas Flow Rate
-    description: Flow rate of the collision gas (typically He) introduced into the
-      collision/reaction cell, in mL/min. Controls the degree of ion thermalization
-      and KED efficiency. Record 'None' if the CRC is in STD mode. Record 'N/A' where
-      Collision/Reaction Cell (CRC) Configuration does not include KED.
+    description: Flow rate of the collision gas, typically He, introduced into the
+      collision/reaction cell in KED mode, in mL/min. Record 'None' if the cell is
+      in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does
+      not include KED or the instrument has no cell.
     type: object
     properties:
       '@id':
@@ -2038,9 +2011,8 @@ $defs:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
       between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). A negative bias preferentially retards slow polyatomic ions while
-      transmitting faster analyte ions. Record 'None' if the CRC is in STD mode. Record
-      'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.
+      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
       '@id':
@@ -2069,8 +2041,9 @@ $defs:
   laMcicpms_reactionGasFlowRate:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reactive gas introduced into the dynamic reaction
-      cell (DRC), in mL/min. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration
-      does not include DRC.
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -2102,8 +2075,7 @@ $defs:
       off or shutter closed) before each ablation event, in seconds. For spot and
       transect analysis, a discrete background interval is measured before each ablation.
       For mapping, background is typically measured once per raster line or at the
-      start of a map session rather than before each individual pixel. Editable to
-      allow session-specific adjustment.
+      start of a map session rather than before each individual pixel.
     type: object
     properties:
       '@id':
@@ -2134,9 +2106,7 @@ $defs:
     description: Number of measurement blocks acquired per sample or standard solution
       introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block
       typically begins with a baseline (on-peak zero) measurement before the analytical
-      cycles. Multiple blocks per sample allow inspection of signal stability and
-      within-measurement drift. Procedure specifies the standard number; analyst may
-      adjust for samples with low signal or for high-precision requirements.
+      cycles. Adjust for samples with low signal or where higher precision is required.
     type: object
     properties:
       '@id':
@@ -2165,8 +2135,7 @@ $defs:
       to a single set of simultaneous Faraday cup readings integrated for the duration
       specified in Integration Time per Cycle. Total integration time per sample =
       (Number of Cycles per Block) \xD7 (Integration Time per Cycle) \xD7 (Number
-      of Blocks per Measurement). Procedure specifies the standard value; analyst
-      may adjust within procedure bounds."
+      of Blocks per Measurement)."
     type: object
     properties:
       '@id':
@@ -2191,14 +2160,9 @@ $defs:
     - schema:value
   laMcicpms_integrationTimePerCycle:
     title: Integration Time per Cycle
-    description: "Duration of signal integration per measurement cycle (seconds).
-      Determines counting statistics per cycle. Longer integration times improve shot-noise
-      precision but increase the impact of signal drift within the integration window.
-      For high-gain (10\xB9\xB2 or 10\xB9\xB3 \u03A9) amplifier channels, longer integration
-      times are often required to accumulate sufficient charge. Procedure specifies
-      the standard integration time; analyst may confirm or adjust within procedure
-      bounds. Where different isotope channels use different integration schemes,
-      record the time for each channel."
+    description: Duration of signal integration per measurement cycle (seconds). Where
+      different isotope channels use different integration schemes, record the time
+      for each channel.
     type: object
     properties:
       '@id':
@@ -2224,6 +2188,32 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laMcicpms_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of
+      gases rather than a single gas, the identities and proportions of that mixture.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpms_uncertaintyPropagationMethod:
     title: Uncertainty Propagation Method
     description: 'The approach used to propagate analytical uncertainty through the
@@ -2254,10 +2244,9 @@ $defs:
     - schema:value
   laMcicpms_spikeOutlierFilteringApproach:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -2280,12 +2269,12 @@ $defs:
     - schema:value
   laMcicpms_memoryEffectMitigation:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -2308,10 +2297,10 @@ $defs:
     - schema:value
   laMcicpms_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -2365,13 +2354,11 @@ $defs:
     title: Double-Spike Mixing Ratio
     description: "Target proportion of double-spike signal relative to total analyte
       signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. An optimal mixing ratio minimizes error propagation through the double-spike
-      inversion; the optimum is analyte-system specific and is typically determined
-      using the Double Spike Toolbox or equivalent. The achieved mixing ratio may
-      deviate from the target within acceptable bounds (typically \xB120% of optimal);
-      the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if
-      double-spike method is not used. Record 'N/A' where the procedure does not use
-      a double spike."
+      ratio. The optimum is analyte-system specific and is typically determined using
+      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
+      from the target within acceptable bounds (typically \xB120% of optimal); the
+      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
+      the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -2423,11 +2410,15 @@ $defs:
     - schema:value
   laMcicpms_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
-    description: Primary reference material(s) used to calibrate the instrument and
-      convert raw signal intensities to concentrations or isotope ratios. Include
-      material name, source institution, and citation for the accepted values used.
-      Editable because the specific lot or certification vintage may differ between
-      sessions while the material type remains the same.
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
     type: object
     properties:
       '@id':
@@ -2450,10 +2441,10 @@ $defs:
     - schema:value
   laMcicpms_secondaryReferenceMaterials:
     title: Secondary Reference Materials
-    description: Quality-control reference materials analysed as unknowns alongside
-      samples in the same session to assess accuracy and monitor drift. Include material
-      name, source, and citation for accepted values used for comparison. Editable
-      because selection of secondary RMs may vary across sessions.
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
     type: object
     properties:
       '@id':
@@ -2476,11 +2467,9 @@ $defs:
     - schema:value
   laMcicpms_samplerAndSkimmerConeMaterial:
     title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Common materials
-      are nickel (standard), platinum (for high-TDS or organic-matrix samples), and
-      aluminium (for high-purity work). Cone material affects sensitivity, matrix
-      tolerance, and long-term stability. State both sampler and skimmer materials;
-      if identical, a single statement is acceptable.
+    description: Material composition of the sampler and skimmer cones. State both
+      sampler and skimmer materials; a single statement is acceptable where they are
+      identical.
     type: object
     properties:
       '@id':
@@ -2503,9 +2492,8 @@ $defs:
     - schema:value
   laMcicpms_torchType:
     title: Torch Type
-    description: "Type of plasma torch installed. Injector inner diameter (typically
-      1.5\u20132.5 mm) affects aerosol transport efficiency and plasma conditions
-      in LA-ICP-MS."
+    description: Type of plasma torch installed (e.g. standard quartz, high-matrix,
+      low-flow).
     type: object
     properties:
       '@id':
@@ -2529,9 +2517,7 @@ $defs:
   laMcicpms_laserBeamEnergyProfile:
     title: Laser Beam Energy Profile
     description: Spatial energy distribution of the laser beam at the sample surface,
-      and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces
-      more uniform ablation craters and more reproducible crater morphology than a
-      Gaussian beam. This is a fixed hardware property of the laser system.
+      and whether a beam homogenizer is installed.
     type: object
     properties:
       '@id':
@@ -2556,8 +2542,7 @@ $defs:
     title: Instrument Warm-up / Session Duration Limit
     description: Minimum warm-up time required after plasma ignition before analyses
       begin, and any maximum session duration enforced to maintain stable operating
-      conditions. These constraints are part of the procedure and cannot be varied
-      by the analyst.
+      conditions.
     type: object
     properties:
       '@id':
@@ -2580,11 +2565,13 @@ $defs:
     - schema:value
   laMcicpms_reactionGasType:
     title: Reaction Gas Type
-    description: "Type of reactive gas introduced into the dynamic reaction cell (DRC)
-      for interference removal through ion-molecule reactions. Common reaction gases
-      include NH\u2083 (e.g., for Fe, Ca, K isotopes) and O\u2082 (e.g., for As, Ge).
-      Record 'None' if DRC mode is not used. Record 'N/A' where Collision/Reaction
-      Cell (CRC) Configuration does not include DRC."
+    description: "Type of reactive gas introduced into the cell for interference removal
+      through ION-MOLECULE CHEMISTRY, either on-mass or by mass shift. Common reaction
+      gases include NH\u2083 (e.g., for Fe, Ca, K isotopes), O\u2082 (e.g., for As,
+      Ge, Te mass shift) and CH\u2084. The distinction from Collision Gas Type is
+      the mechanism, not the gas: record a gas here when a reaction is intended. Record
+      'None' if no reactive gas is used, and 'N/A' where Collision/Reaction Cell (CRC)
+      Configuration does not include a reaction mode or the instrument has no cell."
     type: object
     properties:
       '@id':
@@ -2633,6 +2620,33 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpms_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction
+      cell, the precursor ion, the reagent gas and the product ion measured. Records
+      the mass-shift chemistry relating the mass measured to the analyte it reports,
+      which the monitored mass alone does not state. Record 'N/A' where the analyte
+      is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpms_matrixOffsetCorrection:
     title: Matrix Offset Correction (LIEF)
     description: Whether an empirical correction was applied to account for systematic
@@ -2660,11 +2674,10 @@ $defs:
     - schema:value
   laMcicpmsUPb_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -2716,9 +2729,9 @@ $defs:
     - schema:value
   laMcicpmsUPb_sampleFormAnalyticalSubstrate:
     title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Editable
-      to accommodate legitimate variations (e.g., thin section vs. mount) that do
-      not alter the analytical procedure.
+    description: Physical form of the material as it enters the ablation cell. Variations
+      that do not alter the analytical procedure (e.g., thin section vs. mount) are
+      legitimate.
     type: object
     properties:
       '@id':
@@ -2792,8 +2805,10 @@ $defs:
     - schema:value
   laMcicpmsUPb_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Description of how samples were prepared for analysis (mounting,
-      polishing, coating, fusion procedure, etc.).
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -2819,8 +2834,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -2841,26 +2855,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laMcicpmsUPb_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  laMcicpmsUPb_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/laMcicpmsUPbTAPP/targetSelectionCriteria
+        const: ada:parameter/laMcicpmsUPbTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laMcicpmsUPbTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -2872,11 +2888,11 @@ $defs:
   laMcicpmsUPb_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -2900,7 +2916,7 @@ $defs:
   laMcicpmsUPb_instrumentSerialNumberOrLabIdentifier:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -2925,9 +2941,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -2950,10 +2963,9 @@ $defs:
     - schema:value
   laMcicpmsUPb_massResolutionSetting:
     title: Mass Resolution Setting
-    description: Operating mass resolution of the mass analyser. For quadrupole instruments
-      this is fixed at unit resolution by instrument design. For sector-field instruments
-      the analyst selects low, medium, or high resolution to balance sensitivity against
-      spectral interference suppression.
+    description: Operating mass resolution of the mass analyser. Where the analyser
+      permits selection, state the mode; where individual analytes are assigned to
+      different modes, state each.
     type: object
     properties:
       '@id':
@@ -3004,8 +3016,7 @@ $defs:
     title: Laser Spot Geometry
     description: "Shape and dimensions of the laser ablation spot in micrometres registered
       by the procedure. For circular spots, report diameter; for square or rectangular
-      spots, report width \xD7 length. The procedure registers the typical geometry;
-      analysts may adjust within procedure-allowed range."
+      spots, report width \xD7 length."
     type: object
     properties:
       '@id':
@@ -3029,10 +3040,9 @@ $defs:
   laMcicpmsUPb_laserEnergy:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -3061,10 +3071,8 @@ $defs:
   laMcicpmsUPb_laserFluence:
     title: Laser Fluence (Energy Density)
     description: "Laser pulse energy per unit area at the sample surface in J cm\u207B\xB2,
-      as registered by the procedure. Fluence is the physically meaningful quantity
-      controlling ablation rate, crater morphology, elemental fractionation, and particle
-      size distribution. If the system reports only as % of maximum output, include
-      that value and note the system maximum where known."
+      as registered by the procedure. If the system reports only as % of maximum output,
+      include that value and note the system maximum where known."
     type: object
     properties:
       '@id':
@@ -3093,9 +3101,6 @@ $defs:
   laMcicpmsUPb_laserRepetitionRate:
     title: Laser Repetition Rate
     description: Laser pulse repetition rate in hertz registered by the procedure.
-      For mapping methods, repetition rate together with scan speed and spot size
-      determines pixel size and spatial resolution. Analysts may adjust within procedure-allowed
-      bounds.
     type: object
     properties:
       '@id':
@@ -3123,14 +3128,11 @@ $defs:
     - schema:unitText
   laMcicpmsUPb_ablationDurationPerSpot:
     title: Ablation Duration per Spot
-    description: 'Total on-sample ablation (signal acquisition) time per individual
-      spot in seconds, as set in the acquisition method. This is a procedure-level
-      parameter for spot analysis: it reflects the deliberate trade-off between signal
-      accumulation (longer = lower LOD), sample consumption, and session throughput.
-      For transect analysis, the equivalent procedure-level parameter is scan speed
-      (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis,
-      total acquisition time is sample-area-dependent and therefore analysis-level,
-      not captured here.'
+    description: Total on-sample ablation (signal acquisition) time per individual
+      spot in seconds, as set in the acquisition method. For transect analysis, the
+      equivalent procedure-level parameter is scan speed (captured in Transect Rate,
+      Mapping Rate or Step Size). For mapping analysis, total acquisition time is
+      sample-area-dependent and is not captured here.
     type: object
     properties:
       '@id':
@@ -3159,9 +3161,8 @@ $defs:
   laMcicpmsUPb_ablationPitDepthAndAblationRate:
     title: Ablation Pit Depth and Ablation Rate
     description: Depth of the ablation pit produced under the registered laser conditions,
-      the method used to measure it, and the resulting per-pulse ablation rate. Sets
-      the achievable depth resolution and governs downhole elemental fractionation.
-      For transect and mapping the equivalent quantity is trench depth under the same
+      the method used to measure it, and the resulting per-pulse ablation rate. For
+      transect and mapping the equivalent quantity is trench depth under the same
       conditions.
     type: object
     properties:
@@ -3186,11 +3187,10 @@ $defs:
   laMcicpmsUPb_transectRateMappingRateOrStepSize:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -3214,10 +3214,8 @@ $defs:
   laMcicpmsUPb_rasterLineSpacing:
     title: Raster Line Spacing (Mapping Only)
     description: Distance between adjacent raster lines in a 2D elemental map, measured
-      perpendicular to the scan direction, in micrometres. Together with spot size,
-      this determines whether adjacent lines are contiguous (line spacing = spot size),
-      overlapping (line spacing < spot size), or have gaps (line spacing > spot size).
-      Applies to raster mapping only.
+      perpendicular to the scan direction, in micrometres. Applies to raster mapping
+      only.
     type: object
     properties:
       '@id':
@@ -3241,10 +3239,8 @@ $defs:
   laMcicpmsUPb_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
-      the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
-      is standard for most UV laser systems due to superior aerosol transport. Flow
-      rates are procedure targets; actual session values may be adjusted within \xB110%
-      during tuning."
+      the ICP-MS torch, with the procedure-registered target flow rate(s). Adjustment
+      during tuning stays within \xB110% of the target."
     type: object
     properties:
       '@id':
@@ -3267,15 +3263,11 @@ $defs:
     - schema:value
   laMcicpmsUPb_makeUpGasAndFlowRate:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -3304,8 +3296,7 @@ $defs:
   laMcicpmsUPb_coolantGasFlowRate:
     title: Coolant (Plasma) Gas Flow Rate
     description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains
-      the ICP plasma, in L/min. Determines plasma volume and stability. Set during
-      initial plasma optimisation and confirmed at each session start.
+      the ICP plasma, in L/min.
     type: object
     properties:
       '@id':
@@ -3333,10 +3324,10 @@ $defs:
     - schema:unitText
   laMcicpmsUPb_auxiliaryGasFlowRate:
     title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream that positions
-      the plasma relative to the load coil, in L/min. Affects ion extraction efficiency
-      and oxide production rates. Distinct from the carrier gas (which transports
-      ablation aerosol) and the coolant (plasma) gas.
+    description: Flow rate of the intermediate (auxiliary) argon gas stream, between
+      the torch body and the injector tube, which positions the plasma relative to
+      the load coil, in L/min. Distinct from the outer coolant (plasma) gas and from
+      the gas stream that carries sample into the plasma.
     type: object
     properties:
       '@id':
@@ -3364,10 +3355,7 @@ $defs:
     - schema:unitText
   laMcicpmsUPb_rfPower:
     title: RF Power
-    description: ICP radiofrequency forward power in watts. Affects plasma temperature,
-      ionisation efficiency, oxide formation, and whether cool or normal plasma conditions
-      are in effect. The procedure registers a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
+    description: Radiofrequency forward power applied to the ICP, in watts.
     type: object
     properties:
       '@id':
@@ -3395,12 +3383,9 @@ $defs:
     - schema:unitText
   laMcicpmsUPb_signalSmoothing:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -3454,11 +3439,8 @@ $defs:
       either as detected signal per unit concentration or per unit mass of analyte
       delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
       \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
     type: object
     properties:
       '@id':
@@ -3487,10 +3469,9 @@ $defs:
   laMcicpmsUPb_doublyChargedSpeciesMonitor:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -3514,9 +3495,8 @@ $defs:
   laMcicpmsUPb_doublyChargedSpeciesProduction:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -3539,10 +3519,10 @@ $defs:
     - schema:value
   laMcicpmsUPb_analysisSequence:
     title: Analysis Sequence
-    description: Repeating order of primary calibration standard(s), quality control
-      standard(s), and unknown analyses within a measurement session. Editable to
-      allow minor adjustments while maintaining the bracketing strategy defined in
-      the procedure.
+    description: The repeating order in which calibration or bracketing standards,
+      quality-control and secondary reference materials, blanks and unknowns are interleaved
+      within a measurement session. Adjustments must maintain the bracketing strategy
+      defined in the procedure.
     type: object
     properties:
       '@id':
@@ -3596,10 +3576,10 @@ $defs:
     - schema:unitText
   laMcicpmsUPb_collisionGasFlowRate:
     title: Collision Gas Flow Rate
-    description: Flow rate of the collision gas (typically He) introduced into the
-      collision/reaction cell, in mL/min. Controls the degree of ion thermalization
-      and KED efficiency. Record 'None' if the CRC is in STD mode. Record 'N/A' where
-      Collision/Reaction Cell (CRC) Configuration does not include KED.
+    description: Flow rate of the collision gas, typically He, introduced into the
+      collision/reaction cell in KED mode, in mL/min. Record 'None' if the cell is
+      in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does
+      not include KED or the instrument has no cell.
     type: object
     properties:
       '@id':
@@ -3629,9 +3609,8 @@ $defs:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
       between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). A negative bias preferentially retards slow polyatomic ions while
-      transmitting faster analyte ions. Record 'None' if the CRC is in STD mode. Record
-      'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED.
+      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
       '@id':
@@ -3660,8 +3639,9 @@ $defs:
   laMcicpmsUPb_reactionGasFlowRate:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reactive gas introduced into the dynamic reaction
-      cell (DRC), in mL/min. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration
-      does not include DRC.
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -3693,8 +3673,7 @@ $defs:
       off or shutter closed) before each ablation event, in seconds. For spot and
       transect analysis, a discrete background interval is measured before each ablation.
       For mapping, background is typically measured once per raster line or at the
-      start of a map session rather than before each individual pixel. Editable to
-      allow session-specific adjustment.
+      start of a map session rather than before each individual pixel.
     type: object
     properties:
       '@id':
@@ -3725,9 +3704,7 @@ $defs:
     description: Number of measurement blocks acquired per sample or standard solution
       introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block
       typically begins with a baseline (on-peak zero) measurement before the analytical
-      cycles. Multiple blocks per sample allow inspection of signal stability and
-      within-measurement drift. Procedure specifies the standard number; analyst may
-      adjust for samples with low signal or for high-precision requirements.
+      cycles. Adjust for samples with low signal or where higher precision is required.
     type: object
     properties:
       '@id':
@@ -3756,8 +3733,7 @@ $defs:
       to a single set of simultaneous Faraday cup readings integrated for the duration
       specified in Integration Time per Cycle. Total integration time per sample =
       (Number of Cycles per Block) \xD7 (Integration Time per Cycle) \xD7 (Number
-      of Blocks per Measurement). Procedure specifies the standard value; analyst
-      may adjust within procedure bounds."
+      of Blocks per Measurement)."
     type: object
     properties:
       '@id':
@@ -3782,14 +3758,9 @@ $defs:
     - schema:value
   laMcicpmsUPb_integrationTimePerCycle:
     title: Integration Time per Cycle
-    description: "Duration of signal integration per measurement cycle (seconds).
-      Determines counting statistics per cycle. Longer integration times improve shot-noise
-      precision but increase the impact of signal drift within the integration window.
-      For high-gain (10\xB9\xB2 or 10\xB9\xB3 \u03A9) amplifier channels, longer integration
-      times are often required to accumulate sufficient charge. Procedure specifies
-      the standard integration time; analyst may confirm or adjust within procedure
-      bounds. Where different isotope channels use different integration schemes,
-      record the time for each channel."
+    description: Duration of signal integration per measurement cycle (seconds). Where
+      different isotope channels use different integration schemes, record the time
+      for each channel.
     type: object
     properties:
       '@id':
@@ -3815,6 +3786,32 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laMcicpmsUPb_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of
+      gases rather than a single gas, the identities and proportions of that mixture.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_uncertaintyPropagationMethod:
     title: Uncertainty Propagation Method
     description: 'The approach used to propagate analytical uncertainty through the
@@ -3845,10 +3842,9 @@ $defs:
     - schema:value
   laMcicpmsUPb_spikeOutlierFilteringApproach:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -3871,12 +3867,12 @@ $defs:
     - schema:value
   laMcicpmsUPb_memoryEffectMitigation:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -3899,10 +3895,10 @@ $defs:
     - schema:value
   laMcicpmsUPb_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -3956,13 +3952,11 @@ $defs:
     title: Double-Spike Mixing Ratio
     description: "Target proportion of double-spike signal relative to total analyte
       signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. An optimal mixing ratio minimizes error propagation through the double-spike
-      inversion; the optimum is analyte-system specific and is typically determined
-      using the Double Spike Toolbox or equivalent. The achieved mixing ratio may
-      deviate from the target within acceptable bounds (typically \xB120% of optimal);
-      the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if
-      double-spike method is not used. Record 'N/A' where the procedure does not use
-      a double spike."
+      ratio. The optimum is analyte-system specific and is typically determined using
+      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
+      from the target within acceptable bounds (typically \xB120% of optimal); the
+      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
+      the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -3985,12 +3979,8 @@ $defs:
     - schema:value
   laMcicpmsUPb_reportedDateType:
     title: Reported Date Type
-    description: The kind of date or age the procedure reports. Most dating systems
-      derive several different date types from the same measurements, so a reported
-      age is ambiguous without this. Where more than one type is reported, list all,
-      separated by semicolons. Kohn et al. (2024) carry this as a named required item
-      ("fission-track age type"); the equivalent distinction is required by all five
-      other standards surveyed.
+    description: The kind of date or age the procedure reports. Where more than one
+      type is reported, list all, separated by semicolons.
     type: object
     properties:
       '@id':
@@ -4013,17 +4003,10 @@ $defs:
     - schema:value
   laMcicpmsUPb_inheritedOrInitialSignalCorrection:
     title: Inherited or Initial Signal Correction
-    description: 'How any non-radiogenic, inherited or pre-existing component of the
+    description: How any non-radiogenic, inherited or pre-existing component of the
       measured signal was accounted for, including the composition assumed, its source,
-      and its uncertainty. Record ''None'' where the measured quantity accumulates
-      from zero and no such component exists. Applies to five of the six dating systems
-      surveyed; fission track is the sole genuine exception, as tracks accumulate
-      from zero. D=Editable rather than Read-Only: the procedure registers the correction
-      method and any default composition, but the value actually applied is frequently
-      sample-specific (a two-stage model composition is evaluated at the interpreted
-      age) or session-derived (a trapped composition solved from an isochron intercept),
-      and a revision to the assumed composition should not require registering a new
-      procedure. Same reasoning as Rule 5''s Constants and Reference Values Used.'
+      and its uncertainty. Record 'None' where the measured quantity accumulates from
+      zero and no such component exists.
     type: object
     properties:
       '@id':
@@ -4048,12 +4031,9 @@ $defs:
     title: Age Model
     description: "The statistical model used to combine individual analyses into a
       single reported age, including any criteria governing which model is applied.
-      This is a methodological choice that changes the result: a Model-1 and a Model-3
-      regression of the same data yield different ages and different uncertainties.
       Record the model only \u2014 the software implementing it belongs in Data Reduction
       Software (Group 3), whose scope already extends to age calculation; where reduction
-      and age regression use different packages, list both there. Required in some
-      form by all six geochronology reporting standards surveyed."
+      and age regression use different packages, list both there."
     type: object
     properties:
       '@id':
@@ -4105,11 +4085,15 @@ $defs:
     - schema:value
   laMcicpmsUPb_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
-    description: Primary reference material(s) used to calibrate the instrument and
-      convert raw signal intensities to concentrations or isotope ratios. Include
-      material name, source institution, and citation for the accepted values used.
-      Editable because the specific lot or certification vintage may differ between
-      sessions while the material type remains the same.
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
     type: object
     properties:
       '@id':
@@ -4132,10 +4116,10 @@ $defs:
     - schema:value
   laMcicpmsUPb_secondaryReferenceMaterials:
     title: Secondary Reference Materials
-    description: Quality-control reference materials analysed as unknowns alongside
-      samples in the same session to assess accuracy and monitor drift. Include material
-      name, source, and citation for accepted values used for comparison. Editable
-      because selection of secondary RMs may vary across sessions.
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
     type: object
     properties:
       '@id':
@@ -4158,11 +4142,9 @@ $defs:
     - schema:value
   laMcicpmsUPb_samplerAndSkimmerConeMaterial:
     title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Common materials
-      are nickel (standard), platinum (for high-TDS or organic-matrix samples), and
-      aluminium (for high-purity work). Cone material affects sensitivity, matrix
-      tolerance, and long-term stability. State both sampler and skimmer materials;
-      if identical, a single statement is acceptable.
+    description: Material composition of the sampler and skimmer cones. State both
+      sampler and skimmer materials; a single statement is acceptable where they are
+      identical.
     type: object
     properties:
       '@id':
@@ -4185,9 +4167,8 @@ $defs:
     - schema:value
   laMcicpmsUPb_torchType:
     title: Torch Type
-    description: "Type of plasma torch installed. Injector inner diameter (typically
-      1.5\u20132.5 mm) affects aerosol transport efficiency and plasma conditions
-      in LA-ICP-MS."
+    description: Type of plasma torch installed (e.g. standard quartz, high-matrix,
+      low-flow).
     type: object
     properties:
       '@id':
@@ -4211,9 +4192,7 @@ $defs:
   laMcicpmsUPb_laserBeamEnergyProfile:
     title: Laser Beam Energy Profile
     description: Spatial energy distribution of the laser beam at the sample surface,
-      and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces
-      more uniform ablation craters and more reproducible crater morphology than a
-      Gaussian beam. This is a fixed hardware property of the laser system.
+      and whether a beam homogenizer is installed.
     type: object
     properties:
       '@id':
@@ -4238,8 +4217,7 @@ $defs:
     title: Instrument Warm-up / Session Duration Limit
     description: Minimum warm-up time required after plasma ignition before analyses
       begin, and any maximum session duration enforced to maintain stable operating
-      conditions. These constraints are part of the procedure and cannot be varied
-      by the analyst.
+      conditions.
     type: object
     properties:
       '@id':
@@ -4262,11 +4240,13 @@ $defs:
     - schema:value
   laMcicpmsUPb_reactionGasType:
     title: Reaction Gas Type
-    description: "Type of reactive gas introduced into the dynamic reaction cell (DRC)
-      for interference removal through ion-molecule reactions. Common reaction gases
-      include NH\u2083 (e.g., for Fe, Ca, K isotopes) and O\u2082 (e.g., for As, Ge).
-      Record 'None' if DRC mode is not used. Record 'N/A' where Collision/Reaction
-      Cell (CRC) Configuration does not include DRC."
+    description: "Type of reactive gas introduced into the cell for interference removal
+      through ION-MOLECULE CHEMISTRY, either on-mass or by mass shift. Common reaction
+      gases include NH\u2083 (e.g., for Fe, Ca, K isotopes), O\u2082 (e.g., for As,
+      Ge, Te mass shift) and CH\u2084. The distinction from Collision Gas Type is
+      the mechanism, not the gas: record a gas here when a reaction is intended. Record
+      'None' if no reactive gas is used, and 'N/A' where Collision/Reaction Cell (CRC)
+      Configuration does not include a reaction mode or the instrument has no cell."
     type: object
     properties:
       '@id':
@@ -4315,6 +4295,33 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpmsUPb_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction
+      cell, the precursor ion, the reagent gas and the product ion measured. Records
+      the mass-shift chemistry relating the mass measured to the analyte it reports,
+      which the monitored mass alone does not state. Record 'N/A' where the analyte
+      is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_matrixOffsetCorrection:
     title: Matrix Offset Correction (LIEF)
     description: Whether an empirical correction was applied to account for systematic
@@ -4344,13 +4351,8 @@ $defs:
     title: Intermediate Daughter Disequilibrium Correction
     description: "Correction for initial disequilibrium in intermediate daughter products
       of the U decay chains \u2014 principally 230Th, and where relevant 231Pa \u2014
-      together with the Th/U or Pa/U partitioning value assumed and its source. Unique
-      to U-Pb among dating systems, because the chains are long enough for intermediate-daughter
-      disequilibrium at crystallisation to bias the 206Pb/238U date, most severely
-      in young samples. Record 'None' with a justification where no correction was
-      applied. Condon et al. (2024) write \"we recommend these dates be reported corrected
-      for initial 230Th and 231Pa daughter isotope disequilibrium\" \u2014 recommended
-      rather than required, hence Advanced."
+      together with the Th/U or Pa/U partitioning value assumed and its source. Record
+      'None' with a justification where no correction was applied."
     type: object
     properties:
       '@id':
@@ -4373,17 +4375,10 @@ $defs:
     - schema:value
   laMcicpmsUPb_discordanceDefinitionAndValues:
     title: Discordance Definition and Values
-    description: "How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
+    description: How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
       chronometers is defined for this procedure, and the discordance values obtained.
-      Several definitions are in circulation and they are not interchangeable, so
-      the formula must be stated. Genuinely specific to U-Pb: it is the only system
-      in routine use with two independent decay schemes in the same mineral, so agreement
-      between them is an internal consistency test no other system can run. The rule
-      for excluding discordant analyses, and how many were excluded, belong in Analysis
-      Inclusion and Rejection Criteria. Condon et al. (2024) write that for samples
-      older than a few hundred million years \"it is also useful to provide a measure
-      of discordance\" \u2014 useful and age-conditional rather than required, hence
-      Advanced."
+      State the formula used. The rule for excluding discordant analyses, and how
+      many were excluded, belong in Analysis Inclusion and Rejection Criteria.
     type: object
     properties:
       '@id':
@@ -4406,11 +4401,10 @@ $defs:
     - schema:value
   laQicpms_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -4462,9 +4456,9 @@ $defs:
     - schema:value
   laQicpms_sampleFormAnalyticalSubstrate:
     title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Editable
-      to accommodate legitimate variations (e.g., thin section vs. mount) that do
-      not alter the analytical procedure.
+    description: Physical form of the material as it enters the ablation cell. Variations
+      that do not alter the analytical procedure (e.g., thin section vs. mount) are
+      legitimate.
     type: object
     properties:
       '@id':
@@ -4538,8 +4532,10 @@ $defs:
     - schema:value
   laQicpms_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Description of how samples were prepared for analysis (mounting,
-      polishing, coating, fusion procedure, etc.).
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -4565,8 +4561,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -4587,26 +4582,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laQicpms_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  laQicpms_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/laQicpmsTAPP/targetSelectionCriteria
+        const: ada:parameter/laQicpmsTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laQicpmsTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/laQicpmsTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -4618,11 +4615,11 @@ $defs:
   laQicpms_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -4646,7 +4643,7 @@ $defs:
   laQicpms_instrumentSerialNumberOrLabIdentifier:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -4671,9 +4668,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -4686,6 +4680,31 @@ $defs:
         - '@id': ada:parameter/laQicpmsTAPP/torchDepth
       schema:name:
         const: Torch Depth
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_massResolutionSetting:
+    title: Mass Resolution Setting
+    description: Operating mass resolution of the mass analyser. Where the analyser
+      permits selection, state the mode; where individual analytes are assigned to
+      different modes, state each.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/massResolutionSetting
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/massResolutionSetting
+      schema:name:
+        const: Mass Resolution Setting
       schema:value:
         type: string
     required:
@@ -4724,8 +4743,7 @@ $defs:
     title: Laser Spot Geometry
     description: "Shape and dimensions of the laser ablation spot in micrometres registered
       by the procedure. For circular spots, report diameter; for square or rectangular
-      spots, report width \xD7 length. The procedure registers the typical geometry;
-      analysts may adjust within procedure-allowed range."
+      spots, report width \xD7 length."
     type: object
     properties:
       '@id':
@@ -4749,10 +4767,9 @@ $defs:
   laQicpms_laserEnergy:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -4781,10 +4798,8 @@ $defs:
   laQicpms_laserFluence:
     title: Laser Fluence (Energy Density)
     description: "Laser pulse energy per unit area at the sample surface in J cm\u207B\xB2,
-      as registered by the procedure. Fluence is the physically meaningful quantity
-      controlling ablation rate, crater morphology, elemental fractionation, and particle
-      size distribution. If the system reports only as % of maximum output, include
-      that value and note the system maximum where known."
+      as registered by the procedure. If the system reports only as % of maximum output,
+      include that value and note the system maximum where known."
     type: object
     properties:
       '@id':
@@ -4813,9 +4828,6 @@ $defs:
   laQicpms_laserRepetitionRate:
     title: Laser Repetition Rate
     description: Laser pulse repetition rate in hertz registered by the procedure.
-      For mapping methods, repetition rate together with scan speed and spot size
-      determines pixel size and spatial resolution. Analysts may adjust within procedure-allowed
-      bounds.
     type: object
     properties:
       '@id':
@@ -4843,14 +4855,11 @@ $defs:
     - schema:unitText
   laQicpms_ablationDurationPerSpot:
     title: Ablation Duration per Spot
-    description: 'Total on-sample ablation (signal acquisition) time per individual
-      spot in seconds, as set in the acquisition method. This is a procedure-level
-      parameter for spot analysis: it reflects the deliberate trade-off between signal
-      accumulation (longer = lower LOD), sample consumption, and session throughput.
-      For transect analysis, the equivalent procedure-level parameter is scan speed
-      (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis,
-      total acquisition time is sample-area-dependent and therefore analysis-level,
-      not captured here.'
+    description: Total on-sample ablation (signal acquisition) time per individual
+      spot in seconds, as set in the acquisition method. For transect analysis, the
+      equivalent procedure-level parameter is scan speed (captured in Transect Rate,
+      Mapping Rate or Step Size). For mapping analysis, total acquisition time is
+      sample-area-dependent and is not captured here.
     type: object
     properties:
       '@id':
@@ -4879,9 +4888,8 @@ $defs:
   laQicpms_ablationPitDepthAndAblationRate:
     title: Ablation Pit Depth and Ablation Rate
     description: Depth of the ablation pit produced under the registered laser conditions,
-      the method used to measure it, and the resulting per-pulse ablation rate. Sets
-      the achievable depth resolution and governs downhole elemental fractionation.
-      For transect and mapping the equivalent quantity is trench depth under the same
+      the method used to measure it, and the resulting per-pulse ablation rate. For
+      transect and mapping the equivalent quantity is trench depth under the same
       conditions.
     type: object
     properties:
@@ -4906,11 +4914,10 @@ $defs:
   laQicpms_transectRateMappingRateOrStepSize:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -4934,10 +4941,8 @@ $defs:
   laQicpms_rasterLineSpacing:
     title: Raster Line Spacing (Mapping Only)
     description: Distance between adjacent raster lines in a 2D elemental map, measured
-      perpendicular to the scan direction, in micrometres. Together with spot size,
-      this determines whether adjacent lines are contiguous (line spacing = spot size),
-      overlapping (line spacing < spot size), or have gaps (line spacing > spot size).
-      Applies to raster mapping only.
+      perpendicular to the scan direction, in micrometres. Applies to raster mapping
+      only.
     type: object
     properties:
       '@id':
@@ -4961,10 +4966,8 @@ $defs:
   laQicpms_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
-      the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
-      is standard for most UV laser systems due to superior aerosol transport. Flow
-      rates are procedure targets; actual session values may be adjusted within \xB110%
-      during tuning."
+      the ICP-MS torch, with the procedure-registered target flow rate(s). Adjustment
+      during tuning stays within \xB110% of the target."
     type: object
     properties:
       '@id':
@@ -4987,15 +4990,11 @@ $defs:
     - schema:value
   laQicpms_makeUpGasAndFlowRate:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -5024,8 +5023,7 @@ $defs:
   laQicpms_coolantGasFlowRate:
     title: Coolant (Plasma) Gas Flow Rate
     description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains
-      the ICP plasma, in L/min. Determines plasma volume and stability. Set during
-      initial plasma optimisation and confirmed at each session start.
+      the ICP plasma, in L/min.
     type: object
     properties:
       '@id':
@@ -5053,10 +5051,10 @@ $defs:
     - schema:unitText
   laQicpms_auxiliaryGasFlowRate:
     title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream that positions
-      the plasma relative to the load coil, in L/min. Affects ion extraction efficiency
-      and oxide production rates. Distinct from the carrier gas (which transports
-      ablation aerosol) and the coolant (plasma) gas.
+    description: Flow rate of the intermediate (auxiliary) argon gas stream, between
+      the torch body and the injector tube, which positions the plasma relative to
+      the load coil, in L/min. Distinct from the outer coolant (plasma) gas and from
+      the gas stream that carries sample into the plasma.
     type: object
     properties:
       '@id':
@@ -5084,10 +5082,7 @@ $defs:
     - schema:unitText
   laQicpms_rfPower:
     title: RF Power
-    description: ICP radiofrequency forward power in watts. Affects plasma temperature,
-      ionisation efficiency, oxide formation, and whether cool or normal plasma conditions
-      are in effect. The procedure registers a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
+    description: Radiofrequency forward power applied to the ICP, in watts.
     type: object
     properties:
       '@id':
@@ -5115,12 +5110,9 @@ $defs:
     - schema:unitText
   laQicpms_signalSmoothing:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -5174,11 +5166,8 @@ $defs:
       either as detected signal per unit concentration or per unit mass of analyte
       delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
       \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
     type: object
     properties:
       '@id':
@@ -5207,10 +5196,9 @@ $defs:
   laQicpms_doublyChargedSpeciesMonitor:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -5234,9 +5222,8 @@ $defs:
   laQicpms_doublyChargedSpeciesProduction:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -5259,10 +5246,10 @@ $defs:
     - schema:value
   laQicpms_analysisSequence:
     title: Analysis Sequence
-    description: Repeating order of primary calibration standard(s), quality control
-      standard(s), and unknown analyses within a measurement session. Editable to
-      allow minor adjustments while maintaining the bracketing strategy defined in
-      the procedure.
+    description: The repeating order in which calibration or bracketing standards,
+      quality-control and secondary reference materials, blanks and unknowns are interleaved
+      within a measurement session. Adjustments must maintain the bracketing strategy
+      defined in the procedure.
     type: object
     properties:
       '@id':
@@ -5316,9 +5303,10 @@ $defs:
     - schema:unitText
   laQicpms_collisionGasFlowRate:
     title: Collision Gas Flow Rate
-    description: Flow rate of the collision gas (typically He) introduced into the
-      collision/reaction cell, in mL/min. Controls the degree of ion thermalization
-      and KED efficiency. Record 'None' if the CRC is in STD mode.
+    description: Flow rate of the collision gas, typically He, introduced into the
+      collision/reaction cell in KED mode, in mL/min. Record 'None' if the cell is
+      in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does
+      not include KED or the instrument has no cell.
     type: object
     properties:
       '@id':
@@ -5348,8 +5336,8 @@ $defs:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
       between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). A negative bias preferentially retards slow polyatomic ions while
-      transmitting faster analyte ions. Record 'None' if the CRC is in STD mode.
+      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
       '@id':
@@ -5378,7 +5366,9 @@ $defs:
   laQicpms_reactionGasFlowRate:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reactive gas introduced into the dynamic reaction
-      cell (DRC), in mL/min.
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -5408,9 +5398,8 @@ $defs:
     title: Collision/Reaction Gas Mixture Ratio
     description: Where the collision or reaction cell is supplied with a mixture of
       gases rather than a single gas, the identities and proportions of that mixture.
-      Recorded separately from the gas identity because the proportions change reaction
-      efficiency and interference suppression independently of which gases are used.
-      Record 'N/A' where a single gas is used.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
     type: object
     properties:
       '@id':
@@ -5433,11 +5422,9 @@ $defs:
     - schema:value
   laQicpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: 'Count time (dwell time) per mass position for each measured isotope
-      in milliseconds. Longer dwell times improve counting statistics and lower detection
-      limits but reduce the number of isotopes measurable within a given scan cycle
-      time. For mapping, scan cycle time directly determines spatial resolution at
-      a given scan speed: shorter cycle time = finer spatial resolution.'
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -5466,10 +5453,9 @@ $defs:
   laQicpms_totalIntegrationTimePerOutputDataPoint:
     title: Total Integration Time per Output Data Point
     description: "Total duty-cycle time for one complete mass-scan sweep \u2014 the
-      sum of all per-isotope dwell times plus inter-mass settling times. Sets the
-      time resolution of the downhole signal, and is not recoverable from Dwell Time
-      per Mass alone because settling time is not captured there. Applies to sequential
-      (quadrupole and single-collector sector-field) acquisition."
+      sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable
+      from Dwell Time per Mass alone, because settling time is not captured there.
+      Applies to sequential (quadrupole and single-collector sector-field) acquisition."
     type: object
     properties:
       '@id':
@@ -5501,8 +5487,7 @@ $defs:
       off or shutter closed) before each ablation event, in seconds. For spot and
       transect analysis, a discrete background interval is measured before each ablation.
       For mapping, background is typically measured once per raster line or at the
-      start of a map session rather than before each individual pixel. Editable to
-      allow session-specific adjustment.
+      start of a map session rather than before each individual pixel.
     type: object
     properties:
       '@id':
@@ -5558,10 +5543,9 @@ $defs:
     - schema:value
   laQicpms_spikeOutlierFilteringApproach:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -5584,8 +5568,14 @@ $defs:
     - schema:value
   laQicpms_pulseAnalogDetectorNonlinearityCorrection:
     title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear response at the transition
-      between pulse-counting and analog detector modes.
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
     type: object
     properties:
       '@id':
@@ -5608,12 +5598,12 @@ $defs:
     - schema:value
   laQicpms_memoryEffectMitigation:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -5636,10 +5626,10 @@ $defs:
     - schema:value
   laQicpms_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -5720,11 +5710,15 @@ $defs:
     - schema:value
   laQicpms_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
-    description: Primary reference material(s) used to calibrate the instrument and
-      convert raw signal intensities to concentrations or isotope ratios. Include
-      material name, source institution, and citation for the accepted values used.
-      Editable because the specific lot or certification vintage may differ between
-      sessions while the material type remains the same.
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
     type: object
     properties:
       '@id':
@@ -5747,10 +5741,10 @@ $defs:
     - schema:value
   laQicpms_secondaryReferenceMaterials:
     title: Secondary Reference Materials
-    description: Quality-control reference materials analysed as unknowns alongside
-      samples in the same session to assess accuracy and monitor drift. Include material
-      name, source, and citation for accepted values used for comparison. Editable
-      because selection of secondary RMs may vary across sessions.
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
     type: object
     properties:
       '@id':
@@ -5773,11 +5767,9 @@ $defs:
     - schema:value
   laQicpms_samplerAndSkimmerConeMaterial:
     title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Common materials
-      are nickel (standard), platinum (for high-TDS or organic-matrix samples), and
-      aluminium (for high-purity work). Cone material affects sensitivity, matrix
-      tolerance, and long-term stability. State both sampler and skimmer materials;
-      if identical, a single statement is acceptable.
+    description: Material composition of the sampler and skimmer cones. State both
+      sampler and skimmer materials; a single statement is acceptable where they are
+      identical.
     type: object
     properties:
       '@id':
@@ -5800,9 +5792,8 @@ $defs:
     - schema:value
   laQicpms_torchType:
     title: Torch Type
-    description: "Type of plasma torch installed. Injector inner diameter (typically
-      1.5\u20132.5 mm) affects aerosol transport efficiency and plasma conditions
-      in LA-ICP-MS."
+    description: Type of plasma torch installed (e.g. standard quartz, high-matrix,
+      low-flow).
     type: object
     properties:
       '@id':
@@ -5826,9 +5817,7 @@ $defs:
   laQicpms_laserBeamEnergyProfile:
     title: Laser Beam Energy Profile
     description: Spatial energy distribution of the laser beam at the sample surface,
-      and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces
-      more uniform ablation craters and more reproducible crater morphology than a
-      Gaussian beam. This is a fixed hardware property of the laser system.
+      and whether a beam homogenizer is installed.
     type: object
     properties:
       '@id':
@@ -5853,8 +5842,7 @@ $defs:
     title: Instrument Warm-up / Session Duration Limit
     description: Minimum warm-up time required after plasma ignition before analyses
       begin, and any maximum session duration enforced to maintain stable operating
-      conditions. These constraints are part of the procedure and cannot be varied
-      by the analyst.
+      conditions.
     type: object
     properties:
       '@id':
@@ -5877,10 +5865,13 @@ $defs:
     - schema:value
   laQicpms_reactionGasType:
     title: Reaction Gas Type
-    description: "Type of reactive gas introduced into the dynamic reaction cell (DRC)
-      for interference removal through ion-molecule reactions. Common reaction gases
-      include NH\u2083 (e.g., for Fe, Ca, K isotopes) and O\u2082 (e.g., for As, Ge).
-      Record 'None' if DRC mode is not used."
+    description: "Type of reactive gas introduced into the cell for interference removal
+      through ION-MOLECULE CHEMISTRY, either on-mass or by mass shift. Common reaction
+      gases include NH\u2083 (e.g., for Fe, Ca, K isotopes), O\u2082 (e.g., for As,
+      Ge, Te mass shift) and CH\u2084. The distinction from Collision Gas Type is
+      the mechanism, not the gas: record a gas here when a reaction is intended. Record
+      'None' if no reactive gas is used, and 'N/A' where Collision/Reaction Cell (CRC)
+      Configuration does not include a reaction mode or the instrument has no cell."
     type: object
     properties:
       '@id':
@@ -5903,7 +5894,7 @@ $defs:
     - schema:value
   laQicpms_reactionProductIonMassShiftTransition:
     title: Reaction Product Ion / Mass-Shift Transition
-    description: For each monitored mass produced by a reaction in the collision/reaction
+    description: Where a monitored mass is produced by a reaction in the collision/reaction
       cell, the precursor ion, the reagent gas and the product ion measured. Records
       the mass-shift chemistry relating the mass measured to the analyte it reports,
       which the monitored mass alone does not state. Record 'N/A' where the analyte
@@ -5983,11 +5974,10 @@ $defs:
     - schema:value
   laQicpmsUPb_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -6039,9 +6029,9 @@ $defs:
     - schema:value
   laQicpmsUPb_sampleFormAnalyticalSubstrate:
     title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Editable
-      to accommodate legitimate variations (e.g., thin section vs. mount) that do
-      not alter the analytical procedure.
+    description: Physical form of the material as it enters the ablation cell. Variations
+      that do not alter the analytical procedure (e.g., thin section vs. mount) are
+      legitimate.
     type: object
     properties:
       '@id':
@@ -6115,8 +6105,10 @@ $defs:
     - schema:value
   laQicpmsUPb_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Description of how samples were prepared for analysis (mounting,
-      polishing, coating, fusion procedure, etc.).
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -6142,8 +6134,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -6164,26 +6155,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laQicpmsUPb_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  laQicpmsUPb_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/laQicpmsUPbTAPP/targetSelectionCriteria
+        const: ada:parameter/laQicpmsUPbTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laQicpmsUPbTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/laQicpmsUPbTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -6195,11 +6188,11 @@ $defs:
   laQicpmsUPb_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -6223,7 +6216,7 @@ $defs:
   laQicpmsUPb_instrumentSerialNumberOrLabIdentifier:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -6248,9 +6241,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -6263,6 +6253,31 @@ $defs:
         - '@id': ada:parameter/laQicpmsUPbTAPP/torchDepth
       schema:name:
         const: Torch Depth
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_massResolutionSetting:
+    title: Mass Resolution Setting
+    description: Operating mass resolution of the mass analyser. Where the analyser
+      permits selection, state the mode; where individual analytes are assigned to
+      different modes, state each.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/massResolutionSetting
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/massResolutionSetting
+      schema:name:
+        const: Mass Resolution Setting
       schema:value:
         type: string
     required:
@@ -6301,8 +6316,7 @@ $defs:
     title: Laser Spot Geometry
     description: "Shape and dimensions of the laser ablation spot in micrometres registered
       by the procedure. For circular spots, report diameter; for square or rectangular
-      spots, report width \xD7 length. The procedure registers the typical geometry;
-      analysts may adjust within procedure-allowed range."
+      spots, report width \xD7 length."
     type: object
     properties:
       '@id':
@@ -6326,10 +6340,9 @@ $defs:
   laQicpmsUPb_laserEnergy:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -6358,10 +6371,8 @@ $defs:
   laQicpmsUPb_laserFluence:
     title: Laser Fluence (Energy Density)
     description: "Laser pulse energy per unit area at the sample surface in J cm\u207B\xB2,
-      as registered by the procedure. Fluence is the physically meaningful quantity
-      controlling ablation rate, crater morphology, elemental fractionation, and particle
-      size distribution. If the system reports only as % of maximum output, include
-      that value and note the system maximum where known."
+      as registered by the procedure. If the system reports only as % of maximum output,
+      include that value and note the system maximum where known."
     type: object
     properties:
       '@id':
@@ -6390,9 +6401,6 @@ $defs:
   laQicpmsUPb_laserRepetitionRate:
     title: Laser Repetition Rate
     description: Laser pulse repetition rate in hertz registered by the procedure.
-      For mapping methods, repetition rate together with scan speed and spot size
-      determines pixel size and spatial resolution. Analysts may adjust within procedure-allowed
-      bounds.
     type: object
     properties:
       '@id':
@@ -6420,14 +6428,11 @@ $defs:
     - schema:unitText
   laQicpmsUPb_ablationDurationPerSpot:
     title: Ablation Duration per Spot
-    description: 'Total on-sample ablation (signal acquisition) time per individual
-      spot in seconds, as set in the acquisition method. This is a procedure-level
-      parameter for spot analysis: it reflects the deliberate trade-off between signal
-      accumulation (longer = lower LOD), sample consumption, and session throughput.
-      For transect analysis, the equivalent procedure-level parameter is scan speed
-      (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis,
-      total acquisition time is sample-area-dependent and therefore analysis-level,
-      not captured here.'
+    description: Total on-sample ablation (signal acquisition) time per individual
+      spot in seconds, as set in the acquisition method. For transect analysis, the
+      equivalent procedure-level parameter is scan speed (captured in Transect Rate,
+      Mapping Rate or Step Size). For mapping analysis, total acquisition time is
+      sample-area-dependent and is not captured here.
     type: object
     properties:
       '@id':
@@ -6456,9 +6461,8 @@ $defs:
   laQicpmsUPb_ablationPitDepthAndAblationRate:
     title: Ablation Pit Depth and Ablation Rate
     description: Depth of the ablation pit produced under the registered laser conditions,
-      the method used to measure it, and the resulting per-pulse ablation rate. Sets
-      the achievable depth resolution and governs downhole elemental fractionation.
-      For transect and mapping the equivalent quantity is trench depth under the same
+      the method used to measure it, and the resulting per-pulse ablation rate. For
+      transect and mapping the equivalent quantity is trench depth under the same
       conditions.
     type: object
     properties:
@@ -6483,11 +6487,10 @@ $defs:
   laQicpmsUPb_transectRateMappingRateOrStepSize:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -6511,10 +6514,8 @@ $defs:
   laQicpmsUPb_rasterLineSpacing:
     title: Raster Line Spacing (Mapping Only)
     description: Distance between adjacent raster lines in a 2D elemental map, measured
-      perpendicular to the scan direction, in micrometres. Together with spot size,
-      this determines whether adjacent lines are contiguous (line spacing = spot size),
-      overlapping (line spacing < spot size), or have gaps (line spacing > spot size).
-      Applies to raster mapping only.
+      perpendicular to the scan direction, in micrometres. Applies to raster mapping
+      only.
     type: object
     properties:
       '@id':
@@ -6538,10 +6539,8 @@ $defs:
   laQicpmsUPb_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
-      the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
-      is standard for most UV laser systems due to superior aerosol transport. Flow
-      rates are procedure targets; actual session values may be adjusted within \xB110%
-      during tuning."
+      the ICP-MS torch, with the procedure-registered target flow rate(s). Adjustment
+      during tuning stays within \xB110% of the target."
     type: object
     properties:
       '@id':
@@ -6564,15 +6563,11 @@ $defs:
     - schema:value
   laQicpmsUPb_makeUpGasAndFlowRate:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -6601,8 +6596,7 @@ $defs:
   laQicpmsUPb_coolantGasFlowRate:
     title: Coolant (Plasma) Gas Flow Rate
     description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains
-      the ICP plasma, in L/min. Determines plasma volume and stability. Set during
-      initial plasma optimisation and confirmed at each session start.
+      the ICP plasma, in L/min.
     type: object
     properties:
       '@id':
@@ -6630,10 +6624,10 @@ $defs:
     - schema:unitText
   laQicpmsUPb_auxiliaryGasFlowRate:
     title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream that positions
-      the plasma relative to the load coil, in L/min. Affects ion extraction efficiency
-      and oxide production rates. Distinct from the carrier gas (which transports
-      ablation aerosol) and the coolant (plasma) gas.
+    description: Flow rate of the intermediate (auxiliary) argon gas stream, between
+      the torch body and the injector tube, which positions the plasma relative to
+      the load coil, in L/min. Distinct from the outer coolant (plasma) gas and from
+      the gas stream that carries sample into the plasma.
     type: object
     properties:
       '@id':
@@ -6661,10 +6655,7 @@ $defs:
     - schema:unitText
   laQicpmsUPb_rfPower:
     title: RF Power
-    description: ICP radiofrequency forward power in watts. Affects plasma temperature,
-      ionisation efficiency, oxide formation, and whether cool or normal plasma conditions
-      are in effect. The procedure registers a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
+    description: Radiofrequency forward power applied to the ICP, in watts.
     type: object
     properties:
       '@id':
@@ -6692,12 +6683,9 @@ $defs:
     - schema:unitText
   laQicpmsUPb_signalSmoothing:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -6751,11 +6739,8 @@ $defs:
       either as detected signal per unit concentration or per unit mass of analyte
       delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
       \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
     type: object
     properties:
       '@id':
@@ -6784,10 +6769,9 @@ $defs:
   laQicpmsUPb_doublyChargedSpeciesMonitor:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -6811,9 +6795,8 @@ $defs:
   laQicpmsUPb_doublyChargedSpeciesProduction:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -6836,10 +6819,10 @@ $defs:
     - schema:value
   laQicpmsUPb_analysisSequence:
     title: Analysis Sequence
-    description: Repeating order of primary calibration standard(s), quality control
-      standard(s), and unknown analyses within a measurement session. Editable to
-      allow minor adjustments while maintaining the bracketing strategy defined in
-      the procedure.
+    description: The repeating order in which calibration or bracketing standards,
+      quality-control and secondary reference materials, blanks and unknowns are interleaved
+      within a measurement session. Adjustments must maintain the bracketing strategy
+      defined in the procedure.
     type: object
     properties:
       '@id':
@@ -6893,9 +6876,10 @@ $defs:
     - schema:unitText
   laQicpmsUPb_collisionGasFlowRate:
     title: Collision Gas Flow Rate
-    description: Flow rate of the collision gas (typically He) introduced into the
-      collision/reaction cell, in mL/min. Controls the degree of ion thermalization
-      and KED efficiency. Record 'None' if the CRC is in STD mode.
+    description: Flow rate of the collision gas, typically He, introduced into the
+      collision/reaction cell in KED mode, in mL/min. Record 'None' if the cell is
+      in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does
+      not include KED or the instrument has no cell.
     type: object
     properties:
       '@id':
@@ -6925,8 +6909,8 @@ $defs:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
       between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). A negative bias preferentially retards slow polyatomic ions while
-      transmitting faster analyte ions. Record 'None' if the CRC is in STD mode.
+      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
       '@id':
@@ -6955,7 +6939,9 @@ $defs:
   laQicpmsUPb_reactionGasFlowRate:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reactive gas introduced into the dynamic reaction
-      cell (DRC), in mL/min.
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
     type: object
     properties:
       '@id':
@@ -6985,9 +6971,8 @@ $defs:
     title: Collision/Reaction Gas Mixture Ratio
     description: Where the collision or reaction cell is supplied with a mixture of
       gases rather than a single gas, the identities and proportions of that mixture.
-      Recorded separately from the gas identity because the proportions change reaction
-      efficiency and interference suppression independently of which gases are used.
-      Record 'N/A' where a single gas is used.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
     type: object
     properties:
       '@id':
@@ -7010,11 +6995,9 @@ $defs:
     - schema:value
   laQicpmsUPb_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: 'Count time (dwell time) per mass position for each measured isotope
-      in milliseconds. Longer dwell times improve counting statistics and lower detection
-      limits but reduce the number of isotopes measurable within a given scan cycle
-      time. For mapping, scan cycle time directly determines spatial resolution at
-      a given scan speed: shorter cycle time = finer spatial resolution.'
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -7043,10 +7026,9 @@ $defs:
   laQicpmsUPb_totalIntegrationTimePerOutputDataPoint:
     title: Total Integration Time per Output Data Point
     description: "Total duty-cycle time for one complete mass-scan sweep \u2014 the
-      sum of all per-isotope dwell times plus inter-mass settling times. Sets the
-      time resolution of the downhole signal, and is not recoverable from Dwell Time
-      per Mass alone because settling time is not captured there. Applies to sequential
-      (quadrupole and single-collector sector-field) acquisition."
+      sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable
+      from Dwell Time per Mass alone, because settling time is not captured there.
+      Applies to sequential (quadrupole and single-collector sector-field) acquisition."
     type: object
     properties:
       '@id':
@@ -7078,8 +7060,7 @@ $defs:
       off or shutter closed) before each ablation event, in seconds. For spot and
       transect analysis, a discrete background interval is measured before each ablation.
       For mapping, background is typically measured once per raster line or at the
-      start of a map session rather than before each individual pixel. Editable to
-      allow session-specific adjustment.
+      start of a map session rather than before each individual pixel.
     type: object
     properties:
       '@id':
@@ -7135,10 +7116,9 @@ $defs:
     - schema:value
   laQicpmsUPb_spikeOutlierFilteringApproach:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -7161,8 +7141,14 @@ $defs:
     - schema:value
   laQicpmsUPb_pulseAnalogDetectorNonlinearityCorrection:
     title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear response at the transition
-      between pulse-counting and analog detector modes.
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
     type: object
     properties:
       '@id':
@@ -7185,12 +7171,12 @@ $defs:
     - schema:value
   laQicpmsUPb_memoryEffectMitigation:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -7213,10 +7199,10 @@ $defs:
     - schema:value
   laQicpmsUPb_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -7268,12 +7254,8 @@ $defs:
     - schema:value
   laQicpmsUPb_reportedDateType:
     title: Reported Date Type
-    description: The kind of date or age the procedure reports. Most dating systems
-      derive several different date types from the same measurements, so a reported
-      age is ambiguous without this. Where more than one type is reported, list all,
-      separated by semicolons. Kohn et al. (2024) carry this as a named required item
-      ("fission-track age type"); the equivalent distinction is required by all five
-      other standards surveyed.
+    description: The kind of date or age the procedure reports. Where more than one
+      type is reported, list all, separated by semicolons.
     type: object
     properties:
       '@id':
@@ -7296,17 +7278,10 @@ $defs:
     - schema:value
   laQicpmsUPb_inheritedOrInitialSignalCorrection:
     title: Inherited or Initial Signal Correction
-    description: 'How any non-radiogenic, inherited or pre-existing component of the
+    description: How any non-radiogenic, inherited or pre-existing component of the
       measured signal was accounted for, including the composition assumed, its source,
-      and its uncertainty. Record ''None'' where the measured quantity accumulates
-      from zero and no such component exists. Applies to five of the six dating systems
-      surveyed; fission track is the sole genuine exception, as tracks accumulate
-      from zero. D=Editable rather than Read-Only: the procedure registers the correction
-      method and any default composition, but the value actually applied is frequently
-      sample-specific (a two-stage model composition is evaluated at the interpreted
-      age) or session-derived (a trapped composition solved from an isochron intercept),
-      and a revision to the assumed composition should not require registering a new
-      procedure. Same reasoning as Rule 5''s Constants and Reference Values Used.'
+      and its uncertainty. Record 'None' where the measured quantity accumulates from
+      zero and no such component exists.
     type: object
     properties:
       '@id':
@@ -7331,12 +7306,9 @@ $defs:
     title: Age Model
     description: "The statistical model used to combine individual analyses into a
       single reported age, including any criteria governing which model is applied.
-      This is a methodological choice that changes the result: a Model-1 and a Model-3
-      regression of the same data yield different ages and different uncertainties.
       Record the model only \u2014 the software implementing it belongs in Data Reduction
       Software (Group 3), whose scope already extends to age calculation; where reduction
-      and age regression use different packages, list both there. Required in some
-      form by all six geochronology reporting standards surveyed."
+      and age regression use different packages, list both there."
     type: object
     properties:
       '@id':
@@ -7388,11 +7360,15 @@ $defs:
     - schema:value
   laQicpmsUPb_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
-    description: Primary reference material(s) used to calibrate the instrument and
-      convert raw signal intensities to concentrations or isotope ratios. Include
-      material name, source institution, and citation for the accepted values used.
-      Editable because the specific lot or certification vintage may differ between
-      sessions while the material type remains the same.
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
     type: object
     properties:
       '@id':
@@ -7415,10 +7391,10 @@ $defs:
     - schema:value
   laQicpmsUPb_secondaryReferenceMaterials:
     title: Secondary Reference Materials
-    description: Quality-control reference materials analysed as unknowns alongside
-      samples in the same session to assess accuracy and monitor drift. Include material
-      name, source, and citation for accepted values used for comparison. Editable
-      because selection of secondary RMs may vary across sessions.
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
     type: object
     properties:
       '@id':
@@ -7441,11 +7417,9 @@ $defs:
     - schema:value
   laQicpmsUPb_samplerAndSkimmerConeMaterial:
     title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Common materials
-      are nickel (standard), platinum (for high-TDS or organic-matrix samples), and
-      aluminium (for high-purity work). Cone material affects sensitivity, matrix
-      tolerance, and long-term stability. State both sampler and skimmer materials;
-      if identical, a single statement is acceptable.
+    description: Material composition of the sampler and skimmer cones. State both
+      sampler and skimmer materials; a single statement is acceptable where they are
+      identical.
     type: object
     properties:
       '@id':
@@ -7468,9 +7442,8 @@ $defs:
     - schema:value
   laQicpmsUPb_torchType:
     title: Torch Type
-    description: "Type of plasma torch installed. Injector inner diameter (typically
-      1.5\u20132.5 mm) affects aerosol transport efficiency and plasma conditions
-      in LA-ICP-MS."
+    description: Type of plasma torch installed (e.g. standard quartz, high-matrix,
+      low-flow).
     type: object
     properties:
       '@id':
@@ -7494,9 +7467,7 @@ $defs:
   laQicpmsUPb_laserBeamEnergyProfile:
     title: Laser Beam Energy Profile
     description: Spatial energy distribution of the laser beam at the sample surface,
-      and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces
-      more uniform ablation craters and more reproducible crater morphology than a
-      Gaussian beam. This is a fixed hardware property of the laser system.
+      and whether a beam homogenizer is installed.
     type: object
     properties:
       '@id':
@@ -7521,8 +7492,7 @@ $defs:
     title: Instrument Warm-up / Session Duration Limit
     description: Minimum warm-up time required after plasma ignition before analyses
       begin, and any maximum session duration enforced to maintain stable operating
-      conditions. These constraints are part of the procedure and cannot be varied
-      by the analyst.
+      conditions.
     type: object
     properties:
       '@id':
@@ -7545,10 +7515,13 @@ $defs:
     - schema:value
   laQicpmsUPb_reactionGasType:
     title: Reaction Gas Type
-    description: "Type of reactive gas introduced into the dynamic reaction cell (DRC)
-      for interference removal through ion-molecule reactions. Common reaction gases
-      include NH\u2083 (e.g., for Fe, Ca, K isotopes) and O\u2082 (e.g., for As, Ge).
-      Record 'None' if DRC mode is not used."
+    description: "Type of reactive gas introduced into the cell for interference removal
+      through ION-MOLECULE CHEMISTRY, either on-mass or by mass shift. Common reaction
+      gases include NH\u2083 (e.g., for Fe, Ca, K isotopes), O\u2082 (e.g., for As,
+      Ge, Te mass shift) and CH\u2084. The distinction from Collision Gas Type is
+      the mechanism, not the gas: record a gas here when a reaction is intended. Record
+      'None' if no reactive gas is used, and 'N/A' where Collision/Reaction Cell (CRC)
+      Configuration does not include a reaction mode or the instrument has no cell."
     type: object
     properties:
       '@id':
@@ -7571,7 +7544,7 @@ $defs:
     - schema:value
   laQicpmsUPb_reactionProductIonMassShiftTransition:
     title: Reaction Product Ion / Mass-Shift Transition
-    description: For each monitored mass produced by a reaction in the collision/reaction
+    description: Where a monitored mass is produced by a reaction in the collision/reaction
       cell, the precursor ion, the reagent gas and the product ion measured. Records
       the mass-shift chemistry relating the mass measured to the analyte it reports,
       which the monitored mass alone does not state. Record 'N/A' where the analyte
@@ -7653,13 +7626,8 @@ $defs:
     title: Intermediate Daughter Disequilibrium Correction
     description: "Correction for initial disequilibrium in intermediate daughter products
       of the U decay chains \u2014 principally 230Th, and where relevant 231Pa \u2014
-      together with the Th/U or Pa/U partitioning value assumed and its source. Unique
-      to U-Pb among dating systems, because the chains are long enough for intermediate-daughter
-      disequilibrium at crystallisation to bias the 206Pb/238U date, most severely
-      in young samples. Record 'None' with a justification where no correction was
-      applied. Condon et al. (2024) write \"we recommend these dates be reported corrected
-      for initial 230Th and 231Pa daughter isotope disequilibrium\" \u2014 recommended
-      rather than required, hence Advanced."
+      together with the Th/U or Pa/U partitioning value assumed and its source. Record
+      'None' with a justification where no correction was applied."
     type: object
     properties:
       '@id':
@@ -7682,17 +7650,10 @@ $defs:
     - schema:value
   laQicpmsUPb_discordanceDefinitionAndValues:
     title: Discordance Definition and Values
-    description: "How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
+    description: How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
       chronometers is defined for this procedure, and the discordance values obtained.
-      Several definitions are in circulation and they are not interchangeable, so
-      the formula must be stated. Genuinely specific to U-Pb: it is the only system
-      in routine use with two independent decay schemes in the same mineral, so agreement
-      between them is an internal consistency test no other system can run. The rule
-      for excluding discordant analyses, and how many were excluded, belong in Analysis
-      Inclusion and Rejection Criteria. Condon et al. (2024) write that for samples
-      older than a few hundred million years \"it is also useful to provide a measure
-      of discordance\" \u2014 useful and age-conditional rather than required, hence
-      Advanced."
+      State the formula used. The rule for excluding discordant analyses, and how
+      many were excluded, belong in Analysis Inclusion and Rejection Criteria.
     type: object
     properties:
       '@id':
@@ -7715,11 +7676,10 @@ $defs:
     - schema:value
   laSficpms_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -7771,9 +7731,9 @@ $defs:
     - schema:value
   laSficpms_sampleFormAnalyticalSubstrate:
     title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Editable
-      to accommodate legitimate variations (e.g., thin section vs. mount) that do
-      not alter the analytical procedure.
+    description: Physical form of the material as it enters the ablation cell. Variations
+      that do not alter the analytical procedure (e.g., thin section vs. mount) are
+      legitimate.
     type: object
     properties:
       '@id':
@@ -7847,8 +7807,10 @@ $defs:
     - schema:value
   laSficpms_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Description of how samples were prepared for analysis (mounting,
-      polishing, coating, fusion procedure, etc.).
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -7874,8 +7836,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -7896,26 +7857,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laSficpms_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  laSficpms_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/laSficpmsTAPP/targetSelectionCriteria
+        const: ada:parameter/laSficpmsTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laSficpmsTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/laSficpmsTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -7927,11 +7890,11 @@ $defs:
   laSficpms_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -7955,7 +7918,7 @@ $defs:
   laSficpms_instrumentSerialNumberOrLabIdentifier:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -7980,9 +7943,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -8005,9 +7965,9 @@ $defs:
     - schema:value
   laSficpms_massResolutionSetting:
     title: Mass Resolution Setting
-    description: Operating mass resolution of the mass analyser. The analyst selects
-      low, medium, or high resolution to balance sensitivity against spectral interference
-      suppression.
+    description: Operating mass resolution of the mass analyser. Where the analyser
+      permits selection, state the mode; where individual analytes are assigned to
+      different modes, state each.
     type: object
     properties:
       '@id':
@@ -8058,8 +8018,7 @@ $defs:
     title: Laser Spot Geometry
     description: "Shape and dimensions of the laser ablation spot in micrometres registered
       by the procedure. For circular spots, report diameter; for square or rectangular
-      spots, report width \xD7 length. The procedure registers the typical geometry;
-      analysts may adjust within procedure-allowed range."
+      spots, report width \xD7 length."
     type: object
     properties:
       '@id':
@@ -8083,10 +8042,9 @@ $defs:
   laSficpms_laserEnergy:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -8115,10 +8073,8 @@ $defs:
   laSficpms_laserFluence:
     title: Laser Fluence (Energy Density)
     description: "Laser pulse energy per unit area at the sample surface in J cm\u207B\xB2,
-      as registered by the procedure. Fluence is the physically meaningful quantity
-      controlling ablation rate, crater morphology, elemental fractionation, and particle
-      size distribution. If the system reports only as % of maximum output, include
-      that value and note the system maximum where known."
+      as registered by the procedure. If the system reports only as % of maximum output,
+      include that value and note the system maximum where known."
     type: object
     properties:
       '@id':
@@ -8147,9 +8103,6 @@ $defs:
   laSficpms_laserRepetitionRate:
     title: Laser Repetition Rate
     description: Laser pulse repetition rate in hertz registered by the procedure.
-      For mapping methods, repetition rate together with scan speed and spot size
-      determines pixel size and spatial resolution. Analysts may adjust within procedure-allowed
-      bounds.
     type: object
     properties:
       '@id':
@@ -8177,14 +8130,11 @@ $defs:
     - schema:unitText
   laSficpms_ablationDurationPerSpot:
     title: Ablation Duration per Spot
-    description: 'Total on-sample ablation (signal acquisition) time per individual
-      spot in seconds, as set in the acquisition method. This is a procedure-level
-      parameter for spot analysis: it reflects the deliberate trade-off between signal
-      accumulation (longer = lower LOD), sample consumption, and session throughput.
-      For transect analysis, the equivalent procedure-level parameter is scan speed
-      (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis,
-      total acquisition time is sample-area-dependent and therefore analysis-level,
-      not captured here.'
+    description: Total on-sample ablation (signal acquisition) time per individual
+      spot in seconds, as set in the acquisition method. For transect analysis, the
+      equivalent procedure-level parameter is scan speed (captured in Transect Rate,
+      Mapping Rate or Step Size). For mapping analysis, total acquisition time is
+      sample-area-dependent and is not captured here.
     type: object
     properties:
       '@id':
@@ -8213,9 +8163,8 @@ $defs:
   laSficpms_ablationPitDepthAndAblationRate:
     title: Ablation Pit Depth and Ablation Rate
     description: Depth of the ablation pit produced under the registered laser conditions,
-      the method used to measure it, and the resulting per-pulse ablation rate. Sets
-      the achievable depth resolution and governs downhole elemental fractionation.
-      For transect and mapping the equivalent quantity is trench depth under the same
+      the method used to measure it, and the resulting per-pulse ablation rate. For
+      transect and mapping the equivalent quantity is trench depth under the same
       conditions.
     type: object
     properties:
@@ -8240,11 +8189,10 @@ $defs:
   laSficpms_transectRateMappingRateOrStepSize:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -8268,10 +8216,8 @@ $defs:
   laSficpms_rasterLineSpacing:
     title: Raster Line Spacing (Mapping Only)
     description: Distance between adjacent raster lines in a 2D elemental map, measured
-      perpendicular to the scan direction, in micrometres. Together with spot size,
-      this determines whether adjacent lines are contiguous (line spacing = spot size),
-      overlapping (line spacing < spot size), or have gaps (line spacing > spot size).
-      Applies to raster mapping only.
+      perpendicular to the scan direction, in micrometres. Applies to raster mapping
+      only.
     type: object
     properties:
       '@id':
@@ -8295,10 +8241,8 @@ $defs:
   laSficpms_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
-      the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
-      is standard for most UV laser systems due to superior aerosol transport. Flow
-      rates are procedure targets; actual session values may be adjusted within \xB110%
-      during tuning."
+      the ICP-MS torch, with the procedure-registered target flow rate(s). Adjustment
+      during tuning stays within \xB110% of the target."
     type: object
     properties:
       '@id':
@@ -8321,15 +8265,11 @@ $defs:
     - schema:value
   laSficpms_makeUpGasAndFlowRate:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -8358,8 +8298,7 @@ $defs:
   laSficpms_coolantGasFlowRate:
     title: Coolant (Plasma) Gas Flow Rate
     description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains
-      the ICP plasma, in L/min. Determines plasma volume and stability. Set during
-      initial plasma optimisation and confirmed at each session start.
+      the ICP plasma, in L/min.
     type: object
     properties:
       '@id':
@@ -8387,10 +8326,10 @@ $defs:
     - schema:unitText
   laSficpms_auxiliaryGasFlowRate:
     title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream that positions
-      the plasma relative to the load coil, in L/min. Affects ion extraction efficiency
-      and oxide production rates. Distinct from the carrier gas (which transports
-      ablation aerosol) and the coolant (plasma) gas.
+    description: Flow rate of the intermediate (auxiliary) argon gas stream, between
+      the torch body and the injector tube, which positions the plasma relative to
+      the load coil, in L/min. Distinct from the outer coolant (plasma) gas and from
+      the gas stream that carries sample into the plasma.
     type: object
     properties:
       '@id':
@@ -8418,10 +8357,7 @@ $defs:
     - schema:unitText
   laSficpms_rfPower:
     title: RF Power
-    description: ICP radiofrequency forward power in watts. Affects plasma temperature,
-      ionisation efficiency, oxide formation, and whether cool or normal plasma conditions
-      are in effect. The procedure registers a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
+    description: Radiofrequency forward power applied to the ICP, in watts.
     type: object
     properties:
       '@id':
@@ -8449,12 +8385,9 @@ $defs:
     - schema:unitText
   laSficpms_signalSmoothing:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -8508,11 +8441,8 @@ $defs:
       either as detected signal per unit concentration or per unit mass of analyte
       delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
       \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
     type: object
     properties:
       '@id':
@@ -8541,10 +8471,9 @@ $defs:
   laSficpms_doublyChargedSpeciesMonitor:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -8568,9 +8497,8 @@ $defs:
   laSficpms_doublyChargedSpeciesProduction:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -8593,10 +8521,10 @@ $defs:
     - schema:value
   laSficpms_analysisSequence:
     title: Analysis Sequence
-    description: Repeating order of primary calibration standard(s), quality control
-      standard(s), and unknown analyses within a measurement session. Editable to
-      allow minor adjustments while maintaining the bracketing strategy defined in
-      the procedure.
+    description: The repeating order in which calibration or bracketing standards,
+      quality-control and secondary reference materials, blanks and unknowns are interleaved
+      within a measurement session. Adjustments must maintain the bracketing strategy
+      defined in the procedure.
     type: object
     properties:
       '@id':
@@ -8650,11 +8578,9 @@ $defs:
     - schema:unitText
   laSficpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: 'Count time (dwell time) per mass position for each measured isotope
-      in milliseconds. Longer dwell times improve counting statistics and lower detection
-      limits but reduce the number of isotopes measurable within a given scan cycle
-      time. For mapping, scan cycle time directly determines spatial resolution at
-      a given scan speed: shorter cycle time = finer spatial resolution.'
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -8683,10 +8609,9 @@ $defs:
   laSficpms_totalIntegrationTimePerOutputDataPoint:
     title: Total Integration Time per Output Data Point
     description: "Total duty-cycle time for one complete mass-scan sweep \u2014 the
-      sum of all per-isotope dwell times plus inter-mass settling times. Sets the
-      time resolution of the downhole signal, and is not recoverable from Dwell Time
-      per Mass alone because settling time is not captured there. Applies to sequential
-      (quadrupole and single-collector sector-field) acquisition."
+      sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable
+      from Dwell Time per Mass alone, because settling time is not captured there.
+      Applies to sequential (quadrupole and single-collector sector-field) acquisition."
     type: object
     properties:
       '@id':
@@ -8718,8 +8643,7 @@ $defs:
       off or shutter closed) before each ablation event, in seconds. For spot and
       transect analysis, a discrete background interval is measured before each ablation.
       For mapping, background is typically measured once per raster line or at the
-      start of a map session rather than before each individual pixel. Editable to
-      allow session-specific adjustment.
+      start of a map session rather than before each individual pixel.
     type: object
     properties:
       '@id':
@@ -8775,10 +8699,9 @@ $defs:
     - schema:value
   laSficpms_spikeOutlierFilteringApproach:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -8801,8 +8724,14 @@ $defs:
     - schema:value
   laSficpms_pulseAnalogDetectorNonlinearityCorrection:
     title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear response at the transition
-      between pulse-counting and analog detector modes.
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
     type: object
     properties:
       '@id':
@@ -8825,12 +8754,12 @@ $defs:
     - schema:value
   laSficpms_memoryEffectMitigation:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -8853,10 +8782,10 @@ $defs:
     - schema:value
   laSficpms_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -8937,11 +8866,15 @@ $defs:
     - schema:value
   laSficpms_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
-    description: Primary reference material(s) used to calibrate the instrument and
-      convert raw signal intensities to concentrations or isotope ratios. Include
-      material name, source institution, and citation for the accepted values used.
-      Editable because the specific lot or certification vintage may differ between
-      sessions while the material type remains the same.
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
     type: object
     properties:
       '@id':
@@ -8964,10 +8897,10 @@ $defs:
     - schema:value
   laSficpms_secondaryReferenceMaterials:
     title: Secondary Reference Materials
-    description: Quality-control reference materials analysed as unknowns alongside
-      samples in the same session to assess accuracy and monitor drift. Include material
-      name, source, and citation for accepted values used for comparison. Editable
-      because selection of secondary RMs may vary across sessions.
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
     type: object
     properties:
       '@id':
@@ -8990,11 +8923,9 @@ $defs:
     - schema:value
   laSficpms_samplerAndSkimmerConeMaterial:
     title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Common materials
-      are nickel (standard), platinum (for high-TDS or organic-matrix samples), and
-      aluminium (for high-purity work). Cone material affects sensitivity, matrix
-      tolerance, and long-term stability. State both sampler and skimmer materials;
-      if identical, a single statement is acceptable.
+    description: Material composition of the sampler and skimmer cones. State both
+      sampler and skimmer materials; a single statement is acceptable where they are
+      identical.
     type: object
     properties:
       '@id':
@@ -9017,9 +8948,8 @@ $defs:
     - schema:value
   laSficpms_torchType:
     title: Torch Type
-    description: "Type of plasma torch installed. Injector inner diameter (typically
-      1.5\u20132.5 mm) affects aerosol transport efficiency and plasma conditions
-      in LA-ICP-MS."
+    description: Type of plasma torch installed (e.g. standard quartz, high-matrix,
+      low-flow).
     type: object
     properties:
       '@id':
@@ -9043,9 +8973,7 @@ $defs:
   laSficpms_laserBeamEnergyProfile:
     title: Laser Beam Energy Profile
     description: Spatial energy distribution of the laser beam at the sample surface,
-      and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces
-      more uniform ablation craters and more reproducible crater morphology than a
-      Gaussian beam. This is a fixed hardware property of the laser system.
+      and whether a beam homogenizer is installed.
     type: object
     properties:
       '@id':
@@ -9070,8 +8998,7 @@ $defs:
     title: Instrument Warm-up / Session Duration Limit
     description: Minimum warm-up time required after plasma ignition before analyses
       begin, and any maximum session duration enforced to maintain stable operating
-      conditions. These constraints are part of the procedure and cannot be varied
-      by the analyst.
+      conditions.
     type: object
     properties:
       '@id':
@@ -9095,9 +9022,7 @@ $defs:
   laSficpms_eScanRange:
     title: E-scan Range
     description: Electric scan range used for peak acquisition, expressed as percentage
-      of the centre mass (%). Varies the accelerating voltage to cover masses in the
-      vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A'
-      if E-scan acquisition mode is not used.
+      of the centre mass (%). Record 'N/A' if E-scan acquisition mode is not used.
     type: object
     properties:
       '@id':
@@ -9126,10 +9051,7 @@ $defs:
   laSficpms_tripleScanningMode:
     title: Triple Scanning Mode
     description: Whether each mass peak is scanned three times per cycle and the results
-      averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities
-      on sector-field instruments. Triple scanning affects the effective integration
-      time per cycle and should be reported. Record 'N/A' if not applicable to the
-      instrument.
+      averaged (Y/N). Record 'N/A' if not applicable to the instrument.
     type: object
     properties:
       '@id':
@@ -9205,11 +9127,10 @@ $defs:
     - schema:value
   laSficpmsUPb_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -9261,9 +9182,9 @@ $defs:
     - schema:value
   laSficpmsUPb_sampleFormAnalyticalSubstrate:
     title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Editable
-      to accommodate legitimate variations (e.g., thin section vs. mount) that do
-      not alter the analytical procedure.
+    description: Physical form of the material as it enters the ablation cell. Variations
+      that do not alter the analytical procedure (e.g., thin section vs. mount) are
+      legitimate.
     type: object
     properties:
       '@id':
@@ -9337,8 +9258,10 @@ $defs:
     - schema:value
   laSficpmsUPb_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Description of how samples were prepared for analysis (mounting,
-      polishing, coating, fusion procedure, etc.).
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -9364,8 +9287,7 @@ $defs:
     description: Procedure applied immediately before each analysis to remove surface
       contamination or condition the sample surface. Distinct from general sample
       preparation. For spot analysis, pre-ablation pulses are discarded before signal
-      acquisition begins. For mapping, this step is typically omitted as the large
-      area ablated averages out surface effects.
+      acquisition begins. For mapping, this step is typically omitted.
     type: object
     properties:
       '@id':
@@ -9386,26 +9308,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laSficpmsUPb_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  laSficpmsUPb_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/laSficpmsUPbTAPP/targetSelectionCriteria
+        const: ada:parameter/laSficpmsUPbTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laSficpmsUPbTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/laSficpmsUPbTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -9417,11 +9341,11 @@ $defs:
   laSficpmsUPb_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -9445,7 +9369,7 @@ $defs:
   laSficpmsUPb_instrumentSerialNumberOrLabIdentifier:
     title: Instrument Serial Number or Lab Identifier
     description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
+      instrument unit.
     type: object
     properties:
       '@id':
@@ -9470,9 +9394,6 @@ $defs:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
       called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
     type: object
     properties:
       '@id':
@@ -9495,9 +9416,9 @@ $defs:
     - schema:value
   laSficpmsUPb_massResolutionSetting:
     title: Mass Resolution Setting
-    description: Operating mass resolution of the mass analyser. The analyst selects
-      low, medium, or high resolution to balance sensitivity against spectral interference
-      suppression.
+    description: Operating mass resolution of the mass analyser. Where the analyser
+      permits selection, state the mode; where individual analytes are assigned to
+      different modes, state each.
     type: object
     properties:
       '@id':
@@ -9548,8 +9469,7 @@ $defs:
     title: Laser Spot Geometry
     description: "Shape and dimensions of the laser ablation spot in micrometres registered
       by the procedure. For circular spots, report diameter; for square or rectangular
-      spots, report width \xD7 length. The procedure registers the typical geometry;
-      analysts may adjust within procedure-allowed range."
+      spots, report width \xD7 length."
     type: object
     properties:
       '@id':
@@ -9573,10 +9493,9 @@ $defs:
   laSficpmsUPb_laserEnergy:
     title: Laser Energy
     description: "Laser pulse energy in millijoules as set at the laser output or
-      measured at the sample surface. Less commonly reported than fluence because
-      it does not account for spot area. Report only when the system displays energy
+      measured at the sample surface. Report only when the system displays energy
       directly. Laser fluence (J cm\u207B\xB2) is the preferred quantity and is captured
-      in Default Laser Fluence."
+      in Laser Fluence (Energy Density)."
     type: object
     properties:
       '@id':
@@ -9605,10 +9524,8 @@ $defs:
   laSficpmsUPb_laserFluence:
     title: Laser Fluence (Energy Density)
     description: "Laser pulse energy per unit area at the sample surface in J cm\u207B\xB2,
-      as registered by the procedure. Fluence is the physically meaningful quantity
-      controlling ablation rate, crater morphology, elemental fractionation, and particle
-      size distribution. If the system reports only as % of maximum output, include
-      that value and note the system maximum where known."
+      as registered by the procedure. If the system reports only as % of maximum output,
+      include that value and note the system maximum where known."
     type: object
     properties:
       '@id':
@@ -9637,9 +9554,6 @@ $defs:
   laSficpmsUPb_laserRepetitionRate:
     title: Laser Repetition Rate
     description: Laser pulse repetition rate in hertz registered by the procedure.
-      For mapping methods, repetition rate together with scan speed and spot size
-      determines pixel size and spatial resolution. Analysts may adjust within procedure-allowed
-      bounds.
     type: object
     properties:
       '@id':
@@ -9667,14 +9581,11 @@ $defs:
     - schema:unitText
   laSficpmsUPb_ablationDurationPerSpot:
     title: Ablation Duration per Spot
-    description: 'Total on-sample ablation (signal acquisition) time per individual
-      spot in seconds, as set in the acquisition method. This is a procedure-level
-      parameter for spot analysis: it reflects the deliberate trade-off between signal
-      accumulation (longer = lower LOD), sample consumption, and session throughput.
-      For transect analysis, the equivalent procedure-level parameter is scan speed
-      (captured in Transect Rate, Mapping Rate or Step Size). For mapping analysis,
-      total acquisition time is sample-area-dependent and therefore analysis-level,
-      not captured here.'
+    description: Total on-sample ablation (signal acquisition) time per individual
+      spot in seconds, as set in the acquisition method. For transect analysis, the
+      equivalent procedure-level parameter is scan speed (captured in Transect Rate,
+      Mapping Rate or Step Size). For mapping analysis, total acquisition time is
+      sample-area-dependent and is not captured here.
     type: object
     properties:
       '@id':
@@ -9703,9 +9614,8 @@ $defs:
   laSficpmsUPb_ablationPitDepthAndAblationRate:
     title: Ablation Pit Depth and Ablation Rate
     description: Depth of the ablation pit produced under the registered laser conditions,
-      the method used to measure it, and the resulting per-pulse ablation rate. Sets
-      the achievable depth resolution and governs downhole elemental fractionation.
-      For transect and mapping the equivalent quantity is trench depth under the same
+      the method used to measure it, and the resulting per-pulse ablation rate. For
+      transect and mapping the equivalent quantity is trench depth under the same
       conditions.
     type: object
     properties:
@@ -9730,11 +9640,10 @@ $defs:
   laSficpmsUPb_transectRateMappingRateOrStepSize:
     title: Transect Rate, Mapping Rate or Step Size
     description: "For continuous line scan (transect) and raster mapping: the stage
-      translation speed in \xB5m s\u207B\xB9. This is the procedure-level parameter
-      that, together with spot size and repetition rate, determines spatial resolution
-      along the scan direction. For mapping, the mapping rate (mm\xB2 h\u207B\xB9)
-      may be reported as an alternative when scan speed is session-variable. For stepped
-      line profiles: the distance between successive spot positions in \xB5m."
+      translation speed in \xB5m s\u207B\xB9. For mapping, the mapping rate (mm\xB2
+      h\u207B\xB9) may be reported as an alternative when scan speed is session-variable.
+      For stepped line profiles: the distance between successive spot positions in
+      \xB5m."
     type: object
     properties:
       '@id':
@@ -9758,10 +9667,8 @@ $defs:
   laSficpmsUPb_rasterLineSpacing:
     title: Raster Line Spacing (Mapping Only)
     description: Distance between adjacent raster lines in a 2D elemental map, measured
-      perpendicular to the scan direction, in micrometres. Together with spot size,
-      this determines whether adjacent lines are contiguous (line spacing = spot size),
-      overlapping (line spacing < spot size), or have gaps (line spacing > spot size).
-      Applies to raster mapping only.
+      perpendicular to the scan direction, in micrometres. Applies to raster mapping
+      only.
     type: object
     properties:
       '@id':
@@ -9785,10 +9692,8 @@ $defs:
   laSficpmsUPb_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
-      the ICP-MS torch, with the procedure-registered target flow rate(s). Helium
-      is standard for most UV laser systems due to superior aerosol transport. Flow
-      rates are procedure targets; actual session values may be adjusted within \xB110%
-      during tuning."
+      the ICP-MS torch, with the procedure-registered target flow rate(s). Adjustment
+      during tuning stays within \xB110% of the target."
     type: object
     properties:
       '@id':
@@ -9811,15 +9716,11 @@ $defs:
     - schema:value
   laSficpmsUPb_makeUpGasAndFlowRate:
     title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
+    description: Supplementary gas added to the sample-carrying stream between the
       sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
     type: object
     properties:
       '@id':
@@ -9848,8 +9749,7 @@ $defs:
   laSficpmsUPb_coolantGasFlowRate:
     title: Coolant (Plasma) Gas Flow Rate
     description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains
-      the ICP plasma, in L/min. Determines plasma volume and stability. Set during
-      initial plasma optimisation and confirmed at each session start.
+      the ICP plasma, in L/min.
     type: object
     properties:
       '@id':
@@ -9877,10 +9777,10 @@ $defs:
     - schema:unitText
   laSficpmsUPb_auxiliaryGasFlowRate:
     title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream that positions
-      the plasma relative to the load coil, in L/min. Affects ion extraction efficiency
-      and oxide production rates. Distinct from the carrier gas (which transports
-      ablation aerosol) and the coolant (plasma) gas.
+    description: Flow rate of the intermediate (auxiliary) argon gas stream, between
+      the torch body and the injector tube, which positions the plasma relative to
+      the load coil, in L/min. Distinct from the outer coolant (plasma) gas and from
+      the gas stream that carries sample into the plasma.
     type: object
     properties:
       '@id':
@@ -9908,10 +9808,7 @@ $defs:
     - schema:unitText
   laSficpmsUPb_rfPower:
     title: RF Power
-    description: ICP radiofrequency forward power in watts. Affects plasma temperature,
-      ionisation efficiency, oxide formation, and whether cool or normal plasma conditions
-      are in effect. The procedure registers a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
+    description: Radiofrequency forward power applied to the ICP, in watts.
     type: object
     properties:
       '@id':
@@ -9939,12 +9836,9 @@ $defs:
     - schema:unitText
   laSficpmsUPb_signalSmoothing:
     title: Signal Smoothing
-    description: 'Description of any signal smoothing device or approach installed
+    description: Description of any signal smoothing device or approach installed
       between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability.
-      Note: active signal smoothing devices (e.g., squid, SCFAST) are generally incompatible
-      with high-resolution raster mapping because they degrade spatial resolution
-      by mixing aerosol from successive laser shots. For mapping analyses, report
-      "None" explicitly.'
+      For mapping analyses, report "None" explicitly.
     type: object
     properties:
       '@id':
@@ -9998,11 +9892,8 @@ $defs:
       either as detected signal per unit concentration or per unit mass of analyte
       delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
       \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
     type: object
     properties:
       '@id':
@@ -10031,10 +9922,9 @@ $defs:
   laSficpmsUPb_doublyChargedSpeciesMonitor:
     title: Doubly-Charged Species Monitor
     description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
-      formation during instrument tuning. Doubly-charged ions appear at half the mass
-      of the parent ion and can cause isobaric interferences on analytes in that mass
-      region. The monitor species and the mass positions monitored should be stated
-      explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring."
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -10058,9 +9948,8 @@ $defs:
   laSficpmsUPb_doublyChargedSpeciesProduction:
     title: Doubly-Charged Species Production
     description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. The procedure should specify the acceptable
-      threshold (e.g., <1%, <3%); the measured value for each session is recorded
-      here. Report both the threshold and the measured value where possible.
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
     type: object
     properties:
       '@id':
@@ -10083,10 +9972,10 @@ $defs:
     - schema:value
   laSficpmsUPb_analysisSequence:
     title: Analysis Sequence
-    description: Repeating order of primary calibration standard(s), quality control
-      standard(s), and unknown analyses within a measurement session. Editable to
-      allow minor adjustments while maintaining the bracketing strategy defined in
-      the procedure.
+    description: The repeating order in which calibration or bracketing standards,
+      quality-control and secondary reference materials, blanks and unknowns are interleaved
+      within a measurement session. Adjustments must maintain the bracketing strategy
+      defined in the procedure.
     type: object
     properties:
       '@id':
@@ -10140,11 +10029,9 @@ $defs:
     - schema:unitText
   laSficpmsUPb_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: 'Count time (dwell time) per mass position for each measured isotope
-      in milliseconds. Longer dwell times improve counting statistics and lower detection
-      limits but reduce the number of isotopes measurable within a given scan cycle
-      time. For mapping, scan cycle time directly determines spatial resolution at
-      a given scan speed: shorter cycle time = finer spatial resolution.'
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
     type: object
     properties:
       '@id':
@@ -10173,10 +10060,9 @@ $defs:
   laSficpmsUPb_totalIntegrationTimePerOutputDataPoint:
     title: Total Integration Time per Output Data Point
     description: "Total duty-cycle time for one complete mass-scan sweep \u2014 the
-      sum of all per-isotope dwell times plus inter-mass settling times. Sets the
-      time resolution of the downhole signal, and is not recoverable from Dwell Time
-      per Mass alone because settling time is not captured there. Applies to sequential
-      (quadrupole and single-collector sector-field) acquisition."
+      sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable
+      from Dwell Time per Mass alone, because settling time is not captured there.
+      Applies to sequential (quadrupole and single-collector sector-field) acquisition."
     type: object
     properties:
       '@id':
@@ -10208,8 +10094,7 @@ $defs:
       off or shutter closed) before each ablation event, in seconds. For spot and
       transect analysis, a discrete background interval is measured before each ablation.
       For mapping, background is typically measured once per raster line or at the
-      start of a map session rather than before each individual pixel. Editable to
-      allow session-specific adjustment.
+      start of a map session rather than before each individual pixel.
     type: object
     properties:
       '@id':
@@ -10265,10 +10150,9 @@ $defs:
     - schema:value
   laSficpmsUPb_spikeOutlierFilteringApproach:
     title: Spike / Outlier Filtering Approach
-    description: Method used to identify and remove anomalous signal spikes arising
-      from micronuggets, inclusions, cracks, or instrument artifacts during time-resolved
-      signal processing. Editable because the specific implementation may vary between
-      sessions while remaining within the procedure framework.
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
     type: object
     properties:
       '@id':
@@ -10291,8 +10175,14 @@ $defs:
     - schema:value
   laSficpmsUPb_pulseAnalogDetectorNonlinearityCorrection:
     title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear response at the transition
-      between pulse-counting and analog detector modes.
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
     type: object
     properties:
       '@id':
@@ -10315,12 +10205,12 @@ $defs:
     - schema:value
   laSficpmsUPb_memoryEffectMitigation:
     title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimise memory effects from high-concentration
-      elements in the previous sample or standard that may contaminate subsequent
-      analyses, or from incomplete aerosol washout between adjacent pixels in raster
-      mapping mode. For mapping, the mitigation strategy involves controlling scan
-      speed relative to washout time to ensure each pixel signal is sufficiently free
-      of the preceding pixel's contribution.
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
     type: object
     properties:
       '@id':
@@ -10343,10 +10233,10 @@ $defs:
     - schema:value
   laSficpmsUPb_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
-    description: Any post-acquisition normalization applied to correct for systematic
-      biases identified from secondary reference materials, or stoichiometric normalization
-      applied per pixel in mapping. Distinct from the primary internal standard approach
-      captured in Internal Standard Approach.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -10398,12 +10288,8 @@ $defs:
     - schema:value
   laSficpmsUPb_reportedDateType:
     title: Reported Date Type
-    description: The kind of date or age the procedure reports. Most dating systems
-      derive several different date types from the same measurements, so a reported
-      age is ambiguous without this. Where more than one type is reported, list all,
-      separated by semicolons. Kohn et al. (2024) carry this as a named required item
-      ("fission-track age type"); the equivalent distinction is required by all five
-      other standards surveyed.
+    description: The kind of date or age the procedure reports. Where more than one
+      type is reported, list all, separated by semicolons.
     type: object
     properties:
       '@id':
@@ -10426,17 +10312,10 @@ $defs:
     - schema:value
   laSficpmsUPb_inheritedOrInitialSignalCorrection:
     title: Inherited or Initial Signal Correction
-    description: 'How any non-radiogenic, inherited or pre-existing component of the
+    description: How any non-radiogenic, inherited or pre-existing component of the
       measured signal was accounted for, including the composition assumed, its source,
-      and its uncertainty. Record ''None'' where the measured quantity accumulates
-      from zero and no such component exists. Applies to five of the six dating systems
-      surveyed; fission track is the sole genuine exception, as tracks accumulate
-      from zero. D=Editable rather than Read-Only: the procedure registers the correction
-      method and any default composition, but the value actually applied is frequently
-      sample-specific (a two-stage model composition is evaluated at the interpreted
-      age) or session-derived (a trapped composition solved from an isochron intercept),
-      and a revision to the assumed composition should not require registering a new
-      procedure. Same reasoning as Rule 5''s Constants and Reference Values Used.'
+      and its uncertainty. Record 'None' where the measured quantity accumulates from
+      zero and no such component exists.
     type: object
     properties:
       '@id':
@@ -10461,12 +10340,9 @@ $defs:
     title: Age Model
     description: "The statistical model used to combine individual analyses into a
       single reported age, including any criteria governing which model is applied.
-      This is a methodological choice that changes the result: a Model-1 and a Model-3
-      regression of the same data yield different ages and different uncertainties.
       Record the model only \u2014 the software implementing it belongs in Data Reduction
       Software (Group 3), whose scope already extends to age calculation; where reduction
-      and age regression use different packages, list both there. Required in some
-      form by all six geochronology reporting standards surveyed."
+      and age regression use different packages, list both there."
     type: object
     properties:
       '@id':
@@ -10518,11 +10394,15 @@ $defs:
     - schema:value
   laSficpmsUPb_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
-    description: Primary reference material(s) used to calibrate the instrument and
-      convert raw signal intensities to concentrations or isotope ratios. Include
-      material name, source institution, and citation for the accepted values used.
-      Editable because the specific lot or certification vintage may differ between
-      sessions while the material type remains the same.
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
     type: object
     properties:
       '@id':
@@ -10545,10 +10425,10 @@ $defs:
     - schema:value
   laSficpmsUPb_secondaryReferenceMaterials:
     title: Secondary Reference Materials
-    description: Quality-control reference materials analysed as unknowns alongside
-      samples in the same session to assess accuracy and monitor drift. Include material
-      name, source, and citation for accepted values used for comparison. Editable
-      because selection of secondary RMs may vary across sessions.
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
     type: object
     properties:
       '@id':
@@ -10571,11 +10451,9 @@ $defs:
     - schema:value
   laSficpmsUPb_samplerAndSkimmerConeMaterial:
     title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Common materials
-      are nickel (standard), platinum (for high-TDS or organic-matrix samples), and
-      aluminium (for high-purity work). Cone material affects sensitivity, matrix
-      tolerance, and long-term stability. State both sampler and skimmer materials;
-      if identical, a single statement is acceptable.
+    description: Material composition of the sampler and skimmer cones. State both
+      sampler and skimmer materials; a single statement is acceptable where they are
+      identical.
     type: object
     properties:
       '@id':
@@ -10598,9 +10476,8 @@ $defs:
     - schema:value
   laSficpmsUPb_torchType:
     title: Torch Type
-    description: "Type of plasma torch installed. Injector inner diameter (typically
-      1.5\u20132.5 mm) affects aerosol transport efficiency and plasma conditions
-      in LA-ICP-MS."
+    description: Type of plasma torch installed (e.g. standard quartz, high-matrix,
+      low-flow).
     type: object
     properties:
       '@id':
@@ -10624,9 +10501,7 @@ $defs:
   laSficpmsUPb_laserBeamEnergyProfile:
     title: Laser Beam Energy Profile
     description: Spatial energy distribution of the laser beam at the sample surface,
-      and whether a beam homogenizer is installed. A flat-top (top-hat) profile produces
-      more uniform ablation craters and more reproducible crater morphology than a
-      Gaussian beam. This is a fixed hardware property of the laser system.
+      and whether a beam homogenizer is installed.
     type: object
     properties:
       '@id':
@@ -10651,8 +10526,7 @@ $defs:
     title: Instrument Warm-up / Session Duration Limit
     description: Minimum warm-up time required after plasma ignition before analyses
       begin, and any maximum session duration enforced to maintain stable operating
-      conditions. These constraints are part of the procedure and cannot be varied
-      by the analyst.
+      conditions.
     type: object
     properties:
       '@id':
@@ -10676,9 +10550,7 @@ $defs:
   laSficpmsUPb_eScanRange:
     title: E-scan Range
     description: Electric scan range used for peak acquisition, expressed as percentage
-      of the centre mass (%). Varies the accelerating voltage to cover masses in the
-      vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A'
-      if E-scan acquisition mode is not used.
+      of the centre mass (%). Record 'N/A' if E-scan acquisition mode is not used.
     type: object
     properties:
       '@id':
@@ -10707,10 +10579,7 @@ $defs:
   laSficpmsUPb_tripleScanningMode:
     title: Triple Scanning Mode
     description: Whether each mass peak is scanned three times per cycle and the results
-      averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities
-      on sector-field instruments. Triple scanning affects the effective integration
-      time per cycle and should be reported. Record 'N/A' if not applicable to the
-      instrument.
+      averaged (Y/N). Record 'N/A' if not applicable to the instrument.
     type: object
     properties:
       '@id':
@@ -10788,13 +10657,8 @@ $defs:
     title: Intermediate Daughter Disequilibrium Correction
     description: "Correction for initial disequilibrium in intermediate daughter products
       of the U decay chains \u2014 principally 230Th, and where relevant 231Pa \u2014
-      together with the Th/U or Pa/U partitioning value assumed and its source. Unique
-      to U-Pb among dating systems, because the chains are long enough for intermediate-daughter
-      disequilibrium at crystallisation to bias the 206Pb/238U date, most severely
-      in young samples. Record 'None' with a justification where no correction was
-      applied. Condon et al. (2024) write \"we recommend these dates be reported corrected
-      for initial 230Th and 231Pa daughter isotope disequilibrium\" \u2014 recommended
-      rather than required, hence Advanced."
+      together with the Th/U or Pa/U partitioning value assumed and its source. Record
+      'None' with a justification where no correction was applied."
     type: object
     properties:
       '@id':
@@ -10817,17 +10681,10 @@ $defs:
     - schema:value
   laSficpmsUPb_discordanceDefinitionAndValues:
     title: Discordance Definition and Values
-    description: "How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
+    description: How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
       chronometers is defined for this procedure, and the discordance values obtained.
-      Several definitions are in circulation and they are not interchangeable, so
-      the formula must be stated. Genuinely specific to U-Pb: it is the only system
-      in routine use with two independent decay schemes in the same mineral, so agreement
-      between them is an internal consistency test no other system can run. The rule
-      for excluding discordant analyses, and how many were excluded, belong in Analysis
-      Inclusion and Rejection Criteria. Condon et al. (2024) write that for samples
-      older than a few hundred million years \"it is also useful to provide a measure
-      of discordance\" \u2014 useful and age-conditional rather than required, hence
-      Advanced."
+      State the formula used. The rule for excluding discordant analyses, and how
+      many were excluded, belong in Analysis Inclusion and Rejection Criteria.
     type: object
     properties:
       '@id':
@@ -10850,11 +10707,10 @@ $defs:
     - schema:value
   labxct_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -10906,10 +10762,8 @@ $defs:
     - schema:value
   labxct_sampleMass:
     title: Sample Mass
-    description: 'Mass of the sample in grams, recorded for curatorial tracking of
-      precious or limited materials. Particularly important for meteorite, mission-returned,
-      and other restricted samples. This is an analysis-level field: the actual sample
-      mass depends on the specific sample being scanned, not on the procedure design.'
+    description: Mass of the sample in grams, recorded for curatorial tracking of
+      precious or limited materials.
     type: object
     properties:
       '@id':
@@ -10937,10 +10791,13 @@ $defs:
     - schema:unitText
   labxct_sampleMountingMethod:
     title: Sample Mounting Method
-    description: Method used to mount or hold the sample on the instrument rotation
+    description: "Method used to mount or hold the sample on the instrument rotation
       stage. Mounting material should transmit X-rays at the selected voltage without
-      dominating beam attenuation. Report the holder type, adhesive or support material,
-      and any alignment aids used.
+      dominating beam attenuation. Report the holder CLASS from the list and name
+      the specific vessel or material alongside it \u2014 'Tube or vial \u2014 1 cm
+      plastic straw', not 'Tube or vial'. Where the sample is sealed or bagged inside
+      a further holder for contamination control, record both layers. Report any adhesive,
+      support material and alignment aids used."
     type: object
     properties:
       '@id':
@@ -10991,8 +10848,7 @@ $defs:
   labxct_samplePreparationNotes:
     title: Sample Preparation Notes
     description: Any preparation steps applied to the sample before scanning, including
-      cleaning, trimming, consolidation, or drying. XCT is typically non-destructive
-      with no surface preparation required; note any exceptions.
+      cleaning, trimming, consolidation, or drying. Note any exceptions.
     type: object
     properties:
       '@id':
@@ -11013,26 +10869,54 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  labxct_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  labxct_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
-        const: ada:parameter/labxctTAPP/targetSelectionCriteria
+        const: ada:parameter/labxctTAPP/samplePreparationMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/labxctTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/labxctTAPP/samplePreparationMethod
       schema:name:
-        const: Target Selection Criteria
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  labxct_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/labxctTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/labxctTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -11044,11 +10928,11 @@ $defs:
   labxct_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -11072,8 +10956,7 @@ $defs:
   labxct_reconstructionSoftware:
     title: Reconstruction Software
     description: Software used to reconstruct 2D projection images into a 3D CT volume,
-      including version number. Often bundled with the instrument and proprietary
-      to the manufacturer.
+      including version number.
     type: object
     properties:
       '@id':
@@ -11122,16 +11005,13 @@ $defs:
     - schema:value
   labxct_acceleratingVoltage:
     title: Accelerating Voltage
-    description: "X-ray tube accelerating voltage in kilovolts (kV) registered by
-      the procedure. Determines the maximum X-ray photon energy and controls penetration
-      depth and phase contrast. Higher voltages provide greater penetration for dense
-      or large samples; lower voltages improve contrast between low-density phases.
-      If the voltage was varied across samples within the same procedure or session,
-      report the full range applied (e.g., 90\u2013115 kV). Note: some sources report
-      this parameter as 'X keV' (maximum Bremsstrahlung photon energy) rather than
-      'X kV' (tube voltage). For polychromatic lab XCT, these are numerically equivalent:
-      E_max [keV] = V [kV]. Record the value as originally reported, and add a parenthetical
-      note if the unit used is keV."
+    description: "X-ray tube accelerating voltage in kilovolts (kV). If the voltage
+      was varied across samples within the same procedure or session, report the full
+      range applied (e.g., 90\u2013115 kV). Note: some sources report this parameter
+      as 'X keV' (maximum Bremsstrahlung photon energy) rather than 'X kV' (tube voltage).
+      For polychromatic lab XCT, these are numerically equivalent: E_max [keV] = V
+      [kV]. Record the value as originally reported, and add a parenthetical note
+      if the unit used is keV."
     type: object
     properties:
       '@id':
@@ -11159,11 +11039,9 @@ $defs:
     - schema:unitText
   labxct_tubeCurrent:
     title: Tube Current
-    description: "X-ray tube current in microamperes (\xB5A) registered by the procedure.
-      Controls photon flux and therefore projection image SNR. Higher current improves
-      SNR but increases thermal loading on the source and may increase focal spot
-      size. If the current was varied across samples within the same procedure or
-      session, report the full range applied (e.g., 65\u2013115 \xB5A)."
+    description: "X-ray tube current in microamperes (\xB5A). If the current was varied
+      across samples within the same procedure or session, report the full range applied
+      (e.g., 65\u2013115 \xB5A)."
     type: object
     properties:
       '@id':
@@ -11191,13 +11069,9 @@ $defs:
     - schema:unitText
   labxct_xRayPower:
     title: X-ray Power
-    description: "X-ray tube power in watts (W) registered by the procedure. Derivable
-      as voltage (kV) \xD7 current (mA) = kV \xD7 \xB5A / 1000. Power constrains the
-      achievable focal spot size for microfocal tubes: higher power requires a larger
-      focal spot, trading spatial resolution for SNR. Retained as a standalone field
-      because it is routinely reported in the literature and directly constrains instrument
-      operating limits. If power was varied across samples within the session, report
-      the full range applied (e.g., 7\u201313 W)."
+    description: "X-ray tube power in watts (W). Derivable as voltage (kV) \xD7 current
+      (mA) = kV \xD7 \xB5A / 1000. If power was varied across samples within the session,
+      report the full range applied (e.g., 7\u201313 W)."
     type: object
     properties:
       '@id':
@@ -11226,10 +11100,8 @@ $defs:
   labxct_xRayPreFilter:
     title: X-ray Pre-filter
     description: Material and thickness of the beam-hardening filter placed between
-      the X-ray source and the sample. Hardens the beam by attenuating low-energy
-      photons, reducing beam hardening artifacts and improving CT number stability
-      across the sample. Both filter material and thickness must be reported. Instrument-proprietary
-      filter codes should be decoded where possible.
+      the X-ray source and the sample. Both filter material and thickness must be
+      reported. Instrument-proprietary filter codes should be decoded where possible.
     type: object
     properties:
       '@id':
@@ -11253,9 +11125,7 @@ $defs:
   labxct_sourceToObjectDistance:
     title: Source-to-Object Distance (SOD)
     description: Distance from the X-ray source focal spot to the centre of the sample
-      rotation axis, in mm, as registered by the procedure. Together with SDD, determines
-      geometric magnification (M = SDD/SOD). Shorter SOD increases magnification and
-      reduces voxel size.
+      rotation axis, in mm.
     type: object
     properties:
       '@id':
@@ -11284,9 +11154,8 @@ $defs:
   labxct_sourceToDetectorDistance:
     title: Source-to-Detector Distance (SDD)
     description: "Distance from the X-ray source focal spot to the detector surface,
-      in mm, as registered by the procedure. Together with SOD, determines geometric
-      magnification M = SDD/SOD. Voxel size \u2248 detector pixel size / M (before
-      binning; divide additionally by optical objective for Versa-class systems)."
+      in mm. Voxel size \u2248 detector pixel size / M (before binning; divide additionally
+      by optical objective for Versa-class systems)."
     type: object
     properties:
       '@id':
@@ -11315,11 +11184,11 @@ $defs:
   labxct_voxelSize:
     title: Voxel Size
     description: "Isotropic voxel edge length of the reconstructed 3D volume in micrometres.
-      The procedure registers the target voxel size, set based on the smallest feature
-      to be resolved (target voxel size \u2264 ~1/3 of that feature size; see the
-      criterion recorded under Partial Volume Effect Criteria). At analysis level,
-      record the achieved voxel size as reported by the reconstruction software, which
-      may differ slightly from the target due to final geometric calibration."
+      The target voxel size is set based on the smallest feature to be resolved (target
+      voxel size \u2264 ~1/3 of that feature size; see the criterion recorded under
+      Partial Volume Effect Criteria). Record the achieved voxel size as reported
+      by the reconstruction software, which may differ slightly from the target due
+      to final geometric calibration."
     type: object
     properties:
       '@id':
@@ -11347,10 +11216,8 @@ $defs:
     - schema:unitText
   labxct_rotationRange:
     title: Rotation Range
-    description: "Total angular range over which projection images are acquired, in
-      degrees. Full 360\xB0 rotation is standard for cone-beam lab XCT. 180\xB0 rotation
-      (half-scan) is sometimes used for faster acquisition but may introduce additional
-      artifacts."
+    description: Total angular range over which projection images are acquired, in
+      degrees.
     type: object
     properties:
       '@id':
@@ -11379,9 +11246,8 @@ $defs:
   labxct_numberOfProjections:
     title: Number of Projections
     description: Total number of equally-spaced projection images acquired over the
-      full rotation range. More projections improve reconstruction quality by reducing
-      under-sampling streak artifacts but increase scan time. For Mode B (multi-volume
-      stitching), this is the number per sub-volume.
+      full rotation range. For Mode B (multi-volume stitching), this is the number
+      per sub-volume.
     type: object
     properties:
       '@id':
@@ -11409,8 +11275,7 @@ $defs:
     description: Angular increment between successive projection images, in degrees.
       Equal to Rotation Range divided by Number of Projections when both are reported;
       however, some sources report step size as the primary rotation parameter without
-      stating the total number of projections explicitly. Finer step sizes improve
-      angular sampling and reduce streak artifacts at the cost of longer scan time.
+      stating the total number of projections explicitly.
     type: object
     properties:
       '@id':
@@ -11439,12 +11304,10 @@ $defs:
   labxct_exposureTimePerProjection:
     title: Exposure Time per Projection
     description: "Duration of X-ray exposure for each individual projection image
-      frame, in seconds, as registered by the procedure. Set as a deliberate choice
-      for the target sample type and voxel size: longer exposures increase SNR at
-      the cost of total scan time. May be adjusted within procedure-allowed bounds
-      for samples that are unusually dense or unusually transparent. If the exposure
-      time was varied across samples within the same procedure or session, report
-      the full range applied (e.g., 0.5\u20132 s)."
+      frame, in seconds. Adjustment is warranted for samples that are unusually dense
+      or unusually transparent. If the exposure time was varied across samples within
+      the same procedure or session, report the full range applied (e.g., 0.5\u20132
+      s)."
     type: object
     properties:
       '@id':
@@ -11473,8 +11336,7 @@ $defs:
   labxct_framesAveragedPerProjection:
     title: Frames Averaged per Projection
     description: "Number of individual detector frames acquired and averaged to produce
-      each saved projection image, as registered by the procedure. Frame averaging
-      reduces random electronic noise. The effective exposure per projection = exposure
+      each saved projection image. The effective exposure per projection = exposure
       time per frame \xD7 frames averaged."
     type: object
     properties:
@@ -11501,9 +11363,7 @@ $defs:
   labxct_detectorBinning:
     title: Detector Binning
     description: "Detector pixel binning factor applied during acquisition. Binning
-      combines adjacent pixels (e.g., 2\xD72 combines 4 pixels into one), reducing
-      effective resolution while increasing per-pixel SNR and reducing file size.
-      1\xD71 indicates no binning."
+      combines adjacent pixels (e.g., 2\xD72 combines 4 pixels into one)."
     type: object
     properties:
       '@id':
@@ -11529,7 +11389,6 @@ $defs:
     description: Whether dark-field (detector read with X-ray source off; electronic
       noise baseline) and bright-field (source on, no sample; gain calibration) reference
       images are acquired and applied to normalize detector response before reconstruction.
-      Standard practice in all quantitative lab XCT;.
     type: object
     properties:
       '@id':
@@ -11555,9 +11414,7 @@ $defs:
     description: Whether projection images are acquired during continuous sample rotation
       (faster; may introduce slight motion blur at high rotation speeds) or at discrete
       step positions with the stage stationary during each exposure (stop-and-shoot;
-      eliminates motion blur). Continuous rotation has been associated with sub-volume
-      rotational mismatch artifacts in multi-volume stitching workflows (Eckley et
-      al. 2025).
+      eliminates motion blur).
     type: object
     properties:
       '@id':
@@ -11583,8 +11440,7 @@ $defs:
     description: Total elapsed time for the complete XCT acquisition, from the start
       of the first projection to the end of the last. For multi-volume acquisitions,
       this is the combined scan time across all sub-volumes (not including setup or
-      reconstruction time). Useful for assessing beam stability and sample integrity
-      concerns over long scans.
+      reconstruction time).
     type: object
     properties:
       '@id':
@@ -11608,9 +11464,7 @@ $defs:
   labxct_reconstructionConvolutionFilter:
     title: Reconstruction Convolution Filter
     description: Convolution (apodization) filter kernel applied during back-projection
-      reconstruction. Sharper filters (Ram-Lak) enhance edge definition but amplify
-      high-frequency noise; smoother filters (Hann, Hamming) reduce noise at the cost
-      of edge sharpness. The choice represents a deliberate procedure-level tradeoff.
+      reconstruction.
     type: object
     properties:
       '@id':
@@ -11634,8 +11488,7 @@ $defs:
   labxct_beamHardeningCorrectionParameter:
     title: Beam Hardening Correction Parameter
     description: Numerical value or setting applied in the software beam hardening
-      correction algorithm for this specific analysis. May be tuned empirically per
-      material type or per scan session. Analysis-level companion to Beam Hardening
+      correction algorithm for this specific analysis. Companion to Beam Hardening
       Correction Method.
     type: object
     properties:
@@ -11659,11 +11512,8 @@ $defs:
     - schema:value
   labxct_ringArtifactCorrectionMethod:
     title: Ring Artifact Correction Method
-    description: Procedure specification for how ring artifacts are handled. Ring
-      artifacts appear as concentric circular bands centred on the rotation axis and
-      arise from defective or miscalibrated detector pixels. Method is the procedure-level
-      specification; whether correction was applied and its outcome are recorded at
-      analysis level in Group 6.
+    description: Procedure specification for how ring artifacts are handled. Whether
+      correction was applied and its outcome are recorded separately in Group 6.
     type: object
     properties:
       '@id':
@@ -11711,10 +11561,7 @@ $defs:
   labxct_ctNumberCalibration:
     title: CT Number Calibration
     description: Whether the raw CT grayscale values have been calibrated to physically
-      meaningful units using reference materials. Calibrated CT numbers enable cross-instrument
-      and cross-session comparison and support phase identification by comparison
-      to calculated linear attenuation coefficient (LAC) values (e.g., using MuCalc;
-      Hanna & Ketcham 2017). Uncalibrated grayscale values are instrument- and session-specific.
+      meaningful units using reference materials.
     type: object
     properties:
       '@id':
@@ -11737,9 +11584,8 @@ $defs:
     - schema:value
   labxct_segmentationMethod:
     title: Segmentation Method
-    description: General approach used to separate distinct phases or features in
-      the reconstructed CT volume. The method must be reported for any quantitative
-      result to be reproducible.
+    description: Method and software used to separate distinct phases or features
+      in the reconstructed 3D volume, turning the grayscale volume into labelled regions.
     type: object
     properties:
       '@id':
@@ -11763,8 +11609,7 @@ $defs:
   labxct_segmentationThresholdValuesOrCriteria:
     title: Segmentation Threshold Values or Criteria
     description: "Specific CT number range(s) or quantitative criteria used to define
-      each segmented phase or feature. Documenting these values enables reproducibility
-      assessment and cross-study comparison. For LAC-calibrated datasets, report values
+      each segmented phase or feature. For LAC-calibrated datasets, report values
       in cm\u207B\xB9."
     type: object
     properties:
@@ -11814,11 +11659,11 @@ $defs:
     - schema:value
   labxct_voiSelectionCriteria:
     title: VOI Selection Criteria
-    description: Procedure-level rules specifying how the Volume of Interest (VOI)
-      is to be defined for quantitative analysis. Common criteria exclude cone-beam
-      artifact zones at sample edges, beam hardening halos near dense inclusions,
-      and sample holder signal. The actual VOI applied in a specific analysis is recorded
-      separately at analysis level.
+    description: Rules specifying how the Volume of Interest (VOI) is to be defined
+      for quantitative analysis. Common criteria exclude cone-beam artifact zones
+      at sample edges, beam hardening halos near dense inclusions, and sample holder
+      signal. The actual VOI applied in a specific analysis is recorded separately
+      at analysis level.
     type: object
     properties:
       '@id':
@@ -11841,12 +11686,11 @@ $defs:
     - schema:value
   labxct_subVolumeStitchingAndRegistrationMethod:
     title: Sub-volume Stitching and Registration Method
-    description: "Method used to register adjacent sub-volume datasets to each other
+    description: Method used to register adjacent sub-volume datasets to each other
       and stitch them into a single continuous 3D volume. Report the alignment strategy
       (manual, automated, fiducial-based), the software used, and any correction steps
-      applied. Note: rotational mismatch artifacts have been identified in continuous-rotation
-      acquisitions (~0.35\xB0 misalignment in Eckley et al. 2025); their correction
-      via raw projection re-alignment should be documented here."
+      applied. Where rotational mismatch has been corrected via raw projection re-alignment,
+      document it here.
     type: object
     properties:
       '@id':
@@ -11871,11 +11715,9 @@ $defs:
     title: Output Bit Depth
     description: Bit depth of the reconstructed 3D volume (number of bits used to
       encode each voxel's grayscale value). Common values are 8-bit (256 gray levels),
-      16-bit (65,536 gray levels), or 32-bit floating point. Bit depth affects the
-      dynamic range available for phase segmentation and quantitative attenuation
-      analysis. The procedure may specify a required output bit depth if downstream
-      analysis workflows depend on a consistent grayscale range; the analyst confirms
-      or adjusts at analysis time.
+      16-bit (65,536 gray levels), or 32-bit floating point. A required output bit
+      depth may be specified if downstream analysis workflows depend on a consistent
+      grayscale range.
     type: object
     properties:
       '@id':
@@ -11959,15 +11801,15 @@ $defs:
     description: "Effective spatial resolution of the reconstructed CT volume, which
       typically differs from (and is coarser than) the voxel size due to the detector
       point spread function (PSF), geometric unsharpness, and the reconstruction filter.
-      The Nyquist limit sets a theoretical floor at 2\xD7 the voxel size. Formal measurement
-      uses the PSF method described in Ketcham & Hildebrandt (2014) or the modulation
-      transfer function (MTF); resolution can also be reported per ASTM E1441-11.
-      When formal measurement is unavailable, an estimate based on acquisition geometry
-      (e.g., the Brenner-Weiss formula) or a stated multiple of the voxel size may
-      be recorded. Report the value in \xB5m along with the method used to determine
-      or estimate it. Note that most XCT papers use the bare phrase \"spatial resolution\"
-      for the voxel size; record that under Voxel Size, and leave this field as not
-      reported unless an effective resolution was actually determined."
+      Formal measurement uses the PSF method described in Ketcham & Hildebrandt (2014)
+      or the modulation transfer function (MTF); resolution can also be reported per
+      ASTM E1441-11. When formal measurement is unavailable, an estimate based on
+      acquisition geometry (e.g., the Brenner-Weiss formula) or a stated multiple
+      of the voxel size may be recorded. Report the value in \xB5m along with the
+      method used to determine or estimate it. Note that most XCT papers use the bare
+      phrase \"spatial resolution\" for the voxel size; record that under Voxel Size,
+      and leave this field as not reported unless an effective resolution was actually
+      determined."
     type: object
     properties:
       '@id':
@@ -11992,12 +11834,10 @@ $defs:
     title: Beam Hardening Artifact Assessment
     description: Assessment of whether residual beam hardening (cupping artifact)
       is present in the reconstructed volume after any corrections applied during
-      reconstruction. Beam hardening in polychromatic lab XCT produces a characteristic
-      darker interior and brighter edges in the reconstructed CT number profile, even
-      in compositionally uniform material. Record whether this artifact is detectable
-      in the final dataset, what correction or mitigation was applied (e.g., linearisation,
-      pre-filtering, iterative correction), and whether any residual effect influences
-      the analysis region.
+      reconstruction. Record whether this artifact is detectable in the final dataset,
+      what correction or mitigation was applied (e.g., linearisation, pre-filtering,
+      iterative correction), and whether any residual effect influences the analysis
+      region.
     type: object
     properties:
       '@id':
@@ -12024,11 +11864,9 @@ $defs:
       on the rotation axis arising from differential sensitivity or gain drift among
       detector elements \u2014 were present and whether correction was effective.
       Note that ring correction algorithms modify image intensity in narrow annular
-      bands; in samples containing linear geological features oriented tangentially
-      to the rotation axis, ring correction can alter or introduce spurious linear
-      features in those orientations. Record whether rings were present, whether correction
-      was applied, and whether any residual rings or correction artifacts fall within
-      the analysis volume of interest."
+      bands. Record whether rings were present, whether correction was applied, and
+      whether any residual rings or correction artifacts fall within the analysis
+      volume of interest."
     type: object
     properties:
       '@id':
@@ -12079,19 +11917,15 @@ $defs:
     - schema:value
   labxct_partialVolumeEffectCriteria:
     title: Partial Volume Effect Criteria
-    description: "Procedure-level specification of how partial volume effects (PVE)
-      are managed in quantitative analysis. PVE produces intermediate CT numbers at
-      phase boundaries and at the surfaces of small features, because each voxel integrates
-      the attenuation of all material within its volume. PVE correction can be implemented
-      via PSF-based deconvolution tools such as Blob3D. Record the minimum feature
-      size criterion adopted for the procedure (in voxels or \xB5m), the basis for
-      it, the treatment of boundary voxels in modal abundance or size distribution
-      calculations, and whether PVE correction is required or optional. Per Withers
-      et al. (2021) a feature must span at least 3 voxels to be positively identified
-      and at least 10 for reliable shape and volume characterisation; state whether
-      the criterion follows that convention or is SNR-limited, PVE-limited or analyst-defined.
-      The criterion materially changes reported modal abundances and size distributions,
-      so two datasets are not comparable without it."
+    description: "Specification of how partial volume effects (PVE) are managed in
+      quantitative analysis. PVE correction can be implemented via PSF-based deconvolution
+      tools such as Blob3D. Record the minimum feature size criterion adopted for
+      the procedure (in voxels or \xB5m), the basis for it, the treatment of boundary
+      voxels in modal abundance or size distribution calculations, and whether PVE
+      correction is required or optional. State whether the criterion follows the
+      Withers et al. (2021) convention \u2014 a feature must span at least 3 voxels
+      to be positively identified and at least 10 for reliable shape and volume characterisation
+      \u2014 or is SNR-limited, PVE-limited or analyst-defined."
     type: object
     properties:
       '@id':
@@ -12114,10 +11948,10 @@ $defs:
     - schema:value
   labxct_partialVolumeEffectAssessment:
     title: Partial Volume Effect Assessment
-    description: Analysis-level record of PVE severity and how it was handled in this
-      specific analysis. Documents the minimum feature size relative to the voxel
-      size, the fraction of the feature population affected, and any PVE correction
-      method applied (e.g., PSF-based deconvolution via Blob3D).
+    description: Record of PVE severity and how it was handled. Documents the minimum
+      feature size relative to the voxel size, the fraction of the feature population
+      affected, and any PVE correction method applied (e.g., PSF-based deconvolution
+      via Blob3D).
     type: object
     properties:
       '@id':
@@ -12143,9 +11977,8 @@ $defs:
     description: Quantitative measure of image quality in the reconstructed CT volume.
       Typically calculated as the mean CT number divided by the standard deviation
       of CT number in a homogeneous reference region (e.g., an inclusion-free zone
-      of the matrix). SNR is controlled by photon flux (source power, exposure time,
-      number of projections) and sample attenuation. Record the measured value and
-      the region used for measurement, or note if SNR was not formally measured.
+      of the matrix). Record the measured value and the region used for measurement,
+      or note if SNR was not formally measured.
     type: object
     properties:
       '@id':
@@ -12168,14 +12001,12 @@ $defs:
     - schema:value
   labxct_crossValidationProcedureRequirement:
     title: Cross-Validation Procedure Requirement
-    description: Procedure-level specification of what independent analytical validation
-      is required to confirm CT segmentation results, phase identification, or quantitative
-      measurements. Cross-validation is relevant where CT grey-values alone cannot
-      uniquely distinguish phases with similar attenuation coefficients. Common approaches
-      include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk
-      porosity, and Raman or SIMS phase mapping. Record the required validation method(s)
-      and the sampling fraction (e.g., every sample, one per session, or a representative
-      subset).
+    description: Specification of what independent analytical validation is required
+      to confirm CT segmentation results, phase identification, or quantitative measurements.
+      Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry
+      for bulk porosity, and Raman or SIMS phase mapping. Record the required validation
+      method(s) and the sampling fraction (e.g., every sample, one per session, or
+      a representative subset).
     type: object
     properties:
       '@id':
@@ -12198,11 +12029,11 @@ $defs:
     - schema:value
   labxct_crossValidationOutcome:
     title: Cross-Validation Outcome
-    description: Analysis-level record of what independent validation was performed
-      and its result. Report the validation method(s) used, the quantitative agreement
-      achieved (e.g., relative difference in modal abundance, porosity), and any discrepancies
-      and their likely causes. Where BSE imaging is the validation method, note that
-      BSE provides a 2D section while CT provides a 3D volume.
+    description: Record of what independent validation was performed and its result.
+      Report the validation method(s) used, the quantitative agreement achieved (e.g.,
+      relative difference in modal abundance, porosity), and any discrepancies and
+      their likely causes. Where BSE imaging is the validation method, note that BSE
+      provides a 2D section while CT provides a 3D volume.
     type: object
     properties:
       '@id':
@@ -12225,10 +12056,7 @@ $defs:
     - schema:value
   labxct_xRayTubeAnodeMaterial:
     title: X-ray Tube Anode Material
-    description: Material of the X-ray tube anode (target). Determines the characteristic
-      line energies superimposed on the bremsstrahlung continuum, which can affect
-      phase contrast at specific energies. Multi-metal anodes (e.g., W/Mo/Cu) extend
-      the usable energy range.
+    description: Material of the X-ray tube anode (target).
     type: object
     properties:
       '@id':
@@ -12251,9 +12079,7 @@ $defs:
     - schema:value
   labxct_detectorArraySize:
     title: Detector Array Size
-    description: "Number of pixels in the detector array (width \xD7 height). Combined
-      with detector pixel size and geometric magnification, determines the field of
-      view."
+    description: "Number of pixels in the detector array (width \xD7 height)."
     type: object
     properties:
       '@id':
@@ -12332,11 +12158,10 @@ $defs:
     - schema:value
   semComposition_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -12388,13 +12213,10 @@ $defs:
     - schema:value
   semComposition_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Method by which samples were prepared for SEM analysis prior to loading
-      in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing
-      steps (alumina, colloidal silica, argon ion mill), and conductive coating type
-      and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was
-      used and the gas type used. FIB-specific in-session operations (protective coating
-      deposition, milling conditions, lamella preparation) are documented separately
-      in Group 4.
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -12442,26 +12264,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  semComposition_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  semComposition_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/semCompositionTAPP/targetSelectionCriteria
+        const: ada:parameter/semCompositionTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/semCompositionTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/semCompositionTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -12473,11 +12297,11 @@ $defs:
   semComposition_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -12526,10 +12350,7 @@ $defs:
     - schema:value
   semComposition_acceleratingVoltage:
     title: Accelerating Voltage
-    description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
-      depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration.
-      Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high
-      voltages (15-20 kV) improve X-ray generation for quantitative analysis.
+    description: Electron beam accelerating voltage in kilovolts.
     type: object
     properties:
       '@id':
@@ -12557,10 +12378,8 @@ $defs:
     - schema:unitText
   semComposition_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. Higher current improves signal-to-noise
-      for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce
-      spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g.,
-      0.4 nA).
+    description: Electron beam probe current. For sub-nA values use decimal notation
+      (e.g., 0.4 nA).
     type: object
     properties:
       '@id':
@@ -12590,9 +12409,8 @@ $defs:
     title: Beam Diameter
     description: Nominal electron beam diameter (spot size) at the sample surface,
       in nanometres or micrometres, as set by the condenser aperture and working distance.
-      Controls the spatial resolution and X-ray excitation volume. For mapping modes,
-      the effective spatial sampling interval is further defined by Step Size / Pixel
-      Size.
+      For mapping modes, the effective spatial sampling interval is further defined
+      by Step Size / Pixel Size.
     type: object
     properties:
       '@id':
@@ -12620,10 +12438,10 @@ $defs:
     - schema:unitText
   semComposition_beamRasterDimensions:
     title: Beam Raster Dimensions
-    description: "Dimensions of the small area over which the beam is rastered during
+    description: "Dimensions of the small area over which the beam is rastered at
       a single analysis point, reported as width \xD7 height in \xB5m. Applicable
-      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement
-      and distributes dose over a larger area to reduce beam damage on sensitive phases."
+      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement.
+      Not applicable when mapping."
     type: object
     properties:
       '@id':
@@ -12654,8 +12472,7 @@ $defs:
     description: 'Describes any measures taken to reduce electron beam damage to the
       sample during analysis. Examples: reduced accelerating voltage, lowered beam
       current, defocused or rastered beam, cooled stage, short acquisition sequences,
-      or rotating between multiple points. Particularly important for volatile-bearing
-      phases, hydrous minerals, glasses, organic materials, and biological samples.'
+      or rotating between multiple points.'
     type: object
     properties:
       '@id':
@@ -12681,9 +12498,7 @@ $defs:
     description: 'Describes whether and how stage or beam drift was monitored and
       corrected during the measurement session. Examples: periodic stage realignment
       to a fiducial marker, automated beam drift correction in acquisition software,
-      or reanalysis of a reference point at regular intervals. Particularly relevant
-      for long mapping runs and high-magnification sessions where positional accuracy
-      affects data quality.'
+      or reanalysis of a reference point at regular intervals.'
     type: object
     properties:
       '@id':
@@ -12707,8 +12522,7 @@ $defs:
   semComposition_workingDistance:
     title: Working Distance
     description: Distance between the objective lens pole piece and the specimen surface
-      in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off
-      angle, and EBSD geometry.
+      in millimetres.
     type: object
     properties:
       '@id':
@@ -12768,9 +12582,7 @@ $defs:
     title: Dwell Time per Pixel
     description: Time the electron beam dwells on each pixel during raster scanning
       (imaging modes) or on each step position during compositional mapping (EDS and
-      WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves
-      signal-to-noise and counting statistics but increases total dose and can cause
-      beam damage or contamination on sensitive materials. For WDS mapping, the dwell
+      WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell
       time is per spectrometer per pixel.
     type: object
     properties:
@@ -12800,8 +12612,7 @@ $defs:
   semComposition_edsLiveTimePerPointOrPixel:
     title: EDS Live Time per Point or Pixel
     description: EDS spectral acquisition live time per analysis point or per pixel
-      in seconds. Longer live time improves counting statistics but increases beam
-      damage risk and total acquisition time.
+      in seconds.
     type: object
     properties:
       '@id':
@@ -12830,10 +12641,7 @@ $defs:
   semComposition_stepSizePixelSize:
     title: Step Size / Pixel Size
     description: "Centre-to-centre distance between adjacent measurement points (WDS
-      mapping) or pixels (EDS mapping) in \xB5m. Defines the spatial sampling interval
-      of the map and, together with the pixel-grid dimensions, determines the total
-      mapped area. Smaller step sizes increase spatial resolution but extend acquisition
-      time."
+      mapping) or pixels (EDS mapping) in \xB5m."
     type: object
     properties:
       '@id':
@@ -12861,9 +12669,8 @@ $defs:
     - schema:unitText
   semComposition_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds,
-      on each spectrometer assignment. Procedure specifies standard values; analysts
-      may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds.
+      Adjustments stay within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -12942,8 +12749,8 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  semComposition_backgroundCorrectionMethod:
-    title: Background Correction Method
+  semComposition_xRayBackgroundCorrectionMethod:
+    title: X-ray Background Correction Method
     description: 'Method used to estimate and subtract background X-ray intensity
       beneath the peak. For WDS: typically 2-point off-peak linear interpolation or
       Mean Atomic Number (MAN) background model. For EDS: spectral background fitting
@@ -12951,15 +12758,15 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/semCompositionTAPP/backgroundCorrectionMethod
+        const: ada:parameter/semCompositionTAPP/xRayBackgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/semCompositionTAPP/backgroundCorrectionMethod
+        - '@id': ada:parameter/semCompositionTAPP/xRayBackgroundCorrectionMethod
       schema:name:
-        const: Background Correction Method
+        const: X-ray Background Correction Method
       schema:value:
         type: string
     required:
@@ -12972,8 +12779,7 @@ $defs:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilisation or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point
-      analysis; uncommon for EDS or X-ray mapping.
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':
@@ -13046,8 +12852,10 @@ $defs:
     - schema:value
   semComposition_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied using secondary reference
-      materials to correct for session-to-session calibration drift.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -13128,10 +12936,15 @@ $defs:
     - schema:value
   semComposition_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
-    description: Name(s) of the primary reference material(s) used for intensity calibration
-      in EDS or WDS quantification. Include the material name, its source or supplier,
-      and a citation for the accepted values used, since results calibrated against
-      different published values for the same material are not directly comparable.
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
     type: object
     properties:
       '@id':
@@ -13154,9 +12967,10 @@ $defs:
     - schema:value
   semComposition_secondaryReferenceMaterials:
     title: Secondary Reference Materials
-    description: Quality-control reference material(s) analyzed alongside unknowns
-      to verify calibration accuracy. Include material name, assessed elements, number
-      of analyses (n), and measured vs. accepted values where available.
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
     type: object
     properties:
       '@id':
@@ -13179,9 +12993,10 @@ $defs:
     - schema:value
   semComposition_edsDetectorConfiguration:
     title: EDS Detector Configuration
-    description: EDS detector type, manufacturer, active area, solid angle, window
-      type, and geometry (take-off angle, position). Multiple detectors should be
-      listed separately.
+    description: EDS detector type, manufacturer, number of detector elements, active
+      area and solid angle, window type, and geometry (take-off angle, position).
+      List multiple detectors separately. Record 'N/A' where the procedure has no
+      EDS detector.
     type: object
     properties:
       '@id':
@@ -13229,11 +13044,9 @@ $defs:
     - schema:value
   semComposition_stageScanVsBeamScan:
     title: Stage Scan vs. Beam Scan
-    description: For mapping modes, records whether the map was acquired by moving
-      the stage while the beam is held fixed (stage scan) or by deflecting the beam
-      across the field while the stage is stationary (beam scan). Stage scan is preferred
-      for large areas or high-accuracy geometric fidelity; beam scan is faster for
-      smaller fields but may introduce geometric distortion at the map edges.
+    description: For mapping modes, whether the map was acquired by moving the stage
+      while the beam is held fixed (stage scan), or by deflecting the beam across
+      the field while the stage is stationary (beam scan).
     type: object
     properties:
       '@id':
@@ -13260,8 +13073,7 @@ $defs:
       per assignment. An analyte may be assigned to more than one spectrometer with
       intensities aggregated (aggregate intensity counting), and one spectrometer
       serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup. Different spectrometers
-      may have different crystal configurations."
+      \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -13285,9 +13097,8 @@ $defs:
   semComposition_sequence:
     title: Sequence
     description: Order in which spectrometer assignments are acquired during point
-      analysis. Relevant for minimizing beam damage (volatile elements measured first)
-      and for sequential multi-channel setups. Not applicable to X-ray mapping, where
-      all assigned spectrometers collect simultaneously at each pixel.
+      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
+      collect simultaneously at each pixel.
     type: object
     properties:
       '@id':
@@ -13312,8 +13123,7 @@ $defs:
     - schema:value
   semComposition_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used on each spectrometer assignment. Affects sensitivity
-      and count rate linearity.
+    description: Type of detector used.
     type: object
     properties:
       '@id':
@@ -13413,8 +13223,8 @@ $defs:
     - schema:value
   semComposition_interferingElements:
     title: Interfering Elements
-    description: Element(s) whose X-ray lines overlap with the measured peak for one
-      or more analytes, requiring a correction.
+    description: Element(s) whose X-ray lines overlap with the measured peak, requiring
+      a correction.
     type: object
     properties:
       '@id':
@@ -13438,7 +13248,7 @@ $defs:
   semComposition_interferenceCorrectionStandard:
     title: Interference Correction Standard
     description: Reference material used to quantify and calibrate the interference
-      correction for each affected analyte.
+      correction.
     type: object
     properties:
       '@id':
@@ -13461,11 +13271,10 @@ $defs:
     - schema:value
   semFibsem_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -13517,13 +13326,10 @@ $defs:
     - schema:value
   semFibsem_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Method by which samples were prepared for SEM analysis prior to loading
-      in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing
-      steps (alumina, colloidal silica, argon ion mill), and conductive coating type
-      and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was
-      used and the gas type used. FIB-specific in-session operations (protective coating
-      deposition, milling conditions, lamella preparation) are documented separately
-      in Group 4.
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -13571,26 +13377,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  semFibsem_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  semFibsem_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/semFibsemTAPP/targetSelectionCriteria
+        const: ada:parameter/semFibsemTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/semFibsemTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/semFibsemTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -13602,11 +13410,11 @@ $defs:
   semFibsem_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -13655,10 +13463,7 @@ $defs:
     - schema:value
   semFibsem_acceleratingVoltage:
     title: Accelerating Voltage
-    description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
-      depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration.
-      Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high
-      voltages (15-20 kV) improve X-ray generation for quantitative analysis.
+    description: Electron beam accelerating voltage in kilovolts.
     type: object
     properties:
       '@id':
@@ -13686,10 +13491,8 @@ $defs:
     - schema:unitText
   semFibsem_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. Higher current improves signal-to-noise
-      for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce
-      spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g.,
-      0.4 nA).
+    description: Electron beam probe current. For sub-nA values use decimal notation
+      (e.g., 0.4 nA).
     type: object
     properties:
       '@id':
@@ -13718,8 +13521,7 @@ $defs:
   semFibsem_workingDistance:
     title: Working Distance
     description: Distance between the objective lens pole piece and the specimen surface
-      in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off
-      angle, and EBSD geometry.
+      in millimetres.
     type: object
     properties:
       '@id':
@@ -13747,12 +13549,8 @@ $defs:
     - schema:unitText
   semFibsem_dwellTimePerPixel:
     title: Dwell Time per Pixel
-    description: Time the electron beam dwells on each pixel during raster scanning
-      (imaging modes) or on each step position during compositional mapping (EDS and
-      WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves
-      signal-to-noise and counting statistics but increases total dose and can cause
-      beam damage or contamination on sensitive materials. For WDS mapping, the dwell
-      time is per spectrometer per pixel.
+    description: Time the electron beam dwells on each pixel during raster scanning,
+      or on each step position during mapping, in microseconds or milliseconds.
     type: object
     properties:
       '@id':
@@ -13781,10 +13579,9 @@ $defs:
   semFibsem_protectiveCoatingDeposition:
     title: Protective Coating Deposition
     description: 'Type and deposition conditions of the protective coating applied
-      to the sample surface before FIB milling. E-beam deposition causes less surface
-      damage than ion-beam deposition and should be applied as the initial layer.
-      Typical coatings: platinum (Pt) or carbon (C). State material, deposition method,
-      beam conditions, and approximate thickness.'
+      to the sample surface before FIB milling. E-beam deposition should be applied
+      as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material,
+      deposition method, beam conditions, and approximate thickness.'
     type: object
     properties:
       '@id':
@@ -13834,8 +13631,7 @@ $defs:
   semFibsem_finePolishingConditions:
     title: Fine Polishing Conditions
     description: Ion beam voltage and current for final thinning and surface polishing
-      of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation
-      depth, surface amorphisation, and curtaining artifacts.
+      of the TEM lamella.
     type: object
     properties:
       '@id':
@@ -13858,9 +13654,8 @@ $defs:
     - schema:value
   semFibsem_foilThickness:
     title: Foil Thickness
-    description: 'Target thickness of the electron-transparent TEM lamella after final
-      FIB polishing, in nanometres. Actual thickness may differ from target. Typical
-      range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.'
+    description: Target thickness of the electron-transparent TEM lamella after final
+      FIB polishing, in nanometres. Actual thickness may differ from target.
     type: object
     properties:
       '@id':
@@ -13889,8 +13684,7 @@ $defs:
   semFibsem_ionMillingConditions:
     title: Ion Milling Conditions (3D Tomography)
     description: Ion beam voltage and current used to mill each slice during FIB-SEM
-      serial sectioning. These parameters determine material removal rate per slice
-      and exposed surface quality.
+      serial sectioning.
     type: object
     properties:
       '@id':
@@ -13914,7 +13708,6 @@ $defs:
   semFibsem_sliceThickness:
     title: Slice Thickness
     description: Thickness of each FIB-milled slice during serial sectioning in nanometres.
-      Controls the Z-axis resolution of the 3D reconstruction.
     type: object
     properties:
       '@id':
@@ -13965,23 +13758,22 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  semFibsem_segmentationMethod3D:
-    title: 3D Segmentation Method
-    description: Method and software used to segment phases and features in the aligned
-      3D image stack, transforming the grayscale stack into labelled 3D regions (pores,
-      mineral phases, grain boundaries, organic matter).
+  semFibsem_segmentationMethod:
+    title: Segmentation Method
+    description: Method and software used to separate distinct phases or features
+      in the reconstructed 3D volume, turning the grayscale volume into labelled regions.
     type: object
     properties:
       '@id':
-        const: ada:parameter/semFibsemTAPP/segmentationMethod3D
+        const: ada:parameter/semFibsemTAPP/segmentationMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/semFibsemTAPP/segmentationMethod3D
+        - '@id': ada:parameter/semFibsemTAPP/segmentationMethod
       schema:name:
-        const: 3D Segmentation Method
+        const: Segmentation Method
       schema:value:
         type: string
     required:
@@ -14021,11 +13813,10 @@ $defs:
     - schema:value
   semImaging_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -14077,13 +13868,10 @@ $defs:
     - schema:value
   semImaging_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Method by which samples were prepared for SEM analysis prior to loading
-      in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing
-      steps (alumina, colloidal silica, argon ion mill), and conductive coating type
-      and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was
-      used and the gas type used. FIB-specific in-session operations (protective coating
-      deposition, milling conditions, lamella preparation) are documented separately
-      in Group 4.
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -14131,26 +13919,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  semImaging_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  semImaging_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/semImagingTAPP/targetSelectionCriteria
+        const: ada:parameter/semImagingTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/semImagingTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/semImagingTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -14162,11 +13952,11 @@ $defs:
   semImaging_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -14215,10 +14005,7 @@ $defs:
     - schema:value
   semImaging_acceleratingVoltage:
     title: Accelerating Voltage
-    description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
-      depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration.
-      Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high
-      voltages (15-20 kV) improve X-ray generation for quantitative analysis.
+    description: Electron beam accelerating voltage in kilovolts.
     type: object
     properties:
       '@id':
@@ -14246,10 +14033,8 @@ $defs:
     - schema:unitText
   semImaging_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. Higher current improves signal-to-noise
-      for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce
-      spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g.,
-      0.4 nA).
+    description: Electron beam probe current. For sub-nA values use decimal notation
+      (e.g., 0.4 nA).
     type: object
     properties:
       '@id':
@@ -14278,8 +14063,7 @@ $defs:
   semImaging_workingDistance:
     title: Working Distance
     description: Distance between the objective lens pole piece and the specimen surface
-      in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off
-      angle, and EBSD geometry.
+      in millimetres.
     type: object
     properties:
       '@id':
@@ -14337,12 +14121,8 @@ $defs:
     - schema:unitText
   semImaging_dwellTimePerPixel:
     title: Dwell Time per Pixel
-    description: Time the electron beam dwells on each pixel during raster scanning
-      (imaging modes) or on each step position during compositional mapping (EDS and
-      WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves
-      signal-to-noise and counting statistics but increases total dose and can cause
-      beam damage or contamination on sensitive materials. For WDS mapping, the dwell
-      time is per spectrometer per pixel.
+    description: Time the electron beam dwells on each pixel during raster scanning,
+      or on each step position during mapping, in microseconds or milliseconds.
     type: object
     properties:
       '@id':
@@ -14371,8 +14151,7 @@ $defs:
   semImaging_clIntegrationTime:
     title: CL Integration Time
     description: Acquisition time per pixel (hyperspectral map mode) or per spectrum
-      (spectral point mode), in ms or s. Longer integration improves signal-to-noise
-      but increases beam dose and acquisition time.
+      (spectral point mode), in ms or s.
     type: object
     properties:
       '@id':
@@ -14401,8 +14180,7 @@ $defs:
   semImaging_ebsdStepSize:
     title: EBSD Step Size
     description: "Distance between adjacent EBSD measurement points in the map in
-      nm or \xB5m. Must be smaller than the smallest grain of interest to resolve
-      grain boundary positions and intragrain orientation gradients."
+      nm or \xB5m. Must be smaller than the smallest grain of interest."
     type: object
     properties:
       '@id':
@@ -14431,8 +14209,6 @@ $defs:
   semImaging_ebsdFrameTime:
     title: EBSD Frame Time
     description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
-      Longer frame time improves pattern quality and indexing rate but increases total
-      acquisition time.
     type: object
     properties:
       '@id':
@@ -14461,8 +14237,8 @@ $defs:
   semImaging_ebsdPhaseList:
     title: EBSD Phase List
     description: Mineral phases included in the EBSD reference pattern library for
-      this procedure. The procedure specifies the expected phase suite for the target
-      material; analysts may add phases for specific sample compositions.
+      this procedure. Phases may be added for specific sample compositions beyond
+      the expected suite for the target material.
     type: object
     properties:
       '@id':
@@ -14637,13 +14413,2451 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionMcicpms_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_digestionTemperature:
+    title: Digestion Temperature
+    description: "Temperature at which acid digestion was carried out (\xB0C)."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/digestionTemperature
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/digestionTemperature
+      schema:name:
+        const: Digestion Temperature
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_digestionDuration:
+    title: Digestion Duration
+    description: Duration of the primary acid digestion step (hours or days).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/digestionDuration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/digestionDuration
+      schema:name:
+        const: Digestion Duration
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_sampleAliquotMassOrVolume:
+    title: Sample Aliquot Mass or Volume
+    description: Mass (mg) of solid material digested or volume (mL) of liquid taken
+      for dissolution.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
+      schema:name:
+        const: Sample Aliquot Mass or Volume
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_instrumentSerialNumberOrLabIdentifier:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific
+      instrument unit.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_torchDepth:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also
+      called injector depth or torch position depending on the instrument manufacturer.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/torchDepth
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/torchDepth
+      schema:name:
+        const: Torch Depth
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_massResolutionSetting:
+    title: Mass Resolution Setting
+    description: Operating mass resolution of the mass analyser. Where the analyser
+      permits selection, state the mode; where individual analytes are assigned to
+      different modes, state each.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/massResolutionSetting
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/massResolutionSetting
+      schema:name:
+        const: Mass Resolution Setting
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_sampleUptakeRate:
+    title: Sample Uptake Rate
+    description: "Peristaltic pump speed or self-aspiration flow rate for sample introduction
+      (\xB5L/min or mL/min)."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
+      schema:name:
+        const: Sample Uptake Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_rfPower:
+    title: RF Power
+    description: Radiofrequency forward power applied to the ICP, in watts.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/rfPower
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/rfPower
+      schema:name:
+        const: RF Power
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_coolantGasFlowRate:
+    title: Coolant (Plasma) Gas Flow Rate
+    description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains
+      the ICP plasma, in L/min.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate
+      schema:name:
+        const: Coolant (Plasma) Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_auxiliaryGasFlowRate:
+    title: Auxiliary Gas Flow Rate
+    description: Flow rate of the intermediate (auxiliary) argon gas stream, between
+      the torch body and the injector tube, which positions the plasma relative to
+      the load coil, in L/min. Distinct from the outer coolant (plasma) gas and from
+      the gas stream that carries sample into the plasma.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate
+      schema:name:
+        const: Auxiliary Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_nebulizerGasFlowRate:
+    title: Nebulizer Gas Flow Rate
+    description: Flow rate of the carrier argon gas delivered through the nebulizer
+      (L/min).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
+      schema:name:
+        const: Nebulizer Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_makeUpGasAndFlowRate:
+    title: Make-up Gas and Flow Rate
+    description: Supplementary gas added to the sample-carrying stream between the
+      sample introduction system and the plasma, with its identity and the procedure-registered
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate
+      schema:name:
+        const: Make-up Gas and Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_icpTuning:
+    title: ICP Tuning
+    description: Description of the approach used to optimise ICP plasma conditions
+      prior to analysis, including the reference material used for tuning and the
+      acceptance criteria (e.g., oxide production threshold, sensitivity targets,
+      mass calibration).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/icpTuning
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/icpTuning
+      schema:name:
+        const: ICP Tuning
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_instrumentSensitivity:
+    title: Instrument Sensitivity
+    description: "Instrument sensitivity achieved in the session, with the isotope
+      or channel it was measured on and the conditions it applies to. May be expressed
+      either as detected signal per unit concentration or per unit mass of analyte
+      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
+      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/instrumentSensitivity
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/instrumentSensitivity
+      schema:name:
+        const: Instrument Sensitivity
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_numberOfBlocksPerMeasurement:
+    title: Number of Blocks per Measurement
+    description: Number of measurement blocks acquired per sample or standard solution
+      introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block
+      typically begins with a baseline (on-peak zero) measurement before the analytical
+      cycles. Adjust for samples with low signal or where higher precision is required.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement
+      schema:name:
+        const: Number of Blocks per Measurement
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_numberOfCyclesPerBlock:
+    title: Number of Cycles per Block
+    description: "Number of measurement cycles acquired per block. One cycle corresponds
+      to a single set of simultaneous Faraday cup readings integrated for the duration
+      specified in Integration Time per Cycle. Total integration time per sample =
+      (Number of Cycles per Block) \xD7 (Integration Time per Cycle) \xD7 (Number
+      of Blocks per Measurement)."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock
+      schema:name:
+        const: Number of Cycles per Block
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_integrationTimePerCycle:
+    title: Integration Time per Cycle
+    description: Duration of signal integration per measurement cycle (seconds). Where
+      different isotope channels use different integration schemes, record the time
+      for each channel.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/integrationTimePerCycle
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/integrationTimePerCycle
+      schema:name:
+        const: Integration Time per Cycle
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_analysisSequence:
+    title: Analysis Sequence
+    description: The repeating order in which calibration or bracketing standards,
+      quality-control and secondary reference materials, blanks and unknowns are interleaved
+      within a measurement session. Adjustments must maintain the bracketing strategy
+      defined in the procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/analysisSequence
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/analysisSequence
+      schema:name:
+        const: Analysis Sequence
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_collisionGasFlowRate:
+    title: Collision Gas Flow Rate
+    description: Flow rate of the collision gas, typically He, introduced into the
+      collision/reaction cell in KED mode, in mL/min. Record 'None' if the cell is
+      in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does
+      not include KED or the instrument has no cell.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate
+      schema:name:
+        const: Collision Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_cellExitDiscriminationVoltage:
+    title: Cell Exit Discrimination Voltage
+    description: Bias voltage applied at the collision/reaction cell exit to discriminate
+      between analyte ions and low-energy polyatomic interferences in KED mode, in
+      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      Cell (CRC) Configuration does not include KED or the instrument has no cell.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage
+      schema:name:
+        const: Cell Exit Discrimination Voltage
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_reactionGasFlowRate:
+    title: Reaction Gas Flow Rate
+    description: Flow rate of the reactive gas introduced into the dynamic reaction
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate
+      schema:name:
+        const: Reaction Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_ionCounterDeadTime:
+    title: Ion Counter Dead Time
+    description: Dead time of each ion-counting detector channel, used in the dead-time
+      correction applied to high count rates. Distinct from pulse/analog cross-calibration,
+      which relates the two detector modes rather than correcting counting losses
+      within the pulse-counting mode.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/ionCounterDeadTime
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/ionCounterDeadTime
+      schema:name:
+        const: Ion Counter Dead Time
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of
+      gases rather than a single gas, the identities and proportions of that mixture.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_doubleSpikeMixingRatio:
+    title: Double-Spike Mixing Ratio
+    description: "Target proportion of double-spike signal relative to total analyte
+      signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
+      ratio. The optimum is analyte-system specific and is typically determined using
+      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
+      from the target within acceptable bounds (typically \xB120% of optimal); the
+      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
+      the procedure does not use a double spike."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio
+      schema:name:
+        const: Double-Spike Mixing Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_spikeOutlierFilteringApproach:
+    title: Spike / Outlier Filtering Approach
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach
+      schema:name:
+        const: Spike / Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_memoryEffectMitigation:
+    title: Memory Effect Mitigation
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation
+      schema:name:
+        const: Memory Effect Mitigation
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_uncertaintyPropagationMethod:
+    title: Uncertainty Propagation Method
+    description: 'The approach used to propagate analytical uncertainty through the
+      data reduction chain to the final reported value. State which sources are included
+      in the propagation: counting statistics, calibration standard uncertainty, internal
+      standard uncertainty, drift correction, and any systematic contributions. Distinct
+      from Uncertainty Level, which states the convention at which the resulting uncertainty
+      is quoted.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod
+      schema:name:
+        const: Uncertainty Propagation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_normalizationStandardsBasedCorrection:
+    title: Normalization / Standards-Based Correction
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_primaryCalibrationStandardName:
+    title: Primary Calibration Standard Name
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/primaryCalibrationStandardName
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/primaryCalibrationStandardName
+      schema:name:
+        const: Primary Calibration Standard Name
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_secondaryReferenceMaterials:
+    title: Secondary Reference Materials
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/secondaryReferenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/secondaryReferenceMaterials
+      schema:name:
+        const: Secondary Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_torchType:
+    title: Torch Type
+    description: Type of plasma torch installed (e.g. standard quartz, high-matrix,
+      low-flow).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/torchType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/torchType
+      schema:name:
+        const: Torch Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_samplerAndSkimmerConeMaterial:
+    title: Sampler and Skimmer Cone Material
+    description: Material composition of the sampler and skimmer cones. State both
+      sampler and skimmer materials; a single statement is acceptable where they are
+      identical.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/samplerAndSkimmerConeMaterial
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/samplerAndSkimmerConeMaterial
+      schema:name:
+        const: Sampler and Skimmer Cone Material
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_desolvationSystem:
+    title: Desolvation System
+    description: Desolvating nebulizer or membrane desolvator used upstream of the
+      plasma to reduce solvent load. Record 'None' if not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/desolvationSystem
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/desolvationSystem
+      schema:name:
+        const: Desolvation System
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_instrumentWarmUpSessionDurationLimit:
+    title: Instrument Warm-up / Session Duration Limit
+    description: Minimum warm-up time required after plasma ignition before analyses
+      begin, and any maximum session duration enforced to maintain stable operating
+      conditions.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/instrumentWarmUpSessionDurationLimit
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/instrumentWarmUpSessionDurationLimit
+      schema:name:
+        const: Instrument Warm-up / Session Duration Limit
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_reactionGasType:
+    title: Reaction Gas Type
+    description: "Type of reactive gas introduced into the cell for interference removal
+      through ION-MOLECULE CHEMISTRY, either on-mass or by mass shift. Common reaction
+      gases include NH\u2083 (e.g., for Fe, Ca, K isotopes), O\u2082 (e.g., for As,
+      Ge, Te mass shift) and CH\u2084. The distinction from Collision Gas Type is
+      the mechanism, not the gas: record a gas here when a reaction is intended. Record
+      'None' if no reactive gas is used, and 'N/A' where Collision/Reaction Cell (CRC)
+      Configuration does not include a reaction mode or the instrument has no cell."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/reactionGasType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/reactionGasType
+      schema:name:
+        const: Reaction Gas Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_internalStandardConcentration:
+    title: Internal Standard Concentration
+    description: "Target concentration of internal standard element(s) in all measured
+      solutions (\xB5g/L or ppb). Record 'N/A' where Internal Standard Element is
+      'None'."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration
+      schema:name:
+        const: Internal Standard Concentration
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction
+      cell, the precursor ion, the reagent gas and the product ion measured. Records
+      the mass-shift chemistry relating the mass measured to the analyte it reports,
+      which the monitored mass alone does not state. Record 'N/A' where the analyte
+      is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_digestionTemperature:
+    title: Digestion Temperature
+    description: "Temperature at which acid digestion was carried out (\xB0C)."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/digestionTemperature
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/digestionTemperature
+      schema:name:
+        const: Digestion Temperature
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_digestionDuration:
+    title: Digestion Duration
+    description: Duration of the primary acid digestion step (hours or days).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/digestionDuration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/digestionDuration
+      schema:name:
+        const: Digestion Duration
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_sampleAliquotMassOrVolume:
+    title: Sample Aliquot Mass or Volume
+    description: Mass (mg) of solid material digested or volume (mL) of liquid taken
+      for dissolution.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
+      schema:name:
+        const: Sample Aliquot Mass or Volume
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_instrumentSerialNumberOrLabIdentifier:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific
+      instrument unit.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_torchDepth:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also
+      called injector depth or torch position depending on the instrument manufacturer.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/torchDepth
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/torchDepth
+      schema:name:
+        const: Torch Depth
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_massResolutionSetting:
+    title: Mass Resolution Setting
+    description: Operating mass resolution of the mass analyser. Where the analyser
+      permits selection, state the mode; where individual analytes are assigned to
+      different modes, state each.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/massResolutionSetting
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/massResolutionSetting
+      schema:name:
+        const: Mass Resolution Setting
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_sampleUptakeRate:
+    title: Sample Uptake Rate
+    description: "Peristaltic pump speed or self-aspiration flow rate for sample introduction
+      (\xB5L/min or mL/min)."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
+      schema:name:
+        const: Sample Uptake Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_rfPower:
+    title: RF Power
+    description: Radiofrequency forward power applied to the ICP, in watts.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/rfPower
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/rfPower
+      schema:name:
+        const: RF Power
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_coolantGasFlowRate:
+    title: Coolant (Plasma) Gas Flow Rate
+    description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains
+      the ICP plasma, in L/min.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
+      schema:name:
+        const: Coolant (Plasma) Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_auxiliaryGasFlowRate:
+    title: Auxiliary Gas Flow Rate
+    description: Flow rate of the intermediate (auxiliary) argon gas stream, between
+      the torch body and the injector tube, which positions the plasma relative to
+      the load coil, in L/min. Distinct from the outer coolant (plasma) gas and from
+      the gas stream that carries sample into the plasma.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
+      schema:name:
+        const: Auxiliary Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_nebulizerGasFlowRate:
+    title: Nebulizer Gas Flow Rate
+    description: Flow rate of the carrier argon gas delivered through the nebulizer
+      (L/min).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
+      schema:name:
+        const: Nebulizer Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_makeUpGasAndFlowRate:
+    title: Make-up Gas and Flow Rate
+    description: Supplementary gas added to the sample-carrying stream between the
+      sample introduction system and the plasma, with its identity and the procedure-registered
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
+      schema:name:
+        const: Make-up Gas and Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_icpTuning:
+    title: ICP Tuning
+    description: Description of the approach used to optimise ICP plasma conditions
+      prior to analysis, including the reference material used for tuning and the
+      acceptance criteria (e.g., oxide production threshold, sensitivity targets,
+      mass calibration).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/icpTuning
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/icpTuning
+      schema:name:
+        const: ICP Tuning
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_instrumentSensitivity:
+    title: Instrument Sensitivity
+    description: "Instrument sensitivity achieved in the session, with the isotope
+      or channel it was measured on and the conditions it applies to. May be expressed
+      either as detected signal per unit concentration or per unit mass of analyte
+      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
+      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/instrumentSensitivity
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/instrumentSensitivity
+      schema:name:
+        const: Instrument Sensitivity
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_analysisSequence:
+    title: Analysis Sequence
+    description: The repeating order in which calibration or bracketing standards,
+      quality-control and secondary reference materials, blanks and unknowns are interleaved
+      within a measurement session. Adjustments must maintain the bracketing strategy
+      defined in the procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/analysisSequence
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/analysisSequence
+      schema:name:
+        const: Analysis Sequence
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_collisionGasFlowRate:
+    title: Collision Gas Flow Rate
+    description: Flow rate of the collision gas, typically He, introduced into the
+      collision/reaction cell in KED mode, in mL/min. Record 'None' if the cell is
+      in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does
+      not include KED or the instrument has no cell.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
+      schema:name:
+        const: Collision Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_cellExitDiscriminationVoltage:
+    title: Cell Exit Discrimination Voltage
+    description: Bias voltage applied at the collision/reaction cell exit to discriminate
+      between analyte ions and low-energy polyatomic interferences in KED mode, in
+      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      Cell (CRC) Configuration does not include KED or the instrument has no cell.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
+      schema:name:
+        const: Cell Exit Discrimination Voltage
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_reactionGasFlowRate:
+    title: Reaction Gas Flow Rate
+    description: Flow rate of the reactive gas introduced into the dynamic reaction
+      cell (DRC), in mL/min. Record 'None' if DRC mode is not used, and 'N/A' where
+      Collision/Reaction Cell (CRC) Configuration does not include DRC or the instrument
+      has no cell.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
+      schema:name:
+        const: Reaction Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of
+      gases rather than a single gas, the identities and proportions of that mixture.
+      Recorded separately from the gas identity. Record 'N/A' where a single gas is
+      used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_doublyChargedSpeciesMonitor:
+    title: Doubly-Charged Species Monitor
+    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
+      during instrument tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_doublyChargedSpeciesProduction:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction
+      schema:name:
+        const: Doubly-Charged Species Production
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_ionCounterDeadTime:
+    title: Ion Counter Dead Time
+    description: Dead time of each ion-counting detector channel, used in the dead-time
+      correction applied to high count rates. Distinct from pulse/analog cross-calibration,
+      which relates the two detector modes rather than correcting counting losses
+      within the pulse-counting mode.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/ionCounterDeadTime
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/ionCounterDeadTime
+      schema:name:
+        const: Ion Counter Dead Time
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_spikeOutlierFilteringApproach:
+    title: Spike / Outlier Filtering Approach
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach
+      schema:name:
+        const: Spike / Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_pulseAnalogDetectorNonlinearityCorrection:
+    title: Pulse/Analog Detector Nonlinearity Correction
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
+      schema:name:
+        const: Pulse/Analog Detector Nonlinearity Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_memoryEffectMitigation:
+    title: Memory Effect Mitigation
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation
+      schema:name:
+        const: Memory Effect Mitigation
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_uncertaintyPropagationMethod:
+    title: Uncertainty Propagation Method
+    description: 'The approach used to propagate analytical uncertainty through the
+      data reduction chain to the final reported value. State which sources are included
+      in the propagation: counting statistics, calibration standard uncertainty, internal
+      standard uncertainty, drift correction, and any systematic contributions. Distinct
+      from Uncertainty Level, which states the convention at which the resulting uncertainty
+      is quoted.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod
+      schema:name:
+        const: Uncertainty Propagation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_normalizationStandardsBasedCorrection:
+    title: Normalization / Standards-Based Correction
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_primaryCalibrationStandardName:
+    title: Primary Calibration Standard Name
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
+      schema:name:
+        const: Primary Calibration Standard Name
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_secondaryReferenceMaterials:
+    title: Secondary Reference Materials
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
+      schema:name:
+        const: Secondary Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_torchType:
+    title: Torch Type
+    description: Type of plasma torch installed (e.g. standard quartz, high-matrix,
+      low-flow).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/torchType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/torchType
+      schema:name:
+        const: Torch Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_samplerAndSkimmerConeMaterial:
+    title: Sampler and Skimmer Cone Material
+    description: Material composition of the sampler and skimmer cones. State both
+      sampler and skimmer materials; a single statement is acceptable where they are
+      identical.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
+      schema:name:
+        const: Sampler and Skimmer Cone Material
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_desolvationSystem:
+    title: Desolvation System
+    description: Desolvating nebulizer or membrane desolvator used upstream of the
+      plasma to reduce solvent load. Record 'None' if not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/desolvationSystem
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/desolvationSystem
+      schema:name:
+        const: Desolvation System
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_instrumentWarmUpSessionDurationLimit:
+    title: Instrument Warm-up / Session Duration Limit
+    description: Minimum warm-up time required after plasma ignition before analyses
+      begin, and any maximum session duration enforced to maintain stable operating
+      conditions.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/instrumentWarmUpSessionDurationLimit
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/instrumentWarmUpSessionDurationLimit
+      schema:name:
+        const: Instrument Warm-up / Session Duration Limit
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_reactionGasType:
+    title: Reaction Gas Type
+    description: "Type of reactive gas introduced into the cell for interference removal
+      through ION-MOLECULE CHEMISTRY, either on-mass or by mass shift. Common reaction
+      gases include NH\u2083 (e.g., for Fe, Ca, K isotopes), O\u2082 (e.g., for As,
+      Ge, Te mass shift) and CH\u2084. The distinction from Collision Gas Type is
+      the mechanism, not the gas: record a gas here when a reaction is intended. Record
+      'None' if no reactive gas is used, and 'N/A' where Collision/Reaction Cell (CRC)
+      Configuration does not include a reaction mode or the instrument has no cell."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/reactionGasType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/reactionGasType
+      schema:name:
+        const: Reaction Gas Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction
+      cell, the precursor ion, the reagent gas and the product ion measured. Records
+      the mass-shift chemistry relating the mass measured to the analyte it reports,
+      which the monitored mass alone does not state. Record 'N/A' where the analyte
+      is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_internalStandardConcentration:
+    title: Internal Standard Concentration
+    description: "Target concentration of internal standard element(s) in all measured
+      solutions (\xB5g/L or ppb). Record 'N/A' where Internal Standard Element is
+      'None'."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
+      schema:name:
+        const: Internal Standard Concentration
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   sem_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -14695,13 +16909,10 @@ $defs:
     - schema:value
   sem_samplePreparationMethod:
     title: Sample Preparation Method
-    description: Method by which samples were prepared for SEM analysis prior to loading
-      in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing
-      steps (alumina, colloidal silica, argon ion mill), and conductive coating type
-      and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was
-      used and the gas type used. FIB-specific in-session operations (protective coating
-      deposition, milling conditions, lamella preparation) are documented separately
-      in Group 4.
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
     type: object
     properties:
       '@id':
@@ -14749,26 +16960,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  sem_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  sem_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/semTAPP/targetSelectionCriteria
+        const: ada:parameter/semTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/semTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/semTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -14780,11 +16993,11 @@ $defs:
   sem_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -14833,10 +17046,7 @@ $defs:
     - schema:value
   sem_acceleratingVoltage:
     title: Accelerating Voltage
-    description: Electron beam accelerating voltage in kilovolts. Affects X-ray generation
-      depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration.
-      Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high
-      voltages (15-20 kV) improve X-ray generation for quantitative analysis.
+    description: Electron beam accelerating voltage in kilovolts.
     type: object
     properties:
       '@id':
@@ -14864,10 +17074,8 @@ $defs:
     - schema:unitText
   sem_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. Higher current improves signal-to-noise
-      for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce
-      spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g.,
-      0.4 nA).
+    description: Electron beam probe current. For sub-nA values use decimal notation
+      (e.g., 0.4 nA).
     type: object
     properties:
       '@id':
@@ -14897,9 +17105,8 @@ $defs:
     title: Beam Diameter
     description: Nominal electron beam diameter (spot size) at the sample surface,
       in nanometres or micrometres, as set by the condenser aperture and working distance.
-      Controls the spatial resolution and X-ray excitation volume. For mapping modes,
-      the effective spatial sampling interval is further defined by Step Size / Pixel
-      Size.
+      For mapping modes, the effective spatial sampling interval is further defined
+      by Step Size / Pixel Size.
     type: object
     properties:
       '@id':
@@ -14927,10 +17134,10 @@ $defs:
     - schema:unitText
   sem_beamRasterDimensions:
     title: Beam Raster Dimensions
-    description: "Dimensions of the small area over which the beam is rastered during
+    description: "Dimensions of the small area over which the beam is rastered at
       a single analysis point, reported as width \xD7 height in \xB5m. Applicable
-      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement
-      and distributes dose over a larger area to reduce beam damage on sensitive phases."
+      when Beam Mode = Rastered; defines the effective spatial footprint of the measurement.
+      Not applicable when mapping."
     type: object
     properties:
       '@id':
@@ -14961,8 +17168,7 @@ $defs:
     description: 'Describes any measures taken to reduce electron beam damage to the
       sample during analysis. Examples: reduced accelerating voltage, lowered beam
       current, defocused or rastered beam, cooled stage, short acquisition sequences,
-      or rotating between multiple points. Particularly important for volatile-bearing
-      phases, hydrous minerals, glasses, organic materials, and biological samples.'
+      or rotating between multiple points.'
     type: object
     properties:
       '@id':
@@ -14988,9 +17194,7 @@ $defs:
     description: 'Describes whether and how stage or beam drift was monitored and
       corrected during the measurement session. Examples: periodic stage realignment
       to a fiducial marker, automated beam drift correction in acquisition software,
-      or reanalysis of a reference point at regular intervals. Particularly relevant
-      for long mapping runs and high-magnification sessions where positional accuracy
-      affects data quality.'
+      or reanalysis of a reference point at regular intervals.'
     type: object
     properties:
       '@id':
@@ -15014,8 +17218,7 @@ $defs:
   sem_workingDistance:
     title: Working Distance
     description: Distance between the objective lens pole piece and the specimen surface
-      in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off
-      angle, and EBSD geometry.
+      in millimetres.
     type: object
     properties:
       '@id':
@@ -15075,9 +17278,7 @@ $defs:
     title: Dwell Time per Pixel
     description: Time the electron beam dwells on each pixel during raster scanning
       (imaging modes) or on each step position during compositional mapping (EDS and
-      WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves
-      signal-to-noise and counting statistics but increases total dose and can cause
-      beam damage or contamination on sensitive materials. For WDS mapping, the dwell
+      WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell
       time is per spectrometer per pixel.
     type: object
     properties:
@@ -15110,11 +17311,9 @@ $defs:
       at whatever resolution the chemistry is resolved \u2014 element(s) for this
       technique; valence species where a procedure resolves oxidation state; compounds
       where it resolves molecules. Isotopes are not analytes: isotopes of an element
-      are the same chemical species. The procedure registers the full analyte suite;
-      at analysis level the analyst records the specific subset actually measured
-      in the session, which may be narrower if species were excluded due to interferences
-      or scope reduction. Fields whose Keyed By column declares 'analyte' apply individually
-      to each entry in this list."
+      are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
     type: object
     properties:
       '@id':
@@ -15138,8 +17337,7 @@ $defs:
   sem_edsLiveTimePerPointOrPixel:
     title: EDS Live Time per Point or Pixel
     description: EDS spectral acquisition live time per analysis point or per pixel
-      in seconds. Longer live time improves counting statistics but increases beam
-      damage risk and total acquisition time.
+      in seconds.
     type: object
     properties:
       '@id':
@@ -15168,10 +17366,7 @@ $defs:
   sem_stepSizePixelSize:
     title: Step Size / Pixel Size
     description: "Centre-to-centre distance between adjacent measurement points (WDS
-      mapping) or pixels (EDS mapping) in \xB5m. Defines the spatial sampling interval
-      of the map and, together with the pixel-grid dimensions, determines the total
-      mapped area. Smaller step sizes increase spatial resolution but extend acquisition
-      time."
+      mapping) or pixels (EDS mapping) in \xB5m."
     type: object
     properties:
       '@id':
@@ -15199,9 +17394,8 @@ $defs:
     - schema:unitText
   sem_peakCountingTime:
     title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds,
-      on each spectrometer assignment. Procedure specifies standard values; analysts
-      may adjust within procedure-defined bounds.
+    description: Time spent counting X-ray intensity at the peak position, in seconds.
+      Adjustments stay within procedure-defined bounds.
     type: object
     properties:
       '@id':
@@ -15283,8 +17477,7 @@ $defs:
   sem_clIntegrationTime:
     title: CL Integration Time
     description: Acquisition time per pixel (hyperspectral map mode) or per spectrum
-      (spectral point mode), in ms or s. Longer integration improves signal-to-noise
-      but increases beam dose and acquisition time.
+      (spectral point mode), in ms or s.
     type: object
     properties:
       '@id':
@@ -15313,8 +17506,7 @@ $defs:
   sem_ebsdStepSize:
     title: EBSD Step Size
     description: "Distance between adjacent EBSD measurement points in the map in
-      nm or \xB5m. Must be smaller than the smallest grain of interest to resolve
-      grain boundary positions and intragrain orientation gradients."
+      nm or \xB5m. Must be smaller than the smallest grain of interest."
     type: object
     properties:
       '@id':
@@ -15343,8 +17535,6 @@ $defs:
   sem_ebsdFrameTime:
     title: EBSD Frame Time
     description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
-      Longer frame time improves pattern quality and indexing rate but increases total
-      acquisition time.
     type: object
     properties:
       '@id':
@@ -15373,8 +17563,8 @@ $defs:
   sem_ebsdPhaseList:
     title: EBSD Phase List
     description: Mineral phases included in the EBSD reference pattern library for
-      this procedure. The procedure specifies the expected phase suite for the target
-      material; analysts may add phases for specific sample compositions.
+      this procedure. Phases may be added for specific sample compositions beyond
+      the expected suite for the target material.
     type: object
     properties:
       '@id':
@@ -15398,10 +17588,9 @@ $defs:
   sem_protectiveCoatingDeposition:
     title: Protective Coating Deposition
     description: 'Type and deposition conditions of the protective coating applied
-      to the sample surface before FIB milling. E-beam deposition causes less surface
-      damage than ion-beam deposition and should be applied as the initial layer.
-      Typical coatings: platinum (Pt) or carbon (C). State material, deposition method,
-      beam conditions, and approximate thickness.'
+      to the sample surface before FIB milling. E-beam deposition should be applied
+      as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material,
+      deposition method, beam conditions, and approximate thickness.'
     type: object
     properties:
       '@id':
@@ -15451,8 +17640,7 @@ $defs:
   sem_finePolishingConditions:
     title: Fine Polishing Conditions
     description: Ion beam voltage and current for final thinning and surface polishing
-      of the TEM lamella. Low-voltage polishing (2 kV or below) minimises Ga implantation
-      depth, surface amorphisation, and curtaining artifacts.
+      of the TEM lamella.
     type: object
     properties:
       '@id':
@@ -15475,9 +17663,8 @@ $defs:
     - schema:value
   sem_foilThickness:
     title: Foil Thickness
-    description: 'Target thickness of the electron-transparent TEM lamella after final
-      FIB polishing, in nanometres. Actual thickness may differ from target. Typical
-      range: 50-150 nm for standard TEM/STEM; 200-600 nm for XANES or tomography sections.'
+    description: Target thickness of the electron-transparent TEM lamella after final
+      FIB polishing, in nanometres. Actual thickness may differ from target.
     type: object
     properties:
       '@id':
@@ -15506,8 +17693,7 @@ $defs:
   sem_ionMillingConditions:
     title: Ion Milling Conditions (3D Tomography)
     description: Ion beam voltage and current used to mill each slice during FIB-SEM
-      serial sectioning. These parameters determine material removal rate per slice
-      and exposed surface quality.
+      serial sectioning.
     type: object
     properties:
       '@id':
@@ -15531,7 +17717,6 @@ $defs:
   sem_sliceThickness:
     title: Slice Thickness
     description: Thickness of each FIB-milled slice during serial sectioning in nanometres.
-      Controls the Z-axis resolution of the 3D reconstruction.
     type: object
     properties:
       '@id':
@@ -15557,8 +17742,8 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  sem_backgroundCorrectionMethod:
-    title: Background Correction Method
+  sem_xRayBackgroundCorrectionMethod:
+    title: X-ray Background Correction Method
     description: 'Method used to estimate and subtract background X-ray intensity
       beneath the peak. For WDS: typically 2-point off-peak linear interpolation or
       Mean Atomic Number (MAN) background model. For EDS: spectral background fitting
@@ -15566,15 +17751,15 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/semTAPP/backgroundCorrectionMethod
+        const: ada:parameter/semTAPP/xRayBackgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/semTAPP/backgroundCorrectionMethod
+        - '@id': ada:parameter/semTAPP/xRayBackgroundCorrectionMethod
       schema:name:
-        const: Background Correction Method
+        const: X-ray Background Correction Method
       schema:value:
         type: string
     required:
@@ -15587,8 +17772,7 @@ $defs:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilisation or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates). Most commonly applied in WDS point
-      analysis; uncommon for EDS or X-ray mapping.
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':
@@ -15661,8 +17845,10 @@ $defs:
     - schema:value
   sem_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied using secondary reference
-      materials to correct for session-to-session calibration drift.
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
     type: object
     properties:
       '@id':
@@ -15757,23 +17943,22 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  sem_segmentationMethod3D:
-    title: 3D Segmentation Method
-    description: Method and software used to segment phases and features in the aligned
-      3D image stack, transforming the grayscale stack into labelled 3D regions (pores,
-      mineral phases, grain boundaries, organic matter).
+  sem_segmentationMethod:
+    title: Segmentation Method
+    description: Method and software used to separate distinct phases or features
+      in the reconstructed 3D volume, turning the grayscale volume into labelled regions.
     type: object
     properties:
       '@id':
-        const: ada:parameter/semTAPP/segmentationMethod3D
+        const: ada:parameter/semTAPP/segmentationMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/semTAPP/segmentationMethod3D
+        - '@id': ada:parameter/semTAPP/segmentationMethod
       schema:name:
-        const: 3D Segmentation Method
+        const: Segmentation Method
       schema:value:
         type: string
     required:
@@ -15842,10 +18027,15 @@ $defs:
     - schema:value
   sem_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
-    description: Name(s) of the primary reference material(s) used for intensity calibration
-      in EDS or WDS quantification. Include the material name, its source or supplier,
-      and a citation for the accepted values used, since results calibrated against
-      different published values for the same material are not directly comparable.
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
     type: object
     properties:
       '@id':
@@ -15868,9 +18058,10 @@ $defs:
     - schema:value
   sem_secondaryReferenceMaterials:
     title: Secondary Reference Materials
-    description: Quality-control reference material(s) analyzed alongside unknowns
-      to verify calibration accuracy. Include material name, assessed elements, number
-      of analyses (n), and measured vs. accepted values where available.
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
     type: object
     properties:
       '@id':
@@ -15918,9 +18109,10 @@ $defs:
     - schema:value
   sem_edsDetectorConfiguration:
     title: EDS Detector Configuration
-    description: EDS detector type, manufacturer, active area, solid angle, window
-      type, and geometry (take-off angle, position). Multiple detectors should be
-      listed separately.
+    description: EDS detector type, manufacturer, number of detector elements, active
+      area and solid angle, window type, and geometry (take-off angle, position).
+      List multiple detectors separately. Record 'N/A' where the procedure has no
+      EDS detector.
     type: object
     properties:
       '@id':
@@ -15994,11 +18186,9 @@ $defs:
     - schema:value
   sem_stageScanVsBeamScan:
     title: Stage Scan vs. Beam Scan
-    description: For mapping modes, records whether the map was acquired by moving
-      the stage while the beam is held fixed (stage scan) or by deflecting the beam
-      across the field while the stage is stationary (beam scan). Stage scan is preferred
-      for large areas or high-accuracy geometric fidelity; beam scan is faster for
-      smaller fields but may introduce geometric distortion at the map edges.
+    description: For mapping modes, whether the map was acquired by moving the stage
+      while the beam is held fixed (stage scan), or by deflecting the beam across
+      the field while the stage is stationary (beam scan).
     type: object
     properties:
       '@id':
@@ -16025,8 +18215,7 @@ $defs:
       per assignment. An analyte may be assigned to more than one spectrometer with
       intensities aggregated (aggregate intensity counting), and one spectrometer
       serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup. Different spectrometers
-      may have different crystal configurations."
+      \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -16050,9 +18239,8 @@ $defs:
   sem_sequence:
     title: Sequence
     description: Order in which spectrometer assignments are acquired during point
-      analysis. Relevant for minimizing beam damage (volatile elements measured first)
-      and for sequential multi-channel setups. Not applicable to X-ray mapping, where
-      all assigned spectrometers collect simultaneously at each pixel.
+      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
+      collect simultaneously at each pixel.
     type: object
     properties:
       '@id':
@@ -16077,8 +18265,7 @@ $defs:
     - schema:value
   sem_proportionalCounterDetector:
     title: Proportional Counter / Detector
-    description: Type of detector used on each spectrometer assignment. Affects sensitivity
-      and count rate linearity.
+    description: Type of detector used.
     type: object
     properties:
       '@id':
@@ -16203,8 +18390,8 @@ $defs:
     - schema:value
   sem_interferingElements:
     title: Interfering Elements
-    description: Element(s) whose X-ray lines overlap with the measured peak for one
-      or more analytes, requiring a correction.
+    description: Element(s) whose X-ray lines overlap with the measured peak, requiring
+      a correction.
     type: object
     properties:
       '@id':
@@ -16228,7 +18415,7 @@ $defs:
   sem_interferenceCorrectionStandard:
     title: Interference Correction Standard
     description: Reference material used to quantify and calibrate the interference
-      correction for each affected analyte.
+      correction.
     type: object
     properties:
       '@id':
@@ -16249,3394 +18436,12 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  solutionMcicpms_coupledProcedureDoi:
-    title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/coupledProcedureDoi
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/coupledProcedureDoi
-      schema:name:
-        const: Coupled Procedure DOI
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_coupledDatasetOrPublicationReference:
-    title: Coupled Dataset or Publication Reference
-    description: 'DOI or other persistent identifier for the co-registered dataset
-      or publication where both datasets are reported together. Accepts: a dedicated
-      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
-      in the same package), or a publication DOI. Use "same submission" if the coupled
-      dataset is included in this data package, or "pending" if not yet assigned.
-      If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/coupledDatasetOrPublicationReference
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/coupledDatasetOrPublicationReference
-      schema:name:
-        const: Coupled Dataset or Publication Reference
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_samplePersistentIdentifier:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in
-      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
-      for geological and cosmochemical samples, as used by Astromat, EarthChem and
-      SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/samplePersistentIdentifier
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/samplePersistentIdentifier
-      schema:name:
-        const: Sample Persistent Identifier
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_digestionTemperature:
-    title: Digestion Temperature
-    description: "Temperature at which acid digestion was carried out (\xB0C). Procedure
-      specifies the target temperature."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/digestionTemperature
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/digestionTemperature
-      schema:name:
-        const: Digestion Temperature
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_digestionDuration:
-    title: Digestion Duration
-    description: Duration of the primary acid digestion step (hours or days).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/digestionDuration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/digestionDuration
-      schema:name:
-        const: Digestion Duration
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_sampleAliquotMassOrVolume:
-    title: Sample Aliquot Mass or Volume
-    description: Mass (mg) of solid material digested or volume (mL) of liquid taken
-      for dissolution. Used for yield calculations and concentration back-calculation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/sampleAliquotMassOrVolume
-      schema:name:
-        const: Sample Aliquot Mass or Volume
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_instrumentSerialNumberOrLabIdentifier:
-    title: Instrument Serial Number or Lab Identifier
-    description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      schema:name:
-        const: Instrument Serial Number or Lab Identifier
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_torchDepth:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also
-      called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/torchDepth
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/torchDepth
-      schema:name:
-        const: Torch Depth
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_massResolutionSetting:
-    title: Mass Resolution Setting
-    description: "Mass resolution mode used in this procedure. MC-ICP-MS instruments
-      allow selection of low resolution (LR; m/\u0394m \u2248 300\u2013400), medium
-      resolution (MR; m/\u0394m \u2248 3000\u20138000), or high resolution (HR; m/\u0394m
-      \u2248 10,000\u201312,000). Most isotope ratio measurements use low resolution
-      after chemical separation has removed interfering elements. Medium or high resolution
-      is used when polyatomic interferences (e.g., ArN+, ArO+, ArOH+ on Fe isotopes)
-      cannot be fully resolved by chemistry alone. Procedure registers the mode in
-      use; analyst confirms at session start."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/massResolutionSetting
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/massResolutionSetting
-      schema:name:
-        const: Mass Resolution Setting
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_sampleUptakeRate:
-    title: Sample Uptake Rate
-    description: "Peristaltic pump speed or self-aspiration flow rate for sample introduction
-      (\xB5L/min or mL/min)."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/sampleUptakeRate
-      schema:name:
-        const: Sample Uptake Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_dataProcessingSoftware:
-    title: Data Processing Software(s)
-    description: All software applied to the data after acquisition in order to produce
-      the reported quantities, including version numbers. List every package used.
-      Distinct from Acquisition Software, which controls the instrument and collects
-      the raw data.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/dataProcessingSoftware
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/dataProcessingSoftware
-      schema:name:
-        const: Data Processing Software(s)
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_rfPower:
-    title: RF Power
-    description: Radiofrequency forward power applied to the plasma (W). Controls
-      ionization efficiency and oxide production rates.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/rfPower
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/rfPower
-      schema:name:
-        const: RF Power
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_coolantGasFlowRate:
-    title: Coolant (Plasma) Gas Flow Rate
-    description: Flow rate of the outer (coolant) argon gas stream (L/min). Influences
-      plasma temperature and oxide ion formation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/coolantGasFlowRate
-      schema:name:
-        const: Coolant (Plasma) Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_auxiliaryGasFlowRate:
-    title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream between
-      torch body and injector tube (L/min).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/auxiliaryGasFlowRate
-      schema:name:
-        const: Auxiliary Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_nebulizerGasFlowRate:
-    title: Nebulizer Gas Flow Rate
-    description: Flow rate of the carrier argon gas delivered through the nebulizer
-      (L/min). Controls aerosol transport and strongly influences signal sensitivity
-      and stability. Adjusted daily to optimize signal.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/nebulizerGasFlowRate
-      schema:name:
-        const: Nebulizer Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_makeUpGasAndFlowRate:
-    title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
-      sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/makeUpGasAndFlowRate
-      schema:name:
-        const: Make-up Gas and Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_icpTuning:
-    title: ICP Tuning
-    description: Description of the approach used to optimise ICP plasma conditions
-      prior to analysis, including the reference material used for tuning and the
-      acceptance criteria (e.g., oxide production threshold, sensitivity targets,
-      mass calibration).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/icpTuning
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/icpTuning
-      schema:name:
-        const: ICP Tuning
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_instrumentSensitivity:
-    title: Instrument Sensitivity
-    description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/instrumentSensitivity
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/instrumentSensitivity
-      schema:name:
-        const: Instrument Sensitivity
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_numberOfBlocksPerMeasurement:
-    title: Number of Blocks per Measurement
-    description: Number of measurement blocks acquired per sample or standard solution
-      introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block
-      typically begins with a baseline (on-peak zero) measurement before the analytical
-      cycles. Multiple blocks per sample allow inspection of signal stability and
-      within-measurement drift. Procedure specifies the standard number; analyst may
-      adjust for samples with low signal or for high-precision requirements.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement
-      schema:name:
-        const: Number of Blocks per Measurement
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_numberOfCyclesPerBlock:
-    title: Number of Cycles per Block
-    description: "Number of measurement cycles acquired per block. One cycle corresponds
-      to a single set of simultaneous Faraday cup readings integrated for the duration
-      specified in Integration Time per Cycle. Total integration time per sample =
-      (Number of Cycles per Block) \xD7 (Integration Time per Cycle) \xD7 (Number
-      of Blocks per Measurement). Procedure specifies the standard value; analyst
-      may adjust within procedure bounds."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock
-      schema:name:
-        const: Number of Cycles per Block
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_integrationTimePerCycle:
-    title: Integration Time per Cycle
-    description: "Duration of signal integration per measurement cycle (seconds).
-      Determines counting statistics per cycle. Longer integration times improve shot-noise
-      precision but increase the impact of signal drift within the integration window.
-      For high-gain (10\xB9\xB2 or 10\xB9\xB3 \u03A9) amplifier channels, longer integration
-      times are often required to accumulate sufficient charge. Procedure specifies
-      the standard integration time; analyst may confirm or adjust within procedure
-      bounds. Where different isotope channels use different integration schemes,
-      record the time for each channel."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/integrationTimePerCycle
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/integrationTimePerCycle
-      schema:name:
-        const: Integration Time per Cycle
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_collisionGasFlowRate:
-    title: Collision Gas Flow Rate
-    description: Flow rate of the collision gas in KED mode (mL/min), on collision/reaction-cell-equipped
-      MC-ICP-MS instruments. Higher flow rates provide greater interference suppression
-      at the cost of analyte sensitivity. Record 'N/A' if the instrument has no cell
-      or KED mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration
-      does not include KED.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/collisionGasFlowRate
-      schema:name:
-        const: Collision Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_cellExitDiscriminationVoltage:
-    title: Cell Exit Discrimination Voltage
-    description: Kinetic energy discrimination offset voltage applied at the exit
-      of the collision cell (V), on collision/reaction-cell-equipped MC-ICP-MS instruments.
-      Controls the degree of polyatomic ion suppression. Record 'N/A' if the instrument
-      has no cell or KED mode is not used. Record 'N/A' where Collision/Reaction Cell
-      (CRC) Configuration does not include KED.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/cellExitDiscriminationVoltage
-      schema:name:
-        const: Cell Exit Discrimination Voltage
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_reactionGasFlowRate:
-    title: Reaction Gas Flow Rate
-    description: Flow rate of the reaction gas in DRC mode (mL/min), on collision/reaction-cell-equipped
-      MC-ICP-MS instruments. Record 'N/A' if the instrument has no cell or DRC mode
-      is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration
-      does not include DRC.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/reactionGasFlowRate
-      schema:name:
-        const: Reaction Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_ionCounterDeadTime:
-    title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
-      correction applied to high count rates. Distinct from pulse/analog cross-calibration,
-      which relates the two detector modes rather than correcting counting losses
-      within the pulse-counting mode.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/ionCounterDeadTime
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/ionCounterDeadTime
-      schema:name:
-        const: Ion Counter Dead Time
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_doubleSpikeMixingRatio:
-    title: Double-Spike Mixing Ratio
-    description: "Target proportion of double-spike signal relative to total analyte
-      signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. An optimal mixing ratio minimizes error propagation through the double-spike
-      inversion; the optimum is analyte-system specific and is typically determined
-      using the Double Spike Toolbox or equivalent. The achieved mixing ratio may
-      deviate from the target within acceptable bounds (typically \xB120% of optimal);
-      the double-spike inversion corrects for actual mixing ratios. Record 'N/A' if
-      double-spike method is not used. Record 'N/A' where the procedure does not use
-      a double spike."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio
-      schema:name:
-        const: Double-Spike Mixing Ratio
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_spikeOutlierFilteringApproach:
-    title: Spike / Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous cycles or replicate
-      measurements from the calculated isotope ratio mean. Filtering is applied after
-      baseline subtraction and before mass bias correction.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach
-      schema:name:
-        const: Spike / Outlier Filtering Approach
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_memoryEffectMitigation:
-    title: Memory Effect Mitigation
-    description: Procedure applied to minimize carryover of analyte isotopes between
-      successive sample introductions. In MC-ICP-MS, extended rinse periods with the
-      same acid matrix as samples (see Wash Time Between Samples) are the primary
-      mitigation. At data processing level, documents any flagging or exclusion of
-      measurements preceded by samples with significantly different isotopic compositions
-      where carryover may be suspected.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/memoryEffectMitigation
-      schema:name:
-        const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_uncertaintyPropagationMethod:
-    title: Uncertainty Propagation Method
-    description: 'The approach used to propagate analytical uncertainty through the
-      data reduction chain to the final reported value. State which sources are included
-      in the propagation: counting statistics, calibration standard uncertainty, internal
-      standard uncertainty, drift correction, and any systematic contributions. Distinct
-      from Uncertainty Level, which states the convention at which the resulting uncertainty
-      is quoted.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod
-      schema:name:
-        const: Uncertainty Propagation Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_normalizationStandardsBasedCorrection:
-    title: Normalization / Standards-Based Correction
-    description: "Post-acquisition normalization applied to output isotope ratio data
-      beyond the primary mass bias correction. Examples: correction of \u03B4 values
-      for decay of enriched spike isotopes between calibration and use date (double-spike
-      procedures); age correction of \u03B4238U for secular disequilibrium. Record
-      'None' if no additional normalization is applied."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/normalizationStandardsBasedCorrection
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_calibrationFactorAndDeterminationMethod:
-    title: Calibration Factor and Determination Method
-    description: 'An externally-calibrated factor that converts the measured quantity
-      into the reported quantity, how it was determined, and its uncertainty. Applies
-      where the conversion depends on a factor calibrated against a reference of independently
-      known value, rather than on the instrument response alone. Distinct from the
-      fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/calibrationFactorAndDeterminationMethod
-      schema:name:
-        const: Calibration Factor and Determination Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_constantsAndReferenceValuesUsed:
-    title: Constants and Reference Values Used
-    description: Physical constants and reference values used in data reduction to
-      calculate the final reported quantity (e.g., decay constants for age calculation,
-      standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/constantsAndReferenceValuesUsed
-      schema:name:
-        const: Constants and Reference Values Used
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the isotopic reference
-      standard used as the bracketing standard (SSB) or zero-delta anchor. This is
-      an isotopic composition standard (not a concentration standard): it defines
-      the isotopic composition against which all sample \u03B4 or \u03B5 values are
-      normalized. Must be a pure, homogeneous, internationally distributed material
-      with well-characterized isotopic composition. For double-spike procedures, also
-      used for spike calibration. Include the material name, its source or supplier,
-      and a citation for the accepted values used, since results calibrated against
-      different published values for the same material are not directly comparable."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Reference material(s) measured as unknowns to independently assess
-      analytical accuracy. Specify material name and the isotopic composition reference
-      source (certified value, consensus value, or literature compilation). For isotope
-      ratio procedures, secondary RMs are geological materials with published isotopic
-      compositions (e.g., BHVO-2 for Fe isotopes) or pure isotopic standards of certified
-      composition.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_torchType:
-    title: Torch Type
-    description: Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/torchType
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/torchType
-      schema:name:
-        const: Torch Type
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_samplerAndSkimmerConeMaterial:
-    title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Nickel (Ni)
-      is standard for HNO3 matrices. Platinum (Pt) cones are used for HCl-rich matrices
-      (e.g., 6 M HCl in Fe chemistry procedures) due to greater corrosion resistance.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/samplerAndSkimmerConeMaterial
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/samplerAndSkimmerConeMaterial
-      schema:name:
-        const: Sampler and Skimmer Cone Material
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_desolvationSystem:
-    title: Desolvation System
-    description: 'Desolvating nebulizer or membrane desolvator used upstream of the
-      plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity,
-      and is commonly used for low-abundance analytes or small sample sizes. Note
-      the trade-off: desolvation can introduce additional instrumental mass bias instability
-      relative to wet plasma introduction. Record ''None'' if not used.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/desolvationSystem
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/desolvationSystem
-      schema:name:
-        const: Desolvation System
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_instrumentWarmUpSessionDurationLimit:
-    title: Instrument Warm-up / Session Duration Limit
-    description: Minimum warm-up time required after plasma ignition before analyses
-      begin, and any maximum session duration enforced to maintain stable operating
-      conditions. These constraints are part of the procedure and cannot be varied
-      by the analyst.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/instrumentWarmUpSessionDurationLimit
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/instrumentWarmUpSessionDurationLimit
-      schema:name:
-        const: Instrument Warm-up / Session Duration Limit
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_reactionGasType:
-    title: Reaction Gas Type
-    description: Type of reactive gas introduced into the dynamic reaction cell (e.g.,
-      NH3, O2, CH4), on collision/reaction-cell-equipped MC-ICP-MS instruments. Record
-      'N/A' if the instrument has no cell or DRC mode is not used. Record 'N/A' where
-      Collision/Reaction Cell (CRC) Configuration does not include DRC.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/reactionGasType
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/reactionGasType
-      schema:name:
-        const: Reaction Gas Type
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_internalStandardConcentration:
-    title: Internal Standard Concentration
-    description: "Target concentration of internal standard element(s) in all measured
-      solutions (\xB5g/L or ppb). Record 'N/A' where Internal Standard Element is
-      'None'."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/internalStandardConcentration
-      schema:name:
-        const: Internal Standard Concentration
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionMcicpms_perAnalyteCalibrationStrategy:
-    title: Per-Analyte Calibration Strategy
-    description: Approach used to convert measured ion signals to elemental concentrations,
-      where concentration data are also a product of the procedure (e.g., isotope
-      dilution combined with isotope ratio measurement). For procedures producing
-      isotope ratios only (no concentration output), record 'Not applicable (isotope
-      ratios only)'. For double-spike procedures that simultaneously yield concentrations,
-      record the ID calculation approach. Where different elements use different strategies,
-      record each.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy
-      schema:name:
-        const: Per-Analyte Calibration Strategy
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_coupledProcedureDoi:
-    title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/coupledProcedureDoi
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/coupledProcedureDoi
-      schema:name:
-        const: Coupled Procedure DOI
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_coupledDatasetOrPublicationReference:
-    title: Coupled Dataset or Publication Reference
-    description: 'DOI or other persistent identifier for the co-registered dataset
-      or publication where both datasets are reported together. Accepts: a dedicated
-      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
-      in the same package), or a publication DOI. Use "same submission" if the coupled
-      dataset is included in this data package, or "pending" if not yet assigned.
-      If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/coupledDatasetOrPublicationReference
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/coupledDatasetOrPublicationReference
-      schema:name:
-        const: Coupled Dataset or Publication Reference
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_samplePersistentIdentifier:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in
-      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
-      for geological and cosmochemical samples, as used by Astromat, EarthChem and
-      SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/samplePersistentIdentifier
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/samplePersistentIdentifier
-      schema:name:
-        const: Sample Persistent Identifier
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_digestionTemperature:
-    title: Digestion Temperature
-    description: "Temperature at which acid digestion was carried out (\xB0C). Procedure
-      specifies the target temperature."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/digestionTemperature
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/digestionTemperature
-      schema:name:
-        const: Digestion Temperature
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_digestionDuration:
-    title: Digestion Duration
-    description: Duration of the primary acid digestion step (hours or days).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/digestionDuration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/digestionDuration
-      schema:name:
-        const: Digestion Duration
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_sampleAliquotMassOrVolume:
-    title: Sample Aliquot Mass or Volume
-    description: Mass (mg) of solid material digested or volume (mL) of liquid taken
-      for dissolution. Used for yield calculations and concentration back-calculation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/sampleAliquotMassOrVolume
-      schema:name:
-        const: Sample Aliquot Mass or Volume
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_instrumentSerialNumberOrLabIdentifier:
-    title: Instrument Serial Number or Lab Identifier
-    description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      schema:name:
-        const: Instrument Serial Number or Lab Identifier
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_torchDepth:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also
-      called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/torchDepth
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/torchDepth
-      schema:name:
-        const: Torch Depth
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_sampleUptakeRate:
-    title: Sample Uptake Rate
-    description: "Peristaltic pump speed or self-aspiration flow rate for sample introduction
-      (\xB5L/min or mL/min)."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/sampleUptakeRate
-      schema:name:
-        const: Sample Uptake Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_dataProcessingSoftware:
-    title: Data Processing Software(s)
-    description: All software applied to the data after acquisition in order to produce
-      the reported quantities, including version numbers. List every package used.
-      Distinct from Acquisition Software, which controls the instrument and collects
-      the raw data.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/dataProcessingSoftware
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/dataProcessingSoftware
-      schema:name:
-        const: Data Processing Software(s)
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_rfPower:
-    title: RF Power
-    description: Radiofrequency forward power applied to the plasma (W). Controls
-      ionization efficiency and oxide production rates.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/rfPower
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/rfPower
-      schema:name:
-        const: RF Power
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_coolantGasFlowRate:
-    title: Coolant (Plasma) Gas Flow Rate
-    description: Flow rate of the outer (coolant) argon gas stream (L/min). Influences
-      plasma temperature and oxide ion formation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/coolantGasFlowRate
-      schema:name:
-        const: Coolant (Plasma) Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_auxiliaryGasFlowRate:
-    title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream between
-      torch body and injector tube (L/min).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/auxiliaryGasFlowRate
-      schema:name:
-        const: Auxiliary Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_nebulizerGasFlowRate:
-    title: Nebulizer Gas Flow Rate
-    description: Flow rate of the carrier argon gas delivered through the nebulizer
-      (L/min). Controls aerosol transport and strongly influences signal sensitivity
-      and stability. Adjusted daily to optimize signal.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/nebulizerGasFlowRate
-      schema:name:
-        const: Nebulizer Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_makeUpGasAndFlowRate:
-    title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
-      sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/makeUpGasAndFlowRate
-      schema:name:
-        const: Make-up Gas and Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_icpTuning:
-    title: ICP Tuning
-    description: Description of the approach used to optimise ICP plasma conditions
-      prior to analysis, including the reference material used for tuning and the
-      acceptance criteria (e.g., oxide production threshold, sensitivity targets,
-      mass calibration).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/icpTuning
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/icpTuning
-      schema:name:
-        const: ICP Tuning
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_instrumentSensitivity:
-    title: Instrument Sensitivity
-    description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/instrumentSensitivity
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/instrumentSensitivity
-      schema:name:
-        const: Instrument Sensitivity
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_dwellTimePerMass:
-    title: Dwell Time per Mass
-    description: Integration time spent on each mass peak per sweep (ms). May differ
-      between masses where per-mass dwell times are programmed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/dwellTimePerMass
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/dwellTimePerMass
-      schema:name:
-        const: Dwell Time per Mass
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_collisionGasFlowRate:
-    title: Collision Gas Flow Rate
-    description: Flow rate of the collision gas in KED mode (mL/min). Higher flow
-      rates provide greater interference suppression at the cost of analyte sensitivity.
-      Record 'N/A' if KED mode is not used. Record 'N/A' where Collision/Reaction
-      Cell (CRC) Configuration does not include KED.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/collisionGasFlowRate
-      schema:name:
-        const: Collision Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_cellExitDiscriminationVoltage:
-    title: Cell Exit Discrimination Voltage
-    description: Kinetic energy discrimination offset voltage applied at the exit
-      of the collision cell (V). Controls the degree of polyatomic ion suppression.
-      Record 'N/A' if KED mode is not used. Record 'N/A' where Collision/Reaction
-      Cell (CRC) Configuration does not include KED.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/cellExitDiscriminationVoltage
-      schema:name:
-        const: Cell Exit Discrimination Voltage
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_reactionGasFlowRate:
-    title: Reaction Gas Flow Rate
-    description: Flow rate of the reaction gas in DRC mode (mL/min). Record 'N/A'
-      if DRC mode is not used. Record 'N/A' where Collision/Reaction Cell (CRC) Configuration
-      does not include DRC.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/reactionGasFlowRate
-      schema:name:
-        const: Reaction Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_collisionReactionGasMixtureRatio:
-    title: Collision/Reaction Gas Mixture Ratio
-    description: Where the collision or reaction cell is supplied with a mixture of
-      gases rather than a single gas, the identities and proportions of that mixture.
-      Recorded separately from the gas identity because the proportions change reaction
-      efficiency and interference suppression independently of which gases are used.
-      Record 'N/A' where a single gas is used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio
-      schema:name:
-        const: Collision/Reaction Gas Mixture Ratio
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_doublyChargedSpeciesMonitor:
-    title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
-      during instrument tuning. Doubly-charged ions appear at half the nominal mass
-      of the parent ion and can interfere with lighter analyte masses. Ba2+/Ba+ (m/z
-      69/138) and Ce2+/Ce+ (m/z 70/140) are the most common proxies for solution ICP-MS.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor
-      schema:name:
-        const: Doubly-Charged Species Monitor
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_doublyChargedSpeciesProduction:
-    title: Doubly-Charged Species Production
-    description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. Record both the acceptance threshold
-      and the measured value. Elevated doubly-charged production indicates incomplete
-      ionization and potential interference on elements at approximately half the
-      mass of abundant matrix components.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction
-      schema:name:
-        const: Doubly-Charged Species Production
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_ionCounterDeadTime:
-    title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
-      correction applied to high count rates. Distinct from pulse/analog cross-calibration,
-      which relates the two detector modes rather than correcting counting losses
-      within the pulse-counting mode.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/ionCounterDeadTime
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/ionCounterDeadTime
-      schema:name:
-        const: Ion Counter Dead Time
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionQicpms_spikeOutlierFilteringApproach:
-    title: Spike / Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous replicate measurements
-      or data points from the calculated mean.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/spikeOutlierFilteringApproach
-      schema:name:
-        const: Spike / Outlier Filtering Approach
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_pulseAnalogDetectorNonlinearityCorrection:
-    title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear detector response
-      at the transition between pulse-counting and analog detection modes. For Q-ICP-MS
-      instruments with dual-mode SEM detectors, a cross-calibration factor is measured
-      and applied at the pulse-to-analog crossover threshold. Accurate cross-calibration
-      is critical for analytes spanning a wide concentration range in the same session.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-      schema:name:
-        const: Pulse/Analog Detector Nonlinearity Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_memoryEffectMitigation:
-    title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimize carry-over of high-concentration
-      elements between successive sample introductions. For solution ICP-MS, mitigation
-      is implemented primarily at measurement time through extended rinse periods
-      (see Wash Time Between Samples, Group 4). At data processing level, documents
-      any flagging or exclusion of measurements preceded by high-concentration samples
-      or standards where the required washout time may not have been achieved.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/memoryEffectMitigation
-      schema:name:
-        const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_uncertaintyPropagationMethod:
-    title: Uncertainty Propagation Method
-    description: 'The approach used to propagate analytical uncertainty through the
-      data reduction chain to the final reported value. State which sources are included
-      in the propagation: counting statistics, calibration standard uncertainty, internal
-      standard uncertainty, drift correction, and any systematic contributions. Distinct
-      from Uncertainty Level, which states the convention at which the resulting uncertainty
-      is quoted.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/uncertaintyPropagationMethod
-      schema:name:
-        const: Uncertainty Propagation Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_normalizationStandardsBasedCorrection:
-    title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied to output concentrations relative
-      to a reference value (e.g., correction to a monitor element's certified value
-      in the calibration standard).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_calibrationFactorAndDeterminationMethod:
-    title: Calibration Factor and Determination Method
-    description: 'An externally-calibrated factor that converts the measured quantity
-      into the reported quantity, how it was determined, and its uncertainty. Applies
-      where the conversion depends on a factor calibrated against a reference of independently
-      known value, rather than on the instrument response alone. Distinct from the
-      fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/calibrationFactorAndDeterminationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/calibrationFactorAndDeterminationMethod
-      schema:name:
-        const: Calibration Factor and Determination Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_constantsAndReferenceValuesUsed:
-    title: Constants and Reference Values Used
-    description: Physical constants and reference values used in data reduction to
-      calculate the final reported quantity (e.g., decay constants for age calculation,
-      standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/constantsAndReferenceValuesUsed
-      schema:name:
-        const: Constants and Reference Values Used
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: Name and reference material identifier of the external calibration
-      standard used to convert signal intensities to elemental concentrations. Include
-      the material name, its source or supplier, and a citation for the accepted values
-      used, since results calibrated against different published values for the same
-      material are not directly comparable.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Reference material(s) measured as unknowns to independently assess
-      analytical accuracy. Specify material name and expected-value source.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_torchType:
-    title: Torch Type
-    description: Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/torchType
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/torchType
-      schema:name:
-        const: Torch Type
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_samplerAndSkimmerConeMaterial:
-    title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Nickel (Ni)
-      is standard for most aqueous matrices. Platinum (Pt) is used for samples in
-      HCl-rich or organic matrices due to greater corrosion resistance.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/samplerAndSkimmerConeMaterial
-      schema:name:
-        const: Sampler and Skimmer Cone Material
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_desolvationSystem:
-    title: Desolvation System
-    description: 'Desolvating nebulizer or membrane desolvator used upstream of the
-      plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity,
-      and is commonly used for low-abundance analytes or small sample sizes. Note
-      the trade-off: desolvation can introduce additional instrumental mass bias instability
-      relative to wet plasma introduction. Record ''None'' if not used.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/desolvationSystem
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/desolvationSystem
-      schema:name:
-        const: Desolvation System
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_instrumentWarmUpSessionDurationLimit:
-    title: Instrument Warm-up / Session Duration Limit
-    description: Minimum warm-up time required after plasma ignition before analyses
-      begin, and any maximum session duration enforced to maintain stable operating
-      conditions. These constraints are part of the procedure and cannot be varied
-      by the analyst.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/instrumentWarmUpSessionDurationLimit
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/instrumentWarmUpSessionDurationLimit
-      schema:name:
-        const: Instrument Warm-up / Session Duration Limit
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_reactionGasType:
-    title: Reaction Gas Type
-    description: Type of reactive gas introduced into the dynamic reaction cell (e.g.,
-      NH3, O2, CH4). Record 'N/A' if DRC mode is not used. Record 'N/A' where Collision/Reaction
-      Cell (CRC) Configuration does not include DRC.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/reactionGasType
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/reactionGasType
-      schema:name:
-        const: Reaction Gas Type
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_reactionProductIonMassShiftTransition:
-    title: Reaction Product Ion / Mass-Shift Transition
-    description: For each monitored mass produced by a reaction in the collision/reaction
-      cell, the precursor ion, the reagent gas and the product ion measured. Records
-      the mass-shift chemistry relating the mass measured to the analyte it reports,
-      which the monitored mass alone does not state. Record 'N/A' where the analyte
-      is measured on its own mass.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition
-      schema:name:
-        const: Reaction Product Ion / Mass-Shift Transition
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_internalStandardConcentration:
-    title: Internal Standard Concentration
-    description: "Target concentration of internal standard element(s) in all measured
-      solutions (\xB5g/L or ppb). Record 'N/A' where Internal Standard Element is
-      'None'."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/internalStandardConcentration
-      schema:name:
-        const: Internal Standard Concentration
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_coupledProcedureDoi:
-    title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/coupledProcedureDoi
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/coupledProcedureDoi
-      schema:name:
-        const: Coupled Procedure DOI
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_coupledDatasetOrPublicationReference:
-    title: Coupled Dataset or Publication Reference
-    description: 'DOI or other persistent identifier for the co-registered dataset
-      or publication where both datasets are reported together. Accepts: a dedicated
-      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
-      in the same package), or a publication DOI. Use "same submission" if the coupled
-      dataset is included in this data package, or "pending" if not yet assigned.
-      If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/coupledDatasetOrPublicationReference
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/coupledDatasetOrPublicationReference
-      schema:name:
-        const: Coupled Dataset or Publication Reference
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_samplePersistentIdentifier:
-    title: Sample Persistent Identifier
-    description: Globally unique, persistent identifier for each sample listed in
-      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
-      for geological and cosmochemical samples, as used by Astromat, EarthChem and
-      SESAR. Where a sample and its sub-samples are separately registered, record
-      the identifier at the level actually analysed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/samplePersistentIdentifier
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/samplePersistentIdentifier
-      schema:name:
-        const: Sample Persistent Identifier
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_digestionTemperature:
-    title: Digestion Temperature
-    description: "Temperature at which acid digestion was carried out (\xB0C). Procedure
-      specifies the target temperature."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/digestionTemperature
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/digestionTemperature
-      schema:name:
-        const: Digestion Temperature
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_digestionDuration:
-    title: Digestion Duration
-    description: Duration of the primary acid digestion step (hours or days).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/digestionDuration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/digestionDuration
-      schema:name:
-        const: Digestion Duration
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_sampleAliquotMassOrVolume:
-    title: Sample Aliquot Mass or Volume
-    description: Mass (mg) of solid material digested or volume (mL) of liquid taken
-      for dissolution. Used for yield calculations and concentration back-calculation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
-      schema:name:
-        const: Sample Aliquot Mass or Volume
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_instrumentSerialNumberOrLabIdentifier:
-    title: Instrument Serial Number or Lab Identifier
-    description: Serial number or laboratory-internal identifier for the specific
-      instrument unit. Supports traceability to instrument service records.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifier
-      schema:name:
-        const: Instrument Serial Number or Lab Identifier
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_torchDepth:
-    title: Torch Depth
-    description: Distance between the load coil and the sampling cone tip (mm), also
-      called injector depth or torch position depending on the instrument manufacturer.
-      Affects ion transmission efficiency, oxide formation, and doubly-charged species
-      production. The procedure specifies a target value optimised during initial
-      setup; the analyst confirms or fine-adjusts during session tuning.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/torchDepth
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/torchDepth
-      schema:name:
-        const: Torch Depth
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_massResolutionSetting:
-    title: Mass Resolution Setting
-    description: "Mass resolution mode(s) used in this procedure. Sector-field instruments
-      allow selection of low resolution (LR; m/\u0394m \u2248 300\u2013400), medium
-      resolution (MR; m/\u0394m \u2248 2500\u20135000), or high resolution (HR; m/\u0394m
-      \u2248 10,000). Multi-resolution procedures assign individual analytes to specific
-      modes (documented in Group 4 under Mass Resolution Assignment). Procedure registers
-      the mode(s) in use; analyst confirms at session start."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/massResolutionSetting
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/massResolutionSetting
-      schema:name:
-        const: Mass Resolution Setting
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_sampleUptakeRate:
-    title: Sample Uptake Rate
-    description: "Peristaltic pump speed or self-aspiration flow rate for sample introduction
-      (\xB5L/min or mL/min)."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
-      schema:name:
-        const: Sample Uptake Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_dataProcessingSoftware:
-    title: Data Processing Software(s)
-    description: All software applied to the data after acquisition in order to produce
-      the reported quantities, including version numbers. List every package used.
-      Distinct from Acquisition Software, which controls the instrument and collects
-      the raw data.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/dataProcessingSoftware
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/dataProcessingSoftware
-      schema:name:
-        const: Data Processing Software(s)
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_rfPower:
-    title: RF Power
-    description: Radiofrequency forward power applied to the plasma (W). Controls
-      ionization efficiency and oxide production rates.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/rfPower
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/rfPower
-      schema:name:
-        const: RF Power
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_coolantGasFlowRate:
-    title: Coolant (Plasma) Gas Flow Rate
-    description: Flow rate of the outer (coolant) argon gas stream (L/min). Influences
-      plasma temperature and oxide ion formation.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
-      schema:name:
-        const: Coolant (Plasma) Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_auxiliaryGasFlowRate:
-    title: Auxiliary Gas Flow Rate
-    description: Flow rate of the intermediate (auxiliary) argon gas stream between
-      torch body and injector tube (L/min).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
-      schema:name:
-        const: Auxiliary Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_nebulizerGasFlowRate:
-    title: Nebulizer Gas Flow Rate
-    description: Flow rate of the carrier argon gas delivered through the nebulizer
-      (L/min). Controls aerosol transport and strongly influences signal sensitivity
-      and stability. Adjusted daily to optimize signal.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
-      schema:name:
-        const: Nebulizer Gas Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_makeUpGasAndFlowRate:
-    title: Make-up Gas and Flow Rate
-    description: "Supplementary gas added to the sample-carrying stream between the
-      sample introduction system and the plasma, with its identity and the procedure-registered
-      target flow rate. Argon make-up is standard and maintains total gas delivery
-      where the carrier flow alone is insufficient \u2014 downstream of an ablation
-      cell, or of a desolvation system that has removed solvent load. Small nitrogen
-      or hydrogen additions are also made here to enhance sensitivity for some elements;
-      record them with their own flow, whose unit commonly differs from the make-up
-      flow. Record 'None' explicitly where no supplementary gas is added, to distinguish
-      it from not reported."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
-      schema:name:
-        const: Make-up Gas and Flow Rate
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_icpTuning:
-    title: ICP Tuning
-    description: Description of the approach used to optimise ICP plasma conditions
-      prior to analysis, including the reference material used for tuning and the
-      acceptance criteria (e.g., oxide production threshold, sensitivity targets,
-      mass calibration).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/icpTuning
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/icpTuning
-      schema:name:
-        const: ICP Tuning
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_instrumentSensitivity:
-    title: Instrument Sensitivity
-    description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. Useful yield is the more comparable
-      of the two wherever the amount of material consumed varies between procedures,
-      as it does with spot size, fluence and repetition rate. Records what the instrument
-      actually delivered; a sensitivity the procedure requires before analyses may
-      begin belongs with the tuning acceptance criteria."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/instrumentSensitivity
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/instrumentSensitivity
-      schema:name:
-        const: Instrument Sensitivity
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_dwellTimePerMass:
-    title: Dwell Time per Mass
-    description: Integration time spent on each mass peak per sweep (ms). May differ
-      between masses where per-mass dwell times are programmed.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/dwellTimePerMass
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/dwellTimePerMass
-      schema:name:
-        const: Dwell Time per Mass
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_doublyChargedSpeciesMonitor:
-    title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
-      during instrument tuning. Doubly-charged ions appear at half the nominal mass
-      of the parent ion and can interfere with lighter analyte masses. In SF-ICP-MS,
-      doubly-charged species are not suppressed by collision cells and require monitoring
-      through plasma tuning. Ba2+/Ba+ (m/z 69/138) is the most common proxy.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
-      schema:name:
-        const: Doubly-Charged Species Monitor
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_doublyChargedSpeciesProduction:
-    title: Doubly-Charged Species Production
-    description: Measured percentage of doubly-charged ion production for the monitored
-      species at the time of instrument tuning. Record both the acceptance threshold
-      and the measured value. Elevated doubly-charged production indicates incomplete
-      ionization and potential interference on elements at approximately half the
-      mass of abundant matrix components.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
-      schema:name:
-        const: Doubly-Charged Species Production
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_ionCounterDeadTime:
-    title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
-      correction applied to high count rates. Distinct from pulse/analog cross-calibration,
-      which relates the two detector modes rather than correcting counting losses
-      within the pulse-counting mode.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/ionCounterDeadTime
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/ionCounterDeadTime
-      schema:name:
-        const: Ion Counter Dead Time
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_spikeOutlierFilteringApproach:
-    title: Spike / Outlier Filtering Approach
-    description: Criteria used to identify and exclude anomalous replicate measurements
-      or data points from the calculated mean.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
-      schema:name:
-        const: Spike / Outlier Filtering Approach
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_pulseAnalogDetectorNonlinearityCorrection:
-    title: Pulse/Analog Detector Nonlinearity Correction
-    description: Whether a correction was applied for nonlinear detector response
-      at the transition between pulse-counting and analog (and Faraday, for triple-mode
-      instruments) detection modes. For SF-ICP-MS instruments, the signal transitions
-      between pulse counting (low concentrations) and analog detection (high concentrations).
-      For triple-mode instruments (e.g., Thermo Element XR), an additional transition
-      to Faraday cup detection occurs at the highest signal intensities. Cross-calibration
-      factors between detector modes must be confirmed, typically measured each session.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-      schema:name:
-        const: Pulse/Analog Detector Nonlinearity Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_memoryEffectMitigation:
-    title: Memory Effect Mitigation
-    description: Procedure applied to identify and minimize carry-over of high-concentration
-      elements between successive sample introductions. For solution ICP-MS, mitigation
-      is implemented primarily at measurement time through extended rinse periods
-      (see Wash Time Between Samples, Group 4). At data processing level, documents
-      any flagging or exclusion of measurements preceded by high-concentration samples
-      or standards where the required washout time may not have been achieved.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
-      schema:name:
-        const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_uncertaintyPropagationMethod:
-    title: Uncertainty Propagation Method
-    description: 'The approach used to propagate analytical uncertainty through the
-      data reduction chain to the final reported value. State which sources are included
-      in the propagation: counting statistics, calibration standard uncertainty, internal
-      standard uncertainty, drift correction, and any systematic contributions. Distinct
-      from Uncertainty Level, which states the convention at which the resulting uncertainty
-      is quoted.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
-      schema:name:
-        const: Uncertainty Propagation Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_normalizationStandardsBasedCorrection:
-    title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied to output concentrations relative
-      to a reference value (e.g., correction to a BHVO-2 working value).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_calibrationFactorAndDeterminationMethod:
-    title: Calibration Factor and Determination Method
-    description: 'An externally-calibrated factor that converts the measured quantity
-      into the reported quantity, how it was determined, and its uncertainty. Applies
-      where the conversion depends on a factor calibrated against a reference of independently
-      known value, rather than on the instrument response alone. Distinct from the
-      fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/calibrationFactorAndDeterminationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/calibrationFactorAndDeterminationMethod
-      schema:name:
-        const: Calibration Factor and Determination Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_constantsAndReferenceValuesUsed:
-    title: Constants and Reference Values Used
-    description: Physical constants and reference values used in data reduction to
-      calculate the final reported quantity (e.g., decay constants for age calculation,
-      standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed
-      schema:name:
-        const: Constants and Reference Values Used
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: Name and reference material identifier of the external calibration
-      standard used to convert signal intensities to elemental concentrations. Include
-      the material name, its source or supplier, and a citation for the accepted values
-      used, since results calibrated against different published values for the same
-      material are not directly comparable.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Reference material(s) measured as unknowns to independently assess
-      analytical accuracy. Specify material name and expected-value source.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_torchType:
-    title: Torch Type
-    description: Type of plasma torch used (e.g., standard quartz, high-matrix, low-flow).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/torchType
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/torchType
-      schema:name:
-        const: Torch Type
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_samplerAndSkimmerConeMaterial:
-    title: Sampler and Skimmer Cone Material
-    description: Material composition of the sampler and skimmer cones. Nickel (Ni)
-      is standard for most aqueous matrices. Aluminium (Al) cones are used in some
-      SF-ICP-MS labs for enhanced sensitivity at high resolution. Platinum (Pt) is
-      used for HCl-rich matrices.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial
-      schema:name:
-        const: Sampler and Skimmer Cone Material
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_desolvationSystem:
-    title: Desolvation System
-    description: 'Desolvating nebulizer or membrane desolvator used upstream of the
-      plasma to reduce solvent load. Lowers oxide production rates and increases sensitivity,
-      and is commonly used for low-abundance analytes or small sample sizes. Note
-      the trade-off: desolvation can introduce additional instrumental mass bias instability
-      relative to wet plasma introduction. Record ''None'' if not used.'
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/desolvationSystem
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/desolvationSystem
-      schema:name:
-        const: Desolvation System
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_instrumentWarmUpSessionDurationLimit:
-    title: Instrument Warm-up / Session Duration Limit
-    description: Minimum warm-up time required after plasma ignition before analyses
-      begin, and any maximum session duration enforced to maintain stable operating
-      conditions. These constraints are part of the procedure and cannot be varied
-      by the analyst.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/instrumentWarmUpSessionDurationLimit
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/instrumentWarmUpSessionDurationLimit
-      schema:name:
-        const: Instrument Warm-up / Session Duration Limit
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_eScanRange:
-    title: E-scan Range
-    description: Electric scan range used for peak acquisition, expressed as percentage
-      of the centre mass (%). Varies the accelerating voltage to cover masses in the
-      vicinity of the set magnetic mass without re-scanning the magnet. Record 'N/A'
-      if E-scan acquisition mode is not used.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/eScanRange
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/eScanRange
-      schema:name:
-        const: E-scan Range
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
-  solutionSficpms_tripleScanningMode:
-    title: Triple Scanning Mode
-    description: Whether each mass peak is scanned three times per cycle and the results
-      averaged (Y/N). Used to reduce noise from short-term magnetic field instabilities
-      on sector-field instruments. Triple scanning affects the effective integration
-      time per cycle and should be reported. Record 'N/A' if not applicable to the
-      instrument.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/tripleScanningMode
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/tripleScanningMode
-      schema:name:
-        const: Triple Scanning Mode
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_internalStandardConcentration:
-    title: Internal Standard Concentration
-    description: "Target concentration of internal standard element(s) in all measured
-      solutions (\xB5g/L or ppb). Record 'N/A' where Internal Standard Element is
-      'None'."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
-      schema:name:
-        const: Internal Standard Concentration
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
   tem_coupledProcedureDoi:
     title: Coupled Procedure DOI
-    description: Registered procedure DOI for the coupled technique named above. Provides
-      a stable, citable link to the companion method independent of whether a dataset
-      has been deposited. If the coupled procedure has not yet been registered, enter
-      the DOI of a publication describing the coupled method, or "pending". Enter
-      "None" if no coupling is planned.
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
     type: object
     properties:
       '@id':
@@ -19686,6 +18491,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  tem_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/temTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   tem_samplePreparationDetails:
     title: Sample Preparation Details
     description: "Detailed description of section preparation conditions: FIB milling
@@ -19695,9 +18526,9 @@ $defs:
       surface cleanup (e.g., low-energy Ar+ ion polishing in a Fischione NanoMill,
       final 0.5\u20132 kV Ga+ thinning); sample transfer and storage environment (ambient
       air, dry N\u2082 atmosphere, vacuum transfer holder, glovebox); plasma cleaning
-      before loading. Analysts record session-specific observations and deviations
-      from the procedure standard. Includes preparation artifacts noted (Ga implantation,
-      amorphization, curtaining)."
+      before loading. Includes session-specific observations and deviations from the
+      procedure standard. Includes preparation artifacts noted (Ga implantation, amorphization,
+      curtaining)."
     type: object
     properties:
       '@id':
@@ -19745,26 +18576,28 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  tem_targetSelectionCriteria:
-    title: Target Selection Criteria
-    description: "The rules governing which part of the sample is analysed, and why.
-      Covers the criteria applied when choosing grains, aliquots, spots, or a region
-      of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration,
-      phase identity, or spatial position. Distinct from Target Material, which states
-      the material type the procedure is designed for: this field states how, within
-      such a sample, the analysed portion is picked out."
+  tem_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
     type: object
     properties:
       '@id':
-        const: ada:parameter/temTAPP/targetSelectionCriteria
+        const: ada:parameter/temTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/temTAPP/targetSelectionCriteria
+        - '@id': ada:parameter/temTAPP/samplingUnitSelectionCriteria
       schema:name:
-        const: Target Selection Criteria
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:
@@ -19776,11 +18609,11 @@ $defs:
   tem_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
-      in order to select or locate the analysed target, including the technique, instrument
-      and settings used, and how individual analyses are linked back to the images.
-      Distinct from any imaging the procedure performs as its own measurement. Where
-      the imaging is performed on a separate instrument, it should also be recorded
-      in the Group 1 coupling fields.
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
     type: object
     properties:
       '@id':
@@ -19803,9 +18636,7 @@ $defs:
     - schema:value
   tem_sampleHolder:
     title: Sample Holder
-    description: Type of specimen holder used. Cryo holders (liquid N2 to ~110 K)
-      are critical for minimizing beam-induced damage to organic matter and beam-sensitive
-      phases. Heating holders enable in-situ experiments.
+    description: Type of specimen holder used.
     type: object
     properties:
       '@id':
@@ -19906,11 +18737,8 @@ $defs:
     - schema:value
   tem_acceleratingVoltage:
     title: Accelerating Voltage
-    description: "Electron beam accelerating voltage in kilovolts (kV). For beam-sensitive
-      materials (organic matter, phyllosilicates), 60\u201380 kV may be used to stay
-      below the displacement threshold for C, N, O, and S. The procedure specifies
-      the standard operating voltage; analysts record and justify deviations. Key
-      parameter for the beam damage regime."
+    description: Electron beam accelerating voltage in kilovolts (kV). Justify any
+      deviation from the standard operating voltage.
     type: object
     properties:
       '@id':
@@ -19938,11 +18766,9 @@ $defs:
     - schema:unitText
   tem_analyticalSubMode:
     title: Analytical Sub-mode
-    description: 'Sub-mode(s) of imaging or diffraction performed under this procedure.
-      TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM. STEM Imaging options: HAADF,
-      ABF, BF-STEM, ADF, MAADF. Electron Diffraction options: SAED, CBED, Nanobeam
-      diffraction, Precession ED, 4D-STEM. Multiple values apply when the procedure
-      covers more than one sub-mode within a given analytical mode.'
+    description: Sub-mode(s) of imaging or diffraction performed under this procedure.
+      Multiple values apply when the procedure covers more than one sub-mode within
+      a given analytical mode.
     type: object
     properties:
       '@id':
@@ -19966,9 +18792,7 @@ $defs:
   tem_temObjectiveAperture:
     title: TEM Objective Aperture
     description: Objective aperture diameter used to select the imaging beam condition
-      in TEM mode. In BF-TEM, a small aperture blocks diffracted beams to enhance
-      mass-thickness contrast; in DF-TEM, the aperture is displaced to select a specific
-      diffracted beam; in HRTEM, no aperture is typically used.
+      in TEM mode.
     type: object
     properties:
       '@id':
@@ -20017,12 +18841,7 @@ $defs:
   tem_haadfCollectionAngles:
     title: HAADF Collection Angles
     description: Inner and outer collection angles of the HAADF detector in milliradians
-      (mrad). The inner angle determines the boundary between diffracted and thermally
-      diffuse scattered electrons; larger inner angles yield stronger Z-contrast and
-      reduced Bragg contrast. Inner angle is most critical and can be derived from
-      camera length and detector geometry. In HAADF-STEM a shorter camera length increases
-      the inner angle, yielding more thermally diffuse (Z-contrast) and less Bragg-diffraction
-      signal.
+      (mrad). Inner angle can be derived from camera length and detector geometry.
     type: object
     properties:
       '@id':
@@ -20046,11 +18865,10 @@ $defs:
   tem_stemProbeDiameter:
     title: STEM Probe Diameter
     description: 'Nominal or measured diameter of the focused electron probe at the
-      sample, reported in nm. Serves as a direct spatial resolution proxy for STEM
-      imaging and STEM-EDS/EELS analysis. Related to, but distinct from, Convergence
-      Semi-Angle: the two quantities are connected via aberration coefficients, defocus,
-      and probe current, which are not always published. Report whichever is known;
-      if both are known, report both fields. Also governs STEM-EDS and STEM-EELS acquisition
+      sample, reported in nm. Related to, but distinct from, Convergence Semi-Angle:
+      the two quantities are connected via aberration coefficients, defocus, and probe
+      current, which are not always published. Report whichever is known; if both
+      are known, report both fields. Also governs STEM-EDS and STEM-EELS acquisition
       where those detectors are used.'
     type: object
     properties:
@@ -20079,10 +18897,8 @@ $defs:
     - schema:unitText
   tem_stemProbeCurrent:
     title: STEM Probe Current
-    description: Probe current in picoamperes (pA) or nanoamperes (nA). Higher current
-      improves EDS/EELS signal but increases beam damage risk, especially for organic
-      matter and hydrous minerals. Also governs STEM-EDS and STEM-EELS acquisition
-      where those detectors are used.
+    description: Probe current in picoamperes (pA) or nanoamperes (nA). Also governs
+      STEM-EDS and STEM-EELS acquisition where those detectors are used.
     type: object
     properties:
       '@id':
@@ -20108,25 +18924,25 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  tem_stemDwellTimePerPixel:
-    title: STEM Dwell Time per Pixel
+  tem_dwellTimePerPixel:
+    title: Dwell Time per Pixel
     description: Time spent acquiring signal at each pixel during STEM scanning in
-      milliseconds. Longer dwell improves signal-to-noise but increases total specimen
-      dose; for dose-sensitive materials, minimize dwell and compensate with frame
-      averaging. Also governs STEM-EDS and STEM-EELS acquisition where those detectors
-      are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe Position'.
+      milliseconds. For dose-sensitive materials, minimize dwell and compensate with
+      frame averaging. Also governs STEM-EDS and STEM-EELS acquisition where those
+      detectors are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe
+      Position'.
     type: object
     properties:
       '@id':
-        const: ada:parameter/temTAPP/stemDwellTimePerPixel
+        const: ada:parameter/temTAPP/dwellTimePerPixel
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/temTAPP/stemDwellTimePerPixel
+        - '@id': ada:parameter/temTAPP/dwellTimePerPixel
       schema:name:
-        const: STEM Dwell Time per Pixel
+        const: Dwell Time per Pixel
       schema:value:
         anyOf:
         - type: number
@@ -20142,9 +18958,8 @@ $defs:
     - schema:unitText
   tem_stemScanDimensions:
     title: STEM Scan Dimensions
-    description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels). Combined
-      with calibrated pixel size, defines the field of view. Also governs STEM-EDS
-      and STEM-EELS acquisition where those detectors are used."
+    description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels). Also
+      governs STEM-EDS and STEM-EELS acquisition where those detectors are used."
     type: object
     properties:
       '@id':
@@ -20173,9 +18988,8 @@ $defs:
   tem_stemFrameAveraging:
     title: STEM Frame Averaging
     description: Number of frames averaged (with drift correction if applicable) to
-      produce the final STEM image. Averaging reduces noise while limiting per-frame
-      dose. Also governs STEM-EDS and STEM-EELS acquisition where those detectors
-      are used.
+      produce the final STEM image. Also governs STEM-EDS and STEM-EELS acquisition
+      where those detectors are used.
     type: object
     properties:
       '@id':
@@ -20199,13 +19013,8 @@ $defs:
   tem_cameraLength:
     title: Camera Length
     description: "Nominal camera length in millimeters used for diffraction pattern
-      acquisition. Controls the mapping between reciprocal-space scattering angle
-      and detector position; must be calibrated to convert pixel distances to d-spacings.
-      In STEM mode, also sets HAADF/ABF detector collection angles. Calibration to
-      absolute d-spacings is required \u2014 see 'Diffraction Calibration Reference'.
-      Camera length choice affects HAADF Z-contrast purity: a shorter camera length
-      (e.g. 30 mm) shifts the inner angle toward thermal diffuse scatter; a longer
-      one (e.g. 150 mm) admits more Bragg scatter."
+      acquisition. Must be calibrated to convert pixel distances to d-spacings. Calibration
+      to absolute d-spacings is required \u2014 see 'Diffraction Calibration Reference'."
     type: object
     properties:
       '@id':
@@ -20258,9 +19067,8 @@ $defs:
   tem_precessionAngle:
     title: Precession Angle
     description: Precession semi-angle in degrees for precession electron diffraction
-      (PED). Hollow-cone illumination reduces dynamical diffraction effects and produces
-      more kinematical-like intensities. Not applicable to SAED, CBED, or standard
-      4D-STEM. Record 'N/A' where Precession ED is not listed in Analytical Sub-mode.
+      (PED). Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A' where
+      Precession ED is not listed in Analytical Sub-mode.
     type: object
     properties:
       '@id':
@@ -20315,11 +19123,7 @@ $defs:
   tem_stemDwellTimePerProbePosition4D:
     title: 4D-STEM Dwell Time per Probe Position
     description: Time spent acquiring each diffraction pattern in the 4D-STEM dataset
-      in milliseconds. Longer dwell improves signal-to-noise for weakly diffracting
-      phases (e.g., smectite 001 reflection at ~1.24 nm) but increases total specimen
-      dose; risk of beam damage to phyllosilicates and organic matter must be balanced
-      against data quality. Record 'N/A' where 4D-STEM is not listed in Analytical
-      Sub-mode.
+      in milliseconds. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.
     type: object
     properties:
       '@id':
@@ -20371,8 +19175,16 @@ $defs:
     - schema:value
   tem_edsAcquisitionMode:
     title: EDS Acquisition Mode
-    description: Mode of EDS data acquisition. Record 'N/A' where EDS is not listed
-      in Spectroscopic Detector(s).
+    description: "Spatial acquisition sub-strategy for EDS measurements: stationary-beam
+      point acquisition, line scan (beam stepped along a transect at defined intervals),
+      or area map / spectrum image (beam rastered over a pixel grid). Specifies how
+      the beam is positioned during data collection within the declared analytical
+      mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers what
+      the literature also calls spot or point-spectrum analysis. 'Map' and 'Spectrum
+      image' are distinct acquisitions, not synonyms: a map may retain element intensities
+      alone, whereas a spectrum image retains a full spectrum at every pixel and can
+      be requantified afterwards \u2014 record which was acquired. Where more than
+      one mode was used, join them with '; ' rather than looking for a combined member."
     type: object
     properties:
       '@id':
@@ -20478,9 +19290,8 @@ $defs:
       and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart
       to the Analyte field: while Analyte lists elements, EELS Edges documents which
       ionization edges were used and their approximate energy loss positions. The
-      procedure registers the full intended edge suite; analysts confirm or narrow
-      this list at analysis time. Record ''N/A'' where EELS is not listed in Spectroscopic
-      Detector(s).'
+      edge list may be narrowed at analysis time. Record ''N/A'' where EELS is not
+      listed in Spectroscopic Detector(s).'
     type: object
     properties:
       '@id':
@@ -20533,9 +19344,8 @@ $defs:
   tem_eelsEnergyLossRange:
     title: EELS Energy Loss Range
     description: Energy loss range acquired, defined by onset energy and width in
-      eV. The procedure documents the target range for the registered analyte edges;
-      analysts record the actual range acquired. Record 'N/A' where EELS is not listed
-      in Spectroscopic Detector(s).
+      eV. The target range covers the registered analyte edges; the actual range acquired
+      may differ. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -20584,9 +19394,8 @@ $defs:
   tem_eelsPluralScatteringCorrection:
     title: EELS Plural Scattering Correction
     description: Method applied to correct for multiple inelastic scattering events
-      (plural scattering) that broaden edge fine structure. Critical for specimens
-      thicker than ~0.5 inelastic mean free paths. Record 'N/A' where EELS is not
-      listed in Spectroscopic Detector(s).
+      (plural scattering) that broaden edge fine structure. Record 'N/A' where EELS
+      is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -20599,6 +19408,33 @@ $defs:
         - '@id': ada:parameter/temTAPP/eelsPluralScatteringCorrection
       schema:name:
         const: EELS Plural Scattering Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tem_eelsChemicalStateDeterminationMethod:
+    title: EELS Chemical State Determination Method
+    description: Method used to determine the chemical or oxidation state of an element
+      from the fine structure of its ionization edge (ELNES), together with the reference
+      data or calibration the determination relies on. Name the method family and
+      cite the calibration curve or reference spectra used. Record 'N/A' where no
+      chemical-state determination is made.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod
+      schema:name:
+        const: EELS Chemical State Determination Method
       schema:value:
         type: string
     required:
@@ -20634,8 +19470,7 @@ $defs:
     - schema:value
   tem_specimenThicknessDeterminationMethod:
     title: Specimen Thickness Determination Method
-    description: Method used to estimate TEM foil thickness. Required for EELS quantification
-      (log-ratio) and for assessing multiple-scattering severity.
+    description: Method used to estimate TEM foil thickness.
     type: object
     properties:
       '@id':
@@ -20717,9 +19552,8 @@ $defs:
   tem_edsCalibrationStandard:
     title: EDS Calibration Standard(s)
     description: Reference material(s) used to validate EDS quantification or determine
-      experimental k-factors or zeta-factors. TEM-EDS is less standardized than EPMA;
-      many procedures rely on manufacturer k-factors without external calibration.
-      Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+      experimental k-factors or zeta-factors. Record 'N/A' where EDS is not listed
+      in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -20742,10 +19576,8 @@ $defs:
     - schema:value
   tem_eelsEnergyCalibration:
     title: EELS Energy Calibration
-    description: Method and reference used to calibrate the EELS energy axis. Accurate
-      calibration is required for ELNES edge identification, chemical-state analysis,
-      and inter-lab comparability. Record 'N/A' where EELS is not listed in Spectroscopic
-      Detector(s).
+    description: Method and reference used to calibrate the EELS energy axis. Record
+      'N/A' where EELS is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -20823,9 +19655,8 @@ $defs:
   tem_monochromator:
     title: Monochromator
     description: Whether a monochromator is installed and was active during this procedure.
-      Relevant for EELS energy resolution and EFTEM performance. Record 'N/A' where
-      EELS is not listed in Spectroscopic Detector(s) and EFTEM is not listed in Analytical
-      Sub-mode.
+      Record 'N/A' where EELS is not listed in Spectroscopic Detector(s) and EFTEM
+      is not listed in Analytical Sub-mode.
     type: object
     properties:
       '@id':
@@ -20924,9 +19755,8 @@ $defs:
     - schema:value
   tem_eelsEnergyDispersion:
     title: EELS Energy Dispersion
-    description: Energy dispersion of the EELS spectrometer in eV per channel. Controls
-      the energy range acquired per readout and the effective energy resolution trade-off.
-      Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+    description: Energy dispersion of the EELS spectrometer in eV per channel. Record
+      'N/A' where EELS is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -20955,9 +19785,8 @@ $defs:
   tem_eelsEnergyResolution:
     title: EELS Energy Resolution
     description: Full-width at half-maximum (FWHM) of the zero-loss peak in eV, measured
-      at operating conditions. Reflects combined electron source energy spread and
-      monochromator effect (if active). Critical for ELNES fine-structure interpretation.
-      Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+      at operating conditions. Record 'N/A' where EELS is not listed in Spectroscopic
+      Detector(s).
     type: object
     properties:
       '@id':
@@ -21035,6 +19864,1100 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionSficpms_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_digestionTemperature:
+    title: Digestion Temperature
+    description: "Temperature at which acid digestion was carried out (\xB0C)."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/digestionTemperature
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/digestionTemperature
+      schema:name:
+        const: Digestion Temperature
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_digestionDuration:
+    title: Digestion Duration
+    description: Duration of the primary acid digestion step (hours or days).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/digestionDuration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/digestionDuration
+      schema:name:
+        const: Digestion Duration
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_sampleAliquotMassOrVolume:
+    title: Sample Aliquot Mass or Volume
+    description: Mass (mg) of solid material digested or volume (mL) of liquid taken
+      for dissolution.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/sampleAliquotMassOrVolume
+      schema:name:
+        const: Sample Aliquot Mass or Volume
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_instrumentSerialNumberOrLabIdentifier:
+    title: Instrument Serial Number or Lab Identifier
+    description: Serial number or laboratory-internal identifier for the specific
+      instrument unit.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/instrumentSerialNumberOrLabIdentifier
+      schema:name:
+        const: Instrument Serial Number or Lab Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_torchDepth:
+    title: Torch Depth
+    description: Distance between the load coil and the sampling cone tip (mm), also
+      called injector depth or torch position depending on the instrument manufacturer.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/torchDepth
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/torchDepth
+      schema:name:
+        const: Torch Depth
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_massResolutionSetting:
+    title: Mass Resolution Setting
+    description: Operating mass resolution of the mass analyser. Where the analyser
+      permits selection, state the mode; where individual analytes are assigned to
+      different modes, state each.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/massResolutionSetting
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/massResolutionSetting
+      schema:name:
+        const: Mass Resolution Setting
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_sampleUptakeRate:
+    title: Sample Uptake Rate
+    description: "Peristaltic pump speed or self-aspiration flow rate for sample introduction
+      (\xB5L/min or mL/min)."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/sampleUptakeRate
+      schema:name:
+        const: Sample Uptake Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_rfPower:
+    title: RF Power
+    description: Radiofrequency forward power applied to the ICP, in watts.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/rfPower
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/rfPower
+      schema:name:
+        const: RF Power
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_coolantGasFlowRate:
+    title: Coolant (Plasma) Gas Flow Rate
+    description: Flow rate of the outer (coolant/plasma) argon gas stream that sustains
+      the ICP plasma, in L/min.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/coolantGasFlowRate
+      schema:name:
+        const: Coolant (Plasma) Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_auxiliaryGasFlowRate:
+    title: Auxiliary Gas Flow Rate
+    description: Flow rate of the intermediate (auxiliary) argon gas stream, between
+      the torch body and the injector tube, which positions the plasma relative to
+      the load coil, in L/min. Distinct from the outer coolant (plasma) gas and from
+      the gas stream that carries sample into the plasma.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/auxiliaryGasFlowRate
+      schema:name:
+        const: Auxiliary Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_nebulizerGasFlowRate:
+    title: Nebulizer Gas Flow Rate
+    description: Flow rate of the carrier argon gas delivered through the nebulizer
+      (L/min).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/nebulizerGasFlowRate
+      schema:name:
+        const: Nebulizer Gas Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_makeUpGasAndFlowRate:
+    title: Make-up Gas and Flow Rate
+    description: Supplementary gas added to the sample-carrying stream between the
+      sample introduction system and the plasma, with its identity and the procedure-registered
+      target flow rate. Record any small nitrogen or hydrogen addition with its own
+      flow, whose unit commonly differs from the make-up flow. Record 'None' explicitly
+      where no supplementary gas is added, to distinguish it from not reported.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/makeUpGasAndFlowRate
+      schema:name:
+        const: Make-up Gas and Flow Rate
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_icpTuning:
+    title: ICP Tuning
+    description: Description of the approach used to optimise ICP plasma conditions
+      prior to analysis, including the reference material used for tuning and the
+      acceptance criteria (e.g., oxide production threshold, sensitivity targets,
+      mass calibration).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/icpTuning
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/icpTuning
+      schema:name:
+        const: ICP Tuning
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_instrumentSensitivity:
+    title: Instrument Sensitivity
+    description: "Instrument sensitivity achieved in the session, with the isotope
+      or channel it was measured on and the conditions it applies to. May be expressed
+      either as detected signal per unit concentration or per unit mass of analyte
+      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
+      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
+      as ions, with the method used to derive it cited. A sensitivity the procedure
+      requires before analyses may begin belongs with the tuning acceptance criteria."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/instrumentSensitivity
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/instrumentSensitivity
+      schema:name:
+        const: Instrument Sensitivity
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_dwellTimePerMass:
+    title: Dwell Time per Mass
+    description: Count (dwell) time at the mass position, in milliseconds. Where the
+      procedure defines it per sweep or per scan rather than per measurement, state
+      that basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/dwellTimePerMass
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/dwellTimePerMass
+      schema:name:
+        const: Dwell Time per Mass
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_analysisSequence:
+    title: Analysis Sequence
+    description: The repeating order in which calibration or bracketing standards,
+      quality-control and secondary reference materials, blanks and unknowns are interleaved
+      within a measurement session. Adjustments must maintain the bracketing strategy
+      defined in the procedure.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/analysisSequence
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/analysisSequence
+      schema:name:
+        const: Analysis Sequence
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_doublyChargedSpeciesMonitor:
+    title: Doubly-Charged Species Monitor
+    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
+      during instrument tuning.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesMonitor
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_doublyChargedSpeciesProduction:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/doublyChargedSpeciesProduction
+      schema:name:
+        const: Doubly-Charged Species Production
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_ionCounterDeadTime:
+    title: Ion Counter Dead Time
+    description: Dead time of each ion-counting detector channel, used in the dead-time
+      correction applied to high count rates. Distinct from pulse/analog cross-calibration,
+      which relates the two detector modes rather than correcting counting losses
+      within the pulse-counting mode.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/ionCounterDeadTime
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/ionCounterDeadTime
+      schema:name:
+        const: Ion Counter Dead Time
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_spikeOutlierFilteringApproach:
+    title: Spike / Outlier Filtering Approach
+    description: Criteria used to identify and exclude anomalous data - signal spikes,
+      individual cycles, or whole replicate measurements - before the reported value
+      is calculated. State where in the reduction sequence the filter is applied.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
+      schema:name:
+        const: Spike / Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_pulseAnalogDetectorNonlinearityCorrection:
+    title: Pulse/Analog Detector Nonlinearity Correction
+    description: Whether a correction was applied for nonlinear detector response
+      at the transition between pulse-counting and analog (and Faraday, for triple-mode
+      instruments) detection modes. Cross-calibration factors between detector modes
+      must be confirmed, typically measured each session. Record 'Applied' and describe
+      the method, the detector modes involved and the analytes affected; 'None' where
+      a crossover exists on this instrument but no correction was made, giving the
+      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      exists.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
+      schema:name:
+        const: Pulse/Analog Detector Nonlinearity Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_memoryEffectMitigation:
+    title: Memory Effect Mitigation
+    description: Procedure applied to identify and minimise carry-over of high-concentration
+      or isotopically distinct material from a preceding measurement into the current
+      one. Mitigation is applied primarily at measurement time, by allowing sufficient
+      washout or rinse between successive introductions. At data processing level,
+      record any flagging or exclusion of measurements where the required washout
+      may not have been achieved.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/memoryEffectMitigation
+      schema:name:
+        const: Memory Effect Mitigation
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_uncertaintyPropagationMethod:
+    title: Uncertainty Propagation Method
+    description: 'The approach used to propagate analytical uncertainty through the
+      data reduction chain to the final reported value. State which sources are included
+      in the propagation: counting statistics, calibration standard uncertainty, internal
+      standard uncertainty, drift correction, and any systematic contributions. Distinct
+      from Uncertainty Level, which states the convention at which the resulting uncertainty
+      is quoted.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/uncertaintyPropagationMethod
+      schema:name:
+        const: Uncertainty Propagation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_normalizationStandardsBasedCorrection:
+    title: Normalization / Standards-Based Correction
+    description: "Post-acquisition normalization applied to the reported data beyond
+      the primary calibration \u2014 for example correction to a reference value derived
+      from secondary reference materials, or correction for a systematic bias those
+      materials reveal. Record 'None' if no additional normalization is applied."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
+      schema:name:
+        const: Normalization / Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_primaryCalibrationStandardName:
+    title: Primary Calibration Standard Name
+    description: "Name and reference material identifier of the primary reference
+      material(s) against which the instrument is calibrated \u2014 converting raw
+      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
+      standard or zero-delta reference. Give the material name, its source or supplier,
+      and a citation for the accepted values used. Where calibration instead uses
+      the vendor's stored library or theoretical response factors rather than measured
+      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+      \u2014 record that here, naming the library or model used. 'None' means no calibration
+      was performed at all, which is a different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
+      schema:name:
+        const: Primary Calibration Standard Name
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_secondaryReferenceMaterials:
+    title: Secondary Reference Materials
+    description: Quality-control reference material(s) measured as unknowns alongside
+      samples to assess accuracy independently and to monitor drift. Give the material
+      name, its source, and a citation for the accepted or reference values used for
+      comparison.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
+      schema:name:
+        const: Secondary Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_torchType:
+    title: Torch Type
+    description: Type of plasma torch installed (e.g. standard quartz, high-matrix,
+      low-flow).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/torchType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/torchType
+      schema:name:
+        const: Torch Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_samplerAndSkimmerConeMaterial:
+    title: Sampler and Skimmer Cone Material
+    description: Material composition of the sampler and skimmer cones. State both
+      sampler and skimmer materials; a single statement is acceptable where they are
+      identical.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial
+      schema:name:
+        const: Sampler and Skimmer Cone Material
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_desolvationSystem:
+    title: Desolvation System
+    description: Desolvating nebulizer or membrane desolvator used upstream of the
+      plasma to reduce solvent load. Record 'None' if not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/desolvationSystem
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/desolvationSystem
+      schema:name:
+        const: Desolvation System
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_instrumentWarmUpSessionDurationLimit:
+    title: Instrument Warm-up / Session Duration Limit
+    description: Minimum warm-up time required after plasma ignition before analyses
+      begin, and any maximum session duration enforced to maintain stable operating
+      conditions.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/instrumentWarmUpSessionDurationLimit
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/instrumentWarmUpSessionDurationLimit
+      schema:name:
+        const: Instrument Warm-up / Session Duration Limit
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_eScanRange:
+    title: E-scan Range
+    description: Electric scan range used for peak acquisition, expressed as percentage
+      of the centre mass (%). Record 'N/A' if E-scan acquisition mode is not used.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/eScanRange
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/eScanRange
+      schema:name:
+        const: E-scan Range
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_tripleScanningMode:
+    title: Triple Scanning Mode
+    description: Whether each mass peak is scanned three times per cycle and the results
+      averaged (Y/N). Record 'N/A' if not applicable to the instrument.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/tripleScanningMode
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/tripleScanningMode
+      schema:name:
+        const: Triple Scanning Mode
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_internalStandardConcentration:
+    title: Internal Standard Concentration
+    description: "Target concentration of internal standard element(s) in all measured
+      solutions (\xB5g/L or ppb). Record 'N/A' where Internal Standard Element is
+      'None'."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/internalStandardConcentration
+      schema:name:
+        const: Internal Standard Concentration
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
 
 ```
 

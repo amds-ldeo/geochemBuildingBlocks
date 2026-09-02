@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 Agilent7900",
-  "schema:description": "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods); ada:perAnalyteCalibrationStrategy = External calibration (stated Methods).",
+  "schema:description": "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods).",
   "schema:object": [
     {
       "@type": [
@@ -60,61 +60,18 @@
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/massResolutionSetting"
-            }
-          ],
+          "schema:valueName": "massResolutionSettingDefault",
           "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
         }
       ],
       "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Collision Reaction Cell",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "KED (kinetic energy discrimination, He gas)",
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
-              "@type": [
-                "schema:PropertyValue"
-              ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
-              "schema:name": "Collision Gas Type",
-              "schema:value": "He (stated Methods)"
-            },
-            {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasFlowRateDefault",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collisionGasFlowRateDefault",
-              "schema:name": "Collision Gas Flow Rate",
-              "ada:dataType": "number",
-              "ada:fieldScope": "session",
-              "schema:defaultValue": 5,
-              "schema:description": "5 mL/min (stated Methods)"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
-        },
         {
           "schema:additionalType": [
             "Sample Introduction System",
@@ -164,6 +121,45 @@
           ],
           "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
           "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "Collision Reaction Cell",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "collisionGasType",
+              "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "He (stated Methods)"
+            },
+            {
+              "@id": "ada:parameter/module/CollisionCell/gasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "gasFlowRateDefault",
+              "schema:name": "Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 5,
+              "schema:description": "5 mL/min (stated Methods)"
+            }
+          ],
+          "schema:name": "KED (He); He at 5 mL/min applied for masses 23-75 (stated Methods)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -229,12 +225,7 @@
       "schema:value": "None"
     }
   ],
-  "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
-  "ada:internalStandardApproach": "N/A",
   "ada:driftCorrectionMethod": "IS normalization",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -263,16 +254,14 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionQicpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "None"
           }
         ],
@@ -301,7 +290,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -338,78 +326,25 @@
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis; stated Methods)",
   "ada:isotopeDilutionSpike": "None",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Major and trace elements (masses 23-75, Na to As; stated Methods)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results",
+  "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration (stated Methods)"
+  ],
+  "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,

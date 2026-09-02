@@ -28,7 +28,7 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
-    schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v37.csv)." ;
     schema1:instrument <https://example.org/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
@@ -46,6 +46,8 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
             schema1:target [ schema1:description "BSE images compared with XCT attenuation contrast" ;
                     schema1:name "SEM-BSE (qualitative comparison)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "missing" ;
     ada:detectorType "missing" ;
@@ -54,12 +56,13 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
     ada:numberOfProjectionsDefault "3143" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "Filtered back projection (Nikon proprietary)" ;
+    ada:reportedProperties "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite; slice area (mm2)" ;
     ada:rotationModeDefault "missing" ;
     ada:rotationRangeDefault -9999 ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)" ;
+    ada:samplingUnitSelectionCriteriaDefault "Single 2.7 g chip (~1.1 x 1.2 x 0.8 cm) taken from the outer part of one stone, selected because it provides a profile from the weathered exterior to the fresh interior; six 2-D slices at ~1 mm spacing extracted for modal analysis" ;
     ada:segmentationMethodDefault "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume" ;
     ada:targetFeature "Modal mineralogy (vol%); secondary minerals" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:xRaySourceConfiguration "missing" ;
     bios:computationalTool [ schema1:name "Avizo™" ;
             ada:toolRole "dataReduction" ] .
@@ -96,6 +99,8 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nikon Metris XTH 225" ] ;
     schema1:name "example instrumentName" ;

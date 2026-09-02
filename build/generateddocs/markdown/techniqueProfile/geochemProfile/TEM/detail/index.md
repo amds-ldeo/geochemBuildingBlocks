@@ -38,7 +38,7 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -78,7 +78,7 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -99,7 +99,7 @@ ex:detail-Chaves2023 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
@@ -139,7 +139,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -179,7 +179,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -200,7 +200,7 @@ ex:detail-Zega2025 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
@@ -240,7 +240,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -280,7 +280,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -301,7 +301,7 @@ ex:detail-Zega2025-2 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
@@ -341,7 +341,7 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -381,7 +381,7 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -402,7 +402,7 @@ ex:detail-Zega2025-3 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
@@ -442,7 +442,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -482,7 +482,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -503,7 +503,7 @@ ex:detail-Zega2025-4 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NNM10AA11C" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
@@ -543,7 +543,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -583,7 +583,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -604,7 +604,7 @@ ex:detail-Matsumoto2021 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
@@ -644,7 +644,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -684,7 +684,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -705,7 +705,7 @@ ex:detail-Matsumoto2021-2 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
@@ -745,7 +745,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -785,7 +785,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -806,7 +806,7 @@ ex:detail-Matsumoto2021-3 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
@@ -846,7 +846,7 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -886,7 +886,7 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -907,7 +907,7 @@ ex:detail-KellerBerger2014 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)" ;
@@ -947,7 +947,7 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -987,7 +987,7 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1008,7 +1008,7 @@ ex:detail-Zeng2024 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)" ;
@@ -1048,7 +1048,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1088,7 +1088,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1109,7 +1109,7 @@ ex:detail-Dobrica2022 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ;
@@ -1149,7 +1149,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": "<0.1 wt% (stated for TEM EDS measurements)",
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1189,7 +1189,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": "<0.1 wt% (stated for TEM EDS measurements)",
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1210,7 +1210,7 @@ ex:detail-Dobrica2022-2 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "<0.1 wt% (stated for TEM EDS measurements)" ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ;
@@ -1250,7 +1250,7 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1290,7 +1290,7 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1311,7 +1311,7 @@ ex:detail-Singerling2025 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27" ;
@@ -1351,7 +1351,7 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1391,7 +1391,7 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1412,7 +1412,7 @@ ex:detail-Thompson2020 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)" ;
@@ -1452,7 +1452,7 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements",
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability",
+  "ada:eelsDetectionLimit": "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability",
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1492,7 +1492,7 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements",
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability",
+  "ada:eelsDetectionLimit": "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability",
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1513,7 +1513,7 @@ ex:detail-Xing2023 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements" ;
-    ada:eelsSensitivityAndDetectionLimit "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability" ;
+    ada:eelsDetectionLimit "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
@@ -1553,7 +1553,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1593,7 +1593,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1614,7 +1614,7 @@ ex:detail-Seifert2026 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ;
@@ -1654,7 +1654,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1694,7 +1694,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1715,7 +1715,7 @@ ex:detail-Seifert2026-2 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ;
@@ -1755,7 +1755,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1795,7 +1795,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1816,7 +1816,7 @@ ex:detail-Cymes2023 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ;
@@ -1856,7 +1856,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1896,7 +1896,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -1917,7 +1917,7 @@ ex:detail-Cymes2023-2 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ;
@@ -1957,7 +1957,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -1997,7 +1997,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -2018,7 +2018,7 @@ ex:detail-Mo2022 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ;
@@ -2058,7 +2058,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -2098,7 +2098,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:analysisInclusionAndRejectionCriteria": "missing",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
-  "ada:eelsSensitivityAndDetectionLimit": "missing",
+  "ada:eelsDetectionLimit": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -2119,7 +2119,7 @@ ex:detail-Mo2022-2 a ada:TEMImage ;
     ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
-    ada:eelsSensitivityAndDetectionLimit "missing" ;
+    ada:eelsDetectionLimit -9999 ;
     ada:fundingSourceForAnalysis "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ;
@@ -2179,10 +2179,9 @@ allOf:
                               final 0.5\u20132 kV Ga+ thinning); sample transfer and
                               storage environment (ambient air, dry N\u2082 atmosphere,
                               vacuum transfer holder, glovebox); plasma cleaning before
-                              loading. Analysts record session-specific observations
-                              and deviations from the procedure standard. Includes
-                              preparation artifacts noted (Ga implantation, amorphization,
-                              curtaining)."
+                              loading. Includes session-specific observations and
+                              deviations from the procedure standard. Includes preparation
+                              artifacts noted (Ga implantation, amorphization, curtaining)."
                             type: object
                             properties:
                               '@id':
@@ -2216,7 +2215,7 @@ allOf:
                                 NanoMill, final 0.5\u20132 kV Ga+ thinning); sample
                                 transfer and storage environment (ambient air, dry
                                 N\u2082 atmosphere, vacuum transfer holder, glovebox);
-                                plasma cleaning before loading. Analysts record session-specific
+                                plasma cleaning before loading. Includes session-specific
                                 observations and deviations from the procedure standard.
                                 Includes preparation artifacts noted (Ga implantation,
                                 amorphization, curtaining)."
@@ -2245,7 +2244,7 @@ allOf:
                   - if:
                       properties:
                         schema:name:
-                          const: Data Reduction
+                          const: Data reduction
                       required:
                       - schema:name
                     then:
@@ -2257,9 +2256,8 @@ allOf:
                             - title: EELS Plural Scattering Correction
                               description: Method applied to correct for multiple
                                 inelastic scattering events (plural scattering) that
-                                broaden edge fine structure. Critical for specimens
-                                thicker than ~0.5 inelastic mean free paths. Record
-                                'N/A' where EELS is not listed in Spectroscopic Detector(s).
+                                broaden edge fine structure. Record 'N/A' where EELS
+                                is not listed in Spectroscopic Detector(s).
                               type: object
                               properties:
                                 '@id':
@@ -2305,14 +2303,14 @@ allOf:
                               - schema:propertyID
                               - schema:name
                               - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
                           - contains:
                               title: EELS Plural Scattering Correction
                               description: Method applied to correct for multiple
                                 inelastic scattering events (plural scattering) that
-                                broaden edge fine structure. Critical for specimens
-                                thicker than ~0.5 inelastic mean free paths. Record
-                                'N/A' where EELS is not listed in Spectroscopic Detector(s).
+                                broaden edge fine structure. Record 'N/A' where EELS
+                                is not listed in Spectroscopic Detector(s).
                               type: object
                               properties:
                                 '@id':
@@ -2363,19 +2361,6 @@ allOf:
                               - schema:value
                             minContains: 0
                             maxContains: 1
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Data reduction
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-                          allOf:
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             minContains: 0
@@ -2391,12 +2376,9 @@ allOf:
             type: array
             items:
               anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               - title: Sample Holder
-                description: Type of specimen holder used. Cryo holders (liquid N2
-                  to ~110 K) are critical for minimizing beam-induced damage to organic
-                  matter and beam-sensitive phases. Heating holders enable in-situ
-                  experiments.
+                description: Type of specimen holder used.
                 type: object
                 properties:
                   '@id':
@@ -2442,12 +2424,9 @@ allOf:
                 - schema:name
                 - schema:value
               - title: Analytical Sub-mode
-                description: 'Sub-mode(s) of imaging or diffraction performed under
-                  this procedure. TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM.
-                  STEM Imaging options: HAADF, ABF, BF-STEM, ADF, MAADF. Electron
-                  Diffraction options: SAED, CBED, Nanobeam diffraction, Precession
-                  ED, 4D-STEM. Multiple values apply when the procedure covers more
-                  than one sub-mode within a given analytical mode.'
+                description: Sub-mode(s) of imaging or diffraction performed under
+                  this procedure. Multiple values apply when the procedure covers
+                  more than one sub-mode within a given analytical mode.
                 type: object
                 properties:
                   '@id':
@@ -2494,13 +2473,8 @@ allOf:
                 - schema:value
               - title: HAADF Collection Angles
                 description: Inner and outer collection angles of the HAADF detector
-                  in milliradians (mrad). The inner angle determines the boundary
-                  between diffracted and thermally diffuse scattered electrons; larger
-                  inner angles yield stronger Z-contrast and reduced Bragg contrast.
-                  Inner angle is most critical and can be derived from camera length
-                  and detector geometry. In HAADF-STEM a shorter camera length increases
-                  the inner angle, yielding more thermally diffuse (Z-contrast) and
-                  less Bragg-diffraction signal.
+                  in milliradians (mrad). Inner angle can be derived from camera length
+                  and detector geometry.
                 type: object
                 properties:
                   '@id':
@@ -2523,13 +2497,12 @@ allOf:
                 - schema:value
               - title: STEM Probe Diameter
                 description: 'Nominal or measured diameter of the focused electron
-                  probe at the sample, reported in nm. Serves as a direct spatial
-                  resolution proxy for STEM imaging and STEM-EDS/EELS analysis. Related
-                  to, but distinct from, Convergence Semi-Angle: the two quantities
-                  are connected via aberration coefficients, defocus, and probe current,
-                  which are not always published. Report whichever is known; if both
-                  are known, report both fields. Also governs STEM-EDS and STEM-EELS
-                  acquisition where those detectors are used.'
+                  probe at the sample, reported in nm. Related to, but distinct from,
+                  Convergence Semi-Angle: the two quantities are connected via aberration
+                  coefficients, defocus, and probe current, which are not always published.
+                  Report whichever is known; if both are known, report both fields.
+                  Also governs STEM-EDS and STEM-EELS acquisition where those detectors
+                  are used.'
                 type: object
                 properties:
                   '@id':
@@ -2557,9 +2530,8 @@ allOf:
                 - schema:unitText
               - title: STEM Probe Current
                 description: Probe current in picoamperes (pA) or nanoamperes (nA).
-                  Higher current improves EDS/EELS signal but increases beam damage
-                  risk, especially for organic matter and hydrous minerals. Also governs
-                  STEM-EDS and STEM-EELS acquisition where those detectors are used.
+                  Also governs STEM-EDS and STEM-EELS acquisition where those detectors
+                  are used.
                 type: object
                 properties:
                   '@id':
@@ -2585,25 +2557,24 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - title: STEM Dwell Time per Pixel
+              - title: Dwell Time per Pixel
                 description: Time spent acquiring signal at each pixel during STEM
-                  scanning in milliseconds. Longer dwell improves signal-to-noise
-                  but increases total specimen dose; for dose-sensitive materials,
-                  minimize dwell and compensate with frame averaging. Also governs
-                  STEM-EDS and STEM-EELS acquisition where those detectors are used.
-                  For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe Position'.
+                  scanning in milliseconds. For dose-sensitive materials, minimize
+                  dwell and compensate with frame averaging. Also governs STEM-EDS
+                  and STEM-EELS acquisition where those detectors are used. For 4D-STEM
+                  dwell time see '4D-STEM Dwell Time per Probe Position'.
                 type: object
                 properties:
                   '@id':
-                    const: ada:parameter/temTAPP/stemDwellTimePerPixel
+                    const: ada:parameter/temTAPP/dwellTimePerPixel
                   '@type':
                     const:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                    - '@id': ada:parameter/temTAPP/stemDwellTimePerPixel
+                    - '@id': ada:parameter/temTAPP/dwellTimePerPixel
                   schema:name:
-                    const: STEM Dwell Time per Pixel
+                    const: Dwell Time per Pixel
                   schema:value:
                     anyOf:
                     - type: number
@@ -2619,7 +2590,6 @@ allOf:
                 - schema:unitText
               - title: STEM Scan Dimensions
                 description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels).
-                  Combined with calibrated pixel size, defines the field of view.
                   Also governs STEM-EDS and STEM-EELS acquisition where those detectors
                   are used."
                 type: object
@@ -2649,9 +2619,8 @@ allOf:
                 - schema:unitText
               - title: STEM Frame Averaging
                 description: Number of frames averaged (with drift correction if applicable)
-                  to produce the final STEM image. Averaging reduces noise while limiting
-                  per-frame dose. Also governs STEM-EDS and STEM-EELS acquisition
-                  where those detectors are used.
+                  to produce the final STEM image. Also governs STEM-EDS and STEM-EELS
+                  acquisition where those detectors are used.
                 type: object
                 properties:
                   '@id':
@@ -2674,14 +2643,9 @@ allOf:
                 - schema:value
               - title: Camera Length
                 description: "Nominal camera length in millimeters used for diffraction
-                  pattern acquisition. Controls the mapping between reciprocal-space
-                  scattering angle and detector position; must be calibrated to convert
-                  pixel distances to d-spacings. In STEM mode, also sets HAADF/ABF
-                  detector collection angles. Calibration to absolute d-spacings is
-                  required \u2014 see 'Diffraction Calibration Reference'. Camera
-                  length choice affects HAADF Z-contrast purity: a shorter camera
-                  length (e.g. 30 mm) shifts the inner angle toward thermal diffuse
-                  scatter; a longer one (e.g. 150 mm) admits more Bragg scatter."
+                  pattern acquisition. Must be calibrated to convert pixel distances
+                  to d-spacings. Calibration to absolute d-spacings is required \u2014
+                  see 'Diffraction Calibration Reference'."
                 type: object
                 properties:
                   '@id':
@@ -2733,10 +2697,8 @@ allOf:
                 - schema:value
               - title: Precession Angle
                 description: Precession semi-angle in degrees for precession electron
-                  diffraction (PED). Hollow-cone illumination reduces dynamical diffraction
-                  effects and produces more kinematical-like intensities. Not applicable
-                  to SAED, CBED, or standard 4D-STEM. Record 'N/A' where Precession
-                  ED is not listed in Analytical Sub-mode.
+                  diffraction (PED). Not applicable to SAED, CBED, or standard 4D-STEM.
+                  Record 'N/A' where Precession ED is not listed in Analytical Sub-mode.
                 type: object
                 properties:
                   '@id':
@@ -2789,12 +2751,8 @@ allOf:
                 - schema:value
               - title: 4D-STEM Dwell Time per Probe Position
                 description: Time spent acquiring each diffraction pattern in the
-                  4D-STEM dataset in milliseconds. Longer dwell improves signal-to-noise
-                  for weakly diffracting phases (e.g., smectite 001 reflection at
-                  ~1.24 nm) but increases total specimen dose; risk of beam damage
-                  to phyllosilicates and organic matter must be balanced against data
-                  quality. Record 'N/A' where 4D-STEM is not listed in Analytical
-                  Sub-mode.
+                  4D-STEM dataset in milliseconds. Record 'N/A' where 4D-STEM is not
+                  listed in Analytical Sub-mode.
                 type: object
                 properties:
                   '@id':
@@ -2845,8 +2803,18 @@ allOf:
                 - schema:name
                 - schema:value
               - title: EDS Acquisition Mode
-                description: Mode of EDS data acquisition. Record 'N/A' where EDS
-                  is not listed in Spectroscopic Detector(s).
+                description: "Spatial acquisition sub-strategy for EDS measurements:
+                  stationary-beam point acquisition, line scan (beam stepped along
+                  a transect at defined intervals), or area map / spectrum image (beam
+                  rastered over a pixel grid). Specifies how the beam is positioned
+                  during data collection within the declared analytical mode. Record
+                  'N/A' where the procedure has no EDS detector. 'Point' covers what
+                  the literature also calls spot or point-spectrum analysis. 'Map'
+                  and 'Spectrum image' are distinct acquisitions, not synonyms: a
+                  map may retain element intensities alone, whereas a spectrum image
+                  retains a full spectrum at every pixel and can be requantified afterwards
+                  \u2014 record which was acquired. Where more than one mode was used,
+                  join them with '; ' rather than looking for a combined member."
                 type: object
                 properties:
                   '@id':
@@ -2949,9 +2917,9 @@ allOf:
                   symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific
                   counterpart to the Analyte field: while Analyte lists elements,
                   EELS Edges documents which ionization edges were used and their
-                  approximate energy loss positions. The procedure registers the full
-                  intended edge suite; analysts confirm or narrow this list at analysis
-                  time. Record ''N/A'' where EELS is not listed in Spectroscopic Detector(s).'
+                  approximate energy loss positions. The edge list may be narrowed
+                  at analysis time. Record ''N/A'' where EELS is not listed in Spectroscopic
+                  Detector(s).'
                 type: object
                 properties:
                   '@id':
@@ -3003,9 +2971,9 @@ allOf:
                 - schema:unitText
               - title: EELS Energy Loss Range
                 description: Energy loss range acquired, defined by onset energy and
-                  width in eV. The procedure documents the target range for the registered
-                  analyte edges; analysts record the actual range acquired. Record
-                  'N/A' where EELS is not listed in Spectroscopic Detector(s).
+                  width in eV. The target range covers the registered analyte edges;
+                  the actual range acquired may differ. Record 'N/A' where EELS is
+                  not listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -3027,9 +2995,7 @@ allOf:
                 - schema:name
                 - schema:value
               - title: Specimen Thickness Determination Method
-                description: Method used to estimate TEM foil thickness. Required
-                  for EELS quantification (log-ratio) and for assessing multiple-scattering
-                  severity.
+                description: Method used to estimate TEM foil thickness.
                 type: object
                 properties:
                   '@id':
@@ -3052,10 +3018,8 @@ allOf:
                 - schema:value
               - title: EDS Calibration Standard(s)
                 description: Reference material(s) used to validate EDS quantification
-                  or determine experimental k-factors or zeta-factors. TEM-EDS is
-                  less standardized than EPMA; many procedures rely on manufacturer
-                  k-factors without external calibration. Record 'N/A' where EDS is
-                  not listed in Spectroscopic Detector(s).
+                  or determine experimental k-factors or zeta-factors. Record 'N/A'
+                  where EDS is not listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -3078,9 +3042,7 @@ allOf:
                 - schema:value
               - title: EELS Energy Calibration
                 description: Method and reference used to calibrate the EELS energy
-                  axis. Accurate calibration is required for ELNES edge identification,
-                  chemical-state analysis, and inter-lab comparability. Record 'N/A'
-                  where EELS is not listed in Spectroscopic Detector(s).
+                  axis. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -3184,17 +3146,41 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
+              - title: EELS Chemical State Determination Method
+                description: Method used to determine the chemical or oxidation state
+                  of an element from the fine structure of its ionization edge (ELNES),
+                  together with the reference data or calibration the determination
+                  relies on. Name the method family and cite the calibration curve
+                  or reference spectra used. Record 'N/A' where no chemical-state
+                  determination is made.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod
+                  schema:name:
+                    const: EELS Chemical State Determination Method
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
             allOf:
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               minContains: 0
               maxContains: 1
             - contains:
                 title: Sample Holder
-                description: Type of specimen holder used. Cryo holders (liquid N2
-                  to ~110 K) are critical for minimizing beam-induced damage to organic
-                  matter and beam-sensitive phases. Heating holders enable in-situ
-                  experiments.
+                description: Type of specimen holder used.
                 type: object
                 properties:
                   '@id':
@@ -3246,12 +3232,9 @@ allOf:
               maxContains: 1
             - contains:
                 title: Analytical Sub-mode
-                description: 'Sub-mode(s) of imaging or diffraction performed under
-                  this procedure. TEM Imaging options: BF-TEM, DF-TEM, HRTEM, EFTEM.
-                  STEM Imaging options: HAADF, ABF, BF-STEM, ADF, MAADF. Electron
-                  Diffraction options: SAED, CBED, Nanobeam diffraction, Precession
-                  ED, 4D-STEM. Multiple values apply when the procedure covers more
-                  than one sub-mode within a given analytical mode.'
+                description: Sub-mode(s) of imaging or diffraction performed under
+                  this procedure. Multiple values apply when the procedure covers
+                  more than one sub-mode within a given analytical mode.
                 type: object
                 properties:
                   '@id':
@@ -3304,13 +3287,8 @@ allOf:
             - contains:
                 title: HAADF Collection Angles
                 description: Inner and outer collection angles of the HAADF detector
-                  in milliradians (mrad). The inner angle determines the boundary
-                  between diffracted and thermally diffuse scattered electrons; larger
-                  inner angles yield stronger Z-contrast and reduced Bragg contrast.
-                  Inner angle is most critical and can be derived from camera length
-                  and detector geometry. In HAADF-STEM a shorter camera length increases
-                  the inner angle, yielding more thermally diffuse (Z-contrast) and
-                  less Bragg-diffraction signal.
+                  in milliradians (mrad). Inner angle can be derived from camera length
+                  and detector geometry.
                 type: object
                 properties:
                   '@id':
@@ -3336,13 +3314,12 @@ allOf:
             - contains:
                 title: STEM Probe Diameter
                 description: 'Nominal or measured diameter of the focused electron
-                  probe at the sample, reported in nm. Serves as a direct spatial
-                  resolution proxy for STEM imaging and STEM-EDS/EELS analysis. Related
-                  to, but distinct from, Convergence Semi-Angle: the two quantities
-                  are connected via aberration coefficients, defocus, and probe current,
-                  which are not always published. Report whichever is known; if both
-                  are known, report both fields. Also governs STEM-EDS and STEM-EELS
-                  acquisition where those detectors are used.'
+                  probe at the sample, reported in nm. Related to, but distinct from,
+                  Convergence Semi-Angle: the two quantities are connected via aberration
+                  coefficients, defocus, and probe current, which are not always published.
+                  Report whichever is known; if both are known, report both fields.
+                  Also governs STEM-EDS and STEM-EELS acquisition where those detectors
+                  are used.'
                 type: object
                 properties:
                   '@id':
@@ -3373,9 +3350,8 @@ allOf:
             - contains:
                 title: STEM Probe Current
                 description: Probe current in picoamperes (pA) or nanoamperes (nA).
-                  Higher current improves EDS/EELS signal but increases beam damage
-                  risk, especially for organic matter and hydrous minerals. Also governs
-                  STEM-EDS and STEM-EELS acquisition where those detectors are used.
+                  Also governs STEM-EDS and STEM-EELS acquisition where those detectors
+                  are used.
                 type: object
                 properties:
                   '@id':
@@ -3404,25 +3380,24 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                title: STEM Dwell Time per Pixel
+                title: Dwell Time per Pixel
                 description: Time spent acquiring signal at each pixel during STEM
-                  scanning in milliseconds. Longer dwell improves signal-to-noise
-                  but increases total specimen dose; for dose-sensitive materials,
-                  minimize dwell and compensate with frame averaging. Also governs
-                  STEM-EDS and STEM-EELS acquisition where those detectors are used.
-                  For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe Position'.
+                  scanning in milliseconds. For dose-sensitive materials, minimize
+                  dwell and compensate with frame averaging. Also governs STEM-EDS
+                  and STEM-EELS acquisition where those detectors are used. For 4D-STEM
+                  dwell time see '4D-STEM Dwell Time per Probe Position'.
                 type: object
                 properties:
                   '@id':
-                    const: ada:parameter/temTAPP/stemDwellTimePerPixel
+                    const: ada:parameter/temTAPP/dwellTimePerPixel
                   '@type':
                     const:
                     - schema:PropertyValue
                   schema:propertyID:
                     const:
-                    - '@id': ada:parameter/temTAPP/stemDwellTimePerPixel
+                    - '@id': ada:parameter/temTAPP/dwellTimePerPixel
                   schema:name:
-                    const: STEM Dwell Time per Pixel
+                    const: Dwell Time per Pixel
                   schema:value:
                     anyOf:
                     - type: number
@@ -3441,7 +3416,6 @@ allOf:
             - contains:
                 title: STEM Scan Dimensions
                 description: "Number of pixels in the STEM scan frame (X \xD7 Y pixels).
-                  Combined with calibrated pixel size, defines the field of view.
                   Also governs STEM-EDS and STEM-EELS acquisition where those detectors
                   are used."
                 type: object
@@ -3474,9 +3448,8 @@ allOf:
             - contains:
                 title: STEM Frame Averaging
                 description: Number of frames averaged (with drift correction if applicable)
-                  to produce the final STEM image. Averaging reduces noise while limiting
-                  per-frame dose. Also governs STEM-EDS and STEM-EELS acquisition
-                  where those detectors are used.
+                  to produce the final STEM image. Also governs STEM-EDS and STEM-EELS
+                  acquisition where those detectors are used.
                 type: object
                 properties:
                   '@id':
@@ -3502,14 +3475,9 @@ allOf:
             - contains:
                 title: Camera Length
                 description: "Nominal camera length in millimeters used for diffraction
-                  pattern acquisition. Controls the mapping between reciprocal-space
-                  scattering angle and detector position; must be calibrated to convert
-                  pixel distances to d-spacings. In STEM mode, also sets HAADF/ABF
-                  detector collection angles. Calibration to absolute d-spacings is
-                  required \u2014 see 'Diffraction Calibration Reference'. Camera
-                  length choice affects HAADF Z-contrast purity: a shorter camera
-                  length (e.g. 30 mm) shifts the inner angle toward thermal diffuse
-                  scatter; a longer one (e.g. 150 mm) admits more Bragg scatter."
+                  pattern acquisition. Must be calibrated to convert pixel distances
+                  to d-spacings. Calibration to absolute d-spacings is required \u2014
+                  see 'Diffraction Calibration Reference'."
                 type: object
                 properties:
                   '@id':
@@ -3567,10 +3535,8 @@ allOf:
             - contains:
                 title: Precession Angle
                 description: Precession semi-angle in degrees for precession electron
-                  diffraction (PED). Hollow-cone illumination reduces dynamical diffraction
-                  effects and produces more kinematical-like intensities. Not applicable
-                  to SAED, CBED, or standard 4D-STEM. Record 'N/A' where Precession
-                  ED is not listed in Analytical Sub-mode.
+                  diffraction (PED). Not applicable to SAED, CBED, or standard 4D-STEM.
+                  Record 'N/A' where Precession ED is not listed in Analytical Sub-mode.
                 type: object
                 properties:
                   '@id':
@@ -3629,12 +3595,8 @@ allOf:
             - contains:
                 title: 4D-STEM Dwell Time per Probe Position
                 description: Time spent acquiring each diffraction pattern in the
-                  4D-STEM dataset in milliseconds. Longer dwell improves signal-to-noise
-                  for weakly diffracting phases (e.g., smectite 001 reflection at
-                  ~1.24 nm) but increases total specimen dose; risk of beam damage
-                  to phyllosilicates and organic matter must be balanced against data
-                  quality. Record 'N/A' where 4D-STEM is not listed in Analytical
-                  Sub-mode.
+                  4D-STEM dataset in milliseconds. Record 'N/A' where 4D-STEM is not
+                  listed in Analytical Sub-mode.
                 type: object
                 properties:
                   '@id':
@@ -3691,8 +3653,18 @@ allOf:
               maxContains: 1
             - contains:
                 title: EDS Acquisition Mode
-                description: Mode of EDS data acquisition. Record 'N/A' where EDS
-                  is not listed in Spectroscopic Detector(s).
+                description: "Spatial acquisition sub-strategy for EDS measurements:
+                  stationary-beam point acquisition, line scan (beam stepped along
+                  a transect at defined intervals), or area map / spectrum image (beam
+                  rastered over a pixel grid). Specifies how the beam is positioned
+                  during data collection within the declared analytical mode. Record
+                  'N/A' where the procedure has no EDS detector. 'Point' covers what
+                  the literature also calls spot or point-spectrum analysis. 'Map'
+                  and 'Spectrum image' are distinct acquisitions, not synonyms: a
+                  map may retain element intensities alone, whereas a spectrum image
+                  retains a full spectrum at every pixel and can be requantified afterwards
+                  \u2014 record which was acquired. Where more than one mode was used,
+                  join them with '; ' rather than looking for a combined member."
                 type: object
                 properties:
                   '@id':
@@ -3807,9 +3779,9 @@ allOf:
                   symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific
                   counterpart to the Analyte field: while Analyte lists elements,
                   EELS Edges documents which ionization edges were used and their
-                  approximate energy loss positions. The procedure registers the full
-                  intended edge suite; analysts confirm or narrow this list at analysis
-                  time. Record ''N/A'' where EELS is not listed in Spectroscopic Detector(s).'
+                  approximate energy loss positions. The edge list may be narrowed
+                  at analysis time. Record ''N/A'' where EELS is not listed in Spectroscopic
+                  Detector(s).'
                 type: object
                 properties:
                   '@id':
@@ -3867,9 +3839,9 @@ allOf:
             - contains:
                 title: EELS Energy Loss Range
                 description: Energy loss range acquired, defined by onset energy and
-                  width in eV. The procedure documents the target range for the registered
-                  analyte edges; analysts record the actual range acquired. Record
-                  'N/A' where EELS is not listed in Spectroscopic Detector(s).
+                  width in eV. The target range covers the registered analyte edges;
+                  the actual range acquired may differ. Record 'N/A' where EELS is
+                  not listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -3894,9 +3866,7 @@ allOf:
               maxContains: 1
             - contains:
                 title: Specimen Thickness Determination Method
-                description: Method used to estimate TEM foil thickness. Required
-                  for EELS quantification (log-ratio) and for assessing multiple-scattering
-                  severity.
+                description: Method used to estimate TEM foil thickness.
                 type: object
                 properties:
                   '@id':
@@ -3922,10 +3892,8 @@ allOf:
             - contains:
                 title: EDS Calibration Standard(s)
                 description: Reference material(s) used to validate EDS quantification
-                  or determine experimental k-factors or zeta-factors. TEM-EDS is
-                  less standardized than EPMA; many procedures rely on manufacturer
-                  k-factors without external calibration. Record 'N/A' where EDS is
-                  not listed in Spectroscopic Detector(s).
+                  or determine experimental k-factors or zeta-factors. Record 'N/A'
+                  where EDS is not listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -3951,9 +3919,7 @@ allOf:
             - contains:
                 title: EELS Energy Calibration
                 description: Method and reference used to calibrate the EELS energy
-                  axis. Accurate calibration is required for ELNES edge identification,
-                  chemical-state analysis, and inter-lab comparability. Record 'N/A'
-                  where EELS is not listed in Spectroscopic Detector(s).
+                  axis. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -4068,6 +4034,36 @@ allOf:
                 - schema:value
               minContains: 0
               maxContains: 1
+            - contains:
+                title: EELS Chemical State Determination Method
+                description: Method used to determine the chemical or oxidation state
+                  of an element from the fine structure of its ionization edge (ELNES),
+                  together with the reference data or calibration the determination
+                  relies on. Name the method family and cite the calibration curve
+                  or reference spectra used. Record 'N/A' where no chemical-state
+                  determination is made.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod
+                  schema:name:
+                    const: EELS Chemical State Determination Method
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+              minContains: 0
+              maxContains: 1
           schema:object:
             type: array
             items:
@@ -4085,10 +4081,10 @@ allOf:
                     schema:additionalProperty:
                       type: array
                       items:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                       allOf:
                       - contains:
-                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
           prov:used:
@@ -4156,51 +4152,66 @@ allOf:
                                 schema:additionalProperty:
                                   type: array
                                   items:
-                                    title: Accelerating Voltage
-                                    description: "Electron beam accelerating voltage
-                                      in kilovolts (kV). For beam-sensitive materials
-                                      (organic matter, phyllosilicates), 60\u201380
-                                      kV may be used to stay below the displacement
-                                      threshold for C, N, O, and S. The procedure
-                                      specifies the standard operating voltage; analysts
-                                      record and justify deviations. Key parameter
-                                      for the beam damage regime."
-                                    type: object
-                                    properties:
-                                      '@id':
-                                        const: ada:parameter/temTAPP/acceleratingVoltage
-                                      '@type':
-                                        const:
-                                        - schema:PropertyValue
-                                      schema:propertyID:
-                                        const:
-                                        - '@id': ada:parameter/temTAPP/acceleratingVoltage
-                                      schema:name:
-                                        const: Accelerating Voltage
-                                      schema:value:
-                                        anyOf:
-                                        - type: number
-                                        - type: string
-                                      schema:unitText:
-                                        type: string
-                                    required:
-                                    - '@id'
-                                    - '@type'
-                                    - schema:propertyID
-                                    - schema:name
-                                    - schema:value
-                                    - schema:unitText
+                                    anyOf:
+                                    - title: Accelerating Voltage
+                                      description: Electron beam accelerating voltage
+                                        in kilovolts (kV). Justify any deviation from
+                                        the standard operating voltage.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/temTAPP/acceleratingVoltage
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/temTAPP/acceleratingVoltage
+                                        schema:name:
+                                          const: Accelerating Voltage
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
+                                    - title: TEM Objective Aperture
+                                      description: Objective aperture diameter used
+                                        to select the imaging beam condition in TEM
+                                        mode.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/temTAPP/temObjectiveAperture
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/temTAPP/temObjectiveAperture
+                                        schema:name:
+                                          const: TEM Objective Aperture
+                                        schema:value:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
                                   allOf:
                                   - contains:
                                       title: Accelerating Voltage
-                                      description: "Electron beam accelerating voltage
-                                        in kilovolts (kV). For beam-sensitive materials
-                                        (organic matter, phyllosilicates), 60\u201380
-                                        kV may be used to stay below the displacement
-                                        threshold for C, N, O, and S. The procedure
-                                        specifies the standard operating voltage;
-                                        analysts record and justify deviations. Key
-                                        parameter for the beam damage regime."
+                                      description: Electron beam accelerating voltage
+                                        in kilovolts (kV). Justify any deviation from
+                                        the standard operating voltage.
                                       type: object
                                       properties:
                                         '@id':
@@ -4228,6 +4239,33 @@ allOf:
                                       - schema:unitText
                                     minContains: 0
                                     maxContains: 1
+                                  - contains:
+                                      title: TEM Objective Aperture
+                                      description: Objective aperture diameter used
+                                        to select the imaging beam condition in TEM
+                                        mode.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/temTAPP/temObjectiveAperture
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/temTAPP/temObjectiveAperture
+                                        schema:name:
+                                          const: TEM Objective Aperture
+                                        schema:value:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                    minContains: 0
+                                    maxContains: 1
                       allOf:
                       - contains:
                           properties:
@@ -4237,93 +4275,12 @@ allOf:
                               schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
-          schema:used:
-            type: object
-            properties:
-              schema:instrument:
-                type: array
-                items:
-                  type: object
-                  allOf:
-                  - if:
-                      properties:
-                        schema:additionalType:
-                          contains:
-                            const: TEM
-                          schema:inDefinedTermSet: ada:vocab/instrumentType
-                      required:
-                      - schema:additionalType
-                    then:
-                      properties:
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            title: TEM Objective Aperture
-                            description: Objective aperture diameter used to select
-                              the imaging beam condition in TEM mode. In BF-TEM, a
-                              small aperture blocks diffracted beams to enhance mass-thickness
-                              contrast; in DF-TEM, the aperture is displaced to select
-                              a specific diffracted beam; in HRTEM, no aperture is
-                              typically used.
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:parameter/temTAPP/temObjectiveAperture
-                              '@type':
-                                const:
-                                - schema:PropertyValue
-                              schema:propertyID:
-                                const:
-                                - '@id': ada:parameter/temTAPP/temObjectiveAperture
-                              schema:name:
-                                const: TEM Objective Aperture
-                              schema:value:
-                                type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:propertyID
-                            - schema:name
-                            - schema:value
-                          allOf:
-                          - contains:
-                              title: TEM Objective Aperture
-                              description: Objective aperture diameter used to select
-                                the imaging beam condition in TEM mode. In BF-TEM,
-                                a small aperture blocks diffracted beams to enhance
-                                mass-thickness contrast; in DF-TEM, the aperture is
-                                displaced to select a specific diffracted beam; in
-                                HRTEM, no aperture is typically used.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/temTAPP/temObjectiveAperture
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/temTAPP/temObjectiveAperture
-                                schema:name:
-                                  const: TEM Objective Aperture
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            minContains: 0
-                            maxContains: 1
           ada:deadTime:
             description: "Percent dead time reported by the EDS detector during the
               session \u2014 the fraction of total acquisition time the detector spent
-              processing rather than counting. EDS dead time correction is managed
-              automatically by the detector electronics; this field documents the
-              resulting percentage as a session QC metric. Values above ~40% indicate
-              excessive count rate and may degrade spectral quality and quantitative
-              accuracy. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s)."
+              processing rather than counting. This field documents the resulting
+              percentage as a session QC metric. Record 'N/A' where EDS is not listed
+              in Spectroscopic Detector(s)."
             anyOf:
             - type: number
             - type: string

@@ -1072,6 +1072,8 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/AnalysisIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/AnalysisIdentification
 - type: object
   properties:
     prov:wasGeneratedBy:
@@ -1097,59 +1099,11 @@ allOf:
                       type: array
                       items:
                         anyOf:
-                        - title: Sample Form / Analytical Substrate
-                          description: Physical form of the material as it enters
-                            the ablation cell. Editable to accommodate legitimate
-                            variations (e.g., thin section vs. mount) that do not
-                            alter the analytical procedure.
-                          type: object
-                          properties:
-                            '@id':
-                              const: ada:parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrate
-                            '@type':
-                              const:
-                              - schema:PropertyValue
-                            schema:propertyID:
-                              const:
-                              - '@id': ada:parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrate
-                            schema:name:
-                              const: Sample Form / Analytical Substrate
-                            schema:value:
-                              type: string
-                          required:
-                          - '@id'
-                          - '@type'
-                          - schema:propertyID
-                          - schema:name
-                          - schema:value
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate
                         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
                       allOf:
                       - contains:
-                          title: Sample Form / Analytical Substrate
-                          description: Physical form of the material as it enters
-                            the ablation cell. Editable to accommodate legitimate
-                            variations (e.g., thin section vs. mount) that do not
-                            alter the analytical procedure.
-                          type: object
-                          properties:
-                            '@id':
-                              const: ada:parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrate
-                            '@type':
-                              const:
-                              - schema:PropertyValue
-                            schema:propertyID:
-                              const:
-                              - '@id': ada:parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrate
-                            schema:name:
-                              const: Sample Form / Analytical Substrate
-                            schema:value:
-                              type: string
-                          required:
-                          - '@id'
-                          - '@type'
-                          - schema:propertyID
-                          - schema:name
-                          - schema:value
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate
                         minContains: 0
                         maxContains: 1
                       - contains:
@@ -1184,72 +1138,17 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - title: Fusion Flux and Dilution Ratio
-                              description: For procedures using fused glass, the flux
-                                type and sample:flux dilution ratio used to prepare
-                                the analytical glass.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/fusionFluxAndDilutionRatio
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/fusionFluxAndDilutionRatio
-                                schema:name:
-                                  const: Fusion Flux and Dilution Ratio
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_fusionFluxAndDilutionRatio
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_preAblationSurfaceTreatment
                           allOf:
                           - contains:
-                              title: Fusion Flux and Dilution Ratio
-                              description: For procedures using fused glass, the flux
-                                type and sample:flux dilution ratio used to prepare
-                                the analytical glass.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/fusionFluxAndDilutionRatio
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/fusionFluxAndDilutionRatio
-                                schema:name:
-                                  const: Fusion Flux and Dilution Ratio
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_fusionFluxAndDilutionRatio
                             minContains: 0
                             maxContains: 1
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_preAblationSurfaceTreatment
                             minContains: 0
                             maxContains: 1
-                        schema:description:
-                          description: Description of how samples were prepared for
-                            analysis (mounting, polishing, coating, fusion procedure,
-                            etc.).
-                          anyOf:
-                          - type: string
-                          - type: array
-                            items:
-                              type: string
                   - if:
                       properties:
                         schema:name:
@@ -1262,95 +1161,21 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - title: Signal Smoothing
-                              description: 'Description of any signal smoothing device
-                                or approach installed between the ablation cell and
-                                the ICP-MS to reduce pulse-to-pulse signal variability.
-                                Note: active signal smoothing devices (e.g., squid,
-                                SCFAST) are generally incompatible with high-resolution
-                                raster mapping because they degrade spatial resolution
-                                by mixing aerosol from successive laser shots. For
-                                mapping analyses, report "None" explicitly.'
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/signalSmoothing
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/signalSmoothing
-                                schema:name:
-                                  const: Signal Smoothing
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - title: Uncertainty Propagation Method
-                              description: 'The approach used to propagate analytical
-                                uncertainty through the data reduction chain to the
-                                final reported value. State which sources are included
-                                in the propagation: counting statistics, calibration
-                                standard uncertainty, internal standard uncertainty,
-                                drift correction, and any systematic contributions.
-                                Distinct from Uncertainty Level, which states the
-                                convention at which the resulting uncertainty is quoted.'
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod
-                                schema:name:
-                                  const: Uncertainty Propagation Method
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - title: Spike / Outlier Filtering Approach
-                              description: Method used to identify and remove anomalous
-                                signal spikes arising from micronuggets, inclusions,
-                                cracks, or instrument artifacts during time-resolved
-                                signal processing. Editable because the specific implementation
-                                may vary between sessions while remaining within the
-                                procedure framework.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/spikeOutlierFilteringApproach
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/spikeOutlierFilteringApproach
-                                schema:name:
-                                  const: Spike / Outlier Filtering Approach
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
                             - title: Pulse/Analog Detector Nonlinearity Correction
                               description: Whether a correction was applied for nonlinear
-                                response at the transition between pulse-counting
-                                and analog detector modes.
+                                detector response at the transition between pulse-counting
+                                and analog (and Faraday, for triple-mode instruments)
+                                detection modes. Cross-calibration factors between
+                                detector modes must be confirmed, typically measured
+                                each session. Record 'Applied' and describe the method,
+                                the detector modes involved and the analytes affected;
+                                'None' where a crossover exists on this instrument
+                                but no correction was made, giving the reason; and
+                                'N/A' where the detector is pulse-counting only and
+                                no crossover exists.
                               type: object
                               properties:
                                 '@id':
@@ -1363,33 +1188,6 @@ allOf:
                                   - '@id': ada:parameter/laQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
                                 schema:name:
                                   const: Pulse/Analog Detector Nonlinearity Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - title: Normalization / Standards-Based Correction
-                              description: Any post-acquisition normalization applied
-                                to correct for systematic biases identified from secondary
-                                reference materials, or stoichiometric normalization
-                                applied per pixel in mapping. Distinct from the primary
-                                internal standard approach captured in Internal Standard
-                                Approach.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection
-                                schema:name:
-                                  const: Normalization / Standards-Based Correction
                                 schema:value:
                                   type: string
                               required:
@@ -1400,104 +1198,30 @@ allOf:
                               - schema:value
                           allOf:
                           - contains:
-                              title: Signal Smoothing
-                              description: 'Description of any signal smoothing device
-                                or approach installed between the ablation cell and
-                                the ICP-MS to reduce pulse-to-pulse signal variability.
-                                Note: active signal smoothing devices (e.g., squid,
-                                SCFAST) are generally incompatible with high-resolution
-                                raster mapping because they degrade spatial resolution
-                                by mixing aerosol from successive laser shots. For
-                                mapping analyses, report "None" explicitly.'
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/signalSmoothing
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/signalSmoothing
-                                schema:name:
-                                  const: Signal Smoothing
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Uncertainty Propagation Method
-                              description: 'The approach used to propagate analytical
-                                uncertainty through the data reduction chain to the
-                                final reported value. State which sources are included
-                                in the propagation: counting statistics, calibration
-                                standard uncertainty, internal standard uncertainty,
-                                drift correction, and any systematic contributions.
-                                Distinct from Uncertainty Level, which states the
-                                convention at which the resulting uncertainty is quoted.'
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod
-                                schema:name:
-                                  const: Uncertainty Propagation Method
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Spike / Outlier Filtering Approach
-                              description: Method used to identify and remove anomalous
-                                signal spikes arising from micronuggets, inclusions,
-                                cracks, or instrument artifacts during time-resolved
-                                signal processing. Editable because the specific implementation
-                                may vary between sessions while remaining within the
-                                procedure framework.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/spikeOutlierFilteringApproach
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/spikeOutlierFilteringApproach
-                                schema:name:
-                                  const: Spike / Outlier Filtering Approach
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
                             minContains: 0
                             maxContains: 1
                           - contains:
                               title: Pulse/Analog Detector Nonlinearity Correction
                               description: Whether a correction was applied for nonlinear
-                                response at the transition between pulse-counting
-                                and analog detector modes.
+                                detector response at the transition between pulse-counting
+                                and analog (and Faraday, for triple-mode instruments)
+                                detection modes. Cross-calibration factors between
+                                detector modes must be confirmed, typically measured
+                                each session. Record 'Applied' and describe the method,
+                                the detector modes involved and the analytes affected;
+                                'None' where a crossover exists on this instrument
+                                but no correction was made, giving the reason; and
+                                'N/A' where the detector is pulse-counting only and
+                                no crossover exists.
                               type: object
                               properties:
                                 '@id':
@@ -1520,175 +1244,23 @@ allOf:
                               - schema:value
                             minContains: 0
                             maxContains: 1
-                          - contains:
-                              title: Normalization / Standards-Based Correction
-                              description: Any post-acquisition normalization applied
-                                to correct for systematic biases identified from secondary
-                                reference materials, or stoichiometric normalization
-                                applied per pixel in mapping. Distinct from the primary
-                                internal standard approach captured in Internal Standard
-                                Approach.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection
-                                schema:name:
-                                  const: Normalization / Standards-Based Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            minContains: 0
-                            maxContains: 1
-                allOf:
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Sample preparation
-                    required:
-                    - schema:name
           schema:additionalProperty:
             type: array
             items:
               anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
-              - title: Carrier Gas and Flow Rate
-                description: "Gas used to transport ablated aerosol from the ablation
-                  cell to the ICP-MS torch, with the procedure-registered target flow
-                  rate(s). Helium is standard for most UV laser systems due to superior
-                  aerosol transport. Flow rates are procedure targets; actual session
-                  values may be adjusted within \xB110% during tuning."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/carrierGasAndFlowRate
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/carrierGasAndFlowRate
-                  schema:name:
-                    const: Carrier Gas and Flow Rate
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-              - title: Make-up Gas and Flow Rate
-                description: "Supplementary gas added to the sample-carrying stream
-                  between the sample introduction system and the plasma, with its
-                  identity and the procedure-registered target flow rate. Argon make-up
-                  is standard and maintains total gas delivery where the carrier flow
-                  alone is insufficient \u2014 downstream of an ablation cell, or
-                  of a desolvation system that has removed solvent load. Small nitrogen
-                  or hydrogen additions are also made here to enhance sensitivity
-                  for some elements; record them with their own flow, whose unit commonly
-                  differs from the make-up flow. Record 'None' explicitly where no
-                  supplementary gas is added, to distinguish it from not reported."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRate
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRate
-                  schema:name:
-                    const: Make-up Gas and Flow Rate
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
-              - title: Analysis Sequence
-                description: Repeating order of primary calibration standard(s), quality
-                  control standard(s), and unknown analyses within a measurement session.
-                  Editable to allow minor adjustments while maintaining the bracketing
-                  strategy defined in the procedure.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/analysisSequence
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/analysisSequence
-                  schema:name:
-                    const: Analysis Sequence
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-              - title: Ion Counter Dead Time
-                description: Dead time of each ion-counting detector channel, used
-                  in the dead-time correction applied to high count rates. Distinct
-                  from pulse/analog cross-calibration, which relates the two detector
-                  modes rather than correcting counting losses within the pulse-counting
-                  mode.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/ionCounterDeadTime
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/ionCounterDeadTime
-                  schema:name:
-                    const: Ion Counter Dead Time
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_carrierGasAndFlowRate
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_makeUpGasAndFlowRate
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_analysisSequence
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_ionCounterDeadTime
               - title: Total Integration Time per Output Data Point
                 description: "Total duty-cycle time for one complete mass-scan sweep
                   \u2014 the sum of all per-isotope dwell times plus inter-mass settling
-                  times. Sets the time resolution of the downhole signal, and is not
-                  recoverable from Dwell Time per Mass alone because settling time
-                  is not captured there. Applies to sequential (quadrupole and single-collector
-                  sector-field) acquisition."
+                  times. Not recoverable from Dwell Time per Mass alone, because settling
+                  time is not captured there. Applies to sequential (quadrupole and
+                  single-collector sector-field) acquisition."
                 type: object
                 properties:
                   '@id':
@@ -1714,39 +1286,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - title: Background Count Time
-                description: Total time spent measuring gas blank (background signal
-                  with laser off or shutter closed) before each ablation event, in
-                  seconds. For spot and transect analysis, a discrete background interval
-                  is measured before each ablation. For mapping, background is typically
-                  measured once per raster line or at the start of a map session rather
-                  than before each individual pixel. Editable to allow session-specific
-                  adjustment.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/backgroundCountTime
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/backgroundCountTime
-                  schema:name:
-                    const: Background Count Time
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_backgroundCountTime
               - title: Number of Replicates
                 description: Number of replicate measurements performed on the same
                   sample, or on the same nominal location where the technique is spatially
@@ -1754,8 +1294,7 @@ allOf:
                   per grain or location; for transects, the number of replicate lines;
                   for mapping, the number of map acquisitions of the same area; for
                   solution work, the number of discrete replicate measurements acquired
-                  per sample solution. The procedure registers an intended count where
-                  it has one; the analysis records the count actually acquired.
+                  per sample solution.
                 type: object
                 properties:
                   '@id':
@@ -1779,108 +1318,16 @@ allOf:
                 - schema:name
                 - schema:value
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectLength
-              - title: Mapping Area
-                description: "Total area covered by the 2D raster map, expressed as
-                  width \xD7 height in \xB5m or as total area in \xB5m\xB2 or mm\xB2.
-                  This is an analysis-level parameter because it depends on the size
-                  of the grain or phase to be mapped. The procedure fixes scan speed,
-                  line spacing, and spot size; the map area is chosen at analysis
-                  time to cover the target feature."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/mappingArea
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/mappingArea
-                  schema:name:
-                    const: Mapping Area
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-              - title: Signal Integration Time
-                description: 'Actual integration time used for the ablation signal
-                  in this analysis, in seconds. This is an analysis-level outcome
-                  determined during data reduction by applying the Signal Integration
-                  Interval Method to the time-resolved signal. It is equal to or shorter
-                  than the Ablation Duration per Spot because the signal start and
-                  end transients are typically discarded. Not applicable to mapping
-                  analysis: for mapping, the equivalent concept is the per-pixel cycle
-                  time, which is determined by the spectrometer dwell time settings
-                  (a procedure-level field) rather than being an analysis-level outcome.'
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/signalIntegrationTime
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/signalIntegrationTime
-                  schema:name:
-                    const: Signal Integration Time
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappingArea
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-              - title: Detection Limit
-                description: "Session detection limit, one per reported concentration
-                  variable (one per analyte, these being the same set), expressed
-                  in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                  at analysis level to demonstrate the reliability of reported near-detection-limit
-                  concentrations. The calculation method is captured separately in
-                  Detection Limit Method."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/detectionLimit
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/detectionLimit
-                  schema:name:
-                    const: Detection Limit
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
             allOf:
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_targetSelectionCriteria
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               minContains: 0
               maxContains: 1
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
               minContains: 0
               maxContains: 1
             - contains:
@@ -1888,143 +1335,28 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                title: Carrier Gas and Flow Rate
-                description: "Gas used to transport ablated aerosol from the ablation
-                  cell to the ICP-MS torch, with the procedure-registered target flow
-                  rate(s). Helium is standard for most UV laser systems due to superior
-                  aerosol transport. Flow rates are procedure targets; actual session
-                  values may be adjusted within \xB110% during tuning."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/carrierGasAndFlowRate
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/carrierGasAndFlowRate
-                  schema:name:
-                    const: Carrier Gas and Flow Rate
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_carrierGasAndFlowRate
               minContains: 0
               maxContains: 1
             - contains:
-                title: Make-up Gas and Flow Rate
-                description: "Supplementary gas added to the sample-carrying stream
-                  between the sample introduction system and the plasma, with its
-                  identity and the procedure-registered target flow rate. Argon make-up
-                  is standard and maintains total gas delivery where the carrier flow
-                  alone is insufficient \u2014 downstream of an ablation cell, or
-                  of a desolvation system that has removed solvent load. Small nitrogen
-                  or hydrogen additions are also made here to enhance sensitivity
-                  for some elements; record them with their own flow, whose unit commonly
-                  differs from the make-up flow. Record 'None' explicitly where no
-                  supplementary gas is added, to distinguish it from not reported."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRate
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/makeUpGasAndFlowRate
-                  schema:name:
-                    const: Make-up Gas and Flow Rate
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_makeUpGasAndFlowRate
               minContains: 0
               maxContains: 1
             - contains:
-                title: Analysis Sequence
-                description: Repeating order of primary calibration standard(s), quality
-                  control standard(s), and unknown analyses within a measurement session.
-                  Editable to allow minor adjustments while maintaining the bracketing
-                  strategy defined in the procedure.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/analysisSequence
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/analysisSequence
-                  schema:name:
-                    const: Analysis Sequence
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_analysisSequence
               minContains: 0
               maxContains: 1
             - contains:
-                title: Ion Counter Dead Time
-                description: Dead time of each ion-counting detector channel, used
-                  in the dead-time correction applied to high count rates. Distinct
-                  from pulse/analog cross-calibration, which relates the two detector
-                  modes rather than correcting counting losses within the pulse-counting
-                  mode.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/ionCounterDeadTime
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/ionCounterDeadTime
-                  schema:name:
-                    const: Ion Counter Dead Time
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_ionCounterDeadTime
               minContains: 0
               maxContains: 1
             - contains:
                 title: Total Integration Time per Output Data Point
                 description: "Total duty-cycle time for one complete mass-scan sweep
                   \u2014 the sum of all per-isotope dwell times plus inter-mass settling
-                  times. Sets the time resolution of the downhole signal, and is not
-                  recoverable from Dwell Time per Mass alone because settling time
-                  is not captured there. Applies to sequential (quadrupole and single-collector
-                  sector-field) acquisition."
+                  times. Not recoverable from Dwell Time per Mass alone, because settling
+                  time is not captured there. Applies to sequential (quadrupole and
+                  single-collector sector-field) acquisition."
                 type: object
                 properties:
                   '@id':
@@ -2053,39 +1385,7 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                title: Background Count Time
-                description: Total time spent measuring gas blank (background signal
-                  with laser off or shutter closed) before each ablation event, in
-                  seconds. For spot and transect analysis, a discrete background interval
-                  is measured before each ablation. For mapping, background is typically
-                  measured once per raster line or at the start of a map session rather
-                  than before each individual pixel. Editable to allow session-specific
-                  adjustment.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/backgroundCountTime
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/backgroundCountTime
-                  schema:name:
-                    const: Background Count Time
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_backgroundCountTime
               minContains: 0
               maxContains: 1
             - contains:
@@ -2096,8 +1396,7 @@ allOf:
                   per grain or location; for transects, the number of replicate lines;
                   for mapping, the number of map acquisitions of the same area; for
                   solution work, the number of discrete replicate measurements acquired
-                  per sample solution. The procedure registers an intended count where
-                  it has one; the analysis records the count actually acquired.
+                  per sample solution.
                 type: object
                 properties:
                   '@id':
@@ -2127,110 +1426,15 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                title: Mapping Area
-                description: "Total area covered by the 2D raster map, expressed as
-                  width \xD7 height in \xB5m or as total area in \xB5m\xB2 or mm\xB2.
-                  This is an analysis-level parameter because it depends on the size
-                  of the grain or phase to be mapped. The procedure fixes scan speed,
-                  line spacing, and spot size; the map area is chosen at analysis
-                  time to cover the target feature."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/mappingArea
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/mappingArea
-                  schema:name:
-                    const: Mapping Area
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappingArea
               minContains: 0
               maxContains: 1
             - contains:
-                title: Signal Integration Time
-                description: 'Actual integration time used for the ablation signal
-                  in this analysis, in seconds. This is an analysis-level outcome
-                  determined during data reduction by applying the Signal Integration
-                  Interval Method to the time-resolved signal. It is equal to or shorter
-                  than the Ablation Duration per Spot because the signal start and
-                  end transients are typically discarded. Not applicable to mapping
-                  analysis: for mapping, the equivalent concept is the per-pixel cycle
-                  time, which is determined by the spectrometer dwell time settings
-                  (a procedure-level field) rather than being an analysis-level outcome.'
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/signalIntegrationTime
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/signalIntegrationTime
-                  schema:name:
-                    const: Signal Integration Time
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
               minContains: 0
               maxContains: 1
             - contains:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-              minContains: 0
-              maxContains: 1
-            - contains:
-                title: Detection Limit
-                description: "Session detection limit, one per reported concentration
-                  variable (one per analyte, these being the same set), expressed
-                  in \xB5g g\u207B\xB9, ng g\u207B\xB9, or wt% as appropriate. Mandatory
-                  at analysis level to demonstrate the reliability of reported near-detection-limit
-                  concentrations. The calculation method is captured separately in
-                  Detection Limit Method."
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laQicpmsTAPP/detectionLimit
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laQicpmsTAPP/detectionLimit
-                  schema:name:
-                    const: Detection Limit
-                  schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
-                - schema:unitText
               minContains: 0
               maxContains: 1
           prov:used:
@@ -2260,15 +1464,6 @@ allOf:
                               - schema:additionalType
                             then:
                               properties:
-                                schema:identifier:
-                                  description: Serial number or laboratory-internal
-                                    identifier for the specific instrument unit. Supports
-                                    traceability to instrument service records.
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
                                 schema:hasPart:
                                   type: array
                                   items:
@@ -2287,72 +1482,10 @@ allOf:
                                           schema:additionalProperty:
                                             type: array
                                             items:
-                                              title: Torch Depth
-                                              description: Distance between the load
-                                                coil and the sampling cone tip (mm),
-                                                also called injector depth or torch
-                                                position depending on the instrument
-                                                manufacturer. Affects ion transmission
-                                                efficiency, oxide formation, and doubly-charged
-                                                species production. The procedure
-                                                specifies a target value optimised
-                                                during initial setup; the analyst
-                                                confirms or fine-adjusts during session
-                                                tuning.
-                                              type: object
-                                              properties:
-                                                '@id':
-                                                  const: ada:parameter/laQicpmsTAPP/torchDepth
-                                                '@type':
-                                                  const:
-                                                  - schema:PropertyValue
-                                                schema:propertyID:
-                                                  const:
-                                                  - '@id': ada:parameter/laQicpmsTAPP/torchDepth
-                                                schema:name:
-                                                  const: Torch Depth
-                                                schema:value:
-                                                  type: string
-                                              required:
-                                              - '@id'
-                                              - '@type'
-                                              - schema:propertyID
-                                              - schema:name
-                                              - schema:value
+                                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
                                             allOf:
                                             - contains:
-                                                title: Torch Depth
-                                                description: Distance between the
-                                                  load coil and the sampling cone
-                                                  tip (mm), also called injector depth
-                                                  or torch position depending on the
-                                                  instrument manufacturer. Affects
-                                                  ion transmission efficiency, oxide
-                                                  formation, and doubly-charged species
-                                                  production. The procedure specifies
-                                                  a target value optimised during
-                                                  initial setup; the analyst confirms
-                                                  or fine-adjusts during session tuning.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/torchDepth
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/torchDepth
-                                                  schema:name:
-                                                    const: Torch Depth
-                                                  schema:value:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
                                               minContains: 0
                                               maxContains: 1
                                     - if:
@@ -2369,222 +1502,20 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - title: Coolant (Plasma) Gas Flow Rate
-                                                description: Flow rate of the outer
-                                                  (coolant/plasma) argon gas stream
-                                                  that sustains the ICP plasma, in
-                                                  L/min. Determines plasma volume
-                                                  and stability. Set during initial
-                                                  plasma optimisation and confirmed
-                                                  at each session start.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/coolantGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/coolantGasFlowRate
-                                                  schema:name:
-                                                    const: Coolant (Plasma) Gas Flow
-                                                      Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: Auxiliary Gas Flow Rate
-                                                description: Flow rate of the intermediate
-                                                  (auxiliary) argon gas stream that
-                                                  positions the plasma relative to
-                                                  the load coil, in L/min. Affects
-                                                  ion extraction efficiency and oxide
-                                                  production rates. Distinct from
-                                                  the carrier gas (which transports
-                                                  ablation aerosol) and the coolant
-                                                  (plasma) gas.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/auxiliaryGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/auxiliaryGasFlowRate
-                                                  schema:name:
-                                                    const: Auxiliary Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: RF Power
-                                                description: ICP radiofrequency forward
-                                                  power in watts. Affects plasma temperature,
-                                                  ionisation efficiency, oxide formation,
-                                                  and whether cool or normal plasma
-                                                  conditions are in effect. The procedure
-                                                  registers a target value optimised
-                                                  during initial setup; the analyst
-                                                  confirms or fine-adjusts during
-                                                  session tuning.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/rfPower
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/rfPower
-                                                  schema:name:
-                                                    const: RF Power
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
                                             allOf:
                                             - contains:
-                                                title: Coolant (Plasma) Gas Flow Rate
-                                                description: Flow rate of the outer
-                                                  (coolant/plasma) argon gas stream
-                                                  that sustains the ICP plasma, in
-                                                  L/min. Determines plasma volume
-                                                  and stability. Set during initial
-                                                  plasma optimisation and confirmed
-                                                  at each session start.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/coolantGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/coolantGasFlowRate
-                                                  schema:name:
-                                                    const: Coolant (Plasma) Gas Flow
-                                                      Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: Auxiliary Gas Flow Rate
-                                                description: Flow rate of the intermediate
-                                                  (auxiliary) argon gas stream that
-                                                  positions the plasma relative to
-                                                  the load coil, in L/min. Affects
-                                                  ion extraction efficiency and oxide
-                                                  production rates. Distinct from
-                                                  the carrier gas (which transports
-                                                  ablation aerosol) and the coolant
-                                                  (plasma) gas.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/auxiliaryGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/auxiliaryGasFlowRate
-                                                  schema:name:
-                                                    const: Auxiliary Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: RF Power
-                                                description: ICP radiofrequency forward
-                                                  power in watts. Affects plasma temperature,
-                                                  ionisation efficiency, oxide formation,
-                                                  and whether cool or normal plasma
-                                                  conditions are in effect. The procedure
-                                                  registers a target value optimised
-                                                  during initial setup; the analyst
-                                                  confirms or fine-adjusts during
-                                                  session tuning.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/rfPower
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/rfPower
-                                                  schema:name:
-                                                    const: RF Power
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
                                               minContains: 0
                                               maxContains: 1
                                     - if:
@@ -2601,210 +1532,20 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - title: Collision Gas Flow Rate
-                                                description: Flow rate of the collision
-                                                  gas (typically He) introduced into
-                                                  the collision/reaction cell, in
-                                                  mL/min. Controls the degree of ion
-                                                  thermalization and KED efficiency.
-                                                  Record 'None' if the CRC is in STD
-                                                  mode.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/collisionGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/collisionGasFlowRate
-                                                  schema:name:
-                                                    const: Collision Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: Cell Exit Discrimination Voltage
-                                                description: Bias voltage applied
-                                                  at the collision/reaction cell exit
-                                                  to discriminate between analyte
-                                                  ions and low-energy polyatomic interferences
-                                                  in KED mode, in volts (V). A negative
-                                                  bias preferentially retards slow
-                                                  polyatomic ions while transmitting
-                                                  faster analyte ions. Record 'None'
-                                                  if the CRC is in STD mode.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/cellExitDiscriminationVoltage
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/cellExitDiscriminationVoltage
-                                                  schema:name:
-                                                    const: Cell Exit Discrimination
-                                                      Voltage
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              - title: Reaction Gas Flow Rate
-                                                description: Flow rate of the reactive
-                                                  gas introduced into the dynamic
-                                                  reaction cell (DRC), in mL/min.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/reactionGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/reactionGasFlowRate
-                                                  schema:name:
-                                                    const: Reaction Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
                                             allOf:
                                             - contains:
-                                                title: Collision Gas Flow Rate
-                                                description: Flow rate of the collision
-                                                  gas (typically He) introduced into
-                                                  the collision/reaction cell, in
-                                                  mL/min. Controls the degree of ion
-                                                  thermalization and KED efficiency.
-                                                  Record 'None' if the CRC is in STD
-                                                  mode.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/collisionGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/collisionGasFlowRate
-                                                  schema:name:
-                                                    const: Collision Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: Cell Exit Discrimination Voltage
-                                                description: Bias voltage applied
-                                                  at the collision/reaction cell exit
-                                                  to discriminate between analyte
-                                                  ions and low-energy polyatomic interferences
-                                                  in KED mode, in volts (V). A negative
-                                                  bias preferentially retards slow
-                                                  polyatomic ions while transmitting
-                                                  faster analyte ions. Record 'None'
-                                                  if the CRC is in STD mode.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/cellExitDiscriminationVoltage
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/cellExitDiscriminationVoltage
-                                                  schema:name:
-                                                    const: Cell Exit Discrimination
-                                                      Voltage
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
-                                                title: Reaction Gas Flow Rate
-                                                description: Flow rate of the reactive
-                                                  gas introduced into the dynamic
-                                                  reaction cell (DRC), in mL/min.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laQicpmsTAPP/reactionGasFlowRate
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laQicpmsTAPP/reactionGasFlowRate
-                                                  schema:name:
-                                                    const: Reaction Gas Flow Rate
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
                                               minContains: 0
                                               maxContains: 1
                                   allOf:
@@ -2828,67 +1569,14 @@ allOf:
                                   type: array
                                   items:
                                     anyOf:
-                                    - title: Mass Resolution Setting
-                                      description: Operating mass resolution of the
-                                        mass analyser. For quadrupole instruments
-                                        this is fixed at unit resolution by instrument
-                                        design.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laQicpmsTAPP/massResolutionSetting
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laQicpmsTAPP/massResolutionSetting
-                                        schema:name:
-                                          const: Mass Resolution Setting
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - title: ICP Tuning
-                                      description: Description of the approach used
-                                        to optimise ICP plasma conditions prior to
-                                        analysis, including the reference material
-                                        used for tuning and the acceptance criteria
-                                        (e.g., oxide production threshold, sensitivity
-                                        targets, mass calibration).
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laQicpmsTAPP/icpTuning
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laQicpmsTAPP/icpTuning
-                                        schema:name:
-                                          const: ICP Tuning
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
+                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
+                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
                                     - title: Doubly-Charged Species Monitor
                                       description: "The mass ratio monitored to estimate
                                         doubly-charged ion (M\xB2\u207A) formation
-                                        during instrument tuning. Doubly-charged ions
-                                        appear at half the mass of the parent ion
-                                        and can cause isobaric interferences on analytes
-                                        in that mass region. The monitor species and
-                                        the mass positions monitored should be stated
-                                        explicitly. Analogous to Oxide Production
+                                        during instrument tuning. The monitor species
+                                        and the mass positions monitored should be
+                                        stated explicitly. Analogous to Oxide Production
                                         Method and Threshold for oxide monitoring."
                                       type: object
                                       properties:
@@ -2913,11 +1601,9 @@ allOf:
                                     - title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged
                                         ion production for the monitored species at
-                                        the time of instrument tuning. The procedure
-                                        should specify the acceptable threshold (e.g.,
-                                        <1%, <3%); the measured value for each session
-                                        is recorded here. Report both the threshold
-                                        and the measured value where possible.
+                                        the time of instrument tuning. The acceptable
+                                        threshold is typically <1% or <3%. Record
+                                        both the threshold and the measured value.
                                       type: object
                                       properties:
                                         '@id':
@@ -2938,106 +1624,23 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - title: Memory Effect Mitigation
-                                      description: Procedure applied to identify and
-                                        minimise memory effects from high-concentration
-                                        elements in the previous sample or standard
-                                        that may contaminate subsequent analyses,
-                                        or from incomplete aerosol washout between
-                                        adjacent pixels in raster mapping mode. For
-                                        mapping, the mitigation strategy involves
-                                        controlling scan speed relative to washout
-                                        time to ensure each pixel signal is sufficiently
-                                        free of the preceding pixel's contribution.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laQicpmsTAPP/memoryEffectMitigation
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laQicpmsTAPP/memoryEffectMitigation
-                                        schema:name:
-                                          const: Memory Effect Mitigation
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
+                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
                                   allOf:
                                   - contains:
-                                      title: Mass Resolution Setting
-                                      description: Operating mass resolution of the
-                                        mass analyser. For quadrupole instruments
-                                        this is fixed at unit resolution by instrument
-                                        design.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laQicpmsTAPP/massResolutionSetting
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laQicpmsTAPP/massResolutionSetting
-                                        schema:name:
-                                          const: Mass Resolution Setting
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
+                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
                                     minContains: 0
                                     maxContains: 1
                                   - contains:
-                                      title: ICP Tuning
-                                      description: Description of the approach used
-                                        to optimise ICP plasma conditions prior to
-                                        analysis, including the reference material
-                                        used for tuning and the acceptance criteria
-                                        (e.g., oxide production threshold, sensitivity
-                                        targets, mass calibration).
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laQicpmsTAPP/icpTuning
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laQicpmsTAPP/icpTuning
-                                        schema:name:
-                                          const: ICP Tuning
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
+                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
                                     minContains: 0
                                     maxContains: 1
                                   - contains:
                                       title: Doubly-Charged Species Monitor
                                       description: "The mass ratio monitored to estimate
                                         doubly-charged ion (M\xB2\u207A) formation
-                                        during instrument tuning. Doubly-charged ions
-                                        appear at half the mass of the parent ion
-                                        and can cause isobaric interferences on analytes
-                                        in that mass region. The monitor species and
-                                        the mass positions monitored should be stated
-                                        explicitly. Analogous to Oxide Production
+                                        during instrument tuning. The monitor species
+                                        and the mass positions monitored should be
+                                        stated explicitly. Analogous to Oxide Production
                                         Method and Threshold for oxide monitoring."
                                       type: object
                                       properties:
@@ -3065,11 +1668,9 @@ allOf:
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged
                                         ion production for the monitored species at
-                                        the time of instrument tuning. The procedure
-                                        should specify the acceptable threshold (e.g.,
-                                        <1%, <3%); the measured value for each session
-                                        is recorded here. Report both the threshold
-                                        and the measured value where possible.
+                                        the time of instrument tuning. The acceptable
+                                        threshold is typically <1% or <3%. Record
+                                        both the threshold and the measured value.
                                       type: object
                                       properties:
                                         '@id':
@@ -3093,37 +1694,7 @@ allOf:
                                     minContains: 0
                                     maxContains: 1
                                   - contains:
-                                      title: Memory Effect Mitigation
-                                      description: Procedure applied to identify and
-                                        minimise memory effects from high-concentration
-                                        elements in the previous sample or standard
-                                        that may contaminate subsequent analyses,
-                                        or from incomplete aerosol washout between
-                                        adjacent pixels in raster mapping mode. For
-                                        mapping, the mitigation strategy involves
-                                        controlling scan speed relative to washout
-                                        time to ensure each pixel signal is sufficiently
-                                        free of the preceding pixel's contribution.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laQicpmsTAPP/memoryEffectMitigation
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laQicpmsTAPP/memoryEffectMitigation
-                                        schema:name:
-                                          const: Memory Effect Mitigation
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
+                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
                                     minContains: 0
                                     maxContains: 1
                           - if:
@@ -3154,298 +1725,12 @@ allOf:
                               schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
-              - if:
-                  required:
-                  - prov:reagent
-                then:
-                  properties:
-                    prov:reagent:
-                      type: array
-                      items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                ada:reagentRole:
-                                  const: primaryStandard
-                              required:
-                              - ada:reagentRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: Primary reference material(s) used
-                                    to calibrate the instrument and convert raw signal
-                                    intensities to concentrations or isotope ratios.
-                                    Include material name, source institution, and
-                                    citation for the accepted values used. Editable
-                                    because the specific lot or certification vintage
-                                    may differ between sessions while the material
-                                    type remains the same.
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          - if:
-                              properties:
-                                ada:reagentRole:
-                                  const: referenceMaterial
-                              required:
-                              - ada:reagentRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: Quality-control reference materials
-                                    analysed as unknowns alongside samples in the
-                                    same session to assess accuracy and monitor drift.
-                                    Include material name, source, and citation for
-                                    accepted values used for comparison. Editable
-                                    because selection of secondary RMs may vary across
-                                    sessions.
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                          required:
-                          - ada:reagentRole
           ada:proceduralBlankLevel:
             description: "The measured level of the analytical blank in the session,
               and \u2014 where the reported quantity is a ratio \u2014 its composition,
               since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method, which
-              is procedure-level: this field records what was actually measured. Follows
-              the criterion-versus-measurement split the library applies wherever
-              a procedure sets a threshold and an analysis reports a value against
-              it."
+              composition is known. Companion to the blank correction method."
             type: string
-    dqv:hasQualityMeasurement:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              dqv:isMeasurementOf:
-                const: Oxide production ratio
-            required:
-            - dqv:isMeasurementOf
-          then:
-            properties:
-              dqv:value:
-                description: Measured oxide production ratio obtained during session-start
-                  tuning, for the proxy specified in Oxide Production Method and Threshold.
-                  Record the measured value and confirm whether the procedure threshold
-                  was met.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-      allOf:
-      - contains:
-          properties:
-            dqv:isMeasurementOf:
-              const: Oxide production ratio
-          required:
-          - dqv:isMeasurementOf
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the
-            procedure's declared reported properties. schema:variableMeasured carries
-            the dataset's actual variables; the reported-property branches above are
-            permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - title: Normalization / Standards-Based Correction
-          description: Any post-acquisition normalization applied to correct for systematic
-            biases identified from secondary reference materials, or stoichiometric
-            normalization applied per pixel in mapping. Distinct from the primary
-            internal standard approach captured in Internal Standard Approach.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        - title: Detection Limit
-          description: "Session detection limit, one per reported concentration variable
-            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
-            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
-            demonstrate the reliability of reported near-detection-limit concentrations.
-            The calculation method is captured separately in Detection Limit Method."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/detectionLimit
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/detectionLimit
-            schema:name:
-              const: Detection Limit
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-        - title: Detection Limit Method
-          description: Reference or description of the method used to calculate session
-            detection limits. Mandatory at analysis level. Must be consistent with
-            the method applied to generate the Detection Limit values reported above.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-      allOf:
-      - contains:
-          title: Normalization / Standards-Based Correction
-          description: Any post-acquisition normalization applied to correct for systematic
-            biases identified from secondary reference materials, or stoichiometric
-            normalization applied per pixel in mapping. Distinct from the primary
-            internal standard approach captured in Internal Standard Approach.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection
-            schema:name:
-              const: Normalization / Standards-Based Correction
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit
-          description: "Session detection limit, one per reported concentration variable
-            (one per analyte, these being the same set), expressed in \xB5g g\u207B\xB9,
-            ng g\u207B\xB9, or wt% as appropriate. Mandatory at analysis level to
-            demonstrate the reliability of reported near-detection-limit concentrations.
-            The calculation method is captured separately in Detection Limit Method."
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/detectionLimit
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/detectionLimit
-            schema:name:
-              const: Detection Limit
-            schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-          - schema:unitText
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Detection Limit Method
-          description: Reference or description of the method used to calculate session
-            detection limits. Mandatory at analysis level. Must be consistent with
-            the method applied to generate the Detection Limit values reported above.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laQicpmsTAPP/detectionLimitMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laQicpmsTAPP/detectionLimitMethod
-            schema:name:
-              const: Detection Limit Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        minContains: 0
-        maxContains: 1
 
 ```
 

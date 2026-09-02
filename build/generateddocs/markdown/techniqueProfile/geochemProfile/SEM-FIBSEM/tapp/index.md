@@ -30,7 +30,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol — Garvie2008",
-  "schema:description": "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v15.csv).",
+  "schema:description": "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v30.csv).",
   "schema:object": [
     {
       "@type": [
@@ -48,48 +48,6 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
-        "ada:coarseMillingConditionsDefault": "30 kV, 10 pA Ga beam",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -195,6 +153,48 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "ada:coarseMillingConditionsDefault": "30 kV, 10 pA Ga beam",
+        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -228,8 +228,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -264,7 +264,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol \u2014 Garvie2008",
-  "schema:description": "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v15.csv).",
+  "schema:description": "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v30.csv).",
   "schema:object": [
     {
       "@type": [
@@ -282,48 +282,6 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
-        "ada:coarseMillingConditionsDefault": "30 kV, 10 pA Ga beam",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -429,6 +387,48 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "ada:coarseMillingConditionsDefault": "30 kV, 10 pA Ga beam",
+        "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -462,8 +462,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -487,22 +487,22 @@ ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v15.csv)." ;
+    schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v30.csv)." ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
         <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -524,8 +524,8 @@ ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:segmentationMethod3DDefault "missing" .
 
 <https://example.org/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
@@ -599,7 +599,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol — Liu2017",
-  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v15.csv).",
+  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v30.csv).",
   "schema:object": [
     {
       "@type": [
@@ -617,11 +617,112 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       ]
     }
   ],
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "Zeiss",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "Crossbeam 540",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "BSE Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/BSE-Detector"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/Electron-Source"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "SE Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/SEM/part/SE-Detector"
+        }
+      ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "@id": "ex:instrument/FIBSEM",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:additionalType": [
+        "FIBSEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "missing",
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Ion Beam Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+        }
+      ]
+    }
+  ],
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
@@ -635,6 +736,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             "schema:defaultValue": "No coating applied; not sputtered with gold or other materials"
           }
         ],
+        "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -685,6 +787,99 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       "schema:HowTo"
     ]
   },
+  "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Mining and Technology, Xuzhou, China"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "X-ray CT (Xradia 520 Versa, Carl Zeiss)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model"
+    }
+  ],
+  "ada:analyticalMode": [
+    "3D Tomography"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "semFibsem",
+      "schema:termCode": "semFibsem"
+    }
+  ],
+  "ada:dwellTimePerPixelDefault": -9999,
+  "ada:imageRegistration3DDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:semFibsemTAPP-Liu2017",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "semFibsem protocol \u2014 Liu2017",
+  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v30.csv).",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
+          ]
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -787,104 +982,10 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       ]
     }
   ],
-  "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Mining and Technology, Xuzhou, China"
-  },
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "X-ray CT (Xradia 520 Versa, Carl Zeiss)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model"
-    }
-  ],
-  "ada:analyticalMode": [
-    "3D Tomography"
-  ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "semFibsem",
-      "schema:termCode": "semFibsem"
-    }
-  ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
-  "schema:datePublished": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/",
-      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-      "bios": "https://bioschemas.org/",
-      "prov": "http://www.w3.org/ns/prov#"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/tapp/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/",
-      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-      "bios": "https://bioschemas.org/",
-      "prov": "http://www.w3.org/ns/prov#"
-    }
-  ],
-  "@id": "ex:semFibsemTAPP-Liu2017",
-  "@type": [
-    "prov:Plan",
-    "cdi:Activity",
-    "schema:Action",
-    "ada:TAPPDefinition",
-    "bios:LabProtocol"
-  ],
-  "schema:name": "semFibsem protocol \u2014 Liu2017",
-  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v15.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
-          ]
-        }
-      ]
-    }
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 \u00b5m oxide layer; no coating applied",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
@@ -898,6 +999,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             "schema:defaultValue": "No coating applied; not sputtered with gold or other materials"
           }
         ],
+        "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 \u00b5m oxide layer; no coating applied",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -948,108 +1050,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       "schema:HowTo"
     ]
   },
-  "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:manufacturer": {
-        "schema:name": "Zeiss",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "Crossbeam 540",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/SEM",
-      "schema:hasPart": [
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "BSE Detector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "SE Detector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
-        }
-      ],
-      "schema:name": "example instrumentName"
-    },
-    {
-      "@id": "ex:instrument/FIBSEM",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:additionalType": [
-        "FIBSEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:name": "missing",
-      "schema:hasPart": [
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "Ion Beam Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
-        }
-      ]
-    }
-  ],
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:location": {
     "@type": [
@@ -1090,7 +1090,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -1120,17 +1120,17 @@ ex:semFibsemTAPP-Liu2017 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/sliceThicknessDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v15.csv)." ;
+    schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v30.csv)." ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
         <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -1152,8 +1152,8 @@ ex:semFibsemTAPP-Liu2017 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethod3DDefault "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
             ada:toolRole "dataReduction" ] .
 
@@ -1259,47 +1259,6 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1422,6 +1381,47 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
   "ada:analyticalMode": [
     "3D Tomography"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1433,7 +1433,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
   ],
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -1486,47 +1486,6 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Cuboidal samples (~0.5\u00d71\u00d71 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1649,6 +1608,47 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
   "ada:analyticalMode": [
     "3D Tomography"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Cuboidal samples (~0.5\u00d71\u00d71 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1660,7 +1660,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
   ],
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -1716,8 +1716,8 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
     ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethod3DDefault "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     bios:computationalTool [ schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
             ada:toolRole "dataReduction" ] .
 
@@ -1811,76 +1811,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "protectiveCoatingDepositionDefault",
-            "schema:name": "Protective Coating Deposition",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas"
-          }
-        ],
-        "ada:coarseMillingConditionsDefault": "Standard stair step; 30 keV, currents 2.5 to 0.8 nA",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
-              }
-            ],
-            "schema:name": "Lift-out Method",
-            "schema:value": "In-situ lift-out (standard stair step)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1909,7 +1839,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -1986,6 +1916,76 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       ]
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas"
+          }
+        ],
+        "ada:coarseMillingConditionsDefault": "Standard stair step; 30 keV, currents 2.5 to 0.8 nA",
+        "schema:description": "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+              }
+            ],
+            "schema:name": "Lift-out Method",
+            "schema:value": "In-situ lift-out (standard stair step)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -2019,8 +2019,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -2073,76 +2073,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "protectiveCoatingDepositionDefault",
-            "schema:name": "Protective Coating Deposition",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "12-\u00b5m wide \u00d7 4-\u00b5m tall carbon capping layer deposited on matrix areas"
-          }
-        ],
-        "ada:coarseMillingConditionsDefault": "Standard stair step; 30 keV, currents 2.5 to 0.8 nA",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
-              }
-            ],
-            "schema:name": "Lift-out Method",
-            "schema:value": "In-situ lift-out (standard stair step)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2171,7 +2101,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -2248,6 +2178,76 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       ]
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "12-\u00b5m wide \u00d7 4-\u00b5m tall carbon capping layer deposited on matrix areas"
+          }
+        ],
+        "ada:coarseMillingConditionsDefault": "Standard stair step; 30 keV, currents 2.5 to 0.8 nA",
+        "schema:description": "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+              }
+            ],
+            "schema:name": "Lift-out Method",
+            "schema:value": "In-situ lift-out (standard stair step)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -2281,8 +2281,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -2310,18 +2310,18 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ] ] ;
+                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -2345,8 +2345,8 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:segmentationMethod3DDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ;
@@ -2393,7 +2393,7 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -2450,73 +2450,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated",
-        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 16–30 keV (coarse milling)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "finePolishingConditionsDefault",
-            "schema:name": "Fine Polishing Conditions",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Various voltages down to 1 keV (polishing)"
-          },
-          {
-            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "foilThicknessDefault",
-            "schema:name": "Foil Thickness",
-            "ada:dataType": "number",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": 100,
-            "schema:description": "<100 to 600 nm (variable, depending on targeted experiment)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2545,7 +2478,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -2622,6 +2555,73 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 16–30 keV (coarse milling)",
+        "schema:description": "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "finePolishingConditionsDefault",
+            "schema:name": "Fine Polishing Conditions",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Various voltages down to 1 keV (polishing)"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "foilThicknessDefault",
+            "schema:name": "Foil Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 100,
+            "schema:description": "<100 to 600 nm (variable, depending on targeted experiment)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -2655,8 +2655,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -2709,73 +2709,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated",
-        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 16\u201330 keV (coarse milling)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "finePolishingConditionsDefault",
-            "schema:name": "Fine Polishing Conditions",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Various voltages down to 1 keV (polishing)"
-          },
-          {
-            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "foilThicknessDefault",
-            "schema:name": "Foil Thickness",
-            "ada:dataType": "number",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": 100,
-            "schema:description": "<100 to 600 nm (variable, depending on targeted experiment)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2804,7 +2737,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -2881,6 +2814,73 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 16\u201330 keV (coarse milling)",
+        "schema:description": "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "finePolishingConditionsDefault",
+            "schema:name": "Fine Polishing Conditions",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Various voltages down to 1 keV (polishing)"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "foilThicknessDefault",
+            "schema:name": "Foil Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 100,
+            "schema:description": "<100 to 600 nm (variable, depending on targeted experiment)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -2914,8 +2914,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -2945,16 +2945,16 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -2978,8 +2978,8 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:segmentationMethod3DDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Various voltages down to 1 keV (polishing)" ;
@@ -3034,7 +3034,7 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -3086,99 +3086,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Particles dispersed on conductive carbon dots on Al SEM pin mounts",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "protectiveCoatingDepositionDefault",
-            "schema:name": "Protective Coating Deposition",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Electron-beam deposited carbon (~0.5–1 µm); followed by ion beam-deposited carbon (~2–3 µm capping layer)"
-          }
-        ],
-        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "finePolishingConditionsDefault",
-            "schema:name": "Fine Polishing Conditions",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick"
-          },
-          {
-            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "foilThicknessDefault",
-            "schema:name": "Foil Thickness",
-            "ada:dataType": "number",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": 100,
-            "schema:description": "~100 nm"
-          },
-          {
-            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
-              }
-            ],
-            "schema:name": "Lift-out Method",
-            "schema:value": "In-situ lift-out; ion beam-deposited Pt weld to Cu half grids"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -3207,7 +3114,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -3284,6 +3191,99 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Electron-beam deposited carbon (~0.5–1 µm); followed by ion beam-deposited carbon (~2–3 µm capping layer)"
+          }
+        ],
+        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)",
+        "schema:description": "Particles dispersed on conductive carbon dots on Al SEM pin mounts",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "finePolishingConditionsDefault",
+            "schema:name": "Fine Polishing Conditions",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "foilThicknessDefault",
+            "schema:name": "Foil Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 100,
+            "schema:description": "~100 nm"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+              }
+            ],
+            "schema:name": "Lift-out Method",
+            "schema:value": "In-situ lift-out; ion beam-deposited Pt weld to Cu half grids"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -3317,8 +3317,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -3371,99 +3371,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Particles dispersed on conductive carbon dots on Al SEM pin mounts",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "protectiveCoatingDepositionDefault",
-            "schema:name": "Protective Coating Deposition",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Electron-beam deposited carbon (~0.5\u20131 \u00b5m); followed by ion beam-deposited carbon (~2\u20133 \u00b5m capping layer)"
-          }
-        ],
-        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "finePolishingConditionsDefault",
-            "schema:name": "Fine Polishing Conditions",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick"
-          },
-          {
-            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "foilThicknessDefault",
-            "schema:name": "Foil Thickness",
-            "ada:dataType": "number",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": 100,
-            "schema:description": "~100 nm"
-          },
-          {
-            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
-              }
-            ],
-            "schema:name": "Lift-out Method",
-            "schema:value": "In-situ lift-out; ion beam-deposited Pt weld to Cu half grids"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -3492,7 +3399,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) \u2014 subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -3569,6 +3476,99 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Electron-beam deposited carbon (~0.5\u20131 \u00b5m); followed by ion beam-deposited carbon (~2\u20133 \u00b5m capping layer)"
+          }
+        ],
+        "ada:coarseMillingConditionsDefault": "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)",
+        "schema:description": "Particles dispersed on conductive carbon dots on Al SEM pin mounts",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/finePolishingConditionsDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "finePolishingConditionsDefault",
+            "schema:name": "Fine Polishing Conditions",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/foilThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "foilThicknessDefault",
+            "schema:name": "Foil Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 100,
+            "schema:description": "~100 nm"
+          },
+          {
+            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+              }
+            ],
+            "schema:name": "Lift-out Method",
+            "schema:value": "In-situ lift-out; ion beam-deposited Pt weld to Cu half grids"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -3602,8 +3602,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -3634,17 +3634,17 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -3668,8 +3668,8 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:segmentationMethod3DDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick" ;
@@ -3731,7 +3731,7 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
-    schema1:description "Unknown" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -3916,8 +3916,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -4098,8 +4098,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -4147,8 +4147,8 @@ ex:semFibsemTAPP-Barnes2025 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:segmentationMethod3DDefault "missing" .
 
 <https://example.org/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
@@ -4361,8 +4361,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -4543,8 +4543,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -4568,8 +4568,8 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -4578,8 +4578,8 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. TEM foil preparation using FEI Helios 660 G3 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -4592,8 +4592,8 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
     ada:samplingUnit "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:targetSelectionCriteriaDefault "missing" .
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:segmentationMethod3DDefault "missing" .
 
 <https://example.org/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
@@ -4646,12 +4646,12 @@ title: FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
 description: 'Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] entries.
-  No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v15.csv
+  No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v30.csv
   by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     schema:object:
@@ -4685,24 +4685,21 @@ allOf:
                           type: array
                           items:
                             description: General description of the material type(s)
-                              this procedure is designed to analyse. Used for discoverability
-                              and procedure matching, and because the material type
-                              constrains sample preparation, calibration and matrix-matching
-                              requirements.
+                              this procedure is designed to analyse.
                             anyOf:
                             - type: string
                               enum:
                               - Silicate mineral
+                              - Silicate glass
                               - Oxide
                               - Sulfide
                               - Carbonate
                               - Phosphate
-                              - Metal alloy
+                              - Metal or alloy
                               - Organic matter
-                              - Glass
                               - Regolith
-                              - Whole rock / polished section
                               - Porous material
+                              - Whole rock
                               - N/A
                               - None
                               - missing
@@ -4723,435 +4720,6 @@ allOf:
                 const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
           required:
           - '@type'
-    schema:actionProcess:
-      type: object
-      properties:
-        schema:step:
-          type: array
-          items:
-            type: object
-            allOf:
-            - if:
-                properties:
-                  schema:name:
-                    const: Sample preparation
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:description:
-                    description: Method by which samples were prepared for SEM analysis
-                      prior to loading in the instrument. Includes mounting medium
-                      (epoxy, carbon tape, stub), polishing steps (alumina, colloidal
-                      silica, argon ion mill), and conductive coating type and thickness.
-                      For VP-SEM/ESEM analyses, note whether an uncoated sample was
-                      used and the gas type used. FIB-specific in-session operations
-                      (protective coating deposition, milling conditions, lamella
-                      preparation) are documented separately in Group 4.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      title: Protective Coating Deposition
-                      description: 'Type and deposition conditions of the protective
-                        coating applied to the sample surface before FIB milling.
-                        E-beam deposition causes less surface damage than ion-beam
-                        deposition and should be applied as the initial layer. Typical
-                        coatings: platinum (Pt) or carbon (C). State material, deposition
-                        method, beam conditions, and approximate thickness.'
-                      type: object
-                      properties:
-                        '@id':
-                          const: ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault
-                        '@type':
-                          const:
-                          - schema:PropertyValueSpecification
-                        schema:valueName:
-                          const: protectiveCoatingDepositionDefault
-                        schema:name:
-                          const: Protective Coating Deposition
-                        ada:dataType:
-                          const: string
-                        ada:fieldScope:
-                          const: session
-                        schema:readonlyValue:
-                          const: false
-                        ada:tier:
-                          const: R
-                      required:
-                      - '@id'
-                      - '@type'
-                      - schema:valueName
-                      - schema:name
-                      - ada:dataType
-                      - ada:fieldScope
-                    allOf:
-                    - contains:
-                        title: Protective Coating Deposition
-                        description: 'Type and deposition conditions of the protective
-                          coating applied to the sample surface before FIB milling.
-                          E-beam deposition causes less surface damage than ion-beam
-                          deposition and should be applied as the initial layer. Typical
-                          coatings: platinum (Pt) or carbon (C). State material, deposition
-                          method, beam conditions, and approximate thickness.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: protectiveCoatingDepositionDefault
-                          schema:name:
-                            const: Protective Coating Deposition
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      minContains: 0
-                      maxContains: 1
-                  ada:coarseMillingConditionsDefault:
-                    description: 'Ion beam voltage and current used for bulk material
-                      removal during FIB milling. For TEM specimen preparation: bulk
-                      trenching to isolate the lamella and intermediate thinning.
-                      For 3D tomography: face preparation and initial slice removal.'
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-            - if:
-                properties:
-                  schema:name:
-                    const: Ion milling
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      anyOf:
-                      - title: Fine Polishing Conditions
-                        description: Ion beam voltage and current for final thinning
-                          and surface polishing of the TEM lamella. Low-voltage polishing
-                          (2 kV or below) minimises Ga implantation depth, surface
-                          amorphisation, and curtaining artifacts.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/finePolishingConditionsDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: finePolishingConditionsDefault
-                          schema:name:
-                            const: Fine Polishing Conditions
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - title: Foil Thickness
-                        description: 'Target thickness of the electron-transparent
-                          TEM lamella after final FIB polishing, in nanometres. Actual
-                          thickness may differ from target. Typical range: 50-150
-                          nm for standard TEM/STEM; 200-600 nm for XANES or tomography
-                          sections.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/foilThicknessDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: foilThicknessDefault
-                          schema:name:
-                            const: Foil Thickness
-                          ada:dataType:
-                            const: number
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                          schema:unitText:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      - title: Lift-out Method
-                        description: Method used to transfer the FIB-prepared lamella
-                          to the TEM support grid. In-situ lift-out uses a micromanipulator
-                          inside the FIB-SEM chamber and is the standard method for
-                          small or precious specimens.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/liftOutMethod
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semFibsemTAPP/liftOutMethod
-                          schema:name:
-                            const: Lift-out Method
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      - title: Slice Thickness
-                        description: Thickness of each FIB-milled slice during serial
-                          sectioning in nanometres. Controls the Z-axis resolution
-                          of the 3D reconstruction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/sliceThicknessDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: sliceThicknessDefault
-                          schema:name:
-                            const: Slice Thickness
-                          ada:dataType:
-                            const: number
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                          schema:unitText:
-                            const: nm
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                    allOf:
-                    - contains:
-                        title: Fine Polishing Conditions
-                        description: Ion beam voltage and current for final thinning
-                          and surface polishing of the TEM lamella. Low-voltage polishing
-                          (2 kV or below) minimises Ga implantation depth, surface
-                          amorphisation, and curtaining artifacts.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/finePolishingConditionsDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: finePolishingConditionsDefault
-                          schema:name:
-                            const: Fine Polishing Conditions
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        title: Foil Thickness
-                        description: 'Target thickness of the electron-transparent
-                          TEM lamella after final FIB polishing, in nanometres. Actual
-                          thickness may differ from target. Typical range: 50-150
-                          nm for standard TEM/STEM; 200-600 nm for XANES or tomography
-                          sections.'
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/foilThicknessDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: foilThicknessDefault
-                          schema:name:
-                            const: Foil Thickness
-                          ada:dataType:
-                            const: number
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                          schema:unitText:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        title: Lift-out Method
-                        description: Method used to transfer the FIB-prepared lamella
-                          to the TEM support grid. In-situ lift-out uses a micromanipulator
-                          inside the FIB-SEM chamber and is the standard method for
-                          small or precious specimens.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/liftOutMethod
-                          '@type':
-                            const:
-                            - schema:PropertyValue
-                          schema:propertyID:
-                            const:
-                            - '@id': ada:parameter/semFibsemTAPP/liftOutMethod
-                          schema:name:
-                            const: Lift-out Method
-                          schema:value:
-                            type: string
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:propertyID
-                        - schema:name
-                        - schema:value
-                        readOnly: true
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        title: Slice Thickness
-                        description: Thickness of each FIB-milled slice during serial
-                          sectioning in nanometres. Controls the Z-axis resolution
-                          of the 3D reconstruction.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/semFibsemTAPP/sliceThicknessDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: sliceThicknessDefault
-                          schema:name:
-                            const: Slice Thickness
-                          ada:dataType:
-                            const: number
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                          schema:unitText:
-                            const: nm
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
-                      minContains: 0
-                      maxContains: 1
-                  schema:description:
-                    description: Ion beam voltage and current used to mill each slice
-                      during FIB-SEM serial sectioning. These parameters determine
-                      material removal rate per slice and exposed surface quality.
-                    anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-            - if:
-                properties:
-                  schema:name:
-                    const: Data reduction
-                required:
-                - schema:name
-              then:
-                properties:
-                  schema:additionalProperty:
-                    type: array
-                    items:
-                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                    allOf:
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
-                      minContains: 0
-                      maxContains: 1
-          allOf:
-          - contains:
-              properties:
-                schema:name:
-                  const: Sample preparation
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: Ion milling
-              required:
-              - schema:name
-          - contains:
-              properties:
-                schema:name:
-                  const: Data reduction
-              required:
-              - schema:name
     schema:instrument:
       type: array
       items:
@@ -5172,10 +4740,10 @@ allOf:
                 properties:
                   schema:name:
                     description: Manufacturer of the instrument that performs the
-                      measurement, recorded as a controlled value so that procedures
-                      can be found by vendor. Where a procedure couples a sample-introduction
-                      system to an analysing instrument, this records the analysing
-                      instrument. Instrument Model gives the specific designation.
+                      measurement, recorded as a controlled value. Where a procedure
+                      couples a sample-introduction system to an analysing instrument,
+                      this records the analysing instrument. Instrument Model gives
+                      the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -5221,7 +4789,9 @@ allOf:
                           - type: string
                             enum:
                             - Cold-FEG
-                            - Schottky FEG
+                            - Schottky FEG (X-FEG)
+                            - Schottky FEG (standard)
+                            - "Field emission gun (FEG) \u2014 subtype not specified"
                             - LaB6 / CeB6
                             - Tungsten (W)
                             - Unknown
@@ -5234,7 +4804,9 @@ allOf:
                               type: string
                               enum:
                               - Cold-FEG
-                              - Schottky FEG
+                              - Schottky FEG (X-FEG)
+                              - Schottky FEG (standard)
+                              - "Field emission gun (FEG) \u2014 subtype not specified"
                               - LaB6 / CeB6
                               - Tungsten (W)
                               - Unknown
@@ -5293,19 +4865,17 @@ allOf:
                     then:
                       properties:
                         schema:name:
-                          description: Type of backscattered electron detector. Solid-state
-                            diode detectors (single or segmented) are standard; YAG
-                            scintillator detectors offer high sensitivity at low voltage.
-                            Segmented detectors can operate in composition mode (segments
-                            summed) or topography mode (differential signal between
-                            segments). In-lens BSE detectors provide improved BSE
-                            collection at short working distances.
+                          description: Type of backscattered electron detector. Segmented
+                            detectors can operate in composition mode (segments summed)
+                            or topography mode (differential signal between segments).
                           anyOf:
                           - type: string
                             enum:
                             - Solid-state diode (single)
                             - Solid-state diode (segmented, composition mode)
                             - Solid-state diode (segmented, topography mode)
+                            - Solid-state diode (segmented, mode not specified)
+                            - Solid-state diode (type not specified)
                             - In-lens BSE
                             - YAG scintillator
                             - N/A
@@ -5319,6 +4889,8 @@ allOf:
                               - Solid-state diode (single)
                               - Solid-state diode (segmented, composition mode)
                               - Solid-state diode (segmented, topography mode)
+                              - Solid-state diode (segmented, mode not specified)
+                              - Solid-state diode (type not specified)
                               - In-lens BSE
                               - YAG scintillator
                               - N/A
@@ -5351,20 +4923,25 @@ allOf:
                     required:
                     - schema:additionalType
               schema:description:
-                description: 'Broad platform type of the instrument. ''Standard SEM'':
-                  dedicated electron-only SEM column. ''FIB-SEM dual-beam'': combined
+                description: "Broad platform type of the instrument. 'Standard SEM':
+                  dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined
                   focused ion beam and SEM columns (enables TEM specimen preparation,
-                  3D serial sectioning, ion-beam milling). ''VP-SEM / ESEM'': variable-pressure
-                  or environmental SEM for imaging uncoated, hydrated, or charging
-                  specimens. An instrument may combine categories (e.g., FIB-SEM with
-                  VP capability).'
+                  3D serial sectioning, ion-beam milling). 'VP-SEM': variable-pressure
+                  SEM, a dry gas at low chamber pressure for uncoated or charging
+                  specimens. 'ESEM': environmental SEM, water vapour at higher pressure
+                  for hydrated specimens, requiring a gaseous secondary electron detector.
+                  Where an instrument combines categories, join them with '; ' \u2014
+                  'FIB-SEM dual-beam; VP-SEM' \u2014 rather than looking for a combined
+                  member. This field records the COLUMN AND CHAMBER configuration
+                  only: field emission is a source type and belongs in Electron Source,
+                  not here."
                 anyOf:
                 - type: string
                   enum:
                   - Standard SEM
                   - FIB-SEM dual-beam
-                  - VP-SEM / ESEM
-                  - FIB-SEM dual-beam + VP
+                  - VP-SEM
+                  - ESEM
                   - N/A
                   - None
                   - missing
@@ -5375,25 +4952,20 @@ allOf:
                     enum:
                     - Standard SEM
                     - FIB-SEM dual-beam
-                    - VP-SEM / ESEM
-                    - FIB-SEM dual-beam + VP
+                    - VP-SEM
+                    - ESEM
                     - N/A
                     - None
                     - missing
                     readOnly: true
               ada:acceleratingVoltageDefault:
-                description: Electron beam accelerating voltage in kilovolts. Affects
-                  X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging
-                  resolution, and beam penetration. Low voltages (1-5 kV) improve
-                  surface sensitivity and reduce beam damage; high voltages (15-20
-                  kV) improve X-ray generation for quantitative analysis.
+                description: Electron beam accelerating voltage in kilovolts.
                 anyOf:
                 - type: number
                 - type: string
               ada:workingDistanceDefault:
                 description: Distance between the objective lens pole piece and the
-                  specimen surface in millimetres. Affects spatial resolution, depth
-                  of focus, EDS X-ray take-off angle, and EBSD geometry.
+                  specimen surface in millimetres.
                 anyOf:
                 - type: number
                 - type: string
@@ -5424,11 +4996,7 @@ allOf:
                       properties:
                         schema:name:
                           description: Ion beam source type in a FIB-SEM dual-beam
-                            system. Gallium LMIS (Ga+) is the most common ion source;
-                            xenon plasma FIB (PFIB) provides higher material removal
-                            rates for large-volume milling; helium and neon ion microscopes
-                            (GFIS) provide nanometre-resolution imaging and low-damage
-                            milling.
+                            system.
                           anyOf:
                           - type: string
                             enum:
@@ -5487,10 +5055,8 @@ allOf:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
+              description: Electron beam probe current. For sub-nA values use decimal
+                notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
@@ -5522,10 +5088,8 @@ allOf:
           allOf:
           - contains:
               title: Beam Current
-              description: Electron beam probe current. Higher current improves signal-to-noise
-                for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage
-                and reduce spatial resolution. Express in nA; for sub-nA values use
-                decimal notation (e.g., 0.4 nA).
+              description: Electron beam probe current. For sub-nA values use decimal
+                notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
@@ -5557,25 +5121,433 @@ allOf:
             minContains: 0
             maxContains: 1
     ada:dwellTimePerPixelDefault:
-      description: Time the electron beam dwells on each pixel during raster scanning
-        (imaging modes) or on each step position during compositional mapping (EDS
-        and WDS mapping modes), in microseconds or milliseconds. Longer dwell time
-        improves signal-to-noise and counting statistics but increases total dose
-        and can cause beam damage or contamination on sensitive materials. For WDS
-        mapping, the dwell time is per spectrometer per pixel.
+      description: Time the electron beam dwells on each pixel during raster scanning,
+        or on each step position during mapping, in microseconds or milliseconds.
       anyOf:
       - type: number
       - type: string
+    schema:actionProcess:
+      type: object
+      properties:
+        schema:step:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:name:
+                    const: Sample preparation
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      title: Protective Coating Deposition
+                      description: 'Type and deposition conditions of the protective
+                        coating applied to the sample surface before FIB milling.
+                        E-beam deposition should be applied as the initial layer.
+                        Typical coatings: platinum (Pt) or carbon (C). State material,
+                        deposition method, beam conditions, and approximate thickness.'
+                      type: object
+                      properties:
+                        '@id':
+                          const: ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault
+                        '@type':
+                          const:
+                          - schema:PropertyValueSpecification
+                        schema:valueName:
+                          const: protectiveCoatingDepositionDefault
+                        schema:name:
+                          const: Protective Coating Deposition
+                        ada:dataType:
+                          const: string
+                        ada:fieldScope:
+                          const: session
+                        schema:readonlyValue:
+                          const: false
+                        ada:tier:
+                          const: R
+                      required:
+                      - '@id'
+                      - '@type'
+                      - schema:valueName
+                      - schema:name
+                      - ada:dataType
+                      - ada:fieldScope
+                    allOf:
+                    - contains:
+                        title: Protective Coating Deposition
+                        description: 'Type and deposition conditions of the protective
+                          coating applied to the sample surface before FIB milling.
+                          E-beam deposition should be applied as the initial layer.
+                          Typical coatings: platinum (Pt) or carbon (C). State material,
+                          deposition method, beam conditions, and approximate thickness.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: protectiveCoatingDepositionDefault
+                          schema:name:
+                            const: Protective Coating Deposition
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      minContains: 0
+                      maxContains: 1
+                  ada:coarseMillingConditionsDefault:
+                    description: 'Ion beam voltage and current used for bulk material
+                      removal during FIB milling. For TEM specimen preparation: bulk
+                      trenching to isolate the lamella and intermediate thinning.
+                      For 3D tomography: face preparation and initial slice removal.'
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+            - if:
+                properties:
+                  schema:name:
+                    const: Ion milling
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      anyOf:
+                      - title: Fine Polishing Conditions
+                        description: Ion beam voltage and current for final thinning
+                          and surface polishing of the TEM lamella.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semFibsemTAPP/finePolishingConditionsDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: finePolishingConditionsDefault
+                          schema:name:
+                            const: Fine Polishing Conditions
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - title: Foil Thickness
+                        description: Target thickness of the electron-transparent
+                          TEM lamella after final FIB polishing, in nanometres. Actual
+                          thickness may differ from target.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semFibsemTAPP/foilThicknessDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: foilThicknessDefault
+                          schema:name:
+                            const: Foil Thickness
+                          ada:dataType:
+                            const: number
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                          schema:unitText:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      - title: Lift-out Method
+                        description: Method used to transfer the FIB-prepared lamella
+                          to the TEM support grid. In-situ lift-out uses a micromanipulator
+                          inside the FIB-SEM chamber.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semFibsemTAPP/liftOutMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/semFibsemTAPP/liftOutMethod
+                          schema:name:
+                            const: Lift-out Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
+                      - title: Slice Thickness
+                        description: Thickness of each FIB-milled slice during serial
+                          sectioning in nanometres.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semFibsemTAPP/sliceThicknessDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: sliceThicknessDefault
+                          schema:name:
+                            const: Slice Thickness
+                          ada:dataType:
+                            const: number
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                          schema:unitText:
+                            const: nm
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                    allOf:
+                    - contains:
+                        title: Fine Polishing Conditions
+                        description: Ion beam voltage and current for final thinning
+                          and surface polishing of the TEM lamella.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semFibsemTAPP/finePolishingConditionsDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: finePolishingConditionsDefault
+                          schema:name:
+                            const: Fine Polishing Conditions
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Foil Thickness
+                        description: Target thickness of the electron-transparent
+                          TEM lamella after final FIB polishing, in nanometres. Actual
+                          thickness may differ from target.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semFibsemTAPP/foilThicknessDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: foilThicknessDefault
+                          schema:name:
+                            const: Foil Thickness
+                          ada:dataType:
+                            const: number
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                          schema:unitText:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Lift-out Method
+                        description: Method used to transfer the FIB-prepared lamella
+                          to the TEM support grid. In-situ lift-out uses a micromanipulator
+                          inside the FIB-SEM chamber.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semFibsemTAPP/liftOutMethod
+                          '@type':
+                            const:
+                            - schema:PropertyValue
+                          schema:propertyID:
+                            const:
+                            - '@id': ada:parameter/semFibsemTAPP/liftOutMethod
+                          schema:name:
+                            const: Lift-out Method
+                          schema:value:
+                            type: string
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:propertyID
+                        - schema:name
+                        - schema:value
+                        readOnly: true
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        title: Slice Thickness
+                        description: Thickness of each FIB-milled slice during serial
+                          sectioning in nanometres.
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/semFibsemTAPP/sliceThicknessDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: sliceThicknessDefault
+                          schema:name:
+                            const: Slice Thickness
+                          ada:dataType:
+                            const: number
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                          schema:unitText:
+                            const: nm
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
+                      minContains: 0
+                      maxContains: 1
+                  schema:description:
+                    description: Ion beam voltage and current used to mill each slice
+                      during FIB-SEM serial sectioning.
+                    anyOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+            - if:
+                properties:
+                  schema:name:
+                    const: Data reduction
+                required:
+                - schema:name
+              then:
+                properties:
+                  schema:additionalProperty:
+                    type: array
+                    items:
+                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                    allOf:
+                    - contains:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                      minContains: 0
+                      maxContains: 1
+          allOf:
+          - contains:
+              properties:
+                schema:name:
+                  const: Sample preparation
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: Ion milling
+              required:
+              - schema:name
+          - contains:
+              properties:
+                schema:name:
+                  const: Data reduction
+              required:
+              - schema:name
     ada:imageRegistration3DDefault:
       description: Method used to align consecutive SEM image slices in the 3D stack
         to correct for drift, vibration, and curtaining artifacts. Include software
         used.
       type: string
     ada:segmentationMethod3DDefault:
-      description: Method and software used to segment phases and features in the
-        aligned 3D image stack, transforming the grayscale stack into labelled 3D
-        regions (pores, mineral phases, grain boundaries, organic matter).
-      type: string
+      description: Method and software used to separate distinct phases or features
+        in the reconstructed 3D volume, turning the grayscale volume into labelled
+        regions.
+      anyOf:
+      - type: string
+        enum:
+        - Global threshold (single grayscale boundary)
+        - Multi-threshold (separate range per phase)
+        - Manual threshold per phase
+        - 'Semi-automated: threshold + morphological filtering'
+        - Region growing
+        - Manual tracing
+        - N/A
+        - None
+        - missing
+      - type: string
     ada:analyticalMode:
       type: array
       items:

@@ -15,21 +15,21 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated (fragments purchased from IMCA member)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated (fragments purchased from IMCA member)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v21.csv)." ;
+    schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v37.csv)." ;
     schema1:instrument <https://example.org/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil" ] ;
@@ -47,6 +47,8 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
             schema1:target [ schema1:description "Micro-XRF performed on same meteorite fragments after XCT" ;
                     schema1:name "Micro-XRF (same samples)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned" ;
     ada:detectorType "Flat panel detector (2240 × 2240 pixels)" ;
@@ -55,12 +57,13 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
     ada:numberOfProjectionsDefault -9999 ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
+    ada:reportedProperties "Density and porosity; proportions, volume, size, shape and spatial distribution of internal structure" ;
     ada:rotationModeDefault "missing" ;
     ada:rotationRangeDefault "360°" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethodDefault "Adaptive (mean) thresholding" ;
     ada:targetFeature "Internal structure; porosity; density contrast" ;
-    ada:targetSelectionCriteriaDefault "missing" ;
     ada:xRaySourceConfiguration "missing" ;
     bios:computationalTool [ schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
             ada:toolRole "dataReduction" ] .
@@ -105,6 +108,8 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Bruker" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Bruker/Skyscan 1173" ] ;
     schema1:name "example instrumentName" ;

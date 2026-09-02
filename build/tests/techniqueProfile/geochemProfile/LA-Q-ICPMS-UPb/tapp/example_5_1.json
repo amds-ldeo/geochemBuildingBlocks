@@ -31,12 +31,12 @@
           ]
         },
         {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrateDefault",
+          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
           "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form / Analytical Substrate",
+          "schema:name": "Sample Form Analytical Substrate",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "In situ \u2014 polished thin section (Tissint sections: Tata-2-C3, Tata-3-C2, UT1, UT3)"
@@ -166,93 +166,17 @@
   "ada:backgroundCountTimeDefault": "50 s (background counted for 50 s before each LA-ICP-MS analysis)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign"
-        }
-      ],
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "schema:value": "Single spot analysis per location"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/detectionLimitDefault",
+      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
+      "schema:valueName": "multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi Run Sequential Analysis Design",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": 3,
-      "schema:description": "Referenced in Table 3 and Table S1; specific values not directly stated in main text; REE in olivines below detection limits at 24\u201332 \u00b5m conditions"
+      "schema:value": "Single spot analysis per location"
     }
   ],
-  "ada:internalStandardApproach": "Normalization to 100 wt% oxide total (for silicates and oxides)",
-  "ada:internalStandardElement": "None (oxide sum normalization, 100 wt% total)",
-  "ada:elementalFractionationCorrection": [
-    "External calibration using NIST 610 glass standard analyzed before and after session; oxide-sum normalization corrects for ablation yield variation; no explicit downhole fractionation correction described"
-  ],
-  "ada:signalIntegrationIntervalMethod": "Time-lapse plots of each spot examined; only the plateau region used to quantify trace element abundances",
-  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis; background subtracted (method not explicitly described beyond counting duration)",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrectionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "normalizationStandardsBasedCorrectionDefault",
-            "schema:name": "Normalization / Standards-Based Correction",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "100% oxide total normalization applied per analysis for silicates and oxides; NIST 610 used for external calibration before and after session"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "ada:primaryStandardNameDefault": "NIST 610 glass standard",
-  "ada:calibrationMeasurementFrequency": "NIST 610 glass standard analyzed before and after every session",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -299,6 +223,55 @@
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
   ],
+  "ada:internalStandardApproach": "Normalization to 100 wt% oxide total (for silicates and oxides)",
+  "ada:elementalFractionationCorrection": [
+    "External calibration using NIST 610 glass standard analyzed before and after session; oxide-sum normalization corrects for ablation yield variation; no explicit downhole fractionation correction described"
+  ],
+  "ada:calibrationMeasurementFrequency": "NIST 610 glass standard analyzed before and after every session",
+  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis; background subtracted (method not explicitly described beyond counting duration)",
+  "ada:internalStandardElement": "None (oxide sum normalization, 100 wt% total)",
+  "ada:signalIntegrationIntervalMethod": "Time-lapse plots of each spot examined; only the plateau region used to quantify trace element abundances",
+  "ada:primaryStandardNameDefault": "NIST 610 glass standard",
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ]
+  },
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:ageModelDefault": "missing",
@@ -311,8 +284,8 @@
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:signalCollectionMode": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

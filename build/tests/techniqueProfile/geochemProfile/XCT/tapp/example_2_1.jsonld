@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol \u2014 Genge2025",
-  "schema:description": "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v21.csv).",
+  "schema:description": "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v37.csv).",
   "schema:object": [
     {
       "@type": [
@@ -50,6 +50,17 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "1.592 \u00d7 0.756 \u00d7 0.985 mm"
+        },
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Optical microscopy \u2014 morphological inspection of the sample exterior through the container window with the CLOXS digital optical microscope system on automated digital sample stages at JAXA/ISAS, before the sample was decanted for nano-XCT"
         }
       ]
     }
@@ -200,6 +211,12 @@
       "ada:tubeCurrentDefault": "89 \u00b5A",
       "ada:xRayPreFilterDefault": "Inbuilt LE4 filter (beam hardening reduction)",
       "ada:voxelSizeDefault": "0.625 \u00b5m (A0180-A); 0.672 \u00b5m (A0180-B)",
+      "schema:manufacturer": {
+        "schema:name": "Zeiss",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "schema:model": {
         "schema:name": "Zeiss Versa (model not specified)",
         "@type": [
@@ -246,13 +263,24 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnit": "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)",
+  "ada:analyticalMode": [
+    "Single-volume"
+  ],
+  "ada:reportedProperties": [
+    "Microchondrule / sulphide-silicate object diameter (um) and shape factor; object abundance; particle volume"
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method"
+    }
+  ],
   "ada:applicableSampleDimensionRange": "missing",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
   "ada:rotationModeDefault": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "missing"
 }
