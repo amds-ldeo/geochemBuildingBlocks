@@ -1,5 +1,38 @@
 # Module consolidation — where this got to, and what's next
 
+> **RESOLVED UPSTREAM, 2026-09-02** (delivery `af3f7bc`). Ruolin adopted the ICP-MS
+> proposal. `Module_ICPMS` (39 fields, 9 consumers), `Module_CollisionCell` (8, 6) and
+> `Module_CompositionQC` (6, 12) now exist in the library, and `Module_TargetSelection`
+> became `Module_SamplingUnitSelection`. **Composition coverage went 25% → 73%**
+> (651 composed against 231 still minted per technique, measured the same way as below).
+> 456 sidecar rows that each technique used to place itself now come from a module.
+>
+> | | composed | own | |
+> |---|--:|--:|--:|
+> | Solution-MC-ICPMS | 65 | 0 | 100% |
+> | LA-MC-ICPMS-UPb | 97 | 7 | 93% |
+> | LA-Q-ICPMS / LA-MC-ICPMS / Solution-Q / LA-Q-UPb | | | 90% |
+> | LA-SF ×2 / Solution-SF | | | 78–79% |
+> | EMPA | 5 | 12 | 29% |
+> | SEM family | | | 13–22% |
+> | TEM | 5 | 40 | 11% |
+> | XCT | 3 | 36 | 7% |
+>
+> The ICP-MS family is essentially done. The electron-beam and tomography families are
+> untouched — our eight electron-beam drafts remain in `draft/`, and the floors measured
+> for Lab-XCT and TEM below still stand. The six ICP-MS drafts have been deleted; eight of
+> their fields were NOT adopted and are recorded in `docs/upstream-requests.md` §1.
+>
+> Two of the open questions below are now closed by the delivery rather than by us:
+> `Secondary Reference Materials` moved into `Module_CompositionQC` after upstream
+> harmonised the electron-beam three from `defines: standard per analyte` to
+> `defines: standard` — the split we refused to average was removed at source; and the
+> three cross-family fields went to `Module_CompositionQC` rather than the `Module_Blank`
+> we proposed, which is the same call with a better home.
+>
+> Everything below is the state as of 2026-08-28 and is kept as the record of what was
+> measured and asked for.
+
 Working note, 2026-08-26. Records the measurements behind the module
 drafts so they don't have to be re-derived, and says what is decided,
 what is open, and what to do next.
@@ -38,6 +71,37 @@ cd tools && python module_composition.py
 
 **Result: 25% composed overall**, ranging from 39% (LA-MC-ICPMS-UPb) to
 7% (Lab-XCT). Full table in `agents.md`.
+
+### What this percentage is, and is not
+
+It is **not** "the share of a technique's properties that come from a module". It counts
+one specific thing: **parameter slots** — entries under `schema:additionalProperty`, each
+either a `$ref` to a module's `Param_*` `$def` or a technique-minted
+`ada:parameter/<TAPP>/<name>` identity. Read it as *"of the parameters the sixteen TAPP
+schemas declare, what share is composed rather than minted per technique"*.
+
+Three things it deliberately leaves out, and the direction each biases:
+
+- **Top-level `ada:` properties** — a Basic-tier field is promoted to a direct property, not
+  a parameter, so none of them is counted either way. EPMA declares nine; the metric sees none.
+- **Module ROOT `$defs`** (`ProcedureIdentification` / `AnalysisIdentification`) — a module
+  contributing a whole block of fields counts for nothing. EPMA composes one. **This makes the
+  number an UNDER-statement of how much a module actually supplies.**
+- **Keyed-table columns, instrument-tree placements, workflow steps, dqv measurements** —
+  placed by path, not as parameters.
+
+It also counts **occurrences, not distinct parameters** (a parameter's identity appears more
+than once per definition): 651 occurrences over 331 distinct on the module side, 231 over 132
+own. On distinct parameters the same state reads **71%** rather than 73% — close enough that
+the headline is not distorted, but the two are not the same number.
+
+**100% is not the target and is not reachable.** Of the 79 distinct fields no module covers,
+**50 are technique-of-one** — a module needs two consumers, and TEM's EELS/diffraction fields
+and XCT's reconstruction fields have no second carrier. Only **29** are carried by two or more
+tables at identical structure. Nothing in the remainder is blocked by the composability rule
+(`schema:additionalProperty`, keyed-table column arrays); every one is simply a field the
+library has not modularised. The realistic ceiling is around 85%, and closing the gap is
+upstream's call, not a pipeline change.
 
 ### A measurement trap, recorded so it isn't repeated
 

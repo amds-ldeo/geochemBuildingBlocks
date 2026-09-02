@@ -10,6 +10,15 @@ Ordered by how much work each one saves. Every number is measured against the 20
 
 ## 1. The LA family needs more modules — 83 shared fields have none
 
+> **DELIVERED 2026-09-02** (`af3f7bc`). Ruolin created `Module_ICPMS` (39 fields, 9 consumers),
+> `Module_CollisionCell` (8, 6) and `Module_CompositionQC` (6, 12), which together cover the
+> groupings proposed below. Our six ICP-MS drafts have been deleted; **456 rows** that each
+> technique used to mint now come from a module. Eight of the drafted fields were NOT taken up —
+> `Detector Configuration`, `Dwell Time per Mass`, `Total Integration Time per Output Data Point`,
+> `Number of Replicates`, `Mass Resolution Assignment`, `Doubly-Charged Species Production`,
+> `Doubly-Charged Species Monitor` and `Mass Bias Correction Strategy` — and remain per-table. The
+> original request is kept below unchanged, as the record of what was asked and measured.
+
 **The finding.** The six LA tables (Q/SF/MC, each with a UPb variant) hold 153 distinct fields. **115 of them appear in all six.** The existing modules cover 42. The remaining **73 are duplicated six times over**, and 10 more are shared by four or more tables with no module either.
 
 | shared by | fields | in a module | in none |
@@ -90,6 +99,12 @@ definition differs between tables rather than averaging it.
 
 ## 2. Seven near-universal fields are in no module — 101 repeated instances
 
+> **DELIVERED 2026-09-02** (`af3f7bc`). All seven now sit in a module: six in `Module_Core`
+> (`Acquisition Software`, `Analytical Mode`, `Reported Variables and Units`, `Constants and
+> Reference Values Used`, `Additional Notes`, `Data Processing Software(s)` — the renamed `Data
+> Reduction Software`) and `Analyte` in `Module_Analyte`. Neither `Group1` nor `ReportingCore` was
+> used; both are now composed by nothing.
+
 Found while reconciling §1's arithmetic, and it applies to the whole library rather than just LA.
 These seven appear in nearly every TAPP and belong to **no module at all**, so each of the sixteen
 carries its own copy:
@@ -138,9 +153,16 @@ module home. Should it join `Module_UPb` or `Module_Geochronology`?
 
 
 **composed_tapps.json `tapp` paths do not match the delivery layout.** The manifest records per-technique paths such
-as `EPMA/EPMA_TAPP_v20.csv`, while 2026-08-13 puts every table in a flat `Current TAPPs/` folder —
+as `EPMA/EPMA_TAPP_v60.csv`, while the delivery puts every table in a flat `Current TAPPs/` folder —
 so **0 of 16 entries resolve** as written. We now resolve by filename instead. Either the manifest
 or the layout should move, since a consumer following the manifest literally finds nothing.
+
+> **Half of this is now fixed.** The *version* drift — six entries naming superseded files, filed as
+> [amds-ldeo/tapp#5](https://github.com/amds-ldeo/tapp/issues/5) — was root-caused in `4d684d3`:
+> `bump_for_module_20260827.py` set `generated` but never updated `e["tapp"]`, so a recomposition
+> pass edited the superseded copy and reported MATCH. Fixed in the script, not just the data, with
+> a `register-stale-tapp-path` guard. All 16 basenames are current as of `af3f7bc`. The *directory
+> prefix* still does not resolve, which is what this entry is now about.
 
 **Modules ship in three places.** `Claude Skills for TAPP/modules/` (confirmed authoritative),
 `Claude Skills for TAPP/references/modules/`, and a `.json` beside each `.csv`. Knowing which the

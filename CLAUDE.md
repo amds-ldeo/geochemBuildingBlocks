@@ -72,7 +72,7 @@ Two standing gotchas that bite spot regenerations:
 
 ## Composition modules
 
-`_sources/BaseSchema/modules/<name>/` (`core`, `targetSelection`, `analyte`, `aggregation`, `blank`, `calibrationFactor`, `laserAblation`, `mcIcpms`, `solutionIntroduction`, `geochronology`, `uPb`; plus `reportingCore`, which the current manifest composes into nothing — `group1` was in that state too and is now archived to `archive/modules/`, `a1ba43b19`) factors fields shared across techniques into module building blocks. Each exposes up to two `$defs`, split by path root: **`ProcedureIdentification`** (from the module's `$MethodDefinition` paths, composed into `tapp/`) and **`AnalysisIdentification`** (from its `$Dataset` paths, composed into `detail/`); `reportingCore` is conditional and exposes one `$def` per block per side (see `docs/REPORTINGCORE_BLOCKS.md`). All 16 techniques in `tapp/composed_tapps.json` compose modules today; membership is matched on the table's **filename**.
+`_sources/BaseSchema/modules/<name>/` (`core`, `samplingUnitSelection`, `analyte`, `aggregation`, `blank`, `calibrationFactor`, `laserAblation`, `mcIcpms`, `solutionIntroduction`, `geochronology`, `uPb`, plus `icpms`, `collisionCell` and `compositionQC` added by the 2026-09 delivery; plus `reportingCore`, which the current manifest composes into nothing — `group1` was in that state too and is now archived to `archive/modules/`, `a1ba43b19`. `targetSelection` was renamed `samplingUnitSelection` and `arAr` retired upstream, both in `af3f7bc`) factors fields shared across techniques into module building blocks. Each exposes up to two `$defs`, split by path root: **`ProcedureIdentification`** (from the module's `$MethodDefinition` paths, composed into `tapp/`) and **`AnalysisIdentification`** (from its `$Dataset` paths, composed into `detail/`); `reportingCore` is conditional and exposes one `$def` per block per side (see `docs/REPORTINGCORE_BLOCKS.md`). All 16 techniques in `tapp/composed_tapps.json` compose modules today; membership is matched on the table's **filename**.
 
 A row covered by a module is **dropped from the technique's own overlay** — otherwise the shared field is defined twice and the technique's copy silently wins on any divergence. `tools/module_composition.py` makes that call, and only when the module `$def` demonstrably provides the field (module has it, the field has a placement in the module sidecar, and the `$def` exists).
 
@@ -108,6 +108,37 @@ conflicts that were one defect. `python tools/module_conflict_check.py --paramet
 per consuming TAPP. A module-owned parameter instead gets a single identity,
 `ada:parameter/module/<Module>/<name>` — deliberately, so the shared parameter is one thing. The
 module and technique `$defs` should therefore differ **only** in that `@id`.
+
+**A module cannot constrain three containers, all for one reason.** `allOf` intersects, and the
+consuming technique already constrains each of these as a CLOSED shape from its own table, so two
+universal constraints on one array can never both hold: `schema:additionalProperty` (a closed
+`anyOf` over the table's parameters), a **keyed-table COLUMN array** (`ada:analyteColumns`,
+`ada:channelColumns`, `ada:reportedPropertyColumns`, `ada:collectorConfiguration` — narrowed to the
+technique's generated column defs), and a **default-ROW array** (`ada:defaultAnalytes`,
+`ada:defaultChannels`). `build_module_bb.is_composable()` is the single predicate;
+`module_composition._is_composable` delegates to it so the generator and the planner cannot drift.
+The column case arrived with `Module_ICPMS` and broke 96 examples — a row ending at
+`…ada:analyteColumns[]` carries the COLUMN's scalar Data Type, so composing it emitted
+`items: {type: string}` against the technique's `items: {anyOf: […column objects…]}`.
+
+**`Source = unplaced` in a module sidecar is a REFUSAL, not a gap.** `seed_module_sidecars` fills
+blank paths from technique consensus; a row deliberately left blank (Core's `Instrument
+Manufacturer`/`Instrument Model`, which must not hardcode an instrument selector) was re-inferred
+onto `schema:instrument[additionalType='SEM']` by a re-seed — the same defect as the rule above it,
+arriving a second time by the same route. The seeder now keeps an `unplaced` row like any authored
+one.
+
+**Anything checking a RAW sidecar cell must normalise first.** `schemapath_io.load_spec()` runs
+`norm.mechanical(norm.preclean(path))` before the emitter parses, and `mechanical()` expands
+supported author shorthand — `prov:used[sel]` → `prov:used.<kind>[sel]`, doubled dots, `Schema:`.
+`intake_delivery`'s grammar check read the raw cell and reported 14 canonical-equivalent rows as
+broken. `schema:used` is the one that really is an error (schema.org has no `used` property);
+nothing normalises it and `schema_path_parser` now rejects it.
+
+**A `schema:step` selector literal is sentence-case** — `'Data reduction'`, `'Sample preparation'`,
+`'Data acquisition'`, `'Sample digestion'`, `'Ion milling'`. The literal IS the node's identity, so
+Title Case builds a second, separate step: eight such rows made a technique row read as diverging
+from the module that placed it identically.
 
 > **Module `$ref` depth (`e3a3968d`).** Modules sit at `_sources/BaseSchema/modules/<name>/` — two hops shallower than a technique schema at `_sources/techniqueProfile/geochemProfile/<TECH>/tapp/` — but `build_module_bb.py` reuses `schema_path_emitter`'s technique-depth `REF_MAP`. A BaseSchema target written as `../../../../BaseSchema/X` climbs past the repo root and must be `../../X`; `build_module_bb._reref_module_depth()` does that rewrite. Only the full CI postprocess catches this class of break — `validate_examples.py` does not.
 
