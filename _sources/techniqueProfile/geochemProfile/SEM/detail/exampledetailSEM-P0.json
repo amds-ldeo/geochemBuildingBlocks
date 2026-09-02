@@ -29,16 +29,16 @@
           "schema:value": "example value"
         },
         {
-          "@id": "ada:parameter/semTAPP/segmentationMethod3D",
+          "@id": "ada:parameter/semTAPP/segmentationMethod",
           "@type": [
             "schema:PropertyValue"
           ],
           "schema:propertyID": [
             {
-              "@id": "ada:parameter/semTAPP/segmentationMethod3D"
+              "@id": "ada:parameter/semTAPP/segmentationMethod"
             }
           ],
-          "schema:name": "3D Segmentation Method",
+          "schema:name": "Segmentation Method",
           "schema:value": "example value"
         },
         {
@@ -108,20 +108,6 @@
           ],
           "schema:name": "CL Wavelength Calibration Reference",
           "schema:value": "example value"
-        },
-        {
-          "@id": "ada:parameter/semTAPP/detectionLimit",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/semTAPP/detectionLimit"
-            }
-          ],
-          "schema:name": "Detection Limit",
-          "schema:value": 1,
-          "schema:unitText": "example value"
         },
         {
           "@id": "ada:parameter/semTAPP/driftCorrection",
@@ -297,6 +283,24 @@
           ]
         },
         {
+          "prov:reagent": [
+            {
+              "ada:reagentRole": "primaryStandard",
+              "schema:name": "example primaryCalibrationStandardName",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            },
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "example secondaryReferenceMaterials",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        },
+        {
           "bios:computationalTool": [
             {
               "ada:toolRole": "acquisition",
@@ -360,7 +364,7 @@
                 "schema:value": "example value"
               }
             ],
-            "schema:description": "example samplePreparationMethod"
+            "schema:description": "Polished thin section"
           },
           {
             "schema:name": "Data reduction",
@@ -390,24 +394,11 @@
                 ],
                 "schema:name": "Crystal Structure Database",
                 "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/semTAPP/normalizationStandardsBasedCorrection"
-                  }
-                ],
-                "schema:name": "Normalization / Standards-Based Correction",
-                "schema:value": "example value"
               }
             ]
           },
           {
-            "schema:name": "Ion Milling",
+            "schema:name": "Ion milling",
             "schema:description": "example ionMillingConditions"
           }
         ]
@@ -434,13 +425,13 @@
               "schema:unitText": "example value"
             },
             {
-              "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening",
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
               "@type": [
                 "schema:PropertyValue"
               ],
               "schema:propertyID": [
                 {
-                  "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
                 }
               ],
               "schema:name": "Pre-Analysis Imaging and Screening",
@@ -542,7 +533,7 @@
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "EPMA; NanoSIMS",
+        "schema:name": "example coupledTechnique",
         "schema:description": "example couplingDescription"
       }
     },

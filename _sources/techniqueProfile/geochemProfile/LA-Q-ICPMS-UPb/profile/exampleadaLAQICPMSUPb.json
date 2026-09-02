@@ -258,63 +258,6 @@
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Normalization / Standards-Based Correction",
-      "schema:description": "Normalization / Standards-Based Correction reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/detectionLimit",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Detection Limit",
-      "schema:description": "Detection Limit reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/detectionLimit"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Detection Limit Method",
-      "schema:description": "Detection Limit Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/detectionLimitMethod"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
       "@id": "ex:adaProduct-var-001",
       "@type": [
         "schema:PropertyValue",
@@ -356,6 +299,23 @@
       ],
       "schema:name": "Age Datum / Reference Epoch",
       "schema:description": "Age Datum / Reference Epoch reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Detection Limit",
+      "schema:description": "Detection Limit reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -599,19 +559,19 @@
       "schema:url": "https://astromat.org"
     }
   },
-  "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Oxide production ratio",
-      "dqv:value": "example oxideProduction"
-    },
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    }
-  ],
   "ada:reportedDateType": [
     "Weighted mean 206Pb/238U"
   ],
-  "ada:sensitivityYield": 1.0,
-  "ada:spotDiameterMeasured": 1.0
+  "ada:spotDiameterMeasured": 1.0,
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "example oxideProduction"
+    }
+  ],
+  "ada:sensitivityYield": 1.0
 }

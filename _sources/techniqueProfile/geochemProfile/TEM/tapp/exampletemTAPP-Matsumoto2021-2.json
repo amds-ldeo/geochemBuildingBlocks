@@ -37,7 +37,6 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -51,6 +50,7 @@
             "schema:defaultValue": "FEI Helios NanoLab G3 CX (Kyoto Univ): e-beam Pt coating at 5 kV; Ga+ Pt coating at 30 kV; section thinned to ~100 nm at 30 kV Ga+; cleaned at 5 kV Ga+; additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ)"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -70,17 +70,6 @@
           "bios:LabProcess"
         ],
         "schema:position": 2
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data Reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
       }
     ],
     "@type": [
@@ -218,9 +207,9 @@
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "BF-TEM",
-  "ada:edsAcquisitionModeDefault": "Point analysis",
+  "ada:edsAcquisitionModeDefault": "Line scan",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
-  "ada:phaseIdentificationMethod": "N/A",
+  "ada:phaseIdentificationMethod": "Quantitative EDX (Cliff-Lorimer): Fe/S atomic ratio to distinguish troilite (Fe/S ≈ 1.03 ± 0.04) from NC-pyrrhotite; EDX maps used to confirm elemental distributions (Fe, S, O, Si, Ca)",
   "ada:edsCalibrationStandardDefault": "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)",
   "schema:measurementTechnique": [
     {
@@ -249,24 +238,6 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Fe",
-      "S",
-      "Ni"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
-      }
-    ]
-  },
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:eelsAcquisitionModeDefault": "missing",
@@ -274,7 +245,7 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

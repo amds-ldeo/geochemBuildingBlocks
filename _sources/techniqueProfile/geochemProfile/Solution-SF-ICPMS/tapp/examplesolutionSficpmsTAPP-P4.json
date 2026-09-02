@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol — P4",
-  "schema:description": "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1); ada:perAnalyteCalibrationStrategy = External calibration with matrix-matched standards at 10 ppm Ca (all analytes; stated section 2.3.1).",
+  "schema:description": "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1).",
   "schema:object": [
     {
       "@type": [
@@ -85,16 +85,14 @@
             "schema:defaultValue": "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)"
           },
           {
-            "@id": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod",
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
-              "schema:PropertyValue"
+              "schema:PropertyValueSpecification"
             ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/solutionSficpmsTAPP/isotopeDilutionDataReductionMethod"
-              }
-            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
             "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
             "schema:value": "None"
           },
           {
@@ -181,29 +179,25 @@
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionSficpmsTAPP/interfaceConeConfiguration",
+              "@id": "ada:parameter/module/ICPMS/configuration",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionSficpmsTAPP/interfaceConeConfiguration"
-                }
-              ],
-              "schema:name": "Interface Cone Configuration",
+              "schema:valueName": "configuration",
+              "schema:name": "Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Pt-normal sampler + Pt-H skimmer (Table 1)"
             },
             {
-              "@id": "ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial",
+              "@id": "ada:parameter/module/ICPMS/samplerAndSkimmerConeMaterial",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionSficpmsTAPP/samplerAndSkimmerConeMaterial"
-                }
-              ],
+              "schema:valueName": "samplerAndSkimmerConeMaterial",
               "schema:name": "Sampler and Skimmer Cone Material",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Pt sampler and Pt skimmer (Table 1)"
             }
           ],
@@ -273,20 +267,18 @@
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode",
+              "@id": "ada:parameter/module/ICPMS/plasmaThermalMode",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionSficpmsTAPP/plasmaThermalMode"
-                }
-              ],
+              "schema:valueName": "plasmaThermalMode",
               "schema:name": "Plasma Thermal Mode",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "Normal plasma (1250 W; Table 1)"
             },
             {
-              "@id": "ada:parameter/solutionSficpmsTAPP/rfPowerDefault",
+              "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -335,7 +327,7 @@
           "schema:value": "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)"
         },
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/massResolutionSettingDefault",
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -346,7 +338,7 @@
           "schema:defaultValue": "LR and MR (stated Table 1 and section 2.3)"
         },
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/memoryEffectMitigationDefault",
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
@@ -376,34 +368,12 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "None"
-    },
-    {
-      "@id": "ada:parameter/solutionSficpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 2,
-      "schema:description": "~2 umol/mol B/Ca procedural blank (stated abstract)"
     }
   ],
   "ada:numberOfScansPerReplicate": "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)",
   "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
-  "ada:sampleSequenceDesign": "Blocks of 7 samples bracketed by pair of acid blanks and consistency standards (stated section 2.3.1)",
-  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2.3.1)",
-  "ada:oxideProductionMethodAndThreshold": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)",
-  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 10 ppm Ca (not formally named; stated section 2.3.1)",
+  "ada:analysisSequenceDefault": "Blocks of 7 samples bracketed by pair of acid blanks and consistency standards (stated section 2.3.1)",
   "ada:driftCorrectionMethod": "Standard bracketing",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "Four in-house foraminifera consistency standards (C. wuellerstorfi, Uvigerina spp., synthetic mix; stated section 2.2)"
-  ],
-  "ada:calibrationMeasurementFrequency": "Bracketing blocks of 7 samples (stated section 2.3.1)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -429,144 +399,24 @@
   "ada:isotopeDilutionSpike": "None",
   "ada:finalSolutionMatrix": "0.1 M HNO3 + 0.3 M HF (Table 1)",
   "ada:washTimeBetweenSamples": "120 s (Table 1)",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Li",
-      "B",
-      "Na",
-      "Mg",
-      "Al",
-      "Mn",
-      "Fe",
-      "Zn",
-      "Sr",
-      "Cd",
-      "Ba",
-      "U as Me/Ca ratios in foraminifera (stated section 2.3)"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/monitoredMasses",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "monitoredMasses",
-        "schema:name": "Monitored Masses",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "massResolutionAssignment",
-        "schema:name": "Mass Resolution Assignment",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "2 sigma -- \"with 2r analytical uncertainty\" and \"the gray area represents the 2r spread in the B/Ca measured at 10 ppm [Ca]Matrix\" (r = sigma in the extracted text)",
+  "ada:calibrationMeasurementFrequency": "Bracketing blocks of 7 samples (stated section 2.3.1)",
+  "ada:oxideProductionMethodAndThreshold": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)",
+  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2.3.1)",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration with matrix-matched standards at 10 ppm Ca (all analytes; stated section 2.3.1)"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "Four in-house foraminifera consistency standards (C. wuellerstorfi, Uvigerina spp., synthetic mix; stated section 2.2)"
+  ],
+  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 10 ppm Ca (not formally named; stated section 2.3.1)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }

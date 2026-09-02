@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Cymes2023",
-  "schema:description": "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2₁/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N₂ and baked 140°C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning. Reported detail: ada:analyticalSubModeDefault = BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM; ada:phaseIdentificationMethod = SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization).",
+  "schema:description": "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2₁/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N₂ and baked 140°C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning. Reported detail: ada:analyticalSubModeDefault = BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM.",
   "schema:object": [
     {
       "@type": [
@@ -37,7 +37,6 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "FIB lift-out (Ga) + ion mill",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/samplePreparationDetailsDefault",
@@ -51,6 +50,7 @@
             "schema:defaultValue": "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1–2 µm e-beam amorphous C protection strip; initial in situ thinning to ~1–2 µm, then Pt-welded to Cu TEM half-grid; thinned to ~80–100 nm; stored under N₂; baked 140°C for 8 h under vacuum before TEM"
           }
         ],
+        "schema:description": "FIB lift-out (Ga+)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -61,18 +61,7 @@
         "schema:position": 1
       },
       {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
         "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data Reduction",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/temTAPP/imageProcessingMethodsAppliedDefault",
@@ -93,7 +82,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 2
       }
     ],
     "@type": [
@@ -262,7 +251,7 @@
       "schema:defaultValue": "100 nm (SAED aperture)"
     }
   ],
-  "ada:phaseIdentificationMethod": "CrystalMaker",
+  "ada:phaseIdentificationMethod": "SAED zone-axis patterns; simulated SAED patterns using SingleCrystal (CrystalMaker Software); HRTEM lattice fringe imaging + FFT; inverse FFT with spot-pass filter (lattice deformation visualization)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -300,8 +289,8 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:spectroscopicDetectorDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

@@ -33,76 +33,6 @@
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "protectiveCoatingDepositionDefault",
-            "schema:name": "Protective Coating Deposition",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas"
-          }
-        ],
-        "ada:coarseMillingConditionsDefault": "Standard stair step; 30 keV, currents 2.5 to 0.8 nA",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
-            "@type": [
-              "schema:PropertyValue"
-            ],
-            "schema:propertyID": [
-              {
-                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
-              }
-            ],
-            "schema:name": "Lift-out Method",
-            "schema:value": "In-situ lift-out (standard stair step)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -131,7 +61,7 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Unknown",
+          "schema:description": "Field emission gun (FEG) — subtype not specified",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -208,6 +138,76 @@
       ]
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas"
+          }
+        ],
+        "ada:coarseMillingConditionsDefault": "Standard stair step; 30 keV, currents 2.5 to 0.8 nA",
+        "schema:description": "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/liftOutMethod",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "ada:parameter/semFibsemTAPP/liftOutMethod"
+              }
+            ],
+            "schema:name": "Lift-out Method",
+            "schema:value": "In-situ lift-out (standard stair step)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -241,7 +241,7 @@
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:segmentationMethod3DDefault": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

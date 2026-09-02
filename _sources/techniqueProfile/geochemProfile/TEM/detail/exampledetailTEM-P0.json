@@ -32,10 +32,11 @@
                 "schema:name": "Sample Preparation Details",
                 "schema:value": "example value"
               }
-            ]
+            ],
+            "schema:description": "FIB lift-out (Ga ion)"
           },
           {
-            "schema:name": "Data Reduction",
+            "schema:name": "Data reduction",
             "schema:additionalProperty": [
               {
                 "@id": "ada:parameter/temTAPP/eelsPluralScatteringCorrection",
@@ -62,12 +63,7 @@
                 ],
                 "schema:name": "Image Processing Methods Applied",
                 "schema:value": "example value"
-              }
-            ]
-          },
-          {
-            "schema:name": "Data reduction",
-            "schema:additionalProperty": [
+              },
               {
                 "@id": "ada:parameter/module/Core/constantsReferenceValues",
                 "@type": [
@@ -92,13 +88,13 @@
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening",
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
               "@type": [
                 "schema:PropertyValue"
               ],
               "schema:propertyID": [
                 {
-                  "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
                 }
               ],
               "schema:name": "Pre-Analysis Imaging and Screening",
@@ -204,16 +200,16 @@
           "schema:unitText": "example value"
         },
         {
-          "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel",
+          "@id": "ada:parameter/temTAPP/dwellTimePerPixel",
           "@type": [
             "schema:PropertyValue"
           ],
           "schema:propertyID": [
             {
-              "@id": "ada:parameter/temTAPP/stemDwellTimePerPixel"
+              "@id": "ada:parameter/temTAPP/dwellTimePerPixel"
             }
           ],
-          "schema:name": "STEM Dwell Time per Pixel",
+          "schema:name": "Dwell Time per Pixel",
           "schema:value": 1,
           "schema:unitText": "example value"
         },
@@ -496,6 +492,19 @@
           ],
           "schema:name": "EDS Counting Statistics / Accumulation Criterion",
           "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod"
+            }
+          ],
+          "schema:name": "EELS Chemical State Determination Method",
+          "schema:value": "example value"
         }
       ],
       "prov:used": [
@@ -540,6 +549,19 @@
                   "schema:name": "Accelerating Voltage",
                   "schema:value": 1,
                   "schema:unitText": "example value"
+                },
+                {
+                  "@id": "ada:parameter/temTAPP/temObjectiveAperture",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/temTAPP/temObjectiveAperture"
+                    }
+                  ],
+                  "schema:name": "TEM Objective Aperture",
+                  "schema:value": "example value"
                 }
               ],
               "@type": [
@@ -552,35 +574,6 @@
           ]
         }
       ],
-      "schema:used": {
-        "schema:instrument": [
-          {
-            "schema:additionalType": [
-              "TEM"
-            ],
-            "schema:additionalProperty": [
-              {
-                "@id": "ada:parameter/temTAPP/temObjectiveAperture",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/temTAPP/temObjectiveAperture"
-                  }
-                ],
-                "schema:name": "TEM Objective Aperture",
-                "schema:value": "example value"
-              }
-            ],
-            "@type": [
-              "schema:Product",
-              "schema:Thing"
-            ],
-            "@id": "ex:instrument/TEM"
-          }
-        ]
-      },
       "ada:deadTime": 1.0,
       "schema:location": {
         "@type": [
@@ -621,7 +614,7 @@
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "NanoSIMS; STXM; Raman",
+        "schema:name": "example coupledTechnique",
         "schema:description": "example couplingDescription"
       }
     },

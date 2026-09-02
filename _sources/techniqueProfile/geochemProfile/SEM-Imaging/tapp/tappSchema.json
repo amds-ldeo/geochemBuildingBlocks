@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)",
-    "description": "Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v15.csv by tools/build_tapp.py.",
+    "description": "Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v29.csv by tools/build_tapp.py.",
     "allOf": [
         {
             "$ref": "../../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
@@ -10,7 +10,7 @@
             "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification"
         },
         {
-            "$ref": "../../../../BaseSchema/modules/targetSelection/schema.yaml#/$defs/ProcedureIdentification"
+            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification"
         },
         {
             "type": "object",
@@ -56,22 +56,22 @@
                                                                 "schema:value": {
                                                                     "type": "array",
                                                                     "items": {
-                                                                        "description": "General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",
+                                                                        "description": "General description of the material type(s) this procedure is designed to analyse.",
                                                                         "anyOf": [
                                                                             {
                                                                                 "type": "string",
                                                                                 "enum": [
                                                                                     "Silicate mineral",
+                                                                                    "Silicate glass",
                                                                                     "Oxide",
                                                                                     "Sulfide",
                                                                                     "Carbonate",
                                                                                     "Phosphate",
-                                                                                    "Metal alloy",
+                                                                                    "Metal or alloy",
                                                                                     "Organic matter",
-                                                                                    "Glass",
                                                                                     "Regolith",
-                                                                                    "Whole rock / polished section",
                                                                                     "Porous material",
+                                                                                    "Whole rock",
                                                                                     "N/A",
                                                                                     "None",
                                                                                     "missing"
@@ -126,230 +126,6 @@
                         }
                     ]
                 },
-                "schema:actionProcess": {
-                    "type": "object",
-                    "properties": {
-                        "schema:step": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "allOf": [
-                                    {
-                                        "if": {
-                                            "properties": {
-                                                "schema:name": {
-                                                    "const": "Sample preparation"
-                                                }
-                                            },
-                                            "required": [
-                                                "schema:name"
-                                            ]
-                                        },
-                                        "then": {
-                                            "properties": {
-                                                "schema:description": {
-                                                    "description": "Method by which samples were prepared for SEM analysis prior to loading in the instrument. Includes mounting medium (epoxy, carbon tape, stub), polishing steps (alumina, colloidal silica, argon ion mill), and conductive coating type and thickness. For VP-SEM/ESEM analyses, note whether an uncoated sample was used and the gas type used. FIB-specific in-session operations (protective coating deposition, milling conditions, lamella preparation) are documented separately in Group 4.",
-                                                    "anyOf": [
-                                                        {
-                                                            "type": "string"
-                                                        },
-                                                        {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "string"
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "if": {
-                                            "properties": {
-                                                "schema:name": {
-                                                    "const": "Data reduction"
-                                                }
-                                            },
-                                            "required": [
-                                                "schema:name"
-                                            ]
-                                        },
-                                        "then": {
-                                            "properties": {
-                                                "ada:ebsdIndexingMethod": {
-                                                    "description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
-                                                    "anyOf": [
-                                                        {
-                                                            "type": "string",
-                                                            "enum": [
-                                                                "Hough transform",
-                                                                "Dictionary indexing (DI)",
-                                                                "Neural network",
-                                                                "Unknown",
-                                                                "N/A",
-                                                                "None",
-                                                                "missing"
-                                                            ],
-                                                            "readOnly": true
-                                                        },
-                                                        {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "string",
-                                                                "enum": [
-                                                                    "Hough transform",
-                                                                    "Dictionary indexing (DI)",
-                                                                    "Neural network",
-                                                                    "Unknown",
-                                                                    "N/A",
-                                                                    "None",
-                                                                    "missing"
-                                                                ],
-                                                                "readOnly": true
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                "schema:additionalProperty": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "anyOf": [
-                                                            {
-                                                                "title": "Crystal Structure Database",
-                                                                "description": "Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "crystalStructureDatabaseDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Crystal Structure Database"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
-                                                            },
-                                                            {
-                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
-                                                            }
-                                                        ]
-                                                    },
-                                                    "allOf": [
-                                                        {
-                                                            "contains": {
-                                                                "title": "Crystal Structure Database",
-                                                                "description": "Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "crystalStructureDatabaseDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Crystal Structure Database"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
-                                                            },
-                                                            "minContains": 0,
-                                                            "maxContains": 1
-                                                        },
-                                                        {
-                                                            "contains": {
-                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
-                                                            },
-                                                            "minContains": 0,
-                                                            "maxContains": 1
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    }
-                                ]
-                            },
-                            "allOf": [
-                                {
-                                    "contains": {
-                                        "properties": {
-                                            "schema:name": {
-                                                "const": "Sample preparation"
-                                            }
-                                        },
-                                        "required": [
-                                            "schema:name"
-                                        ]
-                                    }
-                                },
-                                {
-                                    "contains": {
-                                        "properties": {
-                                            "schema:name": {
-                                                "const": "Data reduction"
-                                            }
-                                        },
-                                        "required": [
-                                            "schema:name"
-                                        ]
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
                 "schema:instrument": {
                     "type": "array",
                     "items": {
@@ -375,7 +151,7 @@
                                             "type": "object",
                                             "properties": {
                                                 "schema:name": {
-                                                    "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                                                    "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
                                                     "type": "string",
                                                     "enum": [
                                                         "JEOL",
@@ -431,7 +207,9 @@
                                                                             "type": "string",
                                                                             "enum": [
                                                                                 "Cold-FEG",
-                                                                                "Schottky FEG",
+                                                                                "Schottky FEG (X-FEG)",
+                                                                                "Schottky FEG (standard)",
+                                                                                "Field emission gun (FEG) — subtype not specified",
                                                                                 "LaB6 / CeB6",
                                                                                 "Tungsten (W)",
                                                                                 "Unknown",
@@ -447,7 +225,9 @@
                                                                                 "type": "string",
                                                                                 "enum": [
                                                                                     "Cold-FEG",
-                                                                                    "Schottky FEG",
+                                                                                    "Schottky FEG (X-FEG)",
+                                                                                    "Schottky FEG (standard)",
+                                                                                    "Field emission gun (FEG) — subtype not specified",
                                                                                     "LaB6 / CeB6",
                                                                                     "Tungsten (W)",
                                                                                     "Unknown",
@@ -533,7 +313,7 @@
                                                         "then": {
                                                             "properties": {
                                                                 "schema:name": {
-                                                                    "description": "Type of backscattered electron detector. Solid-state diode detectors (single or segmented) are standard; YAG scintillator detectors offer high sensitivity at low voltage. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments). In-lens BSE detectors provide improved BSE collection at short working distances.",
+                                                                    "description": "Type of backscattered electron detector. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments).",
                                                                     "anyOf": [
                                                                         {
                                                                             "type": "string",
@@ -541,6 +321,8 @@
                                                                                 "Solid-state diode (single)",
                                                                                 "Solid-state diode (segmented, composition mode)",
                                                                                 "Solid-state diode (segmented, topography mode)",
+                                                                                "Solid-state diode (segmented, mode not specified)",
+                                                                                "Solid-state diode (type not specified)",
                                                                                 "In-lens BSE",
                                                                                 "YAG scintillator",
                                                                                 "N/A",
@@ -557,6 +339,8 @@
                                                                                     "Solid-state diode (single)",
                                                                                     "Solid-state diode (segmented, composition mode)",
                                                                                     "Solid-state diode (segmented, topography mode)",
+                                                                                    "Solid-state diode (segmented, mode not specified)",
+                                                                                    "Solid-state diode (type not specified)",
                                                                                     "In-lens BSE",
                                                                                     "YAG scintillator",
                                                                                     "N/A",
@@ -622,15 +406,15 @@
                                             ]
                                         },
                                         "schema:description": {
-                                            "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM / ESEM': variable-pressure or environmental SEM for imaging uncoated, hydrated, or charging specimens. An instrument may combine categories (e.g., FIB-SEM with VP capability).",
+                                            "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM': variable-pressure SEM, a dry gas at low chamber pressure for uncoated or charging specimens. 'ESEM': environmental SEM, water vapour at higher pressure for hydrated specimens, requiring a gaseous secondary electron detector. Where an instrument combines categories, join them with '; ' — 'FIB-SEM dual-beam; VP-SEM' — rather than looking for a combined member. This field records the COLUMN AND CHAMBER configuration only: field emission is a source type and belongs in Electron Source, not here.",
                                             "anyOf": [
                                                 {
                                                     "type": "string",
                                                     "enum": [
                                                         "Standard SEM",
                                                         "FIB-SEM dual-beam",
-                                                        "VP-SEM / ESEM",
-                                                        "FIB-SEM dual-beam + VP",
+                                                        "VP-SEM",
+                                                        "ESEM",
                                                         "N/A",
                                                         "None",
                                                         "missing"
@@ -644,8 +428,8 @@
                                                         "enum": [
                                                             "Standard SEM",
                                                             "FIB-SEM dual-beam",
-                                                            "VP-SEM / ESEM",
-                                                            "FIB-SEM dual-beam + VP",
+                                                            "VP-SEM",
+                                                            "ESEM",
                                                             "N/A",
                                                             "None",
                                                             "missing"
@@ -817,7 +601,7 @@
                                             ]
                                         },
                                         "ada:acceleratingVoltageDefault": {
-                                            "description": "Electron beam accelerating voltage in kilovolts. Affects X-ray generation depth (EDS/WDS), EBSD pattern quality, imaging resolution, and beam penetration. Low voltages (1-5 kV) improve surface sensitivity and reduce beam damage; high voltages (15-20 kV) improve X-ray generation for quantitative analysis.",
+                                            "description": "Electron beam accelerating voltage in kilovolts.",
                                             "anyOf": [
                                                 {
                                                     "type": "number"
@@ -828,7 +612,7 @@
                                             ]
                                         },
                                         "ada:workingDistanceDefault": {
-                                            "description": "Distance between the objective lens pole piece and the specimen surface in millimetres. Affects spatial resolution, depth of focus, EDS X-ray take-off angle, and EBSD geometry.",
+                                            "description": "Distance between the objective lens pole piece and the specimen surface in millimetres.",
                                             "anyOf": [
                                                 {
                                                     "type": "number"
@@ -878,7 +662,7 @@
                                     },
                                     {
                                         "title": "Beam Current",
-                                        "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+                                        "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -930,7 +714,7 @@
                                 {
                                     "contains": {
                                         "title": "Beam Current",
-                                        "description": "Electron beam probe current. Higher current improves signal-to-noise for X-ray analysis (EDS/WDS, EBSD) and CL but may increase beam damage and reduce spatial resolution. Express in nA; for sub-nA values use decimal notation (e.g., 0.4 nA).",
+                                        "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -1033,7 +817,7 @@
                             },
                             {
                                 "title": "Image Pixel Size",
-                                "description": "Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
+                                "description": "Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -1170,7 +954,7 @@
                         {
                             "contains": {
                                 "title": "Image Pixel Size",
-                                "description": "Physical size of each image pixel at the sample surface, in nm or µm. Defines spatial sampling of SE or BSE images. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
+                                "description": "Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -1263,7 +1047,7 @@
                     ]
                 },
                 "ada:dwellTimePerPixelDefault": {
-                    "description": "Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. Longer dwell time improves signal-to-noise and counting statistics but increases total dose and can cause beam damage or contamination on sensitive materials. For WDS mapping, the dwell time is per spectrometer per pixel.",
+                    "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
                     "anyOf": [
                         {
                             "type": "number"
@@ -1278,6 +1062,7 @@
                     "type": "string",
                     "enum": [
                         "Panchromatic",
+                        "Monochromatic imaging",
                         "Spectral point",
                         "Hyperspectral map",
                         "Multi-channel pseudo-color",
@@ -1288,7 +1073,7 @@
                     "readOnly": true
                 },
                 "ada:clWavelengthRange": {
-                    "description": "Detection wavelength range of the CL system in nm. The range is set by the detector sensitivity and any optical filters installed.",
+                    "description": "Detection wavelength range of the CL system in nm.",
                     "anyOf": [
                         {
                             "type": "number"
@@ -1300,7 +1085,7 @@
                     "readOnly": true
                 },
                 "ada:clIntegrationTimeDefault": {
-                    "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s. Longer integration improves signal-to-noise but increases beam dose and acquisition time.",
+                    "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.",
                     "anyOf": [
                         {
                             "type": "number"
@@ -1311,7 +1096,7 @@
                     ]
                 },
                 "ada:sampleTiltAngle": {
-                    "description": "Sample tilt angle for EBSD acquisition in degrees, measured from horizontal. Standard EBSD geometry uses 70 degrees tilt toward the EBSD camera to maximise diffracted electron signal.",
+                    "description": "Sample tilt angle for EBSD acquisition in degrees, measured from horizontal.",
                     "anyOf": [
                         {
                             "type": "number"
@@ -1323,7 +1108,7 @@
                     "readOnly": true
                 },
                 "ada:ebsdStepSizeDefault": {
-                    "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest to resolve grain boundary positions and intragrain orientation gradients.",
+                    "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest.",
                     "anyOf": [
                         {
                             "type": "number"
@@ -1334,8 +1119,190 @@
                     ]
                 },
                 "ada:ebsdPhaseListDefault": {
-                    "description": "Mineral phases included in the EBSD reference pattern library for this procedure. The procedure specifies the expected phase suite for the target material; analysts may add phases for specific sample compositions.",
+                    "description": "Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.",
                     "type": "string"
+                },
+                "schema:actionProcess": {
+                    "type": "object",
+                    "properties": {
+                        "schema:step": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "allOf": [
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "schema:name": {
+                                                    "const": "Data reduction"
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
+                                        },
+                                        "then": {
+                                            "properties": {
+                                                "ada:ebsdIndexingMethod": {
+                                                    "description": "Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.",
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "Hough transform",
+                                                                "Dictionary indexing (DI)",
+                                                                "Neural network",
+                                                                "Unknown",
+                                                                "N/A",
+                                                                "None",
+                                                                "missing"
+                                                            ],
+                                                            "readOnly": true
+                                                        },
+                                                        {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                    "Hough transform",
+                                                                    "Dictionary indexing (DI)",
+                                                                    "Neural network",
+                                                                    "Unknown",
+                                                                    "N/A",
+                                                                    "None",
+                                                                    "missing"
+                                                                ],
+                                                                "readOnly": true
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:additionalProperty": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "anyOf": [
+                                                            {
+                                                                "title": "Crystal Structure Database",
+                                                                "description": "Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "crystalStructureDatabaseDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Crystal Structure Database"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "allOf": [
+                                                        {
+                                                            "contains": {
+                                                                "title": "Crystal Structure Database",
+                                                                "description": "Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "crystalStructureDatabaseDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Crystal Structure Database"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        },
+                                                        {
+                                                            "contains": {
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "const": "Data reduction"
+                                            }
+                                        },
+                                        "required": [
+                                            "schema:name"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 },
                 "dqv:hasQualityMeasurement": {
                     "type": "array",

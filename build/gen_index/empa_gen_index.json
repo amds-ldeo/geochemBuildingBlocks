@@ -2,7 +2,7 @@
  "tapp_props": [
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnit",
-  "ada:targetSelectionCriteriaDefault",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
   "ada:beamMode",
@@ -21,14 +21,14 @@
   "ada:stepSizePixelSizeDefault",
   "ada:matrixCorrectionMethod",
   "ada:massAbsorptionCoefficients",
-  "ada:backgroundCorrectionMethodDefault",
+  "ada:xRayBackgroundCorrectionMethodDefault",
   "ada:wdsDeadTimeCorrection",
   "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
-  "ada:interferenceCorrectionsApplied",
+  "ada:xRayLineOverlapCorrectionsApplied",
   "ada:detectionLimitMethod",
   "schema:additionalProperty"
  ],
@@ -53,7 +53,7 @@
   "empa_coupledDatasetOrPublicationReference",
   "empa_samplePreparationMethod",
   "empa_samplePersistentIdentifier",
-  "empa_targetSelectionCriteria",
+  "empa_samplingUnitSelectionCriteria",
   "empa_preAnalysisImagingAndScreening",
   "empa_dataProcessingSoftware",
   "empa_acceleratingVoltage",
@@ -68,7 +68,7 @@
   "empa_edsLiveTimePerPointOrPixel",
   "empa_dwellTimePerPixel",
   "empa_stepSizePixelSize",
-  "empa_backgroundCorrectionMethod",
+  "empa_xRayBackgroundCorrectionMethod",
   "empa_timeDependentIntensityCorrection",
   "empa_halogenCorrectionOnOxygen",
   "empa_blankCorrection",
@@ -122,10 +122,10 @@
   "ada:dwellTimePerPixelDefault",
   "ada:stepSizePixelSizeDefault",
   "ada:matrixCorrectionMethod",
-  "ada:backgroundCorrectionMethodDefault",
+  "ada:xRayBackgroundCorrectionMethodDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
-  "ada:interferenceCorrectionsApplied"
+  "ada:xRayLineOverlapCorrectionsApplied"
  ],
  "basic_props": [
   {
@@ -143,8 +143,8 @@
    "required": false
   },
   {
-   "key": "ada:targetSelectionCriteriaDefault",
-   "item": "Target Selection Criteria",
+   "key": "ada:samplingUnitSelectionCriteriaDefault",
+   "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
    "cov": 0,
    "required": false
@@ -276,8 +276,8 @@
    "required": false
   },
   {
-   "key": "ada:backgroundCorrectionMethodDefault",
-   "item": "Background Correction Method",
+   "key": "ada:xRayBackgroundCorrectionMethodDefault",
+   "item": "X-ray Background Correction Method",
    "jtype": "string",
    "cov": 3,
    "required": true
@@ -325,9 +325,9 @@
    "required": true
   },
   {
-   "key": "ada:interferenceCorrectionsApplied",
-   "item": "Interference Corrections Applied",
-   "jtype": "boolean",
+   "key": "ada:xRayLineOverlapCorrectionsApplied",
+   "item": "X-ray Line Overlap Corrections Applied",
+   "jtype": "string",
    "cov": 1,
    "required": true
   },

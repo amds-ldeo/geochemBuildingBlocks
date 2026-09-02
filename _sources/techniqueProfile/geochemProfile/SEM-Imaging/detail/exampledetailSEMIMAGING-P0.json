@@ -14,45 +14,6 @@
   ],
   "prov:wasGeneratedBy": [
     {
-      "schema:actionProcess": {
-        "schema:step": [
-          {
-            "schema:name": "Sample preparation",
-            "schema:description": "example samplePreparationMethod"
-          },
-          {
-            "schema:name": "Data reduction",
-            "schema:additionalProperty": [
-              {
-                "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase"
-                  }
-                ],
-                "schema:name": "Crystal Structure Database",
-                "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/module/Core/constantsReferenceValues",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
-                  }
-                ],
-                "schema:name": "Constants Reference Values",
-                "schema:value": "example value"
-              }
-            ]
-          }
-        ]
-      },
       "schema:object": [
         {
           "@type": [
@@ -60,13 +21,13 @@
           ],
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening",
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
               "@type": [
                 "schema:PropertyValue"
               ],
               "schema:propertyID": [
                 {
-                  "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreening"
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
                 }
               ],
               "schema:name": "Pre-Analysis Imaging and Screening",
@@ -243,6 +204,45 @@
           "schema:value": "example value"
         }
       ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Data reduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase"
+                  }
+                ],
+                "schema:name": "Crystal Structure Database",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/module/Core/constantsReferenceValues",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                  }
+                ],
+                "schema:name": "Constants Reference Values",
+                "schema:value": "example value"
+              }
+            ]
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Polished thin section"
+          }
+        ]
+      },
       "schema:location": {
         "@type": [
           "schema:Place"
@@ -297,7 +297,7 @@
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "EPMA; NanoSIMS",
+        "schema:name": "example coupledTechnique",
         "schema:description": "example couplingDescription"
       }
     },

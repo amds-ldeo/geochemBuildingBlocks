@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol — Liu2017",
-  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v15.csv).",
+  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v30.csv).",
   "schema:object": [
     {
       "@type": [
@@ -33,74 +33,6 @@
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "protectiveCoatingDepositionDefault",
-            "schema:name": "Protective Coating Deposition",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "No coating applied; not sputtered with gold or other materials"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Ion milling",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/semFibsemTAPP/sliceThicknessDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "sliceThicknessDefault",
-            "schema:name": "Slice Thickness",
-            "ada:dataType": "number",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": 15,
-            "schema:description": "15 nm (single layer scanning thickness = 9.0 µm total / 600 slices)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -203,6 +135,74 @@
       ]
     }
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/protectiveCoatingDepositionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "protectiveCoatingDepositionDefault",
+            "schema:name": "Protective Coating Deposition",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "No coating applied; not sputtered with gold or other materials"
+          }
+        ],
+        "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Ion milling",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/semFibsemTAPP/sliceThicknessDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "sliceThicknessDefault",
+            "schema:name": "Slice Thickness",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 15,
+            "schema:description": "15 nm (single layer scanning thickness = 9.0 µm total / 600 slices)"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:location": {
     "@type": [
@@ -243,6 +243,6 @@
   "ada:dwellTimePerPixelDefault": -9999,
   "ada:imageRegistration3DDefault": "missing",
   "ada:samplingUnit": "missing",
-  "ada:targetSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

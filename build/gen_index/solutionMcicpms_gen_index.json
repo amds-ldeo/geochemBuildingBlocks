@@ -1,7 +1,7 @@
 {
  "tapp_props": [
   "ada:samplingUnit",
-  "ada:samplePreparationMethod",
+  "ada:samplePreparationMethodDefault",
   "ada:digestionAcid",
   "ada:digestionVesselType",
   "ada:numberOfDigestionSteps",
@@ -29,13 +29,14 @@
   "ada:nebulizerGasFlowRateDefault",
   "ada:plasmaThermalMode",
   "ada:reportedVariablesAndUnits",
+  "ada:massResolutionAssignment",
   "ada:collectorConfiguration",
   "ada:numberOfBlocksPerMeasurementDefault",
   "ada:numberOfCyclesPerBlockDefault",
   "ada:integrationTimePerCycleDefault",
   "ada:baselineMeasurementApproach",
   "ada:washTimeBetweenSamples",
-  "ada:analysisSequence",
+  "ada:analysisSequenceDefault",
   "ada:collisionGasType",
   "ada:collisionGasFlowRateDefault",
   "ada:cellExitDiscriminationVoltageDefault",
@@ -49,9 +50,10 @@
   "ada:doubleSpikeInversionAlgorithm",
   "ada:internalNormalizationElementAndIsotopeRatio",
   "ada:isotopeRatioReported",
+  "ada:perAnalyteCalibrationStrategy",
   "ada:signalIntegrationIntervalMethod",
   "ada:blankBackgroundCorrectionMethod",
-  "ada:isobaricInterferenceCorrectionsApplied",
+  "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
   "ada:isotopeDilutionDataReductionMethod",
@@ -75,6 +77,7 @@
   "solutionMcicpms_makeUpGasAndFlowRateDefault",
   "solutionMcicpms_icpTuningDefault",
   "solutionMcicpms_reactionGasFlowRateDefault",
+  "solutionMcicpms_collisionReactionGasMixtureRatioDefault",
   "solutionMcicpms_doubleSpikeMixingRatioDefault",
   "solutionMcicpms_spikeOutlierFilteringApproachDefault",
   "solutionMcicpms_memoryEffectMitigationDefault",
@@ -91,6 +94,7 @@
   "solutionMcicpms_coupledProcedureDoi",
   "solutionMcicpms_coupledDatasetOrPublicationReference",
   "solutionMcicpms_samplePersistentIdentifier",
+  "solutionMcicpms_samplePreparationMethod",
   "solutionMcicpms_digestionTemperature",
   "solutionMcicpms_digestionDuration",
   "solutionMcicpms_sampleAliquotMassOrVolume",
@@ -109,10 +113,12 @@
   "solutionMcicpms_numberOfBlocksPerMeasurement",
   "solutionMcicpms_numberOfCyclesPerBlock",
   "solutionMcicpms_integrationTimePerCycle",
+  "solutionMcicpms_analysisSequence",
   "solutionMcicpms_collisionGasFlowRate",
   "solutionMcicpms_cellExitDiscriminationVoltage",
   "solutionMcicpms_reactionGasFlowRate",
   "solutionMcicpms_ionCounterDeadTime",
+  "solutionMcicpms_collisionReactionGasMixtureRatio",
   "solutionMcicpms_doubleSpikeMixingRatio",
   "solutionMcicpms_spikeOutlierFilteringApproach",
   "solutionMcicpms_memoryEffectMitigation",
@@ -155,7 +161,7 @@
  ],
  "basic_required": [
   "ada:samplingUnit",
-  "ada:samplePreparationMethod",
+  "ada:samplePreparationMethodDefault",
   "ada:digestionAcid",
   "ada:digestionVesselType",
   "ada:numberOfDigestionSteps",
@@ -188,7 +194,7 @@
   "ada:integrationTimePerCycleDefault",
   "ada:baselineMeasurementApproach",
   "ada:washTimeBetweenSamples",
-  "ada:analysisSequence",
+  "ada:analysisSequenceDefault",
   "ada:internalStandardElement",
   "ada:oxideProductionMethodAndThreshold",
   "ada:peakFlatnessMethodAndThreshold",
@@ -198,8 +204,9 @@
   "ada:doubleSpikeInversionAlgorithm",
   "ada:internalNormalizationElementAndIsotopeRatio",
   "ada:isotopeRatioReported",
+  "ada:perAnalyteCalibrationStrategy",
   "ada:blankBackgroundCorrectionMethod",
-  "ada:isobaricInterferenceCorrectionsApplied",
+  "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
   "ada:isotopeDilutionDataReductionMethod",
@@ -221,7 +228,7 @@
    "required": true
   },
   {
-   "key": "ada:samplePreparationMethod",
+   "key": "ada:samplePreparationMethodDefault",
    "item": "Sample Preparation Method",
    "jtype": "string",
    "cov": 10,
@@ -417,6 +424,13 @@
    "required": true
   },
   {
+   "key": "ada:massResolutionAssignment",
+   "item": "Mass Resolution Assignment",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
    "key": "ada:collectorConfiguration",
    "item": "Collector Configuration",
    "jtype": "string",
@@ -459,7 +473,7 @@
    "required": true
   },
   {
-   "key": "ada:analysisSequence",
+   "key": "ada:analysisSequenceDefault",
    "item": "Analysis Sequence",
    "jtype": "string",
    "cov": 10,
@@ -557,6 +571,13 @@
    "required": true
   },
   {
+   "key": "ada:perAnalyteCalibrationStrategy",
+   "item": "Per-Analyte Calibration Strategy",
+   "jtype": "string",
+   "cov": 3,
+   "required": true
+  },
+  {
    "key": "ada:signalIntegrationIntervalMethod",
    "item": "Signal Integration Interval Method",
    "jtype": "string",
@@ -571,8 +592,8 @@
    "required": true
   },
   {
-   "key": "ada:isobaricInterferenceCorrectionsApplied",
-   "item": "Isobaric Interference Corrections Applied",
+   "key": "ada:spectralInterferenceCorrectionsApplied",
+   "item": "Spectral Interference Corrections Applied",
    "jtype": "string",
    "cov": 13,
    "required": true

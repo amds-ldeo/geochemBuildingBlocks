@@ -31,16 +31,6 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session"
-    },
-    {
       "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -61,17 +51,14 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/instrumentWarmUpSessionDurationLimit",
+      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/instrumentWarmUpSessionDurationLimit"
-        }
-      ],
-      "schema:name": "Instrument Warm-up / Session Duration Limit",
-      "schema:value": "example value"
+      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
+      "schema:name": "Instrument Warm up Session Duration Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/massFractionationLaw",
@@ -84,30 +71,24 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/matrixOffsetCorrection",
+      "@id": "ada:parameter/module/LaserAblation/matrixOffsetCorrectionLief",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/matrixOffsetCorrection"
-        }
-      ],
-      "schema:name": "Matrix Offset Correction (LIEF)",
-      "schema:value": "example value"
+      "schema:valueName": "matrixOffsetCorrectionLief",
+      "schema:name": "Matrix Offset Correction LIEF",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign",
+      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
       "@type": [
-        "schema:PropertyValue"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign"
-        }
-      ],
-      "schema:name": "Multi-Run Sequential Analysis Design",
-      "schema:value": "example value"
+      "schema:valueName": "multiRunSequentialAnalysisDesign",
+      "schema:name": "Multi Run Sequential Analysis Design",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault",
@@ -130,7 +111,7 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/makeUpGasAndFlowRateDefault",
+      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -140,7 +121,7 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/module/TargetSelection/preAnalysisImagingAndScreeningDefault",
+      "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -160,7 +141,7 @@
       "ada:fieldScope": "session"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault",
+      "@id": "ada:parameter/module/ICPMS/uncertaintyPropagationMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
@@ -171,26 +152,15 @@
     }
   ],
   "ada:betweenSessionPrecision": "example betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-  "ada:blankBackgroundCorrectionMethod": "example blankBackgroundCorrectionMethod",
-  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
   "ada:carrierGasFlowRateDefault": "example carrierGasAndFlowRate",
   "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
-  "ada:elementalFractionationCorrection": [
-    "example elementalFractionationCorrection"
-  ],
-  "ada:internalStandardApproach": "example internalStandardApproach",
-  "ada:internalStandardElement": "example internalStandardElement",
-  "ada:isobaricInterferenceCorrectionsApplied": true,
+  "ada:ionCounterDeadTimeDefault": 1.0,
+  "ada:isobaricInterferenceCorrectionsApplied": "Yes — doubly-charged Er and Yb on the Sr and Rb masses",
   "ada:massBiasCorrectionStrategy": "example massBiasCorrectionStrategy",
-  "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
-  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName",
-  "ada:sampleIntroduction": "example sampleIntroduction",
-  "ada:secondaryReferenceMaterialDefault": [
-    "example secondaryReferenceMaterials"
+  "ada:perAnalyteCalibrationStrategy": [
+    "example perAnalyteCalibrationStrategy"
   ],
-  "ada:signalIntegrationIntervalMethod": "example signalIntegrationIntervalMethod",
-  "ada:targetSelectionCriteriaDefault": "example targetSelectionCriteria",
-  "ada:uncertaintyLevel": "2σ (95% confidence)",
+  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
   "ada:withinSessionPrecision": "example withinSessionAnalyticalPrecisionAndAssessmentMethod",
   "schema:measurementTechnique": [
     {
@@ -236,5 +206,20 @@
   "ada:ablationSpotDurationDefault": 1.0,
   "ada:ablationPitDepthRateDefault": "example ablationPitDepthAndAblationRate",
   "ada:rasterLineSpacingDefault": "example rasterLineSpacing",
-  "ada:internalNormalizationElementAndIsotopeRatio": "example internalNormalizationElementAndIsotopeRatio"
+  "ada:internalStandardApproach": "example internalStandardApproach",
+  "ada:sampleIntroduction": "example sampleIntroduction",
+  "ada:elementalFractionationCorrection": [
+    "example elementalFractionationCorrection"
+  ],
+  "ada:internalNormalizationElementAndIsotopeRatio": "example internalNormalizationElementAndIsotopeRatio",
+  "ada:uncertaintyLevel": "2σ (95% confidence)",
+  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
+  "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank",
+  "ada:internalStandardElement": "example internalStandardElement",
+  "ada:signalIntegrationIntervalMethod": "Full acquisition",
+  "ada:secondaryReferenceMaterialDefault": [
+    "example secondaryReferenceMaterials"
+  ],
+  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName"
 }

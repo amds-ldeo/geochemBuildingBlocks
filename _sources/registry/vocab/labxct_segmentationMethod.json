@@ -11,7 +11,7 @@
     "skos:ConceptScheme"
   ],
   "skos:prefLabel": "Segmentation Method",
-  "skos:definition": "General approach used to separate distinct phases or features in the reconstructed CT volume. The method must be reported for any quantitative result to be reproducible.",
+  "skos:definition": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
   "schema:identifier": "ada:vocab/labxctTAPP/segmentationMethod",
   "schema:dateModified": "2026-07-31",
   "schema:license": [
@@ -19,12 +19,12 @@
   ],
   "skos:hasTopConcept": [
     {
-      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Global_threshold_single_CT_number_boundary",
+      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Global_threshold_single_grayscale_boundary",
       "@type": [
         "skos:Concept"
       ],
-      "skos:prefLabel": "Global threshold (single CT number boundary)",
-      "skos:notation": "Global threshold (single CT number boundary)",
+      "skos:prefLabel": "Global threshold (single grayscale boundary)",
+      "skos:notation": "Global threshold (single grayscale boundary)",
       "skos:inScheme": [
         {
           "@id": "ada:vocab/labxctTAPP/segmentationMethod"
@@ -32,12 +32,12 @@
       ]
     },
     {
-      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Multi-threshold_separate_CT_number_range_per_phase",
+      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Multi-threshold_separate_range_per_phase",
       "@type": [
         "skos:Concept"
       ],
-      "skos:prefLabel": "Multi-threshold (separate CT number range per phase)",
-      "skos:notation": "Multi-threshold (separate CT number range per phase)",
+      "skos:prefLabel": "Multi-threshold (separate range per phase)",
+      "skos:notation": "Multi-threshold (separate range per phase)",
       "skos:inScheme": [
         {
           "@id": "ada:vocab/labxctTAPP/segmentationMethod"
@@ -64,6 +64,32 @@
       ],
       "skos:prefLabel": "Semi-automated: threshold + morphological filtering",
       "skos:notation": "Semi-automated: threshold + morphological filtering",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/segmentationMethod"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Region_growing",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Region growing",
+      "skos:notation": "Region growing",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/labxctTAPP/segmentationMethod"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/labxctTAPP/segmentationMethod/Manual_tracing",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Manual tracing",
+      "skos:notation": "Manual tracing",
       "skos:inScheme": [
         {
           "@id": "ada:vocab/labxctTAPP/segmentationMethod"

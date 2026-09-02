@@ -1,0 +1,64 @@
+- title: ICPMS composed into a procedure (ProcedureIdentification)
+  content: The procedure half of the ICPMS module, with every property populated. Generated from the schema,
+    so it tracks the sidecar.
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "ada:ionCounterDeadTimeDefault": 1,
+        "ada:uncertaintyLevel": "example value",
+        "schema:instrument": [
+          {
+            "schema:additionalType": "example value",
+            "schema:hasPart": [
+              {
+                "schema:additionalType": "example value",
+                "schema:name": "example value"
+              }
+            ]
+          }
+        ],
+        "ada:calibrationMeasurementFrequency": "example value",
+        "ada:oxideProductionMethodAndThreshold": "example value",
+        "ada:blankBackgroundCorrectionMethod": "example value",
+        "ada:internalStandardElement": "example value",
+        "ada:perAnalyteCalibrationStrategy": [
+          "example value"
+        ],
+        "ada:signalIntegrationIntervalMethod": "example value",
+        "ada:analysisSequenceDefault": "example value"
+      }
+- title: ICPMS composed into an analysis (AnalysisIdentification)
+  content: The analysis half of the ICPMS module, with every property populated. Generated from the schema,
+    so it tracks the sidecar.
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    dqv: http://www.w3.org/ns/dqv#
+    prov: http://www.w3.org/ns/prov#
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "prov:wasGeneratedBy": [
+          {
+            "prov:used": [
+              {
+                "schema:instrument": [
+                  "example value"
+                ]
+              }
+            ]
+          }
+        ],
+        "ada:sensitivityYield": 1,
+        "dqv:hasQualityMeasurement": [
+          {
+            "dqv:isMeasurementOf": "Oxide production ratio",
+            "dqv:value": "example value"
+          }
+        ]
+      }

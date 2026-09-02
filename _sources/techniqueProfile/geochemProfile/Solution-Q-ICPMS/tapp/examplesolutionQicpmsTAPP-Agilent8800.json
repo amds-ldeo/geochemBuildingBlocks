@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — Agilent8800",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v35.csv). Reported detail: ada:perAnalyteCalibrationStrategy = External calibration for both Te and Se.",
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -56,35 +56,31 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "ICP-MS/MS (triple-quadrupole mode)",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "O2 (used as the collision/reaction gas for the mass shift)"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "O2"
             }
           ],
+          "schema:name": "ICP-MS/MS (triple-quadrupole mode), oxygen-shift with O2 as cell gas",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -185,12 +181,12 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -216,10 +212,6 @@
       }
     ]
   },
-  "ada:internalStandardElement": "103Rh, to correct for matrix effects",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -240,63 +232,11 @@
   "ada:reportedProperties": [
     "Te and Se concentrations (ug L-1; mg kg-1)"
   ],
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Te and Se"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "Mean +/- SD",
+  "ada:internalStandardElement": "103Rh, to correct for matrix effects",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration for both Te and Se"
+  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -350,24 +290,21 @@
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
   "ada:finalSolutionMatrix": "missing",
-  "ada:internalStandardApproach": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

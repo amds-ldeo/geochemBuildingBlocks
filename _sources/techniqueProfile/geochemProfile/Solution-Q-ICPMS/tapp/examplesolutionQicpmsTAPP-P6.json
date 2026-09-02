@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — P6",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v35.csv).",
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v73.csv).",
   "schema:object": [
     {
       "@type": [
@@ -164,35 +164,31 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "N/A",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType",
+              "@id": "ada:parameter/module/CollisionCell/collisionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/collisionGasType"
-                }
-              ],
+              "schema:valueName": "collisionGasType",
               "schema:name": "Collision Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "He for KED; O2 for the mass-shift mode"
             },
             {
-              "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType",
+              "@id": "ada:parameter/module/CollisionCell/reactionGasType",
               "@type": [
-                "schema:PropertyValue"
+                "schema:PropertyValueSpecification"
               ],
-              "schema:propertyID": [
-                {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/reactionGasType"
-                }
-              ],
+              "schema:valueName": "reactionGasType",
               "schema:name": "Reaction Gas Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
               "schema:value": "O2 (for the 125Te mass-shift mode)"
             }
           ],
+          "schema:name": "Per analyte: KED (He) for 126Te; ICP-MS/MS O2 mass-shift mode for spiked/experimental 125Te",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -292,12 +288,12 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied",
+        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "isobaricInterferenceCorrectionsApplied",
-        "schema:name": "Isobaric Interference Corrections Applied",
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
@@ -323,26 +319,6 @@
       }
     ]
   },
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes)"
-  ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "NCS 73307 stream sediment"
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/detectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "detectionLimitDefault",
-      "schema:name": "Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.1,
-      "schema:description": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -366,82 +342,29 @@
   ],
   "ada:chromatographicSeparationApplied": "No — sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography",
   "ada:finalSolutionMatrix": "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL",
-  "ada:analyteTemplate": {
-    "ada:defaultAnalytes": [
-      "Te"
-    ],
-    "ada:analyteColumns": [
-      {
-        "schema:valueName": "analyte",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "limitOfQuantificationMethod",
-        "schema:name": "Limit of Quantification (LOQ) Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
+  "ada:uncertaintyLevel": "Mean +/- SD",
+  "ada:perAnalyteCalibrationStrategy": [
+    "External calibration"
+  ],
+  "ada:secondaryReferenceMaterialDefault": [
+    "NCS 73307 stream sediment"
+  ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method",
-      "@type": [
-        "cdi:InstanceVariable"
-      ]
+      "schema:name": "Calibration Factor and Determination Method"
     }
   ],
+  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:internalStandardApproach": "missing",
   "ada:internalStandardElement": "missing",
+  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
-  "ada:sampleSequenceDesign": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,

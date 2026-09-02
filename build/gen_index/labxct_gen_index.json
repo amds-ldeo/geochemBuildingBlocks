@@ -3,9 +3,10 @@
   "ada:targetFeature",
   "ada:applicableSampleDimensionRange",
   "ada:samplingUnit",
-  "ada:targetSelectionCriteriaDefault",
+  "ada:samplePreparationMethodDefault",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration",
-  "ada:detectorType",
+  "ada:xRayDetectorType",
   "ada:reconstructionSoftwareDefault",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
@@ -59,7 +60,8 @@
   "labxct_sampleMountingMethod",
   "labxct_samplePersistentIdentifier",
   "labxct_samplePreparationNotes",
-  "labxct_targetSelectionCriteria",
+  "labxct_samplePreparationMethod",
+  "labxct_samplingUnitSelectionCriteria",
   "labxct_preAnalysisImagingAndScreening",
   "labxct_reconstructionSoftware",
   "labxct_dataProcessingSoftware",
@@ -129,10 +131,14 @@
  ],
  "basic_required": [
   "ada:targetFeature",
+  "ada:samplingUnit",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration",
-  "ada:detectorType",
+  "ada:xRayDetectorType",
   "ada:reconstructionSoftwareDefault",
   "ada:dataProcessingSoftwareDefault",
+  "ada:analyticalMode",
+  "ada:reportedVariablesAndUnits",
   "ada:acceleratingVoltageDefault",
   "ada:tubeCurrentDefault",
   "ada:xRayPreFilterDefault",
@@ -154,7 +160,7 @@
    "key": "ada:targetFeature",
    "item": "Target Feature(s)",
    "jtype": "string",
-   "cov": 16,
+   "cov": 14,
    "required": true
   },
   {
@@ -168,112 +174,119 @@
    "key": "ada:samplingUnit",
    "item": "Sampling Unit",
    "jtype": "string",
+   "cov": 14,
+   "required": true
+  },
+  {
+   "key": "ada:samplePreparationMethodDefault",
+   "item": "Sample Preparation Method",
+   "jtype": "string",
    "cov": 0,
    "required": false
   },
   {
-   "key": "ada:targetSelectionCriteriaDefault",
-   "item": "Target Selection Criteria",
+   "key": "ada:samplingUnitSelectionCriteriaDefault",
+   "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 4,
+   "required": true
   },
   {
    "key": "ada:xRaySourceConfiguration",
    "item": "X-ray Source Configuration",
    "jtype": "string",
-   "cov": 10,
+   "cov": 8,
    "required": true
   },
   {
-   "key": "ada:detectorType",
-   "item": "Detector Type",
+   "key": "ada:xRayDetectorType",
+   "item": "X-ray Detector Type",
    "jtype": "string",
-   "cov": 11,
+   "cov": 9,
    "required": true
   },
   {
    "key": "ada:reconstructionSoftwareDefault",
    "item": "Reconstruction Software",
    "jtype": "string",
-   "cov": 9,
+   "cov": 8,
    "required": true
   },
   {
    "key": "ada:dataProcessingSoftwareDefault",
    "item": "Data Processing Software(s)",
    "jtype": "string",
-   "cov": 10,
+   "cov": 8,
    "required": true
   },
   {
    "key": "ada:analyticalMode",
    "item": "Analytical Mode",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 14,
+   "required": true
   },
   {
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 10,
+   "required": true
   },
   {
    "key": "ada:acceleratingVoltageDefault",
    "item": "Accelerating Voltage",
    "jtype": "number",
-   "cov": 16,
+   "cov": 14,
    "required": true
   },
   {
    "key": "ada:tubeCurrentDefault",
    "item": "Tube Current",
    "jtype": "number",
-   "cov": 11,
+   "cov": 10,
    "required": true
   },
   {
    "key": "ada:xRayPreFilterDefault",
    "item": "X-ray Pre-filter",
    "jtype": "string",
-   "cov": 10,
+   "cov": 9,
    "required": true
   },
   {
    "key": "ada:voxelSizeDefault",
    "item": "Voxel Size",
    "jtype": "number",
-   "cov": 14,
+   "cov": 12,
    "required": true
   },
   {
    "key": "ada:rotationRangeDefault",
    "item": "Rotation Range",
    "jtype": "number",
-   "cov": 5,
+   "cov": 4,
    "required": true
   },
   {
    "key": "ada:numberOfProjectionsDefault",
    "item": "Number of Projections",
    "jtype": "integer",
-   "cov": 10,
+   "cov": 9,
    "required": true
   },
   {
    "key": "ada:exposureTimePerProjectionDefault",
    "item": "Exposure Time per Projection",
    "jtype": "number",
-   "cov": 9,
+   "cov": 8,
    "required": true
   },
   {
    "key": "ada:flatFieldCorrectionDefault",
    "item": "Flat Field Correction",
-   "jtype": "boolean",
-   "cov": 2,
+   "jtype": "string",
+   "cov": 1,
    "required": true
   },
   {
@@ -294,7 +307,7 @@
    "key": "ada:reconstructionAlgorithm",
    "item": "Reconstruction Algorithm",
    "jtype": "string",
-   "cov": 3,
+   "cov": 2,
    "required": true
   },
   {
@@ -308,14 +321,14 @@
    "key": "ada:outputDataFormatDefault",
    "item": "Output Data Format",
    "jtype": "string",
-   "cov": 3,
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:segmentationMethodDefault",
    "item": "Segmentation Method",
    "jtype": "string",
-   "cov": 10,
+   "cov": 8,
    "required": true
   },
   {
