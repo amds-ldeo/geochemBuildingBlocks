@@ -94,7 +94,15 @@ def main():
         if os.path.exists(prior):
             for r in schemapath_io.read(prior):
                 it = (r.get("Metadata Item") or "").strip()
-                if it and (r.get("Schema Path") or "").strip():
+                sp = (r.get("Schema Path") or "").strip()
+                # A blank path is normally a gap for the seed to fill, with ONE exception:
+                # Source=`unplaced` is a REFUSAL, not a gap. Core's Instrument Manufacturer and
+                # Instrument Model are deliberately unplaced because Core composes into every
+                # technique and an instrument selector is technique-specific. Re-seeding put them
+                # back under schema:instrument[schema:additionalType='SEM'] — SEM winning the vote
+                # on numbers alone — which is the defect recorded in CLAUDE.md, arriving a second
+                # time by the same route. A refusal is a decision, so it is kept like any other.
+                if it and (sp or (r.get("Source") or "").strip() == "unplaced"):
                     kept_authored.setdefault(it, []).append(dict(r))
         for item, P, A, dt in ms.source_items(src):
             # A module row with NEITHER tier is not a field this module owns — it is an overlay on

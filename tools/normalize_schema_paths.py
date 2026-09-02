@@ -243,9 +243,21 @@ def recognize(s):
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-component-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier|description)$", "dataset-sample"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
-        (r"^\$Dataset\.schema:funding$", "dataset-funding"),
+        # Funding mirrors the procedure side, which the catch-all `inherited-identity` family
+        # above already admits in this exact shape. `schema:MonetaryGrant` is an UpperCamel
+        # @type-assertion segment, not navigation — the same device `dataset-measurement-technique`
+        # uses for `schema:DefinedTerm`. Allowing only the bare property here made
+        # Module_Core's `Funding Source for Analysis` unrecognised while its `Funding Source for
+        # Procedure Development` twin, character-for-character identical after the root, passed.
+        (r"^\$Dataset\.schema:funding(\[\])?(\.schema:[A-Z][A-Za-z]*)?(\.schema:(name|identifier))?$", "dataset-funding"),
         (r"^\$Dataset\.schema:relatedLink\[schema:linkRelationship='[^']*'\]\.schema:target(\.schema:(name|url|description))?$", "dataset-related-link"),
         (r"^\$Dataset\.dqv:hasQualityMeasurement\[dqv:isMeasurementOf='[^']*'\]\.dqv:value$", "dataset-quality"),
+        # The procedure-side mirror. tappDefinition declares dqv:hasQualityMeasurement on its ROOT
+        # ("quality measurements that characterize the method's EXPECTED performance"), so a
+        # threshold or expected precision the procedure states belongs here — SEM's `EBSD Pattern
+        # Quality Threshold` is one. Only the grammar lacked the family; the emitter nests it
+        # already, exactly as it does the dataset form.
+        (r"^\$MethodDefinition\.dqv:hasQualityMeasurement\[dqv:isMeasurementOf='[^']*'\]\.dqv:value$", "method-quality"),
     ]
     for pat, fam in fams:
         if re.match(pat, s):

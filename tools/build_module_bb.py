@@ -58,7 +58,11 @@ DEF_BLURB = {
 # camelCase directory name, matching the existing group1/
 DIRNAME = {"ReportingCore": "reportingCore", "LaserAblation": "laserAblation",
            "SolutionIntroduction": "solutionIntroduction", "MCICPMS": "mcIcpms",
-           "UPb": "uPb", "Geochronology": "geochronology", "ArAr": "arAr", "Group1": "group1"}
+           "UPb": "uPb", "Geochronology": "geochronology", "ArAr": "arAr", "Group1": "group1",
+           # An all-caps acronym is the case the first-character fallback gets wrong: it produced
+           # `iCPMS`, which reads as a typo beside mcIcpms and would have to be renamed after
+           # everything $refs it.
+           "ICPMS": "icpms"}
 
 
 def dirname(name):
@@ -74,6 +78,32 @@ PREFIX_IRI = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/m
               "prov": "http://www.w3.org/ns/prov#", "bios": "https://bioschemas.org/",
               "dqv": "http://www.w3.org/ns/dqv#",
               "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"}
+
+
+def is_composable(path):
+    """False for a path landing in a container a module CANNOT constrain through `allOf`.
+
+    Three containers, one failure mode. The consuming technique already constrains each of them as
+    a CLOSED shape derived from its own table, and `allOf` makes every element satisfy the
+    technique's constraint AND the module's — so two universal constraints on one array can never
+    both hold unless each side already knows about the other.
+
+      schema:additionalProperty   a closed anyOf over the parameters the table enumerates
+      a keyed-table COLUMN array  (ada:analyteColumns, ada:channelColumns,
+                                   ada:reportedPropertyColumns, ada:collectorConfiguration) —
+                                  narrowed to the technique's generated column defs plus the base's
+                                  identifier column
+      a default-ROW array         (ada:defaultAnalytes, ada:defaultChannels) — string | DefinedTerm
+
+    The column case arrived with Module_ICPMS in the 2026-09 delivery and broke 96 examples: a row
+    ending at `…ada:analyteColumns[]` carries the COLUMN'S scalar Data Type, so composing it emitted
+    `items: {type: string}` against the technique's `items: {anyOf: [...column objects...]}`, and
+    nothing validated. The row therefore stays with the technique, which is where the column defs
+    and the registry entry are minted anyway.
+    """
+    if "schema:additionalProperty" in path:
+        return False
+    return not any(prop in path for prop in set(e.KEYED_TABLES) | e.DEFAULT_ROW_ARRAYS)
 
 
 def module_rows(name):
@@ -140,6 +170,13 @@ def build_schema(name, only=None):
             # on one array can never both hold. Parameters stay with the technique; see
             # module_composition._is_composable. 54 of the 105 module paths remain, all 22 of
             # Group1's among them.
+            if not is_composable(path) and "schema:additionalProperty" not in path:
+                # A keyed-table column or default-row array: not composable, and not a parameter
+                # either, so it is neither emitted here nor published as a Param_ $def. The
+                # technique keeps its own row (module_composition._is_composable agrees, so the
+                # overlay is not dropped).
+                unplaced.append(item)
+                continue
             if "schema:additionalProperty" in path:
                 # Collected, not composed. See emit_parameter_defs: the module publishes one $def
                 # per parameter so a technique can UNION them into its own anyOf. Nothing $refs

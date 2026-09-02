@@ -212,6 +212,38 @@ def place_parameter(inst, entry, sp):
     return False
 
 
+def structural_paths(sp_by_item):
+    """sp_by_item PLUS the paths the composed modules own, for the three ensure_* helpers below.
+
+    A module-covered row is blanked in the technique sidecar — the module owns the placement — so
+    sp_by_item cannot see the workflow step, instrument or component the module's $def still
+    asserts a `contains` for. EPMA is the case that surfaced it: `Sample Preparation Method` moved
+    into Module_Core in the 2026-09 delivery, the technique row went blank, and every EPMA example
+    stopped declaring the `Sample preparation` step the composed schema requires.
+
+    Deliberately SEPARATE from sp_by_item rather than merged into it: identity placement,
+    inherited_items and the analyte row all read sp_by_item and must keep seeing only what the
+    technique itself places. This union is structural — which containers must exist — and nothing
+    else.
+    """
+    import module_composition as mc
+    out = dict(sp_by_item)
+    try:
+        refs, _ = mc.plan(bt.XLSX)
+    except Exception:
+        return out
+    for name, _defs in refs:
+        side = os.path.join(ROOT, "docs", "modules", f"Module_{name}.schemapaths.csv")
+        if not os.path.exists(side):
+            continue
+        for row in schemapath_io.read(side):
+            it = (row.get("Metadata Item") or "").strip()
+            sp = (row.get("Schema Path") or "").strip()
+            if it and sp and not out.get(it):
+                out[it] = sp
+    return out
+
+
 def ensure_required_steps(inst, sp_by_item):
     """Declare every workflow step the sidecar selects on, in workbook order.
 
@@ -1043,9 +1075,10 @@ def main():
             inst["schema:measurementTechnique"] = [{"@type": ["schema:DefinedTerm"],
                                                     "schema:name": short, "schema:termCode": short}]
         conform_enums(inst, TAPP_DIR, technique_enum)
-        ensure_required_steps(inst, sp_by_item)
-        ensure_required_instruments(inst, sp_by_item)
-        ensure_required_hasparts(inst, sp_by_item)
+        struct_sp = structural_paths(sp_by_item)
+        ensure_required_steps(inst, struct_sp)
+        ensure_required_instruments(inst, struct_sp)
+        ensure_required_hasparts(inst, struct_sp)
         type_instrument_tree(inst)
         if tapp_res is not None:
             populate_template_columns(inst, tapp_res)

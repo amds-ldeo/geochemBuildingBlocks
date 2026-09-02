@@ -163,6 +163,17 @@ def _parse_segment(seg: str) -> Segment:
         raise SchemaPathError(
             f"UpperCamel ada: segment {curie!r} in {seg!r} -- ada: names properties, so this "
             f"parses as a @type assertion and emits nothing; use lowerCamel")
+    # `schema:used` is always an error for `prov:used`. schema.org has no `used` property, so the
+    # segment navigates to a key no base schema declares: the emitter writes it, nothing validates
+    # against it, and the field is silently placed nowhere -- the same failure mode as the
+    # UpperCamel case above. On the $Dataset side the provenance activity carries what it used as
+    # `prov:used`, and every recognised sibling path spells it that way; one TEM row
+    # (`TEM Objective Aperture`) shipped with the typo and was only caught by the grammar sweep,
+    # which reports rather than blocks. Rejected here so it cannot return.
+    if curie == "schema:used":
+        raise SchemaPathError(
+            f"{curie!r} in {seg!r} -- schema.org has no `used` property; the provenance activity "
+            f"carries what it used as `prov:used`. Always write prov:used.")
     is_array, selector = False, None
     for b in ([] if i == -1 else _bracket_groups(seg[i:])):
         if b == "":

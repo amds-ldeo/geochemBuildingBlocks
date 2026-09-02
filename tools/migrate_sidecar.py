@@ -120,6 +120,56 @@ ALIASES = {
     # carrying it would preserve a guess rather than curation. Let it drop and author both XCT rows.
     "ICP-MS Manufacturer & Model": "Instrument Model",
     "Instrument Make and Model": "Instrument Model",
+
+    # --- 2026-09 delivery (amds-ldeo/tapp @ af3f7bc). Every key below is confirmed absent as an
+    # item from all sixteen new tables, so no alias can shadow a field that is still live. ---
+
+    # "Target" carried two incompatible senses; the type-level ones (Target Material, Target
+    # Feature(s)) stay, and this instance-level one is renamed. Description is the old one with
+    # "which part of the sample" replaced by "which sampling unit(s) within a sample"; tiers and
+    # Keyed By unchanged. 13 tables, the widest rename in the delivery. Module_TargetSelection
+    # became Module_SamplingUnitSelection v3 in the same commit.
+    "Target Selection Criteria": "Sampling Unit Selection Criteria",
+
+    # "Whether mathematical corrections for isobaric, polyatomic or residual interferences are
+    # applied in data reduction" - the old field said "isobaric or polyatomic", so the rename
+    # widens the label to what the description already covered. Same Basic/Read-Only, same
+    # `(none)` keying. 9 ICP-MS tables.
+    "Isobaric Interference Corrections Applied": "Spectral Interference Corrections Applied",
+
+    # Electron-beam pair; the two are NOT interchangeable, so both are listed explicitly.
+    # Descriptions are carried over verbatim from the old rows, which is what pins the pairing:
+    #   background (Basic/Editable) -> X-ray Background Correction Method, re-keyed (none) ->
+    #     channel by Rule 7 in the same delivery, so its authored path needs the keyed route
+    #   line overlap (Basic/Read-Only, keyed analyte) -> X-ray Line Overlap Corrections Applied
+    "Background Correction Method": "X-ray Background Correction Method",
+    "Interference Corrections Applied": "X-ray Line Overlap Corrections Applied",
+
+    # "Method and software used to separate distinct phases or features in the reconstructed 3D
+    # volume." The 3D qualifier moved into the description. SEM_FIBSEM and SEM.
+    "3D Segmentation Method": "Segmentation Method",
+
+    # Lab-XCT only: "Type of X-ray detector used to record projection images", the old description
+    # trimmed to its first sentence. Same Basic/Read-Only, same `(none)` keying.
+    "Detector Type": "X-ray Detector Type",
+
+    # TEM. "Time spent acquiring signal at each pixel during STEM scanning in milliseconds" is
+    # word-for-word the old opening; the new row adds that it also governs STEM-EDS and STEM-EELS,
+    # which is why the STEM qualifier left the label.
+    "STEM Dwell Time per Pixel": "Dwell Time per Pixel",
+
+    # TEM, renamed explicitly upstream in 2773f17 ("Rule 1: TEM EDS Quantification Method ->
+    # Matrix Correction Method"). Same Basic/Read-Only, same `(none)` keying; the new description
+    # generalises from EDS intensities to the EDS-or-WDS matrix correction algorithm.
+    "EDS Quantification Method": "Matrix Correction Method",
+
+    # TEM, from 5dcb33a ("EELS split"). The old field conflated two quantities; the new row is its
+    # detection-limit half, verbatim ("Estimated detection limit or minimum detectable
+    # concentration for target edges under this procedure. Record 'N/A' where EELS is not listed
+    # in Spectroscopic Detector(s)."). Nothing is lost by aliasing to it: the energy-resolution
+    # half already existed as its own field, `EELS Energy Resolution` (ZLP FWHM). Same
+    # Advanced/Basic tiers, same `channel` keying.
+    "EELS Sensitivity and Detection Limit": "EELS Detection Limit",
 }
 
 

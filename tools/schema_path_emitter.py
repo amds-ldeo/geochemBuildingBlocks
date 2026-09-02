@@ -840,9 +840,7 @@ def build(tapp):
             enum = None
             dl = (m.get("dt") or "").lower()
             if "controlled" in dl:
-                parts = [p.strip().strip("'\"") for p in (m.get("ex") or "").split("|")
-                         if p.strip() and not p.strip().lower().startswith("e.g") and "specify" not in p.strip().lower()]
-                enum = parts or None
+                enum = b.enum_terms(m.get("ex")) or None
             leaf = leaf_for(m.get("desc"), m.get("dt"), enum)
             if read_only:
                 leaf = {**leaf, "readOnly": True}
