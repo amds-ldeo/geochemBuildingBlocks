@@ -125,6 +125,18 @@ def replace_componentType_in(node, enum_values, *, only_top_level: bool = False,
     return n
 
 
+def universal_terms():
+    """The cross-technique componentType terms declared in the componentType concept scheme."""
+    path = REPO_ROOT / "_sources" / "registry" / "vocab" / "componentType.json"
+    try:
+        with open(path, encoding="utf-8") as f:
+            scheme = json.load(f)
+    except OSError:
+        return []
+    return [c["@id"] for c in scheme.get("skos:hasTopConcept", [])
+            if isinstance(c, dict) and str(c.get("@id", "")).startswith("ada:")]
+
+
 def apply_to_bb_schemas(mapping: dict) -> int:
     files_changed = 0
     for bb_name, enum_values in sorted(mapping.items()):
@@ -134,6 +146,14 @@ def apply_to_bb_schemas(mapping: dict) -> int:
         # ada:componentType, which the profile-level anyOf rejects outright. Applies to all file
         # types, hence injected here rather than carried per-row in the spreadsheet.
         enum_values = list(enum_values)
+        # The universal terms in the componentType scheme are, in its own words, "valid across all
+        # geochem/ADA techniques" — they classify a file, not a technique product, so any file type
+        # can carry one. The Components worksheet assigns each to whichever file type it was first
+        # seen with, which left ada:shapefile only in `collection` and ada:analysisLocation only in
+        # `supDocImage`; a shapefile recorded as a document was then rejected. Add them everywhere.
+        for term in universal_terms():
+            if term not in enum_values:
+                enum_values.append(term)
         if NIL_MISSING not in enum_values:
             enum_values.append(NIL_MISSING)
         path = GP / bb_name / "schema.yaml"
