@@ -4,7 +4,8 @@
   "skos": "http://www.w3.org/2004/02/skos/core#",
   "schema": "http://schema.org/",
   "dcterms": "http://purl.org/dc/terms/",
-  "ada": "https://ada.astromat.org/metadata/"
+  "ada": "https://ada.astromat.org/metadata/",
+  "nil": "http://www.opengis.net/def/nil/OGC/0/"
  },
  "@id": "ada:vocab/componentType",
  "@type": ["skos:ConceptScheme"],
@@ -208,6 +209,16 @@
    "@type": ["skos:Concept"],
    "skos:prefLabel": "World File",
    "skos:notation": "ada:worldFile",
+   "skos:inScheme": [
+    {"@id": "ada:vocab/componentType"}
+   ]
+  },
+  {
+   "@id": "nil:missing",
+   "@type": ["skos:Concept"],
+   "skos:prefLabel": "Missing",
+   "skos:definition": "OGC nil reason: a componentType applies to this file but is not available. Use while the componentType vocabulary is being extended, so that a file can be described without asserting a classification it does not have. Not a file classification itself, and not to be used where a real term exists.",
+   "skos:notation": "nil:missing",
    "skos:inScheme": [
     {"@id": "ada:vocab/componentType"}
    ]
