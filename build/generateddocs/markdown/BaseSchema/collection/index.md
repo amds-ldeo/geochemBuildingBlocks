@@ -90,10 +90,10 @@ A collection of SEM-EDS elemental map images with file listing.
     ada:componentType [ a ada:SEMEDSElementalMaps ] ;
     ada:filelist [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:SEMEDSElementalMap" ;
-            ada:fileName "map_Si_Ka.tif" ],
+            ada:fileName "map_Fe_Ka.tif" ],
         [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:SEMEDSElementalMap" ;
-            ada:fileName "map_Fe_Ka.tif" ] ;
+            ada:fileName "map_Si_Ka.tif" ] ;
     ada:memberTypes "ada:SEMEDSElementalMap" ;
     ada:nFiles 5 .
 
@@ -135,6 +135,27 @@ properties:
     - ada:TOFSIMSCollection
     - ada:XCTImageCollection
     - ada:shapefile
+    - ada:analysisLocation
+    - ada:annotatedImage
+    - ada:areaOfInterest
+    - ada:basemap
+    - ada:calibrationFile
+    - ada:code
+    - ada:contextPhotography
+    - ada:contextVideo
+    - ada:inputFile
+    - ada:instrumentMetadata
+    - ada:logFile
+    - ada:methodDescription
+    - ada:other
+    - ada:plot
+    - ada:processingMethod
+    - ada:quickLook
+    - ada:report
+    - ada:samplePreparation
+    - ada:supplementalBasemap
+    - ada:supplementaryImage
+    - ada:worldFile
     - nil:missing
     description: ADA componentType for a collection, as a single string. Allowed values
       are constrained at the technique-profile level (each adaProfile's schema:hasPart

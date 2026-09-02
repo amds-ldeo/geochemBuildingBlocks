@@ -94,6 +94,28 @@ allOf:
       - ada:STEMEDSCube
       - ada:STEMEDSTomo
       - ada:STEMEELSCube
+      - ada:analysisLocation
+      - ada:annotatedImage
+      - ada:areaOfInterest
+      - ada:basemap
+      - ada:calibrationFile
+      - ada:code
+      - ada:contextPhotography
+      - ada:contextVideo
+      - ada:inputFile
+      - ada:instrumentMetadata
+      - ada:logFile
+      - ada:methodDescription
+      - ada:other
+      - ada:plot
+      - ada:processingMethod
+      - ada:quickLook
+      - ada:report
+      - ada:samplePreparation
+      - ada:shapefile
+      - ada:supplementalBasemap
+      - ada:supplementaryImage
+      - ada:worldFile
       - nil:missing
       description: ADA componentType for a data cube, as a single string. Allowed
         values are constrained at the technique-profile level.

@@ -125,6 +125,17 @@ properties:
     - ada:report
     - ada:samplePreparation
     - ada:worldFile
+    - ada:analysisLocation
+    - ada:annotatedImage
+    - ada:areaOfInterest
+    - ada:basemap
+    - ada:contextPhotography
+    - ada:contextVideo
+    - ada:other
+    - ada:quickLook
+    - ada:shapefile
+    - ada:supplementalBasemap
+    - ada:supplementaryImage
     - nil:missing
     description: ADA componentType for a document, as a single string. Allowed values
       are constrained at the technique-profile level.

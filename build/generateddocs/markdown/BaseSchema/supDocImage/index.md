@@ -99,6 +99,22 @@ properties:
     - ada:contextPhotography
     - ada:quickLook
     - ada:supplementaryImage
+    - ada:basemap
+    - ada:calibrationFile
+    - ada:code
+    - ada:contextVideo
+    - ada:inputFile
+    - ada:instrumentMetadata
+    - ada:logFile
+    - ada:methodDescription
+    - ada:other
+    - ada:plot
+    - ada:processingMethod
+    - ada:report
+    - ada:samplePreparation
+    - ada:shapefile
+    - ada:supplementalBasemap
+    - ada:worldFile
     - nil:missing
     description: ADA componentType for a supplemental document image, as a single
       string. Allowed values are constrained at the technique-profile level.
