@@ -1,5 +1,5 @@
 Validation report for ogch.BaseSchema.structuredData - Structured Data File Type
-Generated 2026-09-02T19:57:41.463081+00:00
+Generated 2026-09-02T23:22:04.874804+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -50,66 +50,98 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl:
- - Shape cdifd:cdifDataStructure_PrimaryKeyShape: *none*
+ - Shape cdifd:cdifDataStructure_DimensionalDataStructureShape: <ex:struct-map-cube-001>
  - Shape cdifd:cdifDataStructure_DataStructureShape: *none*
  - Shape cdifd:cdifDataStructure_inlineStructureShape: *none*
- - Shape cdifd:cdifDataStructure_DimensionalDataStructureShape: <ex:struct-map-cube-001>
+ - Shape cdifd:cdifDataStructure_PrimaryKeyShape: *none*
  - Shape cdifd:cdifDataStructure_WideDataStructureShape: *none*
  - Shape cdifd:cdifDataStructure_LongDataStructureShape: *none*
 
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl:
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl:
   Validation Report
-  Conforms: True
+  Conforms: False
+  Results (2):
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:message Literal("A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path cdif:isDefinedBy_RepresentedVariable ; sh:severity sh:Violation ]
+  	Focus Node: [ cdif:name Literal("y") ; rdf:type cdi:DimensionComponent ]
+  	Result Path: cdif:isDefinedBy_RepresentedVariable
+  	Message: A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:message Literal("A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path cdif:isDefinedBy_RepresentedVariable ; sh:severity sh:Violation ]
+  	Focus Node: [ cdif:name Literal("x") ; rdf:type cdi:DimensionComponent ]
+  	Result Path: cdif:isDefinedBy_RepresentedVariable
+  	Message: A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).
   
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl:
- - Shape cdifd:cdifRepresentedVariable_UnitTypeShape: *none*
- - Shape cdifd:cdifRepresentedVariable_RepresentedVariableShape: *none*
- - Shape cdifd:cdifRepresentedVariable_ConceptSystemShape: *none*
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl:
+ - Shape cdifd:cdifVariableDescriptorComponentShape: *none*
+ - Shape cdifd:cdifDimensionComponentShape: <ex:struct-map-cube-001>/cdi:has_DataStructureComponent,<ex:struct-map-cube-001>/cdi:has_DataStructureComponent
+ - Shape cdifd:cdifIdentifierComponentShape: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
- - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n161dca2b393e49a3974acb0e5af2d115b23: *none*
  - Shape cdifd:CDIFIdentifierShape: *none*
- - Shape _:n259005265dac42f1ad12b7b7b863e05db20: *none*
- - Shape _:n259005265dac42f1ad12b7b7b863e05db11: *none*
- - Shape _:n259005265dac42f1ad12b7b7b863e05db21: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
- - Shape _:n259005265dac42f1ad12b7b7b863e05db25: *none*
- - Shape _:n259005265dac42f1ad12b7b7b863e05db10: *none*
- - Shape _:n259005265dac42f1ad12b7b7b863e05db22: *none*
  - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape _:n161dca2b393e49a3974acb0e5af2d115b20: *none*
+ - Shape _:n161dca2b393e49a3974acb0e5af2d115b25: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
  - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n259005265dac42f1ad12b7b7b863e05db23: *none*
+ - Shape _:n161dca2b393e49a3974acb0e5af2d115b11: *none*
+ - Shape _:n161dca2b393e49a3974acb0e5af2d115b22: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape _:n161dca2b393e49a3974acb0e5af2d115b10: *none*
+ - Shape _:n161dca2b393e49a3974acb0e5af2d115b21: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
- - Shape _:naeaf3d40f3fc49f78dab23f85d788d81b10: *none*
- - Shape _:naeaf3d40f3fc49f78dab23f85d788d81b5: *none*
- - Shape _:naeaf3d40f3fc49f78dab23f85d788d81b7: *none*
- - Shape _:naeaf3d40f3fc49f78dab23f85d788d81b26: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
- - Shape _:naeaf3d40f3fc49f78dab23f85d788d81b8: *none*
- - Shape _:naeaf3d40f3fc49f78dab23f85d788d81b4: *none*
- - Shape cdifd:CDIFDefinedTermShape: *none*
- - Shape _:naeaf3d40f3fc49f78dab23f85d788d81b6: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:naeaf3d40f3fc49f78dab23f85d788d81b19: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n2c0247cee9fa420bb0bdd22b7c01c750b6: *none*
+ - Shape _:n2c0247cee9fa420bb0bdd22b7c01c750b26: *none*
+ - Shape _:n2c0247cee9fa420bb0bdd22b7c01c750b4: *none*
+ - Shape _:n2c0247cee9fa420bb0bdd22b7c01c750b7: *none*
+ - Shape _:n2c0247cee9fa420bb0bdd22b7c01c750b8: *none*
+ - Shape _:n2c0247cee9fa420bb0bdd22b7c01c750b5: *none*
+ - Shape _:n2c0247cee9fa420bb0bdd22b7c01c750b10: *none*
+ - Shape _:n2c0247cee9fa420bb0bdd22b7c01c750b19: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl:
+ - Shape cdifd:cdifDescriptorVariableShape: *none*
+ - Shape cdifd:cdifDescriptorValueDomainShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl:
+ - Shape cdifd:cdifRepresentedVariable_ConceptSystemShape: *none*
+ - Shape cdifd:cdifRepresentedVariable_RepresentedVariableShape: *none*
+ - Shape cdifd:cdifRepresentedVariable_UnitTypeShape: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl:
- - Shape cdifd:cdifSentinelValueDomainShape: *none*
  - Shape cdifd:cdifSubstantiveValueDomainShape: *none*
+ - Shape cdifd:cdifSentinelValueDomainShape: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl:
   Validation Report
@@ -124,49 +156,17 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl:
  - Shape cdifd:CDIFCodelistShape: *none*
- - Shape cdifd:CDIFCodelistConceptShape: *none*
  - Shape cdifd:CDIFCodelistConformsToShape: *none*
+ - Shape cdifd:CDIFCodelistConceptShape: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
- - Shape skosv:ConceptShape: *none*
- - Shape skosv:prefLabelUniqueLangShape: *none*
  - Shape skosv:conceptBroaderNotSelfShape: *none*
-
-
-** Validation error **
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl:
-  Validation Report
-  Conforms: False
-  Results (2):
-  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: [ sh:message Literal("A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path cdif:isDefinedBy_RepresentedVariable ; sh:severity sh:Violation ]
-  	Focus Node: [ cdif:name Literal("x") ; rdf:type cdi:DimensionComponent ]
-  	Result Path: cdif:isDefinedBy_RepresentedVariable
-  	Message: A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).
-  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: [ sh:message Literal("A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path cdif:isDefinedBy_RepresentedVariable ; sh:severity sh:Violation ]
-  	Focus Node: [ cdif:name Literal("y") ; rdf:type cdi:DimensionComponent ]
-  	Result Path: cdif:isDefinedBy_RepresentedVariable
-  	Message: A cdi:DimensionComponent must carry cdif:isDefinedBy_RepresentedVariable (the RepresentedVariable it is a role of).
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl:
- - Shape cdifd:cdifDimensionComponentShape: <ex:struct-map-cube-001>/cdi:has_DataStructureComponent,<ex:struct-map-cube-001>/cdi:has_DataStructureComponent
- - Shape cdifd:cdifIdentifierComponentShape: *none*
- - Shape cdifd:cdifVariableDescriptorComponentShape: *none*
-
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl:
- - Shape cdifd:cdifDescriptorValueDomainShape: *none*
- - Shape cdifd:cdifDescriptorVariableShape: *none*
+ - Shape skosv:prefLabelUniqueLangShape: *none*
+ - Shape skosv:ConceptShape: *none*
 
 === End SHACL ===
 

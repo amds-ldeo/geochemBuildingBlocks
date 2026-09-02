@@ -22,17 +22,17 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
                     ada:detectionLimitMethod "Pettke (2012) for most elements: LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S); LOQ for pollution elements = blank value + 10SD (IUPAC Gold Book)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Li-borate fusion: 350 mg Li₂B₄O₇ + 10 mg powdered sample fused in Pt-Au crucible (M4 automatic fluxer); glass surface cleaned with ethanol before LA" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Xue, Li, Wang et al." ] ;
