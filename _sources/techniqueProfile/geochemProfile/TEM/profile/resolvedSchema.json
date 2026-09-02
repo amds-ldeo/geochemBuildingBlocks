@@ -3306,7 +3306,8 @@
                             "ada:SVRUECWaveformData",
                             "ada:TOFSIMSMassSpectrumData",
                             "ada:VNMIRSpectralPoint",
-                            "ada:XRDTabular"
+                            "ada:XRDTabular",
+                            "nil:missing"
                           ],
                           "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level."
                         },
@@ -10385,7 +10386,7 @@
                           "if": {
                             "properties": {
                               "schema:name": {
-                                "const": "Data Reduction"
+                                "const": "Data reduction"
                               }
                             },
                             "required": [
@@ -10467,6 +10468,41 @@
                                         "schema:name",
                                         "schema:value"
                                       ]
+                                    },
+                                    {
+                                      "title": "Constants Reference Values",
+                                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Constants Reference Values"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
                                     }
                                   ]
                                 },
@@ -10548,63 +10584,7 @@
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
-                                  }
-                                ]
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "schema:name": {
-                                "const": "Data reduction"
-                              }
-                            },
-                            "required": [
-                              "schema:name"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "schema:additionalProperty": {
-                                "type": "array",
-                                "items": {
-                                  "title": "Constants Reference Values",
-                                  "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                  "type": "object",
-                                  "properties": {
-                                    "@id": {
-                                      "const": "ada:parameter/module/Core/constantsReferenceValues"
-                                    },
-                                    "@type": {
-                                      "const": [
-                                        "schema:PropertyValue"
-                                      ]
-                                    },
-                                    "schema:propertyID": {
-                                      "const": [
-                                        {
-                                          "@id": "ada:parameter/module/Core/constantsReferenceValues"
-                                        }
-                                      ]
-                                    },
-                                    "schema:name": {
-                                      "const": "Constants Reference Values"
-                                    },
-                                    "schema:value": {
-                                      "type": "string"
-                                    }
                                   },
-                                  "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:propertyID",
-                                    "schema:name",
-                                    "schema:value"
-                                  ]
-                                },
-                                "allOf": [
                                   {
                                     "contains": {
                                       "title": "Constants Reference Values",
@@ -19444,7 +19424,7 @@
                                           "if": {
                                             "properties": {
                                               "schema:name": {
-                                                "const": "Data Reduction"
+                                                "const": "Data reduction"
                                               }
                                             },
                                             "required": [
@@ -19516,6 +19496,88 @@
                                                         },
                                                         "schema:name": {
                                                           "const": "Image Processing Methods Applied"
+                                                        },
+                                                        "ada:dataType": {
+                                                          "const": "string"
+                                                        },
+                                                        "ada:fieldScope": {
+                                                          "const": "session"
+                                                        },
+                                                        "schema:readonlyValue": {
+                                                          "const": false
+                                                        },
+                                                        "ada:tier": {
+                                                          "const": "R"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "@id",
+                                                        "@type",
+                                                        "schema:valueName",
+                                                        "schema:name",
+                                                        "ada:dataType",
+                                                        "ada:fieldScope"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "title": "Analysis Inclusion and Rejection Criteria",
+                                                      "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value.",
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@id": {
+                                                          "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
+                                                        },
+                                                        "@type": {
+                                                          "const": [
+                                                            "schema:PropertyValueSpecification"
+                                                          ]
+                                                        },
+                                                        "schema:valueName": {
+                                                          "const": "analysisInclusionAndRejectionCriteriaDefault"
+                                                        },
+                                                        "schema:name": {
+                                                          "const": "Analysis Inclusion and Rejection Criteria"
+                                                        },
+                                                        "ada:dataType": {
+                                                          "const": "string"
+                                                        },
+                                                        "ada:fieldScope": {
+                                                          "const": "session"
+                                                        },
+                                                        "schema:readonlyValue": {
+                                                          "const": false
+                                                        },
+                                                        "ada:tier": {
+                                                          "const": "R"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "@id",
+                                                        "@type",
+                                                        "schema:valueName",
+                                                        "schema:name",
+                                                        "ada:dataType",
+                                                        "ada:fieldScope"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "title": "Constants Reference Values",
+                                                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@id": {
+                                                          "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
+                                                        },
+                                                        "@type": {
+                                                          "const": [
+                                                            "schema:PropertyValueSpecification"
+                                                          ]
+                                                        },
+                                                        "schema:valueName": {
+                                                          "const": "constantsReferenceValuesDefault"
+                                                        },
+                                                        "schema:name": {
+                                                          "const": "Constants Reference Values"
                                                         },
                                                         "ada:dataType": {
                                                           "const": "string"
@@ -19631,114 +19693,7 @@
                                                     },
                                                     "minContains": 0,
                                                     "maxContains": 1
-                                                  }
-                                                ]
-                                              }
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "if": {
-                                            "properties": {
-                                              "schema:name": {
-                                                "const": "Data reduction"
-                                              }
-                                            },
-                                            "required": [
-                                              "schema:name"
-                                            ]
-                                          },
-                                          "then": {
-                                            "properties": {
-                                              "schema:additionalProperty": {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "title": "Analysis Inclusion and Rejection Criteria",
-                                                      "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value.",
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "@id": {
-                                                          "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
-                                                        },
-                                                        "@type": {
-                                                          "const": [
-                                                            "schema:PropertyValueSpecification"
-                                                          ]
-                                                        },
-                                                        "schema:valueName": {
-                                                          "const": "analysisInclusionAndRejectionCriteriaDefault"
-                                                        },
-                                                        "schema:name": {
-                                                          "const": "Analysis Inclusion and Rejection Criteria"
-                                                        },
-                                                        "ada:dataType": {
-                                                          "const": "string"
-                                                        },
-                                                        "ada:fieldScope": {
-                                                          "const": "session"
-                                                        },
-                                                        "schema:readonlyValue": {
-                                                          "const": false
-                                                        },
-                                                        "ada:tier": {
-                                                          "const": "R"
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "@id",
-                                                        "@type",
-                                                        "schema:valueName",
-                                                        "schema:name",
-                                                        "ada:dataType",
-                                                        "ada:fieldScope"
-                                                      ]
-                                                    },
-                                                    {
-                                                      "title": "Constants Reference Values",
-                                                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "@id": {
-                                                          "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
-                                                        },
-                                                        "@type": {
-                                                          "const": [
-                                                            "schema:PropertyValueSpecification"
-                                                          ]
-                                                        },
-                                                        "schema:valueName": {
-                                                          "const": "constantsReferenceValuesDefault"
-                                                        },
-                                                        "schema:name": {
-                                                          "const": "Constants Reference Values"
-                                                        },
-                                                        "ada:dataType": {
-                                                          "const": "string"
-                                                        },
-                                                        "ada:fieldScope": {
-                                                          "const": "session"
-                                                        },
-                                                        "schema:readonlyValue": {
-                                                          "const": false
-                                                        },
-                                                        "ada:tier": {
-                                                          "const": "R"
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "@id",
-                                                        "@type",
-                                                        "schema:valueName",
-                                                        "schema:name",
-                                                        "ada:dataType",
-                                                        "ada:fieldScope"
-                                                      ]
-                                                    }
-                                                  ]
-                                                },
-                                                "allOf": [
+                                                  },
                                                   {
                                                     "contains": {
                                                       "title": "Analysis Inclusion and Rejection Criteria",

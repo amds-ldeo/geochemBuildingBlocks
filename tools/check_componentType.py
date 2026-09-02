@@ -26,6 +26,7 @@ import json
 import glob
 import os
 import sys
+import apply_componentType_enums as ace
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VOCAB = os.path.join(ROOT, "_sources", "registry", "vocab", "componentType.json")
@@ -123,8 +124,16 @@ def main():
     print(f"vocab (universal): {len(vocab)} terms | enum cache: {len(cache)} terms | "
           f"technique-schema enums: {len(tech)} terms | examples use {len(used)} distinct componentTypes\n")
 
-    # A. universal vocab ⊆ enum cache
-    missing = sorted(vocab - cache)
+    # A. universal vocab ⊆ enum cache, EXCEPT the OGC nil reason.
+    #
+    # The cache is the Components worksheet, cached; `nil:missing` is deliberately not a
+    # worksheet row -- a nil reason applies to every file type, so apply_componentType_enums
+    # appends it to each base BB's enum directly (see NIL_MISSING there). Adding it to the
+    # cache would satisfy this check and then be dropped by the next `--refresh`, which is a
+    # worse failure than the one it silences: the term would vanish from the enums with the
+    # cache still claiming it. Exempted here, and imported rather than restated so the two
+    # cannot drift apart.
+    missing = sorted(vocab - cache - {ace.NIL_MISSING})
     if missing:
         failures.append(f"[A] {len(missing)} universal vocab term(s) absent from the enum cache "
                         f"(refresh apply_componentType_enums --refresh, or drop from the vocab): {missing}")
