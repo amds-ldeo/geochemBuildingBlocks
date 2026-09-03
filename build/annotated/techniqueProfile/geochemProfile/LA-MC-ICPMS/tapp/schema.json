@@ -1997,12 +1997,12 @@
                     ]
                   },
                   {
-                    "title": "Instrument Sensitivity",
-                    "description": "Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram \u2014 or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. A sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
+                    "title": "Per-Analyte Calibration Strategy",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different analytes or analyte groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all analytes, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/instrumentSensitivity"
+                        "const": "ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy"
                       },
                       "@type": {
                         "const": [
@@ -2010,19 +2010,22 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "instrumentSensitivity"
+                        "const": "perAnalyteCalibrationStrategy"
                       },
                       "schema:name": {
-                        "const": "Instrument Sensitivity"
+                        "const": "Per-Analyte Calibration Strategy"
                       },
                       "ada:dataType": {
-                        "const": "number"
+                        "const": "string"
                       },
                       "schema:readonlyValue": {
-                        "const": false
+                        "const": true
                       },
                       "ada:tier": {
-                        "const": "O"
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2030,7 +2033,8 @@
                       "@type",
                       "schema:valueName",
                       "schema:name",
-                      "ada:dataType"
+                      "ada:dataType",
+                      "schema:defaultValue"
                     ]
                   }
                 ]
@@ -2172,12 +2176,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Instrument Sensitivity",
-                    "description": "Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram \u2014 or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. A sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
+                    "title": "Per-Analyte Calibration Strategy",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different analytes or analyte groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all analytes, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/instrumentSensitivity"
+                        "const": "ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy"
                       },
                       "@type": {
                         "const": [
@@ -2185,19 +2189,22 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "instrumentSensitivity"
+                        "const": "perAnalyteCalibrationStrategy"
                       },
                       "schema:name": {
-                        "const": "Instrument Sensitivity"
+                        "const": "Per-Analyte Calibration Strategy"
                       },
                       "ada:dataType": {
-                        "const": "number"
+                        "const": "string"
                       },
                       "schema:readonlyValue": {
-                        "const": false
+                        "const": true
                       },
                       "ada:tier": {
-                        "const": "O"
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2205,7 +2212,8 @@
                       "@type",
                       "schema:valueName",
                       "schema:name",
-                      "ada:dataType"
+                      "ada:dataType",
+                      "schema:defaultValue"
                     ]
                   },
                   "minContains": 0,

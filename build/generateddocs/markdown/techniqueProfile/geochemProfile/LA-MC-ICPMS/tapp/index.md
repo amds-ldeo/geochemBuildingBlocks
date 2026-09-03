@@ -360,18 +360,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:defaultValue": "Standard error (SE = SD/√n) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -489,6 +477,18 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:MonetaryGrant"
       ],
       "schema:name": "National Natural Science Foundation of China (NSFC)"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
     }
   ],
   "bios:computationalTool": [
@@ -889,18 +889,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:defaultValue": "Standard error (SE = SD/\u221an) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression"
     }
   ],
-  "schema:relatedLink": [
-    {
-      "schema:linkRelationship": "techniquePublication",
-      "schema:target": {
-        "schema:name": "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)"
-      },
-      "@type": [
-        "schema:CreativeWork"
-      ],
-      "schema:url": "https://ada.astromat.org/missing"
-    }
-  ],
   "schema:object": [
     {
       "@type": [
@@ -1020,6 +1008,18 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:name": "National Natural Science Foundation of China (NSFC)"
     }
   ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
@@ -1076,10 +1076,11 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (two-volume cell)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -1087,11 +1088,10 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "Polished thin section (two-volume cell)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/uncertaintyPropagationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign>,
@@ -2671,38 +2671,41 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Instrument Sensitivity
-              description: "Instrument sensitivity achieved in the session, with the
-                isotope or channel it was measured on and the conditions it applies
-                to. May be expressed either as detected signal per unit concentration
-                or per unit mass of analyte delivered \u2014 counts per second per
-                ppb, volts per ppm, counts per picogram \u2014 or as useful yield,
-                the percentage of sampled atoms ultimately detected as ions, with
-                the method used to derive it cited. A sensitivity the procedure requires
-                before analyses may begin belongs with the tuning acceptance criteria."
+            - title: Per-Analyte Calibration Strategy
+              description: Approach used to convert measured ion signals to reported
+                concentrations, and specifically any case where different analytes
+                or analyte groups within one procedure are calibrated differently
+                - different primary standards for different mass ranges or phases,
+                or one element serving as internal standard while others are externally
+                calibrated. Where a single strategy applies to all analytes, record
+                that strategy. Where the procedure reports isotope ratios only and
+                no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/instrumentSensitivity
+                  const: ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: instrumentSensitivity
+                  const: perAnalyteCalibrationStrategy
                 schema:name:
-                  const: Instrument Sensitivity
+                  const: Per-Analyte Calibration Strategy
                 ada:dataType:
-                  const: number
+                  const: string
                 schema:readonlyValue:
-                  const: false
+                  const: true
                 ada:tier:
-                  const: O
+                  const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
           allOf:
           - contains:
               title: Limit of Quantification (LOQ) Method
@@ -2809,38 +2812,41 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Instrument Sensitivity
-              description: "Instrument sensitivity achieved in the session, with the
-                isotope or channel it was measured on and the conditions it applies
-                to. May be expressed either as detected signal per unit concentration
-                or per unit mass of analyte delivered \u2014 counts per second per
-                ppb, volts per ppm, counts per picogram \u2014 or as useful yield,
-                the percentage of sampled atoms ultimately detected as ions, with
-                the method used to derive it cited. A sensitivity the procedure requires
-                before analyses may begin belongs with the tuning acceptance criteria."
+              title: Per-Analyte Calibration Strategy
+              description: Approach used to convert measured ion signals to reported
+                concentrations, and specifically any case where different analytes
+                or analyte groups within one procedure are calibrated differently
+                - different primary standards for different mass ranges or phases,
+                or one element serving as internal standard while others are externally
+                calibrated. Where a single strategy applies to all analytes, record
+                that strategy. Where the procedure reports isotope ratios only and
+                no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/instrumentSensitivity
+                  const: ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: instrumentSensitivity
+                  const: perAnalyteCalibrationStrategy
                 schema:name:
-                  const: Instrument Sensitivity
+                  const: Per-Analyte Calibration Strategy
                 ada:dataType:
-                  const: number
+                  const: string
                 schema:readonlyValue:
-                  const: false
+                  const: true
                 ada:tier:
-                  const: O
+                  const: M
+                schema:defaultValue:
+                  type: string
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
+              - schema:defaultValue
             minContains: 0
             maxContains: 1
     schema:variableMeasured:

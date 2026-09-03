@@ -460,9 +460,6 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:uncertaintyLevel": "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material",
   "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)",
   "ada:internalStandardElement": "Rh (stated section 3.1)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes; stated section 3.1)"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
   ],
@@ -944,9 +941,6 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:uncertaintyLevel": "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material",
   "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)",
   "ada:internalStandardElement": "Rh (stated section 3.1)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (all analytes; stated section 3.1)"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
   ],
@@ -992,6 +986,13 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
@@ -1005,14 +1006,7 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1)." ;
@@ -1042,7 +1036,6 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
     ada:massCyclesPerReplicate "3 sweeps/reading x 3 readings/replicate (= 9 sweeps/replicate; stated section 3.1)" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)" ;
-    ada:perAnalyteCalibrationStrategy "External calibration (all analytes; stated section 3.1)" ;
     ada:primaryStandardNameDefault "Multi-element calibration solution (not formally named; stated section 3.1)" ;
     ada:reportedProperties "Forty-eight trace element concentrations (ppm); blanks (ppb)" ;
     ada:samplingUnit "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml" ;
@@ -1734,9 +1727,6 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
   "ada:blankBackgroundCorrectionMethod": "On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)",
   "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration with matrix-matched standards at 100 ppm Ca (stated section 2)"
-  ],
   "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
@@ -2243,9 +2233,6 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
   "ada:blankBackgroundCorrectionMethod": "On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)",
   "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration with matrix-matched standards at 100 ppm Ca (stated section 2)"
-  ],
   "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
@@ -2278,10 +2265,12 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -2289,12 +2278,10 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -2356,7 +2343,6 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     ada:massCyclesPerReplicate "250 sweeps per replicate (Table 1)" ;
     ada:numberOfReplicatesPerSample "6 replicates (Table 1)" ;
     ada:oxideProductionMethodAndThreshold "CeO/Ce < 3% (stated section 2)" ;
-    ada:perAnalyteCalibrationStrategy "External calibration with matrix-matched standards at 100 ppm Ca (stated section 2)" ;
     ada:primaryStandardNameDefault "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)" ;
     ada:reportedProperties "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)" ;
     ada:samplingUnit "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)" ;
@@ -2944,9 +2930,6 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:uncertaintyLevel": "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"",
   "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
   "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
   ],
@@ -3363,9 +3346,6 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:uncertaintyLevel": "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"",
   "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
   "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
   ],
@@ -3480,7 +3460,6 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 0.01 (= <1%; stated section 2)" ;
-    ada:perAnalyteCalibrationStrategy "Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)" ;
     ada:primaryStandardNameDefault "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)" ;
     ada:reportedProperties "Cd, In, Tl and Bi mass fractions (ng g-1)" ;
     ada:samplingUnit "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"" ;
@@ -3946,9 +3925,6 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
   "ada:isotopeDilutionSpike": "None",
   "ada:uncertaintyLevel": "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results",
   "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (stated Methods)"
-  ],
   "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:variableMeasured": [
     {
@@ -4303,9 +4279,6 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
   "ada:isotopeDilutionSpike": "None",
   "ada:uncertaintyLevel": "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results",
   "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration (stated Methods)"
-  ],
   "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:variableMeasured": [
     {
@@ -4352,13 +4325,13 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -4397,7 +4370,6 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "External calibration (stated Methods)" ;
     ada:primaryStandardNameDefault "Mixture of certified standards (not formally named; stated Methods)" ;
     ada:reportedProperties "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper" ;
     ada:samplingUnit "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure" ;
@@ -5073,9 +5045,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.1)",
   "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.1)",
   "ada:internalStandardElement": "None (ID-IS method: spike isotope ratios used; stated section 2.1)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution with ID-IS normalization (all analytes; stated section 2.1)"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
   ],
@@ -5658,9 +5627,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.1)",
   "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.1)",
   "ada:internalStandardElement": "None (ID-IS method: spike isotope ratios used; stated section 2.1)",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Isotope dilution with ID-IS normalization (all analytes; stated section 2.1)"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
   ],
@@ -5697,10 +5663,12 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -5711,18 +5679,16 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                             schema1:name "0.5 mol/l HF (stated section 2.1.1)" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1)." ;
@@ -5782,7 +5748,6 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     ada:massCyclesPerReplicate "48 scans per 30 s acquisition (stated section 2.1.1)" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 1% (stated section 2.1.1)" ;
-    ada:perAnalyteCalibrationStrategy "Isotope dilution with ID-IS normalization (all analytes; stated section 2.1)" ;
     ada:primaryStandardNameDefault "Multi-element standard solution (not formally named; stated section 2.1.1)" ;
     ada:reportedProperties "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]" ;
     ada:samplingUnit "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites" ;
@@ -6262,9 +6227,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   ],
   "ada:uncertaintyLevel": "Mean +/- SD",
   "ada:internalStandardElement": "103Rh, to correct for matrix effects",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration for both Te and Se"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -6590,9 +6552,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   ],
   "ada:uncertaintyLevel": "Mean +/- SD",
   "ada:internalStandardElement": "103Rh, to correct for matrix effects",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration for both Te and Se"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
@@ -6698,13 +6657,13 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -6746,7 +6705,6 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "External calibration for both Te and Se" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:reportedProperties "Te and Se concentrations (ug L-1; mg kg-1)" ;
     ada:samplingUnit "missing" ;
@@ -7192,9 +7150,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   "ada:chromatographicSeparationApplied": "No — sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography",
   "ada:finalSolutionMatrix": "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL",
   "ada:uncertaintyLevel": "Mean +/- SD",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "NCS 73307 stream sediment"
   ],
@@ -7579,9 +7534,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   "ada:chromatographicSeparationApplied": "No \u2014 sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography",
   "ada:finalSolutionMatrix": "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL",
   "ada:uncertaintyLevel": "Mean +/- SD",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "NCS 73307 stream sediment"
   ],
@@ -7626,9 +7578,19 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Tri-acid HNO3+HCl+HF: 750 uL HNO3 (14M), 1.5 mL HCl (10M), 2.5 mL HF (29M); re-dissolved in 250 uL HNO3. Microwave route for Se: 3 mL HNO3, 0.5 mL H2O2, 0.25 mL HF, 0.5 mL Milli-Q" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -7638,18 +7600,8 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Tri-acid HNO3+HCl+HF: 750 uL HNO3 (14M), 1.5 mL HCl (10M), 2.5 mL HF (29M); re-dissolved in 250 uL HNO3. Microwave route for Se: 3 mL HNO3, 0.5 mL H2O2, 0.25 mL HF, 0.5 mL Milli-Q" ] ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -7691,7 +7643,6 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "External calibration" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:reportedProperties "Particulate Te concentration (mg kg-1)" ;
     ada:samplingUnit "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction" ;
@@ -8058,9 +8009,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
     "Dissolved Se concentration (ug L-1)"
   ],
   "ada:internalStandardElement": "103Rh and 115In",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "CRM-TMDW drinking water and NIST 1643f freshwater"
   ],
@@ -8388,9 +8336,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
     "Dissolved Se concentration (ug L-1)"
   ],
   "ada:internalStandardElement": "103Rh and 115In",
-  "ada:perAnalyteCalibrationStrategy": [
-    "External calibration"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "CRM-TMDW drinking water and NIST 1643f freshwater"
   ],
@@ -8494,8 +8439,8 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -8504,8 +8449,8 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -8546,7 +8491,6 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "External calibration" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:reportedProperties "Dissolved Se concentration (ug L-1)" ;
     ada:samplingUnit "N — sub-sampled water aliquots" ;
@@ -9031,9 +8975,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   "ada:finalSolutionMatrix": "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF",
   "ada:uncertaintyLevel": "N — replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material",
   "ada:internalStandardElement": "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Three strategies by group: calibration curve with 103Rh internal standardisation; 113In-203Tl ID-IS (Yokoyama et al. 2017); isotope dilution for Ti, Zr, Mo, Hf and W; 91Zr and 179Hf as internal standards for Nb and Ta"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure"
   ],
@@ -9455,9 +9396,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   "ada:finalSolutionMatrix": "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF",
   "ada:uncertaintyLevel": "N \u2014 replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material",
   "ada:internalStandardElement": "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta",
-  "ada:perAnalyteCalibrationStrategy": [
-    "Three strategies by group: calibration curve with 103Rh internal standardisation; 113In-203Tl ID-IS (Yokoyama et al. 2017); isotope dilution for Ti, Zr, Mo, Hf and W; 91Zr and 179Hf as internal standards for Nb and Ta"
-  ],
   "ada:secondaryReferenceMaterialDefault": [
     "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure"
   ],
@@ -9501,11 +9439,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
@@ -9517,17 +9450,22 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                             schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -9571,7 +9509,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:perAnalyteCalibrationStrategy "Three strategies by group: calibration curve with 103Rh internal standardisation; 113In-203Tl ID-IS (Yokoyama et al. 2017); isotope dilution for Ti, Zr, Mo, Hf and W; 91Zr and 179Hf as internal standards for Nb and Ta" ;
     ada:primaryStandardNameDefault "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3" ;
     ada:reportedProperties "Elemental abundances, CI-normalised ratios" ;
     ada:samplingUnit "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende" ;
@@ -10812,6 +10749,41 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - title: Per-Analyte Calibration Strategy
+              description: Approach used to convert measured ion signals to reported
+                concentrations, and specifically any case where different analytes
+                or analyte groups within one procedure are calibrated differently
+                - different primary standards for different mass ranges or phases,
+                or one element serving as internal standard while others are externally
+                calibrated. Where a single strategy applies to all analytes, record
+                that strategy. Where the procedure reports isotope ratios only and
+                no concentrations, record 'Not applicable (isotope ratios only)'.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionQicpmsTAPP/perAnalyteCalibrationStrategy
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: perAnalyteCalibrationStrategy
+                schema:name:
+                  const: Per-Analyte Calibration Strategy
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
             - title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate
                 the limit of quantification (LOQ): the lowest concentration reliably
@@ -10946,6 +10918,44 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains:
+              title: Per-Analyte Calibration Strategy
+              description: Approach used to convert measured ion signals to reported
+                concentrations, and specifically any case where different analytes
+                or analyte groups within one procedure are calibrated differently
+                - different primary standards for different mass ranges or phases,
+                or one element serving as internal standard while others are externally
+                calibrated. Where a single strategy applies to all analytes, record
+                that strategy. Where the procedure reports isotope ratios only and
+                no concentrations, record 'Not applicable (isotope ratios only)'.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionQicpmsTAPP/perAnalyteCalibrationStrategy
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: perAnalyteCalibrationStrategy
+                schema:name:
+                  const: Per-Analyte Calibration Strategy
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
           - contains:
               title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate

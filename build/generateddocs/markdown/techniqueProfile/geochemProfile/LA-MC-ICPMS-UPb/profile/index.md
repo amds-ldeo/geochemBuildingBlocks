@@ -575,9 +575,6 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:reportedDateType": [
-    "Weighted mean 206Pb/238U"
-  ],
   "ada:spotDiameterMeasured": 1.0,
   "dqv:hasQualityMeasurement": [
     {
@@ -592,6 +589,9 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "example oxideProduction"
     }
+  ],
+  "ada:reportedDateType": [
+    "Weighted mean 206Pb/238U"
   ],
   "ada:sensitivityYield": 1.0
 }
@@ -1171,9 +1171,6 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:reportedDateType": [
-    "Weighted mean 206Pb/238U"
-  ],
   "ada:spotDiameterMeasured": 1.0,
   "dqv:hasQualityMeasurement": [
     {
@@ -1188,6 +1185,9 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "example oxideProduction"
     }
+  ],
+  "ada:reportedDateType": [
+    "Weighted mean 206Pb/238U"
   ],
   "ada:sensitivityYield": 1.0
 }
@@ -1281,12 +1281,12 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "example peakFlatness" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "example oxideProduction" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "example peakFlatness" ] ;
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:identifier "session-ada-20260110-001" ;
