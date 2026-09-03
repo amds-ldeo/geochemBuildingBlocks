@@ -459,171 +459,6 @@ allOf:
           $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
         minContains: 0
         maxContains: 1
-    ada:channelTemplate:
-      type: object
-      properties:
-        ada:channelColumns:
-          type: array
-          items:
-            anyOf:
-            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
-            - &id005
-              title: Spectral Interference Corrections Applied
-              description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
-                are applied in data reduction, supplementary to any suppression already achieved by chemical
-                separation, mass resolution, or a collision/reaction cell. Detail for each affected mass
-                is carried by Interfering Species and Interference Correction Method.
-              type: object
-              properties:
-                '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: spectralInterferenceCorrectionsApplied
-                schema:name:
-                  const: Spectral Interference Corrections Applied
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - &id001
-                    type: string
-                  - type: array
-                    items: *id001
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id006
-              title: Interfering Species
-              description: The isobaric, polyatomic and doubly charged species that overlap the measured
-                masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
-                and abundance-sensitivity tailing from an adjacent large beam. Name each species and the
-                mass it affects.
-              type: object
-              properties:
-                '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferingSpecies
-                schema:name:
-                  const: Interfering Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - &id002
-                    type: string
-                  - type: array
-                    items: *id002
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id007
-              title: Interference Correction Method
-              description: Equation or procedure used to calculate and remove each interference contribution,
-                together with how its magnitude was established - a monitor mass measured simultaneously
-                and scaled by natural abundance ratios, a production-rate factor measured on a reference
-                material or interference standard solution, or a tailing factor measured on a pure standard.
-                Name the reference material used.
-              type: object
-              properties:
-                '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferenceCorrectionMethod
-                schema:name:
-                  const: Interference Correction Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - &id003
-                    type: string
-                  - type: array
-                    items: *id003
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id008
-              title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte may be acquired at more
-                than one resolution, so the assignment is per acquired mass rather than per element. The
-                overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
-              type: object
-              properties:
-                '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: massResolutionAssignment
-                schema:name:
-                  const: Mass Resolution Assignment
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - &id004
-                    type: string
-                  - type: array
-                    items: *id004
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-          allOf:
-          - contains: *id005
-            minContains: 0
-            maxContains: 1
-          - contains: *id006
-            minContains: 0
-            maxContains: 1
-          - contains: *id007
-            minContains: 0
-            maxContains: 1
-          - contains: *id008
-            minContains: 0
-            maxContains: 1
     ada:analyteTemplate:
       type: object
       properties:
@@ -632,7 +467,42 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id009
+            - &id001
+              title: Per-Analyte Calibration Strategy
+              description: Approach used to convert measured ion signals to reported concentrations, and
+                specifically any case where different analytes or analyte groups within one procedure
+                are calibrated differently - different primary standards for different mass ranges or
+                phases, or one element serving as internal standard while others are externally calibrated.
+                Where a single strategy applies to all analytes, record that strategy. Where the procedure
+                reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios
+                only)'.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: perAnalyteCalibrationStrategy
+                schema:name:
+                  const: Per-Analyte Calibration Strategy
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id002
               title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate the limit of quantification
                 (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
@@ -662,7 +532,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id010
+            - &id003
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted values for secondary reference materials,
                 and the method used to assess it. Specify the reference material and the source of its
@@ -697,9 +567,177 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains: *id001
+            minContains: 0
+            maxContains: 1
+          - contains: *id002
+            minContains: 0
+            maxContains: 1
+          - contains: *id003
+            minContains: 0
+            maxContains: 1
+    ada:channelTemplate:
+      type: object
+      properties:
+        ada:channelColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - &id008
+              title: Spectral Interference Corrections Applied
+              description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
+                are applied in data reduction, supplementary to any suppression already achieved by chemical
+                separation, mass resolution, or a collision/reaction cell. Detail for each affected mass
+                is carried by Interfering Species and Interference Correction Method.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: spectralInterferenceCorrectionsApplied
+                schema:name:
+                  const: Spectral Interference Corrections Applied
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - &id004
+                    type: string
+                  - type: array
+                    items: *id004
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id009
+              title: Interfering Species
+              description: The isobaric, polyatomic and doubly charged species that overlap the measured
+                masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
+                and abundance-sensitivity tailing from an adjacent large beam. Name each species and the
+                mass it affects.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferingSpecies
+                schema:name:
+                  const: Interfering Species
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - &id005
+                    type: string
+                  - type: array
+                    items: *id005
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id010
+              title: Interference Correction Method
+              description: Equation or procedure used to calculate and remove each interference contribution,
+                together with how its magnitude was established - a monitor mass measured simultaneously
+                and scaled by natural abundance ratios, a production-rate factor measured on a reference
+                material or interference standard solution, or a tailing factor measured on a pure standard.
+                Name the reference material used.
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferenceCorrectionMethod
+                schema:name:
+                  const: Interference Correction Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - &id006
+                    type: string
+                  - type: array
+                    items: *id006
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id011
+              title: Mass Resolution Assignment
+              description: Mass resolution mode used for acquisition. One analyte may be acquired at more
+                than one resolution, so the assignment is per acquired mass rather than per element. The
+                overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
+              type: object
+              properties:
+                '@id':
+                  const: ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: massResolutionAssignment
+                schema:name:
+                  const: Mass Resolution Assignment
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - &id007
+                    type: string
+                  - type: array
+                    items: *id007
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
+          - contains: *id008
+            minContains: 0
+            maxContains: 1
           - contains: *id009
             minContains: 0
             maxContains: 1
           - contains: *id010
+            minContains: 0
+            maxContains: 1
+          - contains: *id011
             minContains: 0
             maxContains: 1

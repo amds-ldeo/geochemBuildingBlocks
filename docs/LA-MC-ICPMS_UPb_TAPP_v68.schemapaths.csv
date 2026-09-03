@@ -142,7 +142,7 @@ Peak Flatness Method and Threshold,Basic,Read-Only,Text (free),$MethodDefinition
 Peak Flatness,N/A,Basic,Text (free),,module,,placement owned by Module MCICPMS,
 Internal Standard Approach,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Internal Standard Element,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,
-Per-Analyte Calibration Strategy,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,analyte
+Per-Analyte Calibration Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,"keyed to analyte: the strategy is per analyte, so it is a column of the analyte table. Basic/Read-Only, so the procedure fixes it and an analysis cannot revise it -- single-homed on $MethodDefinition, no $Dataset row. Module_ICPMS declares the same path, which is a keyed-table column array and therefore not composable through allOf, so each consumer carries its own row and mints its own column def.",analyte
 Elemental Fractionation Correction,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Mass Bias Correction Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:massBiasCorrectionStrategy,inferred,,,
 Uncertainty Level,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module ICPMS,

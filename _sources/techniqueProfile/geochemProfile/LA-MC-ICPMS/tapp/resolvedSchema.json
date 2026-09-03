@@ -3556,13 +3556,6 @@
           "description": "Element(s) used as the internal standard, the monitored isotope, and how the internal-standard concentration was established for unknowns. Where the element serves isotope-ratio work it must have a known isotopic composition and a mass close to the analyte's. Record 'None' together with the alternative used where no internal standard is applied.",
           "type": "string"
         },
-        "ada:perAnalyteCalibrationStrategy": {
-          "type": "array",
-          "items": {
-            "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different analytes or analyte groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all analytes, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
-            "type": "string"
-          }
-        },
         "ada:signalIntegrationIntervalMethod": {
           "description": "Method used to define which portion of the acquired signal is integrated for each reported measurement, and the rule for excluding unstable or anomalous portions. State whether the interval is the full acquisition, a stable sub-interval selected by inspection, or selected by an automated criterion, and name the criterion.",
           "type": "string"
@@ -9002,6 +8995,47 @@
                       "ada:dataType",
                       "schema:defaultValue"
                     ]
+                  },
+                  {
+                    "title": "Per-Analyte Calibration Strategy",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different analytes or analyte groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all analytes, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "perAnalyteCalibrationStrategy"
+                      },
+                      "schema:name": {
+                        "const": "Per-Analyte Calibration Strategy"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
                   }
                 ]
               },
@@ -9114,6 +9148,51 @@
                       },
                       "schema:name": {
                         "const": "Monitored Masses"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Per-Analyte Calibration Strategy",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different analytes or analyte groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all analytes, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "perAnalyteCalibrationStrategy"
+                      },
+                      "schema:name": {
+                        "const": "Per-Analyte Calibration Strategy"
                       },
                       "ada:dataType": {
                         "const": "string"

@@ -699,6 +699,41 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - &id006
+              title: Per-Analyte Calibration Strategy
+              description: Approach used to convert measured ion signals to reported concentrations, and
+                specifically any case where different analytes or analyte groups within one procedure
+                are calibrated differently - different primary standards for different mass ranges or
+                phases, or one element serving as internal standard while others are externally calibrated.
+                Where a single strategy applies to all analytes, record that strategy. Where the procedure
+                reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios
+                only)'.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laQicpmsTAPP/perAnalyteCalibrationStrategy
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: perAnalyteCalibrationStrategy
+                schema:name:
+                  const: Per-Analyte Calibration Strategy
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id007
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
                 are applied in data reduction, supplementary to any suppression already achieved by chemical
@@ -730,7 +765,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id007
+            - &id008
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured
                 masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
@@ -762,7 +797,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id008
+            - &id009
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution,
                 together with how its magnitude was established - a monitor mass measured simultaneously
@@ -795,7 +830,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id009
+            - &id010
               title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate the limit of quantification
                 (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
@@ -825,7 +860,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id010
+            - &id011
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analytical session and the
                 method used to assess it. Report both the assessment method and the precision values.
@@ -859,7 +894,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id011
+            - &id012
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analytical sessions over weeks to
                 months — long-term or intermediate precision — and the method used to assess it. Report
@@ -890,7 +925,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id012
+            - &id013
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted values for secondary reference materials,
                 and the method used to assess it. Specify the reference material and the source of its
@@ -950,6 +985,9 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id012
+            minContains: 0
+            maxContains: 1
+          - contains: *id013
             minContains: 0
             maxContains: 1
     ada:signalCollectionMode:
