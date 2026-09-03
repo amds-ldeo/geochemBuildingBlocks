@@ -20,7 +20,7 @@ A collection of SEM-EDS elemental map images with file listing.
 #### json
 ```json
 {
-  "@type": ["ada:collection", "https://schema.org/Collection"],
+  "@type": ["ada:collection", "http://schema.org/Collection"],
   "ada:componentType": {
     "@type": "ada:SEMEDSElementalMaps"
   },
@@ -54,7 +54,7 @@ A collection of SEM-EDS elemental map images with file listing.
   ],
   "@type": [
     "ada:collection",
-    "https://schema.org/Collection"
+    "http://schema.org/Collection"
   ],
   "ada:componentType": {
     "@type": "ada:SEMEDSElementalMaps"
@@ -81,19 +81,18 @@ A collection of SEM-EDS elemental map images with file listing.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix schema: <https://schema.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a ada:collection,
-        schema:Collection ;
+[] a schema1:Collection,
+        ada:collection ;
     ada:componentType [ a ada:SEMEDSElementalMaps ] ;
     ada:filelist [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:SEMEDSElementalMap" ;
-            ada:fileName "map_Fe_Ka.tif" ],
+            ada:fileName "map_Si_Ka.tif" ],
         [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:SEMEDSElementalMap" ;
-            ada:fileName "map_Si_Ka.tif" ] ;
+            ada:fileName "map_Fe_Ka.tif" ] ;
     ada:memberTypes "ada:SEMEDSElementalMap" ;
     ada:nFiles 5 .
 
@@ -119,43 +118,53 @@ properties:
     - contains:
         const: ada:collection
     - contains:
-        const: https://schema.org/Collection
+        const: http://schema.org/Collection
     description: GeneralType for collections
   ada:componentType:
     type: string
     enum:
-    - ada:EAIRMSCollection
-    - ada:EMPAImageCollection
-    - ada:GCMSCollection
-    - ada:LCMSCollection
-    - ada:NanoSIMSCollection
-    - ada:PSFDShapeFile
-    - ada:QRISCalibratedCollection
-    - ada:SEMImageCollection
-    - ada:TOFSIMSCollection
-    - ada:XCTImageCollection
-    - ada:shapefile
     - ada:analysisLocation
     - ada:annotatedImage
     - ada:areaOfInterest
+    - ada:ARGTCollection
     - ada:basemap
     - ada:calibrationFile
     - ada:code
     - ada:contextPhotography
     - ada:contextVideo
+    - ada:EAIRMSCollection
+    - ada:EMPAImageCollection
+    - ada:GCMSCollection
     - ada:inputFile
     - ada:instrumentMetadata
+    - ada:LCMSCollection
+    - ada:LITPolarDataCollection
     - ada:logFile
+    - ada:MCICPMSCollection
     - ada:methodDescription
+    - ada:NanoIRMapCollection
+    - ada:NanoIRPointCollection
+    - ada:NanoSIMSCollection
+    - ada:NanoSIMSImageCollection
     - ada:other
     - ada:plot
     - ada:processingMethod
+    - ada:PSFDShapeFile
+    - ada:QRISCalibratedCollection
+    - ada:QRISRawCollection
     - ada:quickLook
     - ada:report
+    - ada:RITOFNGMSCollection
     - ada:samplePreparation
+    - ada:SEMImageCollection
+    - ada:shapefile
     - ada:supplementalBasemap
     - ada:supplementaryImage
+    - ada:TEMEDSImageCollection
+    - ada:TOFSIMSCollection
     - ada:worldFile
+    - ada:XANESCollection
+    - ada:XCTImageCollection
     - nil:missing
     description: ADA componentType for a collection, as a single string. Allowed values
       are constrained at the technique-profile level (each adaProfile's schema:hasPart

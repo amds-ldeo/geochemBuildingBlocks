@@ -1,5 +1,5 @@
 Validation report for ogch.BaseSchema.collection - Collection Type
-Generated 2026-09-03T04:46:10.809683+00:00
+Generated 2026-09-03T16:32:59.149307+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -22,38 +22,48 @@ Failed validating 'type' in schema['properties']['ada:componentType']:
                     'profile-specific componentTypes (e.g. '
                     'ada:XANESCollection, ada:LIT2DDataCollection) do not '
                     'require updates to this branch schema.',
-     'enum': ['ada:EAIRMSCollection',
-              'ada:EMPAImageCollection',
-              'ada:GCMSCollection',
-              'ada:LCMSCollection',
-              'ada:NanoSIMSCollection',
-              'ada:PSFDShapeFile',
-              'ada:QRISCalibratedCollection',
-              'ada:SEMImageCollection',
-              'ada:TOFSIMSCollection',
-              'ada:XCTImageCollection',
-              'ada:shapefile',
-              'ada:analysisLocation',
+     'enum': ['ada:analysisLocation',
               'ada:annotatedImage',
               'ada:areaOfInterest',
+              'ada:ARGTCollection',
               'ada:basemap',
               'ada:calibrationFile',
               'ada:code',
               'ada:contextPhotography',
               'ada:contextVideo',
+              'ada:EAIRMSCollection',
+              'ada:EMPAImageCollection',
+              'ada:GCMSCollection',
               'ada:inputFile',
               'ada:instrumentMetadata',
+              'ada:LCMSCollection',
+              'ada:LITPolarDataCollection',
               'ada:logFile',
+              'ada:MCICPMSCollection',
               'ada:methodDescription',
+              'ada:NanoIRMapCollection',
+              'ada:NanoIRPointCollection',
+              'ada:NanoSIMSCollection',
+              'ada:NanoSIMSImageCollection',
               'ada:other',
               'ada:plot',
               'ada:processingMethod',
+              'ada:PSFDShapeFile',
+              'ada:QRISCalibratedCollection',
+              'ada:QRISRawCollection',
               'ada:quickLook',
               'ada:report',
+              'ada:RITOFNGMSCollection',
               'ada:samplePreparation',
+              'ada:SEMImageCollection',
+              'ada:shapefile',
               'ada:supplementalBasemap',
               'ada:supplementaryImage',
+              'ada:TEMEDSImageCollection',
+              'ada:TOFSIMSCollection',
               'ada:worldFile',
+              'ada:XANESCollection',
+              'ada:XCTImageCollection',
               'nil:missing'],
      'type': 'string',
      'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'}
@@ -72,7 +82,7 @@ Validation result for _sources/BaseSchema/collection/rules.shacl:
   Validation Result in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
   	Severity: sh:Warning
   	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Collection should specify componentType.") ; sh:path ada:componentType ; sh:severity sh:Warning ]
-  	Focus Node: [ ada:componentType [ rdf:type ada:SEMEDSElementalMaps ] ; ada:filelist [ ada:componentType Literal("ada:SEMEDSElementalMap") ; ada:fileName Literal("map_Fe_Ka.tif") ; schema1:encodingFormat Literal("image/tiff") ], [ ada:componentType Literal("ada:SEMEDSElementalMap") ; ada:fileName Literal("map_Si_Ka.tif") ; schema1:encodingFormat Literal("image/tiff") ] ; ada:memberTypes Literal("ada:SEMEDSElementalMap") ; ada:nFiles Literal("5", datatype=xsd:integer) ; rdf:type ada:collection, schema:Collection ]
+  	Focus Node: [ ada:componentType [ rdf:type ada:SEMEDSElementalMaps ] ; ada:filelist [ ada:componentType Literal("ada:SEMEDSElementalMap") ; ada:fileName Literal("map_Fe_Ka.tif") ; schema1:encodingFormat Literal("image/tiff") ], [ ada:componentType Literal("ada:SEMEDSElementalMap") ; ada:fileName Literal("map_Si_Ka.tif") ; schema1:encodingFormat Literal("image/tiff") ] ; ada:memberTypes Literal("ada:SEMEDSElementalMap") ; ada:nFiles Literal("5", datatype=xsd:integer) ; rdf:type ada:collection, schema1:Collection ]
   	Value Node: [ rdf:type ada:SEMEDSElementalMaps ]
   	Result Path: ada:componentType
   	Message: Collection should specify componentType.

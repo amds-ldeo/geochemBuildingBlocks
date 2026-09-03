@@ -349,7 +349,7 @@ Mock data for validation and testing.
           "@type": [
             "schema:MediaObject",
             "ada:collection",
-            "https://schema.org/Collection"
+            "http://schema.org/Collection"
           ],
           "schema:name": "ALH84001_XCT_001.tif",
           "schema:description": "XCT data file for ALH 84001 thin section",
@@ -771,7 +771,7 @@ Mock data for validation and testing.
           "@type": [
             "schema:MediaObject",
             "ada:collection",
-            "https://schema.org/Collection"
+            "http://schema.org/Collection"
           ],
           "schema:name": "ALH84001_XCT_001.tif",
           "schema:description": "XCT data file for ALH 84001 thin section",
@@ -892,7 +892,6 @@ Mock data for validation and testing.
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix schema: <https://schema.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -985,9 +984,9 @@ ex:adaXCT-example-001 a schema1:Dataset,
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] .
 
-ex:adaXCT-file-001 a schema1:MediaObject,
-        ada:collection,
-        schema:Collection ;
+ex:adaXCT-file-001 a schema1:Collection,
+        schema1:MediaObject,
+        ada:collection ;
     schema1:additionalType "ada:XCTImageCollection" ;
     schema1:description "XCT data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
