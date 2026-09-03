@@ -1109,11 +1109,11 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "fs-LA-MC-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1" ;
-    schema1:object [ a schema1:DefinedTerm,
+    schema1:object [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ],
+        [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ],
-        [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)" ] ;
@@ -2549,225 +2549,6 @@ allOf:
         materials rather than universal physical constants. Record "None" if no citable,
         revisable physical constants feed into this procedure's data reduction.
       type: string
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the
-            procedure's declared reported properties. schema:variableMeasured carries
-            the dataset's actual variables; the reported-property branches above are
-            permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - title: Goodness-of-Fit or Dispersion Statistic
-          description: The statistic reported to show whether scatter among the contributing
-            analyses exceeds what analytical uncertainty alone predicts, together
-            with its value. The procedure may still state an acceptance threshold,
-            which belongs with the inclusion criteria.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatisticDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: goodnessOfFitOrDispersionStatisticDefault
-            schema:name:
-              const: Goodness-of-Fit or Dispersion Statistic
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Limit of Quantification (LOQ) Method
-          description: 'Reference or description of the method used to calculate the
-            limit of quantification (LOQ): the lowest concentration reliably measurable
-            with acceptable precision and accuracy. Required when concentrations near
-            the LOD are reported.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: limitOfQuantificationMethodDefault
-            schema:name:
-              const: Limit of Quantification (LOQ) Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Uncertainty Propagation Method
-          description: 'The approach used to propagate analytical uncertainty through
-            the data reduction chain to the final reported value. State which sources
-            are included in the propagation: counting statistics, calibration standard
-            uncertainty, internal standard uncertainty, drift correction, and any
-            systematic contributions. Distinct from Uncertainty Level, which states
-            the convention at which the resulting uncertainty is quoted.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: uncertaintyPropagationMethodDefault
-            schema:name:
-              const: Uncertainty Propagation Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-      allOf:
-      - contains:
-          title: Goodness-of-Fit or Dispersion Statistic
-          description: The statistic reported to show whether scatter among the contributing
-            analyses exceeds what analytical uncertainty alone predicts, together
-            with its value. The procedure may still state an acceptance threshold,
-            which belongs with the inclusion criteria.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatisticDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: goodnessOfFitOrDispersionStatisticDefault
-            schema:name:
-              const: Goodness-of-Fit or Dispersion Statistic
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Limit of Quantification (LOQ) Method
-          description: 'Reference or description of the method used to calculate the
-            limit of quantification (LOQ): the lowest concentration reliably measurable
-            with acceptable precision and accuracy. Required when concentrations near
-            the LOD are reported.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: limitOfQuantificationMethodDefault
-            schema:name:
-              const: Limit of Quantification (LOQ) Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Uncertainty Propagation Method
-          description: 'The approach used to propagate analytical uncertainty through
-            the data reduction chain to the final reported value. State which sources
-            are included in the propagation: counting statistics, calibration standard
-            uncertainty, internal standard uncertainty, drift correction, and any
-            systematic contributions. Distinct from Uncertainty Level, which states
-            the convention at which the resulting uncertainty is quoted.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: uncertaintyPropagationMethodDefault
-            schema:name:
-              const: Uncertainty Propagation Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
     ada:isobaricInterferenceCorrectionsApplied:
       description: Whether mathematical corrections for isobaric, polyatomic or residual
         interferences are applied in data reduction, supplementary to any suppression
@@ -3062,6 +2843,160 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - title: Limit of Quantification (LOQ) Method
+          description: 'Reference or description of the method used to calculate the
+            limit of quantification (LOQ): the lowest concentration reliably measurable
+            with acceptable precision and accuracy. Required when concentrations near
+            the LOD are reported.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: limitOfQuantificationMethodDefault
+            schema:name:
+              const: Limit of Quantification (LOQ) Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Uncertainty Propagation Method
+          description: 'The approach used to propagate analytical uncertainty through
+            the data reduction chain to the final reported value. State which sources
+            are included in the propagation: counting statistics, calibration standard
+            uncertainty, internal standard uncertainty, drift correction, and any
+            systematic contributions. Distinct from Uncertainty Level, which states
+            the convention at which the resulting uncertainty is quoted.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: uncertaintyPropagationMethodDefault
+            schema:name:
+              const: Uncertainty Propagation Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+      allOf:
+      - contains:
+          title: Limit of Quantification (LOQ) Method
+          description: 'Reference or description of the method used to calculate the
+            limit of quantification (LOQ): the lowest concentration reliably measurable
+            with acceptable precision and accuracy. Required when concentrations near
+            the LOD are reported.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: limitOfQuantificationMethodDefault
+            schema:name:
+              const: Limit of Quantification (LOQ) Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Uncertainty Propagation Method
+          description: 'The approach used to propagate analytical uncertainty through
+            the data reduction chain to the final reported value. State which sources
+            are included in the propagation: counting statistics, calibration standard
+            uncertainty, internal standard uncertainty, drift correction, and any
+            systematic contributions. Distinct from Uncertainty Level, which states
+            the convention at which the resulting uncertainty is quoted.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: uncertaintyPropagationMethodDefault
+            schema:name:
+              const: Uncertainty Propagation Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     ada:massBiasCorrectionStrategy:
       description: 'Strategy used to correct instrumental isotopic mass fractionation,
         also called mass bias or mass discrimination. Distinct from Elemental Fractionation

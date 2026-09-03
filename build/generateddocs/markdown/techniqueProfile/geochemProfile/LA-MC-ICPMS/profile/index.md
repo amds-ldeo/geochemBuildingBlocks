@@ -511,22 +511,22 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:sensitivityYield": 1.0,
+  "ada:spotDiameterMeasured": 1.0,
   "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
     {
       "dqv:isMeasurementOf": "Peak Flatness",
       "dqv:value": "example peakFlatness"
     },
     {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+    },
+    {
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "example oxideProduction"
     }
-  ],
-  "ada:sensitivityYield": 1.0,
-  "ada:spotDiameterMeasured": 1.0
+  ]
 }
 
 ```
@@ -1040,22 +1040,22 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:sensitivityYield": 1.0,
+  "ada:spotDiameterMeasured": 1.0,
   "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
-    },
     {
       "dqv:isMeasurementOf": "Peak Flatness",
       "dqv:value": "example peakFlatness"
     },
     {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+    },
+    {
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "example oxideProduction"
     }
-  ],
-  "ada:sensitivityYield": 1.0,
-  "ada:spotDiameterMeasured": 1.0
+  ]
 }
 ```
 
@@ -1151,10 +1151,10 @@ ex:adaLAMCICPMS-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "example peakFlatness" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "example oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:identifier "session-ada-20260110-001" ;

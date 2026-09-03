@@ -28,17 +28,17 @@ Shell type for labeled links to creative works (schema:CreativeWork). Defines pr
 
 Supplemental documents for calibration, methods, and analysis info. Defines properties: @type, componentType, schema:version, schema:isBasedOn. Uses building blocks: detailARGT (geochemProperties).
 
-### `ogch.BaseSchema.image` — Image Type
-
-**Type:** schema
-
-ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
-
 ### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
 
 **Type:** schema
 
 Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
+
+### `ogch.BaseSchema.image` — Image Type
+
+**Type:** schema
+
+ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
 
 ### `ogch.BaseSchema.otherFile` — Other File Type
 
