@@ -214,9 +214,9 @@ The procedure half of the Core module, with every property populated. Generated 
     ada:reportedProperties "example value" ;
     ada:samplingUnit "example value" ;
     bios:computationalTool [ schema1:name "example value" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ schema1:name "example value" ;
-            ada:toolRole "acquisition" ] .
+            ada:toolRole "dataReduction" ] .
 
 
 ```
