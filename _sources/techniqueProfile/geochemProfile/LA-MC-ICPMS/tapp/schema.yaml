@@ -876,129 +876,6 @@ allOf:
         materials rather than universal physical constants. Record "None" if no citable, revisable physical
         constants feed into this procedure's data reduction.
       type: string
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the procedure's declared
-            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
-            branches above are permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - &id015
-          title: Goodness-of-Fit or Dispersion Statistic
-          description: The statistic reported to show whether scatter among the contributing analyses
-            exceeds what analytical uncertainty alone predicts, together with its value. The procedure
-            may still state an acceptance threshold, which belongs with the inclusion criteria.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatisticDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: goodnessOfFitOrDispersionStatisticDefault
-            schema:name:
-              const: Goodness-of-Fit or Dispersion Statistic
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id016
-          title: Limit of Quantification (LOQ) Method
-          description: 'Reference or description of the method used to calculate the limit of quantification
-            (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
-            Required when concentrations near the LOD are reported.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: limitOfQuantificationMethodDefault
-            schema:name:
-              const: Limit of Quantification (LOQ) Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id017
-          title: Uncertainty Propagation Method
-          description: 'The approach used to propagate analytical uncertainty through the data reduction
-            chain to the final reported value. State which sources are included in the propagation: counting
-            statistics, calibration standard uncertainty, internal standard uncertainty, drift correction,
-            and any systematic contributions. Distinct from Uncertainty Level, which states the convention
-            at which the resulting uncertainty is quoted.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: uncertaintyPropagationMethodDefault
-            schema:name:
-              const: Uncertainty Propagation Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-      allOf:
-      - contains: *id015
-        minContains: 0
-        maxContains: 1
-      - contains: *id016
-        minContains: 0
-        maxContains: 1
-      - contains: *id017
-        minContains: 0
-        maxContains: 1
     ada:isobaricInterferenceCorrectionsApplied:
       description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
         are applied in data reduction, supplementary to any suppression already achieved by chemical separation,
@@ -1023,7 +900,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id018
+            - &id015
               title: Limit of Quantification (LOQ) Method
               description: 'Reference or description of the method used to calculate the limit of quantification
                 (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
@@ -1053,7 +930,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id019
+            - &id016
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One analyte may be acquired at more
                 than one resolution, so the assignment is per acquired mass rather than per element. The
@@ -1084,7 +961,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id020
+            - &id017
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by the analyte element
                 they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts
@@ -1118,7 +995,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id021
+            - &id018
               title: Instrument Sensitivity
               description: Instrument sensitivity achieved in the session, with the isotope or channel
                 it was measured on and the conditions it applies to. May be expressed either as detected
@@ -1150,18 +1027,107 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
+          - contains: *id015
+            minContains: 0
+            maxContains: 1
+          - contains: *id016
+            minContains: 0
+            maxContains: 1
+          - contains: *id017
+            minContains: 0
+            maxContains: 1
           - contains: *id018
             minContains: 0
             maxContains: 1
-          - contains: *id019
-            minContains: 0
-            maxContains: 1
-          - contains: *id020
-            minContains: 0
-            maxContains: 1
-          - contains: *id021
-            minContains: 0
-            maxContains: 1
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the procedure's declared
+            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
+            branches above are permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - &id019
+          title: Limit of Quantification (LOQ) Method
+          description: 'Reference or description of the method used to calculate the limit of quantification
+            (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
+            Required when concentrations near the LOD are reported.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: limitOfQuantificationMethodDefault
+            schema:name:
+              const: Limit of Quantification (LOQ) Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id020
+          title: Uncertainty Propagation Method
+          description: 'The approach used to propagate analytical uncertainty through the data reduction
+            chain to the final reported value. State which sources are included in the propagation: counting
+            statistics, calibration standard uncertainty, internal standard uncertainty, drift correction,
+            and any systematic contributions. Distinct from Uncertainty Level, which states the convention
+            at which the resulting uncertainty is quoted.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: uncertaintyPropagationMethodDefault
+            schema:name:
+              const: Uncertainty Propagation Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+      allOf:
+      - contains: *id019
+        minContains: 0
+        maxContains: 1
+      - contains: *id020
+        minContains: 0
+        maxContains: 1
     ada:massBiasCorrectionStrategy:
       description: 'Strategy used to correct instrumental isotopic mass fractionation, also called mass
         bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses

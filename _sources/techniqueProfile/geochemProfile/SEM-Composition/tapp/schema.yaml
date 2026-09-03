@@ -1502,59 +1502,6 @@ allOf:
                   const: Data reduction
               required:
               - schema:name
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the procedure's declared
-            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
-            branches above are permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - &id037
-          title: Goodness-of-Fit or Dispersion Statistic
-          description: The statistic reported to show whether scatter among the contributing analyses
-            exceeds what analytical uncertainty alone predicts, together with its value. The procedure
-            may still state an acceptance threshold, which belongs with the inclusion criteria.
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/semCompositionTAPP/goodnessOfFitOrDispersionStatisticDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: goodnessOfFitOrDispersionStatisticDefault
-            schema:name:
-              const: Goodness-of-Fit or Dispersion Statistic
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-      allOf:
-      - contains: *id037
-        minContains: 0
-        maxContains: 1
     ada:analyticalMode:
       type: array
       items:
