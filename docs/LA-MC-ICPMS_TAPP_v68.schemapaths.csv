@@ -156,9 +156,8 @@ Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:pr
 Procedure Author,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
 Procedure DOI,N/A,Basic,URI / DOI,,module,,placement owned by Module Core,
 Procedure Name,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
-Procedure Reference(s),Advanced,Read-Only,URI / DOI,$MethodDefinition.prov:wasDerivedFrom,inferred,,path from owning module,
 Procedure Start Date,Basic,Read-Only,Date,,module,,placement owned by Module Core,
-Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,shared,placement owned by Module Core,
+Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,shared,"covered by Module_Core. Was an inferred $MethodDefinition.prov:wasDerivedFrom, which is the wrong relation: the field is 'DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure' -- publications ABOUT the procedure, not a procedure this one was derived FROM. Core's relatedLink[techniquePublication] is right.",
 Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation (as Ablation Duration per Spot),
 Raster Line Spacing (Mapping Only),Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 Reaction Gas Flow Rate,Advanced,Editable,Numeric (mL/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Reaction Gas Flow Rate'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
@@ -178,7 +177,7 @@ Sampler and Skimmer Cone Material,Advanced,Read-Only,Controlled list / Text,$Met
 Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
 Secondary Reference Materials,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,defines: standard
 Secondary Reference Materials,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,defines: standard
-Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,,analysis-instance (needs mapping),channel
+Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,,module,module,"covered by Module_ICPMS; the module owns the placement. Was an authored $MethodDefinition.ada:analyteTemplate.ada:analyteColumns[] -- wrong on three counts: Procedure tier is N/A so the procedure does not carry it, the table keys it 'channel' not 'analyte', and the other eight ICPMS consumers are all module-owned. See the module's own missing keyed row, still open.",channel
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Signal Integration Interval Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module ICPMS,
 Signal Integration Time,N/A,Basic,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value,authored,shared,,

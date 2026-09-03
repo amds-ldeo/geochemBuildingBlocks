@@ -995,37 +995,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id018
-              title: Instrument Sensitivity
-              description: Instrument sensitivity achieved in the session, with the isotope or channel
-                it was measured on and the conditions it applies to. May be expressed either as detected
-                signal per unit concentration or per unit mass of analyte delivered — counts per second
-                per ppb, volts per ppm, counts per picogram — or as useful yield, the percentage of sampled
-                atoms ultimately detected as ions, with the method used to derive it cited. A sensitivity
-                the procedure requires before analyses may begin belongs with the tuning acceptance criteria.
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/instrumentSensitivity
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: instrumentSensitivity
-                schema:name:
-                  const: Instrument Sensitivity
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: O
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
           allOf:
           - contains: *id015
             minContains: 0
@@ -1034,9 +1003,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id017
-            minContains: 0
-            maxContains: 1
-          - contains: *id018
             minContains: 0
             maxContains: 1
     schema:variableMeasured:
@@ -1057,7 +1023,7 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - &id019
+        - &id018
           title: Limit of Quantification (LOQ) Method
           description: 'Reference or description of the method used to calculate the limit of quantification
             (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
@@ -1088,7 +1054,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id020
+        - &id019
           title: Uncertainty Propagation Method
           description: 'The approach used to propagate analytical uncertainty through the data reduction
             chain to the final reported value. State which sources are included in the propagation: counting
@@ -1122,10 +1088,10 @@ allOf:
           - ada:dataType
           - ada:fieldScope
       allOf:
-      - contains: *id019
+      - contains: *id018
         minContains: 0
         maxContains: 1
-      - contains: *id020
+      - contains: *id019
         minContains: 0
         maxContains: 1
     ada:massBiasCorrectionStrategy:

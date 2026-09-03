@@ -174,8 +174,15 @@ def recognize(s):
         # a step's reagent list (sample digestion acids); the reagent is named, not parameterised
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.bios:reagent\[\](\.schema:(name|identifier))?$", "workflow-step-reagent"),
         (r"^\$MethodDefinition\.schema:(name|identifier|datePublished)$", "inherited-identity"),
-        # the procedure this one was derived from (Procedure Reference(s)) -> a prov:wasDerivedFrom
-        # string. A plan-identity field, so it groups with schema:name / identifier / datePublished.
+        # the procedure this one was derived from -> a prov:wasDerivedFrom string. A plan-identity
+        # field, so it groups with schema:name / identifier / datePublished.
+        #
+        # NOT `Procedure Reference(s)`, which this comment used to name and which one sidecar was
+        # placed on as a result. That field is "DOI or URL for peer-reviewed publications or
+        # technical reports describing, validating, or benchmarking this procedure" -- publications
+        # ABOUT the procedure, not a procedure this one derives FROM. It belongs on
+        # schema:relatedLink[linkRelationship='techniquePublication'], where Module_Core places it.
+        # No sidecar currently uses this family; it is kept for a field that genuinely derives.
         (r"^\$MethodDefinition\.prov:wasDerivedFrom$", "protocol-derived-from"),
         (r"^\$MethodDefinition\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)(\[\])?$", "protocol-sample-parameter"),
         # instrument: a typed instrument array (selector=additionalType), optional component hasPart

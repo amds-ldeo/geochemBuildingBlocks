@@ -152,8 +152,7 @@ Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,
 Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:proceduralBlankLevel,flagged,,analysis-instance (needs mapping) | path from owning module,analyte
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:value,inferred,,path from owning module,
 Age Calculation Method,Basic,Read-Only,Text (free),,module,,placement owned by Module Geochronology,reported property
-Reported Date Type,Basic,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Reported Date Type'].schema:value,inferred,,tier rule: session parameter is an additionalProperty on the analysis,reported property
-Reported Date Type,Basic,Editable,Controlled list,,module,,placement owned by Module Geochronology,reported property
+Reported Date Type,Basic,Editable,Controlled list,,module,,"covered by Module_Geochronology. Was an inferred $Dataset.prov:wasGeneratedBy.schema:additionalProperty[...] against the module's four AUTHORED rows, two of which match the table's 'reported property' key. All three U-Pb consumers had the same inferred guess, which is agreement between guesses, not evidence.",reported property
 Inherited or Initial Signal Correction,Basic,Editable,Text (free),,module,,placement owned by Module Geochronology,reported property
 Inherited or Initial Signal Correction,Basic,Editable,Text (free),,module,,placement owned by Module Geochronology,reported property
 Radiogenic Fraction of Measured Signal,N/A,Basic,Text (free),,module,module,covered by a composed module; the module owns the placement,reported property
