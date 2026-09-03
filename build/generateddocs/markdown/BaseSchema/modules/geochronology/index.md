@@ -127,15 +127,15 @@ The procedure half of the Geochronology module, with every property populated. G
 @prefix schema1: <http://schema.org/> .
 
 [] schema1:variableMeasured [ schema1:defaultValue "example value" ;
-            schema1:name "Age Model" ],
-        [ schema1:defaultValue "example value" ;
-            schema1:name "Reported Date Type" ],
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "example value" ],
         [ schema1:defaultValue "example value" ;
             schema1:name "Age Datum / Reference Epoch" ],
         [ schema1:defaultValue "example value" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "example value" ] ;
+            schema1:name "Age Model" ],
+        [ schema1:defaultValue "example value" ;
+            schema1:name "Reported Date Type" ] ;
     ada:ageCalculationMethod "example value" ;
     ada:ageModelDefault "example value" ;
     ada:inheritedOrInitialSignalCorrectionDefault "example value" ;
@@ -229,17 +229,17 @@ The analysis half of the Geochronology module, with every property populated. Ge
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:variableMeasured [ schema1:name "Age Model" ;
+[] schema1:variableMeasured [ schema1:name "Radiogenic Fraction of Measured Signal" ;
             schema1:value "example value" ],
-        [ schema1:name "Inherited or Initial Signal Correction" ;
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "example value" ],
+        [ schema1:name "Age Model" ;
             schema1:value "example value" ],
         [ schema1:name "Reported Date Type" ;
             schema1:value "example value" ],
         [ schema1:name "Age Datum / Reference Epoch" ;
             schema1:value "example value" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "example value" ],
-        [ schema1:name "Radiogenic Fraction of Measured Signal" ;
+        [ schema1:name "Inherited or Initial Signal Correction" ;
             schema1:value "example value" ] ;
     ada:reportedDateType "example value" .
 

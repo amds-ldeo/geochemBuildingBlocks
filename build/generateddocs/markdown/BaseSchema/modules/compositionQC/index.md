@@ -119,10 +119,10 @@ The procedure half of the CompositionQC module, with every property populated. G
 
 [] schema1:actionProcess [ schema1:step [ schema1:name "Data reduction" ;
                     ada:detectionLimitMethod "example value" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue 1 ;
-            schema1:name "Detection Limit" ],
-        [ schema1:defaultValue "example value" ;
-            schema1:name "Normalization / Standards-Based Correction" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "example value" ;
+            schema1:name "Normalization / Standards-Based Correction" ],
+        [ schema1:defaultValue 1 ;
+            schema1:name "Detection Limit" ] ;
     ada:primaryStandardNameDefault "example value" ;
     ada:secondaryReferenceMaterialDefault "example value" .
 

@@ -205,11 +205,11 @@ The procedure half of the Core module, with every property populated. Generated 
             schema1:name "example value" ] ;
     schema1:measurementTechnique [ schema1:termCode "example value" ] ;
     schema1:name "example value" ;
-    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "example value" ] ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
-                    schema1:name "example value" ] ] ;
+                    schema1:name "example value" ] ],
+        [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "example value" ] ] ;
     ada:analyticalMode "example value" ;
     ada:reportedProperties "example value" ;
     ada:samplingUnit "example value" ;
@@ -392,13 +392,13 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "example value" ] ;
     schema1:measurementTechnique [ schema1:identifier "example value" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "example value" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
                     schema1:name "example value" ] ],
         [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "example value" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "example value" ] ;
+            schema1:target [ schema1:url "example value" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ schema1:description "example value" ;
                             schema1:name "Sample preparation" ] ] ;
             schema1:description "example value" ;
