@@ -2677,8 +2677,24 @@
                       }
                     },
                     "required": [
-                      "@type",
-                      "cdi:has_DataStructureComponent"
+                      "@type"
+                    ],
+                    "anyOf": [
+                      {
+                        "required": [
+                          "cdi:has_DataStructureComponent"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "cdi:has_ForeignKey"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "cdi:has_PrimaryKey"
+                        ]
+                      }
                     ]
                   },
                   {
@@ -9939,7 +9955,7 @@
                               },
                               "ada:defaultAnalytes": {
                                 "type": "array",
-                                "description": "The analytes (analyzed constituents) this method targets by default — the ROWS of the per-analyte table. Each is a bare string or a schema:DefinedTerm identifying the analyte; per-analyte column VALUES live in the analysis record, not here.",
+                                "description": "The analytes (analyzed constituents) this method targets by default — the ROWS of the per-analyte table. An entry is a bare string or a schema:DefinedTerm naming the analyte, or a row object binding that analyte to per-analyte values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:analyteColumns, and MUST carry the 'analyte' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
                                 "items": {
                                   "anyOf": [
                                     {
@@ -9947,6 +9963,29 @@
                                     },
                                     {
                                       "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                    },
+                                    {
+                                      "type": "object",
+                                      "title": "Per-analyte row",
+                                      "description": "One row of the per-analyte table, keyed by column schema:valueName. null records a value that is deliberately absent for this analyte rather than merely unstated.",
+                                      "required": [
+                                        "analyte"
+                                      ],
+                                      "properties": {
+                                        "analyte": {
+                                          "type": "string",
+                                          "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the analyte column, which ada:analyteColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                                        }
+                                      },
+                                      "additionalProperties": {
+                                        "type": [
+                                          "string",
+                                          "number",
+                                          "integer",
+                                          "boolean",
+                                          "null"
+                                        ]
+                                      }
                                     }
                                   ]
                                 }
@@ -17612,7 +17651,7 @@
                                   },
                                   "ada:defaultAnalytes": {
                                     "type": "array",
-                                    "description": "The analytes (analyzed constituents) this method targets by default — the ROWS of the per-analyte table. Each is a bare string or a schema:DefinedTerm identifying the analyte; per-analyte column VALUES live in the analysis record, not here.",
+                                    "description": "The analytes (analyzed constituents) this method targets by default — the ROWS of the per-analyte table. An entry is a bare string or a schema:DefinedTerm naming the analyte, or a row object binding that analyte to per-analyte values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:analyteColumns, and MUST carry the 'analyte' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
                                     "items": {
                                       "anyOf": [
                                         {
@@ -17620,6 +17659,29 @@
                                         },
                                         {
                                           "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        },
+                                        {
+                                          "type": "object",
+                                          "title": "Per-analyte row",
+                                          "description": "One row of the per-analyte table, keyed by column schema:valueName. null records a value that is deliberately absent for this analyte rather than merely unstated.",
+                                          "required": [
+                                            "analyte"
+                                          ],
+                                          "properties": {
+                                            "analyte": {
+                                              "type": "string",
+                                              "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the analyte column, which ada:analyteColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                                            }
+                                          },
+                                          "additionalProperties": {
+                                            "type": [
+                                              "string",
+                                              "number",
+                                              "integer",
+                                              "boolean",
+                                              "null"
+                                            ]
+                                          }
                                         }
                                       ]
                                     }
@@ -32368,7 +32430,7 @@
     },
     "ForeignKey": {
       "type": "object",
-      "description": "Role of a set of data structure components for content referencing purposes",
+      "description": "A set of variables whose values reference a primary key elsewhere. cdif:, not cdi:, throughout: this is a CDIF simplification, not the DDI-CDI shape. DDI-CDI composes a foreign key from cdi:ForeignKeyComponent nodes, each with cdi:correspondsTo and cdi:references; this form composes the variables directly, each carrying cdif:position. The prefix is what makes that divergence visible, and it matches the sibling cdif:PrimaryKey. Until 2026-09-05 the definition required 'cdif:isComposedOf' while declaring 'cdi:isComposedOf', so it could only be satisfied by an undeclared and therefore unconstrained property.",
       "properties": {
         "@type": {
           "type": "array",
@@ -32376,7 +32438,7 @@
             "type": "string"
           },
           "contains": {
-            "const": "cdi:ForeignKey"
+            "const": "cdif:ForeignKey"
           },
           "minItems": 1
         },
@@ -32384,12 +32446,343 @@
           "type": "string",
           "description": "Identifier for this ForeignKey node"
         },
-        "cdi:isComposedOf": {
+        "cdif:isComposedOf": {
           "type": "array",
+          "minItems": 1,
+          "description": "Ordered list of cdi:ComponentPosition wrappers, one per key component, matching the sibling cdif:PrimaryKey. The position sits on the wrapper rather than on the variable, and that is load-bearing: an earlier form required cdif:position on the item itself, which made the objectReference branch unsatisfiable, because objectReference is sealed with additionalProperties false. A key could then only be written by inlining whole variables, duplicating what schema:variableMeasured already holds.",
           "items": {
-            "allOf": [
-              {
+            "type": "object",
+            "description": "cdi:ComponentPosition wrapper indexing one variable's position in the key.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "cdi:ComponentPosition"
+                },
+                "minItems": 1
+              },
+              "@id": {
+                "type": "string",
+                "description": "Identifier for this ComponentPosition node."
+              },
+              "cdi:indexes": {
+                "description": "The variable this position indexes, usually an @id-reference to one declared in schema:variableMeasured. An InstanceVariable is accepted alongside a RepresentedVariable because it is a subclass of one, and CDIF records describe instance variables -- requiring a RepresentedVariable would leave the records that actually need a key unable to write one.",
                 "anyOf": [
+                  {
+                    "title": "Object Reference",
+                    "description": "A reference to a node defined elsewhere, by its @id.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "description": "resolvable @id of the referenced node"
+                      }
+                    },
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "title": "CDIF Instance Variable",
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "description": "Must include both schema:PropertyValue and cdi:InstanceVariable. Additional types may be included.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "contains": {
+                          "const": "cdi:InstanceVariable"
+                        }
+                      },
+                      "cdif:physicalDataType": {
+                        "$ref": "#/$defs/CdifInstanceVariable_cdifConceptOrTermOrString",
+                        "description": "identifier or name for the data type concept."
+                      },
+                      "cdif:role": {
+                        "type": "string",
+                        "enum": [
+                          "UnitIdentifier",
+                          "Measure",
+                          "Attribute",
+                          "Dimension",
+                          "Descriptor",
+                          "ReferenceVariable"
+                        ],
+                        "description": "Specifies the role this variable plays in a data structure. UnitIdentifier names the unit a row describes; Measure holds observed/derived values; Attribute qualifies an observation; Dimension addresses a cell in a multi-dimensional cube; Descriptor names the variable that a Reference column records values for (long format); ReferenceVariable holds those recorded values."
+                      },
+                      "cdif:simpleUnitOfMeasure": {
+                        "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])",
+                        "type": "string"
+                      },
+                      "cdif:uses": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/$defs/CdifInstanceVariable_cdifConceptOrTermOrString"
+                        },
+                        "description": "Essentially the same as schema:propertyID. References to the concept(s) that this variable measures or represents. Concepts only -- to point at the RepresentedVariable that supplies the represented-variable-level properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI role names by target, so each JSON key has a single value type; it also keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable, which is valued by a Concept."
+                      },
+                      "cdif:isDefinedBy_RepresentedVariable": {
+                        "title": "Object Reference",
+                        "description": "The RepresentedVariable this InstanceVariable instantiates. A reference only (@id, nothing else): the point of the link is that the represented-variable-level properties are defined once on the RepresentedVariable and NOT duplicated here, so an inline copy would defeat it. Same property name as on cdifDataStructureComponent, which carries the equivalent link within a data structure; that one also accepts an inline RepresentedVariable because a structure may define one that exists nowhere else.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "description": "resolvable @id of the referenced node"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "cdi:function": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/$defs/CdifInstanceVariable_cdifConceptOrTermOrString"
+                        },
+                        "description": "Immutable characteristic of the variable such as geographic designator, weight, temporal designation, etc. (InstanceVariable.function)."
+                      },
+                      "cdi:platformType": {
+                        "$ref": "#/$defs/CdifInstanceVariable_cdifConceptOrTermOrString",
+                        "description": "The application or technical system context in which the variable has been realized - typically a statistical processing package or processing environment (InstanceVariable.platformType)."
+                      },
+                      "cdi:source": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ],
+                        "description": "Reference capturing provenance information for this InstanceVariable (InstanceVariable.source)."
+                      },
+                      "cdif:isDescribedBy_StatisticsCollection": {
+                        "description": "The StatisticsCollection holding summary / category statistics for this InstanceVariable (direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy → StatisticsCollection` association). cdif: namespaced and target-suffixed because the DDI-CDI isDescribedBy association is polymorphic. This is the canonical CDIF path for **per-variable** statistics; dataset-scope aggregates (row count etc.) go under `Dataset.cdif:statistics` instead.",
+                        "anyOf": [
+                          {
+                            "$ref": "#/$defs/StatisticsCollection"
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id"
+                            ]
+                          }
+                        ]
+                      },
+                      "cdi:describedUnitOfMeasure": {
+                        "$ref": "#/$defs/cdifConceptOrTerm",
+                        "description": "The unit in which the data values are measured, expressed as a controlled-vocabulary entry (RepresentedVariable.describedUnitOfMeasure). For a plain-string unit, use cdif:simpleUnitOfMeasure instead."
+                      },
+                      "cdi:qualifies": {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        },
+                        "description": "reference to an instance variable defined for this dataset"
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "required": [
+                          "@type"
+                        ]
+                      },
+                      {
+                        "description": "Schema.org PropertyValue-based variableMeasured. Defines properties for a measured variable in a dataset, typed as schema:PropertyValue.",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "anyOf": [
+                                {
+                                  "const": "schema:PropertyValue"
+                                },
+                                {
+                                  "const": "schema:PropertyValueSpecification"
+                                }
+                              ]
+                            },
+                            "minItems": 1
+                          },
+                          "@id": {
+                            "type": "string"
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "string label associated with the variable in the dataset serialization"
+                          },
+                          "schema:description": {
+                            "type": "string",
+                            "default": "missing"
+                          },
+                          "schema:alternateName": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "description": "human intelligible name for variable that conveys semantics"
+                            }
+                          },
+                          "schema:measurementTechnique": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "description": "reference to a skos concept"
+                                  }
+                                }
+                              },
+                              {
+                                "$ref": "#/$defs/DefinedTerm"
+                              }
+                            ],
+                            "description": "Text description or URI specifying how values for the variable were obtained."
+                          },
+                          "schema:propertyID": {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "@id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                {
+                                  "$ref": "#/$defs/DefinedTerm"
+                                }
+                              ]
+                            },
+                            "description": "identifier or name for the property concept"
+                          },
+                          "schema:unitText": {
+                            "type": "string",
+                            "description": "unit of measurement as text"
+                          },
+                          "schema:unitCode": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@id": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "$ref": "#/$defs/DefinedTerm"
+                              }
+                            ],
+                            "description": "URI or code identifying the unit of measure"
+                          },
+                          "schema:minValue": {
+                            "type": "number",
+                            "description": "minimum numeric value in the dataset"
+                          },
+                          "schema:maxValue": {
+                            "type": "number",
+                            "description": "maximum numeric value in the dataset"
+                          },
+                          "schema:url": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "link to a web page useful for interpreting the variable"
+                              },
+                              {
+                                "$ref": "#/$defs/VariableMeasured_Reference"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "@type",
+                          "schema:name"
+                        ]
+                      },
+                      {
+                        "if": {
+                          "required": [
+                            "cdif:isDefinedBy_RepresentedVariable"
+                          ]
+                        },
+                        "then": {
+                          "properties": {
+                            "cdi:takesSubstantiveValuesFrom": false,
+                            "cdi:takesSentinelValuesFrom": false,
+                            "cdi:hasIntendedDataType": false,
+                            "cdi:describedUnitOfMeasure": false,
+                            "cdi:unitOfMeasureKind": false,
+                            "cdi:measures": false,
+                            "cdi:externalDefinition": false,
+                            "cdif:uses_Concept": false,
+                            "cdif:definition": false
+                          },
+                          "description": "When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level properties live on that RepresentedVariable and may not be declared inline on the InstanceVariable."
+                        }
+                      }
+                    ]
+                  },
                   {
                     "title": "DDI-CDI Represented Variable",
                     "description": "Conceptual variable with a substantive value domain specified.",
@@ -32627,42 +33020,21 @@
                     "required": [
                       "@type"
                     ]
-                  },
-                  {
-                    "title": "Object Reference",
-                    "description": "A reference to a node defined elsewhere, by its @id.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "description": "resolvable @id of the referenced node"
-                      }
-                    },
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false
                   }
                 ]
               },
-              {
-                "type": "object",
-                "properties": {
-                  "cdif:position": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "description": "1-based position of this component in the key."
-                  }
-                },
-                "required": [
-                  "cdif:position"
-                ]
+              "cdi:value": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "1-based position of this variable in the ordered key."
               }
+            },
+            "required": [
+              "@type"
             ]
-          },
-          "minItems": 1
+          }
         },
-        "cdi:references": {
+        "cdif:references": {
           "title": "Object Reference",
           "description": "references a primary key in a different dataset",
           "type": "object",

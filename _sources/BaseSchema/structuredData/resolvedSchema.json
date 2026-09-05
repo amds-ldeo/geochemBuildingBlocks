@@ -131,11 +131,11 @@
                                     "description": "Identifier for this RepresentedVariable node"
                                   },
                                   "cdi:describedUnitOfMeasure": {
-                                    "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                    "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                                     "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
                                   },
                                   "cdi:hasIntendedDataType": {
-                                    "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                    "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                                     "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
                                   },
                                   "cdi:takesSentinelValuesFrom": {
@@ -219,7 +219,7 @@
                                     ]
                                   },
                                   "cdi:unitOfMeasureKind": {
-                                    "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                    "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                                     "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
                                   },
                                   "cdif:definition": {
@@ -235,7 +235,7 @@
                                     "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                                   },
                                   "cdi:externalDefinition": {
-                                    "$ref": "#/$defs/Reference",
+                                    "$ref": "#/$defs/CdifRepresentedVariable_Reference",
                                     "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                                   },
                                   "cdi:identifier": {
@@ -404,8 +404,24 @@
             }
           },
           "required": [
-            "@type",
-            "cdi:has_DataStructureComponent"
+            "@type"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "cdi:has_DataStructureComponent"
+              ]
+            },
+            {
+              "required": [
+                "cdi:has_ForeignKey"
+              ]
+            },
+            {
+              "required": [
+                "cdi:has_PrimaryKey"
+              ]
+            }
           ]
         },
         {
@@ -479,11 +495,11 @@
                                 "description": "Identifier for this RepresentedVariable node"
                               },
                               "cdi:describedUnitOfMeasure": {
-                                "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                                 "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
                               },
                               "cdi:hasIntendedDataType": {
-                                "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                                 "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
                               },
                               "cdi:takesSentinelValuesFrom": {
@@ -567,7 +583,7 @@
                                 ]
                               },
                               "cdi:unitOfMeasureKind": {
-                                "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                                 "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
                               },
                               "cdif:definition": {
@@ -583,7 +599,7 @@
                                 "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                               },
                               "cdi:externalDefinition": {
-                                "$ref": "#/$defs/Reference",
+                                "$ref": "#/$defs/CdifRepresentedVariable_Reference",
                                 "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                               },
                               "cdi:identifier": {
@@ -941,7 +957,7 @@
   "$defs": {
     "ForeignKey": {
       "type": "object",
-      "description": "Role of a set of data structure components for content referencing purposes",
+      "description": "A set of variables whose values reference a primary key elsewhere. cdif:, not cdi:, throughout: this is a CDIF simplification, not the DDI-CDI shape. DDI-CDI composes a foreign key from cdi:ForeignKeyComponent nodes, each with cdi:correspondsTo and cdi:references; this form composes the variables directly, each carrying cdif:position. The prefix is what makes that divergence visible, and it matches the sibling cdif:PrimaryKey. Until 2026-09-05 the definition required 'cdif:isComposedOf' while declaring 'cdi:isComposedOf', so it could only be satisfied by an undeclared and therefore unconstrained property.",
       "properties": {
         "@type": {
           "type": "array",
@@ -949,7 +965,7 @@
             "type": "string"
           },
           "contains": {
-            "const": "cdi:ForeignKey"
+            "const": "cdif:ForeignKey"
           },
           "minItems": 1
         },
@@ -957,12 +973,343 @@
           "type": "string",
           "description": "Identifier for this ForeignKey node"
         },
-        "cdi:isComposedOf": {
+        "cdif:isComposedOf": {
           "type": "array",
+          "minItems": 1,
+          "description": "Ordered list of cdi:ComponentPosition wrappers, one per key component, matching the sibling cdif:PrimaryKey. The position sits on the wrapper rather than on the variable, and that is load-bearing: an earlier form required cdif:position on the item itself, which made the objectReference branch unsatisfiable, because objectReference is sealed with additionalProperties false. A key could then only be written by inlining whole variables, duplicating what schema:variableMeasured already holds.",
           "items": {
-            "allOf": [
-              {
+            "type": "object",
+            "description": "cdi:ComponentPosition wrapper indexing one variable's position in the key.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "cdi:ComponentPosition"
+                },
+                "minItems": 1
+              },
+              "@id": {
+                "type": "string",
+                "description": "Identifier for this ComponentPosition node."
+              },
+              "cdi:indexes": {
+                "description": "The variable this position indexes, usually an @id-reference to one declared in schema:variableMeasured. An InstanceVariable is accepted alongside a RepresentedVariable because it is a subclass of one, and CDIF records describe instance variables -- requiring a RepresentedVariable would leave the records that actually need a key unable to write one.",
                 "anyOf": [
+                  {
+                    "title": "Object Reference",
+                    "description": "A reference to a node defined elsewhere, by its @id.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "description": "resolvable @id of the referenced node"
+                      }
+                    },
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "title": "CDIF Instance Variable",
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "description": "Must include both schema:PropertyValue and cdi:InstanceVariable. Additional types may be included.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "contains": {
+                          "const": "cdi:InstanceVariable"
+                        }
+                      },
+                      "cdif:physicalDataType": {
+                        "$ref": "#/$defs/cdifConceptOrTermOrString",
+                        "description": "identifier or name for the data type concept."
+                      },
+                      "cdif:role": {
+                        "type": "string",
+                        "enum": [
+                          "UnitIdentifier",
+                          "Measure",
+                          "Attribute",
+                          "Dimension",
+                          "Descriptor",
+                          "ReferenceVariable"
+                        ],
+                        "description": "Specifies the role this variable plays in a data structure. UnitIdentifier names the unit a row describes; Measure holds observed/derived values; Attribute qualifies an observation; Dimension addresses a cell in a multi-dimensional cube; Descriptor names the variable that a Reference column records values for (long format); ReferenceVariable holds those recorded values."
+                      },
+                      "cdif:simpleUnitOfMeasure": {
+                        "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])",
+                        "type": "string"
+                      },
+                      "cdif:uses": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/$defs/cdifConceptOrTermOrString"
+                        },
+                        "description": "Essentially the same as schema:propertyID. References to the concept(s) that this variable measures or represents. Concepts only -- to point at the RepresentedVariable that supplies the represented-variable-level properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI role names by target, so each JSON key has a single value type; it also keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable, which is valued by a Concept."
+                      },
+                      "cdif:isDefinedBy_RepresentedVariable": {
+                        "title": "Object Reference",
+                        "description": "The RepresentedVariable this InstanceVariable instantiates. A reference only (@id, nothing else): the point of the link is that the represented-variable-level properties are defined once on the RepresentedVariable and NOT duplicated here, so an inline copy would defeat it. Same property name as on cdifDataStructureComponent, which carries the equivalent link within a data structure; that one also accepts an inline RepresentedVariable because a structure may define one that exists nowhere else.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "description": "resolvable @id of the referenced node"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "cdi:function": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/$defs/cdifConceptOrTermOrString"
+                        },
+                        "description": "Immutable characteristic of the variable such as geographic designator, weight, temporal designation, etc. (InstanceVariable.function)."
+                      },
+                      "cdi:platformType": {
+                        "$ref": "#/$defs/cdifConceptOrTermOrString",
+                        "description": "The application or technical system context in which the variable has been realized - typically a statistical processing package or processing environment (InstanceVariable.platformType)."
+                      },
+                      "cdi:source": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ],
+                        "description": "Reference capturing provenance information for this InstanceVariable (InstanceVariable.source)."
+                      },
+                      "cdif:isDescribedBy_StatisticsCollection": {
+                        "description": "The StatisticsCollection holding summary / category statistics for this InstanceVariable (direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy → StatisticsCollection` association). cdif: namespaced and target-suffixed because the DDI-CDI isDescribedBy association is polymorphic. This is the canonical CDIF path for **per-variable** statistics; dataset-scope aggregates (row count etc.) go under `Dataset.cdif:statistics` instead.",
+                        "anyOf": [
+                          {
+                            "$ref": "#/$defs/StatisticsCollection"
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "@id"
+                            ]
+                          }
+                        ]
+                      },
+                      "cdi:describedUnitOfMeasure": {
+                        "$ref": "#/$defs/cdifConceptOrTerm",
+                        "description": "The unit in which the data values are measured, expressed as a controlled-vocabulary entry (RepresentedVariable.describedUnitOfMeasure). For a plain-string unit, use cdif:simpleUnitOfMeasure instead."
+                      },
+                      "cdi:qualifies": {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        },
+                        "description": "reference to an instance variable defined for this dataset"
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "required": [
+                          "@type"
+                        ]
+                      },
+                      {
+                        "description": "Schema.org PropertyValue-based variableMeasured. Defines properties for a measured variable in a dataset, typed as schema:PropertyValue.",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "anyOf": [
+                                {
+                                  "const": "schema:PropertyValue"
+                                },
+                                {
+                                  "const": "schema:PropertyValueSpecification"
+                                }
+                              ]
+                            },
+                            "minItems": 1
+                          },
+                          "@id": {
+                            "type": "string"
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "string label associated with the variable in the dataset serialization"
+                          },
+                          "schema:description": {
+                            "type": "string",
+                            "default": "missing"
+                          },
+                          "schema:alternateName": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "description": "human intelligible name for variable that conveys semantics"
+                            }
+                          },
+                          "schema:measurementTechnique": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "description": "reference to a skos concept"
+                                  }
+                                }
+                              },
+                              {
+                                "$ref": "#/$defs/DefinedTerm"
+                              }
+                            ],
+                            "description": "Text description or URI specifying how values for the variable were obtained."
+                          },
+                          "schema:propertyID": {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "@id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                {
+                                  "$ref": "#/$defs/DefinedTerm"
+                                }
+                              ]
+                            },
+                            "description": "identifier or name for the property concept"
+                          },
+                          "schema:unitText": {
+                            "type": "string",
+                            "description": "unit of measurement as text"
+                          },
+                          "schema:unitCode": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                  "@id": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              {
+                                "$ref": "#/$defs/DefinedTerm"
+                              }
+                            ],
+                            "description": "URI or code identifying the unit of measure"
+                          },
+                          "schema:minValue": {
+                            "type": "number",
+                            "description": "minimum numeric value in the dataset"
+                          },
+                          "schema:maxValue": {
+                            "type": "number",
+                            "description": "maximum numeric value in the dataset"
+                          },
+                          "schema:url": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "link to a web page useful for interpreting the variable"
+                              },
+                              {
+                                "$ref": "#/$defs/Reference"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "@type",
+                          "schema:name"
+                        ]
+                      },
+                      {
+                        "if": {
+                          "required": [
+                            "cdif:isDefinedBy_RepresentedVariable"
+                          ]
+                        },
+                        "then": {
+                          "properties": {
+                            "cdi:takesSubstantiveValuesFrom": false,
+                            "cdi:takesSentinelValuesFrom": false,
+                            "cdi:hasIntendedDataType": false,
+                            "cdi:describedUnitOfMeasure": false,
+                            "cdi:unitOfMeasureKind": false,
+                            "cdi:measures": false,
+                            "cdi:externalDefinition": false,
+                            "cdif:uses_Concept": false,
+                            "cdif:definition": false
+                          },
+                          "description": "When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level properties live on that RepresentedVariable and may not be declared inline on the InstanceVariable."
+                        }
+                      }
+                    ]
+                  },
                   {
                     "title": "DDI-CDI Represented Variable",
                     "description": "Conceptual variable with a substantive value domain specified.",
@@ -983,11 +1330,11 @@
                         "description": "Identifier for this RepresentedVariable node"
                       },
                       "cdi:describedUnitOfMeasure": {
-                        "$ref": "#/$defs/cdifConceptOrTermOrString",
+                        "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                         "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
                       },
                       "cdi:hasIntendedDataType": {
-                        "$ref": "#/$defs/cdifConceptOrTermOrString",
+                        "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                         "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
                       },
                       "cdi:takesSentinelValuesFrom": {
@@ -1071,7 +1418,7 @@
                         ]
                       },
                       "cdi:unitOfMeasureKind": {
-                        "$ref": "#/$defs/cdifConceptOrTermOrString",
+                        "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                         "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
                       },
                       "cdif:definition": {
@@ -1087,7 +1434,7 @@
                         "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                       },
                       "cdi:externalDefinition": {
-                        "$ref": "#/$defs/Reference",
+                        "$ref": "#/$defs/CdifRepresentedVariable_Reference",
                         "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                       },
                       "cdi:identifier": {
@@ -1200,42 +1547,21 @@
                     "required": [
                       "@type"
                     ]
-                  },
-                  {
-                    "title": "Object Reference",
-                    "description": "A reference to a node defined elsewhere, by its @id.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "description": "resolvable @id of the referenced node"
-                      }
-                    },
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false
                   }
                 ]
               },
-              {
-                "type": "object",
-                "properties": {
-                  "cdif:position": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "description": "1-based position of this component in the key."
-                  }
-                },
-                "required": [
-                  "cdif:position"
-                ]
+              "cdi:value": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "1-based position of this variable in the ordered key."
               }
+            },
+            "required": [
+              "@type"
             ]
-          },
-          "minItems": 1
+          }
         },
-        "cdi:references": {
+        "cdif:references": {
           "title": "Object Reference",
           "description": "references a primary key in a different dataset",
           "type": "object",
@@ -1296,11 +1622,11 @@
                   "description": "Identifier for this RepresentedVariable node"
                 },
                 "cdi:describedUnitOfMeasure": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
                 },
                 "cdi:hasIntendedDataType": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
                 },
                 "cdi:takesSentinelValuesFrom": {
@@ -1384,7 +1710,7 @@
                   ]
                 },
                 "cdi:unitOfMeasureKind": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
                 },
                 "cdif:definition": {
@@ -1400,7 +1726,7 @@
                   "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                 },
                 "cdi:externalDefinition": {
-                  "$ref": "#/$defs/Reference",
+                  "$ref": "#/$defs/CdifRepresentedVariable_Reference",
                   "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                 },
                 "cdi:identifier": {
@@ -1651,11 +1977,11 @@
                   "description": "Identifier for this RepresentedVariable node"
                 },
                 "cdi:describedUnitOfMeasure": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
                 },
                 "cdi:hasIntendedDataType": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
                 },
                 "cdi:takesSentinelValuesFrom": {
@@ -1739,7 +2065,7 @@
                   ]
                 },
                 "cdi:unitOfMeasureKind": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
                 },
                 "cdif:definition": {
@@ -1755,7 +2081,7 @@
                   "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                 },
                 "cdi:externalDefinition": {
-                  "$ref": "#/$defs/Reference",
+                  "$ref": "#/$defs/CdifRepresentedVariable_Reference",
                   "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                 },
                 "cdi:identifier": {
@@ -2027,11 +2353,11 @@
                             "description": "Identifier for this RepresentedVariable node"
                           },
                           "cdi:describedUnitOfMeasure": {
-                            "$ref": "#/$defs/cdifConceptOrTermOrString",
+                            "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                             "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
                           },
                           "cdi:hasIntendedDataType": {
-                            "$ref": "#/$defs/cdifConceptOrTermOrString",
+                            "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                             "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
                           },
                           "cdi:takesSentinelValuesFrom": {
@@ -2115,7 +2441,7 @@
                             ]
                           },
                           "cdi:unitOfMeasureKind": {
-                            "$ref": "#/$defs/cdifConceptOrTermOrString",
+                            "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                             "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
                           },
                           "cdif:definition": {
@@ -2131,7 +2457,7 @@
                             "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                           },
                           "cdi:externalDefinition": {
-                            "$ref": "#/$defs/Reference",
+                            "$ref": "#/$defs/CdifRepresentedVariable_Reference",
                             "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                           },
                           "cdi:identifier": {
@@ -2382,11 +2708,11 @@
                   "description": "Identifier for this RepresentedVariable node"
                 },
                 "cdi:describedUnitOfMeasure": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
                 },
                 "cdi:hasIntendedDataType": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
                 },
                 "cdi:takesSentinelValuesFrom": {
@@ -2470,7 +2796,7 @@
                   ]
                 },
                 "cdi:unitOfMeasureKind": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
                 },
                 "cdif:definition": {
@@ -2486,7 +2812,7 @@
                   "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                 },
                 "cdi:externalDefinition": {
-                  "$ref": "#/$defs/Reference",
+                  "$ref": "#/$defs/CdifRepresentedVariable_Reference",
                   "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                 },
                 "cdi:identifier": {
@@ -2736,11 +3062,11 @@
                   "description": "Identifier for this RepresentedVariable node"
                 },
                 "cdi:describedUnitOfMeasure": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
                 },
                 "cdi:hasIntendedDataType": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
                 },
                 "cdi:takesSentinelValuesFrom": {
@@ -2824,7 +3150,7 @@
                   ]
                 },
                 "cdi:unitOfMeasureKind": {
-                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                   "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
                 },
                 "cdif:definition": {
@@ -2840,7 +3166,7 @@
                   "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                 },
                 "cdi:externalDefinition": {
-                  "$ref": "#/$defs/Reference",
+                  "$ref": "#/$defs/CdifRepresentedVariable_Reference",
                   "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                 },
                 "cdi:identifier": {
@@ -3071,11 +3397,11 @@
                                 "description": "Identifier for this RepresentedVariable node"
                               },
                               "cdi:describedUnitOfMeasure": {
-                                "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                                 "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary."
                               },
                               "cdi:hasIntendedDataType": {
-                                "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                                 "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary."
                               },
                               "cdi:takesSentinelValuesFrom": {
@@ -3159,7 +3485,7 @@
                                 ]
                               },
                               "cdi:unitOfMeasureKind": {
-                                "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                "$ref": "#/$defs/CdifRepresentedVariable_cdifConceptOrTermOrString",
                                 "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete."
                               },
                               "cdif:definition": {
@@ -3175,7 +3501,7 @@
                                 "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                               },
                               "cdi:externalDefinition": {
-                                "$ref": "#/$defs/Reference",
+                                "$ref": "#/$defs/CdifRepresentedVariable_Reference",
                                 "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                               },
                               "cdi:identifier": {
@@ -3502,6 +3828,1198 @@
       ]
     },
     "cdifConceptOrTermOrString": {
+      "title": "CDIF Concept-or-Term-or-String",
+      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "reference to a skos concept for the data type"
+                }
+              }
+            },
+            {
+              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:DefinedTerm"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "text label for the term that is useful to human user"
+                },
+                "schema:identifier": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:PropertyValue"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:propertyID": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                        },
+                        "schema:value": {
+                          "type": "string",
+                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                        },
+                        "schema:url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                        }
+                      },
+                      "allOf": [
+                        {
+                          "required": [
+                            "@type"
+                          ]
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "required": [
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "schema:inDefinedTermSet": {
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "schema:termCode": {
+                  "type": "string",
+                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:identifier"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:termCode"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$ref": "#/$defs/cdifConcept"
+            }
+          ]
+        }
+      ]
+    },
+    "StatisticsCollection": {
+      "title": "StatisticsCollection",
+      "description": "Groups one or more Statistics nodes for an instance variable. A typical use is a dataset-level collection holding row-count / mean / stddev Statistics for each measured variable.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "Identifier for this StatisticsCollection node."
+        },
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "cdi:StatisticsCollection"
+          },
+          "minItems": 1
+        },
+        "cdi:hasWeight": {
+          "description": "The InstanceVariable whose values were used as weights (inline cdifInstanceVariable node or an @id-reference).",
+          "anyOf": [
+            {
+              "title": "CDIF Instance Variable",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "description": "Must include both schema:PropertyValue and cdi:InstanceVariable. Additional types may be included.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "cdi:InstanceVariable"
+                  }
+                },
+                "cdif:physicalDataType": {
+                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "description": "identifier or name for the data type concept."
+                },
+                "cdif:role": {
+                  "type": "string",
+                  "enum": [
+                    "UnitIdentifier",
+                    "Measure",
+                    "Attribute",
+                    "Dimension",
+                    "Descriptor",
+                    "ReferenceVariable"
+                  ],
+                  "description": "Specifies the role this variable plays in a data structure. UnitIdentifier names the unit a row describes; Measure holds observed/derived values; Attribute qualifies an observation; Dimension addresses a cell in a multi-dimensional cube; Descriptor names the variable that a Reference column records values for (long format); ReferenceVariable holds those recorded values."
+                },
+                "cdif:simpleUnitOfMeasure": {
+                  "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])",
+                  "type": "string"
+                },
+                "cdif:uses": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString"
+                  },
+                  "description": "Essentially the same as schema:propertyID. References to the concept(s) that this variable measures or represents. Concepts only -- to point at the RepresentedVariable that supplies the represented-variable-level properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI role names by target, so each JSON key has a single value type; it also keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable, which is valued by a Concept."
+                },
+                "cdif:isDefinedBy_RepresentedVariable": {
+                  "title": "Object Reference",
+                  "description": "The RepresentedVariable this InstanceVariable instantiates. A reference only (@id, nothing else): the point of the link is that the represented-variable-level properties are defined once on the RepresentedVariable and NOT duplicated here, so an inline copy would defeat it. Same property name as on cdifDataStructureComponent, which carries the equivalent link within a data structure; that one also accepts an inline RepresentedVariable because a structure may define one that exists nowhere else.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string",
+                      "description": "resolvable @id of the referenced node"
+                    }
+                  },
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false
+                },
+                "cdi:function": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString"
+                  },
+                  "description": "Immutable characteristic of the variable such as geographic designator, weight, temporal designation, etc. (InstanceVariable.function)."
+                },
+                "cdi:platformType": {
+                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "description": "The application or technical system context in which the variable has been realized - typically a statistical processing package or processing environment (InstanceVariable.platformType)."
+                },
+                "cdi:source": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Reference capturing provenance information for this InstanceVariable (InstanceVariable.source)."
+                },
+                "cdif:isDescribedBy_StatisticsCollection": {
+                  "description": "The StatisticsCollection holding summary / category statistics for this InstanceVariable (direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy → StatisticsCollection` association). cdif: namespaced and target-suffixed because the DDI-CDI isDescribedBy association is polymorphic. This is the canonical CDIF path for **per-variable** statistics; dataset-scope aggregates (row count etc.) go under `Dataset.cdif:statistics` instead.",
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/StatisticsCollection"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id"
+                      ]
+                    }
+                  ]
+                },
+                "cdi:describedUnitOfMeasure": {
+                  "$ref": "#/$defs/cdifConceptOrTerm",
+                  "description": "The unit in which the data values are measured, expressed as a controlled-vocabulary entry (RepresentedVariable.describedUnitOfMeasure). For a plain-string unit, use cdif:simpleUnitOfMeasure instead."
+                },
+                "cdi:qualifies": {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "reference to an instance variable defined for this dataset"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "description": "Schema.org PropertyValue-based variableMeasured. Defines properties for a measured variable in a dataset, typed as schema:PropertyValue.",
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "contains": {
+                        "anyOf": [
+                          {
+                            "const": "schema:PropertyValue"
+                          },
+                          {
+                            "const": "schema:PropertyValueSpecification"
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    },
+                    "@id": {
+                      "type": "string"
+                    },
+                    "schema:name": {
+                      "type": "string",
+                      "description": "string label associated with the variable in the dataset serialization"
+                    },
+                    "schema:description": {
+                      "type": "string",
+                      "default": "missing"
+                    },
+                    "schema:alternateName": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "human intelligible name for variable that conveys semantics"
+                      }
+                    },
+                    "schema:measurementTechnique": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string",
+                              "description": "reference to a skos concept"
+                            }
+                          }
+                        },
+                        {
+                          "$ref": "#/$defs/DefinedTerm"
+                        }
+                      ],
+                      "description": "Text description or URI specifying how values for the variable were obtained."
+                    },
+                    "schema:propertyID": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "$ref": "#/$defs/DefinedTerm"
+                          }
+                        ]
+                      },
+                      "description": "identifier or name for the property concept"
+                    },
+                    "schema:unitText": {
+                      "type": "string",
+                      "description": "unit of measurement as text"
+                    },
+                    "schema:unitCode": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        {
+                          "$ref": "#/$defs/DefinedTerm"
+                        }
+                      ],
+                      "description": "URI or code identifying the unit of measure"
+                    },
+                    "schema:minValue": {
+                      "type": "number",
+                      "description": "minimum numeric value in the dataset"
+                    },
+                    "schema:maxValue": {
+                      "type": "number",
+                      "description": "maximum numeric value in the dataset"
+                    },
+                    "schema:url": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "link to a web page useful for interpreting the variable"
+                        },
+                        {
+                          "$ref": "#/$defs/Reference"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@type",
+                    "schema:name"
+                  ]
+                },
+                {
+                  "if": {
+                    "required": [
+                      "cdif:isDefinedBy_RepresentedVariable"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "cdi:takesSubstantiveValuesFrom": false,
+                      "cdi:takesSentinelValuesFrom": false,
+                      "cdi:hasIntendedDataType": false,
+                      "cdi:describedUnitOfMeasure": false,
+                      "cdi:unitOfMeasureKind": false,
+                      "cdi:measures": false,
+                      "cdi:externalDefinition": false,
+                      "cdif:uses_Concept": false,
+                      "cdif:definition": false
+                    },
+                    "description": "When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level properties live on that RepresentedVariable and may not be declared inline on the InstanceVariable."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        },
+        "cdif:has_Statistics": {
+          "type": "array",
+          "description": "Statistics nodes carried by this collection (inline or @id-ref). cdif: namespaced and target-suffixed because the DDI-CDI cdi:has association is polymorphic.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Statistics"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id"
+                ]
+              }
+            ]
+          },
+          "minItems": 1
+        },
+        "cdif:indexedBy": {
+          "type": "array",
+          "description": "CDIF addition (not in canonical DDI-CDI): the InstanceVariable(s) the contained Statistics index — the collection-level coordinate space. Marks the collection as per-variable-scoped: a StatisticsCollection carrying `cdif:indexedBy` MUST be attached via `schema:variableMeasured[i].cdif:isDescribedBy_StatisticsCollection` on one of the indexed variables, NOT at Dataset level via `cdif:statistics` (which is reserved for genuinely dataset-scope aggregates like row count).",
+          "items": {
+            "anyOf": [
+              {
+                "title": "CDIF Instance Variable",
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "description": "Must include both schema:PropertyValue and cdi:InstanceVariable. Additional types may be included.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "cdi:InstanceVariable"
+                    }
+                  },
+                  "cdif:physicalDataType": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString",
+                    "description": "identifier or name for the data type concept."
+                  },
+                  "cdif:role": {
+                    "type": "string",
+                    "enum": [
+                      "UnitIdentifier",
+                      "Measure",
+                      "Attribute",
+                      "Dimension",
+                      "Descriptor",
+                      "ReferenceVariable"
+                    ],
+                    "description": "Specifies the role this variable plays in a data structure. UnitIdentifier names the unit a row describes; Measure holds observed/derived values; Attribute qualifies an observation; Dimension addresses a cell in a multi-dimensional cube; Descriptor names the variable that a Reference column records values for (long format); ReferenceVariable holds those recorded values."
+                  },
+                  "cdif:simpleUnitOfMeasure": {
+                    "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])",
+                    "type": "string"
+                  },
+                  "cdif:uses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/cdifConceptOrTermOrString"
+                    },
+                    "description": "Essentially the same as schema:propertyID. References to the concept(s) that this variable measures or represents. Concepts only -- to point at the RepresentedVariable that supplies the represented-variable-level properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI role names by target, so each JSON key has a single value type; it also keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable, which is valued by a Concept."
+                  },
+                  "cdif:isDefinedBy_RepresentedVariable": {
+                    "title": "Object Reference",
+                    "description": "The RepresentedVariable this InstanceVariable instantiates. A reference only (@id, nothing else): the point of the link is that the represented-variable-level properties are defined once on the RepresentedVariable and NOT duplicated here, so an inline copy would defeat it. Same property name as on cdifDataStructureComponent, which carries the equivalent link within a data structure; that one also accepts an inline RepresentedVariable because a structure may define one that exists nowhere else.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "description": "resolvable @id of the referenced node"
+                      }
+                    },
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "cdi:function": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/cdifConceptOrTermOrString"
+                    },
+                    "description": "Immutable characteristic of the variable such as geographic designator, weight, temporal designation, etc. (InstanceVariable.function)."
+                  },
+                  "cdi:platformType": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString",
+                    "description": "The application or technical system context in which the variable has been realized - typically a statistical processing package or processing environment (InstanceVariable.platformType)."
+                  },
+                  "cdi:source": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ],
+                    "description": "Reference capturing provenance information for this InstanceVariable (InstanceVariable.source)."
+                  },
+                  "cdif:isDescribedBy_StatisticsCollection": {
+                    "description": "The StatisticsCollection holding summary / category statistics for this InstanceVariable (direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy → StatisticsCollection` association). cdif: namespaced and target-suffixed because the DDI-CDI isDescribedBy association is polymorphic. This is the canonical CDIF path for **per-variable** statistics; dataset-scope aggregates (row count etc.) go under `Dataset.cdif:statistics` instead.",
+                    "anyOf": [
+                      {
+                        "$ref": "#/$defs/StatisticsCollection"
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ]
+                      }
+                    ]
+                  },
+                  "cdi:describedUnitOfMeasure": {
+                    "$ref": "#/$defs/cdifConceptOrTerm",
+                    "description": "The unit in which the data values are measured, expressed as a controlled-vocabulary entry (RepresentedVariable.describedUnitOfMeasure). For a plain-string unit, use cdif:simpleUnitOfMeasure instead."
+                  },
+                  "cdi:qualifies": {
+                    "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "@id": {
+                        "type": "string"
+                      }
+                    },
+                    "description": "reference to an instance variable defined for this dataset"
+                  }
+                },
+                "allOf": [
+                  {
+                    "required": [
+                      "@type"
+                    ]
+                  },
+                  {
+                    "description": "Schema.org PropertyValue-based variableMeasured. Defines properties for a measured variable in a dataset, typed as schema:PropertyValue.",
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "contains": {
+                          "anyOf": [
+                            {
+                              "const": "schema:PropertyValue"
+                            },
+                            {
+                              "const": "schema:PropertyValueSpecification"
+                            }
+                          ]
+                        },
+                        "minItems": 1
+                      },
+                      "@id": {
+                        "type": "string"
+                      },
+                      "schema:name": {
+                        "type": "string",
+                        "description": "string label associated with the variable in the dataset serialization"
+                      },
+                      "schema:description": {
+                        "type": "string",
+                        "default": "missing"
+                      },
+                      "schema:alternateName": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "description": "human intelligible name for variable that conveys semantics"
+                        }
+                      },
+                      "schema:measurementTechnique": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string",
+                                "description": "reference to a skos concept"
+                              }
+                            }
+                          },
+                          {
+                            "$ref": "#/$defs/DefinedTerm"
+                          }
+                        ],
+                        "description": "Text description or URI specifying how values for the variable were obtained."
+                      },
+                      "schema:propertyID": {
+                        "type": "array",
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "additionalProperties": false,
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            {
+                              "$ref": "#/$defs/DefinedTerm"
+                            }
+                          ]
+                        },
+                        "description": "identifier or name for the property concept"
+                      },
+                      "schema:unitText": {
+                        "type": "string",
+                        "description": "unit of measurement as text"
+                      },
+                      "schema:unitCode": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "$ref": "#/$defs/DefinedTerm"
+                          }
+                        ],
+                        "description": "URI or code identifying the unit of measure"
+                      },
+                      "schema:minValue": {
+                        "type": "number",
+                        "description": "minimum numeric value in the dataset"
+                      },
+                      "schema:maxValue": {
+                        "type": "number",
+                        "description": "maximum numeric value in the dataset"
+                      },
+                      "schema:url": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "link to a web page useful for interpreting the variable"
+                          },
+                          {
+                            "$ref": "#/$defs/Reference"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:name"
+                    ]
+                  },
+                  {
+                    "if": {
+                      "required": [
+                        "cdif:isDefinedBy_RepresentedVariable"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "cdi:takesSubstantiveValuesFrom": false,
+                        "cdi:takesSentinelValuesFrom": false,
+                        "cdi:hasIntendedDataType": false,
+                        "cdi:describedUnitOfMeasure": false,
+                        "cdi:unitOfMeasureKind": false,
+                        "cdi:measures": false,
+                        "cdi:externalDefinition": false,
+                        "cdif:uses_Concept": false,
+                        "cdif:definition": false
+                      },
+                      "description": "When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level properties live on that RepresentedVariable and may not be declared inline on the InstanceVariable."
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id"
+                ]
+              }
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "@type",
+        "cdif:has_Statistics"
+      ]
+    },
+    "cdifConceptOrTerm": {
+      "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "@id"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "@id": {
+              "type": "string",
+              "description": "reference to a skos concept for the data type"
+            }
+          }
+        },
+        {
+          "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "contains": {
+                "const": "schema:DefinedTerm"
+              },
+              "minItems": 1
+            },
+            "schema:name": {
+              "type": "string",
+              "description": "text label for the term that is useful to human user"
+            },
+            "schema:identifier": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "contains": {
+                        "const": "schema:PropertyValue"
+                      },
+                      "minItems": 1
+                    },
+                    "schema:propertyID": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "@id"
+                          ],
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ],
+                      "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                    },
+                    "schema:value": {
+                      "type": "string",
+                      "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                    },
+                    "schema:url": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                    }
+                  },
+                  "allOf": [
+                    {
+                      "required": [
+                        "@type"
+                      ]
+                    },
+                    {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "schema:value"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "schema:url"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "schema:inDefinedTermSet": {
+              "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "schema:termCode": {
+              "type": "string",
+              "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+            }
+          },
+          "allOf": [
+            {
+              "required": [
+                "@type"
+              ]
+            },
+            {
+              "anyOf": [
+                {
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                {
+                  "required": [
+                    "schema:identifier"
+                  ]
+                },
+                {
+                  "required": [
+                    "schema:termCode"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$ref": "#/$defs/cdifConcept"
+        }
+      ]
+    },
+    "DefinedTerm": {
+      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:DefinedTerm"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "text label for the term that is useful to human user"
+        },
+        "schema:identifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:PropertyValue"
+                  },
+                  "minItems": 1
+                },
+                "schema:propertyID": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:url"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "schema:inDefinedTermSet": {
+          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:termCode": {
+          "type": "string",
+          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+        }
+      },
+      "allOf": [
+        {
+          "required": [
+            "@type"
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "schema:name"
+              ]
+            },
+            {
+              "required": [
+                "schema:identifier"
+              ]
+            },
+            {
+              "required": [
+                "schema:termCode"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Reference": {
+      "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "default": "schema:CreativeWork",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:CreativeWork"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string"
+        },
+        "schema:description": {
+          "type": "string"
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "@type",
+        "schema:url"
+      ]
+    },
+    "CdifRepresentedVariable_cdifConceptOrTermOrString": {
       "title": "CDIF Concept-or-Term-or-String",
       "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
       "anyOf": [
@@ -4835,7 +6353,7 @@
           "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
         },
         "cdi:externalDefinition": {
-          "$ref": "#/$defs/Reference",
+          "$ref": "#/$defs/CdifRepresentedVariable_Reference",
           "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
         },
         "cdi:identifier": {
@@ -4949,7 +6467,7 @@
         "@type"
       ]
     },
-    "Reference": {
+    "CdifRepresentedVariable_Reference": {
       "type": "object",
       "description": "CDIF reference to an external resource by URL, with optional name and description.",
       "properties": {
@@ -5684,6 +7202,877 @@
         "skos:prefLabel"
       ]
     },
+    "Statistics": {
+      "title": "Statistics",
+      "description": "A named bundle of one or more Statistic value objects for an instance variable, optionally weighted, optionally broken down by Category.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "Identifier for this Statistics node."
+        },
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "cdi:Statistics"
+          },
+          "minItems": 1
+        },
+        "cdi:typeOfStatistic": {
+          "title": "CDIF Concept-or-Term-or-String",
+          "description": "Controlled-vocabulary entry naming the kind of statistic — e.g. mean, median, count, sum, stdDev.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+              "anyOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "@id": {
+                      "type": "string",
+                      "description": "reference to a skos concept for the data type"
+                    }
+                  }
+                },
+                {
+                  "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "contains": {
+                        "const": "schema:DefinedTerm"
+                      },
+                      "minItems": 1
+                    },
+                    "schema:name": {
+                      "type": "string",
+                      "description": "text label for the term that is useful to human user"
+                    },
+                    "schema:identifier": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                          "type": "object",
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "contains": {
+                                "const": "schema:PropertyValue"
+                              },
+                              "minItems": 1
+                            },
+                            "schema:propertyID": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "properties": {
+                                    "@id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              ],
+                              "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                            },
+                            "schema:value": {
+                              "type": "string",
+                              "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                            },
+                            "schema:url": {
+                              "type": "string",
+                              "format": "uri",
+                              "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                            }
+                          },
+                          "allOf": [
+                            {
+                              "required": [
+                                "@type"
+                              ]
+                            },
+                            {
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "schema:value"
+                                  ]
+                                },
+                                {
+                                  "required": [
+                                    "schema:url"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "schema:inDefinedTermSet": {
+                      "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "schema:termCode": {
+                      "type": "string",
+                      "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                    }
+                  },
+                  "allOf": [
+                    {
+                      "required": [
+                        "@type"
+                      ]
+                    },
+                    {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "schema:name"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "schema:identifier"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "schema:termCode"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/$defs/cdifConcept"
+                }
+              ]
+            }
+          ]
+        },
+        "cdi:statistic": {
+          "type": "array",
+          "description": "Ordered list of Statistic value objects carried by this bundle. Order is significant — consumers MAY rely on array position.",
+          "items": {
+            "title": "Statistic",
+            "description": "DDI-CDI Statistic dataType — a single computed value (mean, count, median, etc.). A value object with no identity; appears inline inside a cdi:statistic array.",
+            "type": "object",
+            "properties": {
+              "cdi:computationBase": {
+                "type": "string",
+                "enum": [
+                  "MissingOnly",
+                  "Total",
+                  "ValidOnly"
+                ],
+                "description": "The cases included in determining the statistic — Total (all cases, valid and missing), ValidOnly (valid values only), MissingOnly (invalid cases only)."
+              },
+              "cdi:content": {
+                "type": "number",
+                "description": "The value of the statistic expressed as a real number."
+              },
+              "cdi:isWeighted": {
+                "type": "boolean",
+                "default": false,
+                "description": "True if the statistic was computed using a weighting variable."
+              },
+              "cdi:typeOfNumericValue": {
+                "type": "string",
+                "description": "The type of numeric value carried in cdi:content — decimal, float, or double."
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "cdi:hasWeight": {
+          "description": "The InstanceVariable whose values were used as weights when computing the Statistic entries (inline cdifInstanceVariable node or an @id-reference).",
+          "anyOf": [
+            {
+              "title": "CDIF Instance Variable",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "description": "Must include both schema:PropertyValue and cdi:InstanceVariable. Additional types may be included.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "cdi:InstanceVariable"
+                  }
+                },
+                "cdif:physicalDataType": {
+                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "description": "identifier or name for the data type concept."
+                },
+                "cdif:role": {
+                  "type": "string",
+                  "enum": [
+                    "UnitIdentifier",
+                    "Measure",
+                    "Attribute",
+                    "Dimension",
+                    "Descriptor",
+                    "ReferenceVariable"
+                  ],
+                  "description": "Specifies the role this variable plays in a data structure. UnitIdentifier names the unit a row describes; Measure holds observed/derived values; Attribute qualifies an observation; Dimension addresses a cell in a multi-dimensional cube; Descriptor names the variable that a Reference column records values for (long format); ReferenceVariable holds those recorded values."
+                },
+                "cdif:simpleUnitOfMeasure": {
+                  "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])",
+                  "type": "string"
+                },
+                "cdif:uses": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString"
+                  },
+                  "description": "Essentially the same as schema:propertyID. References to the concept(s) that this variable measures or represents. Concepts only -- to point at the RepresentedVariable that supplies the represented-variable-level properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI role names by target, so each JSON key has a single value type; it also keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable, which is valued by a Concept."
+                },
+                "cdif:isDefinedBy_RepresentedVariable": {
+                  "title": "Object Reference",
+                  "description": "The RepresentedVariable this InstanceVariable instantiates. A reference only (@id, nothing else): the point of the link is that the represented-variable-level properties are defined once on the RepresentedVariable and NOT duplicated here, so an inline copy would defeat it. Same property name as on cdifDataStructureComponent, which carries the equivalent link within a data structure; that one also accepts an inline RepresentedVariable because a structure may define one that exists nowhere else.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string",
+                      "description": "resolvable @id of the referenced node"
+                    }
+                  },
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false
+                },
+                "cdi:function": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString"
+                  },
+                  "description": "Immutable characteristic of the variable such as geographic designator, weight, temporal designation, etc. (InstanceVariable.function)."
+                },
+                "cdi:platformType": {
+                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "description": "The application or technical system context in which the variable has been realized - typically a statistical processing package or processing environment (InstanceVariable.platformType)."
+                },
+                "cdi:source": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Reference capturing provenance information for this InstanceVariable (InstanceVariable.source)."
+                },
+                "cdif:isDescribedBy_StatisticsCollection": {
+                  "description": "The StatisticsCollection holding summary / category statistics for this InstanceVariable (direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy → StatisticsCollection` association). cdif: namespaced and target-suffixed because the DDI-CDI isDescribedBy association is polymorphic. This is the canonical CDIF path for **per-variable** statistics; dataset-scope aggregates (row count etc.) go under `Dataset.cdif:statistics` instead.",
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/StatisticsCollection"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id"
+                      ]
+                    }
+                  ]
+                },
+                "cdi:describedUnitOfMeasure": {
+                  "$ref": "#/$defs/cdifConceptOrTerm",
+                  "description": "The unit in which the data values are measured, expressed as a controlled-vocabulary entry (RepresentedVariable.describedUnitOfMeasure). For a plain-string unit, use cdif:simpleUnitOfMeasure instead."
+                },
+                "cdi:qualifies": {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "reference to an instance variable defined for this dataset"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "description": "Schema.org PropertyValue-based variableMeasured. Defines properties for a measured variable in a dataset, typed as schema:PropertyValue.",
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "contains": {
+                        "anyOf": [
+                          {
+                            "const": "schema:PropertyValue"
+                          },
+                          {
+                            "const": "schema:PropertyValueSpecification"
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    },
+                    "@id": {
+                      "type": "string"
+                    },
+                    "schema:name": {
+                      "type": "string",
+                      "description": "string label associated with the variable in the dataset serialization"
+                    },
+                    "schema:description": {
+                      "type": "string",
+                      "default": "missing"
+                    },
+                    "schema:alternateName": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "human intelligible name for variable that conveys semantics"
+                      }
+                    },
+                    "schema:measurementTechnique": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string",
+                              "description": "reference to a skos concept"
+                            }
+                          }
+                        },
+                        {
+                          "$ref": "#/$defs/DefinedTerm"
+                        }
+                      ],
+                      "description": "Text description or URI specifying how values for the variable were obtained."
+                    },
+                    "schema:propertyID": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "$ref": "#/$defs/DefinedTerm"
+                          }
+                        ]
+                      },
+                      "description": "identifier or name for the property concept"
+                    },
+                    "schema:unitText": {
+                      "type": "string",
+                      "description": "unit of measurement as text"
+                    },
+                    "schema:unitCode": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        {
+                          "$ref": "#/$defs/DefinedTerm"
+                        }
+                      ],
+                      "description": "URI or code identifying the unit of measure"
+                    },
+                    "schema:minValue": {
+                      "type": "number",
+                      "description": "minimum numeric value in the dataset"
+                    },
+                    "schema:maxValue": {
+                      "type": "number",
+                      "description": "maximum numeric value in the dataset"
+                    },
+                    "schema:url": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "link to a web page useful for interpreting the variable"
+                        },
+                        {
+                          "$ref": "#/$defs/Reference"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@type",
+                    "schema:name"
+                  ]
+                },
+                {
+                  "if": {
+                    "required": [
+                      "cdif:isDefinedBy_RepresentedVariable"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "cdi:takesSubstantiveValuesFrom": false,
+                      "cdi:takesSentinelValuesFrom": false,
+                      "cdi:hasIntendedDataType": false,
+                      "cdi:describedUnitOfMeasure": false,
+                      "cdi:unitOfMeasureKind": false,
+                      "cdi:measures": false,
+                      "cdi:externalDefinition": false,
+                      "cdif:uses_Concept": false,
+                      "cdif:definition": false
+                    },
+                    "description": "When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level properties live on that RepresentedVariable and may not be declared inline on the InstanceVariable."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        },
+        "cdif:appliesTo": {
+          "type": "array",
+          "description": "CDIF addition (not in canonical DDI-CDI): the InstanceVariable(s) this Statistics bundle summarizes — the per-bundle \"what these numbers describe\" link. Used **only** when this Statistics bundle sits inside a StatisticsCollection that indexes more than one variable, to disambiguate which variable each bundle describes. It MUST NOT appear on a Statistics bundle attached at Dataset level via `cdif:statistics`; per-variable stats belong under `schema:variableMeasured[i].cdif:isDescribedBy_StatisticsCollection` (the direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy` association).",
+          "items": {
+            "anyOf": [
+              {
+                "title": "CDIF Instance Variable",
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "description": "Must include both schema:PropertyValue and cdi:InstanceVariable. Additional types may be included.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "cdi:InstanceVariable"
+                    }
+                  },
+                  "cdif:physicalDataType": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString",
+                    "description": "identifier or name for the data type concept."
+                  },
+                  "cdif:role": {
+                    "type": "string",
+                    "enum": [
+                      "UnitIdentifier",
+                      "Measure",
+                      "Attribute",
+                      "Dimension",
+                      "Descriptor",
+                      "ReferenceVariable"
+                    ],
+                    "description": "Specifies the role this variable plays in a data structure. UnitIdentifier names the unit a row describes; Measure holds observed/derived values; Attribute qualifies an observation; Dimension addresses a cell in a multi-dimensional cube; Descriptor names the variable that a Reference column records values for (long format); ReferenceVariable holds those recorded values."
+                  },
+                  "cdif:simpleUnitOfMeasure": {
+                    "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])",
+                    "type": "string"
+                  },
+                  "cdif:uses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/cdifConceptOrTermOrString"
+                    },
+                    "description": "Essentially the same as schema:propertyID. References to the concept(s) that this variable measures or represents. Concepts only -- to point at the RepresentedVariable that supplies the represented-variable-level properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI role names by target, so each JSON key has a single value type; it also keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable, which is valued by a Concept."
+                  },
+                  "cdif:isDefinedBy_RepresentedVariable": {
+                    "title": "Object Reference",
+                    "description": "The RepresentedVariable this InstanceVariable instantiates. A reference only (@id, nothing else): the point of the link is that the represented-variable-level properties are defined once on the RepresentedVariable and NOT duplicated here, so an inline copy would defeat it. Same property name as on cdifDataStructureComponent, which carries the equivalent link within a data structure; that one also accepts an inline RepresentedVariable because a structure may define one that exists nowhere else.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "description": "resolvable @id of the referenced node"
+                      }
+                    },
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "cdi:function": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/cdifConceptOrTermOrString"
+                    },
+                    "description": "Immutable characteristic of the variable such as geographic designator, weight, temporal designation, etc. (InstanceVariable.function)."
+                  },
+                  "cdi:platformType": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString",
+                    "description": "The application or technical system context in which the variable has been realized - typically a statistical processing package or processing environment (InstanceVariable.platformType)."
+                  },
+                  "cdi:source": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ],
+                    "description": "Reference capturing provenance information for this InstanceVariable (InstanceVariable.source)."
+                  },
+                  "cdif:isDescribedBy_StatisticsCollection": {
+                    "description": "The StatisticsCollection holding summary / category statistics for this InstanceVariable (direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy → StatisticsCollection` association). cdif: namespaced and target-suffixed because the DDI-CDI isDescribedBy association is polymorphic. This is the canonical CDIF path for **per-variable** statistics; dataset-scope aggregates (row count etc.) go under `Dataset.cdif:statistics` instead.",
+                    "anyOf": [
+                      {
+                        "$ref": "#/$defs/StatisticsCollection"
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ]
+                      }
+                    ]
+                  },
+                  "cdi:describedUnitOfMeasure": {
+                    "$ref": "#/$defs/cdifConceptOrTerm",
+                    "description": "The unit in which the data values are measured, expressed as a controlled-vocabulary entry (RepresentedVariable.describedUnitOfMeasure). For a plain-string unit, use cdif:simpleUnitOfMeasure instead."
+                  },
+                  "cdi:qualifies": {
+                    "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "@id": {
+                        "type": "string"
+                      }
+                    },
+                    "description": "reference to an instance variable defined for this dataset"
+                  }
+                },
+                "allOf": [
+                  {
+                    "required": [
+                      "@type"
+                    ]
+                  },
+                  {
+                    "description": "Schema.org PropertyValue-based variableMeasured. Defines properties for a measured variable in a dataset, typed as schema:PropertyValue.",
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "contains": {
+                          "anyOf": [
+                            {
+                              "const": "schema:PropertyValue"
+                            },
+                            {
+                              "const": "schema:PropertyValueSpecification"
+                            }
+                          ]
+                        },
+                        "minItems": 1
+                      },
+                      "@id": {
+                        "type": "string"
+                      },
+                      "schema:name": {
+                        "type": "string",
+                        "description": "string label associated with the variable in the dataset serialization"
+                      },
+                      "schema:description": {
+                        "type": "string",
+                        "default": "missing"
+                      },
+                      "schema:alternateName": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "description": "human intelligible name for variable that conveys semantics"
+                        }
+                      },
+                      "schema:measurementTechnique": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string",
+                                "description": "reference to a skos concept"
+                              }
+                            }
+                          },
+                          {
+                            "$ref": "#/$defs/DefinedTerm"
+                          }
+                        ],
+                        "description": "Text description or URI specifying how values for the variable were obtained."
+                      },
+                      "schema:propertyID": {
+                        "type": "array",
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "additionalProperties": false,
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            {
+                              "$ref": "#/$defs/DefinedTerm"
+                            }
+                          ]
+                        },
+                        "description": "identifier or name for the property concept"
+                      },
+                      "schema:unitText": {
+                        "type": "string",
+                        "description": "unit of measurement as text"
+                      },
+                      "schema:unitCode": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "$ref": "#/$defs/DefinedTerm"
+                          }
+                        ],
+                        "description": "URI or code identifying the unit of measure"
+                      },
+                      "schema:minValue": {
+                        "type": "number",
+                        "description": "minimum numeric value in the dataset"
+                      },
+                      "schema:maxValue": {
+                        "type": "number",
+                        "description": "maximum numeric value in the dataset"
+                      },
+                      "schema:url": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "link to a web page useful for interpreting the variable"
+                          },
+                          {
+                            "$ref": "#/$defs/Reference"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:name"
+                    ]
+                  },
+                  {
+                    "if": {
+                      "required": [
+                        "cdif:isDefinedBy_RepresentedVariable"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "cdi:takesSubstantiveValuesFrom": false,
+                        "cdi:takesSentinelValuesFrom": false,
+                        "cdi:hasIntendedDataType": false,
+                        "cdi:describedUnitOfMeasure": false,
+                        "cdi:unitOfMeasureKind": false,
+                        "cdi:measures": false,
+                        "cdi:externalDefinition": false,
+                        "cdif:uses_Concept": false,
+                        "cdif:definition": false
+                      },
+                      "description": "When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level properties live on that RepresentedVariable and may not be declared inline on the InstanceVariable."
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id"
+                ]
+              }
+            ]
+          },
+          "minItems": 1
+        },
+        "cdif:has_CategoryStatistics": {
+          "type": "array",
+          "description": "CategoryStatistics entries breaking this Statistics bundle down by Category. cdif: namespaced and target-suffixed because the DDI-CDI cdi:has association is polymorphic.",
+          "items": {
+            "$ref": "#/$defs/CategoryStatistics"
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "cdi:statistic"
+      ]
+    },
     "CdifCodelistConcept": {
       "description": "A SKOS Concept constrained for CDIF codelist use. Must have a resolvable @id, skos:inScheme, skos:notation, and skos:prefLabel. Becasue JSON-LD is an open-world implementation, any other skos properties may be included.",
       "type": "object",
@@ -5809,6 +8198,612 @@
       },
       "required": [
         "@value"
+      ]
+    },
+    "CategoryStatistics": {
+      "title": "CategoryStatistics",
+      "description": "Statistics for a specific Category of an instance variable within a data set.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "Identifier for this CategoryStatistics node."
+        },
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "cdi:CategoryStatistics"
+          },
+          "minItems": 1
+        },
+        "cdi:for": {
+          "description": "The Category this CategoryStatistics is for (inline Category node or an @id-reference).",
+          "anyOf": [
+            {
+              "title": "Category",
+              "description": "Minimal Category shape used as a CategoryStatistics target. CDIF simplifies the DDI-CDI InternationalString / LabelForDisplay / ObjectName valued properties to plain strings carried under the cdif: namespace. A full CDIF treatment of categories lives in cdifEnumerationDomain / SKOS Concept.",
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "cdi:Category"
+                  },
+                  "minItems": 1
+                },
+                "cdif:name": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Human-understandable name(s). CDIF-simplified from DDI-CDI Category.name (ObjectName) to plain strings."
+                },
+                "cdif:descriptiveText": {
+                  "type": "string",
+                  "description": "Short natural-language account of the category. CDIF-simplified from DDI-CDI Category.descriptiveText (InternationalString)."
+                },
+                "cdif:definition": {
+                  "type": "string",
+                  "description": "Natural-language definition of the category. CDIF-simplified from DDI-CDI Category.definition (InternationalString)."
+                },
+                "cdif:displayLabel": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Human-readable display label(s). CDIF-simplified from DDI-CDI Category.displayLabel (LabelForDisplay)."
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        },
+        "cdi:typeOfStatistic": {
+          "title": "CDIF Concept-or-Term-or-String",
+          "description": "Controlled-vocabulary entry naming the kind of statistic.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+              "anyOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "@id": {
+                      "type": "string",
+                      "description": "reference to a skos concept for the data type"
+                    }
+                  }
+                },
+                {
+                  "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "contains": {
+                        "const": "schema:DefinedTerm"
+                      },
+                      "minItems": 1
+                    },
+                    "schema:name": {
+                      "type": "string",
+                      "description": "text label for the term that is useful to human user"
+                    },
+                    "schema:identifier": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                          "type": "object",
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "contains": {
+                                "const": "schema:PropertyValue"
+                              },
+                              "minItems": 1
+                            },
+                            "schema:propertyID": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "properties": {
+                                    "@id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              ],
+                              "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                            },
+                            "schema:value": {
+                              "type": "string",
+                              "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                            },
+                            "schema:url": {
+                              "type": "string",
+                              "format": "uri",
+                              "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                            }
+                          },
+                          "allOf": [
+                            {
+                              "required": [
+                                "@type"
+                              ]
+                            },
+                            {
+                              "anyOf": [
+                                {
+                                  "required": [
+                                    "schema:value"
+                                  ]
+                                },
+                                {
+                                  "required": [
+                                    "schema:url"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "schema:inDefinedTermSet": {
+                      "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "schema:termCode": {
+                      "type": "string",
+                      "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                    }
+                  },
+                  "allOf": [
+                    {
+                      "required": [
+                        "@type"
+                      ]
+                    },
+                    {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "schema:name"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "schema:identifier"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "schema:termCode"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/$defs/cdifConcept"
+                }
+              ]
+            }
+          ]
+        },
+        "cdi:statistic": {
+          "type": "array",
+          "description": "Per-category Statistic value objects.",
+          "items": {
+            "title": "Statistic",
+            "description": "DDI-CDI Statistic dataType — a single computed value (mean, count, median, etc.). A value object with no identity; appears inline inside a cdi:statistic array.",
+            "type": "object",
+            "properties": {
+              "cdi:computationBase": {
+                "type": "string",
+                "enum": [
+                  "MissingOnly",
+                  "Total",
+                  "ValidOnly"
+                ],
+                "description": "The cases included in determining the statistic — Total (all cases, valid and missing), ValidOnly (valid values only), MissingOnly (invalid cases only)."
+              },
+              "cdi:content": {
+                "type": "number",
+                "description": "The value of the statistic expressed as a real number."
+              },
+              "cdi:isWeighted": {
+                "type": "boolean",
+                "default": false,
+                "description": "True if the statistic was computed using a weighting variable."
+              },
+              "cdi:typeOfNumericValue": {
+                "type": "string",
+                "description": "The type of numeric value carried in cdi:content — decimal, float, or double."
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "cdi:hasWeight": {
+          "description": "The InstanceVariable whose values were used as weights (inline cdifInstanceVariable node or an @id-reference).",
+          "anyOf": [
+            {
+              "title": "CDIF Instance Variable",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "description": "Must include both schema:PropertyValue and cdi:InstanceVariable. Additional types may be included.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "cdi:InstanceVariable"
+                  }
+                },
+                "cdif:physicalDataType": {
+                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "description": "identifier or name for the data type concept."
+                },
+                "cdif:role": {
+                  "type": "string",
+                  "enum": [
+                    "UnitIdentifier",
+                    "Measure",
+                    "Attribute",
+                    "Dimension",
+                    "Descriptor",
+                    "ReferenceVariable"
+                  ],
+                  "description": "Specifies the role this variable plays in a data structure. UnitIdentifier names the unit a row describes; Measure holds observed/derived values; Attribute qualifies an observation; Dimension addresses a cell in a multi-dimensional cube; Descriptor names the variable that a Reference column records values for (long format); ReferenceVariable holds those recorded values."
+                },
+                "cdif:simpleUnitOfMeasure": {
+                  "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a simple string, in cases where no additional information is available (in the legacy system) or needed (as in the case of broad agreement within the community of use [i.e., ISO country codes, currencies, etc. in SDMX])",
+                  "type": "string"
+                },
+                "cdif:uses": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString"
+                  },
+                  "description": "Essentially the same as schema:propertyID. References to the concept(s) that this variable measures or represents. Concepts only -- to point at the RepresentedVariable that supplies the represented-variable-level properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI role names by target, so each JSON key has a single value type; it also keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable, which is valued by a Concept."
+                },
+                "cdif:isDefinedBy_RepresentedVariable": {
+                  "title": "Object Reference",
+                  "description": "The RepresentedVariable this InstanceVariable instantiates. A reference only (@id, nothing else): the point of the link is that the represented-variable-level properties are defined once on the RepresentedVariable and NOT duplicated here, so an inline copy would defeat it. Same property name as on cdifDataStructureComponent, which carries the equivalent link within a data structure; that one also accepts an inline RepresentedVariable because a structure may define one that exists nowhere else.",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string",
+                      "description": "resolvable @id of the referenced node"
+                    }
+                  },
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false
+                },
+                "cdi:function": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/cdifConceptOrTermOrString"
+                  },
+                  "description": "Immutable characteristic of the variable such as geographic designator, weight, temporal designation, etc. (InstanceVariable.function)."
+                },
+                "cdi:platformType": {
+                  "$ref": "#/$defs/cdifConceptOrTermOrString",
+                  "description": "The application or technical system context in which the variable has been realized - typically a statistical processing package or processing environment (InstanceVariable.platformType)."
+                },
+                "cdi:source": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Reference capturing provenance information for this InstanceVariable (InstanceVariable.source)."
+                },
+                "cdif:isDescribedBy_StatisticsCollection": {
+                  "description": "The StatisticsCollection holding summary / category statistics for this InstanceVariable (direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy → StatisticsCollection` association). cdif: namespaced and target-suffixed because the DDI-CDI isDescribedBy association is polymorphic. This is the canonical CDIF path for **per-variable** statistics; dataset-scope aggregates (row count etc.) go under `Dataset.cdif:statistics` instead.",
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/StatisticsCollection"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id"
+                      ]
+                    }
+                  ]
+                },
+                "cdi:describedUnitOfMeasure": {
+                  "$ref": "#/$defs/cdifConceptOrTerm",
+                  "description": "The unit in which the data values are measured, expressed as a controlled-vocabulary entry (RepresentedVariable.describedUnitOfMeasure). For a plain-string unit, use cdif:simpleUnitOfMeasure instead."
+                },
+                "cdi:qualifies": {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "reference to an instance variable defined for this dataset"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "description": "Schema.org PropertyValue-based variableMeasured. Defines properties for a measured variable in a dataset, typed as schema:PropertyValue.",
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "description": "Must include schema:PropertyValue - a measured VALUE - or schema:PropertyValueSpecification - a SPECIFICATION of one, stating the permitted range, default or unit rather than an observed result. Protocol and method descriptions declare the latter, and pinning the array to PropertyValue alone left them no valid spelling. Additional type URIs may be included.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "contains": {
+                        "anyOf": [
+                          {
+                            "const": "schema:PropertyValue"
+                          },
+                          {
+                            "const": "schema:PropertyValueSpecification"
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    },
+                    "@id": {
+                      "type": "string"
+                    },
+                    "schema:name": {
+                      "type": "string",
+                      "description": "string label associated with the variable in the dataset serialization"
+                    },
+                    "schema:description": {
+                      "type": "string",
+                      "default": "missing"
+                    },
+                    "schema:alternateName": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "human intelligible name for variable that conveys semantics"
+                      }
+                    },
+                    "schema:measurementTechnique": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string",
+                              "description": "reference to a skos concept"
+                            }
+                          }
+                        },
+                        {
+                          "$ref": "#/$defs/DefinedTerm"
+                        }
+                      ],
+                      "description": "Text description or URI specifying how values for the variable were obtained."
+                    },
+                    "schema:propertyID": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "$ref": "#/$defs/DefinedTerm"
+                          }
+                        ]
+                      },
+                      "description": "identifier or name for the property concept"
+                    },
+                    "schema:unitText": {
+                      "type": "string",
+                      "description": "unit of measurement as text"
+                    },
+                    "schema:unitCode": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        {
+                          "$ref": "#/$defs/DefinedTerm"
+                        }
+                      ],
+                      "description": "URI or code identifying the unit of measure"
+                    },
+                    "schema:minValue": {
+                      "type": "number",
+                      "description": "minimum numeric value in the dataset"
+                    },
+                    "schema:maxValue": {
+                      "type": "number",
+                      "description": "maximum numeric value in the dataset"
+                    },
+                    "schema:url": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "link to a web page useful for interpreting the variable"
+                        },
+                        {
+                          "$ref": "#/$defs/Reference"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@type",
+                    "schema:name"
+                  ]
+                },
+                {
+                  "if": {
+                    "required": [
+                      "cdif:isDefinedBy_RepresentedVariable"
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "cdi:takesSubstantiveValuesFrom": false,
+                      "cdi:takesSentinelValuesFrom": false,
+                      "cdi:hasIntendedDataType": false,
+                      "cdi:describedUnitOfMeasure": false,
+                      "cdi:unitOfMeasureKind": false,
+                      "cdi:measures": false,
+                      "cdi:externalDefinition": false,
+                      "cdif:uses_Concept": false,
+                      "cdif:definition": false
+                    },
+                    "description": "When cdif:isDefinedBy_RepresentedVariable is present, the represented-variable-level properties live on that RepresentedVariable and may not be declared inline on the InstanceVariable."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "@type",
+        "cdi:for",
+        "cdi:statistic"
       ]
     }
   }

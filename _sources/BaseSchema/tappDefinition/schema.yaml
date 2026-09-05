@@ -256,12 +256,48 @@ properties:
         type: array
         description: >-
           The analytes (analyzed constituents) this method targets by default — the ROWS of the
-          per-analyte table. Each is a bare string or a schema:DefinedTerm identifying the analyte;
-          per-analyte column VALUES live in the analysis record, not here.
+          per-analyte table. An entry is a bare string or a schema:DefinedTerm naming the analyte,
+          or a row object binding that analyte to per-analyte values.
+
+          A row object is keyed throughout by the schema:valueName of the columns declared in
+          ada:analyteColumns, and MUST carry the 'analyte' key - the column that sibling description
+          requires to identify the constituent named in each row.
+
+          Which values belong here follows the TAPP's Analysis-Level Tier. A column marked
+          Read-Only is fixed by the procedure, so its value belongs on the row. A column marked
+          Editable takes a starting value here that an analysis may override; the value actually
+          used is reported per result, as a column of the data table, and surfaces as
+          schema:variableMeasured on the data product. Values that vary per result and are not
+          defaulted do not belong here at all.
+
+          Column-level constraints stay on the column: schema:readonlyValue when a value is
+          constant across every analyte, and schema:defaultValue when one default serves the whole
+          column. Use a row only for values that differ between analytes.
         items:
           anyOf:
           - type: string
           - $ref: '#/$defs/DefinedTerm'
+          - type: object
+            title: Per-analyte row
+            description: >-
+              One row of the per-analyte table, keyed by column schema:valueName. null records a
+              value that is deliberately absent for this analyte rather than merely unstated.
+            required:
+            - analyte
+            properties:
+              analyte:
+                type: string
+                description: >-
+                  The analyzed constituent this row is for (e.g. "SiO2"). The key is the
+                  schema:valueName of the analyte column, which ada:analyteColumns requires exactly
+                  one of, so a row is keyed by column valueName throughout.
+            additionalProperties:
+              type:
+              - string
+              - number
+              - integer
+              - boolean
+              - 'null'
     required:
     - ada:analyteColumns
     
