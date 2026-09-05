@@ -47,6 +47,8 @@ import tapp_source
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODDIR = tapp_source.modules_dir()
 BBDIR = os.path.join(ROOT, "_sources", "BaseSchema", "modules")
+# What the built module $defs actually carry. Ours, generated, read by module_composition.
+EMITTED_PATH = os.path.join(ROOT, "docs", "modules", "emitted.json")
 
 DEF_NAME = {"MethodDefinition": "ProcedureIdentification", "Dataset": "AnalysisIdentification"}
 DEF_BLURB = {
@@ -156,6 +158,7 @@ def build_schema(name, only=None):
     required = {"MethodDefinition": [], "Dataset": []}
     shacl_top = {"MethodDefinition": set(), "Dataset": set()}
     used, placed, unplaced, params = set(), 0, [], []
+    emitted = {}
     for item, (P, A, dt, desc) in meta.items():
         paths = spec.get(item, {}).get("path")
         paths = ([paths] if isinstance(paths, str) else list(paths or []))
@@ -187,6 +190,17 @@ def build_schema(name, only=None):
             parsed = spp.parse(path)
             require = (P == "Basic") if parsed.root == "MethodDefinition" else (A == "Basic")
             e.insert(roots[parsed.root], parsed, e.leaf_for(desc, dt), require=require)
+            # Recorded HERE, at the one point an insertion actually happens, and reported out as
+            # `emitted`. module_composition reads it rather than re-deriving coverage from the
+            # sidecar: the sidecar says where a field SHOULD go, the built $def says where it DID,
+            # and those two diverge whenever a module BB has not been rebuilt since its sidecar
+            # changed. That divergence silently deleted `Limit of Quantification (LOQ) Method`
+            # from nine ICP-MS schemas on 2026-09-03 -- the planner called the field covered, so
+            # simplify_sidecars blanked every technique's row, while the stale $def carried
+            # nothing. Because this manifest is written by the same run that writes the schema,
+            # a stale build now yields a stale manifest that AGREES with it, and coverage fails
+            # closed instead of open.
+            emitted.setdefault(ms._norm(ms.rename(item)), set()).add(parsed.root)
             non_type = [s for s in parsed.segments if not s.is_type]
             if (require and len(non_type) == 1 and non_type[0].selector is None
                     and not non_type[0].is_array
@@ -210,6 +224,7 @@ def build_schema(name, only=None):
                 sch = {**sch, "required": sorted(required[r])}
             out[r] = sch
     return out, {"fields": len(meta), "placed": placed, "unplaced": unplaced,
+                 "emitted": {k: sorted(v) for k, v in emitted.items()},
                  "param_defs": emit_parameter_defs(name, params), "params": params,
                  "prefixes": sorted(used & set(PREFIX_IRI)),
                  "shacl_top": {r: sorted(v) for r, v in shacl_top.items()}}
@@ -574,6 +589,7 @@ def write_description(d, name, doc, stats, composed_by):
 
 
 def main():
+    manifest = {}
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--module", action="append")
@@ -649,6 +665,7 @@ def main():
         # they bypass the root->$def mapping, which only knows MethodDefinition/Dataset.
         if stats.get("param_defs"):
             doc.setdefault("$defs", {}).update(stats["param_defs"])
+        manifest[name] = stats.get("emitted") or {}
         halves = ", ".join(defs)
         print(f"{name:<22s} {stats['fields']:2d} fields, {stats['placed']:2d} paths -> {halves}"
               f"{'   unplaced: ' + ', '.join(stats['unplaced']) if stats['unplaced'] else ''}")
@@ -660,7 +677,22 @@ def main():
             print(f"{'':22s} wrote {os.path.relpath(d, ROOT)}")
             for defname, msg in problems:
                 print(f"{'':22s} EXAMPLE FAILS {defname}: {msg}")
-    if not a.write:
+    if a.write:
+        # Written by the same run that writes the schemas, so it is exactly as fresh as they are.
+        # module_composition treats a module absent from here as composing nothing, which is the
+        # safe direction: a technique keeps its own row rather than losing the field.
+        with open(EMITTED_PATH, "w", encoding="utf-8", newline="\n") as f:
+            json.dump({"generated_by": "tools/build_module_bb.py --write",
+                       "note": ("What each module's $defs ACTUALLY carry, per root. Read by "
+                                "module_composition.plan() instead of re-deriving coverage from "
+                                "the sidecars, so the planner cannot claim a field the built $def "
+                                "does not have. Regenerated with the schemas; never hand-edit."),
+                       "modules": {k: manifest[k] for k in sorted(manifest)}},
+                      f, indent=2, sort_keys=False)
+            f.write("\n")
+        print(f"{'':22s} wrote {os.path.relpath(EMITTED_PATH, ROOT)} "
+              f"({sum(len(v) for v in manifest.values())} field placements)")
+    else:
         print("\n(dry run — pass --write)")
     return 0
 

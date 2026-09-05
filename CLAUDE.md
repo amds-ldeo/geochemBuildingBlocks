@@ -44,6 +44,34 @@ python tools/check_componentType.py               # componentType vocab/enum dri
 
 Local green ≠ CI green: `validate_examples.py` cannot catch the OGC bblocks-annotate dependency-resolution / dangling-`$ref` failures — only CI (or the branch `.github/workflows/validate-branch.yml`) runs the full postprocess.
 
+**Regenerate through `tools/regenerate.py`, not the individual tools.** The stages are a
+dependency chain, not a checklist, and running them out of order fails SILENTLY — both known
+instances produced a green `validate_examples`, because dropping a constraint only makes a schema
+more permissive:
+
+- **modules before simplify.** `simplify_sidecars` blanks a technique row when a module covers the
+  field. Deciding that against module BBs not rebuilt since their sidecars changed deleted
+  `Limit of Quantification (LOQ) Method` from nine ICP-MS schemas (2026-09-03).
+- **resolve before `build_profile`'s second pass.** `build_profile` backfills its examples'
+  `variableMeasured` entries by reading `profile/resolvedSchema.json` for the variables the
+  COMPOSED schema pins; run before the resolve it reads the previous one and misses whatever the
+  composition just added.
+
+```
+python tools/regenerate.py                 # everything, in order
+python tools/regenerate.py --tapp semTAPP  # one technique (shared stages still run)
+python tools/regenerate.py --dry-run       # print the plan
+python tools/regenerate.py --from resolve  # resume at a stage
+```
+
+**`docs/modules/emitted.json` records what the built module `$defs` ACTUALLY carry**, written by
+`build_module_bb --write` in the same run that writes the schemas. `module_composition.plan()`
+reads it rather than re-deriving coverage from the module sidecars — the sidecar says where a
+field *should* go, the built `$def` says where it *did*, and the two diverge whenever a module BB
+is stale. Reading the manifest makes that fail closed: a stale build yields a stale manifest that
+agrees with it, coverage is under-reported, and a technique keeps its own row instead of losing
+the field. Never hand-edit it; a missing manifest means "compose nothing".
+
 Regenerate a TAPP technique from its source table (a CSV in the `tapp/` submodule's `Current TAPPs/`) — never hand-edit generated output; fix the table (upstream in amds-ldeo/tapp), the sidecar, or a tool and regenerate:
 
 ```

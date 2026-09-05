@@ -92,21 +92,38 @@ def _is_composable(path):
     return is_composable(path)
 
 
+_EMITTED = None
+
+
 def _module_placed(name):
-    """{normalized field -> {roots where the module can carry it}}."""
-    src = os.path.join(ts.modules_dir(), f"Module_{name}.csv")
-    sc = schemapath_io.csv_path(src)
-    out = {}
-    if not os.path.exists(sc):
-        return out
-    for r in schemapath_io.read(sc):
-        it = (r.get("Metadata Item") or "").strip()
-        p = (r.get("Schema Path") or "").strip()
-        if not it or not p or not _is_composable(p):
-            continue
-        root = "Dataset" if p.startswith("$Dataset") else "MethodDefinition"
-        out.setdefault(ms._norm(ms.rename(it)), set()).add(root)
-    return out
+    """{normalized field -> {roots where the module ACTUALLY carries it}}.
+
+    Read from docs/modules/emitted.json, which build_module_bb writes in the same run that writes
+    the schemas — NOT re-derived from the module sidecar. The two answer different questions: the
+    sidecar says where a field SHOULD go, the built $def says where it DID, and they diverge for
+    as long as a module BB has not been rebuilt since its sidecar changed.
+
+    That divergence is not hypothetical. On 2026-09-03 two commits edited module sidecars without
+    rebuilding the BBs; this function still read the sidecars, reported `Limit of Quantification
+    (LOQ) Method` as covered, and simplify_sidecars duly blanked the row in all nine ICP-MS
+    techniques while the stale $def carried nothing. The field vanished from nine schemas and
+    validate_examples stayed green throughout, because dropping a constraint only makes a schema
+    more permissive.
+
+    Reading the manifest makes a stale build fail CLOSED: the manifest is as stale as the schema
+    it was written beside, so the two agree, coverage is under-reported, and a technique keeps its
+    own row. A missing manifest means the same — compose nothing.
+    """
+    global _EMITTED
+    if _EMITTED is None:
+        path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                            "docs", "modules", "emitted.json")
+        try:
+            with open(path, encoding="utf-8") as f:
+                _EMITTED = json.load(f).get("modules") or {}
+        except (OSError, ValueError):
+            _EMITTED = {}
+    return {k: set(v) for k, v in (_EMITTED.get(name) or {}).items()}
 
 
 def plan(source_path):
