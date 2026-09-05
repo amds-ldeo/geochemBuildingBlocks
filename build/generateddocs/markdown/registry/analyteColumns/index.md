@@ -1360,6 +1360,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpmsUPb_perAnalyteCalibrationStrategy:
+    title: Per-Analyte Calibration Strategy
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different analytes or analyte groups within
+      one procedure are calibrated differently - different primary standards for different
+      mass ranges or phases, or one element serving as internal standard while others
+      are externally calibrated. Where a single strategy applies to all analytes,
+      record that strategy. Where the procedure reports isotope ratios only and no
+      concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/perAnalyteCalibrationStrategy
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: perAnalyteCalibrationStrategy
+      schema:name:
+        const: Per-Analyte Calibration Strategy
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpmsUPb_spectralInterferenceCorrectionsApplied:
     title: Spectral Interference Corrections Applied
     description: Whether mathematical corrections for isobaric, polyatomic or residual
@@ -1898,14 +1933,13 @@ $defs:
     - ada:dataType
   laMcicpms_perAnalyteCalibrationStrategy:
     title: Per-Analyte Calibration Strategy
-    description: "Documents cases where different analytes or analyte groups within
-      the same session are calibrated using different strategies \u2014 for example,
-      one element used as the internal standard while trace elements are calibrated
-      by an external reference material, or different primary standards applied to
-      different mass ranges or mineral phases. If a single calibration strategy applies
-      uniformly to all analytes, state that here and refer to Internal Standard Approach
-      and Normalization / Standards-Based Correction for details. Free text; list
-      the strategy for each analyte or analyte group as needed."
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different analytes or analyte groups within
+      one procedure are calibrated differently - different primary standards for different
+      mass ranges or phases, or one element serving as internal standard while others
+      are externally calibrated. Where a single strategy applies to all analytes,
+      record that strategy. Where the procedure reports isotope ratios only and no
+      concentrations, record 'Not applicable (isotope ratios only)'.
     type: object
     properties:
       '@id':
@@ -2412,6 +2446,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laQicpmsUPb_perAnalyteCalibrationStrategy:
+    title: Per-Analyte Calibration Strategy
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different analytes or analyte groups within
+      one procedure are calibrated differently - different primary standards for different
+      mass ranges or phases, or one element serving as internal standard while others
+      are externally calibrated. Where a single strategy applies to all analytes,
+      record that strategy. Where the procedure reports isotope ratios only and no
+      concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/perAnalyteCalibrationStrategy
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: perAnalyteCalibrationStrategy
+      schema:name:
+        const: Per-Analyte Calibration Strategy
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laQicpmsUPb_spectralInterferenceCorrectionsApplied:
     title: Spectral Interference Corrections Applied
     description: Whether mathematical corrections for isobaric, polyatomic or residual
@@ -2895,6 +2964,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laQicpms_perAnalyteCalibrationStrategy:
+    title: Per-Analyte Calibration Strategy
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different analytes or analyte groups within
+      one procedure are calibrated differently - different primary standards for different
+      mass ranges or phases, or one element serving as internal standard while others
+      are externally calibrated. Where a single strategy applies to all analytes,
+      record that strategy. Where the procedure reports isotope ratios only and no
+      concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/perAnalyteCalibrationStrategy
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: perAnalyteCalibrationStrategy
+      schema:name:
+        const: Per-Analyte Calibration Strategy
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laQicpms_spectralInterferenceCorrectionsApplied:
     title: Spectral Interference Corrections Applied
     description: Whether mathematical corrections for isobaric, polyatomic or residual
@@ -3410,6 +3514,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laSficpmsUPb_perAnalyteCalibrationStrategy:
+    title: Per-Analyte Calibration Strategy
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different analytes or analyte groups within
+      one procedure are calibrated differently - different primary standards for different
+      mass ranges or phases, or one element serving as internal standard while others
+      are externally calibrated. Where a single strategy applies to all analytes,
+      record that strategy. Where the procedure reports isotope ratios only and no
+      concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/perAnalyteCalibrationStrategy
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: perAnalyteCalibrationStrategy
+      schema:name:
+        const: Per-Analyte Calibration Strategy
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpmsUPb_spectralInterferenceCorrectionsApplied:
     title: Spectral Interference Corrections Applied
     description: Whether mathematical corrections for isobaric, polyatomic or residual
@@ -3925,6 +4064,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laSficpms_perAnalyteCalibrationStrategy:
+    title: Per-Analyte Calibration Strategy
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different analytes or analyte groups within
+      one procedure are calibrated differently - different primary standards for different
+      mass ranges or phases, or one element serving as internal standard while others
+      are externally calibrated. Where a single strategy applies to all analytes,
+      record that strategy. Where the procedure reports isotope ratios only and no
+      concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/perAnalyteCalibrationStrategy
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: perAnalyteCalibrationStrategy
+      schema:name:
+        const: Per-Analyte Calibration Strategy
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpms_spectralInterferenceCorrectionsApplied:
     title: Spectral Interference Corrections Applied
     description: Whether mathematical corrections for isobaric, polyatomic or residual
@@ -5946,6 +6120,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  solutionMcicpms_perAnalyteCalibrationStrategy:
+    title: Per-Analyte Calibration Strategy
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different analytes or analyte groups within
+      one procedure are calibrated differently - different primary standards for different
+      mass ranges or phases, or one element serving as internal standard while others
+      are externally calibrated. Where a single strategy applies to all analytes,
+      record that strategy. Where the procedure reports isotope ratios only and no
+      concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: perAnalyteCalibrationStrategy
+      schema:name:
+        const: Per-Analyte Calibration Strategy
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   solutionQicpms_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
     description: Offset between measured and accepted values for secondary reference
@@ -6246,6 +6455,41 @@ $defs:
         const: monitoredIsotopes
       schema:name:
         const: Monitored Isotopes
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionQicpms_perAnalyteCalibrationStrategy:
+    title: Per-Analyte Calibration Strategy
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different analytes or analyte groups within
+      one procedure are calibrated differently - different primary standards for different
+      mass ranges or phases, or one element serving as internal standard while others
+      are externally calibrated. Where a single strategy applies to all analytes,
+      record that strategy. Where the procedure reports isotope ratios only and no
+      concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionQicpmsTAPP/perAnalyteCalibrationStrategy
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: perAnalyteCalibrationStrategy
+      schema:name:
+        const: Per-Analyte Calibration Strategy
       ada:dataType:
         const: string
       schema:readonlyValue:
@@ -6701,6 +6945,41 @@ $defs:
         const: monitoredMasses
       schema:name:
         const: Monitored Masses
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionSficpms_perAnalyteCalibrationStrategy:
+    title: Per-Analyte Calibration Strategy
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different analytes or analyte groups within
+      one procedure are calibrated differently - different primary standards for different
+      mass ranges or phases, or one element serving as internal standard while others
+      are externally calibrated. Where a single strategy applies to all analytes,
+      record that strategy. Where the procedure reports isotope ratios only and no
+      concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionSficpmsTAPP/perAnalyteCalibrationStrategy
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: perAnalyteCalibrationStrategy
+      schema:name:
+        const: Per-Analyte Calibration Strategy
       ada:dataType:
         const: string
       schema:readonlyValue:
