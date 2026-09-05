@@ -280,10 +280,30 @@ def render(name, defs, stats, composed_by):
 def write_bb(name, doc, stats, composed_by):
     d = os.path.join(BBDIR, dirname(name))
     os.makedirs(d, exist_ok=True)
-    with open(os.path.join(d, "schema.yaml"), "w", encoding="utf-8", newline="\n") as f:
-        yaml.safe_dump(doc, f, sort_keys=False, allow_unicode=True, width=100)
+
+    # A block's dates must be a function of its content, not of the day it was regenerated.
+    # Stamping both with date.today() walked core's dateTimeAddition from its real 2026-08-21 to
+    # 2026-09-04 over six regenerations -- it is the date the block was ADDED, so it is written
+    # once and carried forward thereafter. dateOfLastChange moves only when the schema actually
+    # changes (the postprocess recomputes it for build/register.json regardless).
+    schema_path, bb_path = os.path.join(d, "schema.yaml"), os.path.join(d, "bblock.json")
+    text = yaml.safe_dump(doc, sort_keys=False, allow_unicode=True, width=100)
+    try:
+        with open(schema_path, encoding="utf-8") as f:
+            unchanged = f.read() == text
+    except OSError:
+        unchanged = False
+    try:
+        with open(bb_path, encoding="utf-8") as f:
+            prior = json.load(f)
+    except (OSError, ValueError):
+        prior = {}
+    with open(schema_path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
 
     today = datetime.date.today().isoformat()
+    added = prior.get("dateTimeAddition") or f"{today}T00:00:00Z"
+    changed = prior.get("dateOfLastChange") if unchanged and prior else today
     bb = {"$schema": "metaschema.yaml",
           "name": f"TAPP Composition Module: {name}",
           "abstract": (f"The shared {name} block of the 2026-08-11 TAPP library, composed by "
@@ -293,9 +313,9 @@ def write_bb(name, doc, stats, composed_by):
                        f"respectively. A profile over existing tappDefinition/adaProduct "
                        f"properties, not a new vocabulary. Generated from the module CSV and its "
                        f"schema-path sidecar."),
-          "status": "under-development", "dateTimeAddition": f"{today}T00:00:00Z",
+          "status": "under-development", "dateTimeAddition": added,
           "itemClass": "schema", "register": "cdif-building-block-register",
-          "version": "0.1", "dateOfLastChange": today,
+          "version": "0.1", "dateOfLastChange": changed or today,
           "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
           "maturity": "draft", "scope": "unstable",
           "tags": ["ada", "astromat", "tapp", "composition-module", "profile",

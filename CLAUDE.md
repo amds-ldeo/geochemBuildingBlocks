@@ -93,9 +93,19 @@ python tools/validate_examples.py               # 7. verify
 
 When fixing a bug that surfaces in a generated artifact, **trace to the source generator/template/schema and regenerate** — never patch the build output directly. This is a standing rule across this ecosystem; it has its own feedback memory.
 
-Two standing gotchas that bite spot regenerations:
+**Generated output is a function of its source, not of when it ran.** Two generators broke that
+and both were fixed on 2026-09-05: `build_module_bb` stamped `date.today()` into every module
+`bblock.json`, walking `core`'s `dateTimeAddition` from its real 2026-08-21 to 2026-09-04 over six
+regenerations (it is the date the block was ADDED — written once, carried forward; `dateOfLastChange`
+moves only when the schema content changes, and the OGC postprocess recomputes it for
+`build/register.json` anyway); and the shared registries recorded which techniques were regenerated
+LAST, because `remove_owned_blocks` + `append_defs` rewrites a technique's entries at the end of the
+file. `build_tapp.sort_defs()` now orders them by key, so a `--tapp` spot regen and a full run
+produce the same bytes. Keep it that way: a generator that varies by run date or invocation order
+cannot be diffed, which forecloses any CI check that regenerates and compares.
 
-- **The shared registries reformat wholesale on regen.** After regenerating one technique, `git checkout` `_sources/registry/parameterValues/schema.yaml` and `_sources/registry/parameterTemplates/schema.yaml` if you only meant to touch that technique — otherwise the diff carries unrelated reflow.
+One standing gotcha bites spot regenerations:
+
 - **`tools/resolve_schema.py` and `tools/regenerate_schema_json.py` are synced copies** from `metadataBuildingBlocks/tools/`. Don't edit them here — fix the canonical copy upstream and re-sync (`python tools/sync_resolve_schema.py --apply` from that repo).
 
 ## Composition modules

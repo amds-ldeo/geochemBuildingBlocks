@@ -665,6 +665,38 @@ def append_defs(catalog_path, defs):
     print("appended", len(defs), "$defs to", os.path.relpath(catalog_path, ROOT))
 
 
+def sort_defs(path):
+    """Put the $def blocks in key order, preserving each block's formatting verbatim.
+
+    remove_owned_blocks + append_defs rewrites one technique's entries at the END of the shared
+    registry, so the file's order records which techniques were regenerated last. Rebuilding all
+    sixteen in sorted order did NOT reproduce the committed order -- 3100 lines moved with an
+    identical line multiset -- which is why a spot regen had to be followed by a git checkout of
+    these two files. Sorting on write makes the registries a function of their content alone.
+    """
+    lines = open(path, encoding="utf-8").read().splitlines(keepends=True)
+    defs_re = re.compile(r"^  (\S.*):\s*$")
+    head, blocks, i = [], [], 0
+    while i < len(lines) and not defs_re.match(lines[i]):
+        head.append(lines[i]); i += 1
+    while i < len(lines):
+        m = defs_re.match(lines[i])
+        j = i + 1
+        while j < len(lines) and not defs_re.match(lines[j]):
+            j += 1
+        # Trailing blanks belong to whichever run appended the block, not to the block —
+        # append_defs prefixes each fragment with a newline, so a def's spacing recorded
+        # whether it happened to be rewritten last. Drop them; nothing here is separated.
+        blk = lines[i:j]
+        while blk and not blk[-1].strip():
+            blk.pop()
+        blocks.append((m.group(1), blk))
+        i = j
+    blocks.sort(key=lambda kv: kv[0])
+    open(path, "w", encoding="utf-8", newline="\n").write(
+        "".join(head) + "".join(ln for _, blk in blocks for ln in blk))
+
+
 def existing_keys(path):
     d = yaml.safe_load(open(path, encoding="utf-8")) or {}
     return set((d.get("$defs") or {}).keys())
@@ -839,6 +871,8 @@ def build():
         seen.add(b["name"])
         n, d = param_value_def(b, pv_existing); pv_defs.update(d); mv_keys.append(n); pv_existing.add(n)
     append_defs(PV, pv_defs)
+    sort_defs(PT)
+    sort_defs(PV)
 
     acols = []
     for b in R["analyte_cols"]:
