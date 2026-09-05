@@ -1190,6 +1190,88 @@
               }
             }
           ]
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Uncertainty Propagation Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:value": {
+                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Limit of Quantification (LOQ) Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:value": {
+                      "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:name": {
+                    "const": "Limit of Quantification (LOQ) Method"
+                  }
+                },
+                "required": [
+                  "schema:name"
+                ]
+              }
+            }
+          ]
         }
       }
     },
@@ -1952,41 +2034,6 @@
                                       ]
                                     },
                                     {
-                                      "title": "Uncertainty Propagation Method",
-                                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/ICPMS/uncertaintyPropagationMethod"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/module/ICPMS/uncertaintyPropagationMethod"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Uncertainty Propagation Method"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    },
-                                    {
                                       "title": "Filtering Approach",
                                       "description": "Criteria used to identify and exclude anomalous data - signal spikes, individual cycles, or whole replicate measurements - before the reported value is calculated. State where in the reduction sequence the filter is applied.",
                                       "type": "object",
@@ -2082,45 +2129,6 @@
                                         },
                                         "schema:name": {
                                           "const": "Signal Smoothing"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Uncertainty Propagation Method",
-                                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/ICPMS/uncertaintyPropagationMethod"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/module/ICPMS/uncertaintyPropagationMethod"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Uncertainty Propagation Method"
                                         },
                                         "schema:value": {
                                           "type": "string"

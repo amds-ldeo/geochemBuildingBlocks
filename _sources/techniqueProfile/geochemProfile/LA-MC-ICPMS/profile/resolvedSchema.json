@@ -13712,41 +13712,6 @@
                                         "schema:name",
                                         "schema:value"
                                       ]
-                                    },
-                                    {
-                                      "title": "Uncertainty Propagation Method",
-                                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/ICPMS/uncertaintyPropagationMethod"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/module/ICPMS/uncertaintyPropagationMethod"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Uncertainty Propagation Method"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
                                     }
                                   ]
                                 },
@@ -13813,45 +13778,6 @@
                                         },
                                         "schema:name": {
                                           "const": "Filtering Approach"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Uncertainty Propagation Method",
-                                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/ICPMS/uncertaintyPropagationMethod"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/module/ICPMS/uncertaintyPropagationMethod"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Uncertainty Propagation Method"
                                         },
                                         "schema:value": {
                                           "type": "string"
@@ -15155,6 +15081,7 @@
       }
     },
     "schema:variableMeasured": {
+      "description": "Variable definitions. Extends cdifInstanceVariable (from cdifDataDescription) with additional generic properties. Requires a description with minLength 3.",
       "type": "array",
       "items": {
         "allOf": [
@@ -15795,186 +15722,9 @@
                 "format": "uri"
               }
             }
-          },
-          {
-            "anyOf": [
-              {
-                "title": "Dataset variable",
-                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
-                "type": "object",
-                "required": [
-                  "@type"
-                ],
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "contains": {
-                      "enum": [
-                        "cdi:InstanceVariable",
-                        "schema:PropertyValue"
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "title": "Limit of Quantification (LOQ) Method",
-                "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Limit of Quantification (LOQ) Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              },
-              {
-                "title": "Uncertainty Propagation Method",
-                "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue",
-                      "cdi:InstanceVariable"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Uncertainty Propagation Method"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ]
-              }
-            ]
           }
         ]
-      },
-      "allOf": [
-        {
-          "contains": {
-            "title": "Limit of Quantification (LOQ) Method",
-            "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue",
-                  "cdi:InstanceVariable"
-                ]
-              },
-              "schema:propertyID": {
-                "const": [
-                  {
-                    "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
-                  }
-                ]
-              },
-              "schema:name": {
-                "const": "Limit of Quantification (LOQ) Method"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        },
-        {
-          "contains": {
-            "title": "Uncertainty Propagation Method",
-            "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-            "type": "object",
-            "properties": {
-              "@id": {
-                "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-              },
-              "@type": {
-                "const": [
-                  "schema:PropertyValue",
-                  "cdi:InstanceVariable"
-                ]
-              },
-              "schema:propertyID": {
-                "const": [
-                  {
-                    "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-                  }
-                ]
-              },
-              "schema:name": {
-                "const": "Uncertainty Propagation Method"
-              },
-              "schema:value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id",
-              "@type",
-              "schema:propertyID",
-              "schema:name",
-              "schema:value"
-            ]
-          },
-          "minContains": 0,
-          "maxContains": 1
-        }
-      ]
+      }
     },
     "schema:creativeWorkStatus": {
       "type": "string"
@@ -18222,6 +17972,88 @@
                 },
                 "required": [
                   "dqv:isMeasurementOf"
+                ]
+              }
+            }
+          ]
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Uncertainty Propagation Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:value": {
+                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Limit of Quantification (LOQ) Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:value": {
+                      "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:name": {
+                    "const": "Limit of Quantification (LOQ) Method"
+                  }
+                },
+                "required": [
+                  "schema:name"
                 ]
               }
             }
@@ -20610,6 +20442,74 @@
                               "ada:uncertaintyLevel": {
                                 "description": "The convention at which reported uncertainties are quoted — 1-sigma, 2-sigma, or a 95% confidence interval — and whether a measured spread is reported as a standard error or a standard deviation. State the convention applying to all values reported under this procedure, and state each separately where different reported quantities use different conventions. Distinct from Uncertainty Propagation Method, which addresses how component uncertainties are combined rather than how the result is quoted.",
                                 "type": "string"
+                              },
+                              "schema:variableMeasured": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "allOf": [
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "schema:name": {
+                                            "const": "Uncertainty Propagation Method"
+                                          }
+                                        },
+                                        "required": [
+                                          "schema:name"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "schema:defaultValue": {
+                                            "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "schema:name": {
+                                            "const": "Limit of Quantification (LOQ) Method"
+                                          }
+                                        },
+                                        "required": [
+                                          "schema:name"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "schema:defaultValue": {
+                                            "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
                               },
                               "schema:instrument": {
                                 "type": "array",
@@ -25316,47 +25216,6 @@
                                         "ada:dataType",
                                         "ada:fieldScope"
                                       ]
-                                    },
-                                    {
-                                      "title": "Uncertainty Propagation Method",
-                                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/ICPMS/uncertaintyPropagationMethodDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "uncertaintyPropagationMethodDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Uncertainty Propagation Method"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
                                     }
                                   ]
                                 },
@@ -25903,51 +25762,6 @@
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Uncertainty Propagation Method",
-                                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/ICPMS/uncertaintyPropagationMethodDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "uncertaintyPropagationMethodDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Uncertainty Propagation Method"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
                                   }
                                 ]
                               },
@@ -25979,6 +25793,11 @@
                                 ],
                                 "readOnly": true
                               },
+                              "ada:massBiasCorrectionStrategy": {
+                                "description": "Strategy used to correct instrumental isotopic mass fractionation, also called mass bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses inter-element fractionation during ablation and transport: this field addresses discrimination between isotopes of the same element, and applies wherever the procedure reports isotope ratios.",
+                                "type": "string",
+                                "readOnly": true
+                              },
                               "ada:analyteTemplate": {
                                 "type": "object",
                                 "properties": {
@@ -25988,46 +25807,6 @@
                                       "anyOf": [
                                         {
                                           "$ref": "#/$defs/AnalyteIdentifierColumn"
-                                        },
-                                        {
-                                          "title": "Limit of Quantification (LOQ) Method",
-                                          "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "limitOfQuantificationMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Limit of Quantification (LOQ) Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
                                         },
                                         {
                                           "title": "Mass Resolution Assignment",
@@ -26155,50 +25934,6 @@
                                       ]
                                     },
                                     "allOf": [
-                                      {
-                                        "contains": {
-                                          "title": "Limit of Quantification (LOQ) Method",
-                                          "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "limitOfQuantificationMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Limit of Quantification (LOQ) Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                      },
                                       {
                                         "contains": {
                                           "title": "Mass Resolution Assignment",
@@ -26337,211 +26072,6 @@
                                     ]
                                   }
                                 }
-                              },
-                              "schema:variableMeasured": {
-                                "type": "array",
-                                "items": {
-                                  "anyOf": [
-                                    {
-                                      "title": "Dataset variable",
-                                      "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
-                                      "type": "object",
-                                      "required": [
-                                        "@type"
-                                      ],
-                                      "properties": {
-                                        "@type": {
-                                          "type": "array",
-                                          "contains": {
-                                            "enum": [
-                                              "cdi:InstanceVariable",
-                                              "schema:PropertyValue"
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "title": "Limit of Quantification (LOQ) Method",
-                                      "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "limitOfQuantificationMethodDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Limit of Quantification (LOQ) Method"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    {
-                                      "title": "Uncertainty Propagation Method",
-                                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "uncertaintyPropagationMethodDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Uncertainty Propagation Method"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                "allOf": [
-                                  {
-                                    "contains": {
-                                      "title": "Limit of Quantification (LOQ) Method",
-                                      "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "limitOfQuantificationMethodDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Limit of Quantification (LOQ) Method"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Uncertainty Propagation Method",
-                                      "description": "The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value. State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions. Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "uncertaintyPropagationMethodDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Uncertainty Propagation Method"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  }
-                                ]
-                              },
-                              "ada:massBiasCorrectionStrategy": {
-                                "description": "Strategy used to correct instrumental isotopic mass fractionation, also called mass bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses inter-element fractionation during ablation and transport: this field addresses discrimination between isotopes of the same element, and applies wherever the procedure reports isotope ratios.",
-                                "type": "string",
-                                "readOnly": true
                               },
                               "schema:object": {
                                 "type": "array",

@@ -20,6 +20,7 @@ Requiredness follows the TAPP tier matrix: a field Basic on a side is required t
 These fields belong to the module but have no schema path in any sidecar, so they are absent from the schema until one is authored:
 
 - Counting Statistics Error
+- Primary Calibration Standard Name
 
 ## Composing it
 

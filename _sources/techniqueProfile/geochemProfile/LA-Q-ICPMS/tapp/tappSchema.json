@@ -436,9 +436,6 @@
                                 "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign"
                             },
                             {
-                                "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod"
-                            },
-                            {
                                 "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief"
                             }
                         ]
@@ -475,13 +472,6 @@
                         {
                             "contains": {
                                 "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign"
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -1466,46 +1456,6 @@
                                         ]
                                     },
                                     {
-                                        "title": "Limit of Quantification (LOQ) Method",
-                                        "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "limitOfQuantificationMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Limit of Quantification (LOQ) Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    {
                                         "title": "Within-Session Analytical Precision and Assessment Method",
                                         "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
                                         "type": "object",
@@ -1902,50 +1852,6 @@
                                             "schema:name",
                                             "ada:dataType",
                                             "schema:defaultValue"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "title": "Limit of Quantification (LOQ) Method",
-                                        "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "limitOfQuantificationMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Limit of Quantification (LOQ) Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
                                         ]
                                     },
                                     "minContains": 0,

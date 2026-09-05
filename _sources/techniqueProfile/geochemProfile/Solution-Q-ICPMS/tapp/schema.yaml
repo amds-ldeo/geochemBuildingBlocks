@@ -598,7 +598,6 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
         - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_internalStandardConcentration
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
-        - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
       allOf:
       - contains:
           $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
@@ -610,10 +609,6 @@ allOf:
         maxContains: 1
       - contains:
           $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
         minContains: 0
         maxContains: 1
     ada:channelTemplate:
@@ -874,36 +869,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - &id013
-              title: Limit of Quantification (LOQ) Method
-              description: 'Reference or description of the method used to calculate the limit of quantification
-                (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
-                Required when concentrations near the LOD are reported.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id014
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analytical session and the
                 method used to assess it. Report both the assessment method and the precision values.
@@ -937,7 +902,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id015
+            - &id014
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analytical sessions over weeks to
                 months — long-term or intermediate precision — and the method used to assess it. Report
@@ -968,7 +933,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id016
+            - &id015
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted values for secondary reference materials,
                 and the method used to assess it. Specify the reference material and the source of its
@@ -1013,9 +978,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id015
-            minContains: 0
-            maxContains: 1
-          - contains: *id016
             minContains: 0
             maxContains: 1
   required:

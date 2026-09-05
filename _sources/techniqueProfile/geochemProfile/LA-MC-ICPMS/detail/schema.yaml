@@ -544,7 +544,6 @@ allOf:
                             anyOf:
                             - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
                             - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
-                            - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                           allOf:
                           - contains:
                               $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
@@ -554,91 +553,8 @@ allOf:
                               $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
                             minContains: 0
                             maxContains: 1
-                          - contains:
-                              $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
-                            minContains: 0
-                            maxContains: 1
           ada:proceduralBlankLevel:
             description: The measured level of the analytical blank in the session, and — where the reported
               quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
               result unless its own composition is known. Companion to the blank correction method.
             type: string
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the procedure's declared
-            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
-            branches above are permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - &id008
-          title: Limit of Quantification (LOQ) Method
-          description: 'Reference or description of the method used to calculate the limit of quantification
-            (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
-            Required when concentrations near the LOD are reported.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod
-            schema:name:
-              const: Limit of Quantification (LOQ) Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-        - &id009
-          title: Uncertainty Propagation Method
-          description: 'The approach used to propagate analytical uncertainty through the data reduction
-            chain to the final reported value. State which sources are included in the propagation: counting
-            statistics, calibration standard uncertainty, internal standard uncertainty, drift correction,
-            and any systematic contributions. Distinct from Uncertainty Level, which states the convention
-            at which the resulting uncertainty is quoted.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod
-            '@type':
-              const:
-              - schema:PropertyValue
-              - cdi:InstanceVariable
-            schema:propertyID:
-              const:
-              - '@id': ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod
-            schema:name:
-              const: Uncertainty Propagation Method
-            schema:value:
-              type: string
-          required:
-          - '@id'
-          - '@type'
-          - schema:propertyID
-          - schema:name
-          - schema:value
-      allOf:
-      - contains: *id008
-        minContains: 0
-        maxContains: 1
-      - contains: *id009
-        minContains: 0
-        maxContains: 1

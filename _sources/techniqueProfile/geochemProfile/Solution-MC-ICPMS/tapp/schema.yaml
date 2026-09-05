@@ -441,7 +441,6 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
         - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_internalStandardConcentration
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
-        - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
       allOf:
       - contains:
           $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
@@ -453,10 +452,6 @@ allOf:
         maxContains: 1
       - contains:
           $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
         minContains: 0
         maxContains: 1
     ada:analyteTemplate:
@@ -503,36 +498,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - &id002
-              title: Limit of Quantification (LOQ) Method
-              description: 'Reference or description of the method used to calculate the limit of quantification
-                (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
-                Required when concentrations near the LOD are reported.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id003
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted values for secondary reference materials,
                 and the method used to assess it. Specify the reference material and the source of its
@@ -573,9 +538,6 @@ allOf:
           - contains: *id002
             minContains: 0
             maxContains: 1
-          - contains: *id003
-            minContains: 0
-            maxContains: 1
     ada:channelTemplate:
       type: object
       properties:
@@ -584,7 +546,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
-            - &id008
+            - &id007
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
                 are applied in data reduction, supplementary to any suppression already achieved by chemical
@@ -609,10 +571,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id004
+                  - &id003
                     type: string
                   - type: array
-                    items: *id004
+                    items: *id003
               required:
               - '@id'
               - '@type'
@@ -620,7 +582,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id009
+            - &id008
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured
                 masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
@@ -645,10 +607,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id005
+                  - &id004
                     type: string
                   - type: array
-                    items: *id005
+                    items: *id004
               required:
               - '@id'
               - '@type'
@@ -656,7 +618,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id010
+            - &id009
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution,
                 together with how its magnitude was established - a monitor mass measured simultaneously
@@ -682,10 +644,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id006
+                  - &id005
                     type: string
                   - type: array
-                    items: *id006
+                    items: *id005
               required:
               - '@id'
               - '@type'
@@ -693,7 +655,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id011
+            - &id010
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One analyte may be acquired at more
                 than one resolution, so the assignment is per acquired mass rather than per element. The
@@ -717,10 +679,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id007
+                  - &id006
                     type: string
                   - type: array
-                    items: *id007
+                    items: *id006
               required:
               - '@id'
               - '@type'
@@ -729,6 +691,9 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains: *id007
+            minContains: 0
+            maxContains: 1
           - contains: *id008
             minContains: 0
             maxContains: 1
@@ -736,8 +701,5 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id010
-            minContains: 0
-            maxContains: 1
-          - contains: *id011
             minContains: 0
             maxContains: 1

@@ -808,7 +808,6 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
         - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
-        - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
       allOf:
       - contains:
           $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach
@@ -858,10 +857,6 @@ allOf:
           $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         minContains: 0
         maxContains: 1
-      - contains:
-          $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
-        minContains: 0
-        maxContains: 1
     ada:betweenSessionPrecision:
       description: Precision of measurements across multiple analytical sessions over weeks to months
         — long-term or intermediate precision — and the method used to assess it. Report both the assessment
@@ -892,6 +887,13 @@ allOf:
         - missing
       - type: string
       readOnly: true
+    ada:massBiasCorrectionStrategy:
+      description: 'Strategy used to correct instrumental isotopic mass fractionation, also called mass
+        bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses
+        inter-element fractionation during ablation and transport: this field addresses discrimination
+        between isotopes of the same element, and applies wherever the procedure reports isotope ratios.'
+      type: string
+      readOnly: true
     ada:analyteTemplate:
       type: object
       properties:
@@ -901,36 +903,6 @@ allOf:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - &id015
-              title: Limit of Quantification (LOQ) Method
-              description: 'Reference or description of the method used to calculate the limit of quantification
-                (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
-                Required when concentrations near the LOD are reported.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id016
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One analyte may be acquired at more
                 than one resolution, so the assignment is per acquired mass rather than per element. The
@@ -961,7 +933,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id017
+            - &id016
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by the analyte element
                 they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts
@@ -995,7 +967,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id018
+            - &id017
               title: Per-Analyte Calibration Strategy
               description: Approach used to convert measured ion signals to reported concentrations, and
                 specifically any case where different analytes or analyte groups within one procedure
@@ -1040,105 +1012,6 @@ allOf:
           - contains: *id017
             minContains: 0
             maxContains: 1
-          - contains: *id018
-            minContains: 0
-            maxContains: 1
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the procedure's declared
-            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
-            branches above are permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - &id019
-          title: Limit of Quantification (LOQ) Method
-          description: 'Reference or description of the method used to calculate the limit of quantification
-            (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy.
-            Required when concentrations near the LOD are reported.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: limitOfQuantificationMethodDefault
-            schema:name:
-              const: Limit of Quantification (LOQ) Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - &id020
-          title: Uncertainty Propagation Method
-          description: 'The approach used to propagate analytical uncertainty through the data reduction
-            chain to the final reported value. State which sources are included in the propagation: counting
-            statistics, calibration standard uncertainty, internal standard uncertainty, drift correction,
-            and any systematic contributions. Distinct from Uncertainty Level, which states the convention
-            at which the resulting uncertainty is quoted.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: uncertaintyPropagationMethodDefault
-            schema:name:
-              const: Uncertainty Propagation Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-      allOf:
-      - contains: *id019
-        minContains: 0
-        maxContains: 1
-      - contains: *id020
-        minContains: 0
-        maxContains: 1
-    ada:massBiasCorrectionStrategy:
-      description: 'Strategy used to correct instrumental isotopic mass fractionation, also called mass
-        bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses
-        inter-element fractionation during ablation and transport: this field addresses discrimination
-        between isotopes of the same element, and applies wherever the procedure reports isotope ratios.'
-      type: string
-      readOnly: true
     schema:object:
       type: array
       items:

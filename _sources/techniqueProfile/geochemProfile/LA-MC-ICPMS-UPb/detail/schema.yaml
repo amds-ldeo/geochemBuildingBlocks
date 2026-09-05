@@ -99,16 +99,11 @@ allOf:
                           items:
                             anyOf:
                             - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
-                            - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
                             - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
                           - contains:
                               $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:

@@ -99,15 +99,10 @@ allOf:
                           items:
                             anyOf:
                             - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
-                            - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
                           - contains:
                               $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:
