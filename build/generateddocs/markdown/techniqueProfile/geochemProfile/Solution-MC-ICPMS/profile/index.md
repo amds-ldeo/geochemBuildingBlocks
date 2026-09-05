@@ -295,6 +295,23 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
+      "schema:name": "Limit of Quantification (LOQ) Method",
+      "schema:description": "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
       "schema:name": "Detection Limit",
       "schema:description": "Detection Limit reported for this dataset. Example value.",
       "schema:propertyID": [
@@ -784,6 +801,23 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
+      "schema:name": "Limit of Quantification (LOQ) Method",
+      "schema:description": "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
       "schema:name": "Detection Limit",
       "schema:description": "Detection Limit reported for this dataset. Example value.",
       "schema:propertyID": [
@@ -1067,12 +1101,12 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "example oxideProduction" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "example peakFlatness" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ] ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:identifier "session-ada-20260110-001" ;
@@ -1145,10 +1179,12 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Detection Limit reported for this dataset. Example value.",
         "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+        "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
         "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing." ;
     schema1:name "Calibration Factor and Determination Method",
         "Detection Limit",
         "Goodness-of-Fit or Dispersion Statistic",
+        "Limit of Quantification (LOQ) Method",
         "measurement_value" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/ada_primary" ;
     schema1:unitText "counts" ;

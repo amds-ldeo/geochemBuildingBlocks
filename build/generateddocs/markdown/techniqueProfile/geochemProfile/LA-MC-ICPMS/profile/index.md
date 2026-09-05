@@ -274,36 +274,15 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod",
+      "@id": "ex:adaProduct-var-001",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Limit of Quantification (LOQ) Method",
-      "schema:description": "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
+      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
+      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
       "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:description": "Uncertainty Propagation Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-        }
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -317,8 +296,8 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
-      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:name": "Limit of Quantification (LOQ) Method",
+      "schema:description": "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -803,36 +782,15 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod",
+      "@id": "ex:adaProduct-var-001",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Limit of Quantification (LOQ) Method",
-      "schema:description": "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
+      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
+      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
       "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethod"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:description": "Uncertainty Propagation Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethod"
-        }
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -846,8 +804,8 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
-      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:name": "Limit of Quantification (LOQ) Method",
+      "schema:description": "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -1144,9 +1102,7 @@ ex:adaLAMCICPMS-example-001 a schema1:Dataset,
     schema1:name "ADA LA-MC-ICP-MS Example Product" ;
     schema1:subjectOf ex:adaProduct-metadata-001 ;
     schema1:url "https://astromat.org/products/adaproduct-example-001" ;
-    schema1:variableMeasured <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/limitOfQuantificationMethod>,
-        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/uncertaintyPropagationMethod>,
-        ex:adaProduct-var-001,
+    schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
@@ -1228,10 +1184,12 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Detection Limit reported for this dataset. Example value.",
         "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+        "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
         "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing." ;
     schema1:name "Calibration Factor and Determination Method",
         "Detection Limit",
         "Goodness-of-Fit or Dispersion Statistic",
+        "Limit of Quantification (LOQ) Method",
         "measurement_value" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/ada_primary" ;
     schema1:unitText "counts" ;
@@ -1257,28 +1215,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         "Laser Ablation System" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
-
-<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/limitOfQuantificationMethod> a cdi:InstanceVariable,
-        schema1:PropertyValue ;
-    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
-    cdi:role "MeasureComponent" ;
-    cdi:simpleUnitOfMeasure "counts" ;
-    schema1:description "Limit of Quantification (LOQ) Method reported for this dataset. Example value." ;
-    schema1:name "Limit of Quantification (LOQ) Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/limitOfQuantificationMethod> ;
-    schema1:unitText "counts" ;
-    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
-
-<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/uncertaintyPropagationMethod> a cdi:InstanceVariable,
-        schema1:PropertyValue ;
-    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
-    cdi:role "MeasureComponent" ;
-    cdi:simpleUnitOfMeasure "counts" ;
-    schema1:description "Uncertainty Propagation Method reported for this dataset. Example value." ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/uncertaintyPropagationMethod> ;
-    schema1:unitText "counts" ;
-    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 
 ```

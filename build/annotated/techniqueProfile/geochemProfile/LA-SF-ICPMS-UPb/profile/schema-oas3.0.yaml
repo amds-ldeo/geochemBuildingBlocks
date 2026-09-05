@@ -709,7 +709,6 @@ x-defs:
                               items:
                                 anyOf:
                                 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Analysis_signalSmoothing
-                                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_uncertaintyPropagationMethod
                                 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_filteringApproach
                                 - title: Pulse/Analog Detector Nonlinearity Correction
                                   description: Whether a correction was applied for
@@ -750,10 +749,6 @@ x-defs:
                               allOf:
                               - contains:
                                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Analysis_signalSmoothing
-                                minContains: 0
-                                maxContains: 1
-                              - contains:
-                                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_uncertaintyPropagationMethod
                                 minContains: 0
                                 maxContains: 1
                               - contains:
@@ -1892,7 +1887,6 @@ x-defs:
               - schema:value
               readOnly: true
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_uncertaintyPropagationMethod
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_matrixOffsetCorrectionLief
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.uPb/$defs/Param_Procedure_discordanceDefinitionAndValues
             - title: Error Correlation Between Reported Quantities
@@ -2017,10 +2011,6 @@ x-defs:
             maxContains: 1
           - contains:
               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
-            minContains: 0
-            maxContains: 1
-          - contains:
-              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_uncertaintyPropagationMethod
             minContains: 0
             maxContains: 1
           - contains:
@@ -2774,40 +2764,6 @@ x-defs:
                   - schema:name
                   - ada:dataType
                   - schema:defaultValue
-                - title: Limit of Quantification (LOQ) Method
-                  description: 'Reference or description of the method used to calculate
-                    the limit of quantification (LOQ): the lowest concentration reliably
-                    measurable with acceptable precision and accuracy. Required when
-                    concentrations near the LOD are reported.'
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - limitOfQuantificationMethod
-                    schema:name:
-                      enum:
-                      - Limit of Quantification (LOQ) Method
-                    ada:dataType:
-                      enum:
-                      - string
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
                 - title: Within-Session Analytical Precision and Assessment Method
                   description: Precision of repeated measurements within a single
                     analytical session and the method used to assess it. Report both
@@ -3219,43 +3175,6 @@ x-defs:
                   - schema:name
                   - ada:dataType
                   - schema:defaultValue
-                minContains: 0
-                maxContains: 1
-              - contains:
-                  title: Limit of Quantification (LOQ) Method
-                  description: 'Reference or description of the method used to calculate
-                    the limit of quantification (LOQ): the lowest concentration reliably
-                    measurable with acceptable precision and accuracy. Required when
-                    concentrations near the LOD are reported.'
-                  type: object
-                  properties:
-                    '@id':
-                      enum:
-                      - ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod
-                    '@type':
-                      enum:
-                      - - schema:PropertyValueSpecification
-                    schema:valueName:
-                      enum:
-                      - limitOfQuantificationMethod
-                    schema:name:
-                      enum:
-                      - Limit of Quantification (LOQ) Method
-                    ada:dataType:
-                      enum:
-                      - string
-                    schema:readonlyValue: {}
-                    ada:tier:
-                      enum:
-                      - R
-                    schema:defaultValue:
-                      type: string
-                  required:
-                  - '@id'
-                  - '@type'
-                  - schema:valueName
-                  - schema:name
-                  - ada:dataType
                 minContains: 0
                 maxContains: 1
               - contains:
@@ -9309,7 +9228,7 @@ x-defs:
     title: 'TAPP Composition Module: ICPMS'
     description: "The shared ICPMS block of the 2026-08-11 TAPP library (Claude Skills
       for TAPP/Module_ICPMS.csv), composed by 9 of the sixteen delivery tables. 39
-      owned fields over 13 schema paths.\n\nGENERATED by tools/build_module_bb.py
+      owned fields over 17 schema paths.\n\nGENERATED by tools/build_module_bb.py
       from the module's CSV and its schema-path sidecar \u2014 edit those, not this
       file. Requiredness follows the TAPP tier matrix: a field Basic on a side is
       required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
@@ -9344,6 +9263,55 @@ x-defs:
               is quoted."
             type: string
             x-jsonld-id: https://ada.astromat.org/metadata/uncertaintyLevel
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Uncertainty Propagation Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:defaultValue:
+                      description: 'The approach used to propagate analytical uncertainty
+                        through the data reduction chain to the final reported value.
+                        State which sources are included in the propagation: counting
+                        statistics, calibration standard uncertainty, internal standard
+                        uncertainty, drift correction, and any systematic contributions.
+                        Distinct from Uncertainty Level, which states the convention
+                        at which the resulting uncertainty is quoted.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/defaultValue
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Limit of Quantification (LOQ) Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:defaultValue:
+                      description: 'Reference or description of the method used to
+                        calculate the limit of quantification (LOQ): the lowest concentration
+                        reliably measurable with acceptable precision and accuracy.
+                        Required when concentrations near the LOD are reported.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/defaultValue
+            x-jsonld-id: http://schema.org/variableMeasured
           schema:instrument:
             type: array
             items:
@@ -9551,6 +9519,63 @@ x-defs:
                 required:
                 - dqv:isMeasurementOf
             x-jsonld-id: http://www.w3.org/ns/dqv#hasQualityMeasurement
+          schema:variableMeasured:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Uncertainty Propagation Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: 'The approach used to propagate analytical uncertainty
+                        through the data reduction chain to the final reported value.
+                        State which sources are included in the propagation: counting
+                        statistics, calibration standard uncertainty, internal standard
+                        uncertainty, drift correction, and any systematic contributions.
+                        Distinct from Uncertainty Level, which states the convention
+                        at which the resulting uncertainty is quoted.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+              - if:
+                  properties:
+                    schema:name:
+                      enum:
+                      - Limit of Quantification (LOQ) Method
+                  required:
+                  - schema:name
+                then:
+                  properties:
+                    schema:value:
+                      description: 'Reference or description of the method used to
+                        calculate the limit of quantification (LOQ): the lowest concentration
+                        reliably measurable with acceptable precision and accuracy.
+                        Required when concentrations near the LOD are reported.'
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                      x-jsonld-id: http://schema.org/value
+            allOf:
+            - contains:
+                properties:
+                  schema:name:
+                    enum:
+                    - Limit of Quantification (LOQ) Method
+                required:
+                - schema:name
+            x-jsonld-id: http://schema.org/variableMeasured
       Param_Procedure_instrumentSerialNumberOrLabIdentifier:
         title: Instrument Serial Number or Lab Identifier
         description: Serial number or laboratory-internal identifier for the specific

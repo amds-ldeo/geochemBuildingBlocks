@@ -347,17 +347,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "2–6 µm s⁻¹ (varied based on Sr concentration in target minerals)"
-    },
-    {
-      "@id": "ada:parameter/module/ICPMS/uncertaintyPropagationMethodDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "uncertaintyPropagationMethodDefault",
-      "schema:name": "Uncertainty Propagation Method",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "Standard error (SE = SD/√n) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression"
     }
   ],
   "schema:object": [
@@ -876,17 +865,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "2\u20136 \u00b5m s\u207b\u00b9 (varied based on Sr concentration in target minerals)"
-    },
-    {
-      "@id": "ada:parameter/module/ICPMS/uncertaintyPropagationMethodDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "uncertaintyPropagationMethodDefault",
-      "schema:name": "Uncertainty Propagation Method",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "Standard error (SE = SD/\u221an) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression"
     }
   ],
   "schema:object": [
@@ -1093,7 +1071,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/uncertaintyPropagationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -1109,11 +1086,11 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "fs-LA-MC-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1" ;
-    schema1:object [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ],
-        [ a schema1:DefinedTerm,
+    schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ],
+        [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)" ] ;
@@ -1248,13 +1225,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:name "RF Power" ;
     schema1:valueName "rfPowerDefault" ;
     ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/ICPMS/uncertaintyPropagationMethodDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Standard error (SE = SD/√n) for repeatability within individual runs; assessed separately for 87Sr/86Sr and 87Rb/86Sr using signal intensity regression" ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:valueName "uncertaintyPropagationMethodDefault" ;
-    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
@@ -2479,7 +2449,6 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
       allOf:
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach
@@ -2529,10 +2498,6 @@ allOf:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         minContains: 0
         maxContains: 1
-      - contains:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
-        minContains: 0
-        maxContains: 1
     ada:betweenSessionPrecision:
       description: "Precision of measurements across multiple analytical sessions
         over weeks to months \u2014 long-term or intermediate precision \u2014 and
@@ -2568,6 +2533,14 @@ allOf:
         - missing
       - type: string
       readOnly: true
+    ada:massBiasCorrectionStrategy:
+      description: 'Strategy used to correct instrumental isotopic mass fractionation,
+        also called mass bias or mass discrimination. Distinct from Elemental Fractionation
+        Correction, which addresses inter-element fractionation during ablation and
+        transport: this field addresses discrimination between isotopes of the same
+        element, and applies wherever the procedure reports isotope ratios.'
+      type: string
+      readOnly: true
     ada:analyteTemplate:
       type: object
       properties:
@@ -2576,36 +2549,6 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - title: Limit of Quantification (LOQ) Method
-              description: 'Reference or description of the method used to calculate
-                the limit of quantification (LOQ): the lowest concentration reliably
-                measurable with acceptable precision and accuracy. Required when concentrations
-                near the LOD are reported.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             - title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One analyte
                 may be acquired at more than one resolution, so the assignment is
@@ -2707,39 +2650,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains:
-              title: Limit of Quantification (LOQ) Method
-              description: 'Reference or description of the method used to calculate
-                the limit of quantification (LOQ): the lowest concentration reliably
-                measurable with acceptable precision and accuracy. Required when concentrations
-                near the LOD are reported.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
           - contains:
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One analyte
@@ -2849,168 +2759,6 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
-    schema:variableMeasured:
-      type: array
-      items:
-        anyOf:
-        - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the
-            procedure's declared reported properties. schema:variableMeasured carries
-            the dataset's actual variables; the reported-property branches above are
-            permitted members of it, not the whole of it.
-          type: object
-          required:
-          - '@type'
-          properties:
-            '@type':
-              type: array
-              contains:
-                enum:
-                - cdi:InstanceVariable
-                - schema:PropertyValue
-        - title: Limit of Quantification (LOQ) Method
-          description: 'Reference or description of the method used to calculate the
-            limit of quantification (LOQ): the lowest concentration reliably measurable
-            with acceptable precision and accuracy. Required when concentrations near
-            the LOD are reported.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: limitOfQuantificationMethodDefault
-            schema:name:
-              const: Limit of Quantification (LOQ) Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        - title: Uncertainty Propagation Method
-          description: 'The approach used to propagate analytical uncertainty through
-            the data reduction chain to the final reported value. State which sources
-            are included in the propagation: counting statistics, calibration standard
-            uncertainty, internal standard uncertainty, drift correction, and any
-            systematic contributions. Distinct from Uncertainty Level, which states
-            the convention at which the resulting uncertainty is quoted.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: uncertaintyPropagationMethodDefault
-            schema:name:
-              const: Uncertainty Propagation Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-      allOf:
-      - contains:
-          title: Limit of Quantification (LOQ) Method
-          description: 'Reference or description of the method used to calculate the
-            limit of quantification (LOQ): the lowest concentration reliably measurable
-            with acceptable precision and accuracy. Required when concentrations near
-            the LOD are reported.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/limitOfQuantificationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: limitOfQuantificationMethodDefault
-            schema:name:
-              const: Limit of Quantification (LOQ) Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-      - contains:
-          title: Uncertainty Propagation Method
-          description: 'The approach used to propagate analytical uncertainty through
-            the data reduction chain to the final reported value. State which sources
-            are included in the propagation: counting statistics, calibration standard
-            uncertainty, internal standard uncertainty, drift correction, and any
-            systematic contributions. Distinct from Uncertainty Level, which states
-            the convention at which the resulting uncertainty is quoted.'
-          type: object
-          properties:
-            '@id':
-              const: ada:parameter/laMcicpmsTAPP/uncertaintyPropagationMethodDefault
-            '@type':
-              const:
-              - schema:PropertyValueSpecification
-            schema:valueName:
-              const: uncertaintyPropagationMethodDefault
-            schema:name:
-              const: Uncertainty Propagation Method
-            ada:dataType:
-              const: string
-            ada:fieldScope:
-              const: session
-            schema:readonlyValue:
-              const: false
-            ada:tier:
-              const: R
-          required:
-          - '@id'
-          - '@type'
-          - schema:valueName
-          - schema:name
-          - ada:dataType
-          - ada:fieldScope
-        minContains: 0
-        maxContains: 1
-    ada:massBiasCorrectionStrategy:
-      description: 'Strategy used to correct instrumental isotopic mass fractionation,
-        also called mass bias or mass discrimination. Distinct from Elemental Fractionation
-        Correction, which addresses inter-element fractionation during ablation and
-        transport: this field addresses discrimination between isotopes of the same
-        element, and applies wherever the procedure reports isotope ratios.'
-      type: string
-      readOnly: true
     schema:object:
       type: array
       items:

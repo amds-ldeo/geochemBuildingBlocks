@@ -586,22 +586,7 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "External reproducibility of the spiked ZrNIST measurements from each run adopted per determination, compared against internal counting-statistics uncertainty"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
 ```
@@ -652,22 +637,7 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "External reproducibility of the spiked ZrNIST measurements from each run adopted per determination, compared against internal counting-statistics uncertainty"
-    }
-  ]
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
 
@@ -679,7 +649,6 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Tissot2020 a ada:SolutionICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-Tissot2020 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — Table 1 records \"Number of times the same purified Zr solution was measured independently in the MC-ICP-MS\" and \"Reported values are weighted means of all replicate\" analyses. No rejection rule stated" ;
@@ -705,11 +674,6 @@ ex:detail-Tissot2020 a ada:SolutionICPMSTabular ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "External reproducibility at 2 sigma of the spiked ZrNIST measurements from each run, adopted as the uncertainty on each determination and stated to be similar to or slightly larger than the internal counting-statistics uncertainty" .
-
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> ;
-    schema1:value "External reproducibility of the spiked ZrNIST measurements from each run adopted per determination, compared against internal counting-statistics uncertainty" .
 
 
 ```
@@ -1172,19 +1136,6 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
       ],
       "schema:name": "Spike / Outlier Filtering Approach",
       "schema:value": "\"any ratio outside 2σ was discarded\""
-    },
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "\"Errors are determined from repeated measurements\""
     }
   ]
 }
@@ -1251,19 +1202,6 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
       ],
       "schema:name": "Spike / Outlier Filtering Approach",
       "schema:value": "\"any ratio outside 2\u03c3 was discarded\""
-    },
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "\"Errors are determined from repeated measurements\""
     }
   ]
 }
@@ -1277,8 +1215,7 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Moynier2017 a ada:SolutionICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach>,
-        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach> ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-Moynier2017 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "\"any ratio outside 2σ was discarded\" — an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\"" ;
@@ -1309,11 +1246,6 @@ ex:detail-Moynier2017 a ada:SolutionICPMSTabular ;
     schema1:name "Spike / Outlier Filtering Approach" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach> ;
     schema1:value "\"any ratio outside 2σ was discarded\"" .
-
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/uncertaintyPropagationMethod> ;
-    schema1:value "\"Errors are determined from repeated measurements\"" .
 
 
 ```
@@ -2092,15 +2024,10 @@ allOf:
                           items:
                             anyOf:
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                           allOf:
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:

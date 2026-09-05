@@ -55,21 +55,6 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "2SE of individual spot measurements reported"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -126,21 +111,6 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "2SE of individual spot measurements reported"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -153,7 +123,6 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Nakanishi2022 a ada:LAICPMSGeochronTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/uncertaintyPropagationMethod> ;
     schema1:measurementTechnique ex:laQicpmsUPbTAPP-Nakanishi2022 ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
@@ -184,11 +153,6 @@ ex:detail-Nakanishi2022 a ada:LAICPMSGeochronTabular ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical uncertainties: 2SE of individual spot measurements reported alongside data" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/uncertaintyPropagationMethod> ;
-    schema1:value "2SE of individual spot measurements reported" .
 
 
 ```
@@ -1041,7 +1005,6 @@ allOf:
                           items:
                             anyOf:
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
                             - title: Pulse/Analog Detector Nonlinearity Correction
                               description: Whether a correction was applied for nonlinear
@@ -1079,10 +1042,6 @@ allOf:
                           allOf:
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:

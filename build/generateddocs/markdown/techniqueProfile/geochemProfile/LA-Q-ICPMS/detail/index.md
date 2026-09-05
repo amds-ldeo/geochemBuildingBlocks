@@ -52,21 +52,6 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "2SE of individual spot measurements reported"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -120,21 +105,6 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "2SE of individual spot measurements reported"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -147,7 +117,6 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Nakanishi2022 a ada:LAICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethod> ;
     schema1:measurementTechnique ex:laQicpmsTAPP-Nakanishi2022 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -175,11 +144,6 @@ ex:detail-Nakanishi2022 a ada:LAICPMSTabular ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical uncertainties: 2SE of individual spot measurements reported alongside data" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethod> ;
-    schema1:value "2SE of individual spot measurements reported" .
 
 
 ```
@@ -928,21 +892,6 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "Accuracy of common-Hf corrected single-spot xenotime ages generally better than 1.5%, assessed against ID-TIMS U-Pb ages of the same reference materials",
   "ada:goodnessOfFitOrDispersionStatistic": "MSWD reported with each aggregate age — e.g. MSWD = 2.3 (n = 236, XN02) and MSWD = 0.6 (n = 15, weighted-mean Lu-Hf age 489.8 +/- 2.2 Ma)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Uncertainty propagation workflow implemented in IsoplotR"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -996,21 +945,6 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "Accuracy of common-Hf corrected single-spot xenotime ages generally better than 1.5%, assessed against ID-TIMS U-Pb ages of the same reference materials",
   "ada:goodnessOfFitOrDispersionStatistic": "MSWD reported with each aggregate age \u2014 e.g. MSWD = 2.3 (n = 236, XN02) and MSWD = 0.6 (n = 15, weighted-mean Lu-Hf age 489.8 +/- 2.2 Ma)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Uncertainty propagation workflow implemented in IsoplotR"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -1023,7 +957,6 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P6 a ada:LAICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethod> ;
     schema1:measurementTechnique ex:laQicpmsTAPP-P6 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Acquired and included counts both stated: 'A total of 246 spot analyses were undertaken in 20 analytical sessions over 3 months, 236 of which yielded a weighted-mean age of 515.4 +/- 1.2 Ma'. The rejection rule itself is not stated" ;
@@ -1051,11 +984,6 @@ ex:detail-P6 a ada:LAICPMSTabular ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Precision of common-Hf corrected single-spot ages 1.5-8.1% (xenotime) and 9.2-36.0% (apatite); isochron age uncertainties 3.5-10% for garnet" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/uncertaintyPropagationMethod> ;
-    schema1:value "Uncertainty propagation workflow implemented in IsoplotR" .
 
 
 ```
@@ -1162,7 +1090,6 @@ allOf:
                           items:
                             anyOf:
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
                             - title: Pulse/Analog Detector Nonlinearity Correction
                               description: Whether a correction was applied for nonlinear
@@ -1199,10 +1126,6 @@ allOf:
                           allOf:
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:

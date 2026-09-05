@@ -68,19 +68,6 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
       ],
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
       "schema:value": "10 µm s⁻¹ (raster scan); N/A (spot Ge)"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Standard deviation (SD) across individual integration cycles of raster scans; uncertainty propagation not formally described"
     }
   ],
   "ada:spotDiameterMeasured": -9999
@@ -152,19 +139,6 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
       ],
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
       "schema:value": "10 \u00b5m s\u207b\u00b9 (raster scan); N/A (spot Ge)"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Standard deviation (SD) across individual integration cycles of raster scans; uncertainty propagation not formally described"
     }
   ],
   "ada:spotDiameterMeasured": -9999
@@ -179,8 +153,7 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zhang2022 a ada:LAICPMSGeochronTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize>,
-        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique ex:laSficpmsUPbTAPP-Zhang2022 ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
@@ -216,11 +189,6 @@ ex:detail-Zhang2022 a ada:LAICPMSGeochronTabular ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize> ;
     schema1:value "10 µm s⁻¹ (raster scan); N/A (spot Ge)" .
-
-<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> ;
-    schema1:value "Standard deviation (SD) across individual integration cycles of raster scans; uncertainty propagation not formally described" .
 
 
 ```
@@ -285,19 +253,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
       ],
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
       "schema:value": "9 µm s⁻¹ (continuous raster)"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Longerich et al. (1996) equation (3SD/S × √(1/Nb + 1/Na))"
     }
   ],
   "ada:spotDiameterMeasured": -9999
@@ -369,19 +324,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
       ],
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
       "schema:value": "9 \u00b5m s\u207b\u00b9 (continuous raster)"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Longerich et al. (1996) equation (3SD/S \u00d7 \u221a(1/Nb + 1/Na))"
     }
   ],
   "ada:spotDiameterMeasured": -9999
@@ -396,8 +338,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Chernonozhkin2021 a ada:LAICPMSGeochronTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize>,
-        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique ex:laSficpmsUPbTAPP-Chernonozhkin2021 ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
@@ -433,11 +374,6 @@ ex:detail-Chernonozhkin2021 a ada:LAICPMSGeochronTabular ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize> ;
     schema1:value "9 µm s⁻¹ (continuous raster)" .
-
-<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> ;
-    schema1:value "Longerich et al. (1996) equation (3SD/S × √(1/Nb + 1/Na))" .
 
 
 ```
@@ -502,19 +438,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
       ],
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
       "schema:value": "10 µm s⁻¹ (line scan run 1); spot mode (run 2)"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Longerich et al. (1996) for LOD; uncertainty for concentrations not formally described"
     }
   ],
   "ada:spotDiameterMeasured": -9999
@@ -586,19 +509,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
       ],
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
       "schema:value": "10 \u00b5m s\u207b\u00b9 (line scan run 1); spot mode (run 2)"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Longerich et al. (1996) for LOD; uncertainty for concentrations not formally described"
     }
   ],
   "ada:spotDiameterMeasured": -9999
@@ -613,8 +523,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Chernonozhkin2021-2 a ada:LAICPMSGeochronTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize>,
-        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
@@ -650,11 +559,6 @@ ex:detail-Chernonozhkin2021-2 a ada:LAICPMSGeochronTabular ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize> ;
     schema1:value "10 µm s⁻¹ (line scan run 1); spot mode (run 2)" .
-
-<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> ;
-    schema1:value "Longerich et al. (1996) for LOD; uncertainty for concentrations not formally described" .
 
 
 ```
@@ -706,21 +610,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Longerich et al. (1996) for LOD; uncertainty not formally described"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -777,21 +666,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod"
-        }
-      ],
-      "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "Longerich et al. (1996) for LOD; uncertainty not formally described"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -804,7 +678,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Chernonozhkin2021-3 a ada:LAICPMSGeochronTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> ;
     schema1:measurementTechnique ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
@@ -835,11 +708,6 @@ ex:detail-Chernonozhkin2021-3 a ada:LAICPMSGeochronTabular ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> a schema1:PropertyValue ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/uncertaintyPropagationMethod> ;
-    schema1:value "Longerich et al. (1996) for LOD; uncertainty not formally described" .
 
 
 ```
@@ -1430,7 +1298,6 @@ allOf:
                           items:
                             anyOf:
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
                             - title: Pulse/Analog Detector Nonlinearity Correction
                               description: Whether a correction was applied for nonlinear
@@ -1468,10 +1335,6 @@ allOf:
                           allOf:
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_uncertaintyPropagationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:

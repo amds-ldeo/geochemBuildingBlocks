@@ -24,6 +24,12 @@ This is a **profile, not a vocabulary**: it asserts which properties a conformin
 
 Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.
 
+## Not yet placed
+
+These fields belong to the module but have no schema path in any sidecar, so they are absent from the schema until one is authored:
+
+- Procedural Blank Level
+
 ## Composing it
 
 ```yaml

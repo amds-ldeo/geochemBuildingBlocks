@@ -19,18 +19,17 @@ ex:laQicpmsTAPP-P6 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Megacrysts and single crystals; XN02 megacrysts from the Datas alluvial deposits, SE Brazil" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/uncertaintyPropagationMethodDefault> ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Megacrysts and single crystals; XN02 megacrysts from the Datas alluvial deposits, SE Brazil" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v71.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS>,
@@ -153,13 +152,6 @@ ex:laQicpmsTAPP-P6 a cdi:Activity,
     schema1:name "Sampler and Skimmer Cone Material" ;
     schema1:value "N — 'high sensitivity' cones specified, material not stated" ;
     schema1:valueName "samplerAndSkimmerConeMaterial" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/ICPMS/uncertaintyPropagationMethodDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Uncertainty propagation workflow implemented in IsoplotR" ;
-    schema1:name "Uncertainty Propagation Method" ;
-    schema1:valueName "uncertaintyPropagationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

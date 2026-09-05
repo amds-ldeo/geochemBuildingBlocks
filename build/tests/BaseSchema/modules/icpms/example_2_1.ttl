@@ -4,7 +4,11 @@
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+[] schema1:variableMeasured [ schema1:name "Limit of Quantification (LOQ) Method" ;
+            schema1:value "example value" ],
+        [ schema1:name "Uncertainty Propagation Method" ;
+            schema1:value "example value" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "example value" ] ;
     prov:wasGeneratedBy [ prov:used [ schema1:instrument "example value" ] ] ;
     ada:sensitivityYield 1 .

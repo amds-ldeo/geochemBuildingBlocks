@@ -696,7 +696,6 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_internalStandardConcentration
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
       allOf:
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
@@ -708,10 +707,6 @@ allOf:
         maxContains: 1
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_uncertaintyPropagationMethod
         minContains: 0
         maxContains: 1
     ada:channelTemplate:
@@ -1123,36 +1118,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Limit of Quantification (LOQ) Method
-              description: 'Reference or description of the method used to calculate
-                the limit of quantification (LOQ): the lowest concentration reliably
-                measurable with acceptable precision and accuracy. Required when concentrations
-                near the LOD are reported.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             - title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analytical
                 session and the method used to assess it. Report both the assessment
@@ -1293,39 +1258,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Limit of Quantification (LOQ) Method
-              description: 'Reference or description of the method used to calculate
-                the limit of quantification (LOQ): the lowest concentration reliably
-                measurable with acceptable precision and accuracy. Required when concentrations
-                near the LOD are reported.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: limitOfQuantificationMethod
-                schema:name:
-                  const: Limit of Quantification (LOQ) Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
             minContains: 0
             maxContains: 1
           - contains:
