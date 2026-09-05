@@ -167,15 +167,34 @@ Browse the building blocks at: https://amds-ldeo.github.io/geochemBuildingBlocks
 
 One hand-authored TAPP table per technique (a CSV in the `tapp/` submodule's `Current TAPPs/`) drives everything downstream. Nothing generated should ever be hand-edited — fix the table (upstream, in `amds-ldeo/tapp`) or a tool and regenerate.
 
+**Regenerate through `tools/regenerate.py`.** It runs the nine stages in dependency order, which is load-bearing:
+
 ```
-python tools/bootstrap_schemapaths.py  <XLSX>        # 1. seed/refresh the schema-path sidecar
-python tools/build_tapp.py             <TAPP_NAME>   # 2. registry catalogs + vocab
-python tools/build_pathdriven.py       <TAPP_NAME>   # 3. tapp/ + detail/ schemas from the sidecar
-python tools/build_profile.py          <TAPP_NAME>   # 4. profile/ schema
-python tools/build_tapp_examples.py    <TAPP_NAME>   # 5. publication-derived example*.json
+python tools/regenerate.py                 # everything, in order
+python tools/regenerate.py --tapp semTAPP  # one technique (shared stages still run)
+python tools/regenerate.py --dry-run       # print the plan, run nothing
+python tools/regenerate.py --from resolve  # resume at a stage
+```
+
+> **The order is a dependency chain, not a checklist, and getting it wrong fails SILENTLY.** Both known instances produced a green `validate_examples`, because dropping a constraint only makes a schema more permissive — so no example can ever detect it. *Modules before simplify*: `simplify_sidecars` blanks a technique row when a module covers the field, and deciding that against module BBs not rebuilt since their sidecars changed deleted `Limit of Quantification (LOQ) Method` from nine ICP-MS schemas (2026-09-03). *Resolve before `build_profile`'s second pass*: `build_profile` backfills its examples' `variableMeasured` entries by reading `profile/resolvedSchema.json`, so run too early it reads the previous one.
+
+The stages, if you need to drive them individually:
+
+```
+python tools/bootstrap_schemapaths.py  <XLSX>        # 0. seed/refresh the schema-path sidecar
+python tools/build_module_bb.py --write              # 1. module BBs + docs/modules/emitted.json
+python tools/simplify_sidecars.py --write            # 2. blank rows a module now covers
+python tools/build_tapp.py             <TAPP_NAME>   # 3. registry catalogs + vocab
+python tools/build_pathdriven.py       <TAPP_NAME>   # 4. tapp/ + detail/ schemas from the sidecar
+python tools/build_profile.py          <TAPP_NAME>   # 5. profile/ schema
 python tools/resolve_schema.py --all                 # 6. resolvedSchema.json everywhere
-python tools/validate_examples.py                    # 7. check the examples still pass
+python tools/build_profile.py          <TAPP_NAME>   # 7. again — backfill example variables
+python tools/build_tapp_examples.py    <TAPP_NAME>   # 8. publication-derived example*.json
+python tools/regenerate_schema_json.py               # 9. *Schema.json mirrors
+python tools/validate_examples.py                    # then verify
 ```
+
+> **`docs/modules/emitted.json` records what the built module `$defs` actually carry**, written by `build_module_bb --write` in the same run that writes the schemas. `module_composition.plan()` reads it rather than re-deriving coverage from the module sidecars — the sidecar says where a field *should* go, the built `$def` says where it *did*, and the two diverge whenever a module BB is stale. Reading the manifest makes that fail closed: a stale build yields a stale manifest that agrees with it, so coverage is under-reported and a technique keeps its own row instead of losing the field. Never hand-edit it.
 
 > **Do not skip step 5.** `build_pathdriven` does not rebuild the publication examples, so a sidecar change moves the schema while they keep the placement they were last generated with — and nothing complains until `validate_examples` runs, where it reads as a schema bug rather than a stale artifact. `build_tapp_examples` also PRUNES examples whose publication column has gone from the table; without that, a narrowed table leaves orphaned files that keep being validated.
 
