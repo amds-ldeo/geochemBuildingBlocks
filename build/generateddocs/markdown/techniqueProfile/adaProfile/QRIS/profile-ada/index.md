@@ -1111,6 +1111,7 @@ allOf:
                     - ada:QRISCalibrationFile
                 required:
                 - ada:componentType
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/QRIS/detail/schema.yaml
             x-jsonld-id: http://schema.org/hasPart
       x-jsonld-id: http://schema.org/distribution
     schema:subjectOf:

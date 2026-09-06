@@ -132,12 +132,12 @@ container, not tabular text).
     ada:componentType "ada:other" .
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
-    cdi:has_DataStructureComponent [ a cdi:MeasureComponent ;
-            cdif:name "intensity" ],
+    cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
+            cdif:name "x" ],
         [ a cdi:DimensionComponent ;
             cdif:name "y" ],
-        [ a cdi:DimensionComponent ;
-            cdif:name "x" ] ;
+        [ a cdi:MeasureComponent ;
+            cdif:name "intensity" ] ;
     schema1:name "Elemental map cube structure" .
 
 
@@ -211,7 +211,11 @@ Links to the schema:
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "cdif": "https://cdif.org/0.1/",
+    "spdx": "http://spdx.org/rdf/terms#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xas": "https://w3id.org/cdif/xas/",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "@version": 1.1

@@ -1907,13 +1907,45 @@ properties:
       ada:defaultAnalytes:
         type: array
         description: "The analytes (analyzed constituents) this method targets by
-          default \u2014 the ROWS of the per-analyte table. Each is a bare string
-          or a schema:DefinedTerm identifying the analyte; per-analyte column VALUES
-          live in the analysis record, not here."
+          default \u2014 the ROWS of the per-analyte table. An entry is a bare string
+          or a schema:DefinedTerm naming the analyte, or a row object binding that
+          analyte to per-analyte values.\nA row object is keyed throughout by the
+          schema:valueName of the columns declared in ada:analyteColumns, and MUST
+          carry the 'analyte' key - the column that sibling description requires to
+          identify the constituent named in each row.\nWhich values belong here follows
+          the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the
+          procedure, so its value belongs on the row. A column marked Editable takes
+          a starting value here that an analysis may override; the value actually
+          used is reported per result, as a column of the data table, and surfaces
+          as schema:variableMeasured on the data product. Values that vary per result
+          and are not defaulted do not belong here at all.\nColumn-level constraints
+          stay on the column: schema:readonlyValue when a value is constant across
+          every analyte, and schema:defaultValue when one default serves the whole
+          column. Use a row only for values that differ between analytes."
         items:
           anyOf:
           - type: string
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/DefinedTerm
+          - type: object
+            title: Per-analyte row
+            description: One row of the per-analyte table, keyed by column schema:valueName.
+              null records a value that is deliberately absent for this analyte rather
+              than merely unstated.
+            required:
+            - analyte
+            properties:
+              analyte:
+                type: string
+                description: The analyzed constituent this row is for (e.g. "SiO2").
+                  The key is the schema:valueName of the analyte column, which ada:analyteColumns
+                  requires exactly one of, so a row is keyed by column valueName throughout.
+            additionalProperties:
+              nullable: true
+              anyOf:
+              - type: string
+              - type: number
+              - type: integer
+              - type: boolean
         x-jsonld-id: https://ada.astromat.org/metadata/defaultAnalytes
     required:
     - ada:analyteColumns
@@ -2924,6 +2956,7 @@ x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
   cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
   bios: https://bioschemas.org/
+  nxs: https://manual.nexusformat.org/classes/
   dqv: http://www.w3.org/ns/dqv#
   skos: http://www.w3.org/2004/02/skos/core#
 x-schema-version: https://json-schema.org/draft/2020-12/schema
