@@ -166,6 +166,46 @@ def resolve_fragment(schema: dict, pointer: str) -> Any:
 
 
 # ---------------------------------------------------------------------------
+# No-op allOf pruning
+# ---------------------------------------------------------------------------
+
+def prune_noop_allof(schema: Any) -> Any:
+    """Recursively drop allOf branches that constrain nothing.
+
+    Flattening a nested composition leaves husks behind: when a branch's `properties` are
+    hoisted into the enclosing object what remains is `{"type": "object"}`, and a branch
+    consumed entirely leaves `{}`. Both are inert, but they accumulate — adaProduct alone
+    contributed two to every profile resolved downstream of it.
+
+    Two rules, and the second is the one that matters:
+
+      * `{}` is dropped unconditionally. The empty schema accepts everything, so it can
+        never be load-bearing in an allOf.
+      * `{"type": "object"}` is dropped ONLY where the enclosing schema asserts
+        `type: object` itself. Where it does not, that branch may be the only thing
+        requiring an object and dropping it would widen the schema — so it stays.
+        Checking the sibling is what keeps this a formatting pass, not a semantic one.
+
+    An allOf left empty is removed rather than kept as `"allOf": []`.
+    """
+    if isinstance(schema, dict):
+        result = {k: prune_noop_allof(v) for k, v in schema.items()}
+        branches = result.get("allOf")
+        if isinstance(branches, list):
+            typed_here = result.get("type") == "object"
+            kept = [b for b in branches
+                    if not (b == {} or (typed_here and b == {"type": "object"}))]
+            if kept:
+                result["allOf"] = kept
+            else:
+                result.pop("allOf", None)
+        return result
+    if isinstance(schema, list):
+        return [prune_noop_allof(item) for item in schema]
+    return schema
+
+
+# ---------------------------------------------------------------------------
 # Metadata stripping
 # ---------------------------------------------------------------------------
 
@@ -1279,6 +1319,10 @@ def resolve_structured(schema_path: Path) -> dict:
 
     # Phase 6: strip metadata
     result = strip_metadata_keys(result, is_root=True)
+
+    # Phase 7: drop the allOf husks flattening left behind. Last, so it also clears any
+    # branch the earlier phases emptied.
+    result = prune_noop_allof(result)
 
     return result
 
