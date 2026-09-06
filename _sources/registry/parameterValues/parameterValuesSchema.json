@@ -29156,6 +29156,847 @@
                 "schema:name",
                 "schema:value"
             ]
+        },
+        "vnmir_calibrationFactorAndDeterminationMethod": {
+            "title": "Calibration Factor and Determination Method",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/calibrationFactorAndDeterminationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/calibrationFactorAndDeterminationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_calibrationStandards": {
+            "title": "Calibration Standards",
+            "description": "Reference materials measured to calibrate the reported quantity, with source.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/calibrationStandards"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/calibrationStandards"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Calibration Standards"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_constantsAndReferenceValuesUsed": {
+            "title": "Constants and Reference Values Used",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/constantsAndReferenceValuesUsed"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/constantsAndReferenceValuesUsed"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Constants and Reference Values Used"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_coupledDatasetOrPublicationReference": {
+            "title": "Coupled Dataset or Publication Reference",
+            "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/coupledDatasetOrPublicationReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/coupledDatasetOrPublicationReference"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Dataset or Publication Reference"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_coupledProcedureDoi": {
+            "title": "Coupled Procedure DOI",
+            "description": "Registered procedure DOI for the coupled technique named above. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/coupledProcedureDoi"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/coupledProcedureDoi"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Procedure DOI"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_emissivityMaximum": {
+            "title": "Emissivity Maximum",
+            "description": "Fitted maximum emissivity (Christiansen feature) for this measurement. Record 'N/A' where Measurement Type is not Emissivity.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/emissivityMaximum"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/emissivityMaximum"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Emissivity Maximum"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "vnmir_emissivityMaximumFitRegionMaximum": {
+            "title": "Emissivity Maximum Fit Region Maximum",
+            "description": "Long-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Emissivity Maximum Fit Region Maximum"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "vnmir_emissivityMaximumFitRegionMinimum": {
+            "title": "Emissivity Maximum Fit Region Minimum",
+            "description": "Short-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Emissivity Maximum Fit Region Minimum"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "vnmir_environmentalPressure": {
+            "title": "Environmental Pressure",
+            "description": "Chamber pressure during the session.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/environmentalPressure"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/environmentalPressure"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Environmental Pressure"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "vnmir_measurementEnvironment": {
+            "title": "Measurement Environment",
+            "description": "Atmosphere the measurement chamber is held in.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/measurementEnvironment"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/measurementEnvironment"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Measurement Environment"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_noiseUncertainty": {
+            "title": "Noise Uncertainty",
+            "description": "Noise-equivalent uncertainty on the reported spectrum for this measurement.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/noiseUncertainty"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/noiseUncertainty"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Noise Uncertainty"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "vnmir_numberOfScans": {
+            "title": "Number of Scans",
+            "description": "Interferograms co-added per reported spectrum.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/numberOfScans"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/numberOfScans"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Number of Scans"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_phaseAngle": {
+            "title": "Phase Angle",
+            "description": "Angle between illumination and detection directions, for this measurement.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/phaseAngle"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/phaseAngle"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Phase Angle"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "vnmir_preAnalysisImagingAndScreening": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/preAnalysisImagingAndScreening"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/preAnalysisImagingAndScreening"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_samplePersistentIdentifier": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/samplePersistentIdentifier"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/samplePersistentIdentifier"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_samplePreparationMethod": {
+            "title": "Sample Preparation Method",
+            "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form — for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/samplePreparationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/samplePreparationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Preparation Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_samplingUnitSelectionCriteria": {
+            "title": "Sampling Unit Selection Criteria",
+            "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/samplingUnitSelectionCriteria"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/samplingUnitSelectionCriteria"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sampling Unit Selection Criteria"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "vnmir_spectralResolution": {
+            "title": "Spectral Resolution",
+            "description": "Instrumental spectral resolution the procedure operates at.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/spectralResolution"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/spectralResolution"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Spectral Resolution"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "vnmir_spectralSampling": {
+            "title": "Spectral Sampling",
+            "description": "Spacing between adjacent recorded spectral points. Distinct from resolution: sampling may oversample the instrumental resolution.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/spectralSampling"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/spectralSampling"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Spectral Sampling"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "vnmir_spotSize": {
+            "title": "Spot Size",
+            "description": "Diameter of the analysed area for a point measurement, or the pixel footprint for a map.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vnmirTAPP/spotSize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/vnmirTAPP/spotSize"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Spot Size"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
         }
     }
 }

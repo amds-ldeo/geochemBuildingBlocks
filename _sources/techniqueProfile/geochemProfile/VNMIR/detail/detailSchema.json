@@ -1,0 +1,1075 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "VNMIR Analysis Detail",
+    "description": "Detail block for VNMIR hasPart items. Discriminates on ada:componentType and carries the analysis-level properties - viewing geometry, sample state and per-measurement results - that are supplied per measurement rather than fixed by the procedure.",
+    "allOf": [
+        {
+            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification"
+        },
+        {
+            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "prov:wasGeneratedBy": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:object": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "@type": {
+                                                        "contains": {
+                                                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:additionalProperty": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "anyOf": [
+                                                                {
+                                                                    "title": "Sample Heated",
+                                                                    "description": "Whether the sample was heated during measurement. Record 'N/A' where the procedure does not control sample temperature.",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/vnmirTAPP/sampleHeated"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": [
+                                                                                {
+                                                                                    "@id": "ada:parameter/vnmirTAPP/sampleHeated"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Sample Heated"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value"
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "title": "Vacuum Exposed Sample",
+                                                                    "description": "Whether this sample was exposed to vacuum before or during measurement, which alters adsorbed water and therefore the spectrum.",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/vnmirTAPP/vacuumExposedSample"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": [
+                                                                                {
+                                                                                    "@id": "ada:parameter/vnmirTAPP/vacuumExposedSample"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Vacuum Exposed Sample"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value"
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "allOf": [
+                                                            {
+                                                                "contains": {
+                                                                    "title": "Sample Heated",
+                                                                    "description": "Whether the sample was heated during measurement. Record 'N/A' where the procedure does not control sample temperature.",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/vnmirTAPP/sampleHeated"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": [
+                                                                                {
+                                                                                    "@id": "ada:parameter/vnmirTAPP/sampleHeated"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Sample Heated"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value"
+                                                                    ]
+                                                                },
+                                                                "minContains": 0,
+                                                                "maxContains": 1
+                                                            },
+                                                            {
+                                                                "contains": {
+                                                                    "title": "Vacuum Exposed Sample",
+                                                                    "description": "Whether this sample was exposed to vacuum before or during measurement, which alters adsorbed water and therefore the spectrum.",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "@id": {
+                                                                            "const": "ada:parameter/vnmirTAPP/vacuumExposedSample"
+                                                                        },
+                                                                        "@type": {
+                                                                            "const": [
+                                                                                "schema:PropertyValue"
+                                                                            ]
+                                                                        },
+                                                                        "schema:propertyID": {
+                                                                            "const": [
+                                                                                {
+                                                                                    "@id": "ada:parameter/vnmirTAPP/vacuumExposedSample"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "schema:name": {
+                                                                            "const": "Vacuum Exposed Sample"
+                                                                        },
+                                                                        "schema:value": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "@id",
+                                                                        "@type",
+                                                                        "schema:propertyID",
+                                                                        "schema:name",
+                                                                        "schema:value"
+                                                                    ]
+                                                                },
+                                                                "minContains": 0,
+                                                                "maxContains": 1
+                                                            },
+                                                            {
+                                                                "contains": {
+                                                                    "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                                                },
+                                                                "minContains": 0,
+                                                                "maxContains": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "allOf": [
+                                    {
+                                        "contains": {
+                                            "properties": {
+                                                "@type": {
+                                                    "contains": {
+                                                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "@type"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            "schema:additionalProperty": {
+                                "type": "array",
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
+                                        },
+                                        {
+                                            "title": "Spectral Resolution",
+                                            "description": "Instrumental spectral resolution the procedure operates at.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/spectralResolution"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/spectralResolution"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Spectral Resolution"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        {
+                                            "title": "Measurement Environment",
+                                            "description": "Atmosphere the measurement chamber is held in.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/measurementEnvironment"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/measurementEnvironment"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Measurement Environment"
+                                                },
+                                                "schema:value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        },
+                                        {
+                                            "title": "Spot Size",
+                                            "description": "Diameter of the analysed area for a point measurement, or the pixel footprint for a map.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/spotSize"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/spotSize"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Spot Size"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        {
+                                            "title": "Number of Scans",
+                                            "description": "Interferograms co-added per reported spectrum.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/numberOfScans"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/numberOfScans"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Number of Scans"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        },
+                                        {
+                                            "title": "Emissivity Maximum Fit Region Minimum",
+                                            "description": "Short-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Emissivity Maximum Fit Region Minimum"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        {
+                                            "title": "Emissivity Maximum Fit Region Maximum",
+                                            "description": "Long-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Emissivity Maximum Fit Region Maximum"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
+                                        },
+                                        {
+                                            "title": "Calibration Standards",
+                                            "description": "Reference materials measured to calibrate the reported quantity, with source.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/calibrationStandards"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/calibrationStandards"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Calibration Standards"
+                                                },
+                                                "schema:value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "allOf": [
+                                    {
+                                        "contains": {
+                                            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "Spectral Resolution",
+                                            "description": "Instrumental spectral resolution the procedure operates at.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/spectralResolution"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/spectralResolution"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Spectral Resolution"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "Measurement Environment",
+                                            "description": "Atmosphere the measurement chamber is held in.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/measurementEnvironment"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/measurementEnvironment"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Measurement Environment"
+                                                },
+                                                "schema:value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "Spot Size",
+                                            "description": "Diameter of the analysed area for a point measurement, or the pixel footprint for a map.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/spotSize"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/spotSize"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Spot Size"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "Number of Scans",
+                                            "description": "Interferograms co-added per reported spectrum.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/numberOfScans"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/numberOfScans"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Number of Scans"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "Emissivity Maximum Fit Region Minimum",
+                                            "description": "Short-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Emissivity Maximum Fit Region Minimum"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "Emissivity Maximum Fit Region Maximum",
+                                            "description": "Long-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Emissivity Maximum Fit Region Maximum"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "Calibration Standards",
+                                            "description": "Reference materials measured to calibrate the reported quantity, with source.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/vnmirTAPP/calibrationStandards"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/vnmirTAPP/calibrationStandards"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Calibration Standards"
+                                                },
+                                                "schema:value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    }
+                                ]
+                            },
+                            "ada:incidenceAngle": {
+                                "description": "Angle of the illumination source from the sample surface normal, for this measurement.",
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "ada:emissionAngle": {
+                                "description": "Angle of the detector from the sample surface normal, for this measurement.",
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "ada:phaseAngle": {
+                                "description": "Angle between illumination and detection directions, for this measurement.",
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "ada:sampleTemperature": {
+                                "description": "Sample temperature during this measurement.",
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "ada:environmentalPressure": {
+                                "description": "Chamber pressure during the session.",
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "schema:additionalProperty": {
+                    "type": "array",
+                    "items": {
+                        "title": "Emissivity Maximum",
+                        "description": "Fitted maximum emissivity (Christiansen feature) for this measurement. Record 'N/A' where Measurement Type is not Emissivity.",
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "const": "ada:parameter/vnmirTAPP/emissivityMaximum"
+                            },
+                            "@type": {
+                                "const": [
+                                    "schema:PropertyValue"
+                                ]
+                            },
+                            "schema:propertyID": {
+                                "const": [
+                                    {
+                                        "@id": "ada:parameter/vnmirTAPP/emissivityMaximum"
+                                    }
+                                ]
+                            },
+                            "schema:name": {
+                                "const": "Emissivity Maximum"
+                            },
+                            "schema:value": {
+                                "anyOf": [
+                                    {
+                                        "type": "number"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "schema:unitText": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value",
+                            "schema:unitText"
+                        ]
+                    },
+                    "allOf": [
+                        {
+                            "contains": {
+                                "title": "Emissivity Maximum",
+                                "description": "Fitted maximum emissivity (Christiansen feature) for this measurement. Record 'N/A' where Measurement Type is not Emissivity.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/vnmirTAPP/emissivityMaximum"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/vnmirTAPP/emissivityMaximum"
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "const": "Emissivity Maximum"
+                                    },
+                                    "schema:value": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:unitText": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value",
+                                    "schema:unitText"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        }
+                    ]
+                },
+                "dqv:hasQualityMeasurement": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "dqv:isMeasurementOf": {
+                                            "const": "Noise Uncertainty"
+                                        }
+                                    },
+                                    "required": [
+                                        "dqv:isMeasurementOf"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "dqv:value": {
+                                            "description": "Noise-equivalent uncertainty on the reported spectrum for this measurement.",
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}
