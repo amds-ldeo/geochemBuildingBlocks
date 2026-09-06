@@ -44,19 +44,32 @@ def _bb(name):
     return _BB_CACHE[name]
 
 
+# Composition manifest for tables drafted HERE rather than delivered by the TAPP library. Kept
+# out of the library's own composed_tapps.json so an unreviewed draft never enters its record of
+# what exists, while still composing module $defs by $ref exactly as a released TAPP does.
+_DRAFT_MANIFEST = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "draftTAPPs", "composed_drafts.json")
+
+
 def _manifest_entry(source_path):
     """The composed_tapps.json entry for a table, matched on FILENAME.
 
     The manifest records per-technique paths while a delivery may lay its tables out flat, so the
     literal path resolves against neither reliably.
+
+    The library manifest is consulted first, then the local draft manifest. Order matters: a
+    delivered table always wins, so a draft can never shadow the library's declaration for a name
+    the library also uses. A draft that is later released stops matching here and starts matching
+    there, with no edit to either file.
     """
-    mp = ts.manifest_path()
-    if not mp:
-        return None
     want = os.path.basename(str(source_path))
-    for e in (json.load(open(mp, encoding="utf-8")).get("composed") or []):
-        if os.path.basename(e.get("tapp", "")) == want:
-            return e
+    for mp in (ts.manifest_path(), _DRAFT_MANIFEST):
+        if not mp or not os.path.exists(mp):
+            continue
+        for e in (json.load(open(mp, encoding="utf-8")).get("composed") or []):
+            if os.path.basename(e.get("tapp", "")) == want:
+                return e
     return None
 
 
