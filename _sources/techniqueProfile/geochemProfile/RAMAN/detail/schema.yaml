@@ -1,0 +1,52 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Raman Analysis Detail
+description: Detail block for Raman hasPart items, carrying the analysis-identification properties the
+  Core module places on the dataset. No Raman-specific analysis property is defined yet.
+allOf:
+- $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
+- type: object
+  properties:
+    prov:wasGeneratedBy:
+      type: array
+      items:
+        type: object
+        properties:
+          schema:additionalProperty:
+            type: array
+            items:
+              anyOf:
+              - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
+              - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+            allOf:
+            - contains:
+                $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
+              minContains: 0
+              maxContains: 1
+            - contains:
+                $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+              minContains: 0
+              maxContains: 1
+          schema:object:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    '@type':
+                      contains:
+                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  required:
+                  - '@type'
+                then:
+                  properties:
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                      allOf:
+                      - contains:
+                          $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                        minContains: 0
+                        maxContains: 1
