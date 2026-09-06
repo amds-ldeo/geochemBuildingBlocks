@@ -10289,3 +10289,132 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  vnmir_emissivityMaximumFitRegionMaximumDefault:
+    title: Emissivity Maximum Fit Region Maximum
+    description: Long-wavelength limit of the window over which the emissivity maximum is fitted. Record
+      'N/A' where Measurement Type is not Emissivity.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximumDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: emissivityMaximumFitRegionMaximumDefault
+      schema:name:
+        const: Emissivity Maximum Fit Region Maximum
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  vnmir_emissivityMaximumFitRegionMinimumDefault:
+    title: Emissivity Maximum Fit Region Minimum
+    description: Short-wavelength limit of the window over which the emissivity maximum is fitted. Record
+      'N/A' where Measurement Type is not Emissivity.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimumDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: emissivityMaximumFitRegionMinimumDefault
+      schema:name:
+        const: Emissivity Maximum Fit Region Minimum
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  vnmir_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or
+      locate the sampling unit to be analysed, including the technique, instrument and settings used, and
+      how individual analyses are linked back to the images. Distinct from any imaging the procedure performs
+      as its own measurement. Where the imaging is performed on a separate instrument, it should also be
+      recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/vnmirTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  vnmir_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International
+      Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by
+      Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/vnmirTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
