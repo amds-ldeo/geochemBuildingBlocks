@@ -53,6 +53,8 @@ TECH_DIR = {
     "vnmirTAPP": "VNMIR",
     "qrisTAPP": "QRIS",
     "xrdTAPP": "XRD",
+    "ramanTAPP": "RAMAN",
+    "xanesTAPP": "XANES",
 }
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
@@ -85,6 +87,51 @@ _IDENTITY_COMMON = {"Protocol Name", "Technique", "Protocol Author", "Laboratory
                     "Procedure DOI"}
 
 TAPP_CONFIGS = {
+    "ramanTAPP": {
+        "xlsx": "draftTAPPs/RAMAN_TAPP_draft_v2.csv",
+        "prefix": "raman",
+        "component_types": ["ada:RAMANRawTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {"analyticalMode": ["Point spectrum"]},
+        "title": "Raman Technique-Aligned Procedure Profile (ramanTAPP)",
+        "description": ("Raman vibrational spectroscopy extension of the base TAPP definition. "
+                        "CORE-ONLY DRAFT: the native technique layer is empty. Raman has no ADA "
+                        "detail schema and no technique property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented - no laser wavelength, "
+                        "grating or objective appears here. This registers the procedure skeleton "
+                        "and needs Phase 0 seed papers before it says anything Raman-specific. "
+                        "Generated from draftTAPPs/RAMAN_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Raman Analysis Detail",
+        "detail_description": ("Detail block for Raman hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on the "
+                               "dataset. No Raman-specific analysis property is defined yet."),
+    },
+    "xanesTAPP": {
+        "xlsx": "draftTAPPs/XANES_TAPP_draft_v2.csv",
+        "prefix": "xanes",
+        "component_types": ["ada:XANESCollection", "ada:XANESImageStack",
+                            "ada:XANESProcessedTabular", "ada:XANESRawTabular",
+                            "ada:XANESStackOverviewImage", "ada:XANESimage"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {"analyticalMode": ["Hyperspectral image stack"]},
+        "title": "XANES Technique-Aligned Procedure Profile (xanesTAPP)",
+        "description": ("X-ray absorption near edge structure spectroscopy extension of the base "
+                        "TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. "
+                        "XANES has no ADA detail schema and no technique property in any of its "
+                        "241 ADA records, so there was nothing to seed one from and none was "
+                        "invented - no beamline energy range, monochromator or dwell time appears "
+                        "here. This registers the procedure skeleton and needs Phase 0 seed papers "
+                        "before it says anything XANES-specific. Generated from "
+                        "draftTAPPs/XANES_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "XANES Analysis Detail",
+        "detail_description": ("Detail block for XANES hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on the "
+                               "dataset. No XANES-specific analysis property is defined yet."),
+    },
     "qrisTAPP": {
         "xlsx": "draftTAPPs/QRIS_TAPP_draft_v2.csv",
         "prefix": "qris",
