@@ -200,19 +200,29 @@ def numify(raw, dtype):
 
 def placeholder(m, item, sidecar):
     """A schema-satisfying placeholder value for a direct/scalar terminal."""
+    name = sidecar.get(item, {}).get("name") or b.camel(item)
     dl = (m.get("dt") or "").lower()
     if "controlled" in dl:
         parts = [p.strip().strip("'\"") for p in (m.get("ex") or "").split("|")
                  if p.strip() and not p.strip().lower().startswith("e.g") and "specify" not in p.strip().lower()]
         if parts:
             return parts[0]
+        # Column F is consumer-owned and can be empty on a row a TAPP inherited from a module
+        # without filling in its own half — VNMIR shipped exactly that for Analytical Mode. The
+        # `example <name>` fallback below is then not merely unhelpful, it is guaranteed WRONG:
+        # where the generator also emits an enum for this property, no placeholder string can
+        # satisfy it, and the example fails the very schema it is meant to demonstrate. Prefer
+        # the enum the schema is being built from; it is the same list, from the same config.
+        enum = (getattr(b, "CFG", None) or {}).get("enum_props", {}).get(name)
+        if enum:
+            return enum[0]
     if dl.startswith("bool"):
         return True
     if "integer" in dl:
         return 1
     if "numeric" in dl or "number" in dl:
         return 1.0
-    return f"example {sidecar.get(item, {}).get('name') or b.camel(item)}"
+    return f"example {name}"
 
 
 def _split_top_level(v):
