@@ -46,10 +46,11 @@ docs/                        TAPP workbooks, schema-path sidecars, and the pipel
 
 **Directory names are not profile names.** `EMPA/profile-ada` publishes `adaEMPA`, `SEM/profile` publishes `adaSEMFull`, `XCT/profile` publishes `adaLabXCT`. The canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside each schema — resolve it from there, never from the path.
 
-**Detail blocks are not uniformly placed**, and placement does **not** track whether the technique is path-driven — SEM-FIBSEM and SEM-Imaging have path-driven profiles but hasPart-item details. Of the 25:
+**Detail blocks are not uniformly placed**, and placement does **not** track whether the technique is path-driven — SEM-FIBSEM and SEM-Imaging have path-driven profiles but hasPart-item details. Of the 30 (recounted 2026-09-05; the earlier 7/18 split predates the LA-* and Solution-* additions):
 
-- **7 overlay the `schema:Dataset` root** (analyst contributor, session dates, sample, funding, per-analysis parameters), carrying no `ada:componentType`: Basemap, EMPA, Geochron, SEM, SEM-Composition, Solution-Q-ICPMS, Solution-SF-ICPMS.
-- **18 pin `ada:componentType` and overlay a `schema:distribution.hasPart` item**: ARGT, DSC, EAIRMS, ICPOES, L2MS, LA-ICPMS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD.
+- **13 overlay the `schema:Dataset` root** (analyst contributor, session dates, sample, funding, per-analysis parameters), carrying no `ada:componentType`: Basemap, EMPA, LA-MC-ICPMS, LA-MC-ICPMS-UPb, LA-Q-ICPMS, LA-Q-ICPMS-UPb, LA-SF-ICPMS, LA-SF-ICPMS-UPb, SEM, SEM-Composition, Solution-MC-ICPMS, Solution-Q-ICPMS, Solution-SF-ICPMS.
+- **17 pin `ada:componentType`** and overlay a `schema:distribution.hasPart` item: ARGT, DSC, EAIRMS, ICPOES, L2MS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, RITOFNGMS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD.
+- **Mismatch to watch:** TEM, XCT, SEM-FIBSEM and SEM-Imaging are hasPart-item blocks but their path-driven `profile/` composes them top-level. Latent only because no record currently conforms to those profile names.
 
 Any consumer walking detail blocks must handle both. (`grep -L 'ada:componentType' _sources/techniqueProfile/*/*/detail/schema.yaml` re-derives the first list.)
 

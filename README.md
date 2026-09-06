@@ -8,7 +8,7 @@ The scheme involves three components:
 
 2. A building block JSON schema specific to the protocol. This protocol definition object is registered in a protocol registry and accessible via its URI. The TAPP definition is referenced as a measurementTechnique in dataset metadata. 
 
-3. A technique-specific 'detail' building block JSON schema that defines the parameters that may be assigned values at the individual dataset level. There is one detail block per technique, at `_sources/techniqueProfile/geochemProfile/<TECH>/detail/`, not a single 'details' file. The content of this schema is included in the schema for dataset instances to create a metadata schema for Datasets conforming to the profile. Session-level and per-analyte parameters are defined once in a registered parameter registry (`parameterValues`) and referenced from the detail blocks by URI, so a parameter can be reused across detail definitions; the references are resolved inline into the published resolved schema.
+3. A technique-specific 'detail' building block JSON schema that defines the parameters that may be assigned values at the individual dataset level. There is one detail block per technique, at `_sources/techniqueProfile/<GROUP>/<TECH>/detail/` (`GROUP` = `geochemProfile` or `adaProfile`), not a single 'details' file. Two kinds exist and they compose at different nodes: a dataset-root block overlays `schema:Dataset`, while a hasPart-item block pins `ada:componentType` and overlays a distribution part - see `agents.md` for the split and the grep that re-derives it. The content of this schema is included in the schema for dataset instances to create a metadata schema for Datasets conforming to the profile. Session-level and per-analyte parameters are defined once in a registered parameter registry (`parameterValues`) and referenced from the detail blocks by URI, so a parameter can be reused across detail definitions; the references are resolved inline into the published resolved schema.
 
 ## Structure
 
@@ -30,9 +30,9 @@ _sources/
   techniqueProfile/     one directory per technique (44), under two roots:
     geochemProfile/     the 12 TAPP-aware techniques
       <TECH>/tapp/      the TAPP definition for that technique      (12 techniques)
-      <TECH>/detail/    per-dataset analysis-instance detail        (12 techniques)
+      <TECH>/detail/    per-dataset analysis-instance detail        (16 techniques)
       <TECH>/profile/   path-driven product profile: adaProduct +
-                        detail + TAPP linkage                        (10 techniques)
+                        detail + TAPP linkage                        (16 techniques)
       <TECH>/profile-ada/ generic product profile, written by the
                         TAPP tooling                                  (4 techniques)
     adaProfile/         the other 32 techniques, untouched by the TAPP work

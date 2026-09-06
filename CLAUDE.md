@@ -104,6 +104,33 @@ file. `build_tapp.sort_defs()` now orders them by key, so a `--tapp` spot regen 
 produce the same bytes. Keep it that way: a generator that varies by run date or invocation order
 cannot be diffed, which forecloses any CI check that regenerates and compares.
 
+**Not every source file has a generator.** `profile-ada/` schemas split by whether the technique
+has a TAPP: `_tapp_lib.py` generates the 16 under `geochemProfile/`, while the 32 under
+`adaProfile/` are hand-maintained — `generate_profiles.py` knows them but is deprecated and refuses
+to run (it emits the old object-form `ada:componentType`), so nothing regenerates those files. Edit
+them directly, and expect no regeneration to correct a mistake: `adaProfile/QRIS` named a detail
+block in its description and referenced it nowhere for as long as the file existed, because no
+generator run would ever have noticed (fixed 2026-09-05, `1db480deb`).
+
+**"detail" means two different things, and they compose at different nodes.** A dataset-root
+detail block overlays `schema:Dataset` and belongs as a top-level `allOf` entry beside the base
+product; a hasPart-item block pins `ada:componentType`, describes a data component, and belongs as
+an `anyOf` branch on `schema:distribution.hasPart`. `agents.md` has the authoritative split and the
+grep that re-derives it — the two kinds do **not** follow the `adaProfile` / `geochemProfile`
+grouping, so do not infer placement from the directory.
+
+Measure before relocating one of these `$ref`s. Moving the twelve `adaProfile` hasPart-item blocks
+to the top level was tried on a copy on 2026-09-05 and failed **all 218** records of the affected
+profiles on a missing `ada:componentType` — the reasoning that motivated it (EMPA's description
+says "Dataset-level analysis-instance detail ... on the schema:Dataset root") generalised from the
+wrong family.
+
+Four techniques are inconsistent today and it is latent, not harmless: TEM, XCT, SEM-FIBSEM and
+SEM-Imaging have hasPart-item detail blocks composed at the **top level** by their path-driven
+`profile/`. No record uses those profile names — the corpus reaches `adaTEM` and `adaSEM`, not
+`adaTEMFull` or `adaSEMImaging` — so nothing exercises the mismatch. It will surface the moment a
+record conforms to one of them.
+
 One standing gotcha bites spot regenerations:
 
 - **`tools/resolve_schema.py` and `tools/regenerate_schema_json.py` are synced copies** from `metadataBuildingBlocks/tools/`. Don't edit them here — fix the canonical copy upstream and re-sync (`python tools/sync_resolve_schema.py --apply` from that repo).
@@ -269,5 +296,7 @@ These are real past incidents, not hypothetical:
 - Const-concatenation regex artifacts in YAML→JSON (geochem commit `f1e2218a` — last `const` value bleeds into next property)
 - Self-referential `$defs` causing `RecursionError` in `resolve_schema.py` (CDIF commit `2f402f6e0`)
 - Stale `register.json` entries vs `_sources/` directory listing
+- A `$ref` that exists but sits at the wrong node — present to `grep`, invisible to a reader
+  scanning `allOf`, and in an `anyOf` it constrains nothing at all
 
 The propagate-schema command runs all of these as part of its consistency audit; if you're working outside that pipeline, run them by hand on touched paths.
