@@ -51,6 +51,8 @@ TECH_DIR = {
     # composed against the library's own modules. Source lives in draftTAPPs/, not the
     # tapp submodule, so an unreviewed table cannot be mistaken for an approved TAPP.
     "vnmirTAPP": "VNMIR",
+    "qrisTAPP": "QRIS",
+    "xrdTAPP": "XRD",
 }
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
@@ -83,6 +85,48 @@ _IDENTITY_COMMON = {"Protocol Name", "Technique", "Protocol Author", "Laboratory
                     "Procedure DOI"}
 
 TAPP_CONFIGS = {
+    "qrisTAPP": {
+        "xlsx": "draftTAPPs/QRIS_TAPP_draft_v2.csv",
+        "prefix": "qris",
+        # Union of what ADA declares: the detail schema's two, the profile's three delivery
+        # forms, and the calibration file the records actually carry.
+        "component_types": ["ada:QRISRaw", "ada:QRISCalibrated", "ada:QRISRawCollection",
+                            "ada:QRISCalibratedCollection", "ada:QRISCalibrationFile"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {"analyticalMode": ["Reflectance imaging"]},
+        "title": "QRIS Technique-Aligned Procedure Profile (qrisTAPP)",
+        "description": ("Quantitative Reflectance Imaging System extension of the base TAPP "
+                        "definition. QRIS has no per-element analyte axis, so no "
+                        "ada:analyteTemplate is defined, and no mode-flag columns: its ADA "
+                        "componentTypes are pipeline stages of one acquisition, not modes. "
+                        "DRAFT - generated from draftTAPPs/QRIS_TAPP_draft_v2.csv by "
+                        "tools/build_tapp.py; the source table has not been through Phase 0 review."),
+        "detail_title": "QRIS Analysis Detail",
+        "detail_description": ("Detail block for QRIS hasPart items, carrying the analysis-level "
+                               "properties supplied per imaging session rather than fixed by the "
+                               "procedure."),
+    },
+    "xrdTAPP": {
+        "xlsx": "draftTAPPs/XRD_TAPP_draft_v2.csv",
+        "prefix": "xrd",
+        "component_types": ["ada:XRDTabular", "ada:XRDDiffractionPattern", "ada:XRDIndexedImage"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {"analyticalMode": ["Powder diffraction", "Micro-diffraction"]},
+        "title": "XRD Technique-Aligned Procedure Profile (xrdTAPP)",
+        "description": ("X-ray diffraction extension of the base TAPP definition. XRD reports "
+                        "phases rather than per-element concentrations, so no ada:analyteTemplate "
+                        "is defined; no mode-flag columns, since it delivers a single technique "
+                        "componentType. DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv "
+                        "by tools/build_tapp.py; the source table has not been through Phase 0 "
+                        "review."),
+        "detail_title": "XRD Analysis Detail",
+        "detail_description": ("Detail block for XRD hasPart items, carrying the analysis-level "
+                               "properties supplied per scan rather than fixed by the procedure."),
+    },
     "vnmirTAPP": {
         "xlsx": "draftTAPPs/VNMIR_TAPP_draft_v2.csv",
         "prefix": "vnmir",
