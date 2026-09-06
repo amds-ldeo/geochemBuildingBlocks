@@ -1,0 +1,162 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA XRD Product Profile (TAPP-linked)",
+    "description": "Profile for an ADA metadata document describing data generated under a registered xrdTAPP procedure. Extends the base ADA product profile with the XRD analysis-instance detail on the schema:Dataset root, pins prov:used to the xrdTAPP definition and the instrument building block, and constrains valid XRD component types on both the monolithic and bundle forms of schema:distribution. Distinct from adaProfile/XRD, which is the generic (adaProduct-only) XRD profile and carries no TAPP linkage - a record conforming here additionally asserts which registered procedure produced it. DRAFT - the xrdTAPP source table has not been through Phase 0 review.",
+    "allOf": [
+        {
+            "$ref": "../../../../BaseSchema/adaProduct/adaProductSchema.json"
+        },
+        {
+            "$ref": "../detail/detailSchema.json"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "prov:wasGeneratedBy": {
+                    "description": "Pin the xrdTAPP definition and the instrument where prov:used carries them. Constraint-only if/then, never a narrowed anyOf: prov:used items are role-keyed wrappers, and an anyOf here would allOf-merge with the base union and exclude item shapes the base allows.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "prov:used": {
+                                "type": "array",
+                                "items": {
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "required": [
+                                                    "schema:instrument"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:instrument": {
+                                                        "type": "array",
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "$ref": "../../../../BaseSchema/instrument/instrumentSchema.json"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "@type": {
+                                                        "contains": {
+                                                            "const": "ada:TAPPDefinition"
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type"
+                                                ]
+                                            },
+                                            "then": {
+                                                "$ref": "../tapp/tappSchema.json"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "schema:additionalType": {
+                    "description": "Must include a XRD product type identifier.",
+                    "contains": {
+                        "enum": [
+                            "X-ray Diffraction (XRD) Tabular",
+                            "X-ray diffraction"
+                        ]
+                    }
+                },
+                "schema:distribution": {
+                    "description": "Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType is a XRD-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such a componentType (the ADA/SAMIS archive form).",
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "object",
+                                "required": [
+                                    "ada:componentType"
+                                ],
+                                "properties": {
+                                    "ada:componentType": {
+                                        "type": "string",
+                                        "anyOf": [
+                                            {
+                                                "$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType"
+                                            },
+                                            {
+                                                "enum": [
+                                                    "ada:XRDTabular",
+                                                    "ada:XRDDiffractionPattern",
+                                                    "ada:XRDIndexedImage"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "required": [
+                                    "schema:hasPart"
+                                ],
+                                "properties": {
+                                    "schema:hasPart": {
+                                        "items": {
+                                            "type": "object",
+                                            "anyOf": [
+                                                {
+                                                    "$ref": "../../../../BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch"
+                                                },
+                                                {
+                                                    "properties": {
+                                                        "ada:componentType": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "ada:XRDTabular",
+                                                                "ada:XRDDiffractionPattern",
+                                                                "ada:XRDIndexedImage"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "ada:componentType"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "schema:subjectOf": {
+                    "properties": {
+                        "dcterms:conformsTo": {
+                            "contains": {
+                                "type": "object",
+                                "required": [
+                                    "@id"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "@id": {
+                                        "const": "https://w3id.org/geochem/metadata/profiles/adaXRDFull"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

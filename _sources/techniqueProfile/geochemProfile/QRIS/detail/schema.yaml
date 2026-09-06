@@ -1,0 +1,140 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: QRIS Analysis Detail
+description: Detail block for QRIS hasPart items, carrying the analysis-level properties supplied per
+  imaging session rather than fixed by the procedure.
+allOf:
+- $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
+- type: object
+  properties:
+    prov:wasGeneratedBy:
+      type: array
+      items:
+        type: object
+        properties:
+          schema:additionalProperty:
+            type: array
+            items:
+              anyOf:
+              - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
+              - &id001
+                title: Illumination Level
+                description: Illumination intensity setting used for the exposure.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/qrisTAPP/illuminationLevel
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/qrisTAPP/illuminationLevel
+                  schema:name:
+                    const: Illumination Level
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - &id002
+                title: Exposure Time
+                description: Detector exposure time per frame.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/qrisTAPP/exposureTime
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/qrisTAPP/exposureTime
+                  schema:name:
+                    const: Exposure Time
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+              - &id003
+                title: Reflectance Standard
+                description: Reflectance standard imaged to convert raw counts to calibrated reflectance.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/qrisTAPP/reflectanceStandard
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/qrisTAPP/reflectanceStandard
+                  schema:name:
+                    const: Reflectance Standard
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+            allOf:
+            - contains:
+                $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
+              minContains: 0
+              maxContains: 1
+            - contains: *id001
+              minContains: 0
+              maxContains: 1
+            - contains: *id002
+              minContains: 0
+              maxContains: 1
+            - contains:
+                $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+              minContains: 0
+              maxContains: 1
+            - contains: *id003
+              minContains: 0
+              maxContains: 1
+          schema:object:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    '@type':
+                      contains:
+                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  required:
+                  - '@type'
+                then:
+                  properties:
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                      allOf:
+                      - contains:
+                          $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
+                        minContains: 0
+                        maxContains: 1

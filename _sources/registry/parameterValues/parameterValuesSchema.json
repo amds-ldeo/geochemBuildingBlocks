@@ -16768,6 +16768,448 @@
                 "schema:value"
             ]
         },
+        "qris_calibrationFactorAndDeterminationMethod": {
+            "title": "Calibration Factor and Determination Method",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/calibrationFactorAndDeterminationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/calibrationFactorAndDeterminationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "qris_constantsAndReferenceValuesUsed": {
+            "title": "Constants and Reference Values Used",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/constantsAndReferenceValuesUsed"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/constantsAndReferenceValuesUsed"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Constants and Reference Values Used"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "qris_coupledDatasetOrPublicationReference": {
+            "title": "Coupled Dataset or Publication Reference",
+            "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/coupledDatasetOrPublicationReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/coupledDatasetOrPublicationReference"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Dataset or Publication Reference"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "qris_coupledProcedureDoi": {
+            "title": "Coupled Procedure DOI",
+            "description": "Registered procedure DOI for the coupled technique named above. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/coupledProcedureDoi"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/coupledProcedureDoi"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Procedure DOI"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "qris_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "qris_exposureTime": {
+            "title": "Exposure Time",
+            "description": "Detector exposure time per frame.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/exposureTime"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/exposureTime"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Exposure Time"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "qris_illuminationLevel": {
+            "title": "Illumination Level",
+            "description": "Illumination intensity setting used for the exposure.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/illuminationLevel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/illuminationLevel"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Illumination Level"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "qris_preAnalysisImagingAndScreening": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/preAnalysisImagingAndScreening"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/preAnalysisImagingAndScreening"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "qris_reflectanceStandard": {
+            "title": "Reflectance Standard",
+            "description": "Reflectance standard imaged to convert raw counts to calibrated reflectance.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/reflectanceStandard"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/reflectanceStandard"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Reflectance Standard"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "qris_samplePersistentIdentifier": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/samplePersistentIdentifier"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/samplePersistentIdentifier"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "qris_samplePreparationMethod": {
+            "title": "Sample Preparation Method",
+            "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form — for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/samplePreparationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/samplePreparationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Preparation Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "qris_samplingUnitSelectionCriteria": {
+            "title": "Sampling Unit Selection Criteria",
+            "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/qrisTAPP/samplingUnitSelectionCriteria"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/qrisTAPP/samplingUnitSelectionCriteria"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sampling Unit Selection Criteria"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
         "semComposition_acceleratingVoltage": {
             "title": "Accelerating Voltage",
             "description": "Electron beam accelerating voltage in kilovolts.",
@@ -29974,6 +30416,448 @@
                 },
                 "schema:name": {
                     "const": "Spot Size"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "xrd_calibrationFactorAndDeterminationMethod": {
+            "title": "Calibration Factor and Determination Method",
+            "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/calibrationFactorAndDeterminationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/calibrationFactorAndDeterminationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_constantsAndReferenceValuesUsed": {
+            "title": "Constants and Reference Values Used",
+            "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/constantsAndReferenceValuesUsed"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/constantsAndReferenceValuesUsed"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Constants and Reference Values Used"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_coupledDatasetOrPublicationReference": {
+            "title": "Coupled Dataset or Publication Reference",
+            "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/coupledDatasetOrPublicationReference"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/coupledDatasetOrPublicationReference"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Dataset or Publication Reference"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_coupledProcedureDoi": {
+            "title": "Coupled Procedure DOI",
+            "description": "Registered procedure DOI for the coupled technique named above. If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or \"pending\". Enter \"None\" if no coupling is planned.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/coupledProcedureDoi"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/coupledProcedureDoi"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Coupled Procedure DOI"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_dataProcessingSoftware": {
+            "title": "Data Processing Software(s)",
+            "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/dataProcessingSoftware"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/dataProcessingSoftware"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Data Processing Software(s)"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_preAnalysisImagingAndScreening": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/preAnalysisImagingAndScreening"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/preAnalysisImagingAndScreening"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_sampleMount": {
+            "title": "Sample Mount",
+            "description": "The holder or mounting geometry the specimen is presented in. Distinct from Sample Preparation Method, which states how the material was brought to that form.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/sampleMount"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/sampleMount"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Mount"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_samplePersistentIdentifier": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/samplePersistentIdentifier"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/samplePersistentIdentifier"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_samplePreparationMethod": {
+            "title": "Sample Preparation Method",
+            "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form — for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/samplePreparationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/samplePreparationMethod"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sample Preparation Method"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_samplingUnitSelectionCriteria": {
+            "title": "Sampling Unit Selection Criteria",
+            "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/samplingUnitSelectionCriteria"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/samplingUnitSelectionCriteria"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Sampling Unit Selection Criteria"
+                },
+                "schema:value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value"
+            ]
+        },
+        "xrd_stepSize": {
+            "title": "Step Size",
+            "description": "Angular increment between recorded points.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/stepSize"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/stepSize"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Step Size"
+                },
+                "schema:value": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "schema:unitText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:propertyID",
+                "schema:name",
+                "schema:value",
+                "schema:unitText"
+            ]
+        },
+        "xrd_timePerStep": {
+            "title": "Time per Step",
+            "description": "Counting time at each angular step.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/xrdTAPP/timePerStep"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValue"
+                    ]
+                },
+                "schema:propertyID": {
+                    "const": [
+                        {
+                            "@id": "ada:parameter/xrdTAPP/timePerStep"
+                        }
+                    ]
+                },
+                "schema:name": {
+                    "const": "Time per Step"
                 },
                 "schema:value": {
                     "anyOf": [

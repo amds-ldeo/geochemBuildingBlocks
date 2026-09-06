@@ -1,0 +1,188 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "QRIS Technique-Aligned Procedure Profile (qrisTAPP)",
+    "description": "Quantitative Reflectance Imaging System extension of the base TAPP definition. QRIS has no per-element analyte axis, so no ada:analyteTemplate is defined, and no mode-flag columns: its ADA componentTypes are pipeline stages of one acquisition, not modes. DRAFT - generated from draftTAPPs/QRIS_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.",
+    "allOf": [
+        {
+            "$ref": "../../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
+        },
+        {
+            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification"
+        },
+        {
+            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification"
+        },
+        {
+            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ada:targetMaterial": {
+                    "description": "General description of the material type(s) this procedure is designed to analyse.",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Silicate mineral",
+                                "Silicate glass",
+                                "Oxide",
+                                "Sulfide",
+                                "Carbonate",
+                                "Phosphate",
+                                "Metal or alloy",
+                                "Organic matter",
+                                "Bulk regolith or soil",
+                                "Meteorite (bulk)",
+                                "Ice or hydrate",
+                                "Synthetic analogue",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "readOnly": true
+                },
+                "schema:object": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "@type": {
+                                            "contains": {
+                                                "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "@type"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "schema:additionalProperty": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening"
+                                            },
+                                            "allOf": [
+                                                {
+                                                    "contains": {
+                                                        "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening"
+                                                    },
+                                                    "minContains": 0,
+                                                    "maxContains": 1
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "ada:instrumentManufacturer": {
+                    "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                    "type": "string",
+                    "enum": [
+                        "Custom-built",
+                        "NASA Johnson Space Center",
+                        "Unknown",
+                        "N/A",
+                        "None",
+                        "missing"
+                    ],
+                    "readOnly": true
+                },
+                "ada:instrumentModel": {
+                    "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "ada:focalLength": {
+                    "description": "Focal length of the imaging lens used by this procedure.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "readOnly": true
+                },
+                "ada:illuminationColour": {
+                    "description": "Illumination wavelength band(s) the procedure images under. Record every band acquired, in the order acquired.",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Blue",
+                                "Green",
+                                "Red",
+                                "Near-infrared",
+                                "Broadband white",
+                                "Ultraviolet",
+                                "N/A",
+                                "None",
+                                "missing"
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "readOnly": true
+                },
+                "ada:illuminationLevelDefault": {
+                    "description": "Illumination intensity setting used for the exposure.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:exposureTimeDefault": {
+                    "description": "Detector exposure time per frame.",
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "ada:constantsAndReferenceValuesUsedDefault": {
+                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                    "type": "string"
+                },
+                "ada:reflectanceStandardDefault": {
+                    "description": "Reflectance standard imaged to convert raw counts to calibrated reflectance.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ada:targetMaterial",
+                "ada:instrumentManufacturer",
+                "ada:instrumentModel",
+                "ada:focalLength",
+                "ada:illuminationColour",
+                "ada:illuminationLevelDefault",
+                "ada:exposureTimeDefault",
+                "ada:constantsAndReferenceValuesUsedDefault",
+                "ada:reflectanceStandardDefault"
+            ]
+        }
+    ]
+}
