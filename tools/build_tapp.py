@@ -47,6 +47,10 @@ TECH_DIR = {
     "laQicpmsTAPP": "LA-Q-ICPMS", "laSficpmsTAPP": "LA-SF-ICPMS", "laMcicpmsTAPP": "LA-MC-ICPMS",
     "laQicpmsUPbTAPP": "LA-Q-ICPMS-UPb", "laSficpmsUPbTAPP": "LA-SF-ICPMS-UPb",
     "laMcicpmsUPbTAPP": "LA-MC-ICPMS-UPb",
+    # Draft, not part of Ruolin's release: seeded from the ADA VNMIR detail schema and
+    # composed against the library's own modules. Source lives in draftTAPPs/, not the
+    # tapp submodule, so an unreviewed table cannot be mistaken for an approved TAPP.
+    "vnmirTAPP": "VNMIR",
 }
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
@@ -79,6 +83,29 @@ _IDENTITY_COMMON = {"Protocol Name", "Technique", "Protocol Author", "Laboratory
                     "Procedure DOI"}
 
 TAPP_CONFIGS = {
+    "vnmirTAPP": {
+        "xlsx": "draftTAPPs/VNMIR_TAPP_draft_v2.csv",
+        "prefix": "vnmir",
+        "component_types": ["ada:VNMIRSpectralPoint", "ada:VNMIROverviewImage",
+                            "ada:VNMIRSpectralMap"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {"analyticalMode": ["Spectral Point", "Overview Image", "Spectral Map"]},
+        "title": "VNMIR Technique-Aligned Procedure Profile (vnmirTAPP)",
+        "description": ("Visible, near- and mid-infrared reflectance/emissivity spectroscopy "
+                        "extension of the base TAPP definition. Basic procedure-tier fields are "
+                        "required top-level ada: properties; Advanced procedure-tier fields are "
+                        "schema:additionalProperty[] PropertyValueSpecification entries. VNMIR has "
+                        "no per-element analyte axis, so no ada:analyteTemplate is defined. "
+                        "DRAFT - generated from draftTAPPs/VNMIR_TAPP_draft_v2.csv by "
+                        "tools/build_tapp.py; the source table has not been through Phase 0 review."),
+        "detail_title": "VNMIR Analysis Detail",
+        "detail_description": ("Detail block for VNMIR hasPart items. Discriminates on "
+                               "ada:componentType and carries the analysis-level properties - "
+                               "viewing geometry, sample state and per-measurement results - that "
+                               "are supplied per measurement rather than fixed by the procedure."),
+    },
     "empaTAPP": {
         # Converted to the path-driven pipeline (2026-08-04) from the v-numbered workbook, replacing
         # the earlier matrix/`schema path` route (build_empa) + _tapp_lib publication examples.
