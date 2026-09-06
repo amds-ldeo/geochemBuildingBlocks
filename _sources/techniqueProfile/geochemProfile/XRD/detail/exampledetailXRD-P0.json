@@ -1,0 +1,179 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "bios": "https://bioschemas.org/",
+    "dqv": "http://www.w3.org/ns/dqv#"
+  },
+  "@id": "ex:detailXRD-P0",
+  "@type": [
+    "schema:Dataset",
+    "schema:Product"
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/xrdTAPP/sampleMount",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/xrdTAPP/sampleMount"
+            }
+          ],
+          "schema:name": "Sample Mount",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/xrdTAPP/stepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/xrdTAPP/stepSize"
+            }
+          ],
+          "schema:name": "Step Size",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/xrdTAPP/timePerStep",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/xrdTAPP/timePerStep"
+            }
+          ],
+          "schema:name": "Time per Step",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/module/Core/constantsReferenceValues",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/Core/constantsReferenceValues"
+            }
+          ],
+          "schema:name": "Constants Reference Values",
+          "schema:value": "example value"
+        }
+      ],
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "example value"
+            }
+          ],
+          "schema:name": "example sampleName",
+          "schema:identifier": "example samplePersistentIdentifier"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "example laboratory",
+        "schema:identifier": "example laboratoryId"
+      },
+      "schema:identifier": "example sessionIdentifier",
+      "schema:startDate": "example analysisStartDate",
+      "schema:endDate": "example analysisEndDate",
+      "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "example acquisitionSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "example dataProcessingSoftware",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:description": "example additionalNotes",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Powder on zero-background holder"
+          }
+        ]
+      }
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "example procedureDoi"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:name": "example analyst"
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "example fundingSourceForAnalysis"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "example coupledTechnique",
+        "schema:description": "example couplingDescription"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledProcedure",
+      "schema:target": {
+        "schema:url": "example coupledProcedureDoi"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "example coupledDatasetOrPublicationReference"
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "XRD Analysis Detail",
+    "description": "Detail block for XRD hasPart items, carrying the analysis-level properties supplied per scan rather than fixed by the procedure.",
+    "allOf": [
+        {
+            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification"
+        },
+        {
+            "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "prov:wasGeneratedBy": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "schema:additionalProperty": {
+                                "type": "array",
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "title": "Sample Mount",
+                                            "description": "The holder or mounting geometry the specimen is presented in. Distinct from Sample Preparation Method, which states how the material was brought to that form.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/xrdTAPP/sampleMount"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/xrdTAPP/sampleMount"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Sample Mount"
+                                                },
+                                                "schema:value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
+                                        },
+                                        {
+                                            "title": "Step Size",
+                                            "description": "Angular increment between recorded points.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/xrdTAPP/stepSize"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/xrdTAPP/stepSize"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Step Size"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        {
+                                            "title": "Time per Step",
+                                            "description": "Counting time at each angular step.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/xrdTAPP/timePerStep"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/xrdTAPP/timePerStep"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Time per Step"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        {
+                                            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
+                                        }
+                                    ]
+                                },
+                                "allOf": [
+                                    {
+                                        "contains": {
+                                            "title": "Sample Mount",
+                                            "description": "The holder or mounting geometry the specimen is presented in. Distinct from Sample Preparation Method, which states how the material was brought to that form.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/xrdTAPP/sampleMount"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/xrdTAPP/sampleMount"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Sample Mount"
+                                                },
+                                                "schema:value": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "Step Size",
+                                            "description": "Angular increment between recorded points.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/xrdTAPP/stepSize"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/xrdTAPP/stepSize"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Step Size"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "title": "Time per Step",
+                                            "description": "Counting time at each angular step.",
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "const": "ada:parameter/xrdTAPP/timePerStep"
+                                                },
+                                                "@type": {
+                                                    "const": [
+                                                        "schema:PropertyValue"
+                                                    ]
+                                                },
+                                                "schema:propertyID": {
+                                                    "const": [
+                                                        {
+                                                            "@id": "ada:parameter/xrdTAPP/timePerStep"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:name": {
+                                                    "const": "Time per Step"
+                                                },
+                                                "schema:value": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        }
+                                                    ]
+                                                },
+                                                "schema:unitText": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@id",
+                                                "@type",
+                                                "schema:propertyID",
+                                                "schema:name",
+                                                "schema:value",
+                                                "schema:unitText"
+                                            ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues"
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    }
+                                ]
+                            },
+                            "schema:object": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "@type": {
+                                                        "contains": {
+                                                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:additionalProperty": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                                        },
+                                                        "allOf": [
+                                                            {
+                                                                "contains": {
+                                                                    "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                                                },
+                                                                "minContains": 0,
+                                                                "maxContains": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

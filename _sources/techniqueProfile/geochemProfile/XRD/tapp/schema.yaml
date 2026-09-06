@@ -1,0 +1,144 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: XRD Technique-Aligned Procedure Profile (xrdTAPP)
+description: X-ray diffraction extension of the base TAPP definition. XRD reports phases rather than per-element
+  concentrations, so no ada:analyteTemplate is defined; no mode-flag columns, since it delivers a single
+  technique componentType. DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv by tools/build_tapp.py;
+  the source table has not been through Phase 0 review.
+allOf:
+- $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
+- $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
+- type: object
+  properties:
+    ada:targetMaterial:
+      description: General description of the material type(s) this procedure is designed to analyse.
+      anyOf:
+      - type: string
+        enum:
+        - Silicate mineral
+        - Silicate glass
+        - Oxide
+        - Sulfide
+        - Carbonate
+        - Phosphate
+        - Metal or alloy
+        - Organic matter
+        - Bulk regolith or soil
+        - Meteorite (bulk)
+        - Ice or hydrate
+        - Synthetic analogue
+        - N/A
+        - None
+        - missing
+      - type: string
+      readOnly: true
+    ada:sampleMountDefault:
+      description: The holder or mounting geometry the specimen is presented in. Distinct from Sample
+        Preparation Method, which states how the material was brought to that form.
+      anyOf:
+      - type: string
+        enum:
+        - Zero-background holder
+        - Capillary (transmission)
+        - Flat plate (reflection)
+        - Spinner stage
+        - Fibre mount
+        - N/A
+        - None
+        - missing
+      - type: string
+    schema:object:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              '@type':
+                contains:
+                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+            required:
+            - '@type'
+          then:
+            properties:
+              schema:additionalProperty:
+                type: array
+                items:
+                  $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+                allOf:
+                - contains:
+                    $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+                  minContains: 0
+                  maxContains: 1
+    ada:instrumentManufacturer:
+      description: Manufacturer of the instrument that performs the measurement, recorded as a controlled
+        value. Where a procedure couples a sample-introduction system to an analysing instrument, this
+        records the analysing instrument. Instrument Model gives the specific designation.
+      type: string
+      enum:
+      - Malvern PANalytical
+      - Rigaku
+      - Bruker
+      - Custom-built
+      - Unknown
+      - N/A
+      - None
+      - missing
+      readOnly: true
+    ada:instrumentModel:
+      description: Model designation of the instrument that performs the measurement, including any generation
+        or configuration suffix. Conventionally written with the manufacturer name included; Instrument
+        Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable
+        by vendor.
+      type: string
+      readOnly: true
+    ada:diffractometerGeometry:
+      description: Optical geometry of the diffractometer.
+      anyOf:
+      - type: string
+        enum:
+        - Bragg-Brentano (theta-2theta)
+        - Debye-Scherrer (transmission)
+        - Parallel beam
+        - Micro-focus with area detector
+        - N/A
+        - None
+        - missing
+      - type: string
+      readOnly: true
+    ada:xRayWavelength:
+      description: Wavelength of the incident radiation, with the anode and any monochromator that selects
+        it.
+      anyOf:
+      - type: number
+      - type: string
+      readOnly: true
+    ada:stepSizeDefault:
+      description: Angular increment between recorded points.
+      anyOf:
+      - type: number
+      - type: string
+    ada:timePerStepDefault:
+      description: Counting time at each angular step.
+      anyOf:
+      - type: number
+      - type: string
+    ada:constantsAndReferenceValuesUsedDefault:
+      description: Physical constants and reference values used in data reduction to calculate the final
+        reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other
+        citable reference values used in a correction or calculation), together with their source. Distinct
+        from the Group 6 reference-material fields, which document accepted values for specific calibration/validation
+        materials rather than universal physical constants. Record "None" if no citable, revisable physical
+        constants feed into this procedure's data reduction.
+      type: string
+  required:
+  - ada:targetMaterial
+  - ada:sampleMountDefault
+  - ada:instrumentManufacturer
+  - ada:instrumentModel
+  - ada:diffractometerGeometry
+  - ada:xRayWavelength
+  - ada:stepSizeDefault
+  - ada:timePerStepDefault
+  - ada:constantsAndReferenceValuesUsedDefault
