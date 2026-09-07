@@ -128,6 +128,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:name
                   - if:
                       properties:
                         schema:additionalType:
@@ -192,6 +194,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:additionalType:
@@ -366,6 +370,8 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
               schema:model:
                 type: object
                 properties:
@@ -377,6 +383,8 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:description:
                 description: "Broad platform type of the instrument. 'Standard SEM':
                   dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined
@@ -438,6 +446,14 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+            required:
+            - ada:acceleratingVoltageDefault
+            - ada:beamDiameterDefault
+            - ada:beamMode
+            - ada:ionBeamSource
+            - schema:description
+            - schema:manufacturer
+            - schema:model
       allOf:
       - contains:
           properties:
@@ -568,6 +584,8 @@ allOf:
                         - None
                         - missing
                         readOnly: true
+                required:
+                - ada:ebsdIndexingMethod
             - if:
                 properties:
                   schema:name:
@@ -628,6 +646,11 @@ allOf:
                     - type: array
                       items:
                         type: string
+                required:
+                - ada:coarseMillingConditionsDefault
+                - ada:finePolishingConditionsDefault
+                - ada:liftOutMethod
+                - ada:protectiveCoatingDepositionDefault
             - if:
                 properties:
                   schema:name:
@@ -644,6 +667,8 @@ allOf:
                     - type: array
                       items:
                         type: string
+                required:
+                - schema:description
           allOf:
           - contains:
               properties:
@@ -2962,6 +2987,9 @@ allOf:
                         const: Target Material
                     required:
                     - schema:name
+            required:
+            - ada:foilThicknessDefault
+            - ada:sliceThicknessDefault
       allOf:
       - contains:
           properties:

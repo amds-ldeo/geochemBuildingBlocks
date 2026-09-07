@@ -1,0 +1,231 @@
+
+
+{
+  "itemIdentifier": "ogch.techniqueProfile.geochemProfile.VNMIR.profile-ada",
+  "$schema": "metaschema.yaml",
+  "name": "ADA VNMIR Profile (TAPP-linked)",
+  "abstract": "Profile for an ADA metadata document describing data generated under a registered vnmirTAPP procedure. Adds the VNMIR analysis detail on the schema:Dataset root and pins prov:used to the vnmirTAPP definition, on top of the ADA VNMIR component-type constraints. DRAFT - the vnmirTAPP source table has not been through Phase 0 review.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-09-06T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-09-07",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "vnmir",
+    "spectroscopy",
+    "tapp",
+    "profile"
+  ],
+  "sources": [
+    {
+      "title": "ADA Metadata Schema v3",
+      "link": "https://github.com/amds-ldeo/metadata"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.BaseSchema.modules.samplingUnitSelection": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/samplingUnitSelection/rules.shacl"
+    ],
+    "ogch.BaseSchema.modules.calibrationFactor": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/calibrationFactor/rules.shacl"
+    ],
+    "ogch.BaseSchema.modules.core": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/core/rules.shacl"
+    ],
+    "ogch.BaseSchema.geochemProduct": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/rules.shacl"
+    ],
+    "ogch.BaseSchema.tappDefinition": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
+    ],
+    "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.identifier": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.organization": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.person": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+    ],
+    "ogch.BaseSchema.laboratory": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+    ],
+    "ogch.BaseSchema.instrument": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.instrument": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifReference": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
+    ],
+    "ogch.BaseSchema.tabularData": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
+    ],
+    "ogch.BaseSchema.spatialRegistration": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+    ],
+    "ogch.BaseSchema.creativeWork": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/creativeWork/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
+    ],
+    "cdif.bbr.metadata.provProperties.generatedBy": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+    ],
+    "cdif.bbr.metadata.skosProperties.skosConcept": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifKey": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+    ],
+    "cdif.bbr.metadata.provProperties.derivedFrom": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.webAPI": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.action": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+    ],
+    "ogch.BaseSchema.adaProduct": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/adaProduct/rules.shacl"
+    ],
+    "ogch.BaseSchema.files": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/files/rules.shacl"
+    ],
+    "ogch.BaseSchema.imageMap": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
+    ],
+    "ogch.BaseSchema.structuredData": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/structuredData/rules.shacl"
+    ],
+    "ogch.BaseSchema.collection": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/collection/rules.shacl"
+    ],
+    "ogch.BaseSchema.stringArray": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/stringArray/rules.shacl"
+    ],
+    "ogch.BaseSchema.otherFile": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
+    ],
+    "ogch.BaseSchema.document": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/document/rules.shacl"
+    ],
+    "ogch.BaseSchema.dataCube": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/dataCube/rules.shacl"
+    ],
+    "ogch.BaseSchema.supDocImage": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/rules.shacl"
+    ],
+    "ogch.BaseSchema.image": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogch.techniqueProfile.geochemProfile.VNMIR.detail",
+    "ogch.BaseSchema.instrument",
+    "ogch.BaseSchema.adaProduct",
+    "ogch.techniqueProfile.geochemProfile.VNMIR.tapp"
+  ],
+  "schema": {
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/profile-ada/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/profile-ada/schema.json"
+  },
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/VNMIR/profile-ada/schema.yaml",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/profile-ada/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/profile-ada/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/VNMIR/profile-ada/",
+  "validationPassed": true,
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA VNMIR Product Profile (TAPP-linked)\ndescription: Profile for an ADA metadata document describing data generated under\n  a registered vnmirTAPP procedure. Extends the base ADA product profile with the\n  VNMIR analysis-instance detail on the schema:Dataset root, pins prov:used to the\n  vnmirTAPP definition and the instrument building block, and constrains valid VNMIR\n  component types on both the monolithic and bundle forms of schema:distribution.\n  Distinct from adaProfile/VNMIR, which is the generic (adaProduct-only) VNMIR profile\n  and carries no TAPP linkage - a record conforming here additionally asserts which\n  registered procedure produced it. DRAFT - the vnmirTAPP source table has not been\n  through Phase 0 review.\nallOf:\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/adaProduct/schema.yaml\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/detail/schema.yaml\n- type: object\n  properties:\n    prov:wasGeneratedBy:\n      description: 'Pin the vnmirTAPP definition and the instrument where prov:used\n        carries them. Constraint-only if/then, never a narrowed anyOf: prov:used items\n        are role-keyed wrappers, and an anyOf here would allOf-merge with the base\n        union and exclude item shapes the base allows.'\n      type: array\n      items:\n        type: object\n        properties:\n          prov:used:\n            type: array\n            items:\n              allOf:\n              - if:\n                  type: object\n                  required:\n                  - schema:instrument\n                then:\n                  properties:\n                    schema:instrument:\n                      type: array\n                      minItems: 1\n                      items:\n                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml\n              - if:\n                  type: object\n                  properties:\n                    '@type':\n                      contains:\n                        const: ada:TAPPDefinition\n                  required:\n                  - '@type'\n                then:\n                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/tapp/schema.yaml\n    schema:additionalType:\n      description: Must include a VNMIR product type identifier.\n      contains:\n        enum:\n        - Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Point\n        - Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Overview Image\n        - Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Spectral Map\n        - Visible, near-, and mid-infrared spectroscopy\n    schema:distribution:\n      description: Each distribution item is EITHER a monolithic single-file dataset\n        whose ada:componentType is a VNMIR-specific or universal value (and may carry\n        cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such\n        a componentType (the ADA/SAMIS archive form).\n      type: array\n      items:\n        anyOf:\n        - type: object\n          required:\n          - ada:componentType\n          properties:\n            ada:componentType:\n              type: string\n              anyOf:\n              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentType\n              - enum:\n                - ada:VNMIRSpectralPoint\n                - ada:VNMIROverviewImage\n                - ada:VNMIRSpectralMap\n                - ada:VNMIRSpectraPlot\n        - type: object\n          required:\n          - schema:hasPart\n          properties:\n            schema:hasPart:\n              items:\n                type: object\n                anyOf:\n                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch\n                - properties:\n                    ada:componentType:\n                      type: string\n                      enum:\n                      - ada:VNMIRSpectralPoint\n                      - ada:VNMIROverviewImage\n                      - ada:VNMIRSpectralMap\n                      - ada:VNMIRSpectraPlot\n                  required:\n                  - ada:componentType\n    schema:subjectOf:\n      properties:\n        dcterms:conformsTo:\n          contains:\n            type: object\n            required:\n            - '@id'\n            additionalProperties: false\n            properties:\n              '@id':\n                const: https://w3id.org/geochem/metadata/profiles/adaVNMIRFull\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/techniqueProfile/geochemProfile/VNMIR/profile-ada"
+}

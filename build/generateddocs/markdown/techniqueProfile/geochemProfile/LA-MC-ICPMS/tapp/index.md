@@ -203,7 +203,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "ada:dataType": "string",
               "schema:defaultValue": "missing"
             }
-          ]
+          ],
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -282,7 +283,13 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "schema:manufacturer": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:Organization"
+        ]
+      }
     },
     {
       "schema:additionalType": [
@@ -432,7 +439,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -721,7 +729,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "ada:dataType": "string",
               "schema:defaultValue": "missing"
             }
-          ]
+          ],
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -800,7 +809,13 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "schema:manufacturer": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:Organization"
+        ]
+      }
     },
     {
       "schema:additionalType": [
@@ -950,7 +965,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -1054,6 +1070,14 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (two-volume cell)" ;
                     schema1:name "Sample preparation" ;
@@ -1062,14 +1086,7 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
@@ -1268,6 +1285,8 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/ICP-Source>,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
     schema1:name "example instrumentName" .
@@ -1276,6 +1295,7 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
+    schema1:description "missing" ;
     schema1:name "missing" ;
     ada:collectorConfiguration <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues>,
         <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod>,
@@ -2360,6 +2380,8 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:manufacturer:
                 type: object
                 properties:
@@ -2382,6 +2404,11 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
+            required:
+            - schema:manufacturer
+            - schema:model
         - if:
             properties:
               schema:additionalType:
@@ -2416,6 +2443,8 @@ allOf:
                   items:
                     type: string
                     readOnly: true
+            required:
+            - ada:laserPulseDuration
       allOf:
       - contains:
           properties:

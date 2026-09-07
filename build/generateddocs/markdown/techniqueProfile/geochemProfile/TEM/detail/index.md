@@ -25,7 +25,8 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Chaves2023"
+      "@id": "ex:temTAPP-Chaves2023",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -65,7 +66,8 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Chaves2023"
+      "@id": "ex:temTAPP-Chaves2023",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -106,6 +108,8 @@ ex:detail-Chaves2023 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Chaves2023 schema1:identifier "missing" .
+
 
 ```
 
@@ -126,7 +130,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025"
+      "@id": "ex:temTAPP-Zega2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -166,7 +171,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025"
+      "@id": "ex:temTAPP-Zega2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -207,6 +213,8 @@ ex:detail-Zega2025 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Zega2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -227,7 +235,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025-2"
+      "@id": "ex:temTAPP-Zega2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -267,7 +276,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025-2"
+      "@id": "ex:temTAPP-Zega2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -308,6 +318,8 @@ ex:detail-Zega2025-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Zega2025-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -328,7 +340,8 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025-3"
+      "@id": "ex:temTAPP-Zega2025-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -368,7 +381,8 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025-3"
+      "@id": "ex:temTAPP-Zega2025-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -409,6 +423,8 @@ ex:detail-Zega2025-3 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Zega2025-3 schema1:identifier "missing" .
+
 
 ```
 
@@ -429,7 +445,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025-4"
+      "@id": "ex:temTAPP-Zega2025-4",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -469,7 +486,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zega2025-4"
+      "@id": "ex:temTAPP-Zega2025-4",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -510,6 +528,8 @@ ex:detail-Zega2025-4 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Zega2025-4 schema1:identifier "missing" .
+
 
 ```
 
@@ -530,7 +550,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Matsumoto2021"
+      "@id": "ex:temTAPP-Matsumoto2021",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -570,7 +591,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Matsumoto2021"
+      "@id": "ex:temTAPP-Matsumoto2021",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -611,6 +633,8 @@ ex:detail-Matsumoto2021 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Matsumoto2021 schema1:identifier "missing" .
+
 
 ```
 
@@ -631,7 +655,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Matsumoto2021-2"
+      "@id": "ex:temTAPP-Matsumoto2021-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -671,7 +696,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Matsumoto2021-2"
+      "@id": "ex:temTAPP-Matsumoto2021-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -712,6 +738,8 @@ ex:detail-Matsumoto2021-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Matsumoto2021-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -732,7 +760,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Matsumoto2021-3"
+      "@id": "ex:temTAPP-Matsumoto2021-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -772,7 +801,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Matsumoto2021-3"
+      "@id": "ex:temTAPP-Matsumoto2021-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -813,6 +843,8 @@ ex:detail-Matsumoto2021-3 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Matsumoto2021-3 schema1:identifier "missing" .
+
 
 ```
 
@@ -833,7 +865,8 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-KellerBerger2014"
+      "@id": "ex:temTAPP-KellerBerger2014",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -873,7 +906,8 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-KellerBerger2014"
+      "@id": "ex:temTAPP-KellerBerger2014",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -914,6 +948,8 @@ ex:detail-KellerBerger2014 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-KellerBerger2014 schema1:identifier "missing" .
+
 
 ```
 
@@ -934,7 +970,8 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zeng2024"
+      "@id": "ex:temTAPP-Zeng2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -974,7 +1011,8 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Zeng2024"
+      "@id": "ex:temTAPP-Zeng2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1015,6 +1053,8 @@ ex:detail-Zeng2024 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Zeng2024 schema1:identifier "missing" .
+
 
 ```
 
@@ -1035,7 +1075,8 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Dobrica2022"
+      "@id": "ex:temTAPP-Dobrica2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1075,7 +1116,8 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Dobrica2022"
+      "@id": "ex:temTAPP-Dobrica2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1116,6 +1158,8 @@ ex:detail-Dobrica2022 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Dobrica2022 schema1:identifier "missing" .
+
 
 ```
 
@@ -1136,7 +1180,8 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Dobrica2022-2"
+      "@id": "ex:temTAPP-Dobrica2022-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1176,7 +1221,8 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Dobrica2022-2"
+      "@id": "ex:temTAPP-Dobrica2022-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1217,6 +1263,8 @@ ex:detail-Dobrica2022-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Dobrica2022-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -1237,7 +1285,8 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Singerling2025"
+      "@id": "ex:temTAPP-Singerling2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1277,7 +1326,8 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Singerling2025"
+      "@id": "ex:temTAPP-Singerling2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1318,6 +1368,8 @@ ex:detail-Singerling2025 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Singerling2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -1338,7 +1390,8 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Thompson2020"
+      "@id": "ex:temTAPP-Thompson2020",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1378,7 +1431,8 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Thompson2020"
+      "@id": "ex:temTAPP-Thompson2020",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1419,6 +1473,8 @@ ex:detail-Thompson2020 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Thompson2020 schema1:identifier "missing" .
+
 
 ```
 
@@ -1439,7 +1495,8 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Xing2023"
+      "@id": "ex:temTAPP-Xing2023",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1479,7 +1536,8 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Xing2023"
+      "@id": "ex:temTAPP-Xing2023",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1520,6 +1578,8 @@ ex:detail-Xing2023 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Xing2023 schema1:identifier "missing" .
+
 
 ```
 
@@ -1540,7 +1600,8 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Seifert2026"
+      "@id": "ex:temTAPP-Seifert2026",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1580,7 +1641,8 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Seifert2026"
+      "@id": "ex:temTAPP-Seifert2026",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1621,6 +1683,8 @@ ex:detail-Seifert2026 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Seifert2026 schema1:identifier "missing" .
+
 
 ```
 
@@ -1641,7 +1705,8 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Seifert2026-2"
+      "@id": "ex:temTAPP-Seifert2026-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1681,7 +1746,8 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Seifert2026-2"
+      "@id": "ex:temTAPP-Seifert2026-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1722,6 +1788,8 @@ ex:detail-Seifert2026-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Seifert2026-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -1742,7 +1810,8 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Cymes2023"
+      "@id": "ex:temTAPP-Cymes2023",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1782,7 +1851,8 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Cymes2023"
+      "@id": "ex:temTAPP-Cymes2023",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1823,6 +1893,8 @@ ex:detail-Cymes2023 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Cymes2023 schema1:identifier "missing" .
+
 
 ```
 
@@ -1843,7 +1915,8 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Cymes2023-2"
+      "@id": "ex:temTAPP-Cymes2023-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1883,7 +1956,8 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Cymes2023-2"
+      "@id": "ex:temTAPP-Cymes2023-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1924,6 +1998,8 @@ ex:detail-Cymes2023-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Cymes2023-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -1944,7 +2020,8 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Mo2022"
+      "@id": "ex:temTAPP-Mo2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1984,7 +2061,8 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Mo2022"
+      "@id": "ex:temTAPP-Mo2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -2025,6 +2103,8 @@ ex:detail-Mo2022 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:temTAPP-Mo2022 schema1:identifier "missing" .
+
 
 ```
 
@@ -2045,7 +2125,8 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Mo2022-2"
+      "@id": "ex:temTAPP-Mo2022-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -2085,7 +2166,8 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:componentType": "ada:TEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:temTAPP-Mo2022-2"
+      "@id": "ex:temTAPP-Mo2022-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -2125,6 +2207,8 @@ ex:detail-Mo2022-2 a ada:TEMImage ;
     ada:sampleName "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
+
+ex:temTAPP-Mo2022-2 schema1:identifier "missing" .
 
 
 ```
@@ -4284,6 +4368,9 @@ allOf:
             anyOf:
             - type: number
             - type: string
+        required:
+        - ada:deadTime
+        - schema:actionProcess
     schema:variableMeasured:
       type: array
       items:

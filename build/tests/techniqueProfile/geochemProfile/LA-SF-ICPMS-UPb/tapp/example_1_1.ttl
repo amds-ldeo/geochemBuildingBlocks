@@ -17,13 +17,15 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished metal slabs and thin sections; no acid treatment described" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -149,8 +151,10 @@ ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)" ] ;
     schema1:name "example instrumentName" ;
+    ada:laserFluenceDefault -9999 ;
     ada:laserRepetitionRateDefault "Raster: 50 Hz; Spot (Ge): 50 Hz" ;
-    ada:laserSpotGeometryDefault "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular" .
+    ada:laserSpotGeometryDefault "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular" ;
+    ada:laserType "missing" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
     schema1:name "Detector Configuration" ;

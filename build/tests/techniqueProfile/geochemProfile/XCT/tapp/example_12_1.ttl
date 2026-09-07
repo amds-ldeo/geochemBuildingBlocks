@@ -15,14 +15,14 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -45,7 +45,8 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
                     schema1:value "Synthetic quartz monocrystal with aqueous fluid inclusions" ],
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault>,
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "None (conditions did not saturate detector; not required)" ;

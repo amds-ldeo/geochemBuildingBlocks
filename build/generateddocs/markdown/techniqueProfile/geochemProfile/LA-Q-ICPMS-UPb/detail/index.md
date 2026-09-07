@@ -25,7 +25,8 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Nakanishi2022"
+      "@id": "ex:laQicpmsUPbTAPP-Nakanishi2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -81,7 +82,8 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Nakanishi2022"
+      "@id": "ex:laQicpmsUPbTAPP-Nakanishi2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -154,6 +156,8 @@ ex:detail-Nakanishi2022 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical uncertainties: 2SE of individual spot measurements reported alongside data" .
 
+ex:laQicpmsUPbTAPP-Nakanishi2022 schema1:identifier "missing" .
+
 
 ```
 
@@ -174,7 +178,8 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2024"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -230,7 +235,8 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2024"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -303,6 +309,8 @@ ex:detail-Liu2024 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical precision (RSD) within 10% for most of 32 trace elements in 6 silicate GRMs (verified by homogeneity index assessment across 9 spots per disk)" .
 
+ex:laQicpmsUPbTAPP-Liu2024 schema1:identifier "missing" .
+
 
 ```
 
@@ -323,7 +331,8 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2025"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -379,7 +388,8 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2025"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -452,6 +462,8 @@ ex:detail-Liu2025 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
+ex:laQicpmsUPbTAPP-Liu2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -472,7 +484,8 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2025-2"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -528,7 +541,8 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2025-2"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -601,6 +615,8 @@ ex:detail-Liu2025-2 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
+ex:laQicpmsUPbTAPP-Liu2025-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -621,7 +637,8 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2016"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2016",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -677,7 +694,8 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2016"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2016",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -750,6 +768,8 @@ ex:detail-Liu2016 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
+ex:laQicpmsUPbTAPP-Liu2016 schema1:identifier "missing" .
+
 
 ```
 
@@ -770,7 +790,8 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2016-2"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2016-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -826,7 +847,8 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:componentType": "ada:LAICPMSGeochronTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Liu2016-2"
+      "@id": "ex:laQicpmsUPbTAPP-Liu2016-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -898,6 +920,8 @@ ex:detail-Liu2016-2 a ada:LAICPMSGeochronTabular ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+ex:laQicpmsUPbTAPP-Liu2016-2 schema1:identifier "missing" .
 
 
 ```
@@ -1696,6 +1720,9 @@ allOf:
               since a blank subtracted from a ratio biases the result unless its own
               composition is known. Companion to the blank correction method."
             type: string
+        required:
+        - ada:proceduralBlankLevel
+        - schema:actionProcess
 
 ```
 

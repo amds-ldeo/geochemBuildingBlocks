@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.profile - ADA FIB-SEM Product Profile",
   "bblockName": "ADA FIB-SEM Product Profile",
   "bblockId": "ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.profile",
-  "generated": "2026-09-06T01:39:47.742152+00:00",
+  "generated": "2026-09-07T21:37:51.366831+00:00",
   "result": false,
   "items": [
     {
@@ -40,7 +40,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 193,
+              "size": 196,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -52,9 +52,11 @@
           "entries": [
             {
               "op": "validation",
-              "result": true,
-              "isError": false,
-              "message": "Validation passed"
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "{'@type': ['schema:HowTo']} is not valid under any of the given schemas",
+              "isError": true,
+              "message": "ValidationError: {'@type': ['schema:HowTo']} is not valid under any of the given schemas\n\nFailed validating 'anyOf' in schema[0]:\n    {'anyOf': [{'required': ['schema:name']}, {'required': ['schema:url']}],\n     'description': 'A methodology or protocol described as a HowTo with '\n                    'optional steps',\n     'properties': {'@id': {'type': 'string'},\n                    '@type': {'contains': {'const': 'schema:HowTo'},\n                              'items': {'type': 'string'},\n                              'minItems': 1,\n                              'type': 'array'},\n                    'schema:description': {'description': 'Description of '\n                                                          'the methodology',\n                                           'type': 'string',\n                                           'x-jsonld-id': 'http://schema.org/description'},\n                    'schema:name': {'description': 'Name of the '\n                                                   'methodology or '\n                                                   'protocol',\n                                    'type': 'string',\n                                    'x-jsonld-id': 'http://schema.org/name'},\n                    'schema:step': {'description': 'Ordered steps in this '\n                                                   'methodology',\n                                    'items': {'$ref': '#/$defs/HowToStep'},\n                                    'type': 'array',\n                                    'x-jsonld-id': 'http://schema.org/step'},\n                    'schema:url': {'description': 'URL to a published '\n                                                  'methodology or protocol '\n                                                  'document',\n                                   'format': 'uri',\n                                   'type': 'string',\n                                   'x-jsonld-id': 'http://schema.org/url'}},\n     'required': ['@type'],\n     'type': 'object'}\n\nOn instance:\n    {'@type': ['schema:HowTo']}"
             }
           ]
         },

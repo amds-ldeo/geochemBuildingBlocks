@@ -25,7 +25,8 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laMcicpmsTAPP-Zhang2022"
+      "@id": "ex:laMcicpmsTAPP-Zhang2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -94,7 +95,8 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laMcicpmsTAPP-Zhang2022"
+      "@id": "ex:laMcicpmsTAPP-Zhang2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -178,6 +180,8 @@ ex:detail-Zhang2022 a ada:LAICPMSTabular ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength "Variable; analyses of plagioclase, pyroxene, glass in two lunar meteorites (NWA 10597 and NWA 6950); line length varies by mineral grain size" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1" .
+
+ex:laMcicpmsTAPP-Zhang2022 schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
@@ -923,6 +927,8 @@ allOf:
               since a blank subtracted from a ratio biases the result unless its own
               composition is known. Companion to the blank correction method."
             type: string
+        required:
+        - ada:proceduralBlankLevel
 
 ```
 

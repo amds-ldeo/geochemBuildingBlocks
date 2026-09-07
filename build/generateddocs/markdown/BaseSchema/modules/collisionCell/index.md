@@ -173,6 +173,8 @@ $defs:
                               items:
                                 type: string
                             x-jsonld-id: http://schema.org/name
+                        required:
+                        - schema:name
                   allOf:
                   - contains:
                       properties:

@@ -22,7 +22,8 @@ ex:empaTAPP-P6 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "missing" ;
     schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. EDS spectrometer present but not used for quantitative analyses. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated." ;
@@ -56,10 +57,10 @@ ex:empaTAPP-P6 a cdi:Activity,
     ada:secondaryReferenceMaterialDefault "Smithsonian Microbeam standards (specific materials and values N)" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA microanalysis software" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA microanalysis software" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://example.org/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -71,7 +72,9 @@ ex:empaTAPP-P6 a cdi:Activity,
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "15 kV" .
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" .
 
 <https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -83,6 +86,7 @@ ex:empaTAPP-P6 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
+    schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,

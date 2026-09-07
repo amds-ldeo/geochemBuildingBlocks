@@ -1709,7 +1709,10 @@
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/termCode"
                   }
-                }
+                },
+                "required": [
+                  "schema:termCode"
+                ]
               },
               "x-jsonld-id": "http://schema.org/measurementTechnique"
             },
@@ -1722,6 +1725,9 @@
                   "x-jsonld-id": "http://schema.org/name"
                 }
               },
+              "required": [
+                "schema:name"
+              ],
               "x-jsonld-id": "http://schema.org/creator"
             },
             "schema:location": {
@@ -1738,6 +1744,9 @@
                   "x-jsonld-id": "http://schema.org/identifier"
                 }
               },
+              "required": [
+                "schema:name"
+              ],
               "x-jsonld-id": "http://schema.org/location"
             },
             "schema:datePublished": {
@@ -1871,7 +1880,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/name"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
                     }
                   },
                   {
@@ -1904,7 +1916,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/name"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
                     }
                   }
                 ],
@@ -1973,7 +1988,10 @@
                               ],
                               "x-jsonld-id": "http://schema.org/description"
                             }
-                          }
+                          },
+                          "required": [
+                            "schema:description"
+                          ]
                         }
                       }
                     ]
@@ -2099,7 +2117,10 @@
                                 ],
                                 "x-jsonld-id": "http://schema.org/identifier"
                               }
-                            }
+                            },
+                            "required": [
+                              "schema:name"
+                            ]
                           }
                         }
                       ]
@@ -2282,7 +2303,12 @@
                     },
                     "x-jsonld-id": "http://schema.org/actionProcess"
                   }
-                }
+                },
+                "required": [
+                  "schema:endDate",
+                  "schema:identifier",
+                  "schema:startDate"
+                ]
               },
               "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy"
             },
@@ -2296,7 +2322,10 @@
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/identifier"
                   }
-                }
+                },
+                "required": [
+                  "schema:identifier"
+                ]
               },
               "x-jsonld-id": "http://schema.org/measurementTechnique"
             },
@@ -2320,22 +2349,24 @@
                     },
                     "then": {
                       "properties": {
-                        "schema:name": {
-                          "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
+                        "schema:contributor": {
+                          "type": "object",
+                          "properties": {
+                            "schema:name": {
+                              "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
+                              "type": "string",
+                              "x-jsonld-id": "http://schema.org/name"
                             }
+                          },
+                          "required": [
+                            "schema:name"
                           ],
-                          "x-jsonld-id": "http://schema.org/name"
+                          "x-jsonld-id": "http://schema.org/contributor"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:contributor"
+                      ]
                     }
                   }
                 ]
@@ -2368,7 +2399,10 @@
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/name"
                   }
-                }
+                },
+                "required": [
+                  "schema:name"
+                ]
               },
               "x-jsonld-id": "http://schema.org/funding"
             },
@@ -2870,7 +2904,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/defaultValue"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:defaultValue"
+                      ]
                     }
                   }
                 ]
@@ -3211,7 +3248,10 @@
                               ],
                               "x-jsonld-id": "https://ada.astromat.org/metadata/detectionLimitMethod"
                             }
-                          }
+                          },
+                          "required": [
+                            "ada:detectionLimitMethod"
+                          ]
                         }
                       }
                     ]
@@ -3292,7 +3332,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/value"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:value"
+                      ]
                     }
                   },
                   {
@@ -3778,7 +3821,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/value"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:value"
+                      ]
                     }
                   }
                 ]
@@ -3836,7 +3882,10 @@
                           ],
                           "x-jsonld-id": "http://www.w3.org/ns/dqv#value"
                         }
-                      }
+                      },
+                      "required": [
+                        "dqv:value"
+                      ]
                     }
                   }
                 ]
@@ -16325,7 +16374,10 @@
                                     }
                                   ]
                                 }
-                              }
+                              },
+                              "required": [
+                                "schema:name"
+                              ]
                             }
                           },
                           {
@@ -16423,7 +16475,10 @@
                                     }
                                   ]
                                 }
-                              }
+                              },
+                              "required": [
+                                "schema:description"
+                              ]
                             }
                           },
                           {
@@ -16715,7 +16770,10 @@
                           ],
                           "readOnly": true
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
                     },
                     "schema:model": {
                       "type": "object",
@@ -16725,7 +16783,10 @@
                           "type": "string",
                           "readOnly": true
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
                     },
                     "schema:description": {
                       "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM': variable-pressure SEM, a dry gas at low chamber pressure for uncoated or charging specimens. 'ESEM': environmental SEM, water vapour at higher pressure for hydrated specimens, requiring a gaseous secondary electron detector. Where an instrument combines categories, join them with '; ' \u2014 'FIB-SEM dual-beam; VP-SEM' \u2014 rather than looking for a combined member. This field records the COLUMN AND CHAMBER configuration only: field emission is a source type and belongs in Electron Source, not here.",
@@ -16795,7 +16856,16 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "ada:acceleratingVoltageDefault",
+                    "ada:beamDiameterDefault",
+                    "ada:beamMode",
+                    "ada:ionBeamSource",
+                    "schema:description",
+                    "schema:manufacturer",
+                    "schema:model"
+                  ]
                 }
               }
             ]
@@ -17016,7 +17086,10 @@
                             }
                           ]
                         }
-                      }
+                      },
+                      "required": [
+                        "ada:ebsdIndexingMethod"
+                      ]
                     }
                   },
                   {
@@ -17106,7 +17179,13 @@
                             }
                           ]
                         }
-                      }
+                      },
+                      "required": [
+                        "ada:coarseMillingConditionsDefault",
+                        "ada:finePolishingConditionsDefault",
+                        "ada:liftOutMethod",
+                        "ada:protectiveCoatingDepositionDefault"
+                      ]
                     }
                   },
                   {
@@ -17138,7 +17217,10 @@
                             }
                           ]
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:description"
+                      ]
                     }
                   }
                 ]
@@ -21270,7 +21352,11 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "ada:foilThicknessDefault",
+                    "ada:sliceThicknessDefault"
+                  ]
                 }
               }
             ]

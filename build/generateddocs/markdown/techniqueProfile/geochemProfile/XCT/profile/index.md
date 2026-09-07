@@ -228,7 +228,13 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@type": [
+          "schema:HowTo"
+        ]
+      },
+      "schema:endDate": "missing"
     }
   ],
   "schema:variableMeasured": [
@@ -694,7 +700,13 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@type": [
+          "schema:HowTo"
+        ]
+      },
+      "schema:endDate": "missing"
     }
   ],
   "schema:variableMeasured": [
@@ -1021,20 +1033,22 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "example partialVolumeEffectAssessment" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "example ringArtifactSeverityAndCorrectionOutcome" ],
-        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "example crossValidationOutcome" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "example beamHardeningArtifactAssessment" ],
         [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "example metalStreakArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "example beamHardeningArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "example partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
-            dqv:value "example signalToNoiseRatio" ] ;
+            dqv:value "example signalToNoiseRatio" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "example crossValidationOutcome" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "example ringArtifactSeverityAndCorrectionOutcome" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
+            schema1:actionProcess [ a schema1:HowTo ] ;
+            schema1:endDate "missing" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;

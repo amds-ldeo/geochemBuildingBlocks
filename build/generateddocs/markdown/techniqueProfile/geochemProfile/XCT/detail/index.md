@@ -25,7 +25,8 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Eckley2024"
+      "@id": "ex:labxctTAPP-Eckley2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -62,7 +63,8 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Eckley2024"
+      "@id": "ex:labxctTAPP-Eckley2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -96,6 +98,8 @@ ex:detail-Eckley2024 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
+ex:labxctTAPP-Eckley2024 schema1:identifier "missing" .
+
 
 ```
 
@@ -116,7 +120,8 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Genge2025"
+      "@id": "ex:labxctTAPP-Genge2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -168,7 +173,8 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Genge2025"
+      "@id": "ex:labxctTAPP-Genge2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -218,6 +224,8 @@ ex:detail-Genge2025 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
+ex:labxctTAPP-Genge2025 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -243,7 +251,8 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Neuman2025"
+      "@id": "ex:labxctTAPP-Neuman2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -282,7 +291,8 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Neuman2025"
+      "@id": "ex:labxctTAPP-Neuman2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -321,6 +331,8 @@ ex:detail-Neuman2025 a ada:XCTVolume ;
     ada:subVolumeOverlap "~380 slices per sub-volume overlap" ;
     ada:voiApplied "Full core length per sub-volume" .
 
+ex:labxctTAPP-Neuman2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -341,7 +353,8 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Neuman2025-2"
+      "@id": "ex:labxctTAPP-Neuman2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -379,7 +392,8 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Neuman2025-2"
+      "@id": "ex:labxctTAPP-Neuman2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -416,6 +430,8 @@ ex:detail-Neuman2025-2 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full core length per sub-volume" .
 
+ex:labxctTAPP-Neuman2025-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -436,7 +452,8 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Shearer2024"
+      "@id": "ex:labxctTAPP-Shearer2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -488,7 +505,8 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Shearer2024"
+      "@id": "ex:labxctTAPP-Shearer2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -538,6 +556,8 @@ ex:detail-Shearer2024 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
+ex:labxctTAPP-Shearer2024 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -563,7 +583,8 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Shearer2024-2"
+      "@id": "ex:labxctTAPP-Shearer2024-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -615,7 +636,8 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Shearer2024-2"
+      "@id": "ex:labxctTAPP-Shearer2024-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -665,6 +687,8 @@ ex:detail-Shearer2024-2 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
+ex:labxctTAPP-Shearer2024-2 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -690,7 +714,8 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Tomkinson2015"
+      "@id": "ex:labxctTAPP-Tomkinson2015",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -742,7 +767,8 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Tomkinson2015"
+      "@id": "ex:labxctTAPP-Tomkinson2015",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -792,6 +818,8 @@ ex:detail-Tomkinson2015 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy" .
 
+ex:labxctTAPP-Tomkinson2015 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -817,7 +845,8 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Glavin2023"
+      "@id": "ex:labxctTAPP-Glavin2023",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -869,7 +898,8 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Glavin2023"
+      "@id": "ex:labxctTAPP-Glavin2023",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -919,6 +949,8 @@ ex:detail-Glavin2023 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full vial volume (2000 × 2000 × 2000 voxels)" .
 
+ex:labxctTAPP-Glavin2023 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -944,7 +976,8 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Dias2019"
+      "@id": "ex:labxctTAPP-Dias2019",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -996,7 +1029,8 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Dias2019"
+      "@id": "ex:labxctTAPP-Dias2019",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1046,6 +1080,8 @@ ex:detail-Dias2019 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "5.39 mm³ total analyzed volume (NWA 8277)" .
 
+ex:labxctTAPP-Dias2019 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -1071,7 +1107,8 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Richard2019"
+      "@id": "ex:labxctTAPP-Richard2019",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1123,7 +1160,8 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Richard2019"
+      "@id": "ex:labxctTAPP-Richard2019",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1173,6 +1211,8 @@ ex:detail-Richard2019 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
+ex:labxctTAPP-Richard2019 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -1198,7 +1238,8 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Richard2019-2"
+      "@id": "ex:labxctTAPP-Richard2019-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1250,7 +1291,8 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Richard2019-2"
+      "@id": "ex:labxctTAPP-Richard2019-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1300,6 +1342,8 @@ ex:detail-Richard2019-2 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
+ex:labxctTAPP-Richard2019-2 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -1325,7 +1369,8 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Richard2019-3"
+      "@id": "ex:labxctTAPP-Richard2019-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1377,7 +1422,8 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Richard2019-3"
+      "@id": "ex:labxctTAPP-Richard2019-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1427,6 +1473,8 @@ ex:detail-Richard2019-3 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
+ex:labxctTAPP-Richard2019-3 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -1452,7 +1500,8 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Richard2019-4"
+      "@id": "ex:labxctTAPP-Richard2019-4",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1504,7 +1553,8 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Richard2019-4"
+      "@id": "ex:labxctTAPP-Richard2019-4",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1554,6 +1604,8 @@ ex:detail-Richard2019-4 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume per sample" .
 
+ex:labxctTAPP-Richard2019-4 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
@@ -1579,7 +1631,8 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Tait2014"
+      "@id": "ex:labxctTAPP-Tait2014",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1631,7 +1684,8 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "ada:componentType": "ada:XCTVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:labxctTAPP-Tait2014"
+      "@id": "ex:labxctTAPP-Tait2014",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1680,6 +1734,8 @@ ex:detail-Tait2014 a ada:XCTVolume ;
     ada:samplingUnit "Whole sample (8 mm core) > Phase (plagioclase network)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full 8 mm core volume" .
+
+ex:labxctTAPP-Tait2014 schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -3353,6 +3409,8 @@ allOf:
                                   - type: array
                                     items:
                                       type: string
+                              required:
+                              - schema:name
                           required:
                           - ada:toolRole
               - if:
@@ -3663,6 +3721,8 @@ allOf:
                               schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
+        required:
+        - schema:actionProcess
     schema:distribution:
       type: array
       items:

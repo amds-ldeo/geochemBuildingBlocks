@@ -1,0 +1,195 @@
+
+
+{
+  "itemIdentifier": "ogch.techniqueProfile.geochemProfile.VNMIR.detail",
+  "$schema": "metaschema.yaml",
+  "name": "VNMIR Analysis Detail",
+  "abstract": "Detail block for VNMIR hasPart items. Discriminates on ada:componentType and carries the analysis-level properties - viewing geometry, sample state and per-measurement results - that are supplied per measurement rather than fixed by the procedure.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-07T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-09-07",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "instrument",
+    "vnmir"
+  ],
+  "sources": [
+    {
+      "title": "VNMIR_TAPP_draft_v2.csv (TAPP worksheet)",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
+    }
+  ],
+  "shaclShapes": {
+    "ogch.BaseSchema.modules.samplingUnitSelection": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/samplingUnitSelection/rules.shacl"
+    ],
+    "ogch.BaseSchema.modules.calibrationFactor": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/calibrationFactor/rules.shacl"
+    ],
+    "ogch.BaseSchema.modules.core": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/core/rules.shacl"
+    ],
+    "ogch.BaseSchema.geochemProduct": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/rules.shacl"
+    ],
+    "ogch.BaseSchema.tappDefinition": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
+    ],
+    "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.identifier": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.organization": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.person": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+    ],
+    "ogch.BaseSchema.laboratory": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+    ],
+    "ogch.BaseSchema.instrument": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.instrument": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifReference": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
+    ],
+    "ogch.BaseSchema.tabularData": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
+    ],
+    "ogch.BaseSchema.spatialRegistration": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+    ],
+    "ogch.BaseSchema.creativeWork": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/creativeWork/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
+    ],
+    "cdif.bbr.metadata.provProperties.generatedBy": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+    ],
+    "cdif.bbr.metadata.skosProperties.skosConcept": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifKey": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+    ],
+    "cdif.bbr.metadata.provProperties.derivedFrom": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.webAPI": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.action": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogch.BaseSchema.modules.samplingUnitSelection",
+    "ogch.BaseSchema.modules.calibrationFactor",
+    "ogch.BaseSchema.modules.core"
+  ],
+  "schema": {
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/detail/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/detail/schema.json"
+  },
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/VNMIR/detail/schema.yaml",
+  "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/detail/context.jsonld",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/detail/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/VNMIR/detail/",
+  "validationPassed": true,
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: VNMIR Analysis Detail\ndescription: Detail block for VNMIR hasPart items. Discriminates on ada:componentType\n  and carries the analysis-level properties - viewing geometry, sample state and per-measurement\n  results - that are supplied per measurement rather than fixed by the procedure.\nallOf:\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification\n- type: object\n  properties:\n    prov:wasGeneratedBy:\n      type: array\n      items:\n        type: object\n        properties:\n          schema:object:\n            type: array\n            items:\n              type: object\n              allOf:\n              - if:\n                  properties:\n                    '@type':\n                      contains:\n                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample\n                  required:\n                  - '@type'\n                then:\n                  properties:\n                    schema:additionalProperty:\n                      type: array\n                      items:\n                        anyOf:\n                        - title: Sample Heated\n                          description: Whether the sample was heated during measurement.\n                            Record 'N/A' where the procedure does not control sample\n                            temperature.\n                          type: object\n                          properties:\n                            '@id':\n                              const: ada:parameter/vnmirTAPP/sampleHeated\n                            '@type':\n                              const:\n                              - schema:PropertyValue\n                            schema:propertyID:\n                              const:\n                              - '@id': ada:parameter/vnmirTAPP/sampleHeated\n                            schema:name:\n                              const: Sample Heated\n                            schema:value:\n                              type: string\n                          required:\n                          - '@id'\n                          - '@type'\n                          - schema:propertyID\n                          - schema:name\n                          - schema:value\n                        - title: Vacuum Exposed Sample\n                          description: Whether this sample was exposed to vacuum before\n                            or during measurement, which alters adsorbed water and\n                            therefore the spectrum.\n                          type: object\n                          properties:\n                            '@id':\n                              const: ada:parameter/vnmirTAPP/vacuumExposedSample\n                            '@type':\n                              const:\n                              - schema:PropertyValue\n                            schema:propertyID:\n                              const:\n                              - '@id': ada:parameter/vnmirTAPP/vacuumExposedSample\n                            schema:name:\n                              const: Vacuum Exposed Sample\n                            schema:value:\n                              type: string\n                          required:\n                          - '@id'\n                          - '@type'\n                          - schema:propertyID\n                          - schema:name\n                          - schema:value\n                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening\n                      allOf:\n                      - contains:\n                          title: Sample Heated\n                          description: Whether the sample was heated during measurement.\n                            Record 'N/A' where the procedure does not control sample\n                            temperature.\n                          type: object\n                          properties:\n                            '@id':\n                              const: ada:parameter/vnmirTAPP/sampleHeated\n                            '@type':\n                              const:\n                              - schema:PropertyValue\n                            schema:propertyID:\n                              const:\n                              - '@id': ada:parameter/vnmirTAPP/sampleHeated\n                            schema:name:\n                              const: Sample Heated\n                            schema:value:\n                              type: string\n                          required:\n                          - '@id'\n                          - '@type'\n                          - schema:propertyID\n                          - schema:name\n                          - schema:value\n                        minContains: 0\n                        maxContains: 1\n                      - contains:\n                          title: Vacuum Exposed Sample\n                          description: Whether this sample was exposed to vacuum before\n                            or during measurement, which alters adsorbed water and\n                            therefore the spectrum.\n                          type: object\n                          properties:\n                            '@id':\n                              const: ada:parameter/vnmirTAPP/vacuumExposedSample\n                            '@type':\n                              const:\n                              - schema:PropertyValue\n                            schema:propertyID:\n                              const:\n                              - '@id': ada:parameter/vnmirTAPP/vacuumExposedSample\n                            schema:name:\n                              const: Vacuum Exposed Sample\n                            schema:value:\n                              type: string\n                          required:\n                          - '@id'\n                          - '@type'\n                          - schema:propertyID\n                          - schema:name\n                          - schema:value\n                        minContains: 0\n                        maxContains: 1\n                      - contains:\n                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening\n                        minContains: 0\n                        maxContains: 1\n            allOf:\n            - contains:\n                properties:\n                  '@type':\n                    contains:\n                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample\n                required:\n                - '@type'\n          schema:additionalProperty:\n            type: array\n            items:\n              anyOf:\n              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria\n              - title: Spectral Resolution\n                description: Instrumental spectral resolution the procedure operates\n                  at.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/spectralResolution\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/spectralResolution\n                  schema:name:\n                    const: Spectral Resolution\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                  schema:unitText:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n                - schema:unitText\n              - title: Measurement Environment\n                description: Atmosphere the measurement chamber is held in.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/measurementEnvironment\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/measurementEnvironment\n                  schema:name:\n                    const: Measurement Environment\n                  schema:value:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n              - title: Spot Size\n                description: Diameter of the analysed area for a point measurement,\n                  or the pixel footprint for a map.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/spotSize\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/spotSize\n                  schema:name:\n                    const: Spot Size\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                  schema:unitText:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n                - schema:unitText\n              - title: Number of Scans\n                description: Interferograms co-added per reported spectrum.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/numberOfScans\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/numberOfScans\n                  schema:name:\n                    const: Number of Scans\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n              - title: Emissivity Maximum Fit Region Minimum\n                description: Short-wavelength limit of the window over which the emissivity\n                  maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum\n                  schema:name:\n                    const: Emissivity Maximum Fit Region Minimum\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                  schema:unitText:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n                - schema:unitText\n              - title: Emissivity Maximum Fit Region Maximum\n                description: Long-wavelength limit of the window over which the emissivity\n                  maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum\n                  schema:name:\n                    const: Emissivity Maximum Fit Region Maximum\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                  schema:unitText:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n                - schema:unitText\n              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues\n              - title: Calibration Standards\n                description: Reference materials measured to calibrate the reported\n                  quantity, with source.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/calibrationStandards\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/calibrationStandards\n                  schema:name:\n                    const: Calibration Standards\n                  schema:value:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n            allOf:\n            - contains:\n                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria\n              minContains: 0\n              maxContains: 1\n            - contains:\n                title: Spectral Resolution\n                description: Instrumental spectral resolution the procedure operates\n                  at.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/spectralResolution\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/spectralResolution\n                  schema:name:\n                    const: Spectral Resolution\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                  schema:unitText:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n                - schema:unitText\n              minContains: 0\n              maxContains: 1\n            - contains:\n                title: Measurement Environment\n                description: Atmosphere the measurement chamber is held in.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/measurementEnvironment\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/measurementEnvironment\n                  schema:name:\n                    const: Measurement Environment\n                  schema:value:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n              minContains: 0\n              maxContains: 1\n            - contains:\n                title: Spot Size\n                description: Diameter of the analysed area for a point measurement,\n                  or the pixel footprint for a map.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/spotSize\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/spotSize\n                  schema:name:\n                    const: Spot Size\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                  schema:unitText:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n                - schema:unitText\n              minContains: 0\n              maxContains: 1\n            - contains:\n                title: Number of Scans\n                description: Interferograms co-added per reported spectrum.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/numberOfScans\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/numberOfScans\n                  schema:name:\n                    const: Number of Scans\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n              minContains: 0\n              maxContains: 1\n            - contains:\n                title: Emissivity Maximum Fit Region Minimum\n                description: Short-wavelength limit of the window over which the emissivity\n                  maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimum\n                  schema:name:\n                    const: Emissivity Maximum Fit Region Minimum\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                  schema:unitText:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n                - schema:unitText\n              minContains: 0\n              maxContains: 1\n            - contains:\n                title: Emissivity Maximum Fit Region Maximum\n                description: Long-wavelength limit of the window over which the emissivity\n                  maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMaximum\n                  schema:name:\n                    const: Emissivity Maximum Fit Region Maximum\n                  schema:value:\n                    anyOf:\n                    - type: number\n                    - type: string\n                  schema:unitText:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n                - schema:unitText\n              minContains: 0\n              maxContains: 1\n            - contains:\n                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues\n              minContains: 0\n              maxContains: 1\n            - contains:\n                title: Calibration Standards\n                description: Reference materials measured to calibrate the reported\n                  quantity, with source.\n                type: object\n                properties:\n                  '@id':\n                    const: ada:parameter/vnmirTAPP/calibrationStandards\n                  '@type':\n                    const:\n                    - schema:PropertyValue\n                  schema:propertyID:\n                    const:\n                    - '@id': ada:parameter/vnmirTAPP/calibrationStandards\n                  schema:name:\n                    const: Calibration Standards\n                  schema:value:\n                    type: string\n                required:\n                - '@id'\n                - '@type'\n                - schema:propertyID\n                - schema:name\n                - schema:value\n              minContains: 0\n              maxContains: 1\n          ada:incidenceAngle:\n            description: Angle of the illumination source from the sample surface\n              normal, for this measurement.\n            anyOf:\n            - type: number\n            - type: string\n          ada:emissionAngle:\n            description: Angle of the detector from the sample surface normal, for\n              this measurement.\n            anyOf:\n            - type: number\n            - type: string\n          ada:phaseAngle:\n            description: Angle between illumination and detection directions, for\n              this measurement.\n            anyOf:\n            - type: number\n            - type: string\n          ada:sampleTemperature:\n            description: Sample temperature during this measurement.\n            anyOf:\n            - type: number\n            - type: string\n          ada:environmentalPressure:\n            description: Chamber pressure during the session.\n            anyOf:\n            - type: number\n            - type: string\n        required:\n        - ada:emissionAngle\n        - ada:incidenceAngle\n        - ada:sampleTemperature\n    schema:additionalProperty:\n      type: array\n      items:\n        title: Emissivity Maximum\n        description: Fitted maximum emissivity (Christiansen feature) for this measurement.\n          Record 'N/A' where Measurement Type is not Emissivity.\n        type: object\n        properties:\n          '@id':\n            const: ada:parameter/vnmirTAPP/emissivityMaximum\n          '@type':\n            const:\n            - schema:PropertyValue\n          schema:propertyID:\n            const:\n            - '@id': ada:parameter/vnmirTAPP/emissivityMaximum\n          schema:name:\n            const: Emissivity Maximum\n          schema:value:\n            anyOf:\n            - type: number\n            - type: string\n          schema:unitText:\n            type: string\n        required:\n        - '@id'\n        - '@type'\n        - schema:propertyID\n        - schema:name\n        - schema:value\n        - schema:unitText\n      allOf:\n      - contains:\n          title: Emissivity Maximum\n          description: Fitted maximum emissivity (Christiansen feature) for this measurement.\n            Record 'N/A' where Measurement Type is not Emissivity.\n          type: object\n          properties:\n            '@id':\n              const: ada:parameter/vnmirTAPP/emissivityMaximum\n            '@type':\n              const:\n              - schema:PropertyValue\n            schema:propertyID:\n              const:\n              - '@id': ada:parameter/vnmirTAPP/emissivityMaximum\n            schema:name:\n              const: Emissivity Maximum\n            schema:value:\n              anyOf:\n              - type: number\n              - type: string\n            schema:unitText:\n              type: string\n          required:\n          - '@id'\n          - '@type'\n          - schema:propertyID\n          - schema:name\n          - schema:value\n          - schema:unitText\n        minContains: 0\n        maxContains: 1\n    dqv:hasQualityMeasurement:\n      type: array\n      items:\n        type: object\n        allOf:\n        - if:\n            properties:\n              dqv:isMeasurementOf:\n                const: Noise Uncertainty\n            required:\n            - dqv:isMeasurementOf\n          then:\n            properties:\n              dqv:value:\n                description: Noise-equivalent uncertainty on the reported spectrum\n                  for this measurement.\n                anyOf:\n                - type: number\n                - type: string\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/techniqueProfile/geochemProfile/VNMIR/detail"
+}

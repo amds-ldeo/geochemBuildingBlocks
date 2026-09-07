@@ -15,24 +15,26 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods)." ;
@@ -52,7 +54,8 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
             schema1:target [ schema1:description "Same dissolved aliquots analyzed by Q-ICP-MS (major/trace elements, masses 23-75) and MC-ICP-MS (Zn isotopes); stated Methods" ;
                     schema1:name "MC-ICP-MS (Neptune Plus at IPGP; for Zn isotope measurements; stated Methods)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"The sample was introduced into a Scott spray chamber through a MicroMist nebulizer at an uptake rate of 0.2 mL/min\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;

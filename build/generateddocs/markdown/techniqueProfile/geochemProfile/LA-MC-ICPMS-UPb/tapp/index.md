@@ -386,6 +386,8 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:additionalProperty:
                 type: array
                 items:
@@ -780,6 +782,8 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+            required:
+            - schema:model
         - if:
             properties:
               schema:additionalType:

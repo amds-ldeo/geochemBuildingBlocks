@@ -228,7 +228,13 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@type": [
+          "schema:HowTo"
+        ]
+      },
+      "schema:endDate": "missing"
     }
   ],
   "schema:variableMeasured": [
@@ -652,7 +658,13 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@type": [
+          "schema:HowTo"
+        ]
+      },
+      "schema:endDate": "missing"
     }
   ],
   "schema:variableMeasured": [
@@ -938,6 +950,8 @@ ex:adaSEMFIBSEM-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
+            schema1:actionProcess [ a schema1:HowTo ] ;
+            schema1:endDate "missing" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;

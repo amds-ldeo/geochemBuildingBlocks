@@ -303,7 +303,8 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -697,7 +698,8 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -807,20 +809,21 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
@@ -843,13 +846,13 @@ ex:laQicpmsTAPP-Nakanishi2022 a cdi:Activity,
                     schema1:value "CR chondrite metal grains (interior, margin, and isolated types)" ],
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
@@ -1878,6 +1881,11 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -1891,12 +1899,7 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "Pettke (2012) for most elements: LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S); LOQ for pollution elements = blank value + 10SD (IUPAC Gold Book)" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "Pettke (2012) for most elements: LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S); LOQ for pollution elements = blank value + 10SD (IUPAC Gold Book)" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Xue, Li, Wang et al." ] ;
@@ -2339,7 +2342,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -2665,7 +2669,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -2763,7 +2768,8 @@ ex:laQicpmsTAPP-Liu2025 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -3153,7 +3159,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -3479,7 +3486,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -3575,11 +3583,6 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Same capsule section as silicate glass; sulfide grains ≥20 µm selected by SEM-BSE" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -3588,7 +3591,13 @@ ex:laQicpmsTAPP-Liu2025-2 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
@@ -3979,7 +3988,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -4001,7 +4011,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -4284,7 +4295,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -4306,7 +4318,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -4347,18 +4360,20 @@ ex:laQicpmsTAPP-Liu2016 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:datePublished "missing" ;
     schema1:description "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume" ;
@@ -4738,7 +4753,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -4760,7 +4776,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -5043,7 +5060,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -5065,7 +5083,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -5106,8 +5125,9 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -5116,8 +5136,9 @@ ex:laQicpmsTAPP-Liu2016-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:datePublished "missing" ;
     schema1:description "N/A — see silicate column for general notes" ;
@@ -5522,7 +5543,8 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/Laser-Ablation-System"
+      "@id": "ex:instrument/Laser-Ablation-System",
+      "ada:laserSpotGeometryDefault": "missing"
     }
   ],
   "ada:carrierGasFlowRateDefault": "He, 900 mL min-1 ablation gas flow",
@@ -5590,7 +5612,8 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -5635,7 +5658,8 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
   "ada:primaryStandardNameDefault": "NIST SRM 610",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
@@ -5939,7 +5963,8 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/Laser-Ablation-System"
+      "@id": "ex:instrument/Laser-Ablation-System",
+      "ada:laserSpotGeometryDefault": "missing"
     }
   ],
   "ada:carrierGasFlowRateDefault": "He, 900 mL min-1 ablation gas flow",
@@ -6007,7 +6032,8 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -6052,7 +6078,8 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
   "ada:primaryStandardNameDefault": "NIST SRM 610",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
@@ -6102,7 +6129,8 @@ ex:laQicpmsTAPP-P6 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v71.csv)." ;
@@ -6118,7 +6146,8 @@ ex:laQicpmsTAPP-P6 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Xenotime, apatite and garnet — accessory and metamorphic minerals for in situ Lu-Hf geochronology" ] ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Single hole drilling, two cleaning pulses" ;
     ada:ablationSpotDurationDefault "25 s" ;
@@ -6293,6 +6322,7 @@ ex:laQicpmsTAPP-P6 a cdi:Activity,
     schema1:name "HelEx ablation cell" ;
     ada:laserFluenceDefault "4 J cm-2" ;
     ada:laserRepetitionRateDefault "10 Hz" ;
+    ada:laserSpotGeometryDefault "missing" ;
     ada:laserType "193 nm" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
@@ -6624,6 +6654,8 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:additionalProperty:
                 type: array
                 items:
@@ -6985,6 +7017,8 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+            required:
+            - schema:model
         - if:
             properties:
               schema:additionalType:

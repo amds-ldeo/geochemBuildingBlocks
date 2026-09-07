@@ -25,7 +25,8 @@ detail instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbo
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P0"
+      "@id": "ex:solutionSficpmsTAPP-P0",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "N -- \"A typical session comprised analyses of up to 50 unknowns and 15 standards\"; no session identifier stated",
@@ -74,7 +75,8 @@ detail instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbo
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P0"
+      "@id": "ex:solutionSficpmsTAPP-P0",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "N -- \"A typical session comprised analyses of up to 50 unknowns and 15 standards\"; no session identifier stated",
@@ -133,6 +135,8 @@ ex:detail-P0 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "2 sigma uncertainty of 30-set Pb isotope ratios per sample (stated section 2.3)" .
 
+ex:solutionSficpmsTAPP-P0 schema1:identifier "missing" .
+
 
 ```
 
@@ -153,7 +157,8 @@ detail instance derived from Li+etal2016 | Thermo Element I | IGGCAS Beijing.
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P1"
+      "@id": "ex:solutionSficpmsTAPP-P1",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -202,7 +207,8 @@ detail instance derived from Li+etal2016 | Thermo Element I | IGGCAS Beijing.
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P1"
+      "@id": "ex:solutionSficpmsTAPP-P1",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -261,6 +267,8 @@ ex:detail-P1 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of replicate analyses (stated Table 5)" .
 
+ex:solutionSficpmsTAPP-P1 schema1:identifier "missing" .
+
 
 ```
 
@@ -281,7 +289,8 @@ detail instance derived from Lu+etal2007 | Finnigan ELEMENT | PML Okayama.
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P2"
+      "@id": "ex:solutionSficpmsTAPP-P2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -330,7 +339,8 @@ detail instance derived from Lu+etal2007 | Finnigan ELEMENT | PML Okayama.
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P2"
+      "@id": "ex:solutionSficpmsTAPP-P2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -389,6 +399,8 @@ ex:detail-P2 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
+ex:solutionSficpmsTAPP-P2 schema1:identifier "missing" .
+
 
 ```
 
@@ -409,7 +421,8 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P3"
+      "@id": "ex:solutionSficpmsTAPP-P3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "N -- \"Each analytical session would begin and end with the analysis of a series of Mo standards (1-100 nM)\"; \"an analysis sequence\"; \"1 day's analysis\"; \"three separate days of analyses\". No session or sequence identifier stated",
@@ -458,7 +471,8 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P3"
+      "@id": "ex:solutionSficpmsTAPP-P3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "N -- \"Each analytical session would begin and end with the analysis of a series of Mo standards (1-100 nM)\"; \"an analysis sequence\"; \"1 day's analysis\"; \"three separate days of analyses\". No session or sequence identifier stated",
@@ -517,6 +531,8 @@ ex:detail-P3 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of replicate measurements (stated section 2.4)" .
 
+ex:solutionSficpmsTAPP-P3 schema1:identifier "missing" .
+
 
 ```
 
@@ -537,7 +553,8 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P4"
+      "@id": "ex:solutionSficpmsTAPP-P4",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "N -- \"a single instrument session\" referenced; no session identifier stated",
@@ -586,7 +603,8 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P4"
+      "@id": "ex:solutionSficpmsTAPP-P4",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "N -- \"a single instrument session\" referenced; no session identifier stated",
@@ -645,6 +663,8 @@ ex:detail-P4 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated consistency standard analyses (stated section 2.3.1)" .
 
+ex:solutionSficpmsTAPP-P4 schema1:identifier "missing" .
+
 
 ```
 
@@ -665,7 +685,8 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-Willbold2005"
+      "@id": "ex:solutionSficpmsTAPP-Willbold2005",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -714,7 +735,8 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
   "ada:componentType": "ada:SolutionICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:solutionSficpmsTAPP-Willbold2005"
+      "@id": "ex:solutionSficpmsTAPP-Willbold2005",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -772,6 +794,8 @@ ex:detail-Willbold2005 a ada:SolutionICPMSTabular ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated RM analyses within session (stated Table 5)" .
+
+ex:solutionSficpmsTAPP-Willbold2005 schema1:identifier "missing" .
 
 
 ```
@@ -1085,6 +1109,8 @@ allOf:
                           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume
                         minContains: 0
                         maxContains: 1
+                  required:
+                  - schema:description
             allOf:
             - contains:
                 properties:
@@ -1242,6 +1268,9 @@ allOf:
               since a blank subtracted from a ratio biases the result unless its own
               composition is known. Companion to the blank correction method."
             type: string
+        required:
+        - ada:proceduralBlankLevel
+        - schema:actionProcess
 
 ```
 

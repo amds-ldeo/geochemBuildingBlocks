@@ -170,7 +170,9 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:laserFluenceDefault": -9999,
+      "ada:laserType": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -234,7 +236,8 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -485,7 +488,9 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:laserFluenceDefault": -9999,
+      "ada:laserType": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -549,7 +554,8 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -662,7 +668,8 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Zhang, Chabot, Rubin, Humayun et al." ] ;
@@ -781,8 +788,10 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)" ] ;
     schema1:name "example instrumentName" ;
+    ada:laserFluenceDefault -9999 ;
     ada:laserRepetitionRateDefault "Raster: 50 Hz; Spot (Ge): 50 Hz" ;
-    ada:laserSpotGeometryDefault "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular" .
+    ada:laserSpotGeometryDefault "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular" ;
+    ada:laserType "missing" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
     schema1:name "Detector Configuration" ;
@@ -1691,11 +1700,6 @@ ex:laSficpmsTAPP-Chernonozhkin2021 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; HELEX II two-volume cell; C-coated for SEM then coating removed before LA" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -1707,7 +1711,12 @@ ex:laSficpmsTAPP-Chernonozhkin2021 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb + 1/Na)" ] ] ;
+                    ada:detectionLimitMethod "Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb + 1/Na)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -2867,6 +2876,13 @@ ex:laSficpmsTAPP-Chernonozhkin2021-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
@@ -2878,14 +2894,7 @@ ex:laSficpmsTAPP-Chernonozhkin2021-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
@@ -3462,7 +3471,8 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -3905,7 +3915,8 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -4010,6 +4021,15 @@ ex:laSficpmsTAPP-Chernonozhkin2021-3 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
@@ -4018,15 +4038,7 @@ ex:laSficpmsTAPP-Chernonozhkin2021-3 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; same as olivine mapping preparation" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
@@ -4390,7 +4402,9 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:laserFluenceDefault": -9999,
+      "ada:laserRepetitionRateDefault": -9999
     }
   ],
   "ada:analysisSequenceDefault": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
@@ -4454,7 +4468,8 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -4691,7 +4706,9 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:laserFluenceDefault": -9999,
+      "ada:laserRepetitionRateDefault": -9999
     }
   ],
   "ada:analysisSequenceDefault": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
@@ -4755,7 +4772,8 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -4855,7 +4873,8 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -4983,6 +5002,8 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "New Wave UP-193 (solid state, 193 nm)" ] ;
     schema1:name "example instrumentName" ;
+    ada:laserFluenceDefault -9999 ;
+    ada:laserRepetitionRateDefault -9999 ;
     ada:laserSpotGeometryDefault "75 µm circular" ;
     ada:laserType "193 nm solid-state (New Wave UP-193)" .
 
@@ -6361,7 +6382,8 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -6783,7 +6805,8 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -6919,17 +6942,18 @@ ex:laSficpmsTAPP-Navarro2024-2 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -7560,6 +7584,8 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:additionalProperty:
                 type: array
                 items:
@@ -7873,6 +7899,8 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+            required:
+            - schema:model
         - if:
             properties:
               schema:additionalType:

@@ -25,7 +25,8 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Garvie2008"
+      "@id": "ex:semImagingTAPP-Garvie2008",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -63,7 +64,8 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Garvie2008"
+      "@id": "ex:semImagingTAPP-Garvie2008",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -100,6 +102,8 @@ ex:detail-Garvie2008 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Garvie2008 schema1:identifier "missing" .
+
 
 ```
 
@@ -120,7 +124,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Genge2025"
+      "@id": "ex:semImagingTAPP-Genge2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -158,7 +163,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Genge2025"
+      "@id": "ex:semImagingTAPP-Genge2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -195,6 +201,8 @@ ex:detail-Genge2025 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Genge2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -215,7 +223,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Genge2025-2"
+      "@id": "ex:semImagingTAPP-Genge2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -253,7 +262,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Genge2025-2"
+      "@id": "ex:semImagingTAPP-Genge2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -290,6 +300,8 @@ ex:detail-Genge2025-2 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Genge2025-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -310,7 +322,8 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Gucsik2013"
+      "@id": "ex:semImagingTAPP-Gucsik2013",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -348,7 +361,8 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Gucsik2013"
+      "@id": "ex:semImagingTAPP-Gucsik2013",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -385,6 +399,8 @@ ex:detail-Gucsik2013 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Gucsik2013 schema1:identifier "missing" .
+
 
 ```
 
@@ -405,7 +421,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Izawa2010"
+      "@id": "ex:semImagingTAPP-Izawa2010",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -443,7 +460,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Izawa2010"
+      "@id": "ex:semImagingTAPP-Izawa2010",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -480,6 +498,8 @@ ex:detail-Izawa2010 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Izawa2010 schema1:identifier "missing" .
+
 
 ```
 
@@ -500,7 +520,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Izawa2010-2"
+      "@id": "ex:semImagingTAPP-Izawa2010-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -538,7 +559,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Izawa2010-2"
+      "@id": "ex:semImagingTAPP-Izawa2010-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -575,6 +597,8 @@ ex:detail-Izawa2010-2 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Izawa2010-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -595,7 +619,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Izawa2010-3"
+      "@id": "ex:semImagingTAPP-Izawa2010-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -633,7 +658,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Izawa2010-3"
+      "@id": "ex:semImagingTAPP-Izawa2010-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -670,6 +696,8 @@ ex:detail-Izawa2010-3 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Izawa2010-3 schema1:identifier "missing" .
+
 
 ```
 
@@ -690,7 +718,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Liu2017"
+      "@id": "ex:semImagingTAPP-Liu2017",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -728,7 +757,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Liu2017"
+      "@id": "ex:semImagingTAPP-Liu2017",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -765,6 +795,8 @@ ex:detail-Liu2017 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Liu2017 schema1:identifier "missing" .
+
 
 ```
 
@@ -785,7 +817,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Liu2017-2"
+      "@id": "ex:semImagingTAPP-Liu2017-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -823,7 +856,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Liu2017-2"
+      "@id": "ex:semImagingTAPP-Liu2017-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -860,6 +894,8 @@ ex:detail-Liu2017-2 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Liu2017-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -880,7 +916,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Ma2017"
+      "@id": "ex:semImagingTAPP-Ma2017",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -918,7 +955,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Ma2017"
+      "@id": "ex:semImagingTAPP-Ma2017",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -955,6 +993,8 @@ ex:detail-Ma2017 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Ma2017 schema1:identifier "missing" .
+
 
 ```
 
@@ -975,7 +1015,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Ma2017-2"
+      "@id": "ex:semImagingTAPP-Ma2017-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1013,7 +1054,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Ma2017-2"
+      "@id": "ex:semImagingTAPP-Ma2017-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1050,6 +1092,8 @@ ex:detail-Ma2017-2 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Ma2017-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -1070,7 +1114,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Pascucci2026"
+      "@id": "ex:semImagingTAPP-Pascucci2026",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1108,7 +1153,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Pascucci2026"
+      "@id": "ex:semImagingTAPP-Pascucci2026",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1145,6 +1191,8 @@ ex:detail-Pascucci2026 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Pascucci2026 schema1:identifier "missing" .
+
 
 ```
 
@@ -1165,7 +1213,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Pascucci2026-2"
+      "@id": "ex:semImagingTAPP-Pascucci2026-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1203,7 +1252,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Pascucci2026-2"
+      "@id": "ex:semImagingTAPP-Pascucci2026-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1240,6 +1290,8 @@ ex:detail-Pascucci2026-2 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Pascucci2026-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -1260,7 +1312,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Zega2025"
+      "@id": "ex:semImagingTAPP-Zega2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1298,7 +1351,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Zega2025"
+      "@id": "ex:semImagingTAPP-Zega2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1335,6 +1389,8 @@ ex:detail-Zega2025 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Zega2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -1355,7 +1411,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Zega2025-2"
+      "@id": "ex:semImagingTAPP-Zega2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1393,7 +1450,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Zega2025-2"
+      "@id": "ex:semImagingTAPP-Zega2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1430,6 +1488,8 @@ ex:detail-Zega2025-2 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Zega2025-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -1450,7 +1510,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Zega2025-3"
+      "@id": "ex:semImagingTAPP-Zega2025-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1488,7 +1549,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Zega2025-3"
+      "@id": "ex:semImagingTAPP-Zega2025-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1525,6 +1587,8 @@ ex:detail-Zega2025-3 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Zega2025-3 schema1:identifier "missing" .
+
 
 ```
 
@@ -1545,7 +1609,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Zega2025-4"
+      "@id": "ex:semImagingTAPP-Zega2025-4",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1583,7 +1648,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Zega2025-4"
+      "@id": "ex:semImagingTAPP-Zega2025-4",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1620,6 +1686,8 @@ ex:detail-Zega2025-4 a ada:SEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semImagingTAPP-Zega2025-4 schema1:identifier "missing" .
+
 
 ```
 
@@ -1640,7 +1708,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Barnes2025"
+      "@id": "ex:semImagingTAPP-Barnes2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1678,7 +1747,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:componentType": "ada:SEMImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semImagingTAPP-Barnes2025"
+      "@id": "ex:semImagingTAPP-Barnes2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1714,6 +1784,8 @@ ex:detail-Barnes2025 a ada:SEMImage ;
     ada:sampleName "missing" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
+
+ex:semImagingTAPP-Barnes2025 schema1:identifier "missing" .
 
 
 ```
@@ -2419,6 +2491,8 @@ allOf:
                         const: Data reduction
                     required:
                     - schema:name
+        required:
+        - schema:actionProcess
     ada:frameTime:
       description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
       anyOf:
@@ -2462,6 +2536,8 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+            required:
+            - dqv:value
         - if:
             properties:
               dqv:isMeasurementOf:
@@ -2476,6 +2552,8 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+            required:
+            - dqv:value
       allOf:
       - contains:
           properties:

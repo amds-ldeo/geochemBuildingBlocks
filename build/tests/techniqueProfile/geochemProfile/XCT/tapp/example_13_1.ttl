@@ -15,14 +15,14 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
@@ -49,7 +49,8 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
             schema1:target [ schema1:description "CLSM performed on same inclusion for volumetric cross-validation" ;
                     schema1:name "Confocal laser scanning microscopy (Sample I)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "Software BHC applied per respective software" ;
@@ -132,7 +133,8 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
     ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
-    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" .
+    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" ;
+    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;

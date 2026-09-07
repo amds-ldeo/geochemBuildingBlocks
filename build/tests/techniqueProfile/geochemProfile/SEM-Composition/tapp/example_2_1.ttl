@@ -15,13 +15,15 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -62,7 +64,10 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JSM-5410LV" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "15 kV" .
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -75,6 +80,7 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
+    schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,

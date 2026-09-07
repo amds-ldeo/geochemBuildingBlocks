@@ -25,7 +25,8 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Garvie2008"
+      "@id": "ex:semFibsemTAPP-Garvie2008",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -61,7 +62,8 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Garvie2008"
+      "@id": "ex:semFibsemTAPP-Garvie2008",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -93,6 +95,8 @@ ex:detail-Garvie2008 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
+ex:semFibsemTAPP-Garvie2008 schema1:identifier "missing" .
+
 
 ```
 
@@ -113,7 +117,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Liu2017"
+      "@id": "ex:semFibsemTAPP-Liu2017",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -149,7 +154,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Liu2017"
+      "@id": "ex:semFibsemTAPP-Liu2017",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -181,6 +187,8 @@ ex:detail-Liu2017 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" .
 
+ex:semFibsemTAPP-Liu2017 schema1:identifier "missing" .
+
 
 ```
 
@@ -201,7 +209,8 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Zhou2017"
+      "@id": "ex:semFibsemTAPP-Zhou2017",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -237,7 +246,8 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Zhou2017"
+      "@id": "ex:semFibsemTAPP-Zhou2017",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -269,6 +279,8 @@ ex:detail-Zhou2017 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm" .
 
+ex:semFibsemTAPP-Zhou2017 schema1:identifier "missing" .
+
 
 ```
 
@@ -289,7 +301,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Zega2025"
+      "@id": "ex:semFibsemTAPP-Zega2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -325,7 +338,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Zega2025"
+      "@id": "ex:semFibsemTAPP-Zega2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -357,6 +371,8 @@ ex:detail-Zega2025 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
+ex:semFibsemTAPP-Zega2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -377,7 +393,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Zega2025-2"
+      "@id": "ex:semFibsemTAPP-Zega2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -413,7 +430,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Zega2025-2"
+      "@id": "ex:semFibsemTAPP-Zega2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -445,6 +463,8 @@ ex:detail-Zega2025-2 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
+ex:semFibsemTAPP-Zega2025-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -465,7 +485,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Zega2025-3"
+      "@id": "ex:semFibsemTAPP-Zega2025-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -501,7 +522,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Zega2025-3"
+      "@id": "ex:semFibsemTAPP-Zega2025-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -533,6 +555,8 @@ ex:detail-Zega2025-3 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
+ex:semFibsemTAPP-Zega2025-3 schema1:identifier "missing" .
+
 
 ```
 
@@ -553,7 +577,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Barnes2025"
+      "@id": "ex:semFibsemTAPP-Barnes2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -589,7 +614,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Barnes2025"
+      "@id": "ex:semFibsemTAPP-Barnes2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -621,6 +647,8 @@ ex:detail-Barnes2025 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
+ex:semFibsemTAPP-Barnes2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -641,7 +669,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Barnes2025-2"
+      "@id": "ex:semFibsemTAPP-Barnes2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -677,7 +706,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:componentType": "ada:FIBSEMVolume",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semFibsemTAPP-Barnes2025-2"
+      "@id": "ex:semFibsemTAPP-Barnes2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -708,6 +738,8 @@ ex:detail-Barnes2025-2 a ada:FIBSEMVolume ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
+
+ex:semFibsemTAPP-Barnes2025-2 schema1:identifier "missing" .
 
 
 ```
@@ -1410,6 +1442,8 @@ allOf:
                           - type: array
                             items:
                               type: string
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:name:
@@ -1446,6 +1480,8 @@ allOf:
                         const: Data reduction
                     required:
                     - schema:name
+        required:
+        - schema:actionProcess
     ada:voxelSize:
       description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres
         (X-Y pixel size from SEM image calibration; Z from slice thickness), and the

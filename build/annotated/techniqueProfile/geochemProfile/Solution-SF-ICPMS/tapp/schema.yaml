@@ -183,6 +183,8 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:additionalProperty:
                 type: array
                 items:
@@ -387,6 +389,8 @@ allOf:
                     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation
                   minContains: 0
                   maxContains: 1
+            required:
+            - schema:model
       allOf:
       - contains:
           properties:

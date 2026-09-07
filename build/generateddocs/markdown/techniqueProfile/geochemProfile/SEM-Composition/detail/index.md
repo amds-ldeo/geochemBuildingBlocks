@@ -25,7 +25,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Genge2025"
+      "@id": "ex:semCompositionTAPP-Genge2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -70,7 +71,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Genge2025"
+      "@id": "ex:semCompositionTAPP-Genge2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -121,6 +123,8 @@ ex:detail-Genge2025 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semCompositionTAPP-Genge2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -141,7 +145,8 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Gucsik2013"
+      "@id": "ex:semCompositionTAPP-Gucsik2013",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -186,7 +191,8 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Gucsik2013"
+      "@id": "ex:semCompositionTAPP-Gucsik2013",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -237,6 +243,8 @@ ex:detail-Gucsik2013 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semCompositionTAPP-Gucsik2013 schema1:identifier "missing" .
+
 
 ```
 
@@ -257,7 +265,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Izawa2010"
+      "@id": "ex:semCompositionTAPP-Izawa2010",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -302,7 +311,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Izawa2010"
+      "@id": "ex:semCompositionTAPP-Izawa2010",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -353,6 +363,8 @@ ex:detail-Izawa2010 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semCompositionTAPP-Izawa2010 schema1:identifier "missing" .
+
 
 ```
 
@@ -373,7 +385,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Izawa2010-2"
+      "@id": "ex:semCompositionTAPP-Izawa2010-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -418,7 +431,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Izawa2010-2"
+      "@id": "ex:semCompositionTAPP-Izawa2010-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -469,6 +483,8 @@ ex:detail-Izawa2010-2 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semCompositionTAPP-Izawa2010-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -489,7 +505,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Pascucci2026"
+      "@id": "ex:semCompositionTAPP-Pascucci2026",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -534,7 +551,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Pascucci2026"
+      "@id": "ex:semCompositionTAPP-Pascucci2026",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -585,6 +603,8 @@ ex:detail-Pascucci2026 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semCompositionTAPP-Pascucci2026 schema1:identifier "missing" .
+
 
 ```
 
@@ -605,7 +625,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Pascucci2026-2"
+      "@id": "ex:semCompositionTAPP-Pascucci2026-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -650,7 +671,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Pascucci2026-2"
+      "@id": "ex:semCompositionTAPP-Pascucci2026-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -701,6 +723,8 @@ ex:detail-Pascucci2026-2 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semCompositionTAPP-Pascucci2026-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -721,7 +745,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Zega2025"
+      "@id": "ex:semCompositionTAPP-Zega2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -766,7 +791,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Zega2025"
+      "@id": "ex:semCompositionTAPP-Zega2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -817,6 +843,8 @@ ex:detail-Zega2025 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semCompositionTAPP-Zega2025 schema1:identifier "missing" .
+
 
 ```
 
@@ -837,7 +865,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Zega2025-2"
+      "@id": "ex:semCompositionTAPP-Zega2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -882,7 +911,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Zega2025-2"
+      "@id": "ex:semCompositionTAPP-Zega2025-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -933,6 +963,8 @@ ex:detail-Zega2025-2 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:semCompositionTAPP-Zega2025-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -953,7 +985,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Barnes2025"
+      "@id": "ex:semCompositionTAPP-Barnes2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -998,7 +1031,8 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:componentType": "ada:SEMEDSSpectrum",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:semCompositionTAPP-Barnes2025"
+      "@id": "ex:semCompositionTAPP-Barnes2025",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1048,6 +1082,8 @@ ex:detail-Barnes2025 a ada:SEMEDSSpectrum ;
     ada:sampleName "OREX-501018-100" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
+
+ex:semCompositionTAPP-Barnes2025 schema1:identifier "missing" .
 
 
 ```
@@ -1786,6 +1822,10 @@ allOf:
             anyOf:
             - type: number
             - type: string
+        required:
+        - ada:deadTime
+        - ada:proceduralBlankLevel
+        - schema:actionProcess
     ada:mapDimensions:
       description: Number of pixels in the EDS map in the X and Y directions. Based
         on the area of interest and selected pixel size.

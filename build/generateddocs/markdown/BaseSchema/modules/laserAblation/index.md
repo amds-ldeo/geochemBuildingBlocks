@@ -252,6 +252,8 @@ $defs:
                       description: Manufacturer and model of the laser ablation system.
                       type: string
                       x-jsonld-id: http://schema.org/name
+                  required:
+                  - schema:name
                   x-jsonld-id: http://schema.org/model
                 ada:laserType:
                   description: Wavelength and type of the laser used for ablation
@@ -297,6 +299,13 @@ $defs:
                   - type: number
                   - type: string
                   x-jsonld-id: https://ada.astromat.org/metadata/laserRepetitionRateDefault
+              required:
+              - ada:laserFluenceDefault
+              - ada:laserRepetitionRateDefault
+              - ada:laserSpotGeometryDefault
+              - ada:laserType
+              - schema:model
+              - schema:name
         allOf:
         - contains:
             properties:

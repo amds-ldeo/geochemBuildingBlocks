@@ -16,7 +16,8 @@ ex:semImagingTAPP-Ma2017 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -65,7 +66,9 @@ ex:semImagingTAPP-Ma2017 a cdi:Activity,
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "1550VP" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;

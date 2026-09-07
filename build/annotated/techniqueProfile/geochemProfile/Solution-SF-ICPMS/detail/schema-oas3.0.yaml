@@ -33,6 +33,8 @@ x-defs:
                   description: Top-level analytical technique identifier.
                   type: string
                   x-jsonld-id: http://schema.org/termCode
+              required:
+              - schema:termCode
             x-jsonld-id: http://schema.org/measurementTechnique
           schema:creator:
             type: object
@@ -42,6 +44,8 @@ x-defs:
                   registering this procedure. ORCID recommended for individuals.
                 type: string
                 x-jsonld-id: http://schema.org/name
+            required:
+            - schema:name
             x-jsonld-id: http://schema.org/creator
           schema:location:
             type: object
@@ -54,6 +58,8 @@ x-defs:
                 description: Persistent identifier for the laboratory (e.g., ROR ID).
                 type: string
                 x-jsonld-id: http://schema.org/identifier
+            required:
+            - schema:name
             x-jsonld-id: http://schema.org/location
           schema:datePublished:
             description: First date this procedure configuration was used in production.
@@ -166,6 +172,8 @@ x-defs:
                         items:
                           type: string
                       x-jsonld-id: http://schema.org/name
+                  required:
+                  - schema:name
               - if:
                   properties:
                     ada:toolRole:
@@ -187,6 +195,8 @@ x-defs:
                         items:
                           type: string
                       x-jsonld-id: http://schema.org/name
+                  required:
+                  - schema:name
               required:
               - ada:toolRole
             x-jsonld-id: https://bioschemas.org/computationalTool
@@ -250,6 +260,8 @@ x-defs:
                             items:
                               type: string
                           x-jsonld-id: http://schema.org/description
+                      required:
+                      - schema:description
                 allOf:
                 - contains:
                     properties:
@@ -349,6 +361,8 @@ x-defs:
                               items:
                                 type: string
                             x-jsonld-id: http://schema.org/identifier
+                        required:
+                        - schema:name
                   allOf:
                   - contains:
                       properties:
@@ -466,6 +480,10 @@ x-defs:
                                 x-jsonld-id: http://schema.org/description
                       x-jsonld-id: http://schema.org/step
                   x-jsonld-id: http://schema.org/actionProcess
+              required:
+              - schema:endDate
+              - schema:identifier
+              - schema:startDate
             x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
           schema:measurementTechnique:
             type: array
@@ -479,6 +497,8 @@ x-defs:
                     minted, enter "pending".
                   type: string
                   x-jsonld-id: http://schema.org/identifier
+              required:
+              - schema:identifier
             x-jsonld-id: http://schema.org/measurementTechnique
           schema:contributor:
             type: array
@@ -494,15 +514,20 @@ x-defs:
                   - schema:roleName
                 then:
                   properties:
-                    schema:name:
-                      description: Name(s) of the analyst(s) who performed the analysis
-                        session. ORCID is recommended for persistent identification.
-                      anyOf:
-                      - type: string
-                      - type: array
-                        items:
+                    schema:contributor:
+                      type: object
+                      properties:
+                        schema:name:
+                          description: Name(s) of the analyst(s) who performed the
+                            analysis session. ORCID is recommended for persistent
+                            identification.
                           type: string
-                      x-jsonld-id: http://schema.org/name
+                          x-jsonld-id: http://schema.org/name
+                      required:
+                      - schema:name
+                      x-jsonld-id: http://schema.org/contributor
+                  required:
+                  - schema:contributor
             allOf:
             - contains:
                 properties:
@@ -524,6 +549,8 @@ x-defs:
                     funding, which may have been awarded years earlier.
                   type: string
                   x-jsonld-id: http://schema.org/name
+              required:
+              - schema:name
             x-jsonld-id: http://schema.org/funding
           schema:relatedLink:
             type: array
@@ -795,6 +822,8 @@ x-defs:
                         items:
                           type: string
                       x-jsonld-id: http://schema.org/defaultValue
+                  required:
+                  - schema:defaultValue
             allOf:
             - contains:
                 properties:
@@ -967,6 +996,8 @@ x-defs:
                         items:
                           type: string
                       x-jsonld-id: http://schema.org/value
+                  required:
+                  - schema:value
             allOf:
             - contains:
                 properties:
@@ -1002,6 +1033,8 @@ x-defs:
                         items:
                           type: string
                       x-jsonld-id: http://www.w3.org/ns/dqv#value
+                  required:
+                  - dqv:value
             allOf:
             - contains:
                 properties:
@@ -1344,6 +1377,8 @@ x-defs:
                         items:
                           type: string
                       x-jsonld-id: http://www.w3.org/ns/dqv#value
+                  required:
+                  - dqv:value
             allOf:
             - contains:
                 properties:
@@ -1401,6 +1436,8 @@ x-defs:
                         items:
                           type: string
                       x-jsonld-id: http://schema.org/value
+                  required:
+                  - schema:value
             allOf:
             - contains:
                 properties:
@@ -2704,6 +2741,8 @@ x-defs:
                             items:
                               type: string
                           x-jsonld-id: https://ada.astromat.org/metadata/detectionLimitMethod
+                      required:
+                      - ada:detectionLimitMethod
                 allOf:
                 - contains:
                     properties:
@@ -2769,6 +2808,8 @@ x-defs:
                       - type: number
                       - type: string
                       x-jsonld-id: http://schema.org/value
+                  required:
+                  - schema:value
               - if:
                   properties:
                     schema:name:
@@ -3239,6 +3280,8 @@ x-defs:
                                   standard for silicate dissolution)."
                                 type: string
                                 x-jsonld-id: http://schema.org/name
+                            required:
+                            - schema:name
                           x-jsonld-id: https://bioschemas.org/reagent
                 allOf:
                 - contains:
@@ -13196,6 +13239,8 @@ allOf:
                           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.solutionIntroduction/$defs/Param_Analysis_sampleAliquotMassOrVolume
                         minContains: 0
                         maxContains: 1
+                  required:
+                  - schema:description
             allOf:
             - contains:
                 properties:
@@ -13362,4 +13407,7 @@ allOf:
               since a blank subtracted from a ratio biases the result unless its own
               composition is known. Companion to the blank correction method."
             type: string
+        required:
+        - ada:proceduralBlankLevel
+        - schema:actionProcess
 x-schema-version: https://json-schema.org/draft/2020-12/schema

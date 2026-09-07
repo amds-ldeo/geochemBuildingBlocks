@@ -20,6 +20,15 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
@@ -30,15 +39,7 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Continuous nebulization (not pFI) for SF-ICP-MS; background measured before each sample after HF wash; sapphire injector used (HF-resistant); 60 s uptake stabilization; stated section 2.1.2 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.2)." ;
@@ -58,7 +59,8 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
             schema1:target [ schema1:description "SF-ICP-MS (ELEMENT) measured Ti (47Ti, 49Ti) by ID; Q-ICP-MS (7500cs) measured all other elements; both on same digested solutions; stated section 2.1" ;
                     schema1:name "Agilent 7500cs Q-ICP-MS at PML (B, Zr, Nb, Mo, Sn, Sb, Hf, Ta on same samples; stated section 2.1.1)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "Standard solution measured every two samples; background measured before each sample (stated section 2.1.2)" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- stated in the acquisition parameters: \"Middle resolution 50 s with 30 scans (continuous nebulization)\"" ;
     ada:blankBackgroundCorrectionMethod "On-peak background measured before each sample after 200 s HF wash (stated section 2.1.2)" ;

@@ -214,9 +214,9 @@ The procedure half of the Core module, with every property populated. Generated 
     ada:reportedProperties "example value" ;
     ada:samplingUnit "example value" ;
     bios:computationalTool [ schema1:name "example value" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ schema1:name "example value" ;
-            ada:toolRole "acquisition" ] .
+            ada:toolRole "dataReduction" ] .
 
 
 ```
@@ -269,7 +269,9 @@ The analysis half of the Core module, with every property populated. Generated f
   "schema:contributor": [
     {
       "schema:roleName": "analyst",
-      "schema:name": "example value"
+      "schema:contributor": {
+        "schema:name": "example value"
+      }
     }
   ],
   "schema:funding": [
@@ -352,7 +354,9 @@ The analysis half of the Core module, with every property populated. Generated f
   "schema:contributor": [
     {
       "schema:roleName": "analyst",
-      "schema:name": "example value"
+      "schema:contributor": {
+        "schema:name": "example value"
+      }
     }
   ],
   "schema:funding": [
@@ -388,17 +392,17 @@ The analysis half of the Core module, with every property populated. Generated f
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:contributor [ schema1:name "example value" ;
+[] schema1:contributor [ schema1:contributor [ schema1:name "example value" ] ;
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "example value" ] ;
     schema1:measurementTechnique [ schema1:identifier "example value" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
                     schema1:name "example value" ] ],
-        [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "example value" ] ],
         [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "example value" ] ;
+            schema1:target "example value" ],
+        [ schema1:linkRelationship "coupledProcedure" ;
+            schema1:target [ schema1:url "example value" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ schema1:description "example value" ;
                             schema1:name "Sample preparation" ] ] ;
             schema1:description "example value" ;
@@ -450,6 +454,8 @@ $defs:
               description: Top-level analytical technique identifier.
               type: string
               x-jsonld-id: http://schema.org/termCode
+          required:
+          - schema:termCode
         x-jsonld-id: http://schema.org/measurementTechnique
       schema:creator:
         type: object
@@ -459,6 +465,8 @@ $defs:
               this procedure. ORCID recommended for individuals.
             type: string
             x-jsonld-id: http://schema.org/name
+        required:
+        - schema:name
         x-jsonld-id: http://schema.org/creator
       schema:location:
         type: object
@@ -471,6 +479,8 @@ $defs:
             description: Persistent identifier for the laboratory (e.g., ROR ID).
             type: string
             x-jsonld-id: http://schema.org/identifier
+        required:
+        - schema:name
         x-jsonld-id: http://schema.org/location
       schema:datePublished:
         description: First date this procedure configuration was used in production.
@@ -577,6 +587,8 @@ $defs:
                     items:
                       type: string
                   x-jsonld-id: http://schema.org/name
+              required:
+              - schema:name
           - if:
               properties:
                 ada:toolRole:
@@ -596,6 +608,8 @@ $defs:
                     items:
                       type: string
                   x-jsonld-id: http://schema.org/name
+              required:
+              - schema:name
           required:
           - ada:toolRole
         x-jsonld-id: https://bioschemas.org/computationalTool
@@ -656,6 +670,8 @@ $defs:
                         items:
                           type: string
                       x-jsonld-id: http://schema.org/description
+                  required:
+                  - schema:description
             allOf:
             - contains:
                 properties:
@@ -750,6 +766,8 @@ $defs:
                           items:
                             type: string
                         x-jsonld-id: http://schema.org/identifier
+                    required:
+                    - schema:name
               allOf:
               - contains:
                   properties:
@@ -862,6 +880,10 @@ $defs:
                             x-jsonld-id: http://schema.org/description
                   x-jsonld-id: http://schema.org/step
               x-jsonld-id: http://schema.org/actionProcess
+          required:
+          - schema:endDate
+          - schema:identifier
+          - schema:startDate
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       schema:measurementTechnique:
         type: array
@@ -875,6 +897,8 @@ $defs:
                 enter "pending".
               type: string
               x-jsonld-id: http://schema.org/identifier
+          required:
+          - schema:identifier
         x-jsonld-id: http://schema.org/measurementTechnique
       schema:contributor:
         type: array
@@ -889,15 +913,19 @@ $defs:
               - schema:roleName
             then:
               properties:
-                schema:name:
-                  description: Name(s) of the analyst(s) who performed the analysis
-                    session. ORCID is recommended for persistent identification.
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
+                schema:contributor:
+                  type: object
+                  properties:
+                    schema:name:
+                      description: Name(s) of the analyst(s) who performed the analysis
+                        session. ORCID is recommended for persistent identification.
                       type: string
-                  x-jsonld-id: http://schema.org/name
+                      x-jsonld-id: http://schema.org/name
+                  required:
+                  - schema:name
+                  x-jsonld-id: http://schema.org/contributor
+              required:
+              - schema:contributor
         allOf:
         - contains:
             properties:
@@ -918,6 +946,8 @@ $defs:
                 which may have been awarded years earlier.
               type: string
               x-jsonld-id: http://schema.org/name
+          required:
+          - schema:name
         x-jsonld-id: http://schema.org/funding
       schema:relatedLink:
         type: array

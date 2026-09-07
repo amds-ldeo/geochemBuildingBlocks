@@ -1,5 +1,5 @@
 Validation report for ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.profile - ADA FIB-SEM Product Profile
-Generated 2026-09-06T01:39:47.742058+00:00
+Generated 2026-09-07T21:37:51.366759+00:00
 === Files ===
 Using exampleadaSEMFIBSEM.json from examples
 JSON-LD context is present - uplifting
@@ -8,7 +8,44 @@ Output Turtle example_1_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-Validation passed
+
+** Validation error **
+ValidationError: {'@type': ['schema:HowTo']} is not valid under any of the given schemas
+
+Failed validating 'anyOf' in schema[0]:
+    {'anyOf': [{'required': ['schema:name']}, {'required': ['schema:url']}],
+     'description': 'A methodology or protocol described as a HowTo with '
+                    'optional steps',
+     'properties': {'@id': {'type': 'string'},
+                    '@type': {'contains': {'const': 'schema:HowTo'},
+                              'items': {'type': 'string'},
+                              'minItems': 1,
+                              'type': 'array'},
+                    'schema:description': {'description': 'Description of '
+                                                          'the methodology',
+                                           'type': 'string',
+                                           'x-jsonld-id': 'http://schema.org/description'},
+                    'schema:name': {'description': 'Name of the '
+                                                   'methodology or '
+                                                   'protocol',
+                                    'type': 'string',
+                                    'x-jsonld-id': 'http://schema.org/name'},
+                    'schema:step': {'description': 'Ordered steps in this '
+                                                   'methodology',
+                                    'items': {'$ref': '#/$defs/HowToStep'},
+                                    'type': 'array',
+                                    'x-jsonld-id': 'http://schema.org/step'},
+                    'schema:url': {'description': 'URL to a published '
+                                                  'methodology or protocol '
+                                                  'document',
+                                   'format': 'uri',
+                                   'type': 'string',
+                                   'x-jsonld-id': 'http://schema.org/url'}},
+     'required': ['@type'],
+     'type': 'object'}
+
+On instance:
+    {'@type': ['schema:HowTo']}
 === End JSON Schema ===
 
 === SHACL ===

@@ -21,7 +21,7 @@ This is a **profile, not a vocabulary**: it asserts which properties a conformin
 
 | `$def` | composed into | properties | required |
 |---|---|---|---|
-| `ProcedureIdentification` | a TAPP schema (`prov:Plan`) | 1 | 0 |
+| `ProcedureIdentification` | a TAPP schema (`prov:Plan`) | 1 | 1 |
 
 Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.
 
@@ -136,6 +136,8 @@ $defs:
                         items:
                           type: string
                       x-jsonld-id: https://ada.astromat.org/metadata/chemicalAbrasionConditions
+                  required:
+                  - ada:chemicalAbrasionConditions
             allOf:
             - contains:
                 properties:
@@ -145,6 +147,8 @@ $defs:
                 - schema:name
             x-jsonld-id: http://schema.org/step
         x-jsonld-id: http://schema.org/actionProcess
+    required:
+    - schema:actionProcess
   Param_Procedure_intermediateDaughterDisequilibriumCorrection:
     title: Intermediate Daughter Disequilibrium Correction
     description: "Correction for initial disequilibrium in intermediate daughter products

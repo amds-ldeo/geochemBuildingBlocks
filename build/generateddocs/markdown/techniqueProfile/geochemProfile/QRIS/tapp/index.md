@@ -1,0 +1,196 @@
+
+# QRIS Technique-Aligned Procedure Profile (qrisTAPP) (Schema)
+
+`ogch.techniqueProfile.geochemProfile.QRIS.tapp` *v0.1*
+
+Quantitative Reflectance Imaging System extension of the base TAPP definition. QRIS has no per-element analyte axis, so no ada:analyteTemplate is defined, and no mode-flag columns: its ADA componentTypes are pipeline stages of one acquisition, not modes. DRAFT - generated from draftTAPPs/QRIS_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
+
+[*Status*](http://www.opengis.net/def/status): Under development
+
+## Schema
+
+```yaml
+$schema: https://json-schema.org/draft/2020-12/schema
+title: QRIS Technique-Aligned Procedure Profile (qrisTAPP)
+description: 'Quantitative Reflectance Imaging System extension of the base TAPP definition.
+  QRIS has no per-element analyte axis, so no ada:analyteTemplate is defined, and
+  no mode-flag columns: its ADA componentTypes are pipeline stages of one acquisition,
+  not modes. DRAFT - generated from draftTAPPs/QRIS_TAPP_draft_v2.csv by tools/build_tapp.py;
+  the source table has not been through Phase 0 review.'
+allOf:
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
+- type: object
+  properties:
+    ada:targetMaterial:
+      description: General description of the material type(s) this procedure is designed
+        to analyse.
+      anyOf:
+      - type: string
+        enum:
+        - Silicate mineral
+        - Silicate glass
+        - Oxide
+        - Sulfide
+        - Carbonate
+        - Phosphate
+        - Metal or alloy
+        - Organic matter
+        - Bulk regolith or soil
+        - Meteorite (bulk)
+        - Ice or hydrate
+        - Synthetic analogue
+        - N/A
+        - None
+        - missing
+      - type: string
+      readOnly: true
+    schema:object:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              '@type':
+                contains:
+                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+            required:
+            - '@type'
+          then:
+            properties:
+              schema:additionalProperty:
+                type: array
+                items:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+                allOf:
+                - contains:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+                  minContains: 0
+                  maxContains: 1
+    ada:instrumentManufacturer:
+      description: Manufacturer of the instrument that performs the measurement, recorded
+        as a controlled value. Where a procedure couples a sample-introduction system
+        to an analysing instrument, this records the analysing instrument. Instrument
+        Model gives the specific designation.
+      type: string
+      enum:
+      - Custom-built
+      - NASA Johnson Space Center
+      - Unknown
+      - N/A
+      - None
+      - missing
+      readOnly: true
+    ada:instrumentModel:
+      description: Model designation of the instrument that performs the measurement,
+        including any generation or configuration suffix. Conventionally written with
+        the manufacturer name included; Instrument Manufacturer records the vendor
+        separately, as a controlled value, so that procedures remain findable by vendor.
+      type: string
+      readOnly: true
+    ada:focalLength:
+      description: Focal length of the imaging lens used by this procedure.
+      anyOf:
+      - type: number
+      - type: string
+      readOnly: true
+    ada:illuminationColour:
+      description: Illumination wavelength band(s) the procedure images under. Record
+        every band acquired, in the order acquired.
+      anyOf:
+      - type: string
+        enum:
+        - Blue
+        - Green
+        - Red
+        - Near-infrared
+        - Broadband white
+        - Ultraviolet
+        - N/A
+        - None
+        - missing
+      - type: string
+      readOnly: true
+    ada:illuminationLevelDefault:
+      description: Illumination intensity setting used for the exposure.
+      anyOf:
+      - type: number
+      - type: string
+    ada:exposureTimeDefault:
+      description: Detector exposure time per frame.
+      anyOf:
+      - type: number
+      - type: string
+    ada:constantsAndReferenceValuesUsedDefault:
+      description: Physical constants and reference values used in data reduction
+        to calculate the final reported quantity (e.g., decay constants for age calculation,
+        standard isotope ratios, or other citable reference values used in a correction
+        or calculation), together with their source. Distinct from the Group 6 reference-material
+        fields, which document accepted values for specific calibration/validation
+        materials rather than universal physical constants. Record "None" if no citable,
+        revisable physical constants feed into this procedure's data reduction.
+      type: string
+    ada:reflectanceStandardDefault:
+      description: Reflectance standard imaged to convert raw counts to calibrated
+        reflectance.
+      type: string
+  required:
+  - ada:targetMaterial
+  - ada:instrumentManufacturer
+  - ada:instrumentModel
+  - ada:focalLength
+  - ada:illuminationColour
+  - ada:illuminationLevelDefault
+  - ada:exposureTimeDefault
+  - ada:constantsAndReferenceValuesUsedDefault
+  - ada:reflectanceStandardDefault
+
+```
+
+Links to the schema:
+
+* YAML version: [schema.yaml](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/QRIS/tapp/schema.json)
+* JSON version: [schema.json](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/QRIS/tapp/schema.yaml)
+
+
+# JSON-LD Context
+
+```jsonld
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "dqv": "http://www.w3.org/ns/dqv#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
+    "cdif": "https://w3id.org/cdif/",
+    "ex": "https://example.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "@version": 1.1
+  }
+}
+```
+
+You can find the full JSON-LD context here:
+[context.jsonld](https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/QRIS/tapp/context.jsonld)
+
+## Sources
+
+* [QRIS_TAPP_draft_v2.csv (TAPP worksheet)](https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs)
+
+# For developers
+
+The source code for this Building Block can be found in the following repository:
+
+* URL: [https://github.com/amds-ldeo/geochemBuildingBlocks](https://github.com/amds-ldeo/geochemBuildingBlocks)
+* Path: `_sources/techniqueProfile/geochemProfile/QRIS/tapp`
+

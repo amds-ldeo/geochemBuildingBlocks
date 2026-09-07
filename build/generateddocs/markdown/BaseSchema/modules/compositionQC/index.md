@@ -208,10 +208,10 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:variableMeasured [ schema1:name "Detection Limit" ;
-            schema1:value 1 ],
-        [ schema1:name "Detection Limit Method" ;
+[] schema1:variableMeasured [ schema1:name "Detection Limit Method" ;
             schema1:value "example value" ],
+        [ schema1:name "Detection Limit" ;
+            schema1:value 1 ],
         [ schema1:name "Normalization / Standards-Based Correction" ;
             schema1:value "example value" ] ;
     prov:wasGeneratedBy [ prov:used [ prov:reagent "example value" ] ] .
@@ -312,6 +312,8 @@ $defs:
                         items:
                           type: string
                       x-jsonld-id: https://ada.astromat.org/metadata/detectionLimitMethod
+                  required:
+                  - ada:detectionLimitMethod
             allOf:
             - contains:
                 properties:
@@ -375,6 +377,8 @@ $defs:
                   - type: number
                   - type: string
                   x-jsonld-id: http://schema.org/value
+              required:
+              - schema:value
           - if:
               properties:
                 schema:name:

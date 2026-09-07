@@ -690,6 +690,9 @@ allOf:
               since a blank subtracted from a ratio biases the result unless its own
               composition is known. Companion to the blank correction method."
             type: string
+        required:
+        - ada:proceduralBlankLevel
+        - schema:actionProcess
 
 ```
 

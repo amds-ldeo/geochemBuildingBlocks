@@ -693,6 +693,8 @@ allOf:
                           - type: array
                             items:
                               type: string
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:name:
@@ -729,6 +731,8 @@ allOf:
                         const: Data reduction
                     required:
                     - schema:name
+        required:
+        - schema:actionProcess
     ada:voxelSize:
       description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres
         (X-Y pixel size from SEM image calibration; Z from slice thickness), and the

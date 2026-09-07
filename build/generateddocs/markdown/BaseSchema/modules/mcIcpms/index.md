@@ -221,6 +221,8 @@ $defs:
                               items:
                                 type: string
                             x-jsonld-id: http://schema.org/description
+                        required:
+                        - schema:description
                   allOf:
                   - contains:
                       properties:
@@ -279,6 +281,8 @@ $defs:
                     items:
                       type: string
                   x-jsonld-id: http://www.w3.org/ns/dqv#value
+              required:
+              - dqv:value
         allOf:
         - contains:
             properties:

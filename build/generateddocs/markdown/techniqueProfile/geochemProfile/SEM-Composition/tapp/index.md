@@ -121,7 +121,10 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
@@ -170,7 +173,8 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -181,7 +185,8 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -317,7 +322,10 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
@@ -366,7 +374,8 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -377,7 +386,8 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -411,13 +421,15 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v58.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -460,7 +472,10 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "ZEISS 1550VP" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "10 kV" .
+    ada:acceleratingVoltageDefault "10 kV" ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -574,7 +589,8 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -597,7 +613,10 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "schema:relatedLink": [
@@ -638,7 +657,8 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -649,7 +669,8 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -763,7 +784,8 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -786,7 +808,10 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "schema:relatedLink": [
@@ -827,7 +852,8 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -838,7 +864,8 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -874,13 +901,15 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -921,7 +950,10 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JSM-5410LV" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "15 kV" .
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -934,6 +966,7 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
+    schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -1034,7 +1067,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -1056,7 +1090,11 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "ada:edsAcquisitionMode": "Map",
@@ -1104,7 +1142,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -1115,7 +1154,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -1228,7 +1268,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -1250,7 +1291,11 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "ada:edsAcquisitionMode": "Map",
@@ -1298,7 +1343,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -1309,7 +1355,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -1344,13 +1391,15 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -1392,7 +1441,11 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Leo 440" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -1405,6 +1458,7 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
+    schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -1528,7 +1582,11 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "ada:edsAcquisitionMode": "Point",
@@ -1576,7 +1634,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -1587,7 +1646,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -1723,7 +1783,11 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "ada:edsAcquisitionMode": "Point",
@@ -1771,7 +1835,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -1782,7 +1847,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -1818,10 +1884,12 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
@@ -1865,7 +1933,11 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Leo 1540 FIB/SEM CrossBeam" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -2003,7 +2075,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "schema:additionalProperty": [
@@ -2088,7 +2163,8 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -2236,7 +2312,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "schema:additionalProperty": [
@@ -2321,7 +2400,8 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -2367,14 +2447,15 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -2405,10 +2486,10 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -2430,7 +2511,10 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Supra 40" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "20 kV" .
+    ada:acceleratingVoltageDefault "20 kV" ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -2573,7 +2657,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "schema:additionalProperty": [
@@ -2659,7 +2746,8 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -2806,7 +2894,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999
     }
   ],
   "schema:additionalProperty": [
@@ -2892,7 +2983,8 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -2944,7 +3036,8 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -3000,7 +3093,10 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Supra 40" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "20 kV" .
+    ada:acceleratingVoltageDefault "20 kV" ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -3142,7 +3238,11 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing"
     }
   ],
   "ada:edsAcquisitionMode": "Point",
@@ -3201,7 +3301,8 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -3348,7 +3449,11 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing"
     }
   ],
   "ada:edsAcquisitionMode": "Point",
@@ -3407,7 +3512,8 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -3454,7 +3560,8 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -3498,6 +3605,7 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
+    schema1:description "missing" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
@@ -3506,7 +3614,10 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "7600F" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "15 kV" .
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -3642,7 +3753,12 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing"
     }
   ],
   "ada:edsAcquisitionMode": "Map",
@@ -3700,7 +3816,8 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -3847,7 +3964,12 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing"
     }
   ],
   "ada:edsAcquisitionMode": "Map",
@@ -3905,7 +4027,8 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ],
     "@type": [
@@ -3959,7 +4082,8 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -3997,6 +4121,7 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
+    schema1:description "missing" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
@@ -4004,7 +4129,11 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
             schema1:name "Hitachi" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "S-4800" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -4112,7 +4241,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -4123,7 +4253,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -4168,7 +4299,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -4184,7 +4316,24 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
           "schema:name": "missing",
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
-      ]
+      ],
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing",
+      "schema:manufacturer": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      }
     }
   ],
   "ada:edsAcquisitionMode": "missing",
@@ -4291,7 +4440,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -4302,7 +4452,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
       }
     ]
   },
@@ -4347,7 +4498,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -4363,7 +4515,24 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
           "schema:name": "missing",
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
-      ]
+      ],
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing",
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing",
+      "schema:manufacturer": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      }
     }
   ],
   "ada:edsAcquisitionMode": "missing",
@@ -4398,13 +4567,15 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -4437,10 +4608,19 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
+    schema1:description "missing" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
-    schema1:name "missing" .
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "missing" ] ;
+    schema1:name "missing" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -4452,6 +4632,7 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
+    schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
@@ -4583,6 +4764,8 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
               schema:model:
                 type: object
                 properties:
@@ -4594,6 +4777,8 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:hasPart:
                 type: array
                 items:
@@ -4640,6 +4825,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:additionalType:
@@ -4767,6 +4954,14 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+            required:
+            - ada:acceleratingVoltageDefault
+            - ada:beamDiameterDefault
+            - ada:beamMode
+            - ada:workingDistanceDefault
+            - schema:description
+            - schema:manufacturer
+            - schema:model
       allOf:
       - contains:
           properties:

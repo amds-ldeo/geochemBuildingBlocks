@@ -118,7 +118,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -466,7 +467,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:primaryStandardNameDefault": "Multi-element calibration solution (not formally named; stated section 3.1)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -599,7 +601,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -947,7 +950,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   "ada:primaryStandardNameDefault": "Multi-element calibration solution (not formally named; stated section 3.1)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -980,18 +984,6 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
@@ -1004,9 +996,22 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder (50 mg; stated section 3.3)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1)." ;
@@ -1022,7 +1027,8 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Geological reference materials (basalt, andesite, granite, shale); upper continental crust samples (stated abstract)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
@@ -1352,7 +1358,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -1730,7 +1737,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -1858,7 +1866,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -2236,7 +2245,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -2265,9 +2275,13 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -2276,12 +2290,9 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
@@ -2307,7 +2318,8 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
             schema1:target [ schema1:description "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)" ;
                     schema1:name "ICP-AES (for initial [Ca] determination; stated section 2)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler" ;
     ada:blankBackgroundCorrectionMethod "On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)" ;
@@ -2936,7 +2948,8 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -3352,7 +3365,8 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -3385,21 +3399,6 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "3 sigma blank (stated section 2)" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder or glass chips (stated section 2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -3411,7 +3410,22 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder or glass chips (stated section 2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "3 sigma blank (stated section 2)" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -3426,7 +3440,8 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Silicate reference materials (basalt, andesite, peridotite), NIST SRM glasses, carbonaceous chondrites (stated section 2)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
@@ -3834,7 +3849,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -3869,7 +3885,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "@type": [
@@ -3928,7 +3945,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
   "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -4188,7 +4206,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -4223,7 +4242,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "@type": [
@@ -4282,7 +4302,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
   "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -4319,24 +4340,26 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods)." ;
@@ -4356,7 +4379,8 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
             schema1:target [ schema1:description "Same dissolved aliquots analyzed by Q-ICP-MS (major/trace elements, masses 23-75) and MC-ICP-MS (Zn isotopes); stated Methods" ;
                     schema1:name "MC-ICP-MS (Neptune Plus at IPGP; for Zn isotope measurements; stated Methods)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"The sample was introduced into a Scott spray chamber through a MicroMist nebulizer at an uptake rate of 0.2 mL/min\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
@@ -4611,7 +4635,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -5051,7 +5076,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:primaryStandardNameDefault": "Multi-element standard solution (not formally named; stated section 2.1.1)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
@@ -5193,7 +5219,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -5633,7 +5660,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   "ada:primaryStandardNameDefault": "Multi-element standard solution (not formally named; stated section 2.1.1)",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
@@ -5669,6 +5697,12 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
@@ -5682,13 +5716,8 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1)." ;
@@ -5708,7 +5737,8 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
             schema1:target [ schema1:description "Q-ICP-MS (7500cs) measured B, Zr, Nb, Mo, Sn, Sb, Hf, Ta; SF-ICP-MS (ELEMENT) measured Ti and Nb; both techniques on same digested solutions; stated section 2.1" ;
                     schema1:name "SF-ICP-MS (Finnigan ELEMENT at PML; for Ti measurements; stated section 2.1.2)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "Standard solution measured every two samples (stated section 2.1.1)" ;
     ada:analyticalMode "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
@@ -6241,7 +6271,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -6263,7 +6294,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "@type": [
@@ -6280,7 +6312,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -6566,7 +6599,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -6588,7 +6622,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "@type": [
@@ -6605,7 +6640,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -6647,18 +6683,20 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -6677,7 +6715,8 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Estuarine suspended particulate matter and sediment (Gironde Estuary sorption experiments)" ] ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
@@ -6886,7 +6925,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -7155,7 +7195,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -7270,7 +7311,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -7539,7 +7581,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -7579,13 +7622,9 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Dried at 50 C and homogenised in an agate mortar before microwave digestion" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -7599,9 +7638,14 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Dried at 50 C and homogenised in an agate mortar before microwave digestion" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -7616,7 +7660,8 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Estuarine sediment — total digestions and selective extraction fractions" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
@@ -8026,7 +8071,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -8048,7 +8094,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "@type": [
@@ -8065,7 +8112,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -8353,7 +8401,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -8375,7 +8424,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "@type": [
@@ -8392,7 +8442,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -8434,13 +8485,14 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -8449,8 +8501,9 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -8464,7 +8517,8 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Estuarine water — dissolved Se from sorption kinetics and isotherms" ] ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
@@ -8697,7 +8751,8 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -8981,7 +9036,8 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   "ada:primaryStandardNameDefault": "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -9118,7 +9174,8 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
       },
       {
         "schema:name": "Sample digestion",
@@ -9402,7 +9459,8 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   "ada:primaryStandardNameDefault": "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3",
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:analysisSequenceDefault": "missing",
@@ -9439,6 +9497,19 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
@@ -9448,18 +9519,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -9480,7 +9539,8 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Carbonaceous asteroid particles (Ryugu, Hayabusa2 TD1) and the Allende chondrite" ],
                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
@@ -9945,6 +10005,8 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:additionalProperty:
                 type: array
                 items:
@@ -10341,6 +10403,8 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+            required:
+            - schema:model
       allOf:
       - contains:
           properties:
@@ -10691,6 +10755,8 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
+      required:
+      - ada:defaultChannels
     ada:massCyclesPerReplicate:
       description: "Number of complete mass scans accumulated per analytical replicate.
         A scan \u2014 also called a sweep or a pass \u2014 is one complete traversal

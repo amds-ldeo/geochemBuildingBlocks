@@ -197,7 +197,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "schema:name": "Data reduction",
@@ -457,7 +458,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "schema:name": "Data reduction",
@@ -538,15 +540,16 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -938,7 +941,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -1229,7 +1233,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -1262,14 +1267,14 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Decanted for XCT; sample split along fractures during mounting into pipette tips. Post-XCT: embedded in Specifix resin, polished with 0.1 µm Al₂O₃." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Decanted for XCT; sample split along fractures during mounting into pipette tips. Post-XCT: embedded in Specifix resin, polished with 0.1 µm Al₂O₃." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -1298,7 +1303,8 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
             schema1:target [ schema1:description "Serial polished sections cut post-XCT; SEM imaging" ;
                     schema1:name "SEM (post-XCT polished sections)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (LE4 inbuilt)" ;
@@ -1562,7 +1568,8 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:voxelSizeDefault": -9999
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -1768,7 +1775,8 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:voxelSizeDefault": -9999
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -1905,6 +1913,7 @@ ex:labxctTAPP-Neuman2025 a cdi:Activity,
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "180 kV" ;
     ada:tubeCurrentDefault "0.18 mA (180 µA)" ;
+    ada:voxelSizeDefault -9999 ;
     ada:xRayPreFilterDefault "0.72 mm Al" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
@@ -2076,7 +2085,9 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:tubeCurrentDefault": -9999,
+      "ada:voxelSizeDefault": -9999
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -2281,7 +2292,9 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:tubeCurrentDefault": -9999,
+      "ada:voxelSizeDefault": -9999
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -2335,16 +2348,16 @@ ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Steel outer sleeve retained for scan" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Steel outer sleeve retained for scan" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
@@ -2417,6 +2430,8 @@ ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
             schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "190 kV" ;
+    ada:tubeCurrentDefault -9999 ;
+    ada:voxelSizeDefault -9999 ;
     ada:xRayPreFilterDefault "None (steel sleeve acts as effective filter)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
@@ -2497,7 +2512,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -2535,7 +2551,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -2552,7 +2569,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -2649,7 +2667,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "schema:measurementTechnique": [
@@ -2687,7 +2706,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -2704,7 +2724,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
   },
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -2742,13 +2763,14 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v37.csv)." ;
     schema1:instrument <https://example.org/instrument/XCT> ;
@@ -2762,7 +2784,8 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Lunar regolith (Apollo 17 drive-tube CSVC)" ] ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "missing" ;
@@ -2792,7 +2815,8 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "215 kV" ;
     ada:tubeCurrentDefault "179 mA (possibly typo for µA per source)" ;
-    ada:voxelSizeDefault "38.49 µm voxel edge" .
+    ada:voxelSizeDefault "38.49 µm voxel edge" ;
+    ada:xRayPreFilterDefault "missing" .
 
 
 ```
@@ -2935,7 +2959,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:tubeCurrentDefault": -9999
     }
   ],
   "ada:samplingUnitSelectionCriteriaDefault": "Particles >4 mm extracted during dissection are individually bagged and XCT scanned for classification and characterization, without destructive chipping, sectioning or dust removal",
@@ -3118,7 +3143,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:tubeCurrentDefault": -9999
     }
   ],
   "ada:samplingUnitSelectionCriteriaDefault": "Particles >4 mm extracted during dissection are individually bagged and XCT scanned for classification and characterization, without destructive chipping, sectioning or dust removal",
@@ -3240,6 +3266,7 @@ ex:labxctTAPP-Shearer2024-2 a cdi:Activity,
             schema1:name "Nikon XTH 320" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "90 kV (typical; optimized per sample)" ;
+    ada:tubeCurrentDefault -9999 ;
     ada:voxelSizeDefault "2.8–20.6 µm (optimized per sample)" ;
     ada:xRayPreFilterDefault "0.1–0.25 mm Al (Bennu PE protocol range stated)" .
 
@@ -3414,7 +3441,9 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:tubeCurrentDefault": -9999,
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "ada:numberOfProjectionsDefault": "3143",
@@ -3458,7 +3487,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -3644,7 +3674,9 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:tubeCurrentDefault": -9999,
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "ada:numberOfProjectionsDefault": "3143",
@@ -3688,7 +3720,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -3722,14 +3755,14 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None; chip used as received" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None; chip used as received" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
@@ -3753,7 +3786,8 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
             schema1:target [ schema1:description "BSE images compared with XCT attenuation contrast" ;
                     schema1:name "SEM-BSE (qualitative comparison)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "missing" ;
@@ -3812,7 +3846,9 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
             schema1:name "Nikon Metris XTH 225" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
-    ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" .
+    ada:tubeCurrentDefault -9999 ;
+    ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" ;
+    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;
@@ -4050,7 +4086,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -4297,7 +4334,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -4327,14 +4365,14 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -4355,7 +4393,8 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "CM2 carbonaceous chondrite (Murchison)" ] ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "None (intentionally unfiltered; no software BHC mentioned)" ;
@@ -4662,7 +4701,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -4906,7 +4946,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -4941,14 +4982,14 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated (fragments purchased from IMCA member)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated (fragments purchased from IMCA member)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -4973,7 +5014,8 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
             schema1:target [ schema1:description "Micro-XRF performed on same meteorite fragments after XCT" ;
                     schema1:name "Micro-XRF (same samples)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned" ;
@@ -5241,7 +5283,9 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:tubeCurrentDefault": -9999,
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "ada:numberOfProjectionsDefault": "1601",
@@ -5270,7 +5314,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -5483,7 +5528,9 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:tubeCurrentDefault": -9999,
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "ada:numberOfProjectionsDefault": "1601",
@@ -5512,7 +5559,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -5547,14 +5595,14 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -5575,7 +5623,8 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
             schema1:additionalProperty [ schema1:name "Target Material" ;
                     schema1:value "Olivine phenocryst with silicate melt inclusion" ],
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "missing" ;
@@ -5642,7 +5691,9 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
             schema1:name "Zeiss Xradia 510 Versa" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "30 kV" ;
-    ada:voxelSizeDefault "2.06 µm/px" .
+    ada:tubeCurrentDefault -9999 ;
+    ada:voxelSizeDefault "2.06 µm/px" ;
+    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -5907,7 +5958,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -6178,7 +6230,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -6240,7 +6293,8 @@ ex:labxctTAPP-Richard2019-2 a cdi:Activity,
                     schema1:value "Synthetic quartz monocrystal with aqueous fluid inclusions" ],
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault>,
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "None (conditions did not saturate detector; not required)" ;
@@ -6589,7 +6643,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -6860,7 +6915,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -6892,14 +6948,14 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -6922,7 +6978,8 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
                     schema1:value "Synthetic quartz monocrystal with aqueous fluid inclusions" ],
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault>,
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "None (conditions did not saturate detector; not required)" ;
@@ -7215,7 +7272,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "ada:numberOfProjectionsDefault": "1200–2000 (varies by sample)",
@@ -7264,7 +7322,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -7481,7 +7540,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "ada:numberOfProjectionsDefault": "1200\u20132000 (varies by sample)",
@@ -7530,7 +7590,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -7564,14 +7625,14 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
@@ -7598,7 +7659,8 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
             schema1:target [ schema1:description "CLSM performed on same inclusion for volumetric cross-validation" ;
                     schema1:name "Confocal laser scanning microscopy (Sample I)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "Software BHC applied per respective software" ;
@@ -7681,7 +7743,8 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
     ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
-    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" .
+    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" ;
+    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -7801,7 +7864,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -7885,7 +7949,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -8020,7 +8085,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
         "schema:Thing"
       ],
       "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:xRayPreFilterDefault": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -8104,7 +8170,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
   ],
   "schema:variableMeasured": [
     {
-      "schema:name": "Calibration Factor and Determination Method"
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:applicableSampleDimensionRange": "missing",
@@ -8140,14 +8207,14 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "8 mm diameter core drilled from meteorite prior to XCT" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "8 mm diameter core drilled from meteorite prior to XCT" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
@@ -8170,7 +8237,8 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
             schema1:target [ schema1:description "XCT qualitatively compared with thin sections and EBSD" ;
                     schema1:name "Optical microscopy; EBSD" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "missing" ;
@@ -8231,7 +8299,8 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "70 kV" ;
     ada:tubeCurrentDefault "86 µA" ;
-    ada:voxelSizeDefault "1.923 µm" .
+    ada:voxelSizeDefault "1.923 µm" ;
+    ada:xRayPreFilterDefault "missing" .
 
 
 ```
@@ -9950,6 +10019,8 @@ allOf:
                 - type: array
                   items:
                     type: string
+            required:
+            - schema:name
         required:
         - ada:toolRole
     schema:instrument:
@@ -10030,6 +10101,8 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
               schema:model:
                 type: object
                 properties:
@@ -10041,6 +10114,15 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
+            required:
+            - ada:acceleratingVoltageDefault
+            - ada:tubeCurrentDefault
+            - ada:voxelSizeDefault
+            - ada:xRayPreFilterDefault
+            - schema:manufacturer
+            - schema:model
       allOf:
       - contains:
           properties:

@@ -15,14 +15,14 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None; chip used as received" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None; chip used as received" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
@@ -46,7 +46,8 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
             schema1:target [ schema1:description "BSE images compared with XCT attenuation contrast" ;
                     schema1:name "SEM-BSE (qualitative comparison)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "missing" ;
@@ -105,7 +106,9 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
             schema1:name "Nikon Metris XTH 225" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
-    ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" .
+    ada:tubeCurrentDefault -9999 ;
+    ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" ;
+    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;

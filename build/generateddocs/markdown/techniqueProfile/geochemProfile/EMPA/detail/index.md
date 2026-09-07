@@ -25,7 +25,8 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-JEOL8200"
+      "@id": "ex:empaTAPP-JEOL8200",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -70,7 +71,8 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-JEOL8200"
+      "@id": "ex:empaTAPP-JEOL8200",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -121,6 +123,8 @@ ex:detail-JEOL8200 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-JEOL8200 schema1:identifier "missing" .
+
 
 ```
 
@@ -141,7 +145,8 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P1"
+      "@id": "ex:empaTAPP-P1",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -186,7 +191,8 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P1"
+      "@id": "ex:empaTAPP-P1",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -237,6 +243,8 @@ ex:detail-P1 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-P1 schema1:identifier "missing" .
+
 
 ```
 
@@ -257,7 +265,8 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P2"
+      "@id": "ex:empaTAPP-P2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -302,7 +311,8 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P2"
+      "@id": "ex:empaTAPP-P2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -353,6 +363,8 @@ ex:detail-P2 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-P2 schema1:identifier "missing" .
+
 
 ```
 
@@ -373,7 +385,8 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P3"
+      "@id": "ex:empaTAPP-P3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -418,7 +431,8 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P3"
+      "@id": "ex:empaTAPP-P3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -469,6 +483,8 @@ ex:detail-P3 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-P3 schema1:identifier "missing" .
+
 
 ```
 
@@ -489,7 +505,8 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-JEOL8200-2"
+      "@id": "ex:empaTAPP-JEOL8200-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -534,7 +551,8 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-JEOL8200-2"
+      "@id": "ex:empaTAPP-JEOL8200-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -585,6 +603,8 @@ ex:detail-JEOL8200-2 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-JEOL8200-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -605,7 +625,8 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P5"
+      "@id": "ex:empaTAPP-P5",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -650,7 +671,8 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P5"
+      "@id": "ex:empaTAPP-P5",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -701,6 +723,8 @@ ex:detail-P5 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-P5 schema1:identifier "missing" .
+
 
 ```
 
@@ -721,7 +745,8 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P6"
+      "@id": "ex:empaTAPP-P6",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -766,7 +791,8 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P6"
+      "@id": "ex:empaTAPP-P6",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -817,6 +843,8 @@ ex:detail-P6 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-P6 schema1:identifier "missing" .
+
 
 ```
 
@@ -837,7 +865,8 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-JEOL8530"
+      "@id": "ex:empaTAPP-JEOL8530",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -882,7 +911,8 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-JEOL8530"
+      "@id": "ex:empaTAPP-JEOL8530",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -933,6 +963,8 @@ ex:detail-JEOL8530 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-JEOL8530 schema1:identifier "missing" .
+
 
 ```
 
@@ -953,7 +985,8 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P8"
+      "@id": "ex:empaTAPP-P8",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -998,7 +1031,8 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P8"
+      "@id": "ex:empaTAPP-P8",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1049,6 +1083,8 @@ ex:detail-P8 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-P8 schema1:identifier "missing" .
+
 
 ```
 
@@ -1069,7 +1105,8 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-JEOL8530-2"
+      "@id": "ex:empaTAPP-JEOL8530-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1114,7 +1151,8 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-JEOL8530-2"
+      "@id": "ex:empaTAPP-JEOL8530-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1165,6 +1203,8 @@ ex:detail-JEOL8530-2 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-JEOL8530-2 schema1:identifier "missing" .
+
 
 ```
 
@@ -1185,7 +1225,8 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P10"
+      "@id": "ex:empaTAPP-P10",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1230,7 +1271,8 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P10"
+      "@id": "ex:empaTAPP-P10",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1281,6 +1323,8 @@ ex:detail-P10 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-P10 schema1:identifier "missing" .
+
 
 ```
 
@@ -1301,7 +1345,8 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P11"
+      "@id": "ex:empaTAPP-P11",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1346,7 +1391,8 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P11"
+      "@id": "ex:empaTAPP-P11",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1397,6 +1443,8 @@ ex:detail-P11 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-P11 schema1:identifier "missing" .
+
 
 ```
 
@@ -1417,7 +1465,8 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P12"
+      "@id": "ex:empaTAPP-P12",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1462,7 +1511,8 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P12"
+      "@id": "ex:empaTAPP-P12",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1513,6 +1563,8 @@ ex:detail-P12 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
+ex:empaTAPP-P12 schema1:identifier "missing" .
+
 
 ```
 
@@ -1533,7 +1585,8 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P13"
+      "@id": "ex:empaTAPP-P13",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1578,7 +1631,8 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "ada:componentType": "ada:EMPAImage",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:empaTAPP-P13"
+      "@id": "ex:empaTAPP-P13",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1628,6 +1682,8 @@ ex:detail-P13 a ada:EMPAImage ;
     ada:sampleName "OREX-501054-0 and OREX-501059-0 (particles P1, P2)" ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
+
+ex:empaTAPP-P13 schema1:identifier "missing" .
 
 
 ```
@@ -2244,6 +2300,10 @@ allOf:
                         const: Data reduction
                     required:
                     - schema:name
+        required:
+        - ada:deadTime
+        - ada:proceduralBlankLevel
+        - schema:actionProcess
     schema:additionalProperty:
       type: array
       items:

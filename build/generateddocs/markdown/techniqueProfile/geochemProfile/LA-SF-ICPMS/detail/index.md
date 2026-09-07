@@ -25,7 +25,8 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Zhang2022"
+      "@id": "ex:laSficpmsTAPP-Zhang2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -93,7 +94,8 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Zhang2022"
+      "@id": "ex:laSficpmsTAPP-Zhang2022",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -176,6 +178,8 @@ ex:detail-Zhang2022 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
+ex:laSficpmsTAPP-Zhang2022 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
@@ -201,7 +205,8 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021"
+      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -269,7 +274,8 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021"
+      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -352,6 +358,8 @@ ex:detail-Chernonozhkin2021 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Intermediate precision for mapping: most elements at ≥10 µg g⁻¹: 5–15% RSD; elements <10 µg g⁻¹: 5–30% RSD; assessed from repeated GRM mapping in 8 sessions over 1 year (n=8 for each element)" .
 
+ex:laSficpmsTAPP-Chernonozhkin2021 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
@@ -377,7 +385,8 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021-2"
+      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -445,7 +454,8 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021-2"
+      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -528,6 +538,8 @@ ex:detail-Chernonozhkin2021-2 a ada:LAICPMSTabular ;
     ada:transectLength "Line scan length: 400 µm (runs 1 and 2; 34 runs adjusted to measure 400 µm line + blank + washout)" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "LOD calculated per analysis (Na=24, Nb=5); precision not formally reported as separate metric" .
 
+ex:laSficpmsTAPP-Chernonozhkin2021-2 schema1:identifier "missing" .
+
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
@@ -553,7 +565,8 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021-3"
+      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -606,7 +619,8 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021-3"
+      "@id": "ex:laSficpmsTAPP-Chernonozhkin2021-3",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -673,6 +687,8 @@ ex:detail-Chernonozhkin2021-3 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
+ex:laSficpmsTAPP-Chernonozhkin2021-3 schema1:identifier "missing" .
+
 
 ```
 
@@ -693,7 +709,8 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Mittlefehldt2024"
+      "@id": "ex:laSficpmsTAPP-Mittlefehldt2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -746,7 +763,8 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Mittlefehldt2024"
+      "@id": "ex:laSficpmsTAPP-Mittlefehldt2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -813,6 +831,8 @@ ex:detail-Mittlefehldt2024 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
+ex:laSficpmsTAPP-Mittlefehldt2024 schema1:identifier "missing" .
+
 
 ```
 
@@ -833,7 +853,8 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Navarro2024"
+      "@id": "ex:laSficpmsTAPP-Navarro2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -886,7 +907,8 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Navarro2024"
+      "@id": "ex:laSficpmsTAPP-Navarro2024",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -953,6 +975,8 @@ ex:detail-Navarro2024 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "RSD <15% for most elements in Arraias meteorite under repeatability conditions (n=20 spot analyses); Cr: 20%, Ir: 16%, Os: 20% RSD; assessed by repeated analysis of same meteorite in one session" .
 
+ex:laSficpmsTAPP-Navarro2024 schema1:identifier "missing" .
+
 
 ```
 
@@ -973,7 +997,8 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Navarro2024-2"
+      "@id": "ex:laSficpmsTAPP-Navarro2024-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1041,7 +1066,8 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
   "ada:componentType": "ada:LAICPMSTabular",
   "schema:measurementTechnique": [
     {
-      "@id": "ex:laSficpmsTAPP-Navarro2024-2"
+      "@id": "ex:laSficpmsTAPP-Navarro2024-2",
+      "schema:identifier": "missing"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1123,6 +1149,8 @@ ex:detail-Navarro2024-2 a ada:LAICPMSTabular ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+ex:laSficpmsTAPP-Navarro2024-2 schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
@@ -1760,6 +1788,8 @@ allOf:
               since a blank subtracted from a ratio biases the result unless its own
               composition is known. Companion to the blank correction method."
             type: string
+        required:
+        - ada:proceduralBlankLevel
 
 ```
 

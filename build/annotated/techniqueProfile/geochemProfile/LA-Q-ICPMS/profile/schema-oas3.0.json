@@ -2018,7 +2018,10 @@
                     "description": "The measured level of the analytical blank in the session, and \u2014 where the reported quantity is a ratio \u2014 its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.",
                     "type": "string"
                   }
-                }
+                },
+                "required": [
+                  "ada:proceduralBlankLevel"
+                ]
               }
             }
           }
@@ -2736,7 +2739,10 @@
                               "type": "string",
                               "readOnly": true
                             }
-                          }
+                          },
+                          "required": [
+                            "schema:name"
+                          ]
                         },
                         "schema:additionalProperty": {
                           "type": "array",
@@ -3396,7 +3402,10 @@
                             }
                           ]
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:model"
+                      ]
                     }
                   },
                   {
@@ -9168,7 +9177,10 @@
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/termCode"
                   }
-                }
+                },
+                "required": [
+                  "schema:termCode"
+                ]
               },
               "x-jsonld-id": "http://schema.org/measurementTechnique"
             },
@@ -9181,6 +9193,9 @@
                   "x-jsonld-id": "http://schema.org/name"
                 }
               },
+              "required": [
+                "schema:name"
+              ],
               "x-jsonld-id": "http://schema.org/creator"
             },
             "schema:location": {
@@ -9197,6 +9212,9 @@
                   "x-jsonld-id": "http://schema.org/identifier"
                 }
               },
+              "required": [
+                "schema:name"
+              ],
               "x-jsonld-id": "http://schema.org/location"
             },
             "schema:datePublished": {
@@ -9330,7 +9348,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/name"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
                     }
                   },
                   {
@@ -9363,7 +9384,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/name"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
                     }
                   }
                 ],
@@ -9432,7 +9456,10 @@
                               ],
                               "x-jsonld-id": "http://schema.org/description"
                             }
-                          }
+                          },
+                          "required": [
+                            "schema:description"
+                          ]
                         }
                       }
                     ]
@@ -9558,7 +9585,10 @@
                                 ],
                                 "x-jsonld-id": "http://schema.org/identifier"
                               }
-                            }
+                            },
+                            "required": [
+                              "schema:name"
+                            ]
                           }
                         }
                       ]
@@ -9741,7 +9771,12 @@
                     },
                     "x-jsonld-id": "http://schema.org/actionProcess"
                   }
-                }
+                },
+                "required": [
+                  "schema:endDate",
+                  "schema:identifier",
+                  "schema:startDate"
+                ]
               },
               "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy"
             },
@@ -9755,7 +9790,10 @@
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/identifier"
                   }
-                }
+                },
+                "required": [
+                  "schema:identifier"
+                ]
               },
               "x-jsonld-id": "http://schema.org/measurementTechnique"
             },
@@ -9779,22 +9817,24 @@
                     },
                     "then": {
                       "properties": {
-                        "schema:name": {
-                          "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
+                        "schema:contributor": {
+                          "type": "object",
+                          "properties": {
+                            "schema:name": {
+                              "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
+                              "type": "string",
+                              "x-jsonld-id": "http://schema.org/name"
                             }
+                          },
+                          "required": [
+                            "schema:name"
                           ],
-                          "x-jsonld-id": "http://schema.org/name"
+                          "x-jsonld-id": "http://schema.org/contributor"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:contributor"
+                      ]
                     }
                   }
                 ]
@@ -9827,7 +9867,10 @@
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/name"
                   }
-                }
+                },
+                "required": [
+                  "schema:name"
+                ]
               },
               "x-jsonld-id": "http://schema.org/funding"
             },
@@ -10158,6 +10201,9 @@
                               "x-jsonld-id": "http://schema.org/name"
                             }
                           },
+                          "required": [
+                            "schema:name"
+                          ],
                           "x-jsonld-id": "http://schema.org/model"
                         },
                         "ada:laserType": {
@@ -10229,7 +10275,15 @@
                           ],
                           "x-jsonld-id": "https://ada.astromat.org/metadata/laserRepetitionRateDefault"
                         }
-                      }
+                      },
+                      "required": [
+                        "ada:laserFluenceDefault",
+                        "ada:laserRepetitionRateDefault",
+                        "ada:laserSpotGeometryDefault",
+                        "ada:laserType",
+                        "schema:model",
+                        "schema:name"
+                      ]
                     }
                   }
                 ]
@@ -11693,7 +11747,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/defaultValue"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:defaultValue"
+                      ]
                     }
                   }
                 ]
@@ -11921,7 +11978,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/value"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:value"
+                      ]
                     }
                   }
                 ]
@@ -11979,7 +12039,10 @@
                           ],
                           "x-jsonld-id": "http://www.w3.org/ns/dqv#value"
                         }
-                      }
+                      },
+                      "required": [
+                        "dqv:value"
+                      ]
                     }
                   }
                 ]
@@ -12439,7 +12502,10 @@
                           ],
                           "x-jsonld-id": "http://www.w3.org/ns/dqv#value"
                         }
-                      }
+                      },
+                      "required": [
+                        "dqv:value"
+                      ]
                     }
                   }
                 ]
@@ -12530,7 +12596,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/value"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:value"
+                      ]
                     }
                   }
                 ]
@@ -14416,7 +14485,10 @@
                               ],
                               "x-jsonld-id": "https://ada.astromat.org/metadata/detectionLimitMethod"
                             }
-                          }
+                          },
+                          "required": [
+                            "ada:detectionLimitMethod"
+                          ]
                         }
                       }
                     ]
@@ -14497,7 +14569,10 @@
                           ],
                           "x-jsonld-id": "http://schema.org/value"
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:value"
+                      ]
                     }
                   },
                   {
@@ -15177,7 +15252,10 @@
                                       ],
                                       "x-jsonld-id": "http://schema.org/name"
                                     }
-                                  }
+                                  },
+                                  "required": [
+                                    "schema:name"
+                                  ]
                                 }
                               }
                             ]

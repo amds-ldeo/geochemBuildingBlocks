@@ -120,7 +120,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999
     },
     {
       "schema:additionalType": [
@@ -188,7 +189,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -354,7 +356,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999
     },
     {
       "schema:additionalType": [
@@ -422,7 +425,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -487,8 +491,8 @@ ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -499,8 +503,9 @@ ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v30.csv)." ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -553,6 +558,7 @@ ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nova 200 NanoLab DualBeam" ] ;
     schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault -9999 ;
     ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -669,7 +675,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -686,7 +693,10 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing"
     },
     {
       "@id": "ex:instrument/FIBSEM",
@@ -744,7 +754,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "ada:coarseMillingConditionsDefault": "missing"
       },
       {
         "@type": [
@@ -780,7 +791,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -932,7 +944,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -949,7 +962,10 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
       ],
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing"
     },
     {
       "@id": "ex:instrument/FIBSEM",
@@ -1007,7 +1023,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "ada:coarseMillingConditionsDefault": "missing"
       },
       {
         "@type": [
@@ -1043,7 +1060,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -1113,17 +1131,19 @@ ex:semFibsemTAPP-Liu2017 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/sliceThicknessDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/sliceThicknessDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -1189,6 +1209,7 @@ ex:semFibsemTAPP-Liu2017 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
+    schema1:description "missing" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
@@ -1196,7 +1217,9 @@ ex:semFibsemTAPP-Liu2017 a cdi:Activity,
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Crossbeam 540" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -1208,6 +1231,7 @@ ex:semFibsemTAPP-Liu2017 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
+    schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -1314,7 +1338,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -1393,7 +1418,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "ada:coarseMillingConditionsDefault": "missing"
       },
       {
         "@type": [
@@ -1415,7 +1441,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -1541,7 +1568,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -1620,7 +1648,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "ada:coarseMillingConditionsDefault": "missing"
       },
       {
         "@type": [
@@ -1642,7 +1671,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -1689,14 +1719,16 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -1760,6 +1792,7 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
+    schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -1883,7 +1916,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:workingDistanceDefault": -9999
     },
     {
       "@id": "ex:instrument/FIBSEM",
@@ -1979,7 +2013,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -2145,7 +2180,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:workingDistanceDefault": -9999
     },
     {
       "@id": "ex:instrument/FIBSEM",
@@ -2241,7 +2277,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -2305,11 +2342,6 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
@@ -2318,8 +2350,14 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
                     ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
@@ -2381,7 +2419,8 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Helios G3" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "30 keV (FIB milling and thinning)" .
+    ada:acceleratingVoltageDefault "30 keV (FIB milling and thinning)" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -2522,7 +2561,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:workingDistanceDefault": -9999
     },
     {
       "schema:additionalType": [
@@ -2615,7 +2655,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -2781,7 +2822,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:workingDistanceDefault": -9999
     },
     {
       "schema:additionalType": [
@@ -2874,7 +2916,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -2943,18 +2986,19 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
+                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
-                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -3022,7 +3066,8 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Helios G4 UX" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" .
+    ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -3158,7 +3203,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:workingDistanceDefault": -9999
     },
     {
       "schema:additionalType": [
@@ -3277,7 +3323,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -3443,7 +3490,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:workingDistanceDefault": -9999
     },
     {
       "schema:additionalType": [
@@ -3562,7 +3610,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ],
     "@type": [
@@ -3630,6 +3679,7 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
@@ -3719,7 +3769,8 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Quanta 3D 600" ] ;
     schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" .
+    ada:acceleratingVoltageDefault "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -3797,7 +3848,9 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing",
+        "ada:coarseMillingConditionsDefault": "missing"
       },
       {
         "@type": [
@@ -3819,7 +3872,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ]
   },
@@ -3894,7 +3948,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -3910,7 +3965,22 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
           "schema:name": "missing",
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
-      ]
+      ],
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing",
+      "schema:manufacturer": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      }
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,
@@ -3979,7 +4049,9 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing",
+        "ada:coarseMillingConditionsDefault": "missing"
       },
       {
         "@type": [
@@ -4001,7 +4073,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ]
   },
@@ -4076,7 +4149,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -4092,7 +4166,22 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
           "schema:name": "missing",
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
-      ]
+      ],
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing",
+      "schema:manufacturer": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      }
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,
@@ -4123,18 +4212,21 @@ ex:semFibsemTAPP-Barnes2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. FIB-based TEM foil preparation using FEI Helios G4 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -4167,10 +4259,17 @@ ex:semFibsemTAPP-Barnes2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
+    schema1:description "missing" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
-    schema1:name "missing" .
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "missing" ] ;
+    schema1:name "missing" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -4182,6 +4281,7 @@ ex:semFibsemTAPP-Barnes2025 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
+    schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -4242,7 +4342,9 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing",
+        "ada:coarseMillingConditionsDefault": "missing"
       },
       {
         "@type": [
@@ -4264,7 +4366,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ]
   },
@@ -4339,7 +4442,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -4355,7 +4459,22 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
           "schema:name": "missing",
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
-      ]
+      ],
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing",
+      "schema:manufacturer": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      }
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,
@@ -4424,7 +4543,9 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1
+        "schema:position": 1,
+        "schema:description": "missing",
+        "ada:coarseMillingConditionsDefault": "missing"
       },
       {
         "@type": [
@@ -4446,7 +4567,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3
+        "schema:position": 3,
+        "schema:description": "missing"
       }
     ]
   },
@@ -4521,7 +4643,8 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source"
+          "@id": "ex:instrument/SEM/part/Electron-Source",
+          "schema:description": "missing"
         },
         {
           "@type": [
@@ -4537,7 +4660,22 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
           "schema:name": "missing",
           "@id": "ex:instrument/SEM/part/SE-Detector"
         }
-      ]
+      ],
+      "ada:acceleratingVoltageDefault": -9999,
+      "ada:workingDistanceDefault": -9999,
+      "schema:description": "missing",
+      "schema:manufacturer": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "missing",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      }
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,
@@ -4568,8 +4706,10 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -4578,8 +4718,9 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. TEM foil preparation using FEI Helios 660 G3 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
     schema1:instrument <https://example.org/instrument/FIBSEM>,
@@ -4612,10 +4753,17 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
+    schema1:description "missing" ;
     schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
         <https://example.org/instrument/SEM/part/Electron-Source>,
         <https://example.org/instrument/SEM/part/SE-Detector> ;
-    schema1:name "missing" .
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "missing" ] ;
+    schema1:name "missing" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:workingDistanceDefault -9999 .
 
 <https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -4627,6 +4775,7 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
+    schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
@@ -4757,6 +4906,8 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
               schema:model:
                 type: object
                 properties:
@@ -4768,6 +4919,8 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:hasPart:
                 type: array
                 items:
@@ -4814,6 +4967,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:additionalType:
@@ -4854,6 +5009,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:name
                   - if:
                       properties:
                         schema:additionalType:
@@ -4897,6 +5054,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:name
                 allOf:
                 - contains:
                     properties:
@@ -4969,6 +5128,12 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+            required:
+            - ada:acceleratingVoltageDefault
+            - ada:workingDistanceDefault
+            - schema:description
+            - schema:manufacturer
+            - schema:model
         - if:
             properties:
               schema:additionalType:
@@ -5020,6 +5185,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:name
                 allOf:
                 - contains:
                     properties:
@@ -5223,6 +5390,8 @@ allOf:
                     - type: array
                       items:
                         type: string
+                required:
+                - ada:coarseMillingConditionsDefault
             - if:
                 properties:
                   schema:name:
@@ -5490,6 +5659,8 @@ allOf:
                     - type: array
                       items:
                         type: string
+                required:
+                - schema:description
             - if:
                 properties:
                   schema:name:

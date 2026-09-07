@@ -160,6 +160,8 @@ $defs:
                               for silicate dissolution)."
                             type: string
                             x-jsonld-id: http://schema.org/name
+                        required:
+                        - schema:name
                       x-jsonld-id: https://bioschemas.org/reagent
             allOf:
             - contains:

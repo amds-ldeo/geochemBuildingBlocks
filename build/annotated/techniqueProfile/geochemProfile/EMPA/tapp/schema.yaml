@@ -127,6 +127,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:additionalType:
@@ -176,6 +178,13 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
+            required:
+            - ada:acceleratingVoltageDefault
+            - ada:beamDiameterDefault
+            - ada:beamMode
+            - schema:manufacturer
         - if:
             properties:
               schema:additionalType:
@@ -197,6 +206,10 @@ allOf:
                       controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
+            required:
+            - schema:model
       allOf:
       - contains:
           properties:

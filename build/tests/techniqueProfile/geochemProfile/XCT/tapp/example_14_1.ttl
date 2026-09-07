@@ -15,14 +15,14 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "8 mm diameter core drilled from meteorite prior to XCT" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "8 mm diameter core drilled from meteorite prior to XCT" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
@@ -45,7 +45,8 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
             schema1:target [ schema1:description "XCT qualitatively compared with thin sections and EBSD" ;
                     schema1:name "Optical microscopy; EBSD" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:applicableSampleDimensionRange "missing" ;
     ada:beamHardeningCorrectionMethod "missing" ;
@@ -106,5 +107,6 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "70 kV" ;
     ada:tubeCurrentDefault "86 µA" ;
-    ada:voxelSizeDefault "1.923 µm" .
+    ada:voxelSizeDefault "1.923 µm" ;
+    ada:xRayPreFilterDefault "missing" .
 

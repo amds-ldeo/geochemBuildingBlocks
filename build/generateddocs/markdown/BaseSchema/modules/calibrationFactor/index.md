@@ -175,6 +175,8 @@ $defs:
                     items:
                       type: string
                   x-jsonld-id: http://schema.org/defaultValue
+              required:
+              - schema:defaultValue
         allOf:
         - contains:
             properties:

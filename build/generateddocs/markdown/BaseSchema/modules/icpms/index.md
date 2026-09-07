@@ -147,9 +147,9 @@ The procedure half of the ICPMS module, with every property populated. Generated
             schema1:hasPart [ schema1:additionalType "example value" ;
                     schema1:name "example value" ] ] ;
     schema1:variableMeasured [ schema1:defaultValue "example value" ;
-            schema1:name "Limit of Quantification (LOQ) Method" ],
+            schema1:name "Uncertainty Propagation Method" ],
         [ schema1:defaultValue "example value" ;
-            schema1:name "Uncertainty Propagation Method" ] ;
+            schema1:name "Limit of Quantification (LOQ) Method" ] ;
     ada:analysisSequenceDefault "example value" ;
     ada:blankBackgroundCorrectionMethod "example value" ;
     ada:calibrationMeasurementFrequency "example value" ;
@@ -250,9 +250,9 @@ The analysis half of the ICPMS module, with every property populated. Generated 
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:variableMeasured [ schema1:name "Limit of Quantification (LOQ) Method" ;
+[] schema1:variableMeasured [ schema1:name "Uncertainty Propagation Method" ;
             schema1:value "example value" ],
-        [ schema1:name "Uncertainty Propagation Method" ;
+        [ schema1:name "Limit of Quantification (LOQ) Method" ;
             schema1:value "example value" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "example value" ] ;
@@ -541,6 +541,8 @@ $defs:
                     items:
                       type: string
                   x-jsonld-id: http://www.w3.org/ns/dqv#value
+              required:
+              - dqv:value
         allOf:
         - contains:
             properties:
@@ -595,6 +597,8 @@ $defs:
                     items:
                       type: string
                   x-jsonld-id: http://schema.org/value
+              required:
+              - schema:value
         allOf:
         - contains:
             properties:
