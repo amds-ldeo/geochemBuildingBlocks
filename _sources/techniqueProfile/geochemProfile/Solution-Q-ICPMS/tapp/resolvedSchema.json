@@ -2795,7 +2795,10 @@
                 "description": "Top-level analytical technique identifier.",
                 "type": "string"
               }
-            }
+            },
+            "required": [
+              "schema:termCode"
+            ]
           }
         },
         "schema:creator": {
@@ -2805,7 +2808,10 @@
               "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
               "type": "string"
             }
-          }
+          },
+          "required": [
+            "schema:name"
+          ]
         },
         "schema:location": {
           "type": "object",
@@ -2818,7 +2824,10 @@
               "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
               "type": "string"
             }
-          }
+          },
+          "required": [
+            "schema:name"
+          ]
         },
         "schema:datePublished": {
           "description": "First date this procedure configuration was used in production.",
@@ -2934,7 +2943,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
                 }
               },
               {
@@ -2964,7 +2976,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
                 }
               }
             ],
@@ -3026,7 +3041,10 @@
                             }
                           ]
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:description"
+                      ]
                     }
                   }
                 ]
@@ -3092,7 +3110,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:defaultValue"
+                  ]
                 }
               }
             ]
@@ -3149,7 +3170,10 @@
                                 "description": "Acid mixture used for sample dissolution. Record acid type(s) and concentration(s) where known (e.g., concentrated HF–HNO3 in Parr bombs is standard for silicate dissolution).",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "required": [
+                              "schema:name"
+                            ]
                           }
                         }
                       }
@@ -3544,7 +3568,10 @@
                             }
                           ]
                         }
-                      }
+                      },
+                      "required": [
+                        "ada:detectionLimitMethod"
+                      ]
                     }
                   }
                 ]
@@ -3643,7 +3670,10 @@
                                     }
                                   ]
                                 }
-                              }
+                              },
+                              "required": [
+                                "schema:name"
+                              ]
                             }
                           }
                         ]
@@ -4777,7 +4807,10 @@
                           "type": "string",
                           "readOnly": true
                         }
-                      }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
                     },
                     "schema:additionalProperty": {
                       "type": "array",
@@ -7016,7 +7049,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:model"
+                  ]
                 }
               }
             ]
@@ -7828,7 +7864,10 @@
                 }
               ]
             }
-          }
+          },
+          "required": [
+            "ada:defaultChannels"
+          ]
         },
         "ada:massCyclesPerReplicate": {
           "description": "Number of complete mass scans accumulated per analytical replicate. A scan — also called a sweep or a pass — is one complete traversal of the monitored masses by a sequentially scanning analyser, so the scan count multiplied by the per-mass dwell time gives the total integration time per replicate. Distinct from a cycle in simultaneous multi-collection, which is one readout of all detectors at once rather than a traversal of masses.",

@@ -114,6 +114,8 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
               schema:model:
                 type: object
                 properties:
@@ -124,6 +126,8 @@ allOf:
                       value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:hasPart:
                 type: array
                 items:
@@ -170,6 +174,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:additionalType:
@@ -289,6 +295,14 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+            required:
+            - ada:acceleratingVoltageDefault
+            - ada:beamDiameterDefault
+            - ada:beamMode
+            - ada:workingDistanceDefault
+            - schema:description
+            - schema:manufacturer
+            - schema:model
       allOf:
       - contains:
           properties:

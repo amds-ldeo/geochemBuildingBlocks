@@ -11626,7 +11626,10 @@
                               }
                             ]
                           }
-                        }
+                        },
+                        "required": [
+                          "schema:description"
+                        ]
                       }
                     }
                   ]
@@ -12234,7 +12237,11 @@
                 "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.",
                 "type": "string"
               }
-            }
+            },
+            "required": [
+              "ada:proceduralBlankLevel",
+              "schema:actionProcess"
+            ]
           }
         ]
       }
@@ -15523,7 +15530,10 @@
                               }
                             ]
                           }
-                        }
+                        },
+                        "required": [
+                          "schema:name"
+                        ]
                       }
                     }
                   ]
@@ -15731,7 +15741,12 @@
                   }
                 }
               }
-            }
+            },
+            "required": [
+              "schema:endDate",
+              "schema:identifier",
+              "schema:startDate"
+            ]
           }
         },
         "schema:measurementTechnique": {
@@ -15743,7 +15758,10 @@
                 "description": "DOI or unique persistent identifier for the registered procedure used in this analysis, generated upon procedure submission to a data repository. If a DOI has been applied for but not yet minted, enter \"pending\".",
                 "type": "string"
               }
-            }
+            },
+            "required": [
+              "schema:identifier"
+            ]
           }
         },
         "schema:contributor": {
@@ -15764,21 +15782,22 @@
                 },
                 "then": {
                   "properties": {
-                    "schema:name": {
-                      "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
-                      "anyOf": [
-                        {
+                    "schema:contributor": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
                           "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
                         }
+                      },
+                      "required": [
+                        "schema:name"
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:contributor"
+                  ]
                 }
               }
             ]
@@ -15807,7 +15826,10 @@
                 "description": "Grants and other funding sources that supported the specific sample analyses and data collection reported here. Include grant numbers and funding agencies. Distinct from procedure development funding, which may have been awarded years earlier.",
                 "type": "string"
               }
-            }
+            },
+            "required": [
+              "schema:name"
+            ]
           }
         },
         "schema:relatedLink": {
@@ -15986,7 +16008,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:value"
+                  ]
                 }
               }
             ]
@@ -16038,7 +16063,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "dqv:value"
+                  ]
                 }
               }
             ]
@@ -16183,7 +16211,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "dqv:value"
+                  ]
                 }
               }
             ]
@@ -16265,7 +16296,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:value"
+                  ]
                 }
               }
             ]
@@ -16321,7 +16355,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:value"
+                  ]
                 }
               },
               {
@@ -17970,7 +18007,10 @@
                                       "description": "Top-level analytical technique identifier.",
                                       "type": "string"
                                     }
-                                  }
+                                  },
+                                  "required": [
+                                    "schema:termCode"
+                                  ]
                                 }
                               },
                               "schema:creator": {
@@ -17980,7 +18020,10 @@
                                     "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
                                     "type": "string"
                                   }
-                                }
+                                },
+                                "required": [
+                                  "schema:name"
+                                ]
                               },
                               "schema:location": {
                                 "type": "object",
@@ -17993,7 +18036,10 @@
                                     "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
                                     "type": "string"
                                   }
-                                }
+                                },
+                                "required": [
+                                  "schema:name"
+                                ]
                               },
                               "schema:datePublished": {
                                 "description": "First date this procedure configuration was used in production.",
@@ -18109,7 +18155,10 @@
                                               }
                                             ]
                                           }
-                                        }
+                                        },
+                                        "required": [
+                                          "schema:name"
+                                        ]
                                       }
                                     },
                                     {
@@ -18139,7 +18188,10 @@
                                               }
                                             ]
                                           }
-                                        }
+                                        },
+                                        "required": [
+                                          "schema:name"
+                                        ]
                                       }
                                     }
                                   ],
@@ -18201,7 +18253,10 @@
                                                   }
                                                 ]
                                               }
-                                            }
+                                            },
+                                            "required": [
+                                              "schema:description"
+                                            ]
                                           }
                                         }
                                       ]
@@ -18267,7 +18322,10 @@
                                               }
                                             ]
                                           }
-                                        }
+                                        },
+                                        "required": [
+                                          "schema:defaultValue"
+                                        ]
                                       }
                                     }
                                   ]
@@ -18324,7 +18382,10 @@
                                                       "description": "Acid mixture used for sample dissolution. Record acid type(s) and concentration(s) where known (e.g., concentrated HF–HNO3 in Parr bombs is standard for silicate dissolution).",
                                                       "type": "string"
                                                     }
-                                                  }
+                                                  },
+                                                  "required": [
+                                                    "schema:name"
+                                                  ]
                                                 }
                                               }
                                             }
@@ -18719,7 +18780,10 @@
                                                   }
                                                 ]
                                               }
-                                            }
+                                            },
+                                            "required": [
+                                              "ada:detectionLimitMethod"
+                                            ]
                                           }
                                         }
                                       ]
@@ -19928,7 +19992,10 @@
                                                 "type": "string",
                                                 "readOnly": true
                                               }
-                                            }
+                                            },
+                                            "required": [
+                                              "schema:name"
+                                            ]
                                           },
                                           "schema:additionalProperty": {
                                             "type": "array",
@@ -20537,7 +20604,10 @@
                                               }
                                             ]
                                           }
-                                        }
+                                        },
+                                        "required": [
+                                          "schema:model"
+                                        ]
                                       }
                                     }
                                   ]

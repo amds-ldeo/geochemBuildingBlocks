@@ -32,6 +32,8 @@ $defs:
             schema:termCode:
               description: Top-level analytical technique identifier.
               type: string
+          required:
+          - schema:termCode
       schema:creator:
         type: object
         properties:
@@ -39,6 +41,8 @@ $defs:
             description: Person(s) or laboratory responsible for developing and registering this procedure.
               ORCID recommended for individuals.
             type: string
+        required:
+        - schema:name
       schema:location:
         type: object
         properties:
@@ -48,6 +52,8 @@ $defs:
           schema:identifier:
             description: Persistent identifier for the laboratory (e.g., ROR ID).
             type: string
+        required:
+        - schema:name
       schema:datePublished:
         description: First date this procedure configuration was used in production.
         type: string
@@ -137,6 +143,8 @@ $defs:
                     type: string
                   - type: array
                     items: *id001
+              required:
+              - schema:name
           - if:
               properties:
                 ada:toolRole:
@@ -154,6 +162,8 @@ $defs:
                     type: string
                   - type: array
                     items: *id002
+              required:
+              - schema:name
           required:
           - ada:toolRole
       ada:analyticalMode:
@@ -205,6 +215,8 @@ $defs:
                         type: string
                       - type: array
                         items: *id003
+                  required:
+                  - schema:description
             allOf:
             - contains:
                 properties:
@@ -284,6 +296,8 @@ $defs:
                           type: string
                         - type: array
                           items: *id005
+                    required:
+                    - schema:name
               allOf:
               - contains:
                   properties:
@@ -380,6 +394,10 @@ $defs:
                               type: string
                             - type: array
                               items: *id008
+          required:
+          - schema:endDate
+          - schema:identifier
+          - schema:startDate
       schema:measurementTechnique:
         type: array
         items:
@@ -390,6 +408,8 @@ $defs:
                 analysis, generated upon procedure submission to a data repository. If a DOI has been
                 applied for but not yet minted, enter "pending".
               type: string
+          required:
+          - schema:identifier
       schema:contributor:
         type: array
         items:
@@ -403,14 +423,17 @@ $defs:
               - schema:roleName
             then:
               properties:
-                schema:name:
-                  description: Name(s) of the analyst(s) who performed the analysis session. ORCID is
-                    recommended for persistent identification.
-                  anyOf:
-                  - &id009
-                    type: string
-                  - type: array
-                    items: *id009
+                schema:contributor:
+                  type: object
+                  properties:
+                    schema:name:
+                      description: Name(s) of the analyst(s) who performed the analysis session. ORCID
+                        is recommended for persistent identification.
+                      type: string
+                  required:
+                  - schema:name
+              required:
+              - schema:contributor
         allOf:
         - contains:
             properties:
@@ -428,6 +451,8 @@ $defs:
                 and data collection reported here. Include grant numbers and funding agencies. Distinct
                 from procedure development funding, which may have been awarded years earlier.
               type: string
+          required:
+          - schema:name
       schema:relatedLink:
         type: array
         items:
@@ -495,10 +520,10 @@ $defs:
                     identifier only, that information is already captured in Sample Persistent Identifier
                     (Group 2).'
                   anyOf:
-                  - &id010
+                  - &id009
                     type: string
                   - type: array
-                    items: *id010
+                    items: *id009
   Param_Procedure_targetMaterial:
     title: Target Material
     description: General description of the material type(s) this procedure is designed to analyse.

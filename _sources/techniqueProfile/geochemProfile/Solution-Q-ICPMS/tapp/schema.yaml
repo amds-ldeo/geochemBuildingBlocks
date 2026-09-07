@@ -245,6 +245,8 @@ allOf:
                       value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:additionalProperty:
                 type: array
                 items:
@@ -582,6 +584,8 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+            required:
+            - schema:model
       allOf:
       - contains:
           properties:
@@ -783,6 +787,8 @@ allOf:
           - contains: *id011
             minContains: 0
             maxContains: 1
+      required:
+      - ada:defaultChannels
     ada:massCyclesPerReplicate:
       description: Number of complete mass scans accumulated per analytical replicate. A scan — also called
         a sweep or a pass — is one complete traversal of the monitored masses by a sequentially scanning

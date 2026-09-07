@@ -273,6 +273,8 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
               schema:model:
                 type: object
                 properties:
@@ -283,6 +285,8 @@ allOf:
                       value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:hasPart:
                 type: array
                 items:
@@ -329,6 +333,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:additionalType:
@@ -368,6 +374,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:additionalType:
@@ -427,6 +435,8 @@ allOf:
                             items:
                               type: string
                               readOnly: true
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:additionalType:
@@ -558,6 +568,10 @@ allOf:
                 - contains: *id004
                   minContains: 0
                   maxContains: 1
+            required:
+            - ada:acceleratingVoltageDefault
+            - schema:manufacturer
+            - schema:model
       allOf:
       - contains:
           properties:

@@ -428,6 +428,8 @@ allOf:
                         const: Data reduction
                     required:
                     - schema:name
+        required:
+        - schema:actionProcess
     ada:frameTime:
       description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
       anyOf:
@@ -470,6 +472,8 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+            required:
+            - dqv:value
         - if:
             properties:
               dqv:isMeasurementOf:
@@ -484,6 +488,8 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+            required:
+            - dqv:value
       allOf:
       - contains:
           properties:

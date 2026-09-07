@@ -1102,6 +1102,8 @@ allOf:
                 - type: array
                   items:
                     type: string
+            required:
+            - schema:name
         required:
         - ada:toolRole
     schema:instrument:
@@ -1176,6 +1178,8 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
               schema:model:
                 type: object
                 properties:
@@ -1186,6 +1190,15 @@ allOf:
                       value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
+            required:
+            - ada:acceleratingVoltageDefault
+            - ada:tubeCurrentDefault
+            - ada:voxelSizeDefault
+            - ada:xRayPreFilterDefault
+            - schema:manufacturer
+            - schema:model
       allOf:
       - contains:
           properties:

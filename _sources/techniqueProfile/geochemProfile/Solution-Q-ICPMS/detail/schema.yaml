@@ -46,6 +46,8 @@ allOf:
                           $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Analysis_sampleAliquotMassOrVolume
                         minContains: 0
                         maxContains: 1
+                  required:
+                  - schema:description
             allOf:
             - contains:
                 properties:
@@ -409,3 +411,6 @@ allOf:
               quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
               result unless its own composition is known. Companion to the blank correction method.
             type: string
+        required:
+        - ada:proceduralBlankLevel
+        - schema:actionProcess

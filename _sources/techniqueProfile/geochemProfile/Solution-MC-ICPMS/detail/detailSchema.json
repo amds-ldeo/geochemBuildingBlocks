@@ -78,7 +78,10 @@
                                                             }
                                                         ]
                                                     }
-                                                }
+                                                },
+                                                "required": [
+                                                    "schema:description"
+                                                ]
                                             }
                                         }
                                     ]
@@ -596,7 +599,11 @@
                                 "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.",
                                 "type": "string"
                             }
-                        }
+                        },
+                        "required": [
+                            "ada:proceduralBlankLevel",
+                            "schema:actionProcess"
+                        ]
                     }
                 }
             }

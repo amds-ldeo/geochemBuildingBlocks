@@ -112,6 +112,8 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
               schema:model:
                 type: object
                 properties:
@@ -122,6 +124,8 @@ allOf:
                       value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:hasPart:
                 type: array
                 items:
@@ -168,6 +172,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:description
                   - if:
                       properties:
                         schema:additionalType:
@@ -207,6 +213,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:name
                   - if:
                       properties:
                         schema:additionalType:
@@ -250,6 +258,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:name
                 allOf:
                 - contains:
                     properties:
@@ -319,6 +329,12 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+            required:
+            - ada:acceleratingVoltageDefault
+            - ada:workingDistanceDefault
+            - schema:description
+            - schema:manufacturer
+            - schema:model
         - if:
             properties:
               schema:additionalType:
@@ -369,6 +385,8 @@ allOf:
                               - None
                               - missing
                               readOnly: true
+                      required:
+                      - schema:name
                 allOf:
                 - contains:
                     properties:
@@ -508,6 +526,8 @@ allOf:
                     - type: array
                       items:
                         type: string
+                required:
+                - ada:coarseMillingConditionsDefault
             - if:
                 properties:
                   schema:name:
@@ -682,6 +702,8 @@ allOf:
                     - type: array
                       items:
                         type: string
+                required:
+                - schema:description
             - if:
                 properties:
                   schema:name:

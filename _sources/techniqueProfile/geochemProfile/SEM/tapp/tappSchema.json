@@ -174,7 +174,10 @@
                                                                         }
                                                                     ]
                                                                 }
-                                                            }
+                                                            },
+                                                            "required": [
+                                                                "schema:name"
+                                                            ]
                                                         }
                                                     },
                                                     {
@@ -268,7 +271,10 @@
                                                                         }
                                                                     ]
                                                                 }
-                                                            }
+                                                            },
+                                                            "required": [
+                                                                "schema:description"
+                                                            ]
                                                         }
                                                     },
                                                     {
@@ -522,7 +528,10 @@
                                                     ],
                                                     "readOnly": true
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
                                         },
                                         "schema:model": {
                                             "type": "object",
@@ -532,7 +541,10 @@
                                                     "type": "string",
                                                     "readOnly": true
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
                                         },
                                         "schema:description": {
                                             "description": "Broad platform type of the instrument. 'Standard SEM': dedicated electron-only SEM column. 'FIB-SEM dual-beam': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). 'VP-SEM': variable-pressure SEM, a dry gas at low chamber pressure for uncoated or charging specimens. 'ESEM': environmental SEM, water vapour at higher pressure for hydrated specimens, requiring a gaseous secondary electron detector. Where an instrument combines categories, join them with '; ' — 'FIB-SEM dual-beam; VP-SEM' — rather than looking for a combined member. This field records the COLUMN AND CHAMBER configuration only: field emission is a source type and belongs in Electron Source, not here.",
@@ -602,7 +614,16 @@
                                                 }
                                             ]
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "ada:acceleratingVoltageDefault",
+                                        "ada:beamDiameterDefault",
+                                        "ada:beamMode",
+                                        "ada:ionBeamSource",
+                                        "schema:description",
+                                        "schema:manufacturer",
+                                        "schema:model"
+                                    ]
                                 }
                             }
                         ]
@@ -795,7 +816,10 @@
                                                         }
                                                     ]
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ada:ebsdIndexingMethod"
+                                            ]
                                         }
                                     },
                                     {
@@ -883,7 +907,13 @@
                                                         }
                                                     ]
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "ada:coarseMillingConditionsDefault",
+                                                "ada:finePolishingConditionsDefault",
+                                                "ada:liftOutMethod",
+                                                "ada:protectiveCoatingDepositionDefault"
+                                            ]
                                         }
                                     },
                                     {
@@ -913,7 +943,10 @@
                                                         }
                                                     ]
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "schema:description"
+                                            ]
                                         }
                                     }
                                 ]
@@ -4271,7 +4304,11 @@
                                                 }
                                             ]
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "ada:foilThicknessDefault",
+                                        "ada:sliceThicknessDefault"
+                                    ]
                                 }
                             }
                         ]

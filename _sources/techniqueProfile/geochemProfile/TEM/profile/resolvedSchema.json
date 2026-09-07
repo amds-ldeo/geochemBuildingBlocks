@@ -13656,7 +13656,11 @@
                   }
                 ]
               }
-            }
+            },
+            "required": [
+              "ada:deadTime",
+              "schema:actionProcess"
+            ]
           }
         ]
       }
@@ -17012,7 +17016,10 @@
                               }
                             ]
                           }
-                        }
+                        },
+                        "required": [
+                          "schema:name"
+                        ]
                       }
                     }
                   ]
@@ -17178,7 +17185,12 @@
                   }
                 }
               }
-            }
+            },
+            "required": [
+              "schema:endDate",
+              "schema:identifier",
+              "schema:startDate"
+            ]
           }
         },
         "schema:measurementTechnique": {
@@ -17190,7 +17202,10 @@
                 "description": "DOI or unique persistent identifier for the registered procedure used in this analysis, generated upon procedure submission to a data repository. If a DOI has been applied for but not yet minted, enter \"pending\".",
                 "type": "string"
               }
-            }
+            },
+            "required": [
+              "schema:identifier"
+            ]
           }
         },
         "schema:contributor": {
@@ -17211,21 +17226,22 @@
                 },
                 "then": {
                   "properties": {
-                    "schema:name": {
-                      "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
-                      "anyOf": [
-                        {
+                    "schema:contributor": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Name(s) of the analyst(s) who performed the analysis session. ORCID is recommended for persistent identification.",
                           "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
                         }
+                      },
+                      "required": [
+                        "schema:name"
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:contributor"
+                  ]
                 }
               }
             ]
@@ -17254,7 +17270,10 @@
                 "description": "Grants and other funding sources that supported the specific sample analyses and data collection reported here. Include grant numbers and funding agencies. Distinct from procedure development funding, which may have been awarded years earlier.",
                 "type": "string"
               }
-            }
+            },
+            "required": [
+              "schema:name"
+            ]
           }
         },
         "schema:relatedLink": {
@@ -17433,7 +17452,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "schema:value"
+                  ]
                 }
               }
             ]
@@ -17485,7 +17507,10 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "dqv:value"
+                  ]
                 }
               }
             ]
@@ -18908,7 +18933,10 @@
                                       "description": "Top-level analytical technique identifier.",
                                       "type": "string"
                                     }
-                                  }
+                                  },
+                                  "required": [
+                                    "schema:termCode"
+                                  ]
                                 }
                               },
                               "schema:creator": {
@@ -18918,7 +18946,10 @@
                                     "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
                                     "type": "string"
                                   }
-                                }
+                                },
+                                "required": [
+                                  "schema:name"
+                                ]
                               },
                               "schema:location": {
                                 "type": "object",
@@ -18931,7 +18962,10 @@
                                     "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
                                     "type": "string"
                                   }
-                                }
+                                },
+                                "required": [
+                                  "schema:name"
+                                ]
                               },
                               "schema:datePublished": {
                                 "description": "First date this procedure configuration was used in production.",
@@ -19047,7 +19081,10 @@
                                               }
                                             ]
                                           }
-                                        }
+                                        },
+                                        "required": [
+                                          "schema:name"
+                                        ]
                                       }
                                     },
                                     {
@@ -19077,7 +19114,10 @@
                                               }
                                             ]
                                           }
-                                        }
+                                        },
+                                        "required": [
+                                          "schema:name"
+                                        ]
                                       }
                                     }
                                   ],
@@ -19139,7 +19179,10 @@
                                                   }
                                                 ]
                                               }
-                                            }
+                                            },
+                                            "required": [
+                                              "schema:description"
+                                            ]
                                           }
                                         }
                                       ]
@@ -19219,7 +19262,10 @@
                                               }
                                             ]
                                           }
-                                        }
+                                        },
+                                        "required": [
+                                          "schema:defaultValue"
+                                        ]
                                       }
                                     }
                                   ]
@@ -19967,7 +20013,10 @@
                                                 ],
                                                 "readOnly": true
                                               }
-                                            }
+                                            },
+                                            "required": [
+                                              "schema:name"
+                                            ]
                                           },
                                           "schema:model": {
                                             "type": "object",
@@ -19977,7 +20026,10 @@
                                                 "type": "string",
                                                 "readOnly": true
                                               }
-                                            }
+                                            },
+                                            "required": [
+                                              "schema:name"
+                                            ]
                                           },
                                           "schema:hasPart": {
                                             "type": "array",
@@ -20040,7 +20092,10 @@
                                                           }
                                                         ]
                                                       }
-                                                    }
+                                                    },
+                                                    "required": [
+                                                      "schema:description"
+                                                    ]
                                                   }
                                                 },
                                                 {
@@ -20097,7 +20152,10 @@
                                                           }
                                                         ]
                                                       }
-                                                    }
+                                                    },
+                                                    "required": [
+                                                      "schema:description"
+                                                    ]
                                                   }
                                                 },
                                                 {
@@ -20185,7 +20243,10 @@
                                                           }
                                                         ]
                                                       }
-                                                    }
+                                                    },
+                                                    "required": [
+                                                      "schema:description"
+                                                    ]
                                                   }
                                                 },
                                                 {
@@ -20445,7 +20506,12 @@
                                               }
                                             ]
                                           }
-                                        }
+                                        },
+                                        "required": [
+                                          "ada:acceleratingVoltageDefault",
+                                          "schema:manufacturer",
+                                          "schema:model"
+                                        ]
                                       }
                                     }
                                   ]

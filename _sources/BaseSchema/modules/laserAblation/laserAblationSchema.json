@@ -36,7 +36,10 @@
                                                     "description": "Manufacturer and model of the laser ablation system.",
                                                     "type": "string"
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
                                         },
                                         "ada:laserType": {
                                             "description": "Wavelength and type of the laser used for ablation in nanometres.",
@@ -102,7 +105,15 @@
                                                 }
                                             ]
                                         }
-                                    }
+                                    },
+                                    "required": [
+                                        "ada:laserFluenceDefault",
+                                        "ada:laserRepetitionRateDefault",
+                                        "ada:laserSpotGeometryDefault",
+                                        "ada:laserType",
+                                        "schema:model",
+                                        "schema:name"
+                                    ]
                                 }
                             }
                         ]

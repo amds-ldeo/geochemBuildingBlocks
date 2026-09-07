@@ -720,6 +720,8 @@ allOf:
                       value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
+                required:
+                - schema:name
               schema:manufacturer:
                 type: object
                 properties:
@@ -741,6 +743,11 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+                required:
+                - schema:name
+            required:
+            - schema:manufacturer
+            - schema:model
         - if:
             properties:
               schema:additionalType:
@@ -775,6 +782,8 @@ allOf:
                   items:
                     type: string
                     readOnly: true
+            required:
+            - ada:laserPulseDuration
       allOf:
       - contains:
           properties:
