@@ -520,6 +520,22 @@ def _at(inst, path):
     return inst
 
 
+def _context_walk(err, rel=None):
+    """(error, path-relative-to-err) for err and every error nested in its context, recursively.
+
+    cand.path is relative to its PARENT, so the offset accumulates down the chain. Yielding err
+    itself with an empty offset preserves the original behaviour: when cand IS err its path is
+    already absolute and must not be appended twice.
+    """
+    rel = rel or []
+    yield err, rel
+    for c in (err.context or []):
+        for got, sub in _context_walk(c, rel + list(c.path)):
+            if got is not c:
+                yield got, sub
+        yield c, rel + list(c.path)
+
+
 def fill_required_types(inst, resolved_schema, max_passes=6):
     """Supply @type where the schema requires one and the path-driven builder could not know it.
 
@@ -539,14 +555,13 @@ def fill_required_types(inst, resolved_schema, max_passes=6):
     for _ in range(max_passes):
         added = 0
         for err in validator.iter_errors(inst):
-            # an anyOf reports the real reason in .context, one entry per rejected branch
-            for cand in ([err] + list(err.context or [])):
+            # an anyOf reports the real reason in .context, one entry per rejected branch — and a
+            # branch that is itself an anyOf nests another level. Walking only the first level
+            # missed schema:manufacturer and schema:model on the instrument, whose @type error sits
+            # two deep, so those nodes stayed untyped however many passes ran.
+            for cand, rel in _context_walk(err):
                 if cand.validator != "required" or "'@type'" not in cand.message:
                     continue
-                # cand.path is relative to err ONLY when cand came from err.context; when cand IS
-                # err it already holds the absolute path, and appending it doubled the path so the
-                # node was never found.
-                rel = list(cand.path) if cand is not err else []
                 node = _at(inst, list(err.absolute_path) + rel)
                 if not isinstance(node, dict) or "@type" in node:
                     continue

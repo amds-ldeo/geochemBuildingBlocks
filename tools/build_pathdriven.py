@@ -291,6 +291,18 @@ def build_pathdriven(tapp, write_registries=True):
     if g1 or g2:
         print(f"  filled {g1 + g2} structural gap(s) (instrument name / Wikidata term)")
 
+    # Sentinel every still-absent required field, the same pass the publication examples get.
+    # A synthetic -P0 has no source to transcribe from, so a required field it cannot populate is
+    # exactly the case sentinels exist for -- without this the three U-Pb TAPPs shipped a -P0
+    # missing schema:actionProcess, failing the schema built beside it.
+    import build_tapp_examples as bte
+    s1 = bte.fill_nested_required(tapp_inst, tapp_sch, {})
+    s2 = bte.fill_nested_required(detail_inst, detail_sch, {})
+    if s1 or s2:
+        print(f"  sentinelled {s1 + s2} absent required field(s) in the examples")
+        ex.fill_required_types(tapp_inst, tapp_sch)
+        ex.fill_required_types(detail_inst, detail_sch)
+
     _write_json(os.path.join(b.TAPP_DIR, f"example{tapp}-P0.json"), tapp_inst)
     _write_json(os.path.join(b.DETAIL_DIR, f"exampledetail{short}-P0.json"), detail_inst)
 

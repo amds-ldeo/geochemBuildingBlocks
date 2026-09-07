@@ -560,6 +560,7 @@ def place_tool_description(inst, item, selector, desc):
 
 
 _REQ_CACHE = {}
+JTYPE_BY_PROP = {}
 
 
 def _required_scalar_props(tapp_dir):
@@ -623,7 +624,60 @@ def conform(value, sub):
     return value
 
 
-def sentinel_for(sub):
+# Transcription sentinels. A publication that did not report a value is not the same as a lab
+# omitting one, and `required` cannot tell them apart -- so the value says which it is rather than
+# the property being absent.
+#
+# "missing" and -9999 are the library's existing convention and are kept: they are already in every
+# shipped example, and changing them would rewrite files wholesale for no gain. SENTINEL_URI is new
+# rather than a change -- the convention had no URI case, and a URI slot needs a resolvable nil
+# rather than the bare word "missing", which in an @id position is a broken reference.
+# JSON-LD structural keys are never sentinelled. "the @type of this node is missing" is not a
+# transcription gap, and a scalar in @type breaks the array cardinality the base asserts -- which
+# is exactly what put 'missing' into schema:manufacturer/@type and failed ten SEM/TEM examples.
+# ex.fill_required_types already types nodes properly; leave them to it.
+NEVER_SENTINEL = {"@type", "@id", "@context"}
+
+
+SENTINEL_URI = "nil:missing"
+SENTINEL_TEXT = "missing"
+SENTINEL_NUMERIC = -9999
+
+
+def sentinel_by_jtype(jtype, sub, root=None):
+    """The sentinel for a property whose workbook Data Type is known, else fall back to the schema."""
+    if jtype == "uri":
+        return SENTINEL_URI
+    return sentinel_for(sub, root=root)
+
+
+def _deref(sub, root):
+    """Follow a local #/$defs/... $ref so the sentinel sees the real shape.
+
+    Without this a $ref looks like a schema with no type, no properties and no required, which fell
+    through to the string sentinel -- putting "missing" where schema:actionProcess wanted a HowTo
+    object and schema:step an array of them. Only local refs are followed; anything else is left
+    alone rather than guessed at.
+    """
+    seen = 0
+    while isinstance(sub, dict) and isinstance(sub.get("$ref"), str) and seen < 8:
+        ref = sub["$ref"]
+        if not ref.startswith("#/"):
+            break
+        node = root
+        for part in ref[2:].split("/"):
+            if not isinstance(node, dict):
+                node = None
+                break
+            node = node.get(part)
+        if not isinstance(node, dict):
+            break
+        sub = node
+        seen += 1
+    return sub
+
+
+def sentinel_for(sub, depth=4, root=None):
     """The sentinel a subschema will actually accept, or None if no scalar can stand in.
 
     Follows the SCHEMA rather than the workbook's Data Type: the same field is a bare string in one
@@ -634,23 +688,41 @@ def sentinel_for(sub):
     """
     if not isinstance(sub, dict):
         return None
+    if root is not None:
+        sub = _deref(sub, root)
+        if not isinstance(sub, dict):
+            return None
     t = sub.get("type")
     if t == "array":
-        inner = sentinel_for(sub.get("items") or {"type": "string"})
+        inner = sentinel_for(sub.get("items") or {"type": "string"}, depth, root)
         return None if inner is None else [inner]
     if t in ("number", "integer"):
-        return -9999
+        return SENTINEL_NUMERIC
     if t == "string":
-        return "missing"
+        return SENTINEL_TEXT
     if t == "boolean":
         return False        # a required boolean with no reported value defaults to false (not applied)
     if t == "object":
-        return None
+        # A required OBJECT cannot be stood in for by a scalar, so build the smallest instance its
+        # own schema accepts: its required properties, each sentinelled in turn. Returning None
+        # here left schema:actionProcess and schema:manufacturer absent, which is what kept the
+        # LA and EMPA examples failing after everything scalar had been filled.
+        if depth <= 0:
+            return None
+        obj = {}
+        for k in (sub.get("required") or []):
+            if k in NEVER_SENTINEL:
+                continue
+            inner = (sub.get("properties") or {}).get(k) or {}
+            got = sentinel_for(inner, depth - 1, root)
+            if got is not None:
+                obj[k] = got
+        return obj
     for branch in (sub.get("anyOf") or sub.get("oneOf") or []):
-        got = sentinel_for(branch)
+        got = sentinel_for(branch, depth, root)
         if got is not None:
             return got
-    return "missing" if t is None and not sub.get("properties") else None
+    return SENTINEL_TEXT if t is None and not sub.get("properties") else None
 
 
 def fill_required_sentinels(inst, tapp_dir):
@@ -663,6 +735,89 @@ def fill_required_sentinels(inst, tapp_dir):
         got = sentinel_for(sub)
         if got is not None:
             inst[key] = got
+
+
+def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
+    """Fill every absent required property AT ANY DEPTH with its sentinel.
+
+    fill_required_sentinels only reaches the instance root, so a required property inside an
+    instrument, a howto step or a variableMeasured entry stayed absent and the example failed its
+    own schema. Validator-driven for the same reason conform_nested_enums is: the nesting is not
+    knowable up front, and the schema already says exactly which property is missing and where.
+
+    Mutates inst; returns the number of properties filled.
+    """
+    from jsonschema import Draft202012Validator
+    V = Draft202012Validator(resolved_schema)
+    total = 0
+    for _ in range(max_passes):
+        changed = 0
+        for e in list(V.iter_errors(inst)):
+            for c in [e] + list(e.context or []):
+                # An array whose `contains` pins a discriminator (a HowTo step named
+                # "Sample preparation", "Data reduction") is not satisfied by a generic sentinel
+                # item -- the pinned value IS the item's identity. Build one that matches and
+                # append it, rather than leaving the array failing with a member in it.
+                if c.validator == "contains" and isinstance(c.instance, list):
+                    want = c.validator_value if isinstance(c.validator_value, dict) else None
+                    if not want:
+                        continue
+                    item = sentinel_for(dict(want, type="object"), root=resolved_schema)
+                    if not isinstance(item, dict):
+                        continue
+                    for k, v in (want.get("properties") or {}).items():
+                        if isinstance(v, dict) and "const" in v:
+                            item[k] = v["const"]
+                    if not item:
+                        continue
+                    arr = inst
+                    for step in list(c.absolute_path):
+                        try:
+                            arr = arr[step]
+                        except (KeyError, IndexError, TypeError):
+                            arr = None
+                            break
+                    if not isinstance(arr, list):
+                        continue
+                    # Deep equality is the wrong test: two items built from different `contains`
+                    # branches differ in their optional properties while naming the SAME step, and
+                    # appending both produced five "Sample preparation" steps. Match on the pinned
+                    # discriminator, which is the item's identity.
+                    pinned = {k: v["const"] for k, v in (want.get("properties") or {}).items()
+                              if isinstance(v, dict) and "const" in v}
+                    if pinned and any(isinstance(m, dict) and
+                                      all(m.get(k) == v for k, v in pinned.items()) for m in arr):
+                        continue
+                    arr.append(item)
+                    changed += 1
+                    continue
+                if c.validator != "required":
+                    continue
+                missing = [k for k in (c.validator_value or [])
+                           if isinstance(c.instance, dict) and k not in c.instance]
+                if not missing:
+                    continue
+                parent = inst
+                for step in list(c.absolute_path):
+                    try:
+                        parent = parent[step]
+                    except (KeyError, IndexError, TypeError):
+                        parent = None
+                        break
+                if not isinstance(parent, dict):
+                    continue
+                for key in missing:
+                    if key in NEVER_SENTINEL:
+                        continue
+                    sub = (c.schema.get("properties") or {}).get(key) or {}
+                    got = sentinel_by_jtype(jtype_by_prop.get(key), sub, resolved_schema)
+                    if got is not None and key not in parent:
+                        parent[key] = got
+                        changed += 1
+        total += changed
+        if not changed:
+            break
+    return total
 
 
 def _enum_of(sub):
@@ -939,6 +1094,13 @@ def main():
     bt.configure(tapp)
     short = tapp.replace("TAPP", "")
     R = bt.route()
+    # jtype comes from the workbook's Data Type column and is the only place URI-ness is recorded:
+    # the resolved schema declares a DOI slot as anyOf[string, PropertyValue], indistinguishable
+    # from free text. Needed so a missing identifier gets nil:missing, not "not provided".
+    global JTYPE_BY_PROP
+    JTYPE_BY_PROP = {r["name"]: r.get("jtype") for r in R.get("tapp_prop", []) if r.get("name")}
+    JTYPE_BY_PROP.update({("ada:" + r["name"]): r.get("jtype")
+                          for r in R.get("tapp_prop", []) if r.get("name")})
     # The 2026-08 delivery moved the tables to CSV, but this builder reads publication columns
     # through openpyxl. Every delivered table ships an .xlsx twin beside the .csv, so resolve that
     # rather than teaching the whole publication-column reader a second input format.
@@ -1092,6 +1254,16 @@ def main():
             ex.fill_required_types(inst, tapp_res)
             ex.fill_structural_gaps(inst, tapp_res)
         fill_required_sentinels(inst, TAPP_DIR)
+        if tapp_res is not None:
+            # root-level sentinels first, then everything nested inside instruments, howto steps
+            # and variableMeasured entries that the root pass cannot see
+            fill_nested_required(inst, tapp_res, JTYPE_BY_PROP)
+            # objects the fill just created have no @type yet, and JSON-LD typing is structural
+            # rather than a transcription gap. normalize_instrument_tree already knows the two the
+            # validator cannot infer -- schema:manufacturer is an Organization, schema:model a
+            # ProductModel -- so re-run it, then let the validator-driven pass take the rest.
+            type_instrument_tree(inst)
+            ex.fill_required_types(inst, tapp_res)
         fp = os.path.join(TAPP_DIR, f"example{tapp}-{code}.json")
         with open(fp, "w", encoding="utf-8", newline="\n") as f:
             json.dump(inst, f, indent=2, ensure_ascii=False)
@@ -1107,6 +1279,10 @@ def main():
             ex.fill_required_types(dinst, detail_res)
             ex.fill_structural_gaps(dinst, detail_res)
         fill_required_sentinels(dinst, DETAIL_DIR)
+        if detail_res is not None:
+            fill_nested_required(dinst, detail_res, JTYPE_BY_PROP)
+            type_instrument_tree(dinst)
+            ex.fill_required_types(dinst, detail_res)
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),
                   "w", encoding="utf-8", newline="\n") as f:
             json.dump(dinst, f, indent=2, ensure_ascii=False)
