@@ -32,11 +32,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # ---------- intermediate representation ----------
 class Obj:
-    __slots__ = ("props", "types")
+    __slots__ = ("props", "types", "required")
 
     def __init__(self):
         self.props = {}   # curie -> Obj | Arr | Leaf
         self.types = []   # @type consts asserted by UpperCamel segments (used by Phase 2)
+        self.required = set()  # property names a Basic field lands on — see insert()'s `require`
 
 
 class Arr:
@@ -286,6 +287,12 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                     node.props[curie] = Arr()   # assert array cardinality only (base owns the shape)
                 else:
                     node.props[curie] = Leaf(leaf_schema)
+                # A Basic field is one the tier columns say MUST be supplied. Marking the branch
+                # required (above) only makes the selected element exist; without this the leaf
+                # inside it stays optional, so an analyst Role with no name validated. Recorded on
+                # the containing object and emitted by to_schema.
+                if require:
+                    node.required.add(curie)
                 return
             if curie in KNOWN_ARRAY:            # nav into an always-array property -> array of objects
                 arr = node.props.get(curie)
@@ -298,6 +305,12 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 child = node.props.get(curie)
                 if not isinstance(child, Obj):
                     child = Obj(); node.props[curie] = child
+                # A Basic field's whole path has to exist, not just its leaf. Requiring the leaf
+                # while leaving the object that holds it optional says "if the analyst Role has a
+                # nested Person then that Person needs a name" — which an analyst Role carrying no
+                # Person at all satisfies vacuously.
+                if require:
+                    node.required.add(curie)
                 node = child
 
 
@@ -392,8 +405,12 @@ def to_schema(node):
             out["schema:inDefinedTermSet"] = scheme
         return out
     if isinstance(node, Obj):
-        return {"type": "object",
-                "properties": {k: to_schema(v) for k, v in node.props.items()}}
+        out = {"type": "object",
+               "properties": {k: to_schema(v) for k, v in node.props.items()}}
+        req = sorted(n for n in node.required if n in node.props)
+        if req:
+            out["required"] = req
+        return out
     if isinstance(node, Arr):
         if node.branches:
             vals = list(node.branches.values())
@@ -436,8 +453,16 @@ def to_schema(node):
                         _sch = _term_scheme([val])
                         if _sch:
                             sel = dict(sel, **{"schema:inDefinedTermSet": _sch})
+                        # Basic fields inside the branch are required THERE, not on the item as a
+                        # whole: "if this is the analyst Role, it must carry the analyst's name".
+                        # Without it the branch only described the leaf's shape, so a matching
+                        # element that omitted the leaf entirely still validated.
+                        then = {"properties": nested}
+                        breq = sorted(n for n in br.required if n in nested)
+                        if breq:
+                            then["required"] = breq
                         cond.append({"if": {"properties": {skey: sel}, "required": [skey]},
-                                     "then": {"properties": nested}})
+                                     "then": then})
                 items = {"type": "object", "allOf": cond} if cond else {"type": "object"}
                 # bios:computationalTool and bios:reagent are optional collections -- a TAPP need
                 # not own software or reference materials in every role the workbook enumerates.
