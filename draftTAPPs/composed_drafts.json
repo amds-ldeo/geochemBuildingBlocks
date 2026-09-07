@@ -1,96 +1,546 @@
 {
-  "generated": "2026-09-06",
-  "note": "Composition manifest for DRAFT TAPPs authored in this repository. Same shape as the TAPP library's composed_tapps.json, kept separate so an unreviewed draft never enters the library's own record of what exists. module_composition consults the library manifest first and falls back to this file, so a draft composes module $defs by $ref exactly as a released TAPP does.",
-  "composed": [
+ "generated": "2026-09-06",
+ "note": "Composition manifest for DRAFT TAPPs authored in this repository. Same shape as the TAPP library's composed_tapps.json, kept separate so an unreviewed draft never enters the library's own record of what exists. module_composition consults the library manifest first and falls back to this file, so a draft composes module $defs by $ref exactly as a released TAPP does.",
+ "composed": [
+  {
+   "tapp": "draftTAPPs/VNMIR_TAPP_draft_v2.csv",
+   "modules": [
     {
-      "tapp": "draftTAPPs/VNMIR_TAPP_draft_v2.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "6"
-        },
-        {
-          "name": "SamplingUnitSelection",
-          "version": "3"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "2"
-        }
-      ],
-      "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA VNMIR detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Aggregation deliberately not composed: VNMIR reports per-measurement spectra, not values aggregated from multiple analyses - same module set as Lab-XCT."
+     "name": "Core",
+     "version": "6"
     },
     {
-      "tapp": "draftTAPPs/QRIS_TAPP_draft_v2.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "6"
-        },
-        {
-          "name": "SamplingUnitSelection",
-          "version": "3"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "2"
-        }
-      ],
-      "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA QRIS detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Same module set as Lab-XCT and the VNMIR draft. Zero mode-flag columns: its ada:componentTypes (Raw / Calibrated / CalibrationFile) are pipeline stages of one acquisition, not acquisition modes."
+     "name": "SamplingUnitSelection",
+     "version": "3"
     },
     {
-      "tapp": "draftTAPPs/XRD_TAPP_draft_v2.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "6"
-        },
-        {
-          "name": "SamplingUnitSelection",
-          "version": "3"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "2"
-        }
-      ],
-      "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA XRD detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Same module set as Lab-XCT and the VNMIR draft. Zero mode-flag columns: it delivers a single technique componentType (XRDTabular), so there is no mode axis to flag."
-    },
-    {
-      "tapp": "draftTAPPs/RAMAN_TAPP_draft_v2.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "6"
-        },
-        {
-          "name": "SamplingUnitSelection",
-          "version": "3"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "2"
-        }
-      ],
-      "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. RAMAN has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything RAMAN-specific. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
-    },
-    {
-      "tapp": "draftTAPPs/XANES_TAPP_draft_v2.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "6"
-        },
-        {
-          "name": "SamplingUnitSelection",
-          "version": "3"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "2"
-        }
-      ],
-      "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. XANES has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything XANES-specific. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+     "name": "CalibrationFactor",
+     "version": "2"
     }
-  ]
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA VNMIR detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Aggregation deliberately not composed: VNMIR reports per-measurement spectra, not values aggregated from multiple analyses - same module set as Lab-XCT."
+  },
+  {
+   "tapp": "draftTAPPs/QRIS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA QRIS detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Same module set as Lab-XCT and the VNMIR draft. Zero mode-flag columns: its ada:componentTypes (Raw / Calibrated / CalibrationFile) are pipeline stages of one acquisition, not acquisition modes."
+  },
+  {
+   "tapp": "draftTAPPs/XRD_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA XRD detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Same module set as Lab-XCT and the VNMIR draft. Zero mode-flag columns: it delivers a single technique componentType (XRDTabular), so there is no mode axis to flag."
+  },
+  {
+   "tapp": "draftTAPPs/RAMAN_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. RAMAN has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything RAMAN-specific. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/XANES_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. XANES has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything XANES-specific. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/LIT_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. LIT has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything LIT-specific. Derived from 99 ADA record(s) across 2 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/ARGT_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. ARGT has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything ARGT-specific. Derived from 69 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/SLS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. SLS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything SLS-specific. Derived from 51 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/NGNSMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. NGNSMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything NGNSMS-specific. Derived from 29 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/GPYC_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. GPYC has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything GPYC-specific. Derived from 27 ADA record(s) across 2 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/GCMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. GCMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything GCMS-specific. Derived from 26 ADA record(s) across 2 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/LCMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. LCMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything LCMS-specific. Derived from 24 ADA record(s) across 2 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/LAF_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. LAF has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything LAF-specific. Derived from 16 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/FTICRMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. FTICRMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything FTICRMS-specific. Derived from 16 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/EAIRMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. EAIRMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything EAIRMS-specific. Derived from 16 ADA record(s) across 2 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/ICPOES_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. ICPOES has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything ICPOES-specific. Derived from 12 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/VLM_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. VLM has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything VLM-specific. Derived from 10 ADA record(s) across 2 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/AMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. AMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything AMS-specific. Derived from 8 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/NanoSIMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. NanoSIMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything NanoSIMS-specific. Derived from 7 ADA record(s) across 2 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/SIMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. SIMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything SIMS-specific. Derived from 5 ADA record(s) across 2 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/AIVA_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. AIVA has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything AIVA-specific. Derived from 3 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/ToFSIMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. ToFSIMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything ToFSIMS-specific. Derived from 3 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/NanoIR_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. NanoIR has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything NanoIR-specific. Derived from 3 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/IC_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. IC has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything IC-specific. Derived from 2 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/PSFD_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. PSFD has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything PSFD-specific. Derived from 2 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/DSC_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. DSC has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything DSC-specific. Derived from 2 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/RITOFNGMS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. RITOFNGMS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything RITOFNGMS-specific. Derived from 2 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/UVFM_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. UVFM has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything UVFM-specific. Derived from 2 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/SVRUEC_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. SVRUEC has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything SVRUEC-specific. Derived from 1 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  },
+  {
+   "tapp": "draftTAPPs/L2MS_TAPP_draft_v2.csv",
+   "modules": [
+    {
+     "name": "Core",
+     "version": "6"
+    },
+    {
+     "name": "SamplingUnitSelection",
+     "version": "3"
+    },
+    {
+     "name": "CalibrationFactor",
+     "version": "2"
+    }
+   ],
+   "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. L2MS has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything L2MS-specific. Derived from 1 ADA record(s) across 1 laboratory/laboratories. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+  }
+ ]
 }

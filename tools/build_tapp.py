@@ -55,6 +55,33 @@ TECH_DIR = {
     "xrdTAPP": "XRD",
     "ramanTAPP": "RAMAN",
     "xanesTAPP": "XANES",
+    # Core-only drafts for the ADA long tail: techniques with records but no TAPP.
+    # Each native technique layer is empty; see draftTAPPs/composed_drafts.json.
+    "litTAPP": "LIT",
+    "argtTAPP": "ARGT",
+    "slsTAPP": "SLS",
+    "ngnsmsTAPP": "NGNSMS",
+    "gpycTAPP": "GPYC",
+    "gcmsTAPP": "GCMS",
+    "lcmsTAPP": "LCMS",
+    "lafTAPP": "LAF",
+    "fticrmsTAPP": "FTICRMS",
+    "eairmsTAPP": "EAIRMS",
+    "icpoesTAPP": "ICPOES",
+    "vlmTAPP": "VLM",
+    "amsTAPP": "AMS",
+    "nanosimsTAPP": "NanoSIMS",
+    "simsTAPP": "SIMS",
+    "aivaTAPP": "AIVA",
+    "tofsimsTAPP": "ToFSIMS",
+    "nanoirTAPP": "NanoIR",
+    "icTAPP": "IC",
+    "psfdTAPP": "PSFD",
+    "dscTAPP": "DSC",
+    "ritofngmsTAPP": "RITOFNGMS",
+    "uvfmTAPP": "UVFM",
+    "svruecTAPP": "SVRUEC",
+    "l2msTAPP": "L2MS",
 }
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
@@ -498,6 +525,556 @@ TAPP_CONFIGS = {
         "detail_title": "LA-MC-ICP-MS U-Pb Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for LA-MC-ICP-MS U-Pb "
                                "geochronology, reusing CDIF/schema.org slots on the schema:Dataset root."),
+    },
+    "litTAPP": {
+        "xlsx": "draftTAPPs/LIT_TAPP_draft_v2.csv",
+        "prefix": "lit",
+        "component_types": ["ada:analysisLocation", "ada:LITImage", "ada:LITPolarDataCollection"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Lock-In Thermography Technique-Aligned Procedure Profile (litTAPP)",
+        "description": ("Lock-In Thermography extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. LIT has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything LIT-specific. Generated from "
+                        "draftTAPPs/LIT_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Lock-In Thermography Analysis Detail",
+        "detail_description": ("Detail block for LIT hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No LIT-specific analysis property is defined "
+                               "yet."),
+    },
+    "argtTAPP": {
+        "xlsx": "draftTAPPs/ARGT_TAPP_draft_v2.csv",
+        "prefix": "argt",
+        "component_types": ["ada:report", "ada:ARGTCollection", "ada:ARGTDocument"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "40Ar/39Ar geochronology and thermochronology Technique-Aligned Procedure Profile (argtTAPP)",
+        "description": ("40Ar/39Ar geochronology and thermochronology extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. ARGT has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything ARGT-specific. Generated from "
+                        "draftTAPPs/ARGT_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "40Ar/39Ar geochronology and thermochronology Analysis Detail",
+        "detail_description": ("Detail block for ARGT hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No ARGT-specific analysis property is defined "
+                               "yet."),
+    },
+    "slsTAPP": {
+        "xlsx": "draftTAPPs/SLS_TAPP_draft_v2.csv",
+        "prefix": "sls",
+        "component_types": ["ada:quickLook", "ada:SLSShapeModel", "ada:contextPhotography", "ada:SLSPartialScan"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Structured Light Scanning Technique-Aligned Procedure Profile (slsTAPP)",
+        "description": ("Structured Light Scanning extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. SLS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything SLS-specific. Generated from "
+                        "draftTAPPs/SLS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Structured Light Scanning Analysis Detail",
+        "detail_description": ("Detail block for SLS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No SLS-specific analysis property is defined "
+                               "yet."),
+    },
+    "ngnsmsTAPP": {
+        "xlsx": "draftTAPPs/NGNSMS_TAPP_draft_v2.csv",
+        "prefix": "ngnsms",
+        "component_types": ["ada:NGNSMSProcessed", "ada:NGNSMSRaw", "ada:logFile"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Noble gas and Nitrogen Static Mass Spectrometry Technique-Aligned Procedure Profile (ngnsmsTAPP)",
+        "description": ("Noble gas and Nitrogen Static Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. NGNSMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything NGNSMS-specific. Generated from "
+                        "draftTAPPs/NGNSMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Noble gas and Nitrogen Static Mass Spectrometry Analysis Detail",
+        "detail_description": ("Detail block for NGNSMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No NGNSMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "gpycTAPP": {
+        "xlsx": "draftTAPPs/GPYC_TAPP_draft_v2.csv",
+        "prefix": "gpyc",
+        "component_types": ["ada:calibrationFile", "ada:GPYCRawTabular", "ada:GPYCProcessedTabular", "ada:logFile"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Gas pycnometry Technique-Aligned Procedure Profile (gpycTAPP)",
+        "description": ("Gas pycnometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. GPYC has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything GPYC-specific. Generated from "
+                        "draftTAPPs/GPYC_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Gas pycnometry Analysis Detail",
+        "detail_description": ("Detail block for GPYC hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No GPYC-specific analysis property is defined "
+                               "yet."),
+    },
+    "gcmsTAPP": {
+        "xlsx": "draftTAPPs/GCMS_TAPP_draft_v2.csv",
+        "prefix": "gcms",
+        "component_types": ["ada:GCMSCollection", "ada:samplePreparation", "ada:report"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Gas Chromatography-Mass Spectrometry Technique-Aligned Procedure Profile (gcmsTAPP)",
+        "description": ("Gas Chromatography-Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. GCMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything GCMS-specific. Generated from "
+                        "draftTAPPs/GCMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Gas Chromatography-Mass Spectrometry Analysis Detail",
+        "detail_description": ("Detail block for GCMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No GCMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "lcmsTAPP": {
+        "xlsx": "draftTAPPs/LCMS_TAPP_draft_v2.csv",
+        "prefix": "lcms",
+        "component_types": ["ada:LCMSCollection", "ada:samplePreparation"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Liquid Chromatography-Mass Spectrometry Technique-Aligned Procedure Profile (lcmsTAPP)",
+        "description": ("Liquid Chromatography-Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. LCMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything LCMS-specific. Generated from "
+                        "draftTAPPs/LCMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Liquid Chromatography-Mass Spectrometry Analysis Detail",
+        "detail_description": ("Detail block for LCMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No LCMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "lafTAPP": {
+        "xlsx": "draftTAPPs/LAF_TAPP_draft_v2.csv",
+        "prefix": "laf",
+        "component_types": ["ada:LAFRaw", "ada:LAFProcessed"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Me Technique-Aligned Procedure Profile (lafTAPP)",
+        "description": ("Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. LAF has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything LAF-specific. Generated from "
+                        "draftTAPPs/LAF_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Me Analysis Detail",
+        "detail_description": ("Detail block for LAF hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No LAF-specific analysis property is defined "
+                               "yet."),
+    },
+    "fticrmsTAPP": {
+        "xlsx": "draftTAPPs/FTICRMS_TAPP_draft_v2.csv",
+        "prefix": "fticrms",
+        "component_types": ["ada:FTICRMSCube", "ada:dataCube", "ada:FTICRMSTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry Technique-Aligned Procedure Profile (fticrmsTAPP)",
+        "description": ("Fourier Transform Ion Cyclotron Resonance Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. FTICRMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything FTICRMS-specific. Generated from "
+                        "draftTAPPs/FTICRMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry Analysis Detail",
+        "detail_description": ("Detail block for FTICRMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No FTICRMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "eairmsTAPP": {
+        "xlsx": "draftTAPPs/EAIRMS_TAPP_draft_v2.csv",
+        "prefix": "eairms",
+        "component_types": ["ada:EAIRMSCollection"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Elemental analysis - isotope ratio mass spectrometry Technique-Aligned Procedure Profile (eairmsTAPP)",
+        "description": ("Elemental analysis - isotope ratio mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. EAIRMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything EAIRMS-specific. Generated from "
+                        "draftTAPPs/EAIRMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Elemental analysis - isotope ratio mass spectrometry Analysis Detail",
+        "detail_description": ("Detail block for EAIRMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No EAIRMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "icpoesTAPP": {
+        "xlsx": "draftTAPPs/ICPOES_TAPP_draft_v2.csv",
+        "prefix": "icpoes",
+        "component_types": ["ada:ICPOESRawTabular", "ada:calibrationFile", "ada:ICPOESIntermediateTabular", "ada:ICPOESProcessedTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Inductively coupled plasma - optical emission spectrometry Technique-Aligned Procedure Profile (icpoesTAPP)",
+        "description": ("Inductively coupled plasma - optical emission spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. ICPOES has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything ICPOES-specific. Generated from "
+                        "draftTAPPs/ICPOES_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Inductively coupled plasma - optical emission spectrometry Analysis Detail",
+        "detail_description": ("Detail block for ICPOES hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No ICPOES-specific analysis property is defined "
+                               "yet."),
+    },
+    "vlmTAPP": {
+        "xlsx": "draftTAPPs/VLM_TAPP_draft_v2.csv",
+        "prefix": "vlm",
+        "component_types": ["ada:VLMImage"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Visible Light Microscopy Technique-Aligned Procedure Profile (vlmTAPP)",
+        "description": ("Visible Light Microscopy extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. VLM has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything VLM-specific. Generated from "
+                        "draftTAPPs/VLM_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Visible Light Microscopy Analysis Detail",
+        "detail_description": ("Detail block for VLM hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No VLM-specific analysis property is defined "
+                               "yet."),
+    },
+    "amsTAPP": {
+        "xlsx": "draftTAPPs/AMS_TAPP_draft_v2.csv",
+        "prefix": "ams",
+        "component_types": ["ada:processingMethod", "ada:AMSProcessedData", "ada:AMSRawData"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Accelerator Mass Spectrometry Technique-Aligned Procedure Profile (amsTAPP)",
+        "description": ("Accelerator Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. AMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything AMS-specific. Generated from "
+                        "draftTAPPs/AMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Accelerator Mass Spectrometry Analysis Detail",
+        "detail_description": ("Detail block for AMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No AMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "nanosimsTAPP": {
+        "xlsx": "draftTAPPs/NanoSIMS_TAPP_draft_v2.csv",
+        "prefix": "nanosims",
+        "component_types": ["ada:analysisLocation", "ada:NanoSIMSImageCollection", "ada:NanoSIMSCollection", "ada:NanoSIMSTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Nanoscale secondary ion mass spectrometry Technique-Aligned Procedure Profile (nanosimsTAPP)",
+        "description": ("Nanoscale secondary ion mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. NanoSIMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything NanoSIMS-specific. Generated from "
+                        "draftTAPPs/NanoSIMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Nanoscale secondary ion mass spectrometry Analysis Detail",
+        "detail_description": ("Detail block for NanoSIMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No NanoSIMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "simsTAPP": {
+        "xlsx": "draftTAPPs/SIMS_TAPP_draft_v2.csv",
+        "prefix": "sims",
+        "component_types": ["ada:SIMSTabular", "ada:analysisLocation"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Secondary ion mass spectrometry Technique-Aligned Procedure Profile (simsTAPP)",
+        "description": ("Secondary ion mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. SIMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything SIMS-specific. Generated from "
+                        "draftTAPPs/SIMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Secondary ion mass spectrometry Analysis Detail",
+        "detail_description": ("Detail block for SIMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No SIMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "aivaTAPP": {
+        "xlsx": "draftTAPPs/AIVA_TAPP_draft_v2.csv",
+        "prefix": "aiva",
+        "component_types": ["ada:quickLook", "ada:AIVAImage"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Advanced Imaging & Visualization of Astromaterials Technique-Aligned Procedure Profile (aivaTAPP)",
+        "description": ("Advanced Imaging & Visualization of Astromaterials extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. AIVA has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything AIVA-specific. Generated from "
+                        "draftTAPPs/AIVA_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Advanced Imaging & Visualization of Astromaterials Analysis Detail",
+        "detail_description": ("Detail block for AIVA hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No AIVA-specific analysis property is defined "
+                               "yet."),
+    },
+    "tofsimsTAPP": {
+        "xlsx": "draftTAPPs/ToFSIMS_TAPP_draft_v2.csv",
+        "prefix": "tofsims",
+        "component_types": ["ada:TOFSIMSCollection", "ada:peaks", "ada:contextPhotography"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Time-of-Flight Secondary Ion Mass Spectrometer Technique-Aligned Procedure Profile (tofsimsTAPP)",
+        "description": ("Time-of-Flight Secondary Ion Mass Spectrometer extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. ToFSIMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything ToFSIMS-specific. Generated from "
+                        "draftTAPPs/ToFSIMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Time-of-Flight Secondary Ion Mass Spectrometer Analysis Detail",
+        "detail_description": ("Detail block for ToFSIMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No ToFSIMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "nanoirTAPP": {
+        "xlsx": "draftTAPPs/NanoIR_TAPP_draft_v2.csv",
+        "prefix": "nanoir",
+        "component_types": ["ada:NanoIRBackground", "ada:NanoIRMapCollection", "ada:NanoIRPointCollection"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Nanoscale Infrared Mapping Technique-Aligned Procedure Profile (nanoirTAPP)",
+        "description": ("Nanoscale Infrared Mapping extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. NanoIR has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything NanoIR-specific. Generated from "
+                        "draftTAPPs/NanoIR_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Nanoscale Infrared Mapping Analysis Detail",
+        "detail_description": ("Detail block for NanoIR hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No NanoIR-specific analysis property is defined "
+                               "yet."),
+    },
+    "icTAPP": {
+        "xlsx": "draftTAPPs/IC_TAPP_draft_v2.csv",
+        "prefix": "ic",
+        "component_types": ["ada:ICTabular", "ada:report"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Ion Chromatography Technique-Aligned Procedure Profile (icTAPP)",
+        "description": ("Ion Chromatography extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. IC has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything IC-specific. Generated from "
+                        "draftTAPPs/IC_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Ion Chromatography Analysis Detail",
+        "detail_description": ("Detail block for IC hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No IC-specific analysis property is defined "
+                               "yet."),
+    },
+    "psfdTAPP": {
+        "xlsx": "draftTAPPs/PSFD_TAPP_draft_v2.csv",
+        "prefix": "psfd",
+        "component_types": ["ada:quickLook", "ada:shapefile", "ada:PSFDTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Particle Size Frequency Distribution Technique-Aligned Procedure Profile (psfdTAPP)",
+        "description": ("Particle Size Frequency Distribution extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. PSFD has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything PSFD-specific. Generated from "
+                        "draftTAPPs/PSFD_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Particle Size Frequency Distribution Analysis Detail",
+        "detail_description": ("Detail block for PSFD hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No PSFD-specific analysis property is defined "
+                               "yet."),
+    },
+    "dscTAPP": {
+        "xlsx": "draftTAPPs/DSC_TAPP_draft_v2.csv",
+        "prefix": "dsc",
+        "component_types": ["ada:DSCHeatTabular", "ada:DSCResultsTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Differential Scanning Calorimetry Technique-Aligned Procedure Profile (dscTAPP)",
+        "description": ("Differential Scanning Calorimetry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. DSC has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything DSC-specific. Generated from "
+                        "draftTAPPs/DSC_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Differential Scanning Calorimetry Analysis Detail",
+        "detail_description": ("Detail block for DSC hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No DSC-specific analysis property is defined "
+                               "yet."),
+    },
+    "ritofngmsTAPP": {
+        "xlsx": "draftTAPPs/RITOFNGMS_TAPP_draft_v2.csv",
+        "prefix": "ritofngms",
+        "component_types": ["ada:RITOFNGMSCollection", "ada:RITOFNGMSTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Resonance ionization time of flight noble gas mass spectrome Technique-Aligned Procedure Profile (ritofngmsTAPP)",
+        "description": ("Resonance ionization time of flight noble gas mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. RITOFNGMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything RITOFNGMS-specific. Generated from "
+                        "draftTAPPs/RITOFNGMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Resonance ionization time of flight noble gas mass spectrome Analysis Detail",
+        "detail_description": ("Detail block for RITOFNGMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No RITOFNGMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "uvfmTAPP": {
+        "xlsx": "draftTAPPs/UVFM_TAPP_draft_v2.csv",
+        "prefix": "uvfm",
+        "component_types": ["ada:UVFMImage", "ada:visImage"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "UV Fluorescence Microscopy Technique-Aligned Procedure Profile (uvfmTAPP)",
+        "description": ("UV Fluorescence Microscopy extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. UVFM has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything UVFM-specific. Generated from "
+                        "draftTAPPs/UVFM_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "UV Fluorescence Microscopy Analysis Detail",
+        "detail_description": ("Detail block for UVFM hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No UVFM-specific analysis property is defined "
+                               "yet."),
+    },
+    "svruecTAPP": {
+        "xlsx": "draftTAPPs/SVRUEC_TAPP_draft_v2.csv",
+        "prefix": "svruec",
+        "component_types": ["ada:SVRUECTabular", "ada:contextPhotography"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Seismic Velocities and Rock Ultrasonic Elastic Constants Technique-Aligned Procedure Profile (svruecTAPP)",
+        "description": ("Seismic Velocities and Rock Ultrasonic Elastic Constants extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. SVRUEC has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything SVRUEC-specific. Generated from "
+                        "draftTAPPs/SVRUEC_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Seismic Velocities and Rock Ultrasonic Elastic Constants Analysis Detail",
+        "detail_description": ("Detail block for SVRUEC hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No SVRUEC-specific analysis property is defined "
+                               "yet."),
+    },
+    "l2msTAPP": {
+        "xlsx": "draftTAPPs/L2MS_TAPP_draft_v2.csv",
+        "prefix": "l2ms",
+        "component_types": ["ada:L2MSCube", "ada:dataCube"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Microprobe Two-Step Laser Mass Spectrometry Technique-Aligned Procedure Profile (l2msTAPP)",
+        "description": ("Microprobe Two-Step Laser Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. L2MS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything L2MS-specific. Generated from "
+                        "draftTAPPs/L2MS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Microprobe Two-Step Laser Mass Spectrometry Analysis Detail",
+        "detail_description": ("Detail block for L2MS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No L2MS-specific analysis property is defined "
+                               "yet."),
     },
 }
 
