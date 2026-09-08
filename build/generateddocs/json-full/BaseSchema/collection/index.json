@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-09-07",
+  "dateOfLastChange": "2026-09-08",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -36,6 +36,9 @@
   "dependsOn": [
     "ogch.BaseSchema.stringArray"
   ],
+  "license": {
+    "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
+  },
   "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/collection/context.jsonld",
   "schema": {
     "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/collection/schema.yaml",
@@ -73,7 +76,7 @@
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/collection/example_1_1.ttl",
           "sizeBytes": 623,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:Collection,\n        ada:collection ;\n    ada:componentType [ a ada:SEMEDSElementalMaps ] ;\n    ada:filelist [ schema1:encodingFormat \"image/tiff\" ;\n            ada:componentType \"ada:SEMEDSElementalMap\" ;\n            ada:fileName \"map_Fe_Ka.tif\" ],\n        [ schema1:encodingFormat \"image/tiff\" ;\n            ada:componentType \"ada:SEMEDSElementalMap\" ;\n            ada:fileName \"map_Si_Ka.tif\" ] ;\n    ada:memberTypes \"ada:SEMEDSElementalMap\" ;\n    ada:nFiles 5 .\n\n"
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:Collection,\n        ada:collection ;\n    ada:componentType [ a ada:SEMEDSElementalMaps ] ;\n    ada:filelist [ schema1:encodingFormat \"image/tiff\" ;\n            ada:componentType \"ada:SEMEDSElementalMap\" ;\n            ada:fileName \"map_Si_Ka.tif\" ],\n        [ schema1:encodingFormat \"image/tiff\" ;\n            ada:componentType \"ada:SEMEDSElementalMap\" ;\n            ada:fileName \"map_Fe_Ka.tif\" ] ;\n    ada:memberTypes \"ada:SEMEDSElementalMap\" ;\n    ada:nFiles 5 .\n\n"
         }
       ]
     }

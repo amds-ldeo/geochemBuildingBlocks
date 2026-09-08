@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectromet Analysis Detail",
+  "description": "Detail block for GC-C-IRMS hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No GC-C-IRMS-specific analysis property is defined yet.",
+  "allOf": [
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/AnalysisIdentification"
+    },
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/AnalysisIdentification"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "prov:wasGeneratedBy": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:additionalProperty": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
+                    },
+                    {
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/Param_Analysis_constantsReferenceValues"
+                    }
+                  ]
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Analysis_samplingUnitSelectionCriteria"
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/Param_Analysis_constantsReferenceValues"
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  }
+                ]
+              },
+              "schema:object": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "@type": {
+                            "contains": {
+                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                            }
+                          }
+                        },
+                        "required": [
+                          "@type"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "schema:additionalProperty": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                            },
+                            "allOf": [
+                              {
+                                "contains": {
+                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Analysis_preAnalysisImagingAndScreening"
+                                },
+                                "minContains": 0,
+                                "maxContains": 1
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

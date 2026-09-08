@@ -34,17 +34,17 @@ Supplemental documents for calibration, methods, and analysis info. Defines prop
 
 Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
 
-### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
-
-**Type:** schema
-
-Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
-
 ### `ogch.BaseSchema.image` — Image Type
 
 **Type:** schema
 
 ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
+
+### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
+
+**Type:** schema
+
+Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
 
 ### `ogch.BaseSchema.spatialRegistration` — Spatial Registration Type
 
@@ -574,6 +574,30 @@ Detail block for ARGT hasPart items, carrying the analysis-identification proper
 
 40Ar/39Ar geochronology and thermochronology extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. ARGT has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything ARGT-specific. Generated from draftTAPPs/ARGT_TAPP_draft_v2.csv by tools/build_tapp.py.
 
+### `ogch.techniqueProfile.geochemProfile.CAPD.detail` — Capacitance Dilatometry Analysis Detail
+
+**Type:** schema
+
+Detail block for CAPD hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No CAPD-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.CAPD.tapp` — Capacitance Dilatometry Technique-Aligned Procedure Profile (capdTAPP)
+
+**Type:** schema
+
+Capacitance Dilatometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. CAPD has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything CAPD-specific. Generated from draftTAPPs/CAPD_TAPP_draft_v2.csv by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.CPD.detail` — Curation Photo-Documentation Analysis Detail
+
+**Type:** schema
+
+Detail block for CPD hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No CPD-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.CPD.tapp` — Curation Photo-Documentation Technique-Aligned Procedure Profile (cpdTAPP)
+
+**Type:** schema
+
+Curation Photo-Documentation extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. CPD has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything CPD-specific. Generated from draftTAPPs/CPD_TAPP_draft_v2.csv by tools/build_tapp.py.
+
 ### `ogch.techniqueProfile.geochemProfile.DSC.detail` — Differential Scanning Calorimetry Analysis Detail
 
 **Type:** schema
@@ -585,6 +609,18 @@ Detail block for DSC hasPart items, carrying the analysis-identification propert
 **Type:** schema
 
 Differential Scanning Calorimetry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. DSC has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything DSC-specific. Generated from draftTAPPs/DSC_TAPP_draft_v2.csv by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.DSSM.detail` — Direct Shear Strength Measurement Analysis Detail
+
+**Type:** schema
+
+Detail block for DSSM hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No DSSM-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.DSSM.tapp` — Direct Shear Strength Measurement Technique-Aligned Procedure Profile (dssmTAPP)
+
+**Type:** schema
+
+Direct Shear Strength Measurement extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. DSSM has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything DSSM-specific. Generated from draftTAPPs/DSSM_TAPP_draft_v2.csv by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.EAIRMS.detail` — Elemental analysis - isotope ratio mass spectrometry Analysis Detail
 
@@ -610,6 +646,18 @@ Electron Microprobe Analysis instrument-specific detail properties. Defines prop
 
 EMPA-specific extension of the base TAPP definition. Adds EPMA top-level properties (beam mode, accelerating voltage, matrix correction method), a parameter vocabulary, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates, and analyte-column templates ship as separate JSON files under vocab/, parameters/, and analyteColumns/ for maintainability.
 
+### `ogch.techniqueProfile.geochemProfile.FINESSE.detail` — Stepped Heating Carbon and Nitrogen Isotopic Compositions Analysis Detail
+
+**Type:** schema
+
+Detail block for FINESSE hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No FINESSE-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.FINESSE.tapp` — Stepped Heating Carbon and Nitrogen Isotopic Compositions Technique-Aligned Procedure Profile (finesseTAPP)
+
+**Type:** schema
+
+Stepped Heating Carbon and Nitrogen Isotopic Compositions extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. FINESSE has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything FINESSE-specific. Generated from draftTAPPs/FINESSE_TAPP_draft_v2.csv by tools/build_tapp.py.
+
 ### `ogch.techniqueProfile.geochemProfile.FTICRMS.detail` — Fourier Transform Ion Cyclotron Resonance Mass Spectrometry Analysis Detail
 
 **Type:** schema
@@ -621,6 +669,18 @@ Detail block for FTICRMS hasPart items, carrying the analysis-identification pro
 **Type:** schema
 
 Fourier Transform Ion Cyclotron Resonance Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. FTICRMS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything FTICRMS-specific. Generated from draftTAPPs/FTICRMS_TAPP_draft_v2.csv by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.GC-C-IRMS.detail` — Gas Chromatography-Combustion-Isotopic Ratio Mass Spectromet Analysis Detail
+
+**Type:** schema
+
+Detail block for GC-C-IRMS hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No GC-C-IRMS-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.GC-C-IRMS.tapp` — Gas Chromatography-Combustion-Isotopic Ratio Mass Spectromet Technique-Aligned Procedure Profile (gcCIrmsTAPP)
+
+**Type:** schema
+
+Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. GC-C-IRMS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything GC-C-IRMS-specific. Generated from draftTAPPs/GC-C-IRMS_TAPP_draft_v2.csv by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.GCMS.detail` — Gas Chromatography-Mass Spectrometry Analysis Detail
 
@@ -657,6 +717,18 @@ Detail block for IC hasPart items, carrying the analysis-identification properti
 **Type:** schema
 
 Ion Chromatography extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. IC has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything IC-specific. Generated from draftTAPPs/IC_TAPP_draft_v2.csv by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.IC-MS.detail` — Ion Chromatography-Mass Spectrometry Analysis Detail
+
+**Type:** schema
+
+Detail block for IC-MS hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No IC-MS-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.IC-MS.tapp` — Ion Chromatography-Mass Spectrometry Technique-Aligned Procedure Profile (icMsTAPP)
+
+**Type:** schema
+
+Ion Chromatography-Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. IC-MS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything IC-MS-specific. Generated from draftTAPPs/IC-MS_TAPP_draft_v2.csv by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.ICPOES.detail` — Inductively coupled plasma - optical emission spectrometry Analysis Detail
 
@@ -802,6 +874,18 @@ Detail block for NGNSMS hasPart items, carrying the analysis-identification prop
 
 Noble gas and Nitrogen Static Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. NGNSMS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything NGNSMS-specific. Generated from draftTAPPs/NGNSMS_TAPP_draft_v2.csv by tools/build_tapp.py.
 
+### `ogch.techniqueProfile.geochemProfile.NI-MI.detail` — Nanoindentation and Microindentation Analysis Detail
+
+**Type:** schema
+
+Detail block for NI-MI hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No NI-MI-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.NI-MI.tapp` — Nanoindentation and Microindentation Technique-Aligned Procedure Profile (niMiTAPP)
+
+**Type:** schema
+
+Nanoindentation and Microindentation extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. NI-MI has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything NI-MI-specific. Generated from draftTAPPs/NI-MI_TAPP_draft_v2.csv by tools/build_tapp.py.
+
 ### `ogch.techniqueProfile.geochemProfile.NanoIR.detail` — Nanoscale Infrared Mapping Analysis Detail
 
 **Type:** schema
@@ -825,6 +909,18 @@ Detail block for NanoSIMS hasPart items, carrying the analysis-identification pr
 **Type:** schema
 
 Nanoscale secondary ion mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. NanoSIMS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything NanoSIMS-specific. Generated from draftTAPPs/NanoSIMS_TAPP_draft_v2.csv by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.PCD-AFM.detail` — Particle cohesion determination with AFM Analysis Detail
+
+**Type:** schema
+
+Detail block for PCD-AFM hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No PCD-AFM-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.PCD-AFM.tapp` — Particle cohesion determination with AFM Technique-Aligned Procedure Profile (pcdAfmTAPP)
+
+**Type:** schema
+
+Particle cohesion determination with AFM extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. PCD-AFM has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything PCD-AFM-specific. Generated from draftTAPPs/PCD-AFM_TAPP_draft_v2.csv by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.PSFD.detail` — Particle Size Frequency Distribution Analysis Detail
 
@@ -874,6 +970,18 @@ Detail block for RITOFNGMS hasPart items, carrying the analysis-identification p
 
 Resonance ionization time of flight noble gas mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. RITOFNGMS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything RITOFNGMS-specific. Generated from draftTAPPs/RITOFNGMS_TAPP_draft_v2.csv by tools/build_tapp.py.
 
+### `ogch.techniqueProfile.geochemProfile.S-XRF.detail` — Synchrotron-based X-ray Fluorescence Spectroscopy Analysis Detail
+
+**Type:** schema
+
+Detail block for S-XRF hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No S-XRF-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.S-XRF.tapp` — Synchrotron-based X-ray Fluorescence Spectroscopy Technique-Aligned Procedure Profile (sXrfTAPP)
+
+**Type:** schema
+
+Synchrotron-based X-ray Fluorescence Spectroscopy extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. S-XRF has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything S-XRF-specific. Generated from draftTAPPs/S-XRF_TAPP_draft_v2.csv by tools/build_tapp.py.
+
 ### `ogch.techniqueProfile.geochemProfile.SEM.detail` — SEM Analysis Detail
 
 **Type:** schema
@@ -885,6 +993,18 @@ Dataset-level analysis-instance detail for SEM (superset), reusing CDIF/schema.o
 **Type:** schema
 
 Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from docs/SEM_TAPP_v4.xlsx via the path-driven pipeline.
+
+### `ogch.techniqueProfile.geochemProfile.SEM-CL.detail` — SEM Cathodoluminescence Spectroscopy Analysis Detail
+
+**Type:** schema
+
+Detail block for SEM-CL hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No SEM-CL-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.SEM-CL.tapp` — SEM Cathodoluminescence Spectroscopy Technique-Aligned Procedure Profile (semClTAPP)
+
+**Type:** schema
+
+SEM Cathodoluminescence Spectroscopy extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. SEM-CL has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything SEM-CL-specific. Generated from draftTAPPs/SEM-CL_TAPP_draft_v2.csv by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.SEM-Composition.detail` — SEM Composition Analysis Detail
 
@@ -946,6 +1066,18 @@ Detail block for SLS hasPart items, carrying the analysis-identification propert
 
 Structured Light Scanning extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. SLS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything SLS-specific. Generated from draftTAPPs/SLS_TAPP_draft_v2.csv by tools/build_tapp.py.
 
+### `ogch.techniqueProfile.geochemProfile.STHM-AFM.detail` — Scanning Thermal Microscopy with AFM Analysis Detail
+
+**Type:** schema
+
+Detail block for STHM-AFM hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No STHM-AFM-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.STHM-AFM.tapp` — Scanning Thermal Microscopy with AFM Technique-Aligned Procedure Profile (sthmAfmTAPP)
+
+**Type:** schema
+
+Scanning Thermal Microscopy with AFM extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. STHM-AFM has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything STHM-AFM-specific. Generated from draftTAPPs/STHM-AFM_TAPP_draft_v2.csv by tools/build_tapp.py.
+
 ### `ogch.techniqueProfile.geochemProfile.SVRUEC.detail` — Seismic Velocities and Rock Ultrasonic Elastic Constants Analysis Detail
 
 **Type:** schema
@@ -994,6 +1126,18 @@ Dataset-level analysis-instance detail for solution SF-ICP-MS, reusing CDIF/sche
 
 Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from docs/Solution_SF-ICP-MS_TAPP_v5.xlsx via the path-driven pipeline.
 
+### `ogch.techniqueProfile.geochemProfile.TDM.detail` — Temperature-Dependent Magnetization Analysis Detail
+
+**Type:** schema
+
+Detail block for TDM hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No TDM-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.TDM.tapp` — Temperature-Dependent Magnetization Technique-Aligned Procedure Profile (tdmTAPP)
+
+**Type:** schema
+
+Temperature-Dependent Magnetization extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. TDM has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything TDM-specific. Generated from draftTAPPs/TDM_TAPP_draft_v2.csv by tools/build_tapp.py.
+
 ### `ogch.techniqueProfile.geochemProfile.TEM.detail` — TEM Analysis Detail
 
 **Type:** schema
@@ -1005,6 +1149,18 @@ Detail block for TEM hasPart items. Discriminates on ada:componentType, carries 
 **Type:** schema
 
 Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from docs/TEM_TAPP_v7.xlsx by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.TIMS.detail` — Thermal ionization mass spectrometry Analysis Detail
+
+**Type:** schema
+
+Detail block for TIMS hasPart items, carrying the analysis-identification properties the Core module places on the dataset. No TIMS-specific analysis property is defined yet.
+
+### `ogch.techniqueProfile.geochemProfile.TIMS.tapp` — Thermal ionization mass spectrometry Technique-Aligned Procedure Profile (timsTAPP)
+
+**Type:** schema
+
+Thermal ionization mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. TIMS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything TIMS-specific. Generated from draftTAPPs/TIMS_TAPP_draft_v2.csv by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.ToFSIMS.detail` — Time-of-Flight Secondary Ion Mass Spectrometer Analysis Detail
 

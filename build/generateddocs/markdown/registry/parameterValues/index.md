@@ -769,6 +769,506 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  capd_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/capdTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  capd_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/capdTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  capd_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/capdTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  capd_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/capdTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  capd_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/capdTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  capd_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/capdTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  capd_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/capdTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  capd_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/capdTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  capd_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/capdTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cpd_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/cpdTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cpd_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/cpdTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cpd_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/cpdTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cpd_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/cpdTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cpd_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/cpdTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cpd_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/cpdTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cpd_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/cpdTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cpd_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/cpdTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  cpd_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/cpdTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   dsc_calibrationFactorAndDeterminationMethod:
     title: Calibration Factor and Determination Method
     description: 'An externally-calibrated factor that converts the measured quantity
@@ -1009,6 +1509,256 @@ $defs:
       schema:propertyID:
         const:
         - '@id': ada:parameter/dscTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dssm_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/dssmTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dssm_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/dssmTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dssm_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/dssmTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dssm_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/dssmTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dssm_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/dssmTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dssm_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/dssmTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dssm_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/dssmTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dssm_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/dssmTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  dssm_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/dssmTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
       schema:value:
@@ -2324,6 +3074,256 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  finesse_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/finesseTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  finesse_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/finesseTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  finesse_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/finesseTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  finesse_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/finesseTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  finesse_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/finesseTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  finesse_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/finesseTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  finesse_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/finesseTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  finesse_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/finesseTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  finesse_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/finesseTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   fticrms_calibrationFactorAndDeterminationMethod:
     title: Calibration Factor and Determination Method
     description: 'An externally-calibrated factor that converts the measured quantity
@@ -2564,6 +3564,256 @@ $defs:
       schema:propertyID:
         const:
         - '@id': ada:parameter/fticrmsTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  gcCIrms_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/gcCIrmsTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  gcCIrms_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/gcCIrmsTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  gcCIrms_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/gcCIrmsTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  gcCIrms_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/gcCIrmsTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  gcCIrms_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/gcCIrmsTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  gcCIrms_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/gcCIrmsTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  gcCIrms_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/gcCIrmsTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  gcCIrms_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/gcCIrmsTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  gcCIrms_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/gcCIrmsTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
       schema:value:
@@ -3064,6 +4314,256 @@ $defs:
       schema:propertyID:
         const:
         - '@id': ada:parameter/gpycTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  icMs_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/icMsTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  icMs_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/icMsTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  icMs_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/icMsTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  icMs_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/icMsTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  icMs_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/icMsTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  icMs_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/icMsTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  icMs_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/icMsTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  icMs_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/icMsTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  icMs_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/icMsTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
       schema:value:
@@ -16406,6 +17906,506 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  niMi_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/niMiTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  niMi_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/niMiTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  niMi_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/niMiTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  niMi_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/niMiTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  niMi_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/niMiTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  niMi_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/niMiTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  niMi_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/niMiTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  niMi_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/niMiTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  niMi_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/niMiTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pcdAfm_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/pcdAfmTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pcdAfm_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/pcdAfmTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pcdAfm_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/pcdAfmTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pcdAfm_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/pcdAfmTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pcdAfm_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/pcdAfmTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pcdAfm_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/pcdAfmTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pcdAfm_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/pcdAfmTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pcdAfm_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/pcdAfmTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  pcdAfm_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/pcdAfmTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   psfd_calibrationFactorAndDeterminationMethod:
     title: Calibration Factor and Determination Method
     description: 'An externally-calibrated factor that converts the measured quantity
@@ -17475,6 +19475,506 @@ $defs:
       schema:propertyID:
         const:
         - '@id': ada:parameter/ritofngmsTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sXrf_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sXrfTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sXrf_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sXrfTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sXrf_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sXrfTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sXrf_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sXrfTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sXrf_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sXrfTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sXrf_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sXrfTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sXrf_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sXrfTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sXrf_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sXrfTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sXrf_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sXrfTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semCl_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semClTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semCl_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semClTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semCl_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semClTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semCl_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semClTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semCl_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semClTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semCl_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semClTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semCl_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semClTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semCl_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semClTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semCl_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semClTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
       schema:value:
@@ -25359,6 +27859,256 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  sthmAfm_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sthmAfmTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sthmAfm_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sthmAfmTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sthmAfm_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sthmAfmTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sthmAfm_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sthmAfmTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sthmAfm_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sthmAfmTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sthmAfm_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sthmAfmTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sthmAfm_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sthmAfmTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sthmAfm_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sthmAfmTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sthmAfm_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/sthmAfmTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   svruec_calibrationFactorAndDeterminationMethod:
     title: Calibration Factor and Determination Method
     description: 'An externally-calibrated factor that converts the measured quantity
@@ -25599,6 +28349,256 @@ $defs:
       schema:propertyID:
         const:
         - '@id': ada:parameter/svruecTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tdm_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/tdmTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tdm_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/tdmTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tdm_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/tdmTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tdm_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/tdmTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tdm_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/tdmTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tdm_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/tdmTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tdm_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/tdmTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tdm_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/tdmTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tdm_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/tdmTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
       schema:value:
@@ -27029,6 +30029,256 @@ $defs:
         - '@id': ada:parameter/temTAPP/temObjectiveAperture
       schema:name:
         const: TEM Objective Aperture
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tims_calibrationFactorAndDeterminationMethod:
+    title: Calibration Factor and Determination Method
+    description: 'An externally-calibrated factor that converts the measured quantity
+      into the reported quantity, how it was determined, and its uncertainty. Applies
+      where the conversion depends on a factor calibrated against a reference of independently
+      known value, rather than on the instrument response alone. Distinct from the
+      fields that name the calibration material and that state which approach applies
+      to which analyte, where the technique has them: this field records the resulting
+      factor itself.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/calibrationFactorAndDeterminationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/timsTAPP/calibrationFactorAndDeterminationMethod
+      schema:name:
+        const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tims_constantsAndReferenceValuesUsed:
+    title: Constants and Reference Values Used
+    description: Physical constants and reference values used in data reduction to
+      calculate the final reported quantity (e.g., decay constants for age calculation,
+      standard isotope ratios, or other citable reference values used in a correction
+      or calculation), together with their source. Distinct from the Group 6 reference-material
+      fields, which document accepted values for specific calibration/validation materials
+      rather than universal physical constants. Record "None" if no citable, revisable
+      physical constants feed into this procedure's data reduction.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/constantsAndReferenceValuesUsed
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/timsTAPP/constantsAndReferenceValuesUsed
+      schema:name:
+        const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tims_coupledDatasetOrPublicationReference:
+    title: Coupled Dataset or Publication Reference
+    description: 'DOI or other persistent identifier for the co-registered dataset
+      or publication where both datasets are reported together. Accepts: a dedicated
+      dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted
+      in the same package), or a publication DOI. Use "same submission" if the coupled
+      dataset is included in this data package, or "pending" if not yet assigned.
+      If coupling is documented through a shared sample identifier only, that information
+      is already captured in Sample Persistent Identifier (Group 2).'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/coupledDatasetOrPublicationReference
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/timsTAPP/coupledDatasetOrPublicationReference
+      schema:name:
+        const: Coupled Dataset or Publication Reference
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tims_coupledProcedureDoi:
+    title: Coupled Procedure DOI
+    description: Registered procedure DOI for the coupled technique named above. If
+      the coupled procedure has not yet been registered, enter the DOI of a publication
+      describing the coupled method, or "pending". Enter "None" if no coupling is
+      planned.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/coupledProcedureDoi
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/timsTAPP/coupledProcedureDoi
+      schema:name:
+        const: Coupled Procedure DOI
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tims_dataProcessingSoftware:
+    title: Data Processing Software(s)
+    description: All software applied to the data after acquisition in order to produce
+      the reported quantities, including version numbers. List every package used.
+      Distinct from Acquisition Software, which controls the instrument and collects
+      the raw data.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/dataProcessingSoftware
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/timsTAPP/dataProcessingSoftware
+      schema:name:
+        const: Data Processing Software(s)
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tims_preAnalysisImagingAndScreening:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/preAnalysisImagingAndScreening
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/timsTAPP/preAnalysisImagingAndScreening
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tims_samplePersistentIdentifier:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/samplePersistentIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/timsTAPP/samplePersistentIdentifier
+      schema:name:
+        const: Sample Persistent Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tims_samplePreparationMethod:
+    title: Sample Preparation Method
+    description: "The form in which the sample is presented to the instrument, and
+      the preparation that brought it to that form \u2014 for example mounting, sectioning,
+      polishing, coating, crushing, fusion, or extraction of an electron-transparent
+      section. Record 'None' where the material is analysed as received."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/samplePreparationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/timsTAPP/samplePreparationMethod
+      schema:name:
+        const: Sample Preparation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tims_samplingUnitSelectionCriteria:
+    title: Sampling Unit Selection Criteria
+    description: "The rules governing which sampling unit(s) within a sample are selected
+      for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
+      spots, or a region of interest \u2014 size, morphology, clarity, freedom from
+      inclusions or alteration, phase identity, or spatial position. Distinct from
+      Target Material, which states the material type the procedure is designed for,
+      and from Sampling Unit, which names the kind of subdivision one row of reported
+      values corresponds to: this field states how, within such a sample, the unit
+      actually analysed is picked out."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/samplingUnitSelectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/timsTAPP/samplingUnitSelectionCriteria
+      schema:name:
+        const: Sampling Unit Selection Criteria
       schema:value:
         type: string
     required:

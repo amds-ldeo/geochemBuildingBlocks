@@ -221,6 +221,140 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  capd_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  capd_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/capdTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  cpd_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  cpd_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/cpdTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
   dsc_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
@@ -266,6 +400,73 @@ $defs:
     properties:
       '@id':
         const: ada:parameter/dscTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  dssm_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  dssm_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/dssmTAPP/samplePersistentIdentifierDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -804,6 +1005,73 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  finesse_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  finesse_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/finesseTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
   fticrms_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
@@ -849,6 +1117,73 @@ $defs:
     properties:
       '@id':
         const: ada:parameter/fticrmsTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  gcCIrms_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  gcCIrms_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/gcCIrmsTAPP/samplePersistentIdentifierDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -983,6 +1318,73 @@ $defs:
     properties:
       '@id':
         const: ada:parameter/gpycTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  icMs_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  icMs_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/icMsTAPP/samplePersistentIdentifierDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7460,6 +7862,140 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  niMi_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  niMi_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/niMiTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  pcdAfm_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  pcdAfm_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/pcdAfmTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
   psfd_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
@@ -7706,6 +8242,140 @@ $defs:
     properties:
       '@id':
         const: ada:parameter/ritofngmsTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sXrf_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sXrf_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sXrfTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semCl_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semCl_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semClTAPP/samplePersistentIdentifierDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -11184,6 +11854,73 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  sthmAfm_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sthmAfm_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/sthmAfmTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
   svruec_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
@@ -11229,6 +11966,73 @@ $defs:
     properties:
       '@id':
         const: ada:parameter/svruecTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  tdm_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  tdm_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/tdmTAPP/samplePersistentIdentifierDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -12165,6 +12969,73 @@ $defs:
         const: TEM Objective Aperture
       ada:dataType:
         const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  tims_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement
+      in order to select or locate the sampling unit to be analysed, including the
+      technique, instrument and settings used, and how individual analyses are linked
+      back to the images. Distinct from any imaging the procedure performs as its
+      own measurement. Where the imaging is performed on a separate instrument, it
+      should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  tims_samplePersistentIdentifierDefault:
+    title: Sample Persistent Identifier
+    description: Globally unique, persistent identifier for each sample listed in
+      Sample Name. IGSN (International Geo Sample Number) is the recommended standard
+      for geological and cosmochemical samples, as used by Astromat, EarthChem and
+      SESAR. Where a sample and its sub-samples are separately registered, record
+      the identifier at the level actually analysed.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/timsTAPP/samplePersistentIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: samplePersistentIdentifierDefault
+      schema:name:
+        const: Sample Persistent Identifier
+      ada:dataType:
+        const: uri
       ada:fieldScope:
         const: session
       schema:readonlyValue:

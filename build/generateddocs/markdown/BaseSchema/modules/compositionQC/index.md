@@ -210,10 +210,10 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 
 [] schema1:variableMeasured [ schema1:name "Detection Limit Method" ;
             schema1:value "example value" ],
-        [ schema1:name "Detection Limit" ;
-            schema1:value 1 ],
         [ schema1:name "Normalization / Standards-Based Correction" ;
-            schema1:value "example value" ] ;
+            schema1:value "example value" ],
+        [ schema1:name "Detection Limit" ;
+            schema1:value 1 ] ;
     prov:wasGeneratedBy [ prov:used [ prov:reagent "example value" ] ] .
 
 
