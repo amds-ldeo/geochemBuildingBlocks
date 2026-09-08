@@ -82,6 +82,19 @@ TECH_DIR = {
     "uvfmTAPP": "UVFM",
     "svruecTAPP": "SVRUEC",
     "l2msTAPP": "L2MS",
+    "sthmAfmTAPP": "STHM-AFM",
+    "sXrfTAPP": "S-XRF",
+    "icMsTAPP": "IC-MS",
+    "cpdTAPP": "CPD",
+    "pcdAfmTAPP": "PCD-AFM",
+    "gcCIrmsTAPP": "GC-C-IRMS",
+    "finesseTAPP": "FINESSE",
+    "niMiTAPP": "NI-MI",
+    "timsTAPP": "TIMS",
+    "capdTAPP": "CAPD",
+    "dssmTAPP": "DSSM",
+    "tdmTAPP": "TDM",
+    "semClTAPP": "SEM-CL",
 }
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"}
 
@@ -1074,6 +1087,292 @@ TAPP_CONFIGS = {
         "detail_description": ("Detail block for L2MS hasPart items, carrying the "
                                "analysis-identification properties the Core module places on "
                                "the dataset. No L2MS-specific analysis property is defined "
+                               "yet."),
+    },
+    "sthmAfmTAPP": {
+        "xlsx": "draftTAPPs/STHM-AFM_TAPP_draft_v2.csv",
+        "prefix": "sthmAfm",
+        "component_types": ["SThMCollection"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Scanning Thermal Microscopy with AFM Technique-Aligned Procedure Profile (sthmAfmTAPP)",
+        "description": ("Scanning Thermal Microscopy with AFM extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. STHM-AFM has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything STHM-AFM-specific. Generated from "
+                        "draftTAPPs/STHM-AFM_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Scanning Thermal Microscopy with AFM Analysis Detail",
+        "detail_description": ("Detail block for STHM-AFM hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No STHM-AFM-specific analysis property is defined "
+                               "yet."),
+    },
+    "sXrfTAPP": {
+        "xlsx": "draftTAPPs/S-XRF_TAPP_draft_v2.csv",
+        "prefix": "sXrf",
+        "component_types": ["SXRF2DImage", "SXRFPointTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Synchrotron-based X-ray Fluorescence Spectroscopy Technique-Aligned Procedure Profile (sXrfTAPP)",
+        "description": ("Synchrotron-based X-ray Fluorescence Spectroscopy extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. S-XRF has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything S-XRF-specific. Generated from "
+                        "draftTAPPs/S-XRF_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Synchrotron-based X-ray Fluorescence Spectroscopy Analysis Detail",
+        "detail_description": ("Detail block for S-XRF hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No S-XRF-specific analysis property is defined "
+                               "yet."),
+    },
+    "icMsTAPP": {
+        "xlsx": "draftTAPPs/IC-MS_TAPP_draft_v2.csv",
+        "prefix": "icMs",
+        "component_types": ["ICMSCollection"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Ion Chromatography-Mass Spectrometry Technique-Aligned Procedure Profile (icMsTAPP)",
+        "description": ("Ion Chromatography-Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. IC-MS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything IC-MS-specific. Generated from "
+                        "draftTAPPs/IC-MS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Ion Chromatography-Mass Spectrometry Analysis Detail",
+        "detail_description": ("Detail block for IC-MS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No IC-MS-specific analysis property is defined "
+                               "yet."),
+    },
+    "cpdTAPP": {
+        "xlsx": "draftTAPPs/CPD_TAPP_draft_v2.csv",
+        "prefix": "cpd",
+        "component_types": ["CPDImage"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Curation Photo-Documentation Technique-Aligned Procedure Profile (cpdTAPP)",
+        "description": ("Curation Photo-Documentation extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. CPD has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything CPD-specific. Generated from "
+                        "draftTAPPs/CPD_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Curation Photo-Documentation Analysis Detail",
+        "detail_description": ("Detail block for CPD hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No CPD-specific analysis property is defined "
+                               "yet."),
+    },
+    "pcdAfmTAPP": {
+        "xlsx": "draftTAPPs/PCD-AFM_TAPP_draft_v2.csv",
+        "prefix": "pcdAfm",
+        "component_types": ["PCDAFMCollection"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Particle cohesion determination with AFM Technique-Aligned Procedure Profile (pcdAfmTAPP)",
+        "description": ("Particle cohesion determination with AFM extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. PCD-AFM has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything PCD-AFM-specific. Generated from "
+                        "draftTAPPs/PCD-AFM_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Particle cohesion determination with AFM Analysis Detail",
+        "detail_description": ("Detail block for PCD-AFM hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No PCD-AFM-specific analysis property is defined "
+                               "yet."),
+    },
+    "gcCIrmsTAPP": {
+        "xlsx": "draftTAPPs/GC-C-IRMS_TAPP_draft_v2.csv",
+        "prefix": "gcCIrms",
+        "component_types": ["GCCIRMSDataCollection", "GCCIRMSOrbitrapCollection", "GCCIRMSTabularIsotopicValues"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectromet Technique-Aligned Procedure Profile (gcCIrmsTAPP)",
+        "description": ("Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. GC-C-IRMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything GC-C-IRMS-specific. Generated from "
+                        "draftTAPPs/GC-C-IRMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectromet Analysis Detail",
+        "detail_description": ("Detail block for GC-C-IRMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No GC-C-IRMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "finesseTAPP": {
+        "xlsx": "draftTAPPs/FINESSE_TAPP_draft_v2.csv",
+        "prefix": "finesse",
+        "component_types": ["FINESSECollection", "FINESSETabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Stepped Heating Carbon and Nitrogen Isotopic Compositions Technique-Aligned Procedure Profile (finesseTAPP)",
+        "description": ("Stepped Heating Carbon and Nitrogen Isotopic Compositions extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. FINESSE has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything FINESSE-specific. Generated from "
+                        "draftTAPPs/FINESSE_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Stepped Heating Carbon and Nitrogen Isotopic Compositions Analysis Detail",
+        "detail_description": ("Detail block for FINESSE hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No FINESSE-specific analysis property is defined "
+                               "yet."),
+    },
+    "niMiTAPP": {
+        "xlsx": "draftTAPPs/NI-MI_TAPP_draft_v2.csv",
+        "prefix": "niMi",
+        "component_types": ["NIMICollection"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Nanoindentation and Microindentation Technique-Aligned Procedure Profile (niMiTAPP)",
+        "description": ("Nanoindentation and Microindentation extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. NI-MI has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything NI-MI-specific. Generated from "
+                        "draftTAPPs/NI-MI_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Nanoindentation and Microindentation Analysis Detail",
+        "detail_description": ("Detail block for NI-MI hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No NI-MI-specific analysis property is defined "
+                               "yet."),
+    },
+    "timsTAPP": {
+        "xlsx": "draftTAPPs/TIMS_TAPP_draft_v2.csv",
+        "prefix": "tims",
+        "component_types": ["TIMSProcessedTabular", "TIMSRawCollection"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Thermal ionization mass spectrometry Technique-Aligned Procedure Profile (timsTAPP)",
+        "description": ("Thermal ionization mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. TIMS has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything TIMS-specific. Generated from "
+                        "draftTAPPs/TIMS_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Thermal ionization mass spectrometry Analysis Detail",
+        "detail_description": ("Detail block for TIMS hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No TIMS-specific analysis property is defined "
+                               "yet."),
+    },
+    "capdTAPP": {
+        "xlsx": "draftTAPPs/CAPD_TAPP_draft_v2.csv",
+        "prefix": "capd",
+        "component_types": ["CAPDRawTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Capacitance Dilatometry Technique-Aligned Procedure Profile (capdTAPP)",
+        "description": ("Capacitance Dilatometry extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. CAPD has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything CAPD-specific. Generated from "
+                        "draftTAPPs/CAPD_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Capacitance Dilatometry Analysis Detail",
+        "detail_description": ("Detail block for CAPD hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No CAPD-specific analysis property is defined "
+                               "yet."),
+    },
+    "dssmTAPP": {
+        "xlsx": "draftTAPPs/DSSM_TAPP_draft_v2.csv",
+        "prefix": "dssm",
+        "component_types": ["DSSMTabular", "UCSTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Direct Shear Strength Measurement Technique-Aligned Procedure Profile (dssmTAPP)",
+        "description": ("Direct Shear Strength Measurement extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. DSSM has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything DSSM-specific. Generated from "
+                        "draftTAPPs/DSSM_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Direct Shear Strength Measurement Analysis Detail",
+        "detail_description": ("Detail block for DSSM hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No DSSM-specific analysis property is defined "
+                               "yet."),
+    },
+    "tdmTAPP": {
+        "xlsx": "draftTAPPs/TDM_TAPP_draft_v2.csv",
+        "prefix": "tdm",
+        "component_types": ["TDMRawTabular"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Temperature-Dependent Magnetization Technique-Aligned Procedure Profile (tdmTAPP)",
+        "description": ("Temperature-Dependent Magnetization extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. TDM has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything TDM-specific. Generated from "
+                        "draftTAPPs/TDM_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "Temperature-Dependent Magnetization Analysis Detail",
+        "detail_description": ("Detail block for TDM hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No TDM-specific analysis property is defined "
+                               "yet."),
+    },
+    "semClTAPP": {
+        "xlsx": "draftTAPPs/SEM-CL_TAPP_draft_v2.csv",
+        "prefix": "semCl",
+        "component_types": ["SEMHRCLTabular", "SEMHRCLCube"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "SEM Cathodoluminescence Spectroscopy Technique-Aligned Procedure Profile (semClTAPP)",
+        "description": ("SEM Cathodoluminescence Spectroscopy extension of the base TAPP definition. CORE-ONLY DRAFT: "
+                        "the native technique layer is empty. SEM-CL has no ADA detail schema "
+                        "and no technique-specific property in any ADA record, so there was "
+                        "nothing to seed one from and none was invented. This registers the "
+                        "procedure skeleton and needs Phase 0 seed papers before it says "
+                        "anything SEM-CL-specific. Generated from "
+                        "draftTAPPs/SEM-CL_TAPP_draft_v2.csv by tools/build_tapp.py."),
+        "detail_title": "SEM Cathodoluminescence Spectroscopy Analysis Detail",
+        "detail_description": ("Detail block for SEM-CL hasPart items, carrying the "
+                               "analysis-identification properties the Core module places on "
+                               "the dataset. No SEM-CL-specific analysis property is defined "
                                "yet."),
     },
 }
