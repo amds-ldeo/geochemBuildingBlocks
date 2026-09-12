@@ -218,6 +218,7 @@ Links to the schema:
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "cdif": "https://w3id.org/cdif/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "@version": 1.1
   }
 }

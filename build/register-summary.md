@@ -34,17 +34,17 @@ Supplemental documents for calibration, methods, and analysis info. Defines prop
 
 Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
 
-### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
-
-**Type:** schema
-
-Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
-
 ### `ogch.BaseSchema.image` — Image Type
 
 **Type:** schema
 
 ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
+
+### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
+
+**Type:** schema
+
+Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
 
 ### `ogch.BaseSchema.spatialRegistration` — Spatial Registration Type
 
@@ -262,23 +262,17 @@ CDI DimensionalDataStructure for multidimensional data. Defines properties: @typ
 
 CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type, componentType, xCoordCol, yCoordCol, zCoordCol, coordUnits, spatialRegistration. Uses building blocks: detailDSC (geochemProperties), detailEAIRMS (geochemProperties), detailEMPA (geochemProperties), detailLAF (geochemProperties), detailNanoSIMS (geochemProperties), detailNanoIR (geochemProperties), detailPSFD (geochemProperties), detailVNMIR (geochemProperties), detailXRD (geochemProperties), spatialRegistration (geochemProperties), cdifTabularData (cdifProperties).
 
-### `ogch.BaseSchema.structuredData` — Structured Data File Type
-
-**Type:** schema
-
-A container/array data file (HDF5, NeXus) in an ADA bundle whose layout is described by a CDIF DataStructure via cdi:isStructuredBy. The bundle-part analog of the monolithic single-file isStructuredBy pattern (pattern chosen by encoding, not position). Defines properties: @type, ada:componentType, cdi:isStructuredBy. Uses building blocks: cdifDataStructure (cdifProperties).
-
 ### `ogch.BaseSchema.instrument` — ADA Analysis Instrument
 
 **Type:** schema
 
 ADA analytical instrument extending the core CDIF instrument building block. Typed as schema:Thing + schema:Product with domain-specific classifications (e.g. nxs:BaseClass/NXinstrument) in schema:additionalType. Inherits hierarchical sub-components, manufacturer, model, calibration properties from core.
 
-### `ogch.BaseSchema.files` — Files Type
+### `ogch.BaseSchema.structuredData` — Structured Data File Type
 
 **Type:** schema
 
-DataDownload with checksum, size, encoding format, and file detail. Defines properties: schema:additionalType, schema:description, schema:size, resultTarget, schema:relatedLink. Uses building blocks: dataDownload (schemaorgProperties), stringArray (geochemProperties), image (geochemProperties), imageMap (geochemProperties), tabularData (geochemProperties), collection (geochemProperties), dataCube (geochemProperties), document (geochemProperties), supDocImage (geochemProperties), otherFile (geochemProperties).
+A container/array data file (HDF5, NeXus) in an ADA bundle whose layout is described by a CDIF DataStructure via cdi:isStructuredBy. The bundle-part analog of the monolithic single-file isStructuredBy pattern (pattern chosen by encoding, not position). Defines properties: @type, ada:componentType, cdi:isStructuredBy. Uses building blocks: cdifDataStructure (cdifProperties).
 
 ### `ogch.BaseSchema.modules.icpms` — TAPP Composition Module: ICPMS
 
@@ -297,6 +291,12 @@ The shared LaserAblation block of the 2026-08-11 TAPP library, composed by 6 of 
 **Type:** schema
 
 A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as cdi:Activity + schema:Action + ada:TAPPDefinition + bios:LabProtocol. TAPP identity (name, technique, instrument, location, target material) at top level. Standard workflow encoded in schema:actionProcess as a schema:HowTo with ordered cdi:Activity + schema:Action steps. Each workflow step carries its own parameters, reagents, instruments. Uses bios:computationalTool for software, bios:reagent for reference materials, dqv:hasQualityMeasurement for quality metrics, ada:fieldScope (method/session/element) for parameter lifecycle.
+
+### `ogch.BaseSchema.files` — Files Type
+
+**Type:** schema
+
+DataDownload with checksum, size, encoding format, and file detail. Defines properties: schema:additionalType, schema:description, schema:size, resultTarget, schema:relatedLink. Uses building blocks: dataDownload (schemaorgProperties), stringArray (geochemProperties), image (geochemProperties), imageMap (geochemProperties), tabularData (geochemProperties), collection (geochemProperties), dataCube (geochemProperties), document (geochemProperties), supDocImage (geochemProperties), otherFile (geochemProperties).
 
 ### `ogch.BaseSchema.geochemProduct` — Geochem Analytical Product
 

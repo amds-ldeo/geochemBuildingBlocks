@@ -207,8 +207,8 @@ Links to the schema:
   "@context": {
     "schema": "http://schema.org/",
     "wd": "https://www.wikidata.org/entity/",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "cdif": "https://w3id.org/cdif/",
     "ex": "https://example.org/",

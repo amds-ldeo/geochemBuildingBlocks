@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-09-10",
+  "dateOfLastChange": "2026-09-12",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -42,20 +42,17 @@
     "cdif.bbr.metadata.schemaorgProperties.instrument": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
     ],
-    "cdif.bbr.metadata.schemaorgProperties.organization": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.identifier": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
     ],
-    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+    "cdif.bbr.metadata.schemaorgProperties.organization": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
     ],
-    "cdif.bbr.metadata.cdifDataType.cdifReference": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+    "cdif.bbr.metadata.skosProperties.skosConcept": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
@@ -65,6 +62,12 @@
     ],
     "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifReference": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
     ]
   },
   "dependsOn": [
@@ -109,7 +112,7 @@
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/modules/icpms/example_1_1.ttl",
           "sizeBytes": 999,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] schema1:instrument [ schema1:additionalType \"example value\" ;\n            schema1:hasPart [ schema1:additionalType \"example value\" ;\n                    schema1:name \"example value\" ] ] ;\n    schema1:variableMeasured [ schema1:defaultValue \"example value\" ;\n            schema1:name \"Limit of Quantification (LOQ) Method\" ],\n        [ schema1:defaultValue \"example value\" ;\n            schema1:name \"Uncertainty Propagation Method\" ] ;\n    ada:analysisSequenceDefault \"example value\" ;\n    ada:blankBackgroundCorrectionMethod \"example value\" ;\n    ada:calibrationMeasurementFrequency \"example value\" ;\n    ada:internalStandardElement \"example value\" ;\n    ada:ionCounterDeadTimeDefault 1 ;\n    ada:oxideProductionMethodAndThreshold \"example value\" ;\n    ada:signalIntegrationIntervalMethod \"example value\" ;\n    ada:uncertaintyLevel \"example value\" .\n\n"
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] schema1:instrument [ schema1:additionalType \"example value\" ;\n            schema1:hasPart [ schema1:additionalType \"example value\" ;\n                    schema1:name \"example value\" ] ] ;\n    schema1:variableMeasured [ schema1:defaultValue \"example value\" ;\n            schema1:name \"Uncertainty Propagation Method\" ],\n        [ schema1:defaultValue \"example value\" ;\n            schema1:name \"Limit of Quantification (LOQ) Method\" ] ;\n    ada:analysisSequenceDefault \"example value\" ;\n    ada:blankBackgroundCorrectionMethod \"example value\" ;\n    ada:calibrationMeasurementFrequency \"example value\" ;\n    ada:internalStandardElement \"example value\" ;\n    ada:ionCounterDeadTimeDefault 1 ;\n    ada:oxideProductionMethodAndThreshold \"example value\" ;\n    ada:signalIntegrationIntervalMethod \"example value\" ;\n    ada:uncertaintyLevel \"example value\" .\n\n"
         }
       ]
     },
