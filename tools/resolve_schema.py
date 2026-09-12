@@ -28,10 +28,10 @@ Usage:
 
 import argparse
 import copy
+import hashlib
 import json
 import os
 import sys
-import tempfile
 import yaml
 from pathlib import Path
 from typing import Any
@@ -47,7 +47,43 @@ STRIP_KEYS = {"$id", "x-jsonld-prefixes", "x-jsonld-context", "x-jsonld-extra-te
 
 # Cache for fetched URL schemas (URL string -> local Path)
 _URL_CACHE: dict[str, Path] = {}
-_URL_CACHE_DIR = Path(tempfile.mkdtemp(prefix="resolve_schema_"))
+
+# The remote schemas this build depends on are PINNED: vendored into the repo and committed,
+# not fetched on every run. They used to land in tempfile.mkdtemp(), discarded afterwards, so
+# every resolve hit the network and the build was not reproducible -- the same inputs could
+# produce different outputs on different days with nothing to show for it.
+#
+# That is not hypothetical. On 2026-09-12 a full regeneration silently absorbed a CDIF change
+# to cdifDataStructureComponent (it now takes cdif:isDefinedBy_Variable where it took
+# cdif:isDefinedBy_RepresentedVariable), mid-way through an unrelated TAPP migration. The
+# change was upstream's to make and is correctly documented there; the problem was that it
+# arrived unannounced, inside a 1,264-file diff, and cost hours to tell apart from our own work.
+#
+# So: a cache hit is served from disk and never re-fetched. A MISS is an error unless
+# --refresh-remote is passed, which is the deliberate act of taking an upstream change; the
+# resulting diff to vendor/remote/ is then reviewable like any other.
+_URL_CACHE_DIR = REPO_ROOT / "vendor" / "remote"
+_URL_LOCK_PATH = REPO_ROOT / "vendor" / "remote-lock.json"
+_ALLOW_FETCH = False          # set by main() from --refresh-remote
+_URL_LOCK: dict[str, dict] = {}
+_LOCK_DIRTY = False
+
+
+def _load_lock() -> dict:
+    global _URL_LOCK
+    if _URL_LOCK_PATH.exists():
+        _URL_LOCK = json.loads(_URL_LOCK_PATH.read_text(encoding="utf-8"))
+    return _URL_LOCK
+
+
+def _save_lock() -> None:
+    if not _LOCK_DIRTY:
+        return
+    _URL_LOCK_PATH.parent.mkdir(parents=True, exist_ok=True)
+    _URL_LOCK_PATH.write_text(
+        json.dumps(_URL_LOCK, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+    print(f"  updated {_URL_LOCK_PATH.relative_to(REPO_ROOT)} "
+          f"({len(_URL_LOCK)} pinned remote schema(s))", file=sys.stderr)
 # Reverse mapping: maps each URL-fetched base URL (scheme + host) to the
 # corresponding cache dir prefix, so relative refs within fetched files can
 # be converted back to URLs and fetched on demand.
@@ -69,6 +105,36 @@ def _fetch_url_schema(url: str) -> Path:
     if fetch_url.startswith("//"):
         fetch_url = "https:" + fetch_url
 
+    # Where this URL lives in the vendored tree. The layout (host/path) is unchanged from the
+    # old temp-dir scheme, so the relative-ref logic below keeps working exactly as before.
+    parsed = urlparse(fetch_url)
+    url_path = parsed.path
+    host = parsed.netloc
+    safe_name = os.path.join(host, url_path.strip("/").replace("/", os.sep))
+    cache_path = _URL_CACHE_DIR / safe_name
+
+    if cache_path.exists() and not _ALLOW_FETCH:
+        # Pinned: serve from the repo, no network. Report drift rather than hiding it.
+        rec = _URL_LOCK.get(url)
+        if rec:
+            have = hashlib.sha256(cache_path.read_bytes()).hexdigest()
+            if have != rec.get("sha256"):
+                print(f"  WARNING: {cache_path.relative_to(REPO_ROOT)} does not match "
+                      f"remote-lock.json - the vendored copy was edited by hand?", file=sys.stderr)
+        _URL_CACHE[url] = cache_path
+        _register_url_base(cache_path, parsed, url_path, host)
+        return cache_path
+
+    if not _ALLOW_FETCH:
+        print(f"  ERROR: {fetch_url}\n"
+              f"         is not vendored under {_URL_CACHE_DIR.relative_to(REPO_ROOT)} and remote "
+              f"fetching is off.\n"
+              f"         Re-run with --refresh-remote to fetch and pin it. That is a deliberate "
+              f"act:\n"
+              f"         it takes whatever upstream serves today, and the diff to vendor/ is the "
+              f"record of it.", file=sys.stderr)
+        return None
+
     try:
         with urlopen(fetch_url, timeout=30) as resp:
             data = resp.read()
@@ -76,38 +142,39 @@ def _fetch_url_schema(url: str) -> Path:
         print(f"  WARNING: Failed to fetch {fetch_url}: {e}", file=sys.stderr)
         return None
 
-    # Determine extension from URL path
-    parsed = urlparse(fetch_url)
-    url_path = parsed.path
-    ext = ".yaml" if url_path.endswith((".yaml", ".yml")) else ".json"
-
-    # Write to a temp file preserving directory structure for relative refs.
-    # Include the hostname so sibling refs within fetched files resolve correctly
-    # and different hosts don't collide.
-    host = parsed.netloc
-    safe_name = os.path.join(host, url_path.strip("/").replace("/", os.sep))
-    cache_path = _URL_CACHE_DIR / safe_name
     cache_path.parent.mkdir(parents=True, exist_ok=True)
+    previous = cache_path.read_bytes() if cache_path.exists() else None
     cache_path.write_bytes(data)
+    digest = hashlib.sha256(data).hexdigest()
+    if previous is not None and previous != data:
+        print(f"  CHANGED upstream: {url}", file=sys.stderr)
+    global _LOCK_DIRTY
+    _URL_LOCK[url] = {"sha256": digest, "bytes": len(data)}
+    _LOCK_DIRTY = True
 
     _URL_CACHE[url] = cache_path
 
-    # Register the URL base so relative refs within fetched files can be
-    # converted back to URLs.  E.g. for
-    #   https://example.github.io/repo/_sources/foo/schema.yaml
-    # we record cache_prefix = "example.github.io/repo" -> url_prefix = "https://example.github.io/repo"
-    # so that a relative "../bar/schema.yaml" resolving inside the cache tree
-    # can be mapped back to "https://example.github.io/repo/_sources/bar/schema.yaml".
-    parts = url_path.strip("/").split("/")
-    if len(parts) >= 2:
-        # Use host + first path segment as the base (covers github.io/repo patterns)
-        host = parsed.netloc
+    _register_url_base(cache_path, parsed, url_path, host)
+    return cache_path
+
+
+def _register_url_base(cache_path, parsed, url_path, host) -> None:
+    """Register the URL base so relative refs within fetched files can be converted back to URLs.
+
+    E.g. for https://example.github.io/repo/_sources/foo/schema.yaml we record
+    cache_prefix "example.github.io/repo" -> url_prefix "https://example.github.io/repo", so a
+    relative "../bar/schema.yaml" resolving inside the cache tree maps back to
+    "https://example.github.io/repo/_sources/bar/schema.yaml".
+
+    Factored out of _fetch_url_schema so the PINNED path (cache hit, no network) registers the
+    base too -- without it a vendored file's relative refs would not resolve, which is the whole
+    point of keeping the host/path layout.
+    """
+    if len(url_path.strip("/").split("/")) >= 2:
         cache_prefix = str(_URL_CACHE_DIR / host)
         url_prefix = f"{parsed.scheme}://{host}"
         if cache_prefix not in _URL_BASE_REGISTRY:
             _URL_BASE_REGISTRY[cache_prefix] = url_prefix
-
-    return cache_path
 
 
 def _fetch_relative_in_cache(file_path: Path) -> Path | None:
@@ -1444,7 +1511,18 @@ def main():
         action="store_true",
         help="(deprecated, ignored — structured form is now the only output mode)",
     )
+    parser.add_argument(
+        "--refresh-remote",
+        action="store_true",
+        help="fetch remote $refs from the network and re-pin them under vendor/remote. Without "
+             "this the vendored copies are used and a missing one is an error, so a build "
+             "cannot silently pick up an upstream change.",
+    )
     args = parser.parse_args()
+
+    global _ALLOW_FETCH
+    _ALLOW_FETCH = args.refresh_remote
+    _load_lock()
 
     if args.all:
         schemas = find_all_schemas_with_external_refs()
@@ -1454,6 +1532,7 @@ def main():
             out_path = resolve_and_write_structured(schema_path)
             print(f"  {rel} -> {out_path.name}", file=sys.stderr)
         print(f"Resolved {len(schemas)} schemas", file=sys.stderr)
+        _save_lock()
         return
 
     if not args.profile and not args.file:
@@ -1485,6 +1564,7 @@ def main():
     print(f"  $defs: {len(defs)} ({', '.join(sorted(defs.keys()))})",
           file=sys.stderr)
     print(f"  Size: {len(output_json):,} bytes", file=sys.stderr)
+    _save_lock()
 
 
 if __name__ == "__main__":

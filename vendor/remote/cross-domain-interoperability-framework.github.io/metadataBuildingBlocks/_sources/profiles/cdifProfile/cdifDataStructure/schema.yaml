@@ -1,0 +1,411 @@
+'$schema': 'https://json-schema.org/draft/2020-12/schema'
+title: DDI-CDI Data Structure
+description: >-
+  Adds data-structure description to a CDIF metadata record. Defines the
+  cdi:DataStructure family of types ($defs DataStructure /
+  DimensionalDataStructure / LongDataStructure / WideDataStructure, plus the
+  supporting Component / Key / RepresentedVariable types). A distribution
+  attaches a structure via cdi:isStructuredBy on its schema:DataDownload
+  item; the structure value is any of the four DataStructure variants.
+  Metadata records must declare conformance to cdif/data_structure/1.0.
+type: object
+# Dispatch on the root @type:
+#   - root is one of the DataStructure variants  -> validate a STANDALONE
+#     data-structure object (the inline definition is the document).
+#   - otherwise (a schema:Dataset)               -> validate a DATASET that
+#     declares data_structure conformance and carries the structure on a
+#     distribution via cdi:isStructuredBy (inline OR an @id reference).
+# (When this block is composed into a dataset profile via allOf, the cdifCore /
+# cdifDiscovery branches force a schema:Dataset root, so only the dataset case
+# is reachable there.)
+if:
+  required:
+  - '@type'
+  properties:
+    '@type':
+      type: array
+      contains:
+        enum:
+        - 'cdi:DataStructure'
+        - 'cdi:DimensionalDataStructure'
+        - 'cdi:LongDataStructure'
+        - 'cdi:WideDataStructure'
+then:
+  description: Standalone data-structure object (one of the four variants).
+  anyOf:
+  - '$ref': '#/$defs/DataStructure'
+  - '$ref': '#/$defs/DimensionalDataStructure'
+  - '$ref': '#/$defs/LongDataStructure'
+  - '$ref': '#/$defs/WideDataStructure'
+else:
+  description: >-
+    A CDIF dataset described by a data structure. Must declare conformance to
+    data_structure/1.1 and attach the structure to a distribution.
+  required:
+  - 'schema:subjectOf'
+  properties:
+    'schema:subjectOf':
+      required:
+      - 'dcterms:conformsTo'
+      properties:
+        'dcterms:conformsTo':
+          contains:
+            type: object
+            required: ['@id']
+            additionalProperties: false
+            properties:
+              '@id':
+                const: 'https://w3id.org/cdif/data_structure/1.1'
+    'schema:distribution':
+      type: array
+      items:
+        type: object
+        properties:
+          'cdi:isStructuredBy':
+            description: >-
+              Reusable data-structure description for this distribution. One of
+              the four DataStructure variants (DataStructure, Dimensional,
+              Long, Wide) as an inline definition, or an @id reference to one
+              declared elsewhere in the document or published at a resolvable
+              URI. (A profile may further require the inline form via SHACL.)
+            anyOf:
+            - '$ref': '#/$defs/DataStructure'
+            - '$ref': '#/$defs/DimensionalDataStructure'
+            - '$ref': '#/$defs/LongDataStructure'
+            - '$ref': '#/$defs/WideDataStructure'
+            - '$ref': '../../../cdifDataType/objectReference/schema.yaml'
+'$defs':
+  DataStructure:
+    type: object
+    description: Data organization based on reusable data structure components.
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          const: 'cdi:DataStructure'
+        minItems: 1
+      '@id':
+        type: string
+        description: Identifier for this DataStructure node
+      'cdi:has_ForeignKey':
+        type: array
+        items:
+          anyOf:
+          - '$ref': '#/$defs/ForeignKey'
+          - '$ref': '../../../cdifDataType/objectReference/schema.yaml'
+        minItems: 1
+      'cdi:has_DataStructureComponent':
+        type: array
+        items:
+          anyOf:
+          - '$ref': ../../../cdifDataType/cdifDataStructureComponent/schema.yaml
+          - '$ref': '../../../cdifDataType/objectReference/schema.yaml'
+        minItems: 1
+      'cdi:has_PrimaryKey':
+        '$ref': '#/$defs/PrimaryKey'
+    required:
+    - '@type'
+    # The generic base only. A structure has to say something about the data
+    # beyond existing, but enumerating components is not the only way to do
+    # that: cdif:ForeignKey and cdif:PrimaryKey compose variables through
+    # cdi:ComponentPosition wrappers and never mention a DataStructureComponent,
+    # so a structure whose content is a key is complete without one.
+    #
+    # The three specialisations below keep the stricter rule. Dimensional, Long
+    # and Wide each name a data LAYOUT, and a layout that lists no components
+    # describes nothing -- there the requirement is doing real work.
+    anyOf:
+    - required: ['cdi:has_DataStructureComponent']
+    - required: ['cdi:has_ForeignKey']
+    - required: ['cdi:has_PrimaryKey']
+  DimensionalDataStructure:
+    type: object
+    description: >-
+      Structure of a dimensional data set (organized collection of multidimensional data).
+      It is described by dimension, measure and attribute components.
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          const: 'cdi:DimensionalDataStructure'
+        minItems: 1
+      '@id':
+        type: string
+        description: Identifier for this DimensionalDataStructure node
+      'cdi:has_DataStructureComponent':
+        type: array
+        items:
+          anyOf:
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/IdentifierComponent'
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/MeasureComponent'
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/AttributeComponent'
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/DimensionComponent'
+        minItems: 1
+      'cdi:has_PrimaryKey':
+        '$ref': '#/$defs/PrimaryKey'
+      'cdi:has_ForeignKey':
+        type: array
+        items:
+          anyOf:
+          - '$ref': '#/$defs/ForeignKey'
+          - '$ref': '../../../cdifDataType/objectReference/schema.yaml'
+        minItems: 1
+    required:
+    - '@type'
+    - 'cdi:has_DataStructureComponent'
+  LongDataStructure:
+    type: object
+    description: >-
+      Structure of a long dataset (organized collection of long data). It is described by
+      identifier, measure, attribute, variable descriptor and variable value components.
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          const: 'cdi:LongDataStructure'
+        minItems: 1
+      '@id':
+        type: string
+        description: Identifier for this LongDataStructure node
+      'cdi:has_DataStructureComponent':
+        type: array
+        description: >-
+          A LongDataStructure must include exactly one IdentifierComponent,
+          exactly one VariableDescriptorComponent, exactly one VariableValueComponent,
+          plus zero or more AttributeComponents.
+        items:
+          anyOf:
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/IdentifierComponent'
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/VariableDescriptorComponent'
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/VariableValueComponent'
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/AttributeComponent'
+        allOf:
+        - contains:
+            $ref: '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/IdentifierComponent'
+          minContains: 1
+          maxContains: 1
+        - contains:
+            $ref: '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/VariableDescriptorComponent'
+          minContains: 1
+          maxContains: 1
+        - contains:
+            $ref: '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/VariableValueComponent'
+          minContains: 1
+          maxContains: 1
+        minItems: 3
+      'cdi:has_PrimaryKey':
+        '$ref': '#/$defs/PrimaryKey'
+    required:
+    - '@type'
+    - 'cdi:has_DataStructureComponent'
+  WideDataStructure:
+    type: object
+    description: >-
+      Structure of a wide dataset (organized collection of wide data). It is described by
+      identifier, measure and attribute components.
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          const: 'cdi:WideDataStructure'
+        minItems: 1
+      '@id':
+        type: string
+        description: Identifier for this WideDataStructure node
+      'cdi:has_DataStructureComponent':
+        type: array
+        items:
+          anyOf:
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/IdentifierComponent'
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/MeasureComponent'
+          - '$ref': '../../../cdifDataType/cdifDataStructureComponent/schema.yaml#/$defs/AttributeComponent'
+          - '$ref': '../../../cdifDataType/objectReference/schema.yaml'
+        minItems: 1
+      'cdi:has_PrimaryKey':
+        '$ref': '#/$defs/PrimaryKey'
+      'cdi:has_ForeignKey':
+        type: array
+        items:
+          anyOf:
+          - '$ref': '#/$defs/ForeignKey'
+          - '$ref': '../../../cdifDataType/objectReference/schema.yaml'
+        minItems: 1
+    required:
+    - '@type'
+    - 'cdi:has_DataStructureComponent'
+  DimensionGroup:
+    type: object
+    description: >-
+      Collection of dimensions that can be reused across multiple dimensional structures.
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          const: 'cdi:DimensionGroup'
+        minItems: 1
+      '@id':
+        type: string
+        description: Identifier for this DimensionGroup node
+      'cdi:identifier':
+        '$ref': '../../../schemaorgProperties/identifier/schema.yaml'
+        description: >-
+          Identifier for objects requiring short- or long-lasting referencing and management.
+      'cdif:name':
+        type: array
+        items:
+          type: string
+        minItems: 1
+        description: >-
+          Human understandable name (liguistic signifier, word, phrase, or mnemonic). May
+          follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage.
+      'cdif:has_DataStructureComponent':
+        type: array
+        items:
+          anyOf:
+          - '$ref': ../../../cdifDataType/cdifDataStructureComponent/schema.yaml
+          - '$ref': '../../../cdifDataType/objectReference/schema.yaml'
+        minItems: 1
+    required:
+    - '@type'
+  ForeignKey:
+    type: object
+    description: >-
+      A set of variables whose values reference a primary key elsewhere.
+      cdif:, not cdi:, throughout: this is a CDIF simplification, not the
+      DDI-CDI shape. DDI-CDI composes a foreign key from cdi:ForeignKeyComponent
+      nodes, each with cdi:correspondsTo and cdi:references; this form composes
+      the variables directly, each carrying cdif:position. The prefix is what
+      makes that divergence visible, and it matches the sibling cdif:PrimaryKey.
+      Until 2026-09-05 the definition required 'cdif:isComposedOf' while
+      declaring 'cdi:isComposedOf', so it could only be satisfied by an
+      undeclared and therefore unconstrained property.
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          const: 'cdif:ForeignKey'
+        minItems: 1
+      '@id':
+        type: string
+        description: Identifier for this ForeignKey node
+      'cdif:isComposedOf':
+        type: array
+        minItems: 1
+        description: >-
+          Ordered list of cdi:ComponentPosition wrappers, one per key component,
+          matching the sibling cdif:PrimaryKey. The position sits on the wrapper
+          rather than on the variable, and that is load-bearing: an earlier form
+          required cdif:position on the item itself, which made the
+          objectReference branch unsatisfiable, because objectReference is
+          sealed with additionalProperties false. A key could then only be
+          written by inlining whole variables, duplicating what
+          schema:variableMeasured already holds.
+        items:
+          type: object
+          description: >-
+            cdi:ComponentPosition wrapper indexing one variable's position in
+            the key.
+          properties:
+            '@type':
+              type: array
+              items:
+                type: string
+              contains:
+                const: 'cdi:ComponentPosition'
+              minItems: 1
+            '@id':
+              type: string
+              description: Identifier for this ComponentPosition node.
+            'cdi:indexes':
+              description: >-
+                The variable this position indexes, usually an @id-reference to
+                one declared in schema:variableMeasured. An InstanceVariable is
+                accepted alongside a RepresentedVariable because it is a
+                subclass of one, and CDIF records describe instance variables --
+                requiring a RepresentedVariable would leave the records that
+                actually need a key unable to write one.
+              anyOf:
+                - $ref: '../../../cdifDataType/objectReference/schema.yaml'
+                - $ref: '../../../cdifDataType/cdifInstanceVariable/schema.yaml'
+                - $ref: '../../../cdifDataType/cdifRepresentedVariable/schema.yaml'
+            'cdi:value':
+              type: integer
+              minimum: 1
+              description: 1-based position of this variable in the ordered key.
+          required:
+            - '@type'
+      'cdif:references':
+        description: references a primary key in a different dataset
+        '$ref': '../../../cdifDataType/objectReference/schema.yaml'
+    required:
+    - '@type'
+    - 'cdif:isComposedOf'
+  PrimaryKey:
+    type: object
+    description: >-
+      set of Variables that uniquely identify a data instance, expressed as an
+      ordered list of cdi:ComponentPosition wrappers (unified with cdifKey's
+      cdi:ComponentPosition model).
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          const: 'cdif:PrimaryKey'
+        minItems: 1
+      '@id':
+        type: string
+        description: Identifier for this PrimaryKey node
+      'cdif:isComposedOf':
+        type: array
+        minItems: 1
+        description: >-
+          Ordered list of cdi:ComponentPosition wrappers, one per key component.
+          Each wrapper indexes one representedVariable (cdi:indexes) at its
+          cdi:value position in the key.
+        items:
+          type: object
+          description: >-
+            cdi:ComponentPosition wrapper indexing one variable's position in the key.
+          properties:
+            '@type':
+              type: array
+              items:
+                type: string
+              contains:
+                const: 'cdi:ComponentPosition'
+              minItems: 1
+            '@id':
+              type: string
+              description: Identifier for this ComponentPosition node.
+            'cdi:indexes':
+              description: >-
+                The representedVariable this position indexes — an @id-reference
+                to a variable declared elsewhere in the dataStructure.
+              $ref: '../../../cdifDataType/objectReference/schema.yaml'
+            'cdi:value':
+              type: integer
+              minimum: 1
+              description: 1-based position of this variable in the ordered key.
+          required:
+            - '@type'
+            - 'cdi:indexes'
+            - 'cdi:value'
+    required:
+    - '@type'
+    - 'cdif:isComposedOf'
+
+
