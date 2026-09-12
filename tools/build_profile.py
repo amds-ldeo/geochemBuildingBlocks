@@ -105,12 +105,58 @@ PROFILES = {
     "solutionMcicpmsTAPP": dict(dir="Solution-MC-ICPMS", short="SOLUTIONMCICPMS", cid="adaSolutionMCICPMS",
         addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA Solution MC-ICP-MS Product Profile"),
+
+    # --- TEMPLATES: the thirteen techniques with no product-type labels anywhere -------------
+    # Every draft needs a PROFILES entry to get a geochem profile (geochemProduct + the technique
+    # tapp + its detail). Thirty of the forty-three already have labels to harvest -- in
+    # generate_profiles.PROFILES, or baked into a profile-ada/schema.yaml on disk. These thirteen
+    # have neither, and `addtype` is a curation decision about what a technique's PRODUCTS are
+    # called, not something derivable from the TAPP. So it is left EMPTY on purpose: build() skips
+    # a template rather than emitting `contains: {enum: []}`, which matches nothing.
+    #
+    # dir/short/cid/title follow the conventions above. The raw material for each addtype is on the
+    # comment line: the technique's own declared full name, then its component_types, which say
+    # what product kinds exist. Compare the shape already in use, e.g. XRD:
+    #     ["X-ray Diffraction (XRD) Tabular", "X-ray diffraction"]
+    "capdTAPP": dict(dir="CAPD", short="CAPD", cid="adaCAPD", addtype=["Capacitance Dilatometry (CAPD)"],
+        title="ADA Capacitance Dilatometry Product Profile"),                    # Capacitance Dilatometry | CAPDRawTabular
+    "cpdTAPP": dict(dir="CPD", short="CPD", cid="adaCPD", addtype=["Curation Photo-Documentation (CPD)"],
+        title="ADA Curation Photo-Documentation Product Profile"),                     # Curation Photo-Documentation | CPDImage
+    "dssmTAPP": dict(dir="DSSM", short="DSSM", cid="adaDSSM", addtype=["Direct Shear Strength Measurement (DSSM)"],
+        title="ADA Direct Shear Strength Product Profile"),                    # Direct Shear Strength Measurement | DSSMTabular, UCSTabular
+    "finesseTAPP": dict(dir="FINESSE", short="FINESSE", cid="adaFINESSE", addtype=["Elemental Analyzer Stepped Heating C N Isotope (FINESSE)"],
+        title="ADA FINESSE Product Profile"),                 # Stepped Heating Carbon and Nitrogen Isotopic Compositions | FINESSECollection, FINESSETabular
+    "gcCIrmsTAPP": dict(dir="GC-C-IRMS", short="GCCIRMS", cid="adaGCCIRMS",
+                        addtype=["Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry (GCCIRMS)",
+                                 "Combustion gas chromatography isotopic ratio mass spectrometry",
+                                 "C-GC-IR-MS"],
+        title="ADA GC-C-IRMS Product Profile"),               # Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry | GCCIRMSDataCollection, GCCIRMSOrbitrapCollection, GCCIRMSTabularIsotopicValues
+    "icMsTAPP": dict(dir="IC-MS", short="ICMS", cid="adaICMS", addtype=["Ion Chromatography-Mass Spectrometry (ICMS)",
+                                                                        "Liquid chromatography mass spectrometry"],
+        title="ADA Ion Chromatography-Mass Spectrometry Product Profile"),                   # Ion Chromatography-Mass Spectrometry | ICMSCollection
+    "niMiTAPP": dict(dir="NI-MI", short="NIMI", cid="adaNIMI", addtype=["Nanoindentation and microindentation (NI-MI)"],
+        title="ADA NI-MI Product Profile"),                   # Nanoindentation and Microindentation | NIMICollection
+    "pcdAfmTAPP": dict(dir="PCD-AFM", short="PCDAFM", cid="adaPCDAFM", addtype=["Particle cohesion determination with AFM (PCDAFM)"],
+        title="ADA PCD-AFM Product Profile"),                 # Particle cohesion determination with AFM | PCDAFMCollection
+    "sXrfTAPP": dict(dir="S-XRF", short="SXRF", cid="adaSXRF",
+                     addtype=["Synchrotron-based X-ray Fluorescence Spectroscopy (S-XRF)",
+                              "Synchroton X-ray fluorescence spectrometry",
+                              "Synchotron X-Ray Fluorescence Analysis","SYNCHXRF"],
+        title="ADA S-XRF Product Profile"),                   # Synchrotron-based X-ray Fluorescence Spectroscopy | SXRF2DImage, SXRFPointTabular
+    "semClTAPP": dict(dir="SEM-CL", short="SEMCL", cid="adaSEMCL", addtype=["SEM Cathodoluminescence Spectroscopy (SEMCL)"],
+        title="ADA SEM-CL Product Profile"),                  # SEM Cathodoluminescence Spectroscopy | SEMHRCLTabular, SEMHRCLCube
+    "sthmAfmTAPP": dict(dir="STHM-AFM", short="STHMAFM", cid="adaSTHMAFM", addtype=["Scanning Thermal Microscopy with AFM (STHMAFM)"],
+        title="ADA STHM-AFM Product Profile"),                # Scanning Thermal Microscopy with AFM | SThMCollection
+    "tdmTAPP": dict(dir="TDM", short="TDM", cid="adaTDM", addtype=["Temperature-Dependent Magnetization (TDM)"],
+        title="ADA TDM Product Profile"),                     # Temperature-Dependent Magnetization | TDMRawTabular
+    "timsTAPP": dict(dir="TIMS", short="TIMS", cid="adaTIMS", addtype=["Thermal ionization mass spectrometry (TIMS)"],
+        title="ADA TIMS Product Profile"),                    # Thermal ionization mass spectrometry | TIMSProcessedTabular, TIMSRawCollection
 }
 
 CID_BASE = "https://w3id.org/geochem/metadata/profiles/"
 
 
-def _schema(tapp, cfg, component_types):
+def _schema(tapp, cfg):
     return {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "title": cfg["title"],
@@ -140,24 +186,21 @@ def _schema(tapp, cfg, component_types):
                 "schema:additionalType": {
                     "description": f"Must include a {cfg['short']} product type identifier.",
                     "contains": {"enum": cfg["addtype"]}},
-                "schema:distribution": {
-                    "description": (f"Each distribution item is EITHER a monolithic single-file dataset whose "
-                                    f"ada:componentType is a {cfg['short']}-specific or universal value (and may "
-                                    f"carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each "
-                                    f"carry such a componentType (the ADA/SAMIS archive form)."),
-                    "type": "array",
-                    "items": {"anyOf": [
-                        # monolithic: the single file IS the dataset -> componentType on the distribution item
-                        {"type": "object", "required": ["ada:componentType"],
-                         "properties": {"ada:componentType": {"type": "string", "anyOf": [
-                             {"$ref": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType"},
-                             {"enum": component_types}]}}},
-                        # bundle: componentType on each hasPart member
-                        {"type": "object", "required": ["schema:hasPart"],
-                         "properties": {"schema:hasPart": {"items": {"type": "object", "anyOf": [
-                             {"$ref": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch"},
-                             {"properties": {"ada:componentType": {"type": "string", "enum": component_types}},
-                              "required": ["ada:componentType"]}]}}}}]}},
+                # NO schema:distribution / ada:componentType constraint here. componentType is a
+                # controlled VOCABULARY referenced by annotation (schema:inDefinedTermSet ->
+                # ada:vocab/componentType), deliberately not a hard JSON-Schema enum -- adaProduct
+                # says so in as many words ("conformance is advisory ... not hard-enumerated in
+                # JSON Schema"), and check_componentType.py exists precisely to enforce it outside
+                # JSON Schema. Emitting `required: [ada:componentType]` plus an enum here
+                # contradicted both, and made every geochem technique profile demand an ADA-specific
+                # property -- wrong for the general drafts, which carry geochemProduct + tapp +
+                # detail and should not require an ADA file classification.
+                #
+                # Dropped whole rather than enum-only: without the enums the monolithic branch
+                # degenerates to {"type": "object"}, which matches everything, so the anyOf becomes
+                # vacuously true. A clause that constrains nothing while looking like enforcement is
+                # worse than no clause -- the same trap an unresolvable $ref sets when it resolves
+                # to {}.
                 "schema:subjectOf": {"properties": {"dcterms:conformsTo": {"contains": {
                     "type": "object", "properties": {"@id": {"const": CID_BASE + cfg["cid"]}}}}}},
             }},
@@ -337,7 +380,13 @@ def _example_monolithic(ex, cfg, component_types):
         comp = {"@type": ["cdi:MeasureComponent" if i == 0 else "cdi:DimensionComponent"],
                 "cdif:name": [v.get("schema:name", f"component_{i}")]}  # cdif:name is array-valued
         if v.get("@id"):
-            comp["cdif:isDefinedBy_RepresentedVariable"] = {"@id": v["@id"]}
+            # cdif:isDefinedBy_Variable, NOT _RepresentedVariable: upstream CDIF renamed it on
+            # data structure components (which these are) because the old name implied only the
+            # superclass was allowed, while an InstanceVariable satisfies it too. The same-named
+            # property on cdifInstanceVariable was deliberately NOT renamed and means something
+            # narrower, so this is not a global search-and-replace. It is `required` on every
+            # component, so the old name fails validation outright.
+            comp["cdif:isDefinedBy_Variable"] = {"@id": v["@id"]}
         comps.append(comp)
     if not comps:
         comps = [{"@type": ["cdi:MeasureComponent"], "cdif:name": ["measurement_value"]}]
@@ -460,10 +509,19 @@ def _retarget_instrument(ex, tokens):
 
 def build(tapp):
     cfg = PROFILES[tapp]
+    if not cfg.get("addtype"):
+        # A TEMPLATE entry: everything derivable is filled in, but the product-type labels are a
+        # curation decision and have not been made. Refuse rather than emit, because an empty
+        # addtype becomes `contains: {enum: []}` -- a clause that matches NOTHING, so every example
+        # for the technique would fail against a profile that looks complete. Skipping is not a
+        # failure: the entry is deliberately unfinished and says so.
+        print(f"SKIP {tapp} -> template: addtype not authored "
+              f"(product-type labels for {cfg.get('short', tapp)})")
+        return 0
     cts = b.TAPP_CONFIGS[tapp]["component_types"]
     d = _profile_dir(tapp)
     os.makedirs(d, exist_ok=True)
-    schema = _schema(tapp, cfg, cts)
+    schema = _schema(tapp, cfg)
     b.write(os.path.join(d, "schema.yaml"), b.dump_yaml(schema))
     ex = _example(tapp, cfg, cts)
     _wj(os.path.join(d, "example" + cfg["cid"] + ".json"), ex)
