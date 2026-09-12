@@ -170,6 +170,54 @@ ALIASES = {
     # half already existed as its own field, `EELS Energy Resolution` (ZLP FWHM). Same
     # Advanced/Basic tiers, same `channel` keying.
     "EELS Sensitivity and Detection Limit": "EELS Detection Limit",
+
+    # --- 2026-09-01 delivery (amds-ldeo/tapp @ aafd6d3): Analyte -> Target Species ---
+    #
+    # Ruolin renamed the TAPP field and the Rule 7 key together, deliberately, so the two
+    # could not drift apart. The KEY half needs nothing here: migrate() refreshes Key by from
+    # the new source, so `analyte` -> `target species` arrives on its own. The FIELD half does
+    # need these, because build_rename_map cannot see a rename this unmechanical -- without
+    # them the old items look deleted and their authored paths are discarded, which is the
+    # outcome this table exists to prevent. EPMA alone reported three such drops.
+    #
+    # Each confirmed against the new tables' own Description column, which carries the old
+    # wording with the term substituted and nothing else changed.
+    "Analyte": "Target Species",
+    "Analyte Estimation Method": "Target Species Estimation Method",
+    "Per-Analyte Calibration Strategy": "Calibration Strategy per Target Species",
+    "Technique per Analyte": "Technique per Target Species",
+    "EPMA Technique per Analyte": "EPMA Technique per Target Species",
+}
+
+# Items that DROP in the 2026-09 deliveries and are deliberately not aliased. Recorded
+# because a drop looks like an oversight, and the next migration would otherwise re-open
+# each one. The bar this table sets is that the new row describes the SAME THING; these
+# three do not clear it, so their rows arrive flagged for a human to place, which costs
+# 11 authored paths and is the cheaper mistake.
+#
+#   Detector Configuration            LA-MC-ICPMS pair. Genuinely removed, not renamed:
+#                                     it moved into the new Module_SingleCollector, which
+#                                     a multi-collector TAPP does not compose, and no row
+#                                     matching /Detector/ remains in either table.
+#
+#   Multi-Run Sequential Analysis     One-to-many, so no single successor can inherit the
+#   Design                            path. Replaced by three fields with different
+#                                     shapes: `Acquisition Pass` (definer, Text),
+#                                     `Number of Acquisition Passes` (Integer, (none))
+#                                     and `Inter-Pass Data Dependency` (keyed by the
+#                                     pass). Aliasing to any one would assert a
+#                                     correspondence the delivery does not make.
+#
+#   Number of Digestion Steps         Same subject, different quantity. The old field was
+#                                     a COUNT (Integer, scalar); `Digestion Step` is an
+#                                     ENUMERATION (Text, `defines: preparation step`).
+#                                     Carrying a scalar's authored path onto a definer
+#                                     would mis-shape it silently, and no route exists for
+#                                     `defines: preparation step` to correct it.
+NOT_ALIASED = {
+    "Detector Configuration",
+    "Multi-Run Sequential Analysis Design",
+    "Number of Digestion Steps",
 }
 
 
