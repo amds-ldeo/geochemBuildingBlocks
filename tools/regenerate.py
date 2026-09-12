@@ -32,6 +32,7 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b  # noqa: E402
+import build_profile as bprof  # noqa: E402  — PROFILES, for the profile-stage filter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOOLS = os.path.join(ROOT, "tools")
@@ -107,7 +108,24 @@ def main():
             script = {"tapp": "build_tapp.py", "pathdriven": "build_pathdriven.py",
                       "profile-1": "build_profile.py", "profile-2": "build_profile.py",
                       "examples": "build_tapp_examples.py"}[stage]
-            for t in tapps:
+            todo = tapps
+            if stage in ("profile-1", "profile-2"):
+                # Only the released TAPPs have a profile; the drafts carry tapp/ and detail/ only.
+                # Unfiltered, build_profile raises KeyError: PROFILES[tapp] for every draft — 43
+                # tracebacks on a full run that all mean "this technique has no profile", which is
+                # the correct state. The cost is not the noise: a REAL profile failure on one of
+                # the sixteen prints the same FAILED line in the same wall of text, so the signal
+                # the FAILURES list is supposed to carry is buried in expected output.
+                #
+                # The test is PROFILES membership, not whether profile/ exists on disk:
+                # build_profile CREATES that directory (os.makedirs, build_profile.py:465), so a
+                # directory test would skip a newly configured profile on the one run that was
+                # meant to create it, and every run after.
+                todo = [t for t in tapps if t in bprof.PROFILES]
+                if len(todo) != len(tapps):
+                    print(f"      {len(tapps) - len(todo)} technique(s) skipped — no profile "
+                          f"configured in build_profile.PROFILES", flush=True)
+            for t in todo:
                 if run(["", os.path.join(TOOLS, script), t], a.dry_run):
                     fail.append((stage, t))
         print(f"      {time.time() - t0:.0f}s\n" if not a.dry_run else "", flush=True)
