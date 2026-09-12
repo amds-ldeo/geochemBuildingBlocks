@@ -264,6 +264,34 @@ def keyed_path(row):
                    f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}']"
                    f".schema:additionalProperty[schema:name='{it}'].schema:value"],
     }
+
+    # The Rule 7 key vocabulary was renamed twice under these routes, and because an
+    # unrouted key returns None rather than raising, both renames broke routing SILENTLY:
+    #
+    #   2026-09-01  analyte -> target species       (tapp aafd6d3)
+    #   2026-09-10  channel -> monitored property   (tapp f95ce2f..9ef18c2)
+    #
+    # By 6f29b4c three of the eight routes above matched nothing in the sixteen current
+    # tables -- `analyte`, `defines: analyte`, `channel` -- while 181 rows carrying their
+    # replacements fell through to generic inference. That is the drift the `channel`
+    # route was added to stop, recurring on the same route under a new name.
+    #
+    # The new keys ALIAS the old routes rather than restating their paths, so this is
+    # behaviour-preserving by construction -- the same schema paths, reached by the new
+    # key names -- and the ada: property renames of the Analyte -> Target Species work
+    # flow through here on their own instead of needing a second edit that could be
+    # missed.
+    #
+    # Note the property names still say `analyte` and `channel` while the keys reaching
+    # them no longer do. Whether ada:analyteTemplate becomes ada:targetSpeciesTemplate,
+    # and whether `monitored property` earns its own family rather than borrowing
+    # ada:channelTemplate, are open questions with Ruolin -- A1 and section 6 of
+    # docs/TAPP-2026-09-11-migration-plan.md in the metadata repo. Aliasing keeps this
+    # step from prejudging either.
+    routes["target species"] = routes["analyte"]
+    routes["defines: target species"] = routes["defines: analyte"]
+    routes["monitored property"] = routes["channel"]
+
     p = routes.get(kb)
     return (p, "keyed:" + kb.replace(" ", "-")) if p else None
 
