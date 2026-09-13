@@ -20,6 +20,11 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
@@ -31,12 +36,7 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2)." ;
@@ -239,6 +239,8 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "PerkinElmer -- \"a Perkin-Elmer Elan DRC II instrument\"" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "PerkinElmer Elan DRC II (stated section 2 and Table 1)" ] ;
     schema1:name "example instrumentName" .

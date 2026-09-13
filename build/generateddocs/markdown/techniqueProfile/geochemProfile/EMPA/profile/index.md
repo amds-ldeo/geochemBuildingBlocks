@@ -1237,6 +1237,7 @@ allOf:
         enum:
         - Electron Microprobe Analysis (EMPA)
         - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
+        - Electron microprobe analysis
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

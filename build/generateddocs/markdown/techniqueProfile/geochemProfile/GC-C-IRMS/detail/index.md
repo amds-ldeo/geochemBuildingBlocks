@@ -7,6 +7,95 @@ Detail block for GC-C-IRMS hasPart items, carrying the analysis-identification p
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Agilent7890
+detail instance derived from ADA n=9 | no named analyst | Hokkaido University | Agilent 7890B with Thermo Delta V GC-C-IRMS instrument.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Agilent7890",
+  "@type": [
+    "ada:GCCIRMSDataCollection"
+  ],
+  "ada:componentType": "ada:GCCIRMSDataCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:gcCIrmsTAPP-Agilent7890",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250219_GC-C-IRMS_PSU_OREX-800107-183_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-10-24",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800107-183",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/GC-C-IRMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Agilent7890",
+  "@type": [
+    "ada:GCCIRMSDataCollection"
+  ],
+  "ada:componentType": "ada:GCCIRMSDataCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:gcCIrmsTAPP-Agilent7890",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250219_GC-C-IRMS_PSU_OREX-800107-183_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-10-24",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800107-183",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-Agilent7890> a ada:GCCIRMSDataCollection ;
+    schema1:measurementTechnique <ex:gcCIrmsTAPP-Agilent7890> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-10-24" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:GCCIRMSDataCollection" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-800107-183" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20250219_GC-C-IRMS_PSU_OREX-800107-183_1" .
+
+<ex:gcCIrmsTAPP-Agilent7890> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

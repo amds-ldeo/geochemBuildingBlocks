@@ -7,6 +7,95 @@ Detail block for SEM-CL hasPart items, carrying the analysis-identification prop
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example JSM7000
+detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-JSM7000",
+  "@type": [
+    "ada:SEMHRCLTabular"
+  ],
+  "ada:componentType": "ada:SEMHRCLTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:semClTAPP-JSM7000",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2023-11-27",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800045-109",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-CL/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-JSM7000",
+  "@type": [
+    "ada:SEMHRCLTabular"
+  ],
+  "ada:componentType": "ada:SEMHRCLTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:semClTAPP-JSM7000",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2023-11-27",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800045-109",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-JSM7000> a ada:SEMHRCLTabular ;
+    schema1:measurementTechnique <ex:semClTAPP-JSM7000> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-27" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:SEMHRCLTabular" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-800045-109" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2" .
+
+<ex:semClTAPP-JSM7000> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

@@ -7,6 +7,95 @@ Detail block for S-XRF hasPart items, carrying the analysis-identification prope
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=325 | no named analyst | European Synchrotron Radiation Facility | Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering).
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:SXRF2DImage"
+  ],
+  "ada:componentType": "ada:SXRF2DImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:sXrfTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240117_S-XRF_ESRF_OREX-800045-101_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2023-12-11",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800045-101",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/S-XRF/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:SXRF2DImage"
+  ],
+  "ada:componentType": "ada:SXRF2DImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:sXrfTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240117_S-XRF_ESRF_OREX-800045-101_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2023-12-11",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800045-101",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:SXRF2DImage ;
+    schema1:measurementTechnique <ex:sXrfTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-12-11" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:SXRF2DImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-800045-101" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240117_S-XRF_ESRF_OREX-800045-101_1" .
+
+<ex:sXrfTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

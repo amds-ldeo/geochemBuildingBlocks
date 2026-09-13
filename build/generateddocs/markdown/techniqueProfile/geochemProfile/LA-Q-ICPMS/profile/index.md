@@ -37,7 +37,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:name": "ADA LA-Q-ICP-MS Example Product",
   "schema:description": "Example path-driven LAQICPMS product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
-    "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed",
+    "Laser Ablation Inductively coupled plasma mass spectrometry",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -547,7 +547,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:name": "ADA LA-Q-ICP-MS Example Product",
   "schema:description": "Example path-driven LAQICPMS product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
-    "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed",
+    "Laser Ablation Inductively coupled plasma mass spectrometry",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -1038,7 +1038,7 @@ and technique component types on the archive distribution. Mock data for validat
 
 ex:adaLAQICPMS-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed",
+    schema1:additionalType "Laser Ablation Inductively coupled plasma mass spectrometry",
         "ada:DataDeliveryPackage" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
@@ -1109,10 +1109,10 @@ ex:adaLAQICPMS-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "example oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1278,6 +1278,7 @@ allOf:
       description: Must include a LAQICPMS product type identifier.
       contains:
         enum:
+        - Laser Ablation Inductively coupled plasma mass spectrometry
         - Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS)
           Processed
         - Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry

@@ -7,6 +7,95 @@ Detail block for CPD hasPart items, carrying the analysis-identification propert
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Center | (JSC) Nikon Nikor S Camera.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:CPDImage"
+  ],
+  "ada:componentType": "ada:CPDImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:cpdTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231016_CPD_JSC-ARES_OREX-580001-0_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2023-09-24",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-108001-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/CPD/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:CPDImage"
+  ],
+  "ada:componentType": "ada:CPDImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:cpdTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231016_CPD_JSC-ARES_OREX-580001-0_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2023-09-24",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-108001-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:CPDImage ;
+    schema1:measurementTechnique <ex:cpdTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-09-24" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:CPDImage" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-108001-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20231016_CPD_JSC-ARES_OREX-580001-0_1" .
+
+<ex:cpdTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

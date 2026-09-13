@@ -15,11 +15,6 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -33,7 +28,12 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v82.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -131,6 +131,8 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Agilent" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 8800 (QQQ-ICP-MS)" ] ;
     schema1:name "example instrumentName" .

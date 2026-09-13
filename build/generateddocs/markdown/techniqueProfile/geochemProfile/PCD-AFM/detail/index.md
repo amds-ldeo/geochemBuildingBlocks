@@ -7,6 +7,95 @@ Detail block for PCD-AFM hasPart items, carrying the analysis-identification pro
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=10 | no named analyst | Arizona State University | Bruker MultiMode 8.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:PCDAFMCollection"
+  ],
+  "ada:componentType": "ada:PCDAFMCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:pcdAfmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241217_PCD-AFM_ASU_multiSample_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-10-30",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-803312-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/PCD-AFM/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:PCDAFMCollection"
+  ],
+  "ada:componentType": "ada:PCDAFMCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:pcdAfmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241217_PCD-AFM_ASU_multiSample_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-10-30",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-803312-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:PCDAFMCollection ;
+    schema1:measurementTechnique <ex:pcdAfmTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-10-30" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:PCDAFMCollection" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-803312-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20241217_PCD-AFM_ASU_multiSample_1" .
+
+<ex:pcdAfmTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

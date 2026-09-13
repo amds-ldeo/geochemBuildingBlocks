@@ -15,15 +15,15 @@ ex:empaTAPP-P14 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "N - attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ],
+                    schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "N - attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault>,
         <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "missing" ;
@@ -82,10 +82,10 @@ ex:empaTAPP-P14 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated" ;
     ada:stepSizePixelSizeDefault "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/channelColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;

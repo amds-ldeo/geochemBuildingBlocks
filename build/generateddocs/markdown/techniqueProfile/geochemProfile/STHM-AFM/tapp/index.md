@@ -7,6 +7,216 @@ Scanning Thermal Microscopy with AFM extension of the base TAPP definition. CORE
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### sthmAfmTAPP example P0
+sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:sthmAfmTAPP-P0",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "sthmAfm protocol — P0",
+  "schema:description": "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Unknown",
+  "ada:instrumentModel": "Park Systems NX10 AFM",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Scanning Thermal Microscopy with AFM"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "York University",
+    "schema:identifier": "https://ror.org/05fq50484"
+  },
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STHM-AFM/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:sthmAfmTAPP-P0",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "sthmAfm protocol \u2014 P0",
+  "schema:description": "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Unknown",
+  "ada:instrumentModel": "Park Systems NX10 AFM",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Scanning Thermal Microscopy with AFM"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "York University",
+    "schema:identifier": "https://ror.org/05fq50484"
+  },
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:sthmAfmTAPP-P0 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv)." ;
+    schema1:location [ a schema1:Place ;
+            schema1:identifier "https://ror.org/05fq50484" ;
+            schema1:name "York University" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Scanning Thermal Microscopy with AFM" ] ;
+    schema1:name "sthmAfm protocol — P0" ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:instrumentManufacturer "Unknown" ;
+    ada:instrumentModel "Park Systems NX10 AFM" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:targetMaterial "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

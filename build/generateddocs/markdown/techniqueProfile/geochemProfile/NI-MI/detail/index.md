@@ -7,6 +7,95 @@ Detail block for NI-MI hasPart items, carrying the analysis-identification prope
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=8 | no named analyst | Arizona State University | NI: Ultra Nanoindentation Tester (UNHT3) manufactured by Anton Paar.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:NIMICollection"
+  ],
+  "ada:componentType": "ada:NIMICollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:niMiTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240910_NI-MI_ASU_OREX-800055-9_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-08-15",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800055-9",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NI-MI/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:NIMICollection"
+  ],
+  "ada:componentType": "ada:NIMICollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:niMiTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240910_NI-MI_ASU_OREX-800055-9_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-08-15",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800055-9",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:NIMICollection ;
+    schema1:measurementTechnique <ex:niMiTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-08-15" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:NIMICollection" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-800055-9" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240910_NI-MI_ASU_OREX-800055-9_1" .
+
+<ex:niMiTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

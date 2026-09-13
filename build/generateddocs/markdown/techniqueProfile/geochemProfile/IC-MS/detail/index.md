@@ -7,6 +7,95 @@ Detail block for IC-MS hasPart items, carrying the analysis-identification prope
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=47 | no named analyst | Japan Agency for Marine-Earth Science and Technology | (JAMSTEC) Thermo Fisher QExactive with Dionex ICS-6000 HPIC.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:ICMSCollection"
+  ],
+  "ada:componentType": "ada:ICMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:icMsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250127_IC-MS_JAMSTEC_OREX-800023-100_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2025-01-27",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800023-100",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/IC-MS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:ICMSCollection"
+  ],
+  "ada:componentType": "ada:ICMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:icMsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250127_IC-MS_JAMSTEC_OREX-800023-100_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2025-01-27",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800023-100",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:ICMSCollection ;
+    schema1:measurementTechnique <ex:icMsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2025-01-27" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:ICMSCollection" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-800023-100" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20250127_IC-MS_JAMSTEC_OREX-800023-100_1" .
+
+<ex:icMsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

@@ -37,7 +37,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:name": "ADA LA-MC-ICP-MS Example Product",
   "schema:description": "Example path-driven LAMCICPMS product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
-    "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed",
+    "Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -551,7 +551,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:name": "ADA LA-MC-ICP-MS Example Product",
   "schema:description": "Example path-driven LAMCICPMS product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
-    "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed",
+    "Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -1046,7 +1046,7 @@ and technique component types on the archive distribution. Mock data for validat
 
 ex:adaLAMCICPMS-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed",
+    schema1:additionalType "Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
         "ada:DataDeliveryPackage" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
@@ -1288,8 +1288,9 @@ allOf:
       description: Must include a LAMCICPMS product type identifier.
       contains:
         enum:
-        - Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed
         - Multi-Collector Inductively Coupled Plasma Mass Spectrometry
+        - Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed
+        - Laser Ablation Inductively coupled plasma mass spectrometry
         - Laser Ablation Inductively Coupled Plasma Mass Spectrometry
     schema:subjectOf:
       properties:

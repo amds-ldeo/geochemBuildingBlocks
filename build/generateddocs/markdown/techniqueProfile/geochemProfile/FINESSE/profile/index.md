@@ -37,7 +37,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:name": "ADA FINESSE Example Product",
   "schema:description": "Example path-driven FINESSE product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
-    "Elemental Analyzer Stepped Heating C N Isotope (FINESSE)",
+    "Stepped Heating Carbon and Nitrogen Isotopic Compositions",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -175,6 +175,7 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:identifier": "session-ada-20260110-001",
       "schema:startDate": "2026-01-10T09:30:00",
+      "schema:endDate": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -287,7 +288,8 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:defaultValue": "missing"
     }
   ],
   "schema:distribution": [
@@ -477,7 +479,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:name": "ADA FINESSE Example Product",
   "schema:description": "Example path-driven FINESSE product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
-    "Elemental Analyzer Stepped Heating C N Isotope (FINESSE)",
+    "Stepped Heating Carbon and Nitrogen Isotopic Compositions",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -615,6 +617,7 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:identifier": "session-ada-20260110-001",
       "schema:startDate": "2026-01-10T09:30:00",
+      "schema:endDate": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -727,7 +730,8 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:defaultValue": "missing"
     }
   ],
   "schema:distribution": [
@@ -897,7 +901,7 @@ and technique component types on the archive distribution. Mock data for validat
 
 ex:adaFINESSE-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "Elemental Analyzer Stepped Heating C N Isotope (FINESSE)",
+    schema1:additionalType "Stepped Heating Carbon and Nitrogen Isotopic Compositions",
         "ada:DataDeliveryPackage" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
@@ -970,6 +974,7 @@ ex:adaFINESSE-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
+            schema1:endDate "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
@@ -1036,6 +1041,7 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
+    schema1:defaultValue "missing" ;
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing." ;
     schema1:name "Calibration Factor and Determination Method",
@@ -1119,6 +1125,7 @@ allOf:
       description: Must include a FINESSE product type identifier.
       contains:
         enum:
+        - Stepped Heating Carbon and Nitrogen Isotopic Compositions
         - Elemental Analyzer Stepped Heating C N Isotope (FINESSE)
     schema:subjectOf:
       properties:

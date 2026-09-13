@@ -37,7 +37,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:name": "ADA LA-SF-ICP-MS Example Product",
   "schema:description": "Example path-driven LASFICPMS product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
-    "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed",
+    "Laser Ablation Inductively coupled plasma mass spectrometry",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -547,7 +547,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:name": "ADA LA-SF-ICP-MS Example Product",
   "schema:description": "Example path-driven LASFICPMS product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
-    "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed",
+    "Laser Ablation Inductively coupled plasma mass spectrometry",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -1038,7 +1038,7 @@ and technique component types on the archive distribution. Mock data for validat
 
 ex:adaLASFICPMS-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed",
+    schema1:additionalType "Laser Ablation Inductively coupled plasma mass spectrometry",
         "ada:DataDeliveryPackage" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
@@ -1278,6 +1278,7 @@ allOf:
       description: Must include a LASFICPMS product type identifier.
       contains:
         enum:
+        - Laser Ablation Inductively coupled plasma mass spectrometry
         - Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry
           (LASFICPMS) Processed
         - Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry

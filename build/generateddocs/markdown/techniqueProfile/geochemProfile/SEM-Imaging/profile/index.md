@@ -175,6 +175,7 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:identifier": "session-ada-20260110-001",
       "schema:startDate": "2026-01-10T09:30:00",
+      "schema:endDate": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -228,7 +229,12 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@type": [
+          "schema:HowTo"
+        ]
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -613,6 +619,7 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:identifier": "session-ada-20260110-001",
       "schema:startDate": "2026-01-10T09:30:00",
+      "schema:endDate": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -666,7 +673,12 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@type": [
+          "schema:HowTo"
+        ]
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -965,14 +977,16 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "example ebsdPatternQualityThreshold" ],
-        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value 1e+00 ],
+        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "example ebsdPatternQualityThreshold" ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
+            schema1:actionProcess [ a schema1:HowTo ] ;
+            schema1:endDate "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;

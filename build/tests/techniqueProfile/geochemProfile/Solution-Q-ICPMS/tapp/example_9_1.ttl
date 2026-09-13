@@ -24,10 +24,12 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                             schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -35,12 +37,10 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v82.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -185,6 +185,8 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "iCAP TQ" ] ;
     schema1:name "example instrumentName" .

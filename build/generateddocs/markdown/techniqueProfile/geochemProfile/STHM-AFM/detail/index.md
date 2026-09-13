@@ -7,6 +7,95 @@ Detail block for STHM-AFM hasPart items, carrying the analysis-identification pr
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:SThMCollection"
+  ],
+  "ada:componentType": "ada:SThMCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:sthmAfmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250523_STHM-AFM_YU_OREX-800088-5_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-11-28",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800088-5",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STHM-AFM/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:SThMCollection"
+  ],
+  "ada:componentType": "ada:SThMCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:sthmAfmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250523_STHM-AFM_YU_OREX-800088-5_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-11-28",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800088-5",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:SThMCollection ;
+    schema1:measurementTechnique <ex:sthmAfmTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-11-28" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:SThMCollection" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-800088-5" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20250523_STHM-AFM_YU_OREX-800088-5_1" .
+
+<ex:sthmAfmTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

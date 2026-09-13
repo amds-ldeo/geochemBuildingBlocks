@@ -7,6 +7,95 @@ Detail block for CAPD hasPart items, carrying the analysis-identification proper
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=2 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS).
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:CAPDRawTabular"
+  ],
+  "ada:componentType": "ada:CAPDRawTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:capdTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241219_CAPD_BC_OREX-800123-0_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-11-12",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800123-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/CAPD/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:CAPDRawTabular"
+  ],
+  "ada:componentType": "ada:CAPDRawTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:capdTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241219_CAPD_BC_OREX-800123-0_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-11-12",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800123-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:CAPDRawTabular ;
+    schema1:measurementTechnique <ex:capdTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-11-12" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:CAPDRawTabular" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-800123-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20241219_CAPD_BC_OREX-800123-0_1" .
+
+<ex:capdTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

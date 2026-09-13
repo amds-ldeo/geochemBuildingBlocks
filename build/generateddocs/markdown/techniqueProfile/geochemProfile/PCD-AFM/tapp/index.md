@@ -7,6 +7,237 @@ Particle cohesion determination with AFM extension of the base TAPP definition. 
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### pcdAfmTAPP example P0
+pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State University | Bruker MultiMode 8.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:pcdAfmTAPP-P0",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "pcdAfm protocol — P0",
+  "schema:description": "pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State University | Bruker MultiMode 8 (publication column of PCD-AFM_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Bruker",
+  "ada:instrumentModel": "Bruker MultiMode 8",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Particle cohesion determination with AFM"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Arizona State University",
+    "schema:identifier": "https://ror.org/03efmqc40"
+  },
+  "ada:reportedProperties": [
+    "Calc_Ramp_Ex_nm | Calc_Ramp_Rt_nm | Defl_V_Ex | Defl_V_Rt"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/PCD-AFM/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:pcdAfmTAPP-P0",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "pcdAfm protocol \u2014 P0",
+  "schema:description": "pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State University | Bruker MultiMode 8 (publication column of PCD-AFM_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Bruker",
+  "ada:instrumentModel": "Bruker MultiMode 8",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Particle cohesion determination with AFM"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Arizona State University",
+    "schema:identifier": "https://ror.org/03efmqc40"
+  },
+  "ada:reportedProperties": [
+    "Calc_Ramp_Ex_nm | Calc_Ramp_Rt_nm | Defl_V_Ex | Defl_V_Rt"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:pcdAfmTAPP-P0 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State University | Bruker MultiMode 8 (publication column of PCD-AFM_TAPP_draft_v2.csv)." ;
+    schema1:location [ a schema1:Place ;
+            schema1:identifier "https://ror.org/03efmqc40" ;
+            schema1:name "Arizona State University" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Particle cohesion determination with AFM" ] ;
+    schema1:name "pcdAfm protocol — P0" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:instrumentManufacturer "Bruker" ;
+    ada:instrumentModel "Bruker MultiMode 8" ;
+    ada:reportedProperties "Calc_Ramp_Ex_nm | Calc_Ramp_Rt_nm | Defl_V_Ex | Defl_V_Rt" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:targetMaterial "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

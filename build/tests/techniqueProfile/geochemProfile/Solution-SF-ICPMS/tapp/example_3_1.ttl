@@ -14,9 +14,12 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -28,12 +31,9 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)" ] ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -224,6 +224,8 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific -- \"(b) ICP-SFMS, Finnigan ELEMENT\"; stated as \"Finnigan ELEMENT\", the pre-Thermo brand name" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Finnigan ELEMENT sector-field ICP-MS (stated section 2.1.2)" ] ;
     schema1:name "example instrumentName" .

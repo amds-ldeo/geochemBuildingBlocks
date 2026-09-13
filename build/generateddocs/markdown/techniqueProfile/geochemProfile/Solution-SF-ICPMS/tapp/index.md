@@ -181,6 +181,12 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Nu Instruments -- \"a Nu Instruments Attom SC-SF-ICP-MS\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -542,6 +548,12 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Nu Instruments -- \"a Nu Instruments Attom SC-SF-ICP-MS\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -740,6 +752,11 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
@@ -750,12 +767,6 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
@@ -763,8 +774,9 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
@@ -882,6 +894,8 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nu Instruments -- \"a Nu Instruments Attom SC-SF-ICP-MS\"" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nu Instruments Attom SC-SF-ICP-MS (stated section 2.3)" ] ;
     schema1:name "example instrumentName" .
@@ -1135,6 +1149,12 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
           "schema:defaultValue": "60 s wash between samples (Table 1)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"An Inductively Coupled Sector Plasma Mass Spectrometer (Element I, ThermoFisher, USA)\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1583,6 +1603,12 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
           "schema:defaultValue": "60 s wash between samples (Table 1)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"An Inductively Coupled Sector Plasma Mass Spectrometer (Element I, ThermoFisher, USA)\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1823,9 +1849,8 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -1838,17 +1863,18 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
                             schema1:name "Step 1: 6M HCl (1.5 ml) + 8M HNO3 (0.5 ml); Step 2: 10M HCl (1.5 ml) for re-dissolution; stated section 2.3.1" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = IS normalization (103Rh; stated Table 1)." ;
@@ -2024,6 +2050,8 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific -- \"An Inductively Coupled Sector Plasma Mass Spectrometer (Element I, ThermoFisher, USA)\"" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Fisher Element I HR-ICP-MS (stated Table 1)" ] ;
     schema1:name "example instrumentName" .
@@ -2315,6 +2343,12 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
           "schema:defaultValue": "200 s wash with 0.5 mol/l HF before each sample (stated section 2.1.2)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"(b) ICP-SFMS, Finnigan ELEMENT\"; stated as \"Finnigan ELEMENT\", the pre-Thermo brand name",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -2784,6 +2818,12 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
           "schema:defaultValue": "200 s wash with 0.5 mol/l HF before each sample (stated section 2.1.2)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"(b) ICP-SFMS, Finnigan ELEMENT\"; stated as \"Finnigan ELEMENT\", the pre-Thermo brand name",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -3011,9 +3051,12 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -3025,12 +3068,9 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)" ] ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -3221,6 +3261,8 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific -- \"(b) ICP-SFMS, Finnigan ELEMENT\"; stated as \"Finnigan ELEMENT\", the pre-Thermo brand name" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Finnigan ELEMENT sector-field ICP-MS (stated section 2.1.2)" ] ;
     schema1:name "example instrumentName" .
@@ -3503,6 +3545,12 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
           "schema:defaultValue": "LR (R ~300) and MR (R ~4000; stated section 2.4)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"a Thermo-Finnigan Element I (E1) HR-ICP-MS\"; \"Instrument ThermoFinnigan Element1\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -3939,6 +3987,12 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
           "schema:defaultValue": "LR (R ~300) and MR (R ~4000; stated section 2.4)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"a Thermo-Finnigan Element I (E1) HR-ICP-MS\"; \"Instrument ThermoFinnigan Element1\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -4149,12 +4203,6 @@ ex:solutionSficpmsTAPP-P3 a cdi:Activity,
                     schema1:position 4 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
@@ -4162,6 +4210,12 @@ ex:solutionSficpmsTAPP-P3 a cdi:Activity,
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "3 sigma blank (stated section 2.4)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -4340,6 +4394,8 @@ ex:solutionSficpmsTAPP-P3 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific -- \"a Thermo-Finnigan Element I (E1) HR-ICP-MS\"; \"Instrument ThermoFinnigan Element1\"" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Finnigan Element I (E1) HR-ICP-MS (stated section 2.4)" ] ;
     schema1:name "example instrumentName" .
@@ -4626,6 +4682,12 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
           "schema:defaultValue": "120 s washout (Table 1)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"a Thermo Element XR, a single collector sector field high resolution inductively coupled plasma mass spectrometer\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -5045,6 +5107,12 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
           "schema:defaultValue": "120 s washout (Table 1)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"a Thermo Element XR, a single collector sector field high resolution inductively coupled plasma mass spectrometer\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -5229,18 +5297,6 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "1 M HNO3 (minimum volume for dissolution; stated section 2.4)" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
@@ -5253,7 +5309,19 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "1 M HNO3 (minimum volume for dissolution; stated section 2.4)" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1)." ;
@@ -5411,6 +5479,8 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific -- \"a Thermo Element XR, a single collector sector field high resolution inductively coupled plasma mass spectrometer\"" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Element XR single-collector SF-ICP-MS (stated section 2.3)" ] ;
     schema1:name "example instrumentName" .
@@ -5679,6 +5749,12 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
           "schema:defaultValue": "LR (M/Delta-m = 300) and HR (M/Delta-m = 11000; stated section on instrumentation)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"a ThermoFinnigan ELEMENT2 mass spectrometer\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -6148,6 +6224,12 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
           "schema:defaultValue": "LR (M/Delta-m = 300) and HR (M/Delta-m = 11000; stated section on instrumentation)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific -- \"a ThermoFinnigan ELEMENT2 mass spectrometer\"",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -6398,11 +6480,6 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder (~100 mg; stated section on sample preparation)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -6416,6 +6493,11 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l)." ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -6612,6 +6694,8 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific -- \"a ThermoFinnigan ELEMENT2 mass spectrometer\"" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "ThermoFinnigan ELEMENT2 (stated section on instrumentation)" ] ;
     schema1:name "example instrumentName" .

@@ -7,6 +7,95 @@ Detail block for TDM hasPart items, carrying the analysis-identification propert
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=1 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS).
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:TDMRawTabular"
+  ],
+  "ada:componentType": "ada:TDMRawTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:tdmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250306_TDM_BC_OREX-800107-104_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2025-03-06",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800107-104",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:TDMRawTabular"
+  ],
+  "ada:componentType": "ada:TDMRawTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:tdmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250306_TDM_BC_OREX-800107-104_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2025-03-06",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800107-104",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:TDMRawTabular ;
+    schema1:measurementTechnique <ex:tdmTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2025-03-06" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:TDMRawTabular" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-800107-104" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20250306_TDM_BC_OREX-800107-104_1" .
+
+<ex:tdmTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

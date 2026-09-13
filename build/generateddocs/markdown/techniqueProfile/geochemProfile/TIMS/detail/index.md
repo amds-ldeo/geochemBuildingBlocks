@@ -7,6 +7,95 @@ Detail block for TIMS hasPart items, carrying the analysis-identification proper
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:TIMSProcessedTabular"
+  ],
+  "ada:componentType": "ada:TIMSProcessedTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:timsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250113_TIMS_ETHZ_OREX-800117-110_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-12-19",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800117-110",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TIMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:TIMSProcessedTabular"
+  ],
+  "ada:componentType": "ada:TIMSProcessedTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:timsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250113_TIMS_ETHZ_OREX-800117-110_1",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "2024-12-19",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "OREX-800117-110",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:TIMSProcessedTabular ;
+    schema1:measurementTechnique <ex:timsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-12-19" ;
+    ada:analyst "missing" ;
+    ada:componentType "ada:TIMSProcessedTabular" ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:sampleName "OREX-800117-110" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20250113_TIMS_ETHZ_OREX-800117-110_1" .
+
+<ex:timsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml
