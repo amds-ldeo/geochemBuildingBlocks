@@ -694,7 +694,24 @@ def sentinel_for(sub, depth=4, root=None):
             return None
     t = sub.get("type")
     if t == "array":
-        inner = sentinel_for(sub.get("items") or {"type": "string"}, depth, root)
+        items = sub.get("items") or {"type": "string"}
+        probe = _deref(items, root) if root is not None else items
+        if isinstance(probe, dict) and not sub.get("minItems") and (
+                probe.get("type") == "object" or probe.get("properties") or probe.get("required")):
+            # An array of OBJECTS cannot be sentinelled by fabricating a member. `["missing"]` in a
+            # scalar array is a true statement -- this value was not reported. A fabricated object
+            # asserts that a member EXISTS and then names it "missing", and where that name is a
+            # structural discriminator the damage is silent: schema:step's name is what every
+            # `if {schema:name: {const: ...}}` in a profile keys on, so the invented step matches no
+            # branch and inherits none of its constraints, exactly the reasoning behind
+            # NEVER_SENTINEL. Measured 2026-09-13: this put a contentless
+            # {"schema:name": "missing", "schema:position": -9999} at index 0 of schema:step in the
+            # synthetic -P0 example of all three *-UPb techniques, ahead of the three correctly
+            # named steps that fill_structural_gaps then appended from the `contains` branches.
+            # An empty array satisfies `required` without inventing anything. Where the schema
+            # genuinely demands members it says so with minItems, which is still honoured below.
+            return []
+        inner = sentinel_for(items, depth, root)
         return None if inner is None else [inner]
     if t in ("number", "integer"):
         return SENTINEL_NUMERIC
@@ -766,8 +783,22 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
                     if not isinstance(item, dict):
                         continue
                     for k, v in (want.get("properties") or {}).items():
-                        if isinstance(v, dict) and "const" in v:
+                        if not isinstance(v, dict):
+                            continue
+                        if "const" in v:
                             item[k] = v["const"]
+                        elif (v.get("type") == "array" and isinstance(v.get("contains"), dict)
+                              and "const" in v["contains"]):
+                            # An array property pins its discriminator ONE LEVEL DOWN, as
+                            # {"type": "array", "contains": {"const": "bios:LabProcess"}} -- the
+                            # shape _type_const() already documents for instrument additionalType.
+                            # Reading only a top-level `const` missed it, so the synthesized
+                            # "Sample preparation" step was born without schema:additionalType and
+                            # the sentinel pass below then filled the slot with ["missing"], which
+                            # satisfies the `contains` no better than absence did. That was the
+                            # remaining -P0 failure in all three *-UPb TAPPs after the fabricated
+                            # step at index 0 was fixed.
+                            item[k] = [v["contains"]["const"]]
                     if not item:
                         continue
                     arr = inst
