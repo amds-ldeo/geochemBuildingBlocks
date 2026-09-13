@@ -7,6 +7,95 @@ Detail block for XANES hasPart items, carrying the analysis-identification prope
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Gainsforth2023
+detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source at Lawrence Berkeley National Laboratory | ALS STXM beamline 5.3.2.2.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Gainsforth2023",
+  "@type": [
+    "ada:XANESCollection"
+  ],
+  "ada:componentType": "ada:XANESCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:xanesTAPP-Gainsforth2023",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)",
+  "ada:analyst": "Gainsforth, Zack",
+  "ada:analysisStartDate": "2023-11-12 | 2023-12-06 | (+4 more)",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "NASA",
+  "ada:sampleName": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XANES/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Gainsforth2023",
+  "@type": [
+    "ada:XANESCollection"
+  ],
+  "ada:componentType": "ada:XANESCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:xanesTAPP-Gainsforth2023",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)",
+  "ada:analyst": "Gainsforth, Zack",
+  "ada:analysisStartDate": "2023-11-12 | 2023-12-06 | (+4 more)",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "NASA",
+  "ada:sampleName": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-Gainsforth2023> a ada:XANESCollection ;
+    schema1:measurementTechnique <ex:xanesTAPP-Gainsforth2023> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-12 | 2023-12-06 | (+4 more)" ;
+    ada:analyst "Gainsforth, Zack" ;
+    ada:componentType "ada:XANESCollection" ;
+    ada:fundingSourceForAnalysis "NASA" ;
+    ada:sampleName "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)" .
+
+<ex:xanesTAPP-Gainsforth2023> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

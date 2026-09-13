@@ -7,6 +7,95 @@ Detail block for UVFM hasPart items, carrying the analysis-identification proper
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Center | Olympus BX-60 Fluorescence Microscope.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:UVFMImage"
+  ],
+  "ada:componentType": "ada:UVFMImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:uvfmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231002_uvfm_jsc-ares_orex-501006-0_1",
+  "ada:analyst": "Clemett, Simon",
+  "ada:analysisStartDate": "2024-05-29",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-501006-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/UVFM/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:UVFMImage"
+  ],
+  "ada:componentType": "ada:UVFMImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:uvfmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231002_uvfm_jsc-ares_orex-501006-0_1",
+  "ada:analyst": "Clemett, Simon",
+  "ada:analysisStartDate": "2024-05-29",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-501006-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:UVFMImage ;
+    schema1:measurementTechnique <ex:uvfmTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-05-29" ;
+    ada:analyst "Clemett, Simon" ;
+    ada:componentType "ada:UVFMImage" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-501006-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20231002_uvfm_jsc-ares_orex-501006-0_1" .
+
+<ex:uvfmTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

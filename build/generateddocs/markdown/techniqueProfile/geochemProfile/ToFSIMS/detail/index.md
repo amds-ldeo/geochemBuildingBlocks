@@ -7,6 +7,95 @@ Detail block for ToFSIMS hasPart items, carrying the analysis-identification pro
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=3 | Rickard, William | Curtin University | IONTOF M6.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:TOFSIMSCollection"
+  ],
+  "ada:componentType": "ada:TOFSIMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:tofsimsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231125_tof-sims_cuwa_orex-501070-0_1",
+  "ada:analyst": "Rickard, William",
+  "ada:analysisStartDate": "2023-11-25",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University.",
+  "ada:sampleName": "OREX-501070-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/ToFSIMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:TOFSIMSCollection"
+  ],
+  "ada:componentType": "ada:TOFSIMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:tofsimsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231125_tof-sims_cuwa_orex-501070-0_1",
+  "ada:analyst": "Rickard, William",
+  "ada:analysisStartDate": "2023-11-25",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University.",
+  "ada:sampleName": "OREX-501070-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:TOFSIMSCollection ;
+    schema1:measurementTechnique <ex:tofsimsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-25" ;
+    ada:analyst "Rickard, William" ;
+    ada:componentType "ada:TOFSIMSCollection" ;
+    ada:fundingSourceForAnalysis "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University." ;
+    ada:sampleName "OREX-501070-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20231125_tof-sims_cuwa_orex-501070-0_1" .
+
+<ex:tofsimsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

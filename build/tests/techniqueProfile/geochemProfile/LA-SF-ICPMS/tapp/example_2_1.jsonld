@@ -176,16 +176,14 @@
           "schema:defaultValue": "Low resolution (M/\u0394M = 300; cool plasma mapping)"
         },
         {
-          "@id": "ada:parameter/laSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Triple mode detection (all analytical modes)"
         },
         {
@@ -333,12 +331,12 @@
             "schema:defaultValue": "Manual identification and exclusion of P-rich veinlet pixels from olivine averages; anomalous spikes from inclusions excluded per line"
           },
           {
-            "@id": "ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: triple mode detection; cross-calibration between pulse-counting and analog modes performed"
@@ -427,7 +425,6 @@
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massResolutionAssignment": "missing",
   "ada:sampleIntroduction": "missing",

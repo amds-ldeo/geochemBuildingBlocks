@@ -7,6 +7,1203 @@ Visible, near- and mid-infrared reflectance/emissivity spectroscopy extension of
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### vnmirTAPP example Hiroi2023
+vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Nexus 870 FTIR.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:vnmirTAPP-Hiroi2023",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "vnmir protocol — Hiroi2023",
+  "schema:description": "vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Nexus 870 FTIR (publication column of VNMIR_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Thermo Fisher Scientific (Nicolet)",
+  "ada:instrumentModel": "Thermo/Nicolet Nexus 870 FTIR",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Hiroi, Takahiro",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Brown University",
+    "schema:identifier": "https://ror.org/05gq02987"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
+  ],
+  "ada:reportedProperties": [
+    "Wavelength (nm) (nm) | Reflectance | Reflectance (Reflectance) | Standard Deviation"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:beamsplitter": "missing",
+  "ada:calibrationStandardsDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:detector": "missing",
+  "ada:measurementEnvironmentDefault": "missing",
+  "ada:measurementType": "missing",
+  "ada:numberOfScansDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:spectralRangeMaximum": -9999,
+  "ada:spectralRangeMinimum": -9999,
+  "ada:spectralResolutionDefault": -9999,
+  "ada:spotSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:vnmirTAPP-Hiroi2023",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "vnmir protocol \u2014 Hiroi2023",
+  "schema:description": "vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Nexus 870 FTIR (publication column of VNMIR_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Thermo Fisher Scientific (Nicolet)",
+  "ada:instrumentModel": "Thermo/Nicolet Nexus 870 FTIR",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Hiroi, Takahiro",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Brown University",
+    "schema:identifier": "https://ror.org/05gq02987"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
+  ],
+  "ada:reportedProperties": [
+    "Wavelength (nm) (nm) | Reflectance | Reflectance (Reflectance) | Standard Deviation"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:beamsplitter": "missing",
+  "ada:calibrationStandardsDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:detector": "missing",
+  "ada:measurementEnvironmentDefault": "missing",
+  "ada:measurementType": "missing",
+  "ada:numberOfScansDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:spectralRangeMaximum": -9999,
+  "ada:spectralRangeMinimum": -9999,
+  "ada:spectralResolutionDefault": -9999,
+  "ada:spotSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:vnmirTAPP-Hiroi2023 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Hiroi, Takahiro" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Nexus 870 FTIR (publication column of VNMIR_TAPP_draft_v2.csv)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:identifier "https://ror.org/05gq02987" ;
+            schema1:name "Brown University" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
+    schema1:name "vnmir protocol — Hiroi2023" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analyticalMode "Spectral Point" ;
+    ada:beamsplitter "missing" ;
+    ada:calibrationStandardsDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:detector "missing" ;
+    ada:instrumentManufacturer "Thermo Fisher Scientific (Nicolet)" ;
+    ada:instrumentModel "Thermo/Nicolet Nexus 870 FTIR" ;
+    ada:measurementEnvironmentDefault "missing" ;
+    ada:measurementType "missing" ;
+    ada:numberOfScansDefault -9999 ;
+    ada:reportedProperties "Wavelength (nm) (nm) | Reflectance | Reflectance (Reflectance) | Standard Deviation" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:spectralRangeMaximum -9999 ;
+    ada:spectralRangeMinimum -9999 ;
+    ada:spectralResolutionDefault -9999 ;
+    ada:spotSizeDefault -9999 ;
+    ada:targetMaterial "missing" .
+
+
+```
+
+
+### vnmirTAPP example Hiroi2023-2
+vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directional.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:vnmirTAPP-Hiroi2023-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "vnmir protocol — Hiroi2023-2",
+  "schema:description": "vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directional (publication column of VNMIR_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Custom-built",
+  "ada:instrumentModel": "Custom bi-directional",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Hiroi, Takahiro",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Brown University",
+    "schema:identifier": "https://ror.org/05gq02987"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
+  ],
+  "ada:reportedProperties": [
+    "Wavelength (nm) (nm) | Reflectance | Standard Deviation | Reflectance (Reflectance) | Standard Deviation (Reflectance)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:beamsplitter": "missing",
+  "ada:calibrationStandardsDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:detector": "missing",
+  "ada:measurementEnvironmentDefault": "missing",
+  "ada:measurementType": "missing",
+  "ada:numberOfScansDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:spectralRangeMaximum": -9999,
+  "ada:spectralRangeMinimum": -9999,
+  "ada:spectralResolutionDefault": -9999,
+  "ada:spotSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:vnmirTAPP-Hiroi2023-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "vnmir protocol \u2014 Hiroi2023-2",
+  "schema:description": "vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directional (publication column of VNMIR_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Custom-built",
+  "ada:instrumentModel": "Custom bi-directional",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Hiroi, Takahiro",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Brown University",
+    "schema:identifier": "https://ror.org/05gq02987"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
+  ],
+  "ada:reportedProperties": [
+    "Wavelength (nm) (nm) | Reflectance | Standard Deviation | Reflectance (Reflectance) | Standard Deviation (Reflectance)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:beamsplitter": "missing",
+  "ada:calibrationStandardsDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:detector": "missing",
+  "ada:measurementEnvironmentDefault": "missing",
+  "ada:measurementType": "missing",
+  "ada:numberOfScansDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:spectralRangeMaximum": -9999,
+  "ada:spectralRangeMinimum": -9999,
+  "ada:spectralResolutionDefault": -9999,
+  "ada:spotSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:vnmirTAPP-Hiroi2023-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Hiroi, Takahiro" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directional (publication column of VNMIR_TAPP_draft_v2.csv)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)" ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:identifier "https://ror.org/05gq02987" ;
+            schema1:name "Brown University" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
+    schema1:name "vnmir protocol — Hiroi2023-2" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analyticalMode "Spectral Point" ;
+    ada:beamsplitter "missing" ;
+    ada:calibrationStandardsDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:detector "missing" ;
+    ada:instrumentManufacturer "Custom-built" ;
+    ada:instrumentModel "Custom bi-directional" ;
+    ada:measurementEnvironmentDefault "missing" ;
+    ada:measurementType "missing" ;
+    ada:numberOfScansDefault -9999 ;
+    ada:reportedProperties "Wavelength (nm) (nm) | Reflectance | Standard Deviation | Reflectance (Reflectance) | Standard Deviation (Reflectance)" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:spectralRangeMaximum -9999 ;
+    ada:spectralRangeMinimum -9999 ;
+    ada:spectralResolutionDefault -9999 ;
+    ada:spotSizeDefault -9999 ;
+    ada:targetMaterial "missing" .
+
+
+```
+
+
+### vnmirTAPP example Milliken2024
+vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FTIR microscope.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:vnmirTAPP-Milliken2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "vnmir protocol — Milliken2024",
+  "schema:description": "vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FTIR microscope (publication column of VNMIR_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Bruker",
+  "ada:instrumentModel": "Bruker LUMOS FTIR microscope",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Milliken, Ralph",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Brown University",
+    "schema:identifier": "https://ror.org/05gq02987"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
+  ],
+  "ada:reportedProperties": [
+    "Wavenumber (cm-1) (cm-1) | Reflectance (Reflectance)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:beamsplitter": "missing",
+  "ada:calibrationStandardsDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:detector": "missing",
+  "ada:measurementEnvironmentDefault": "missing",
+  "ada:measurementType": "missing",
+  "ada:numberOfScansDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:spectralRangeMaximum": -9999,
+  "ada:spectralRangeMinimum": -9999,
+  "ada:spectralResolutionDefault": -9999,
+  "ada:spotSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:vnmirTAPP-Milliken2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "vnmir protocol \u2014 Milliken2024",
+  "schema:description": "vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FTIR microscope (publication column of VNMIR_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Bruker",
+  "ada:instrumentModel": "Bruker LUMOS FTIR microscope",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Milliken, Ralph",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Brown University",
+    "schema:identifier": "https://ror.org/05gq02987"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
+  ],
+  "ada:reportedProperties": [
+    "Wavenumber (cm-1) (cm-1) | Reflectance (Reflectance)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:beamsplitter": "missing",
+  "ada:calibrationStandardsDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:detector": "missing",
+  "ada:measurementEnvironmentDefault": "missing",
+  "ada:measurementType": "missing",
+  "ada:numberOfScansDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:spectralRangeMaximum": -9999,
+  "ada:spectralRangeMinimum": -9999,
+  "ada:spectralResolutionDefault": -9999,
+  "ada:spotSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:vnmirTAPP-Milliken2024 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Milliken, Ralph" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FTIR microscope (publication column of VNMIR_TAPP_draft_v2.csv)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:identifier "https://ror.org/05gq02987" ;
+            schema1:name "Brown University" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
+    schema1:name "vnmir protocol — Milliken2024" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analyticalMode "Spectral Point" ;
+    ada:beamsplitter "missing" ;
+    ada:calibrationStandardsDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:detector "missing" ;
+    ada:instrumentManufacturer "Bruker" ;
+    ada:instrumentModel "Bruker LUMOS FTIR microscope" ;
+    ada:measurementEnvironmentDefault "missing" ;
+    ada:measurementType "missing" ;
+    ada:numberOfScansDefault -9999 ;
+    ada:reportedProperties "Wavenumber (cm-1) (cm-1) | Reflectance (Reflectance)" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:spectralRangeMaximum -9999 ;
+    ada:spectralRangeMinimum -9999 ;
+    ada:spectralResolutionDefault -9999 ;
+    ada:spotSizeDefault -9999 ;
+    ada:targetMaterial "missing" .
+
+
+```
+
+
+### vnmirTAPP example Keller2024
+vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | JEOL 2500SE.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:vnmirTAPP-Keller2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "vnmir protocol — Keller2024",
+  "schema:description": "vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | JEOL 2500SE (publication column of VNMIR_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Unknown",
+  "ada:instrumentModel": "JEOL 2500SE",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Keller, Lindsay",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center",
+    "schema:identifier": "https://ror.org/04xx4z452"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
+  ],
+  "ada:reportedProperties": [
+    "wavenumber (3999.49) | Clays (Percent transmission) | dolomite (Percent transmission) | calcite (Percent transmission) | MgPO4 (Percent transmission)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:beamsplitter": "missing",
+  "ada:calibrationStandardsDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:detector": "missing",
+  "ada:measurementEnvironmentDefault": "missing",
+  "ada:measurementType": "missing",
+  "ada:numberOfScansDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:spectralRangeMaximum": -9999,
+  "ada:spectralRangeMinimum": -9999,
+  "ada:spectralResolutionDefault": -9999,
+  "ada:spotSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:vnmirTAPP-Keller2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "vnmir protocol \u2014 Keller2024",
+  "schema:description": "vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | JEOL 2500SE (publication column of VNMIR_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Unknown",
+  "ada:instrumentModel": "JEOL 2500SE",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Keller, Lindsay",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center",
+    "schema:identifier": "https://ror.org/04xx4z452"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
+  ],
+  "ada:reportedProperties": [
+    "wavenumber (3999.49) | Clays (Percent transmission) | dolomite (Percent transmission) | calcite (Percent transmission) | MgPO4 (Percent transmission)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:beamsplitter": "missing",
+  "ada:calibrationStandardsDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:detector": "missing",
+  "ada:measurementEnvironmentDefault": "missing",
+  "ada:measurementType": "missing",
+  "ada:numberOfScansDefault": -9999,
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:spectralRangeMaximum": -9999,
+  "ada:spectralRangeMinimum": -9999,
+  "ada:spectralResolutionDefault": -9999,
+  "ada:spotSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:vnmirTAPP-Keller2024 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Keller, Lindsay" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | JEOL 2500SE (publication column of VNMIR_TAPP_draft_v2.csv)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:identifier "https://ror.org/04xx4z452" ;
+            schema1:name "NASA Johnson Space Center" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
+    schema1:name "vnmir protocol — Keller2024" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:analyticalMode "Spectral Point" ;
+    ada:beamsplitter "missing" ;
+    ada:calibrationStandardsDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:detector "missing" ;
+    ada:instrumentManufacturer "Unknown" ;
+    ada:instrumentModel "JEOL 2500SE" ;
+    ada:measurementEnvironmentDefault "missing" ;
+    ada:measurementType "missing" ;
+    ada:numberOfScansDefault -9999 ;
+    ada:reportedProperties "wavenumber (3999.49) | Clays (Percent transmission) | dolomite (Percent transmission) | calcite (Percent transmission) | MgPO4 (Percent transmission)" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:spectralRangeMaximum -9999 ;
+    ada:spectralRangeMinimum -9999 ;
+    ada:spectralResolutionDefault -9999 ;
+    ada:spotSizeDefault -9999 ;
+    ada:targetMaterial "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

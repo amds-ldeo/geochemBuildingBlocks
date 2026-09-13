@@ -7,6 +7,95 @@ Detail block for AMS hasPart items, carrying the analysis-identification propert
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Purdue Rare Isotope Measurement (PRIME) Lab AMS facility.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:processingMethod"
+  ],
+  "ada:componentType": "ada:processingMethod",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:amsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240409_ams_pu_multisample_1",
+  "ada:analyst": "Thomas Woodruff",
+  "ada:analysisStartDate": "2024-03-06",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP.",
+  "ada:sampleName": "OREX-803052-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/AMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:processingMethod"
+  ],
+  "ada:componentType": "ada:processingMethod",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:amsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240409_ams_pu_multisample_1",
+  "ada:analyst": "Thomas Woodruff",
+  "ada:analysisStartDate": "2024-03-06",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP.",
+  "ada:sampleName": "OREX-803052-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:processingMethod ;
+    schema1:measurementTechnique <ex:amsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-03-06" ;
+    ada:analyst "Thomas Woodruff" ;
+    ada:componentType "ada:processingMethod" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP." ;
+    ada:sampleName "OREX-803052-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240409_ams_pu_multisample_1" .
+
+<ex:amsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

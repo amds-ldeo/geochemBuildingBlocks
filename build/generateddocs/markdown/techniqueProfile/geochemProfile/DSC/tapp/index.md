@@ -7,6 +7,266 @@ Differential Scanning Calorimetry extension of the base TAPP definition. CORE-ON
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### dscTAPP example DSC8000
+dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:dscTAPP-DSC8000",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "dsc protocol — DSC8000",
+  "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Unknown",
+  "ada:instrumentModel": "PerkinsElmer DSC 8000",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Differential Scanning Calorimetry"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Biele, Jens",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Nagoya University"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:reportedProperties": [
+    "T | Standard Deviation | Step Scan 1 Cp [J/g/K] | Step Scan 2 Cp [J/g/K] | Step Scan 3 Cp [J/g/K] | Averaged Cp [J/g/K]"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/DSC/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:dscTAPP-DSC8000",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "dsc protocol \u2014 DSC8000",
+  "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Unknown",
+  "ada:instrumentModel": "PerkinsElmer DSC 8000",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Differential Scanning Calorimetry"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Biele, Jens",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Nagoya University"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:reportedProperties": [
+    "T | Standard Deviation | Step Scan 1 Cp [J/g/K] | Step Scan 2 Cp [J/g/K] | Step Scan 3 Cp [J/g/K] | Averaged Cp [J/g/K]"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:dscTAPP-DSC8000 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Biele, Jens" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Nagoya University" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "Differential Scanning Calorimetry" ] ;
+    schema1:name "dsc protocol — DSC8000" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:instrumentManufacturer "Unknown" ;
+    ada:instrumentModel "PerkinsElmer DSC 8000" ;
+    ada:reportedProperties "T | Standard Deviation | Step Scan 1 Cp [J/g/K] | Step Scan 2 Cp [J/g/K] | Step Scan 3 Cp [J/g/K] | Averaged Cp [J/g/K]" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:targetMaterial "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

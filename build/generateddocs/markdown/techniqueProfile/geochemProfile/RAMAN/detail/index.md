@@ -7,6 +7,95 @@ Detail block for Raman hasPart items, carrying the analysis-identification prope
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Liss2024
+detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholtz Zentrum Munchen) | (HGMU) WITec alpha 300 R.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Liss2024",
+  "@type": [
+    "ada:RAMANRawTabular"
+  ],
+  "ada:componentType": "ada:RAMANRawTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:ramanTAPP-Liss2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240823_raman_hmgu_orex-803141-0_1",
+  "ada:analyst": "Liss, Michael",
+  "ada:analysisStartDate": "2024-08-23",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235).",
+  "ada:sampleName": "OREX-803141-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/RAMAN/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Liss2024",
+  "@type": [
+    "ada:RAMANRawTabular"
+  ],
+  "ada:componentType": "ada:RAMANRawTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:ramanTAPP-Liss2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240823_raman_hmgu_orex-803141-0_1",
+  "ada:analyst": "Liss, Michael",
+  "ada:analysisStartDate": "2024-08-23",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235).",
+  "ada:sampleName": "OREX-803141-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-Liss2024> a ada:RAMANRawTabular ;
+    schema1:measurementTechnique <ex:ramanTAPP-Liss2024> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-08-23" ;
+    ada:analyst "Liss, Michael" ;
+    ada:componentType "ada:RAMANRawTabular" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)." ;
+    ada:sampleName "OREX-803141-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240823_raman_hmgu_orex-803141-0_1" .
+
+<ex:ramanTAPP-Liss2024> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

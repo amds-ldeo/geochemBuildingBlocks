@@ -7,6 +7,95 @@ Detail block for LIT hasPart items, carrying the analysis-identification propert
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | Infratec camera model ThermoHAWK H9000.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:analysisLocation"
+  ],
+  "ada:componentType": "ada:analysisLocation",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:litTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241022_lit_nu_orex-800118-0_1",
+  "ada:analyst": "Ishizaki, Takuya",
+  "ada:analysisStartDate": "2024-01-10",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800118-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LIT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:analysisLocation"
+  ],
+  "ada:componentType": "ada:analysisLocation",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:litTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241022_lit_nu_orex-800118-0_1",
+  "ada:analyst": "Ishizaki, Takuya",
+  "ada:analysisStartDate": "2024-01-10",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800118-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:analysisLocation ;
+    schema1:measurementTechnique <ex:litTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-01-10" ;
+    ada:analyst "Ishizaki, Takuya" ;
+    ada:componentType "ada:analysisLocation" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-800118-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20241022_lit_nu_orex-800118-0_1" .
+
+<ex:litTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

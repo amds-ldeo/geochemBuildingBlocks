@@ -7,6 +7,95 @@ Detail block for GCMS hasPart items, carrying the analysis-identification proper
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Agilent5977
+detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agilent 5977B GCMSD.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Agilent5977",
+  "@type": [
+    "ada:GCMSCollection"
+  ],
+  "ada:componentType": "ada:GCMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:gcmsTAPP-Agilent5977",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241121_gc-ms_tu_orex-800107-108_1",
+  "ada:analyst": "Sako, Sunami",
+  "ada:analysisStartDate": "2023-10-03",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa.",
+  "ada:sampleName": "OREX-800107-108",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/GCMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Agilent5977",
+  "@type": [
+    "ada:GCMSCollection"
+  ],
+  "ada:componentType": "ada:GCMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:gcmsTAPP-Agilent5977",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241121_gc-ms_tu_orex-800107-108_1",
+  "ada:analyst": "Sako, Sunami",
+  "ada:analysisStartDate": "2023-10-03",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa.",
+  "ada:sampleName": "OREX-800107-108",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-Agilent5977> a ada:GCMSCollection ;
+    schema1:measurementTechnique <ex:gcmsTAPP-Agilent5977> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-10-03" ;
+    ada:analyst "Sako, Sunami" ;
+    ada:componentType "ada:GCMSCollection" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa." ;
+    ada:sampleName "OREX-800107-108" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20241121_gc-ms_tu_orex-800107-108_1" .
+
+<ex:gcmsTAPP-Agilent5977> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

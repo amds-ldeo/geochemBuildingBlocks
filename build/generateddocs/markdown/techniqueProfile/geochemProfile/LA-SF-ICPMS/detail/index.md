@@ -1263,38 +1263,7 @@ allOf:
                             anyOf:
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
                             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_filteringApproach
-                            - title: Pulse/Analog Detector Nonlinearity Correction
-                              description: Whether a correction was applied for nonlinear
-                                detector response at the transition between pulse-counting
-                                and analog (and Faraday, for triple-mode instruments)
-                                detection modes. Cross-calibration factors between
-                                detector modes must be confirmed, typically measured
-                                each session. Record 'Applied' and describe the method,
-                                the detector modes involved and the analytes affected;
-                                'None' where a crossover exists on this instrument
-                                but no correction was made, giving the reason; and
-                                'N/A' where the detector is pulse-counting only and
-                                no crossover exists.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-                                schema:name:
-                                  const: Pulse/Analog Detector Nonlinearity Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Analysis_pulseAnalogDetectorNonlinearityCorrection
                           allOf:
                           - contains:
                               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_signalSmoothing
@@ -1305,38 +1274,7 @@ allOf:
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Pulse/Analog Detector Nonlinearity Correction
-                              description: Whether a correction was applied for nonlinear
-                                detector response at the transition between pulse-counting
-                                and analog (and Faraday, for triple-mode instruments)
-                                detection modes. Cross-calibration factors between
-                                detector modes must be confirmed, typically measured
-                                each session. Record 'Applied' and describe the method,
-                                the detector modes involved and the analytes affected;
-                                'None' where a crossover exists on this instrument
-                                but no correction was made, giving the reason; and
-                                'N/A' where the detector is pulse-counting only and
-                                no crossover exists.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrection
-                                schema:name:
-                                  const: Pulse/Analog Detector Nonlinearity Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Analysis_pulseAnalogDetectorNonlinearityCorrection
                             minContains: 0
                             maxContains: 1
           schema:additionalProperty:
@@ -1349,7 +1287,37 @@ allOf:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_carrierGasAndFlowRate
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_makeUpGasAndFlowRate
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_analysisSequence
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_ionCounterDeadTime
+              - title: Ion Counter Dead Time
+                description: Dead time of the ion-counting detector(s), used in the
+                  dead-time correction applied to high count rates. Distinct from
+                  pulse/analog cross-calibration, which relates the two detector modes
+                  rather than correcting counting losses within the pulse-counting
+                  mode.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laSficpmsTAPP/ionCounterDeadTime
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laSficpmsTAPP/ionCounterDeadTime
+                  schema:name:
+                    const: Ion Counter Dead Time
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
               - title: Total Integration Time per Output Data Point
                 description: "Total duty-cycle time for one complete mass-scan sweep
                   \u2014 the sum of all per-isotope dwell times plus inter-mass settling
@@ -1442,7 +1410,37 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_ionCounterDeadTime
+                title: Ion Counter Dead Time
+                description: Dead time of the ion-counting detector(s), used in the
+                  dead-time correction applied to high count rates. Distinct from
+                  pulse/analog cross-calibration, which relates the two detector modes
+                  rather than correcting counting losses within the pulse-counting
+                  mode.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laSficpmsTAPP/ionCounterDeadTime
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laSficpmsTAPP/ionCounterDeadTime
+                  schema:name:
+                    const: Ion Counter Dead Time
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
               minContains: 0
               maxContains: 1
             - contains:

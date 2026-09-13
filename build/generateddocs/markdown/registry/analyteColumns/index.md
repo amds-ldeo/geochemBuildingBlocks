@@ -376,7 +376,7 @@ $defs:
   empa_beamCurrent:
     title: Beam Current
     description: Probe current in nanoamperes (nA). Often varies by phase type or
-      analyte; record the procedure-standard value(s).
+      target species; record the procedure-standard value(s).
     type: object
     properties:
       '@id':
@@ -410,9 +410,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -514,6 +514,36 @@ $defs:
         const: epmaTechniquePerAnalyte
       schema:name:
         const: EPMA Technique per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  empa_epmaTechniquePerTargetSpecies:
+    title: EPMA Technique per Target Species
+    description: Whether the measurement was made by WDS or EDS. Applies where a procedure
+      uses both WDS and EDS.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/empaTAPP/epmaTechniquePerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: epmaTechniquePerTargetSpecies
+      schema:name:
+        const: EPMA Technique per Target Species
       ada:dataType:
         const: string
       schema:readonlyValue:
@@ -681,6 +711,36 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  empa_targetSpeciesEstimationMethod:
+    title: Target Species Estimation Method
+    description: Whether elemental concentrations were calculated directly from measured
+      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
+      from cation proportions in silicates; carbon from stoichiometry in carbonates).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/empaTAPP/targetSpeciesEstimationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: targetSpeciesEstimationMethod
+      schema:name:
+        const: Target Species Estimation Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   empa_wdsPhaSetting:
     title: WDS PHA Setting
     description: Pulse height analyzer (PHA) setting for the WDS detector. Integral
@@ -986,6 +1046,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpmsUPb_calibrationStrategyPerTargetSpecies:
+    title: Calibration Strategy per Target Species
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different target species or target species groups
+      within one procedure are calibrated differently - different primary standards
+      for different mass ranges or phases, or one element serving as internal standard
+      while others are externally calibrated. Where a single strategy applies to all
+      target species, record that strategy. Where the procedure reports isotope ratios
+      only and no concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: calibrationStrategyPerTargetSpecies
+      schema:name:
+        const: Calibration Strategy per Target Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpmsUPb_detectionLimit:
     title: Detection Limit
     description: "Session detection limit, one per reported concentration variable
@@ -1206,10 +1301,10 @@ $defs:
     - ada:dataType
   laMcicpmsUPb_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One analyte may be acquired
-      at more than one resolution, so the assignment is per acquired mass rather than
-      per element. The overall mode(s) used in the procedure are recorded in Mass
-      Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may
+      be acquired at more than one resolution, so the assignment is per acquired mass
+      rather than per element. The overall mode(s) used in the procedure are recorded
+      in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -1297,12 +1392,13 @@ $defs:
     - schema:defaultValue
   laMcicpmsUPb_monitoredMasses:
     title: Monitored Masses
-    description: Specific masses monitored in this procedure, grouped by the analyte
-      element they serve where they serve one. Covers atomic isotopes and, where a
-      reaction cell shifts an analyte onto a different mass, the product mass actually
-      measured. Includes interference-monitor and internal-standard masses, which
-      serve no analyte and so have no parent element. The analyte list is given by
-      the Analyte field and is never inferred from the element symbols appearing here.
+    description: Specific masses monitored in this procedure, grouped by the target
+      species element they serve where they serve one. Covers atomic isotopes and,
+      where a reaction cell shifts an target species onto a different mass, the product
+      mass actually measured. Includes interference-monitor and internal-standard
+      masses, which serve no target species and so have no parent element. The target
+      species list is given by the Target Species field and is never inferred from
+      the element symbols appearing here.
     type: object
     properties:
       '@id':
@@ -1529,6 +1625,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpms_calibrationStrategyPerTargetSpecies:
+    title: Calibration Strategy per Target Species
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different target species or target species groups
+      within one procedure are calibrated differently - different primary standards
+      for different mass ranges or phases, or one element serving as internal standard
+      while others are externally calibrated. Where a single strategy applies to all
+      target species, record that strategy. Where the procedure reports isotope ratios
+      only and no concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: calibrationStrategyPerTargetSpecies
+      schema:name:
+        const: Calibration Strategy per Target Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpms_detectionLimit:
     title: Detection Limit
     description: "Session detection limit, one per reported concentration variable
@@ -1777,10 +1908,10 @@ $defs:
     - ada:dataType
   laMcicpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One analyte may be acquired
-      at more than one resolution, so the assignment is per acquired mass rather than
-      per element. The overall mode(s) used in the procedure are recorded in Mass
-      Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may
+      be acquired at more than one resolution, so the assignment is per acquired mass
+      rather than per element. The overall mode(s) used in the procedure are recorded
+      in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -1868,12 +1999,13 @@ $defs:
     - schema:defaultValue
   laMcicpms_monitoredMasses:
     title: Monitored Masses
-    description: Specific masses monitored in this procedure, grouped by the analyte
-      element they serve where they serve one. Covers atomic isotopes and, where a
-      reaction cell shifts an analyte onto a different mass, the product mass actually
-      measured. Includes interference-monitor and internal-standard masses, which
-      serve no analyte and so have no parent element. The analyte list is given by
-      the Analyte field and is never inferred from the element symbols appearing here.
+    description: Specific masses monitored in this procedure, grouped by the target
+      species element they serve where they serve one. Covers atomic isotopes and,
+      where a reaction cell shifts an target species onto a different mass, the product
+      mass actually measured. Includes interference-monitor and internal-standard
+      masses, which serve no target species and so have no parent element. The target
+      species list is given by the Target Species field and is never inferred from
+      the element symbols appearing here.
     type: object
     properties:
       '@id':
@@ -2097,6 +2229,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laQicpmsUPb_calibrationStrategyPerTargetSpecies:
+    title: Calibration Strategy per Target Species
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different target species or target species groups
+      within one procedure are calibrated differently - different primary standards
+      for different mass ranges or phases, or one element serving as internal standard
+      while others are externally calibrated. Where a single strategy applies to all
+      target species, record that strategy. Where the procedure reports isotope ratios
+      only and no concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: calibrationStrategyPerTargetSpecies
+      schema:name:
+        const: Calibration Strategy per Target Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laQicpmsUPb_detectionLimit:
     title: Detection Limit
     description: "Session detection limit, one per reported concentration variable
@@ -2383,12 +2550,13 @@ $defs:
     - schema:defaultValue
   laQicpmsUPb_monitoredMasses:
     title: Monitored Masses
-    description: Specific masses monitored in this procedure, grouped by the analyte
-      element they serve where they serve one. Covers atomic isotopes and, where a
-      reaction cell shifts an analyte onto a different mass, the product mass actually
-      measured. Includes interference-monitor and internal-standard masses, which
-      serve no analyte and so have no parent element. The analyte list is given by
-      the Analyte field and is never inferred from the element symbols appearing here.
+    description: Specific masses monitored in this procedure, grouped by the target
+      species element they serve where they serve one. Covers atomic isotopes and,
+      where a reaction cell shifts an target species onto a different mass, the product
+      mass actually measured. Includes interference-monitor and internal-standard
+      masses, which serve no target species and so have no parent element. The target
+      species list is given by the Target Species field and is never inferred from
+      the element symbols appearing here.
     type: object
     properties:
       '@id':
@@ -2615,6 +2783,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laQicpms_calibrationStrategyPerTargetSpecies:
+    title: Calibration Strategy per Target Species
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different target species or target species groups
+      within one procedure are calibrated differently - different primary standards
+      for different mass ranges or phases, or one element serving as internal standard
+      while others are externally calibrated. Where a single strategy applies to all
+      target species, record that strategy. Where the procedure reports isotope ratios
+      only and no concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: calibrationStrategyPerTargetSpecies
+      schema:name:
+        const: Calibration Strategy per Target Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laQicpms_detectionLimit:
     title: Detection Limit
     description: "Session detection limit, one per reported concentration variable
@@ -2901,12 +3104,13 @@ $defs:
     - schema:defaultValue
   laQicpms_monitoredMasses:
     title: Monitored Masses
-    description: Specific masses monitored in this procedure, grouped by the analyte
-      element they serve where they serve one. Covers atomic isotopes and, where a
-      reaction cell shifts an analyte onto a different mass, the product mass actually
-      measured. Includes interference-monitor and internal-standard masses, which
-      serve no analyte and so have no parent element. The analyte list is given by
-      the Analyte field and is never inferred from the element symbols appearing here.
+    description: Specific masses monitored in this procedure, grouped by the target
+      species element they serve where they serve one. Covers atomic isotopes and,
+      where a reaction cell shifts an target species onto a different mass, the product
+      mass actually measured. Includes interference-monitor and internal-standard
+      masses, which serve no target species and so have no parent element. The target
+      species list is given by the Target Species field and is never inferred from
+      the element symbols appearing here.
     type: object
     properties:
       '@id':
@@ -3133,6 +3337,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laSficpmsUPb_calibrationStrategyPerTargetSpecies:
+    title: Calibration Strategy per Target Species
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different target species or target species groups
+      within one procedure are calibrated differently - different primary standards
+      for different mass ranges or phases, or one element serving as internal standard
+      while others are externally calibrated. Where a single strategy applies to all
+      target species, record that strategy. Where the procedure reports isotope ratios
+      only and no concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: calibrationStrategyPerTargetSpecies
+      schema:name:
+        const: Calibration Strategy per Target Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpmsUPb_detectionLimit:
     title: Detection Limit
     description: "Session detection limit, one per reported concentration variable
@@ -3360,10 +3599,10 @@ $defs:
     - ada:dataType
   laSficpmsUPb_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One analyte may be acquired
-      at more than one resolution, so the assignment is per acquired mass rather than
-      per element. The overall mode(s) used in the procedure are recorded in Mass
-      Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may
+      be acquired at more than one resolution, so the assignment is per acquired mass
+      rather than per element. The overall mode(s) used in the procedure are recorded
+      in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -3451,12 +3690,13 @@ $defs:
     - schema:defaultValue
   laSficpmsUPb_monitoredMasses:
     title: Monitored Masses
-    description: Specific masses monitored in this procedure, grouped by the analyte
-      element they serve where they serve one. Covers atomic isotopes and, where a
-      reaction cell shifts an analyte onto a different mass, the product mass actually
-      measured. Includes interference-monitor and internal-standard masses, which
-      serve no analyte and so have no parent element. The analyte list is given by
-      the Analyte field and is never inferred from the element symbols appearing here.
+    description: Specific masses monitored in this procedure, grouped by the target
+      species element they serve where they serve one. Covers atomic isotopes and,
+      where a reaction cell shifts an target species onto a different mass, the product
+      mass actually measured. Includes interference-monitor and internal-standard
+      masses, which serve no target species and so have no parent element. The target
+      species list is given by the Target Species field and is never inferred from
+      the element symbols appearing here.
     type: object
     properties:
       '@id':
@@ -3683,6 +3923,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laSficpms_calibrationStrategyPerTargetSpecies:
+    title: Calibration Strategy per Target Species
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different target species or target species groups
+      within one procedure are calibrated differently - different primary standards
+      for different mass ranges or phases, or one element serving as internal standard
+      while others are externally calibrated. Where a single strategy applies to all
+      target species, record that strategy. Where the procedure reports isotope ratios
+      only and no concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: calibrationStrategyPerTargetSpecies
+      schema:name:
+        const: Calibration Strategy per Target Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laSficpms_detectionLimit:
     title: Detection Limit
     description: "Session detection limit, one per reported concentration variable
@@ -3910,10 +4185,10 @@ $defs:
     - ada:dataType
   laSficpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One analyte may be acquired
-      at more than one resolution, so the assignment is per acquired mass rather than
-      per element. The overall mode(s) used in the procedure are recorded in Mass
-      Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may
+      be acquired at more than one resolution, so the assignment is per acquired mass
+      rather than per element. The overall mode(s) used in the procedure are recorded
+      in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -4001,12 +4276,13 @@ $defs:
     - schema:defaultValue
   laSficpms_monitoredMasses:
     title: Monitored Masses
-    description: Specific masses monitored in this procedure, grouped by the analyte
-      element they serve where they serve one. Covers atomic isotopes and, where a
-      reaction cell shifts an analyte onto a different mass, the product mass actually
-      measured. Includes interference-monitor and internal-standard masses, which
-      serve no analyte and so have no parent element. The analyte list is given by
-      the Analyte field and is never inferred from the element symbols appearing here.
+    description: Specific masses monitored in this procedure, grouped by the target
+      species element they serve where they serve one. Covers atomic isotopes and,
+      where a reaction cell shifts an target species onto a different mass, the product
+      mass actually measured. Includes interference-monitor and internal-standard
+      masses, which serve no target species and so have no parent element. The target
+      species list is given by the Target Species field and is never inferred from
+      the element symbols appearing here.
     type: object
     properties:
       '@id':
@@ -4586,9 +4862,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -4946,6 +5222,36 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  semComposition_targetSpeciesEstimationMethod:
+    title: Target Species Estimation Method
+    description: Whether elemental concentrations were calculated directly from measured
+      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
+      from cation proportions in silicates; carbon from stoichiometry in carbonates).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semCompositionTAPP/targetSpeciesEstimationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: targetSpeciesEstimationMethod
+      schema:name:
+        const: Target Species Estimation Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   semComposition_techniquePerAnalyte:
     title: Technique per Analyte
     description: Records which X-ray detection technique (EDS or WDS) was used to
@@ -4962,6 +5268,37 @@ $defs:
         const: techniquePerAnalyte
       schema:name:
         const: Technique per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  semComposition_techniquePerTargetSpecies:
+    title: Technique per Target Species
+    description: Records which X-ray detection technique (EDS or WDS) was used to
+      collect the measurement. Required when a procedure employs both EDS and WDS
+      simultaneously. List in the same order as the Target Species field.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semCompositionTAPP/techniquePerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: techniquePerTargetSpecies
+      schema:name:
+        const: Technique per Target Species
       ada:dataType:
         const: string
       schema:readonlyValue:
@@ -5039,11 +5376,11 @@ $defs:
     - ada:dataType
   semComposition_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
-    description: "WDS spectrometer position(s) assigned to each analyte, one entry
-      per assignment. An analyte may be assigned to more than one spectrometer with
-      intensities aggregated (aggregate intensity counting), and one spectrometer
-      serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup."
+    description: "WDS spectrometer position(s) assigned to each target species, one
+      entry per assignment. An target species may be assigned to more than one spectrometer
+      with intensities aggregated (aggregate intensity counting), and one spectrometer
+      serves several target species across a run, so the assignment \u2014 not the
+      target species \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -5445,9 +5782,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -5805,6 +6142,36 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  sem_targetSpeciesEstimationMethod:
+    title: Target Species Estimation Method
+    description: Whether elemental concentrations were calculated directly from measured
+      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
+      from cation proportions in silicates; carbon from stoichiometry in carbonates).
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semTAPP/targetSpeciesEstimationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: targetSpeciesEstimationMethod
+      schema:name:
+        const: Target Species Estimation Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   sem_techniquePerAnalyte:
     title: Technique per Analyte
     description: Records which X-ray detection technique (EDS or WDS) was used to
@@ -5821,6 +6188,37 @@ $defs:
         const: techniquePerAnalyte
       schema:name:
         const: Technique per Analyte
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  sem_techniquePerTargetSpecies:
+    title: Technique per Target Species
+    description: Records which X-ray detection technique (EDS or WDS) was used to
+      collect the measurement. Required when a procedure employs both EDS and WDS
+      simultaneously. List in the same order as the Target Species field.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/semTAPP/techniquePerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: techniquePerTargetSpecies
+      schema:name:
+        const: Technique per Target Species
       ada:dataType:
         const: string
       schema:readonlyValue:
@@ -5898,11 +6296,11 @@ $defs:
     - ada:dataType
   sem_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
-    description: "WDS spectrometer position(s) assigned to each analyte, one entry
-      per assignment. An analyte may be assigned to more than one spectrometer with
-      intensities aggregated (aggregate intensity counting), and one spectrometer
-      serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup."
+    description: "WDS spectrometer position(s) assigned to each target species, one
+      entry per assignment. An target species may be assigned to more than one spectrometer
+      with intensities aggregated (aggregate intensity counting), and one spectrometer
+      serves several target species across a run, so the assignment \u2014 not the
+      target species \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -6013,6 +6411,41 @@ $defs:
         const: string
       schema:readonlyValue:
         const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionMcicpms_calibrationStrategyPerTargetSpecies:
+    title: Calibration Strategy per Target Species
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different target species or target species groups
+      within one procedure are calibrated differently - different primary standards
+      for different mass ranges or phases, or one element serving as internal standard
+      while others are externally calibrated. Where a single strategy applies to all
+      target species, record that strategy. Where the procedure reports isotope ratios
+      only and no concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: calibrationStrategyPerTargetSpecies
+      schema:name:
+        const: Calibration Strategy per Target Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
       ada:tier:
         const: M
       schema:defaultValue:
@@ -6221,6 +6654,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  solutionQicpms_calibrationStrategyPerTargetSpecies:
+    title: Calibration Strategy per Target Species
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different target species or target species groups
+      within one procedure are calibrated differently - different primary standards
+      for different mass ranges or phases, or one element serving as internal standard
+      while others are externally calibrated. Where a single strategy applies to all
+      target species, record that strategy. Where the procedure reports isotope ratios
+      only and no concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: calibrationStrategyPerTargetSpecies
+      schema:name:
+        const: Calibration Strategy per Target Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   solutionQicpms_detectionLimit:
     title: Detection Limit
     description: "Elemental detection limits, one per reported concentration variable
@@ -6606,6 +7074,41 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  solutionSficpms_calibrationStrategyPerTargetSpecies:
+    title: Calibration Strategy per Target Species
+    description: Approach used to convert measured ion signals to reported concentrations,
+      and specifically any case where different target species or target species groups
+      within one procedure are calibrated differently - different primary standards
+      for different mass ranges or phases, or one element serving as internal standard
+      while others are externally calibrated. Where a single strategy applies to all
+      target species, record that strategy. Where the procedure reports isotope ratios
+      only and no concentrations, record 'Not applicable (isotope ratios only)'.
+    type: object
+    properties:
+      '@id':
+        const: ada:analyteColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: calibrationStrategyPerTargetSpecies
+      schema:name:
+        const: Calibration Strategy per Target Species
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   solutionSficpms_detectionLimit:
     title: Detection Limit
     description: "Elemental detection limits, one per reported concentration variable
@@ -6928,12 +7431,13 @@ $defs:
     - schema:defaultValue
   solutionSficpms_monitoredMasses:
     title: Monitored Masses
-    description: Specific masses monitored in this procedure, grouped by the analyte
-      element they serve where they serve one. Covers atomic isotopes and, where a
-      reaction cell shifts an analyte onto a different mass, the product mass actually
-      measured. Includes interference-monitor and internal-standard masses, which
-      serve no analyte and so have no parent element. The analyte list is given by
-      the Analyte field and is never inferred from the element symbols appearing here.
+    description: Specific masses monitored in this procedure, grouped by the target
+      species element they serve where they serve one. Covers atomic isotopes and,
+      where a reaction cell shifts an target species onto a different mass, the product
+      mass actually measured. Includes interference-monitor and internal-standard
+      masses, which serve no target species and so have no parent element. The target
+      species list is given by the Target Species field and is never inferred from
+      the element symbols appearing here.
     type: object
     properties:
       '@id':

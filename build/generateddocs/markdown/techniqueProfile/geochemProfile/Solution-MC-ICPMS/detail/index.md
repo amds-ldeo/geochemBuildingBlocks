@@ -1878,7 +1878,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Reproducibility verified against measurements made \"under conditions similar to the methods used\", quoted as ±0.16 and ±0.26 ε50Ti (2 s.d.)",
+  "ada:analyticalAccuracyAndAssessmentMethod": "BHVO-2 and the Agua Zarcas (CM2) chondrite analysed alongside Bennu — \"To verify the accuracy and reproducibility of these measurements, the terrestrial rock standard BHVO-2 and the Agua Zarcas (CM2) chondrite were analysed alongside the Bennu sample. The analytical uncertainties of 9 analyses of BHVO-2 are ±0.17 ε46Ti, ±0.09 ε48Ti and ±0.16 ε50Ti (2 s.d.)\" (p.8). No accepted values or offsets are stated. The ±0.26 ε50Ti in the same paper is the LLNL procedure's (16 analyses of BCR-2 and BHVO-2, p.8), not this one",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
@@ -1930,7 +1930,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Reproducibility verified against measurements made \"under conditions similar to the methods used\", quoted as \u00b10.16 and \u00b10.26 \u03b550Ti (2 s.d.)",
+  "ada:analyticalAccuracyAndAssessmentMethod": "BHVO-2 and the Agua Zarcas (CM2) chondrite analysed alongside Bennu \u2014 \"To verify the accuracy and reproducibility of these measurements, the terrestrial rock standard BHVO-2 and the Agua Zarcas (CM2) chondrite were analysed alongside the Bennu sample. The analytical uncertainties of 9 analyses of BHVO-2 are \u00b10.17 \u03b546Ti, \u00b10.09 \u03b548Ti and \u00b10.16 \u03b550Ti (2 s.d.)\" (p.8). No accepted values or offsets are stated. The \u00b10.26 \u03b550Ti in the same paper is the LLNL procedure's (16 analyses of BCR-2 and BHVO-2, p.8), not this one",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
@@ -1950,7 +1950,7 @@ ex:detail-P13 a ada:SolutionICPMSTabular ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "Reproducibility verified against measurements made \"under conditions similar to the methods used\", quoted as ±0.16 and ±0.26 ε50Ti (2 s.d.)" ;
+    ada:analyticalAccuracyAndAssessmentMethod "BHVO-2 and the Agua Zarcas (CM2) chondrite analysed alongside Bennu — \"To verify the accuracy and reproducibility of these measurements, the terrestrial rock standard BHVO-2 and the Agua Zarcas (CM2) chondrite were analysed alongside the Bennu sample. The analytical uncertainties of 9 analyses of BHVO-2 are ±0.17 ε46Ti, ±0.09 ε48Ti and ±0.16 ε50Ti (2 s.d.)\" (p.8). No accepted values or offsets are stated. The ±0.26 ε50Ti in the same paper is the LLNL procedure's (16 analyses of BCR-2 and BHVO-2, p.8), not this one" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;

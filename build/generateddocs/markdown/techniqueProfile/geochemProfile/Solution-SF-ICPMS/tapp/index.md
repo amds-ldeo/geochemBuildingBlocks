@@ -65,16 +65,14 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)"
         },
         {
@@ -284,7 +282,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "schema:name": "Sample digestion",
         "bios:reagent": [
           {
-            "schema:name": "Aqua regia (AR fraction); HF-HNO3 for residue (stated section 2.2)",
+            "schema:name": "Rock chips: concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3).",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -357,7 +355,6 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -429,16 +426,14 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)"
         },
         {
@@ -648,7 +643,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "schema:name": "Sample digestion",
         "bios:reagent": [
           {
-            "schema:name": "Aqua regia (AR fraction); HF-HNO3 for residue (stated section 2.2)",
+            "schema:name": "Rock chips: concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3).",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -721,7 +716,6 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -746,6 +740,11 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
@@ -765,12 +764,7 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Aqua regia (AR fraction); HF-HNO3 for residue (stated section 2.2)" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "Rock chips: concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3)." ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
@@ -800,7 +794,6 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
     ada:driftCorrectionMethod "N/A" ;
     ada:finalSolutionMatrix "2% HNO3 + 1 ppb Tl (stated section 2.3)" ;
     ada:internalStandardElement "Tl (203Tl and 205Tl for mass fractionation correction; stated section 2.3)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "None (Tl added for mass fractionation correction only, not ID)" ;
     ada:numberOfReplicatesPerSample "1 (30 sets of 2000 sweeps = single 4.5 min continuous analysis; stated section 2.3)" ;
     ada:numberOfScansPerReplicate "2000 sweeps per set x 30 sets (stated section 2.3)" ;
@@ -841,6 +834,13 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> a schema1:PropertyValueSpecification ;
     schema1:description "1 ppb Tl in sample matrix (stated section 2.3)" ;
     schema1:name "Internal Standard Concentration" ;
@@ -874,7 +874,7 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
@@ -912,11 +912,6 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
-    schema1:value "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)" .
 
 
 ```
@@ -1118,16 +1113,14 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM, pulse counting only (stated Table 1: counting mode)"
         },
         {
@@ -1255,18 +1248,6 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:value": "15 mL Teflon capsule (stated section 2.3)"
           },
           {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": 2,
-            "schema:description": "2 (step 1: 6M HCl + 8M HNO3 at 130 deg C / 48 h; step 2: evaporate + re-dissolve in 10M HCl; both steps explicitly described; stated section 2.3.1)"
-          },
-          {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -1366,7 +1347,6 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -1581,16 +1561,14 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM, pulse counting only (stated Table 1: counting mode)"
         },
         {
@@ -1718,18 +1696,6 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:value": "15 mL Teflon capsule (stated section 2.3)"
           },
           {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": 2,
-            "schema:description": "2 (step 1: 6M HCl + 8M HNO3 at 130 deg C / 48 h; step 2: evaporate + re-dissolve in 10M HCl; both steps explicitly described; stated section 2.3.1)"
-          },
-          {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -1829,7 +1795,6 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -1863,20 +1828,19 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "Step 1: 6M HCl (1.5 ml) + 8M HNO3 (0.5 ml); Step 2: 10M HCl (1.5 ml) for re-dissolution; stated section 2.3.1" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -1910,7 +1874,6 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
     ada:driftCorrectionMethod "IS normalization" ;
     ada:finalSolutionMatrix "2% HNO3 + 5 ng/ml Rh (stated section 2.3)" ;
     ada:internalStandardElement "Rh (103Rh; Table 1)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "None (external calibration used; stated section 2.3)" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:numberOfScansPerReplicate -9999 ;
@@ -1989,6 +1952,13 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Single SEM, pulse counting only (stated Table 1: counting mode)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "48 h (stated section 2.3)" ;
     schema1:name "Digestion Duration" ;
@@ -2027,14 +1997,6 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> a schema1:PropertyValueSpecification ;
-    schema1:description "2 (step 1: 6M HCl + 8M HNO3 at 130 deg C / 48 h; step 2: evaporate + re-dissolve in 10M HCl; both steps explicitly described; stated section 2.3.1)" ;
-    schema1:name "Number of Digestion Steps" ;
-    schema1:value 2 ;
-    schema1:valueName "numberOfDigestionSteps" ;
-    ada:dataType "integer" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 100 ;
     schema1:description "~100 mg mineral powder (stated section 2.3)" ;
@@ -2054,7 +2016,7 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
@@ -2097,11 +2059,6 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
-    schema1:value "Single SEM, pulse counting only (stated Table 1: counting mode)" .
 
 
 ```
@@ -2325,16 +2282,14 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM, pulse counting (stated section 2.1.2)"
         },
         {
@@ -2561,7 +2516,6 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     }
   ],
   "ada:finalSolutionMatrix": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:primaryStandardNameDefault": "missing",
@@ -2797,16 +2751,14 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM, pulse counting (stated section 2.1.2)"
         },
         {
@@ -3033,7 +2985,6 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     }
   ],
   "ada:finalSolutionMatrix": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:isotopeDilutionSpike": "missing",
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:primaryStandardNameDefault": "missing",
@@ -3060,12 +3011,6 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
@@ -3075,17 +3020,23 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Continuous nebulization (not pFI) for SF-ICP-MS; background measured before each sample after HF wash; sapphire injector used (HF-resistant); 60 s uptake stabilization; stated section 2.1.2 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.2)." ;
@@ -3115,7 +3066,6 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
     ada:driftCorrectionMethod "Standard bracketing" ;
     ada:finalSolutionMatrix "missing" ;
     ada:internalStandardElement "Nb (93Nb as ID internal standard for Ti; stated section 2.1.2)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "missing" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:numberOfScansPerReplicate "30 scans in 50 s (stated section 2.1.2)" ;
@@ -3208,6 +3158,13 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Single SEM, pulse counting (stated section 2.1.2)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
     schema1:name "Desolvation System" ;
     schema1:value "None" ;
@@ -3256,7 +3213,7 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
@@ -3301,11 +3258,6 @@ ex:solutionSficpmsTAPP-P2 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "Quartz glass torch with sapphire injector (stated Table in section 2.1.2)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
-    schema1:value "Single SEM, pulse counting (stated section 2.1.2)" .
 
 
 ```
@@ -3529,16 +3481,14 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM, dual mode (stated section 2.4)"
         },
         {
@@ -3732,7 +3682,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -3968,16 +3917,14 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM, dual mode (stated section 2.4)"
         },
         {
@@ -4171,7 +4118,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -4208,19 +4154,19 @@ ex:solutionSficpmsTAPP-P3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Off-line pre-concentration by chelating resin essential for open-ocean seawater; enriched isotope spikes added before chelation (pre-equilibration); standard addition for Mn and Co (no suitable spike isotope); stated section 2.2" ;
@@ -4246,7 +4192,6 @@ ex:solutionSficpmsTAPP-P3 a cdi:Activity,
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "1.0 M HNO3 (trace elements eluted from chelating resin in 1 mL; stated section 2.2)" ;
     ada:internalStandardElement "None (ID method used; no external IS; stated section 2.1)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "57Fe, 62Ni, 65Cu, 68Zn, 111Cd, 207Pb enriched isotope spikes (stated Table 1)" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:numberOfScansPerReplicate -9999 ;
@@ -4332,6 +4277,13 @@ ex:solutionSficpmsTAPP-P3 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Single SEM, dual mode (stated section 2.4)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
     schema1:name "Desolvation System" ;
     schema1:value "None" ;
@@ -4380,7 +4332,7 @@ ex:solutionSficpmsTAPP-P3 a cdi:Activity,
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
@@ -4425,11 +4377,6 @@ ex:solutionSficpmsTAPP-P3 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
-    schema1:value "Single SEM, dual mode (stated section 2.4)" .
 
 
 ```
@@ -4486,116 +4433,6 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)"
-          },
-          {
-            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "isotopeDilutionDataReductionMethod",
-            "schema:name": "Isotope Dilution Data Reduction Method",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      },
-      {
-        "schema:name": "Sample digestion",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": 1,
-            "schema:description": "1 (stated section 2.4)"
-          }
-        ],
-        "bios:reagent": [
-          {
-            "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 4
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4756,16 +4593,14 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       ],
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)"
         },
         {
@@ -4816,6 +4651,102 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
   "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
   "ada:analysisSequenceDefault": "Blocks of 7 samples bracketed by pair of acid blanks and consistency standards (stated section 2.3.1)",
   "ada:driftCorrectionMethod": "Standard bracketing",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)"
+          },
+          {
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "None"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      },
+      {
+        "schema:name": "Sample digestion",
+        "bios:reagent": [
+          {
+            "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4856,7 +4787,6 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -4922,116 +4852,6 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)"
-          },
-          {
-            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "isotopeDilutionDataReductionMethod",
-            "schema:name": "Isotope Dilution Data Reduction Method",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      },
-      {
-        "schema:name": "Sample digestion",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": 1,
-            "schema:description": "1 (stated section 2.4)"
-          }
-        ],
-        "bios:reagent": [
-          {
-            "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 4
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5192,16 +5012,14 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       ],
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/solutionSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)"
         },
         {
@@ -5252,6 +5070,102 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
   "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
   "ada:analysisSequenceDefault": "Blocks of 7 samples bracketed by pair of acid blanks and consistency standards (stated section 2.3.1)",
   "ada:driftCorrectionMethod": "Standard bracketing",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)"
+          },
+          {
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "None"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      },
+      {
+        "schema:name": "Sample digestion",
+        "bios:reagent": [
+          {
+            "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5292,7 +5206,6 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -5322,16 +5235,11 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
@@ -5339,9 +5247,13 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
                             schema1:name "1 M HNO3 (minimum volume for dissolution; stated section 2.4)" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1)." ;
@@ -5367,7 +5279,6 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     ada:driftCorrectionMethod "Standard bracketing" ;
     ada:finalSolutionMatrix "0.1 M HNO3 + 0.3 M HF (Table 1)" ;
     ada:internalStandardElement "None (matrix-matched external calibration; stated section 2.3.1)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "None" ;
     ada:numberOfReplicatesPerSample "3 runs (LR and MR; Table 3)" ;
     ada:numberOfScansPerReplicate "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)" ;
@@ -5437,6 +5348,20 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)" ;
+    schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
+    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
     schema1:name "Desolvation System" ;
     schema1:value "None" ;
@@ -5449,14 +5374,6 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     schema1:value "ESI 50 uL microconcentric nebulizer; self-aspirating (Table 1)" ;
     schema1:valueName "nebulizerType" ;
     ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> a schema1:PropertyValueSpecification ;
-    schema1:description "1 (stated section 2.4)" ;
-    schema1:name "Number of Digestion Steps" ;
-    schema1:value 1 ;
-    schema1:valueName "numberOfDigestionSteps" ;
-    ada:dataType "integer" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
@@ -5482,18 +5399,11 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)" ;
-    schema1:name "Pulse/Analog Detector Nonlinearity Correction" ;
-    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
@@ -5535,11 +5445,6 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
-    schema1:value "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)" .
 
 
 ```
@@ -5923,7 +5828,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         ],
         "bios:reagent": [
           {
-            "schema:name": "HF (1-2 ml) + HNO3 (0.2 ml; stated sample prep section)",
+            "schema:name": "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l).",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -5996,7 +5901,6 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
@@ -6393,7 +6297,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         ],
         "bios:reagent": [
           {
-            "schema:name": "HF (1-2 ml) + HNO3 (0.2 ml; stated sample prep section)",
+            "schema:name": "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l).",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -6466,7 +6370,6 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
@@ -6494,11 +6397,6 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -6506,7 +6404,13 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF (1-2 ml) + HNO3 (0.2 ml; stated sample prep section)" ] ],
+                            schema1:name "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l)." ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder (~100 mg; stated section on sample preparation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -6519,9 +6423,8 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (~100 mg; stated section on sample preparation)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Magnetic jump + electric scan mode: each peak monitored by E-scan for 100 ms dwell; 15 samples per peak; in-run Ru-Re for mass fractionation correction; DF ~21000 (LR) or ~1000 (HR) in 0.4 mol/l HNO3; stated section on instrumentation" ;
@@ -6547,7 +6450,6 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "0.4 mol/l HNO3 (dilution factor ~21000 for LR, ~1000 for HR; stated sample prep section)" ;
     ada:internalStandardElement "Ru and Re (in-run mass fractionation correction; ~6 uL Ru-Re solution per dilution; stated section on instrumentation)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "Multi-element spike (MES; enriched isotopes of Rb, Sr, Y, Zr, Nb, Cs, Ba, REE, Hf, Pb, Th, U; stated section on instrumentation)" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:numberOfScansPerReplicate "70-120 scans per analysis (stated section on instrumentation)" ;
@@ -6757,14 +6659,13 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)
 description: Solution sector-field (high-resolution) ICP-MS extension of the base
-  TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v69.csv
+  TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v78.csv
   via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - type: object
@@ -6946,8 +6847,11 @@ allOf:
                 items:
                   anyOf:
                   - title: Doubly-Charged Species Monitor
-                    description: Mass ratio monitored to estimate doubly-charged ion
-                      (M2+) formation during instrument tuning.
+                    description: "The mass ratio monitored to estimate doubly-charged
+                      ion (M\xB2\u207A) formation during instrument tuning. The monitor
+                      species and the mass positions monitored should be stated explicitly.
+                      Analogous to Oxide Production Method and Threshold for oxide
+                      monitoring."
                     type: object
                     properties:
                       '@id':
@@ -6974,31 +6878,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer
-                      and the detection mode(s) used. The cross-calibration correction
-                      between detector modes is documented in Group 5.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionSficpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/solutionSficpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   - title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production
                       for the monitored species at the time of instrument tuning.
@@ -7037,8 +6917,11 @@ allOf:
                 allOf:
                 - contains:
                     title: Doubly-Charged Species Monitor
-                    description: Mass ratio monitored to estimate doubly-charged ion
-                      (M2+) formation during instrument tuning.
+                    description: "The mass ratio monitored to estimate doubly-charged
+                      ion (M\xB2\u207A) formation during instrument tuning. The monitor
+                      species and the mass positions monitored should be stated explicitly.
+                      Analogous to Oxide Production Method and Threshold for oxide
+                      monitoring."
                     type: object
                     properties:
                       '@id':
@@ -7068,31 +6951,7 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer
-                      and the detection mode(s) used. The cross-calibration correction
-                      between detector modes is documented in Group 5.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionSficpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/solutionSficpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -7240,16 +7099,11 @@ allOf:
                     items:
                       anyOf:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionDuration
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionTemperature
                     allOf:
                     - contains:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -7289,85 +7143,13 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - title: Pulse/Analog Detector Nonlinearity Correction
-                        description: Whether a correction was applied for nonlinear
-                          detector response at the transition between pulse-counting
-                          and analog (and Faraday, for triple-mode instruments) detection
-                          modes. Cross-calibration factors between detector modes
-                          must be confirmed, typically measured each session. Record
-                          'Applied' and describe the method, the detector modes involved
-                          and the analytes affected; 'None' where a crossover exists
-                          on this instrument but no correction was made, giving the
-                          reason; and 'N/A' where the detector is pulse-counting only
-                          and no crossover exists.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: pulseAnalogDetectorNonlinearityCorrectionDefault
-                          schema:name:
-                            const: Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
-                        title: Pulse/Analog Detector Nonlinearity Correction
-                        description: Whether a correction was applied for nonlinear
-                          detector response at the transition between pulse-counting
-                          and analog (and Faraday, for triple-mode instruments) detection
-                          modes. Cross-calibration factors between detector modes
-                          must be confirmed, typically measured each session. Record
-                          'Applied' and describe the method, the detector modes involved
-                          and the analytes affected; 'None' where a crossover exists
-                          on this instrument but no correction was made, giving the
-                          reason; and 'N/A' where the detector is pulse-counting only
-                          and no crossover exists.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: pulseAnalogDetectorNonlinearityCorrectionDefault
-                          schema:name:
-                            const: Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -7545,12 +7327,13 @@ allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -7609,26 +7392,26 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Per-Analyte Calibration Strategy
+            - title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionSficpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -7848,12 +7631,13 @@ allOf:
           - contains:
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -7918,26 +7702,26 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Per-Analyte Calibration Strategy
+              title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionSficpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -8182,7 +7966,7 @@ allOf:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
             - title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte
+              description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
                 in the procedure are recorded in Mass Resolution Setting (Group 3).
@@ -8219,7 +8003,7 @@ allOf:
           allOf:
           - contains:
               title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte
+              description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
                 in the procedure are recorded in Mass Resolution Setting (Group 3).

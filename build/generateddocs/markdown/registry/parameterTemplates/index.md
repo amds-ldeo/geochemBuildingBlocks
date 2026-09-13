@@ -750,9 +750,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -782,8 +782,8 @@ $defs:
   empa_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -1711,9 +1711,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -1743,8 +1743,8 @@ $defs:
   laMcicpmsUPb_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -1777,13 +1777,13 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_doubleSpikeMixingRatioDefault:
     title: Double-Spike Mixing Ratio
-    description: "Target proportion of double-spike signal relative to total analyte
-      signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. The optimum is analyte-system specific and is typically determined using
-      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
-      from the target within acceptable bounds (typically \xB120% of optimal); the
-      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
-      the procedure does not use a double spike."
+    description: "Target proportion of double-spike signal relative to total target
+      species signal in the spiked mixture, expressed as spike fraction (0\u20131)
+      or spike:sample ratio. The optimum is target species-system specific and is
+      typically determined using the Double Spike Toolbox or equivalent. The achieved
+      mixing ratio may deviate from the target within acceptable bounds (typically
+      \xB120% of optimal); the double-spike inversion corrects for actual mixing ratios.
+      Record 'N/A' where the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -2595,9 +2595,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -2627,8 +2627,8 @@ $defs:
   laMcicpms_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -2661,13 +2661,13 @@ $defs:
     - ada:fieldScope
   laMcicpms_doubleSpikeMixingRatioDefault:
     title: Double-Spike Mixing Ratio
-    description: "Target proportion of double-spike signal relative to total analyte
-      signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. The optimum is analyte-system specific and is typically determined using
-      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
-      from the target within acceptable bounds (typically \xB120% of optimal); the
-      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
-      the procedure does not use a double spike."
+    description: "Target proportion of double-spike signal relative to total target
+      species signal in the spiked mixture, expressed as spike fraction (0\u20131)
+      or spike:sample ratio. The optimum is target species-system specific and is
+      typically determined using the Double Spike Toolbox or equivalent. The achieved
+      mixing ratio may deviate from the target within acceptable bounds (typically
+      \xB120% of optimal); the double-spike inversion corrects for actual mixing ratios.
+      Record 'N/A' where the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -3479,9 +3479,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -3511,8 +3511,8 @@ $defs:
   laQicpmsUPb_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -4038,9 +4038,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -4364,9 +4364,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -4396,8 +4396,8 @@ $defs:
   laQicpms_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -4890,9 +4890,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -5217,9 +5217,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -5249,8 +5249,8 @@ $defs:
   laSficpmsUPb_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -5776,9 +5776,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -6036,9 +6036,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -6068,8 +6068,8 @@ $defs:
   laSficpms_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -6562,9 +6562,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -8625,9 +8625,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -8657,8 +8657,8 @@ $defs:
   semComposition_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -9433,9 +9433,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -9465,8 +9465,8 @@ $defs:
   sem_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -9989,9 +9989,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -10021,8 +10021,8 @@ $defs:
   solutionMcicpms_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -10055,13 +10055,13 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_doubleSpikeMixingRatioDefault:
     title: Double-Spike Mixing Ratio
-    description: "Target proportion of double-spike signal relative to total analyte
-      signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. The optimum is analyte-system specific and is typically determined using
-      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
-      from the target within acceptable bounds (typically \xB120% of optimal); the
-      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
-      the procedure does not use a double spike."
+    description: "Target proportion of double-spike signal relative to total target
+      species signal in the spiked mixture, expressed as spike fraction (0\u20131)
+      or spike:sample ratio. The optimum is target species-system specific and is
+      typically determined using the Double Spike Toolbox or equivalent. The achieved
+      mixing ratio may deviate from the target within acceptable bounds (typically
+      \xB120% of optimal); the double-spike inversion corrects for actual mixing ratios.
+      Record 'N/A' where the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -10073,6 +10073,69 @@ $defs:
         const: doubleSpikeMixingRatioDefault
       schema:name:
         const: Double-Spike Mixing Ratio
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionMcicpms_doublyChargedSpeciesMonitorDefault:
+    title: Doubly-Charged Species Monitor
+    description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesMonitorDefault
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionMcicpms_doublyChargedSpeciesProductionDefault:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProductionDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: doublyChargedSpeciesProductionDefault
+      schema:name:
+        const: Doubly-Charged Species Production
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -10614,9 +10677,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -10646,8 +10709,8 @@ $defs:
   solutionQicpms_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -10680,8 +10743,10 @@ $defs:
     - ada:fieldScope
   solutionQicpms_doublyChargedSpeciesMonitorDefault:
     title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
-      during instrument tuning.
+    description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -11008,9 +11073,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -11270,9 +11335,9 @@ $defs:
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
       reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the analyte together with those on any background or blank subtracted
-      from it. Distinct from the scatter actually observed within a measurement or
-      between repeated measurements, which is recorded separately."
+      counts on the target species together with those on any background or blank
+      subtracted from it. Distinct from the scatter actually observed within a measurement
+      or between repeated measurements, which is recorded separately."
     type: object
     properties:
       '@id':
@@ -11302,8 +11367,8 @@ $defs:
   solutionSficpms_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -11336,8 +11401,10 @@ $defs:
     - ada:fieldScope
   solutionSficpms_doublyChargedSpeciesMonitorDefault:
     title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
-      during instrument tuning.
+    description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -11664,9 +11731,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -12154,8 +12221,8 @@ $defs:
   tem_edsDetectionLimitDefault:
     title: EDS Detection Limit
     description: Estimated detection limits by EDS under this procedure's conditions,
-      one per reported concentration variable (one per analyte, these being the same
-      set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+      one per reported concentration variable (one per target species, these being
+      the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':

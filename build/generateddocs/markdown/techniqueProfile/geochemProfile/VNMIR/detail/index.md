@@ -7,6 +7,423 @@ Detail block for VNMIR hasPart items. Discriminates on ada:componentType and car
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Hiroi2023
+detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Nexus 870 FTIR.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Hiroi2023",
+  "@type": [
+    "ada:VNMIRSpectralPoint"
+  ],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vnmirTAPP-Hiroi2023",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240514_vnmir_brown_orex-803124-0_1 | 20240918_vnmir_brown_orex-803119-100_1 | (+8 more)",
+  "ada:analyst": "Hiroi, Takahiro",
+  "ada:analysisStartDate": "2023-11-14 | 2024-03-28 | (+7 more)",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)",
+  "ada:sampleName": "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)",
+  "ada:samplingUnit": "missing",
+  "ada:sampleHeated": "missing",
+  "ada:vacuumExposedSample": "missing",
+  "ada:incidenceAngle": -9999,
+  "ada:emissionAngle": -9999,
+  "ada:sampleTemperature": -9999
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Hiroi2023",
+  "@type": [
+    "ada:VNMIRSpectralPoint"
+  ],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vnmirTAPP-Hiroi2023",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240514_vnmir_brown_orex-803124-0_1 | 20240918_vnmir_brown_orex-803119-100_1 | (+8 more)",
+  "ada:analyst": "Hiroi, Takahiro",
+  "ada:analysisStartDate": "2023-11-14 | 2024-03-28 | (+7 more)",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)",
+  "ada:sampleName": "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)",
+  "ada:samplingUnit": "missing",
+  "ada:sampleHeated": "missing",
+  "ada:vacuumExposedSample": "missing",
+  "ada:incidenceAngle": -9999,
+  "ada:emissionAngle": -9999,
+  "ada:sampleTemperature": -9999
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<ex:detail-Hiroi2023> a ada:VNMIRSpectralPoint ;
+    schema1:measurementTechnique <ex:vnmirTAPP-Hiroi2023> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-14 | 2024-03-28 | (+7 more)" ;
+    ada:analyst "Hiroi, Takahiro" ;
+    ada:componentType "ada:VNMIRSpectralPoint" ;
+    ada:emissionAngle -9999 ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)" ;
+    ada:incidenceAngle -9999 ;
+    ada:sampleHeated "missing" ;
+    ada:sampleName "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)" ;
+    ada:sampleTemperature -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240514_vnmir_brown_orex-803124-0_1 | 20240918_vnmir_brown_orex-803119-100_1 | (+8 more)" ;
+    ada:vacuumExposedSample "missing" .
+
+<ex:vnmirTAPP-Hiroi2023> schema1:identifier "missing" .
+
+
+```
+
+
+### detail example Hiroi2023-2
+detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directional.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Hiroi2023-2",
+  "@type": [
+    "ada:VNMIRSpectralPoint"
+  ],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vnmirTAPP-Hiroi2023-2",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)",
+  "ada:analyst": "Hiroi, Takahiro",
+  "ada:analysisStartDate": "2023-11-14 | 2024-09-16 | (+4 more)",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)",
+  "ada:sampleName": "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)",
+  "ada:samplingUnit": "missing",
+  "ada:sampleHeated": "missing",
+  "ada:vacuumExposedSample": "missing",
+  "ada:incidenceAngle": -9999,
+  "ada:emissionAngle": -9999,
+  "ada:sampleTemperature": -9999
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Hiroi2023-2",
+  "@type": [
+    "ada:VNMIRSpectralPoint"
+  ],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vnmirTAPP-Hiroi2023-2",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)",
+  "ada:analyst": "Hiroi, Takahiro",
+  "ada:analysisStartDate": "2023-11-14 | 2024-09-16 | (+4 more)",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)",
+  "ada:sampleName": "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)",
+  "ada:samplingUnit": "missing",
+  "ada:sampleHeated": "missing",
+  "ada:vacuumExposedSample": "missing",
+  "ada:incidenceAngle": -9999,
+  "ada:emissionAngle": -9999,
+  "ada:sampleTemperature": -9999
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<ex:detail-Hiroi2023-2> a ada:VNMIRSpectralPoint ;
+    schema1:measurementTechnique <ex:vnmirTAPP-Hiroi2023-2> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-14 | 2024-09-16 | (+4 more)" ;
+    ada:analyst "Hiroi, Takahiro" ;
+    ada:componentType "ada:VNMIRSpectralPoint" ;
+    ada:emissionAngle -9999 ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)" ;
+    ada:incidenceAngle -9999 ;
+    ada:sampleHeated "missing" ;
+    ada:sampleName "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)" ;
+    ada:sampleTemperature -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)" ;
+    ada:vacuumExposedSample "missing" .
+
+<ex:vnmirTAPP-Hiroi2023-2> schema1:identifier "missing" .
+
+
+```
+
+
+### detail example Milliken2024
+detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FTIR microscope.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Milliken2024",
+  "@type": [
+    "ada:VNMIRSpectralPoint"
+  ],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vnmirTAPP-Milliken2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231113_vnmir_brown_orex-800029-0_1",
+  "ada:analyst": "Milliken, Ralph",
+  "ada:analysisStartDate": "2024-01-19",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800029-0",
+  "ada:samplingUnit": "missing",
+  "ada:sampleHeated": "missing",
+  "ada:vacuumExposedSample": "missing",
+  "ada:incidenceAngle": -9999,
+  "ada:emissionAngle": -9999,
+  "ada:sampleTemperature": -9999
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Milliken2024",
+  "@type": [
+    "ada:VNMIRSpectralPoint"
+  ],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vnmirTAPP-Milliken2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231113_vnmir_brown_orex-800029-0_1",
+  "ada:analyst": "Milliken, Ralph",
+  "ada:analysisStartDate": "2024-01-19",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800029-0",
+  "ada:samplingUnit": "missing",
+  "ada:sampleHeated": "missing",
+  "ada:vacuumExposedSample": "missing",
+  "ada:incidenceAngle": -9999,
+  "ada:emissionAngle": -9999,
+  "ada:sampleTemperature": -9999
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<ex:detail-Milliken2024> a ada:VNMIRSpectralPoint ;
+    schema1:measurementTechnique <ex:vnmirTAPP-Milliken2024> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-01-19" ;
+    ada:analyst "Milliken, Ralph" ;
+    ada:componentType "ada:VNMIRSpectralPoint" ;
+    ada:emissionAngle -9999 ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:incidenceAngle -9999 ;
+    ada:sampleHeated "missing" ;
+    ada:sampleName "OREX-800029-0" ;
+    ada:sampleTemperature -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20231113_vnmir_brown_orex-800029-0_1" ;
+    ada:vacuumExposedSample "missing" .
+
+<ex:vnmirTAPP-Milliken2024> schema1:identifier "missing" .
+
+
+```
+
+
+### detail example Keller2024
+detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | JEOL 2500SE.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Keller2024",
+  "@type": [
+    "ada:VNMIRSpectralPoint"
+  ],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vnmirTAPP-Keller2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20230929_vnmir_jsc-ares_orex-501006-0_1",
+  "ada:analyst": "Keller, Lindsay",
+  "ada:analysisStartDate": "2024-04-17",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-501006-0",
+  "ada:samplingUnit": "missing",
+  "ada:sampleHeated": "missing",
+  "ada:vacuumExposedSample": "missing",
+  "ada:incidenceAngle": -9999,
+  "ada:emissionAngle": -9999,
+  "ada:sampleTemperature": -9999
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Keller2024",
+  "@type": [
+    "ada:VNMIRSpectralPoint"
+  ],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vnmirTAPP-Keller2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20230929_vnmir_jsc-ares_orex-501006-0_1",
+  "ada:analyst": "Keller, Lindsay",
+  "ada:analysisStartDate": "2024-04-17",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-501006-0",
+  "ada:samplingUnit": "missing",
+  "ada:sampleHeated": "missing",
+  "ada:vacuumExposedSample": "missing",
+  "ada:incidenceAngle": -9999,
+  "ada:emissionAngle": -9999,
+  "ada:sampleTemperature": -9999
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<ex:detail-Keller2024> a ada:VNMIRSpectralPoint ;
+    schema1:measurementTechnique <ex:vnmirTAPP-Keller2024> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-04-17" ;
+    ada:analyst "Keller, Lindsay" ;
+    ada:componentType "ada:VNMIRSpectralPoint" ;
+    ada:emissionAngle -9999 ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:incidenceAngle -9999 ;
+    ada:sampleHeated "missing" ;
+    ada:sampleName "OREX-501006-0" ;
+    ada:sampleTemperature -9999 ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20230929_vnmir_jsc-ares_orex-501006-0_1" ;
+    ada:vacuumExposedSample "missing" .
+
+<ex:vnmirTAPP-Keller2024> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

@@ -14,10 +14,18 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Bulk powder; for the Si aliquot, NaOH fusion in silver crucibles" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Cr/Mg route: 6 M HCl loading, 10 M HCl pretreatment, 0.5 M HCl, 0.5 M HNO3, 1 M HF, 6 M HCl elutions; Si route: NaOH fusion then Milli-Q water and HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -29,21 +37,13 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Cr/Mg route: 6 M HCl loading, 10 M HCl pretreatment, 0.5 M HCl, 0.5 M HNO3, 1 M HF, 6 M HCl elutions; Si route: NaOH fusion then Milli-Q water and HNO3" ] ] ] ;
+                    schema1:description "Bulk powder; for the Si aliquot, NaOH fusion in silver crucibles" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen" ] ;
@@ -69,7 +69,6 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     ada:finalSolutionMatrix "0.5 M HNO3 (Cr); 6 M HCl elution of the final Cr cut" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "IRMM-014, SRM979, DTS-2b" ;
@@ -130,15 +129,15 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "3 h (Cr(VI) speciation), >1 week at room temperature (Cr(III) speciation), 13 min (NaOH fusion)" ;
+    schema1:defaultValue "3 days in the Parr bomb (1 + 2 days) then 2 days in aqua regia; 13 min for the NaOH fusion. The 3 h and >1 week previously recorded here are Cr speciation during column chemistry." ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 130 ;
-    schema1:description "130 °C for the 10 M HCl Cr(VI) speciation step; 720 °C for the NaOH fusion" ;
+    schema1:defaultValue 150 ;
+    schema1:description "150 deg C for 1 day then 210 deg C for 2 days (Parr bomb); hotplate for the aqua regia step; 720 deg C for the NaOH fusion (Si route). The 130 deg C 10 M HCl step previously recorded here is Cr(VI) speciation during column chemistry, not a digestion." ;
     schema1:name "Digestion Temperature" ;
     schema1:valueName "digestionTemperatureDefault" ;
     ada:dataType "number" ;

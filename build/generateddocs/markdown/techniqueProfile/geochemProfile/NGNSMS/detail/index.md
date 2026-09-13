@@ -7,6 +7,95 @@ Detail block for NGNSMS hasPart items, carrying the analysis-identification prop
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | (CNRS-CRPG)Nu Instruments Noblesse HR.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:NGNSMSProcessed"
+  ],
+  "ada:componentType": "ada:NGNSMSProcessed",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:ngnsmsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240118_ng-ns-ms_cnrs-crpg_orex-803034-0_1",
+  "ada:analyst": "Fueri, Evelyn",
+  "ada:analysisStartDate": "2023-11-23",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This work was cofunded by the European Union (ERC, IRONIS, 10187562). Support from the French Space Agency (CNES) is also acknowledged.",
+  "ada:sampleName": "OREX-803034-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NGNSMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:NGNSMSProcessed"
+  ],
+  "ada:componentType": "ada:NGNSMSProcessed",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:ngnsmsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240118_ng-ns-ms_cnrs-crpg_orex-803034-0_1",
+  "ada:analyst": "Fueri, Evelyn",
+  "ada:analysisStartDate": "2023-11-23",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This work was cofunded by the European Union (ERC, IRONIS, 10187562). Support from the French Space Agency (CNES) is also acknowledged.",
+  "ada:sampleName": "OREX-803034-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:NGNSMSProcessed ;
+    schema1:measurementTechnique <ex:ngnsmsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-23" ;
+    ada:analyst "Fueri, Evelyn" ;
+    ada:componentType "ada:NGNSMSProcessed" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This work was cofunded by the European Union (ERC, IRONIS, 10187562). Support from the French Space Agency (CNES) is also acknowledged." ;
+    ada:sampleName "OREX-803034-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240118_ng-ns-ms_cnrs-crpg_orex-803034-0_1" .
+
+<ex:ngnsmsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

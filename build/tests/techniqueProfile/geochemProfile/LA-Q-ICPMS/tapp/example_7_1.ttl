@@ -20,19 +20,19 @@ ex:laQicpmsTAPP-P6 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v71.csv)." ;
+    schema1:description "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS>,
         <https://example.org/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
@@ -58,7 +58,6 @@ ex:laQicpmsTAPP-P6 a cdi:Activity,
     ada:constantsAndReferenceValuesUsedDefault "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga" ;
     ada:internalStandardApproach "missing" ;
     ada:internalStandardElement "missing" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:oxideProductionMethodAndThreshold "ThO/Th < 0.5%, checked during SQ no-gas tuning" ;
     ada:primaryStandardNameDefault "NIST SRM 610" ;
@@ -164,11 +163,18 @@ ex:laQicpmsTAPP-P6 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Single SEM in double mode, counting and analog" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Triple quadrupole (ICP-MS/MS) — operated in both single-quadrupole (SQ) and triple-quadrupole (TQ) modes" ;
@@ -223,9 +229,4 @@ ex:laQicpmsTAPP-P6 a cdi:Activity,
     ada:laserRepetitionRateDefault "10 Hz" ;
     ada:laserSpotGeometryDefault "missing" ;
     ada:laserType "193 nm" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> ;
-    schema1:value "Single SEM in double mode, counting and analog" .
 

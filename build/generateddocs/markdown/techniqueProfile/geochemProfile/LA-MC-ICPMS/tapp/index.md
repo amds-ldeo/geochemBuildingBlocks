@@ -31,6 +31,94 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   ],
   "schema:name": "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1",
   "schema:description": "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (two-volume cell)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Cycle level: the cycles at the beginning and end of ablation are discarded, leaving 60-70 of the 90 ablation cycles (p.3). Technical criteria (p.5): (a) data with ⁸⁷Rb/⁸⁶Sr > 1 deleted, the Rb interference correction being invalid above that; (b) data with ⁸⁸Sr signal < 0.2 V discarded for poor ⁸⁷Sr/⁸⁶Sr precision. Run level: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8)"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/peakFlatnessMethodAndThreshold",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "peakFlatnessMethodAndThreshold",
+            "schema:name": "Peak Flatness Method and Threshold",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Optimised during tuning on NIST 610 by adjusting the He and Ar gas flow rates, torch position, RF power and source lens settings 'for maximum sensitivity and optimum peak flatness' (p.3); no numerical acceptance threshold is stated"
+          },
+          {
+            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
+          },
+          {
+            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "filteringApproachDefault",
+            "schema:name": "Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:analysisSequenceDefault": "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis",
   "ada:analyticalAccuracy": "87Sr/86Sr relative errors <0.2‰ for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within ±3% for 11 glasses; exceptions: NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) — all within stated ±3% criterion",
   "schema:instrument": [
@@ -97,44 +185,31 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         },
         {
           "schema:additionalType": [
-            "Interface Cone",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/module/ICPMS/configuration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "configuration",
-              "schema:name": "Configuration",
-              "ada:dataType": "string",
-              "ada:fieldScope": "session",
-              "schema:value": "X skimmer cone + Jet sample cone (high-sensitivity configuration)"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
             "Collector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:description": "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "faradayCupArrayConfiguration",
+              "schema:name": "Faraday Cup Array Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "Nine Faraday cups fitted with 10¹¹ Ω resistors, plus seven fixed electron multiplier ion counters; the Faraday collector array spans L4 to H3 (p.2)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/ICPMS/part/Collector",
+          "schema:name": "missing",
           "ada:collectorConfiguration": [
             {
               "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
@@ -144,7 +219,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:valueName": "faradayCupAmplifierResistorValues",
               "schema:name": "Faraday Cup Amplifier Resistor Values",
               "ada:dataType": "string",
-              "schema:defaultValue": "missing"
+              "schema:defaultValue": "10¹¹ Ω on all nine Faraday cups (p.2)"
             },
             {
               "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod",
@@ -194,6 +269,16 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               ]
             },
             {
+              "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "ionCounterDeadTime",
+              "schema:name": "Ion Counter Dead Time",
+              "ada:dataType": "number",
+              "schema:defaultValue": -9999
+            },
+            {
               "@id": "ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment",
               "@type": [
                 "schema:PropertyValueSpecification"
@@ -201,23 +286,49 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:valueName": "massResolutionAssignment",
               "schema:name": "Mass Resolution Assignment",
               "ada:dataType": "string",
-              "schema:defaultValue": "missing"
+              "schema:defaultValue": "Low resolution for all eight monitored masses — 'the mass spectrometer was operated in low mass resolution mode' (p.3); Table 1 'Instrument resolution ~ 400 (low mode)'. Single acquisition pass, so one assignment applies throughout"
             }
-          ],
-          "schema:description": "missing"
+          ]
         },
         {
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/configuration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "configuration",
+              "schema:name": "Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "X skimmer cone + Jet sample cone (high-sensitivity configuration)"
+            }
+          ],
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
+          "schema:name": "missing"
+        },
+        {
           "schema:additionalType": [
             "Collision Reaction Cell",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:name": "Not installed — 'traditional (MC-)ICP-MS without the reaction/collision cell' (p.1); contrasted against 'MC-ICP-MS with collision cell' in the conclusion (pp.8-9)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
@@ -236,19 +347,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         }
       ],
       "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/detectorConfiguration",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laMcicpmsTAPP/detectorConfiguration"
-            }
-          ],
-          "schema:name": "Detector Configuration",
-          "schema:value": "Seven fixed electron multiplier ICs + nine Faraday cups (1011 Ω resistors)"
-        },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
           "@type": [
@@ -278,18 +376,18 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           "schema:ProductModel"
         ]
       },
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
-      "schema:manufacturer": {
-        "schema:name": "missing",
-        "@type": [
-          "schema:Organization"
-        ]
-      }
+      "schema:name": "example instrumentName"
     },
     {
       "schema:additionalType": [
@@ -318,19 +416,52 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     }
   ],
   "ada:backgroundCountTimeDefault": "30 cycles × 0.524 s ≈ 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)",
-  "ada:carrierGasFlowRateDefault": "He, 0.90 l min⁻¹ (two-volume cell)",
-  "ada:isobaricInterferenceCorrectionsApplied": "Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
+      "schema:valueName": "baselineMeasurementApproach",
+      "schema:name": "Baseline Measurement Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "Single line scan per location (1 block of 120 cycles at 0.524 s integration)"
+      "schema:value": "Laser-off cycles at the start of the same block — 'the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3); 30 cycles x 0.524 s ≈ 15.7 s"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/massFractionationLaw",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "massFractionationLaw",
+      "schema:name": "Mass Fractionation Law",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Exponential"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfBlocksPerMeasurementDefault",
+      "schema:name": "Number of Blocks per Measurement",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 (Table 1, 'Block number 1'; p.3 'one block of 120 cycles')"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfCyclesPerBlockDefault",
+      "schema:name": "Number of Cycles per Block",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 120,
+      "schema:description": "120 (Table 1, 'Cycles of each block 120'; p.3)"
     },
     {
       "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
@@ -356,6 +487,10 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:defaultValue": "2–6 µm s⁻¹ (varied based on Sr concentration in target minerals)"
     }
   ],
+  "ada:carrierGasFlowRateDefault": "He, 0.90 l min⁻¹ (two-volume cell)",
+  "ada:constantsAndReferenceValuesUsedDefault": "⁸⁷Rb decay constant 1.393 ± 0.004 x 10⁻¹¹ yr⁻¹ (Nebel et al. 2011), p.1; ⁸⁸Sr/⁸⁶Sr = 8.37520933 for mass fractionation correction (p.4); ⁸⁷Rb/⁸⁵Rb = 0.385706 and ⁸⁶Sr/⁸⁸Sr = 0.119351 for the ⁸⁷Rb/⁸⁶Sr calculation (p.4); natural ⁸⁷Rb/⁸⁵Rb of 0.38571 cited for the interference-correction principle (p.1)",
+  "ada:isobaricInterferenceCorrectionsApplied": "Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)",
+  "ada:massBiasCorrectionStrategy": "Internal normalisation to an assumed ⁸⁸Sr/⁸⁶Sr = 8.37520933 applying the exponential law (Russell et al. 1978), after interference correction (p.4). The ⁸⁷Rb isobaric correction on ⁸⁷Sr uses the ⁸⁵Rb signal and a user-specified ⁸⁷Rb/⁸⁵Rb, also via the exponential law, with that ratio calibrated by measuring reference materials of known ⁸⁷Sr/⁸⁶Sr (p.4)",
   "schema:object": [
     {
       "@type": [
@@ -381,72 +516,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:name": "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (two-volume cell)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "signalSmoothingDefault",
-            "schema:name": "Signal Smoothing",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
-          },
-          {
-            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "filteringApproachDefault",
-            "schema:name": "Filtering Approach",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:samplingUnitSelectionCriteriaDefault": "Random selection among the target phases — 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)",
   "ada:withinSessionPrecision": "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1",
   "schema:measurementTechnique": [
     {
@@ -488,19 +558,29 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnit": "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)"
     }
   ],
+  "ada:analyticalMode": [
+    "Transect"
+  ],
+  "ada:reportedProperties": [
+    "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3"
+  ],
   "ada:ablationSamplingMode": [
     "Transect (continuous line scan at 2–6 µm s⁻¹)"
   ],
   "ada:internalStandardApproach": "No conventional IS; external calibration only (Rb/Sr elemental fractionation corrected by series of reference glasses; 87Sr/86Sr mass bias corrected by exponential law using 88Sr/86Sr = 8.37521)",
+  "ada:sampleIntroduction": "He filled into the two-volume ablation cell; Ar mixed into the sample-out line downstream of the ablation chamber before the torch; a signal-smoothing device downstream of the sample cell (Hu et al. 2015) that 'significantly reduced the short-term variability of the signal'; 12 ml min⁻¹ N₂ added to the carrier gas via a simple Y connector behind the signal-smoothing device (p.3)",
   "ada:elementalFractionationCorrection": [
     "Femtosecond laser substantially reduces elemental fractionation; no explicit downhole correction; Rb/Sr elemental fractionation corrected externally by analyzing series of reference glasses; exponential law for Sr isotope mass bias (88Sr/86Sr = 8.37521)"
   ],
+  "ada:internalNormalizationElementAndIsotopeRatio": "Sr, ⁸⁸Sr/⁸⁶Sr = 8.37520933, exponential law (Russell et al. 1978), p.4",
+  "ada:uncertaintyLevel": "2SD for reference-material mean values (Table 2); within-run repeatability quoted as U_SD and U_SE at 95% confidence (Eqs. 1-2, p.5); isochron ages quoted with IsoplotR and Monte Carlo uncertainties (Table 3)",
   "ada:blankBackgroundCorrectionMethod": "First 30 cycles (no laser ablation) used for background collection; background Kr⁺ signals removed by correction; no additional Kr peak stripping applied",
   "ada:internalStandardElement": "No conventional IS; ⁸⁵Rb used to calculate ⁸⁷Rb/⁸⁶Sr via 87Rb/85Rb; external calibration for Rb/Sr elemental fractionation using reference glasses",
   "ada:signalIntegrationIntervalMethod": "Regions of integration for gas background and sample signal selected first; cycles at beginning and end of ablation discarded; for heterogeneous minerals (unstable 87Rb/86Sr): SUIA (Smallest Unit Isochron Age) data reduction strategy applied per cycle",
@@ -508,20 +588,18 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 — measured as unknowns for 87Sr/86Sr data quality evaluation"
   ],
   "ada:primaryStandardNameDefault": "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of ⁸⁷Rb/⁸⁶Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for ⁸⁷Sr/⁸⁶Sr data quality evaluation",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:betweenSessionPrecision": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
-  "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
 
@@ -557,6 +635,94 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   ],
   "schema:name": "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1",
   "schema:description": "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (two-volume cell)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Cycle level: the cycles at the beginning and end of ablation are discarded, leaving 60-70 of the 90 ablation cycles (p.3). Technical criteria (p.5): (a) data with \u2078\u2077Rb/\u2078\u2076Sr > 1 deleted, the Rb interference correction being invalid above that; (b) data with \u2078\u2078Sr signal < 0.2 V discarded for poor \u2078\u2077Sr/\u2078\u2076Sr precision. Run level: runs with stable signals go to the Normal group, runs with large \u2078\u2077Rb/\u2078\u2076Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial \u2078\u2077Sr/\u2078\u2076Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8)"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/peakFlatnessMethodAndThreshold",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "peakFlatnessMethodAndThreshold",
+            "schema:name": "Peak Flatness Method and Threshold",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Optimised during tuning on NIST 610 by adjusting the He and Ar gas flow rates, torch position, RF power and source lens settings 'for maximum sensitivity and optimum peak flatness' (p.3); no numerical acceptance threshold is stated"
+          },
+          {
+            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
+          },
+          {
+            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "filteringApproachDefault",
+            "schema:name": "Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:analysisSequenceDefault": "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis",
   "ada:analyticalAccuracy": "87Sr/86Sr relative errors <0.2\u2030 for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within \u00b13% for 11 glasses; exceptions: NIST 610 (\u22122.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) \u2014 all within stated \u00b13% criterion",
   "schema:instrument": [
@@ -623,44 +789,31 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         },
         {
           "schema:additionalType": [
-            "Interface Cone",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/module/ICPMS/configuration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "configuration",
-              "schema:name": "Configuration",
-              "ada:dataType": "string",
-              "ada:fieldScope": "session",
-              "schema:value": "X skimmer cone + Jet sample cone (high-sensitivity configuration)"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
             "Collector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:description": "L4=\u2078\u00b3Kr (gas background monitor, no target species); L3=\u00b9\u2076\u2077Er\u00b2\u207a (interference monitor, no target species); L2=\u2078\u2074Sr (Sr); L1=\u2078\u2075Rb (Rb); C=\u2078\u2076Sr (Sr); H1=\u00b9\u2077\u00b3Yb\u00b2\u207a (interference monitor, no target species); H2=\u2078\u2077Sr (Sr); H3=\u2078\u2078Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4\u2013H3, p.2)",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "faradayCupArrayConfiguration",
+              "schema:name": "Faraday Cup Array Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "Nine Faraday cups fitted with 10\u00b9\u00b9 \u03a9 resistors, plus seven fixed electron multiplier ion counters; the Faraday collector array spans L4 to H3 (p.2)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/ICPMS/part/Collector",
+          "schema:name": "missing",
           "ada:collectorConfiguration": [
             {
               "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
@@ -670,7 +823,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:valueName": "faradayCupAmplifierResistorValues",
               "schema:name": "Faraday Cup Amplifier Resistor Values",
               "ada:dataType": "string",
-              "schema:defaultValue": "missing"
+              "schema:defaultValue": "10\u00b9\u00b9 \u03a9 on all nine Faraday cups (p.2)"
             },
             {
               "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod",
@@ -720,6 +873,16 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               ]
             },
             {
+              "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "ionCounterDeadTime",
+              "schema:name": "Ion Counter Dead Time",
+              "ada:dataType": "number",
+              "schema:defaultValue": -9999
+            },
+            {
               "@id": "ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment",
               "@type": [
                 "schema:PropertyValueSpecification"
@@ -727,23 +890,49 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:valueName": "massResolutionAssignment",
               "schema:name": "Mass Resolution Assignment",
               "ada:dataType": "string",
-              "schema:defaultValue": "missing"
+              "schema:defaultValue": "Low resolution for all eight monitored masses \u2014 'the mass spectrometer was operated in low mass resolution mode' (p.3); Table 1 'Instrument resolution ~ 400 (low mode)'. Single acquisition pass, so one assignment applies throughout"
             }
-          ],
-          "schema:description": "missing"
+          ]
         },
         {
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/configuration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "configuration",
+              "schema:name": "Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "X skimmer cone + Jet sample cone (high-sensitivity configuration)"
+            }
+          ],
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
+          "schema:name": "missing"
+        },
+        {
           "schema:additionalType": [
             "Collision Reaction Cell",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:name": "Not installed \u2014 'traditional (MC-)ICP-MS without the reaction/collision cell' (p.1); contrasted against 'MC-ICP-MS with collision cell' in the conclusion (pp.8-9)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
@@ -762,19 +951,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         }
       ],
       "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/detectorConfiguration",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laMcicpmsTAPP/detectorConfiguration"
-            }
-          ],
-          "schema:name": "Detector Configuration",
-          "schema:value": "Seven fixed electron multiplier ICs + nine Faraday cups (1011 \u03a9 resistors)"
-        },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
           "@type": [
@@ -804,18 +980,18 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           "schema:ProductModel"
         ]
       },
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
-      "schema:manufacturer": {
-        "schema:name": "missing",
-        "@type": [
-          "schema:Organization"
-        ]
-      }
+      "schema:name": "example instrumentName"
     },
     {
       "schema:additionalType": [
@@ -844,19 +1020,52 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     }
   ],
   "ada:backgroundCountTimeDefault": "30 cycles \u00d7 0.524 s \u2248 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)",
-  "ada:carrierGasFlowRateDefault": "He, 0.90 l min\u207b\u00b9 (two-volume cell)",
-  "ada:isobaricInterferenceCorrectionsApplied": "Yes \u2014 correction for doubly charged ions: \u00b9\u2076\u2078Er\u00b2\u207a on \u2078\u2074Sr; \u00b9\u2077\u2070Er\u00b2\u207a and \u00b9\u2077\u2070Yb\u00b2\u207a on \u2078\u2075Rb; \u00b9\u2077\u00b2Yb\u00b2\u207a on \u2078\u2076Sr; \u00b9\u2077\u2074Yb\u00b2\u207a on \u2078\u2077Sr; \u2078\u2077Rb isobaric on \u2078\u2077Sr (corrected using 85Rb signal and exponential law)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
+      "schema:valueName": "baselineMeasurementApproach",
+      "schema:name": "Baseline Measurement Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "Single line scan per location (1 block of 120 cycles at 0.524 s integration)"
+      "schema:value": "Laser-off cycles at the start of the same block \u2014 'the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3); 30 cycles x 0.524 s \u2248 15.7 s"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/massFractionationLaw",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "massFractionationLaw",
+      "schema:name": "Mass Fractionation Law",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Exponential"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfBlocksPerMeasurementDefault",
+      "schema:name": "Number of Blocks per Measurement",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 (Table 1, 'Block number 1'; p.3 'one block of 120 cycles')"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfCyclesPerBlockDefault",
+      "schema:name": "Number of Cycles per Block",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 120,
+      "schema:description": "120 (Table 1, 'Cycles of each block 120'; p.3)"
     },
     {
       "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
@@ -882,6 +1091,10 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:defaultValue": "2\u20136 \u00b5m s\u207b\u00b9 (varied based on Sr concentration in target minerals)"
     }
   ],
+  "ada:carrierGasFlowRateDefault": "He, 0.90 l min\u207b\u00b9 (two-volume cell)",
+  "ada:constantsAndReferenceValuesUsedDefault": "\u2078\u2077Rb decay constant 1.393 \u00b1 0.004 x 10\u207b\u00b9\u00b9 yr\u207b\u00b9 (Nebel et al. 2011), p.1; \u2078\u2078Sr/\u2078\u2076Sr = 8.37520933 for mass fractionation correction (p.4); \u2078\u2077Rb/\u2078\u2075Rb = 0.385706 and \u2078\u2076Sr/\u2078\u2078Sr = 0.119351 for the \u2078\u2077Rb/\u2078\u2076Sr calculation (p.4); natural \u2078\u2077Rb/\u2078\u2075Rb of 0.38571 cited for the interference-correction principle (p.1)",
+  "ada:isobaricInterferenceCorrectionsApplied": "Yes \u2014 correction for doubly charged ions: \u00b9\u2076\u2078Er\u00b2\u207a on \u2078\u2074Sr; \u00b9\u2077\u2070Er\u00b2\u207a and \u00b9\u2077\u2070Yb\u00b2\u207a on \u2078\u2075Rb; \u00b9\u2077\u00b2Yb\u00b2\u207a on \u2078\u2076Sr; \u00b9\u2077\u2074Yb\u00b2\u207a on \u2078\u2077Sr; \u2078\u2077Rb isobaric on \u2078\u2077Sr (corrected using 85Rb signal and exponential law)",
+  "ada:massBiasCorrectionStrategy": "Internal normalisation to an assumed \u2078\u2078Sr/\u2078\u2076Sr = 8.37520933 applying the exponential law (Russell et al. 1978), after interference correction (p.4). The \u2078\u2077Rb isobaric correction on \u2078\u2077Sr uses the \u2078\u2075Rb signal and a user-specified \u2078\u2077Rb/\u2078\u2075Rb, also via the exponential law, with that ratio calibrated by measuring reference materials of known \u2078\u2077Sr/\u2078\u2076Sr (p.4)",
   "schema:object": [
     {
       "@type": [
@@ -907,72 +1120,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:name": "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (two-volume cell)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "signalSmoothingDefault",
-            "schema:name": "Signal Smoothing",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
-          },
-          {
-            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "filteringApproachDefault",
-            "schema:name": "Filtering Approach",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:samplingUnitSelectionCriteriaDefault": "Random selection among the target phases \u2014 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)",
   "ada:withinSessionPrecision": "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: \u00b13% for most reference glasses; 87Sr/86Sr relative errors: <0.2\u2030 for materials with 87Rb/86Sr <1",
   "schema:measurementTechnique": [
     {
@@ -1014,19 +1162,29 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnit": "Analysis point \u2014 one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087\u20131096)"
     }
   ],
+  "ada:analyticalMode": [
+    "Transect"
+  ],
+  "ada:reportedProperties": [
+    "\u2078\u2077Sr/\u2078\u2076Sr (dimensionless ratio); \u2078\u2077Rb/\u2078\u2076Sr (dimensionless ratio); Rb\u2013Sr isochron age (Ma); initial \u2078\u2077Sr/\u2078\u2076Sr (dimensionless ratio) \u2014 Tables 2 and 3"
+  ],
   "ada:ablationSamplingMode": [
     "Transect (continuous line scan at 2\u20136 \u00b5m s\u207b\u00b9)"
   ],
   "ada:internalStandardApproach": "No conventional IS; external calibration only (Rb/Sr elemental fractionation corrected by series of reference glasses; 87Sr/86Sr mass bias corrected by exponential law using 88Sr/86Sr = 8.37521)",
+  "ada:sampleIntroduction": "He filled into the two-volume ablation cell; Ar mixed into the sample-out line downstream of the ablation chamber before the torch; a signal-smoothing device downstream of the sample cell (Hu et al. 2015) that 'significantly reduced the short-term variability of the signal'; 12 ml min\u207b\u00b9 N\u2082 added to the carrier gas via a simple Y connector behind the signal-smoothing device (p.3)",
   "ada:elementalFractionationCorrection": [
     "Femtosecond laser substantially reduces elemental fractionation; no explicit downhole correction; Rb/Sr elemental fractionation corrected externally by analyzing series of reference glasses; exponential law for Sr isotope mass bias (88Sr/86Sr = 8.37521)"
   ],
+  "ada:internalNormalizationElementAndIsotopeRatio": "Sr, \u2078\u2078Sr/\u2078\u2076Sr = 8.37520933, exponential law (Russell et al. 1978), p.4",
+  "ada:uncertaintyLevel": "2SD for reference-material mean values (Table 2); within-run repeatability quoted as U_SD and U_SE at 95% confidence (Eqs. 1-2, p.5); isochron ages quoted with IsoplotR and Monte Carlo uncertainties (Table 3)",
   "ada:blankBackgroundCorrectionMethod": "First 30 cycles (no laser ablation) used for background collection; background Kr\u207a signals removed by correction; no additional Kr peak stripping applied",
   "ada:internalStandardElement": "No conventional IS; \u2078\u2075Rb used to calculate \u2078\u2077Rb/\u2078\u2076Sr via 87Rb/85Rb; external calibration for Rb/Sr elemental fractionation using reference glasses",
   "ada:signalIntegrationIntervalMethod": "Regions of integration for gas background and sample signal selected first; cycles at beginning and end of ablation discarded; for heterogeneous minerals (unstable 87Rb/86Sr): SUIA (Smallest Unit Isochron Age) data reduction strategy applied per cycle",
@@ -1034,20 +1192,18 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 \u2014 measured as unknowns for 87Sr/86Sr data quality evaluation"
   ],
   "ada:primaryStandardNameDefault": "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of \u2078\u2077Rb/\u2078\u2076Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for \u2078\u2077Sr/\u2078\u2076Sr data quality evaluation",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:betweenSessionPrecision": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
-  "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }
 ```
@@ -1071,25 +1227,30 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (two-volume cell)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign>,
-        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
+        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/massFractionationLaw>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Zhang et al. (China Univ. of Geosciences Wuhan)" ] ;
     schema1:datePublished "missing" ;
@@ -1103,48 +1264,51 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "fs-LA-MC-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1" ;
-    schema1:object [ a schema1:DefinedTerm,
+    schema1:object [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ],
+        [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ],
-        [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Transect (continuous line scan at 2–6 µm s⁻¹)" ;
     ada:ablationSpotDurationDefault -9999 ;
     ada:analysisSequenceDefault "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis" ;
     ada:analyticalAccuracy "87Sr/86Sr relative errors <0.2‰ for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within ±3% for 11 glasses; exceptions: NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) — all within stated ±3% criterion" ;
+    ada:analyticalMode "Transect" ;
     ada:backgroundCountTimeDefault "30 cycles × 0.524 s ≈ 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)" ;
     ada:betweenSessionPrecision "missing" ;
     ada:blankBackgroundCorrectionMethod "First 30 cycles (no laser ablation) used for background collection; background Kr⁺ signals removed by correction; no additional Kr peak stripping applied" ;
     ada:calibrationMeasurementFrequency "missing" ;
     ada:carrierGasFlowRateDefault "He, 0.90 l min⁻¹ (two-volume cell)" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "⁸⁷Rb decay constant 1.393 ± 0.004 x 10⁻¹¹ yr⁻¹ (Nebel et al. 2011), p.1; ⁸⁸Sr/⁸⁶Sr = 8.37520933 for mass fractionation correction (p.4); ⁸⁷Rb/⁸⁵Rb = 0.385706 and ⁸⁶Sr/⁸⁸Sr = 0.119351 for the ⁸⁷Rb/⁸⁶Sr calculation (p.4); natural ⁸⁷Rb/⁸⁵Rb of 0.38571 cited for the interference-correction principle (p.1)" ;
     ada:elementalFractionationCorrection "Femtosecond laser substantially reduces elemental fractionation; no explicit downhole correction; Rb/Sr elemental fractionation corrected externally by analyzing series of reference glasses; exponential law for Sr isotope mass bias (88Sr/86Sr = 8.37521)" ;
-    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
+    ada:internalNormalizationElementAndIsotopeRatio "Sr, ⁸⁸Sr/⁸⁶Sr = 8.37520933, exponential law (Russell et al. 1978), p.4" ;
     ada:internalStandardApproach "No conventional IS; external calibration only (Rb/Sr elemental fractionation corrected by series of reference glasses; 87Sr/86Sr mass bias corrected by exponential law using 88Sr/86Sr = 8.37521)" ;
     ada:internalStandardElement "No conventional IS; ⁸⁵Rb used to calculate ⁸⁷Rb/⁸⁶Sr via 87Rb/85Rb; external calibration for Rb/Sr elemental fractionation using reference glasses" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isobaricInterferenceCorrectionsApplied "Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)" ;
-    ada:massBiasCorrectionStrategy "missing" ;
+    ada:massBiasCorrectionStrategy "Internal normalisation to an assumed ⁸⁸Sr/⁸⁶Sr = 8.37520933 applying the exponential law (Russell et al. 1978), after interference correction (p.4). The ⁸⁷Rb isobaric correction on ⁸⁷Sr uses the ⁸⁵Rb signal and a user-specified ⁸⁷Rb/⁸⁵Rb, also via the exponential law, with that ratio calibrated by measuring reference materials of known ⁸⁷Sr/⁸⁶Sr (p.4)" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of ⁸⁷Rb/⁸⁶Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for ⁸⁷Sr/⁸⁶Sr data quality evaluation" ;
     ada:rasterLineSpacingDefault "missing" ;
-    ada:sampleIntroduction "missing" ;
-    ada:samplingUnit "missing" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:reportedProperties "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3" ;
+    ada:sampleIntroduction "He filled into the two-volume ablation cell; Ar mixed into the sample-out line downstream of the ablation chamber before the torch; a signal-smoothing device downstream of the sample cell (Hu et al. 2015) that 'significantly reduced the short-term variability of the signal'; 12 ml min⁻¹ N₂ added to the carrier gas via a simple Y connector behind the signal-smoothing device (p.3)" ;
+    ada:samplingUnit "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8" ;
+    ada:samplingUnitSelectionCriteriaDefault "Random selection among the target phases — 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)" ;
     ada:secondaryReferenceMaterialDefault "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 — measured as unknowns for 87Sr/86Sr data quality evaluation" ;
     ada:signalIntegrationIntervalMethod "Regions of integration for gas background and sample signal selected first; cycles at beginning and end of ablation discarded; for heterogeneous minerals (unstable 87Rb/86Sr): SUIA (Smallest Unit Isochron Age) data reduction strategy applied per cycle" ;
-    ada:uncertaintyLevel "missing" ;
+    ada:uncertaintyLevel "2SD for reference-material mean values (Table 2); within-run repeatability quoted as U_SD and U_SE at 95% confidence (Eqs. 1-2, p.5); isochron ages quoted with IsoplotR and Monte Carlo uncertainties (Table 3)" ;
     ada:withinSessionPrecision "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1" ;
     bios:computationalTool [ schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
             ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "missing" ;
+    schema1:defaultValue "10¹¹ Ω on all nine Faraday cups (p.2)" ;
     schema1:name "Faraday Cup Amplifier Resistor Values" ;
     schema1:valueName "faradayCupAmplifierResistorValues" ;
     ada:dataType "string" .
@@ -1178,11 +1342,24 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
+<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/ionCounterDeadTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue -9999 ;
+    schema1:name "Ion Counter Dead Time" ;
+    schema1:valueName "ionCounterDeadTime" ;
+    ada:dataType "number" .
+
 <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "missing" ;
+    schema1:defaultValue "Low resolution for all eight monitored masses — 'the mass spectrometer was operated in low mass resolution mode' (p.3); Table 1 'Instrument resolution ~ 400 (low mode)'. Single acquisition pass, so one assignment applies throughout" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
+    schema1:name "Analysis Inclusion and Rejection Criteria" ;
+    schema1:value "Cycle level: the cycles at the beginning and end of ablation are discarded, leaving 60-70 of the 90 ablation cycles (p.3). Technical criteria (p.5): (a) data with ⁸⁷Rb/⁸⁶Sr > 1 deleted, the Rb interference correction being invalid above that; (b) data with ⁸⁸Sr signal < 0.2 V discarded for poor ⁸⁷Sr/⁸⁶Sr precision. Run level: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8)" ;
+    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 8e-01 ;
@@ -1244,13 +1421,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single line scan per location (1 block of 120 cycles at 0.524 s integration)" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "In situ — polished thin section (two-volume cell)" ;
     schema1:name "Sample Form Analytical Substrate" ;
@@ -1272,10 +1442,53 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach> a schema1:PropertyValueSpecification ;
+    schema1:name "Baseline Measurement Approach" ;
+    schema1:value "Laser-off cycles at the start of the same block — 'the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3); 30 cycles x 0.524 s ≈ 15.7 s" ;
+    schema1:valueName "baselineMeasurementApproach" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Faraday Cup Array Configuration" ;
+    schema1:value "Nine Faraday cups fitted with 10¹¹ Ω resistors, plus seven fixed electron multiplier ion counters; the Faraday collector array spans L4 to H3 (p.2)" ;
+    schema1:valueName "faradayCupArrayConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/massFractionationLaw> a schema1:PropertyValueSpecification ;
+    schema1:name "Mass Fractionation Law" ;
+    schema1:value "Exponential" ;
+    schema1:valueName "massFractionationLaw" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:description "1 (Table 1, 'Block number 1'; p.3 'one block of 120 cycles')" ;
+    schema1:name "Number of Blocks per Measurement" ;
+    schema1:valueName "numberOfBlocksPerMeasurementDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 120 ;
+    schema1:description "120 (Table 1, 'Cycles of each block 120'; p.3)" ;
+    schema1:name "Number of Cycles per Block" ;
+    schema1:valueName "numberOfCyclesPerBlockDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> a schema1:PropertyValueSpecification ;
+    schema1:name "Peak Flatness Method and Threshold" ;
+    schema1:value "Optimised during tuning on NIST 610 by adjusting the He and Ar gas flow rates, torch position, RF power and source lens settings 'for maximum sensitivity and optimum peak flatness' (p.3); no numerical acceptance threshold is stated" ;
+    schema1:valueName "peakFlatnessMethodAndThreshold" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/detectorConfiguration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
@@ -1286,29 +1499,31 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
+            schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
     schema1:name "example instrumentName" .
 
 <https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
-    schema1:description "missing" ;
+    schema1:description "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)" ;
     schema1:name "missing" ;
     ada:collectorConfiguration <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues>,
         <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod>,
         <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/integrationTimePerCycle>,
         <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod>,
         <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferingSpecies>,
+        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/ionCounterDeadTime>,
         <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/massResolutionAssignment> .
 
 <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "missing" .
+    schema1:name "Not installed — 'traditional (MC-)ICP-MS without the reaction/collision cell' (p.1); contrasted against 'MC-ICP-MS with collision cell' in the conclusion (pp.8-9)" .
 
 <https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -1345,11 +1560,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     ada:laserSpotGeometryDefault "50–60 µm circular" ;
     ada:laserType "257 nm Yb:KGW femtosecond; pulse duration 300 fs (PHAROS system)" .
 
-<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/detectorConfiguration> ;
-    schema1:value "Seven fixed electron multiplier ICs + nine Faraday cups (1011 Ω resistors)" .
-
 
 ```
 
@@ -1359,7 +1569,7 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)
 description: Laser-ablation multi-collector ICP-MS extension of the base TAPP definition,
-  generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v68.csv via the path-driven pipeline.
+  generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v78.csv via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -1367,7 +1577,6 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -1674,9 +1883,7 @@ allOf:
                               - schema:defaultValue
                             - title: Integration Time per Cycle
                               description: Duration of signal integration per measurement
-                                cycle (seconds). Where different isotope channels
-                                use different integration schemes, record the time
-                                for each channel.
+                                cycle (seconds).
                               type: object
                               properties:
                                 '@id':
@@ -1787,12 +1994,53 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
+                            - title: Ion Counter Dead Time
+                              description: Dead time of the ion-counting detector(s),
+                                used in the dead-time correction applied to high count
+                                rates. Distinct from pulse/analog cross-calibration,
+                                which relates the two detector modes rather than correcting
+                                counting losses within the pulse-counting mode.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                '@type':
+                                  const:
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: ionCounterDeadTime
+                                schema:name:
+                                  const: Ion Counter Dead Time
+                                ada:dataType:
+                                  const: number
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: M
+                                schema:defaultValue:
+                                  anyOf:
+                                  - anyOf:
+                                    - type: number
+                                    - type: string
+                                  - type: array
+                                    items:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:valueName
+                              - schema:name
+                              - ada:dataType
+                              - schema:defaultValue
                             - title: Mass Resolution Assignment
                               description: Mass resolution mode used for acquisition.
-                                One analyte may be acquired at more than one resolution,
-                                so the assignment is per acquired mass rather than
-                                per element. The overall mode(s) used in the procedure
-                                are recorded in Mass Resolution Setting (Group 3).
+                                One target species may be acquired at more than one
+                                resolution, so the assignment is per acquired mass
+                                rather than per element. The overall mode(s) used
+                                in the procedure are recorded in Mass Resolution Setting
+                                (Group 3).
                               type: object
                               properties:
                                 '@id':
@@ -1911,9 +2159,7 @@ allOf:
                           - contains:
                               title: Integration Time per Cycle
                               description: Duration of signal integration per measurement
-                                cycle (seconds). Where different isotope channels
-                                use different integration schemes, record the time
-                                for each channel.
+                                cycle (seconds).
                               type: object
                               properties:
                                 '@id':
@@ -2033,12 +2279,56 @@ allOf:
                             minContains: 0
                             maxContains: 1
                           - contains:
+                              title: Ion Counter Dead Time
+                              description: Dead time of the ion-counting detector(s),
+                                used in the dead-time correction applied to high count
+                                rates. Distinct from pulse/analog cross-calibration,
+                                which relates the two detector modes rather than correcting
+                                counting losses within the pulse-counting mode.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                '@type':
+                                  const:
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: ionCounterDeadTime
+                                schema:name:
+                                  const: Ion Counter Dead Time
+                                ada:dataType:
+                                  const: number
+                                schema:readonlyValue:
+                                  const: false
+                                ada:tier:
+                                  const: M
+                                schema:defaultValue:
+                                  anyOf:
+                                  - anyOf:
+                                    - type: number
+                                    - type: string
+                                  - type: array
+                                    items:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:valueName
+                              - schema:name
+                              - ada:dataType
+                              - schema:defaultValue
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
                               title: Mass Resolution Assignment
                               description: Mass resolution mode used for acquisition.
-                                One analyte may be acquired at more than one resolution,
-                                so the assignment is per acquired mass rather than
-                                per element. The overall mode(s) used in the procedure
-                                are recorded in Mass Resolution Setting (Group 3).
+                                One target species may be acquired at more than one
+                                resolution, so the assignment is per acquired mass
+                                rather than per element. The overall mode(s) used
+                                in the procedure are recorded in Mass Resolution Setting
+                                (Group 3).
                               type: object
                               properties:
                                 '@id':
@@ -2161,32 +2451,6 @@ allOf:
                 type: array
                 items:
                   anyOf:
-                  - title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer.
-                      For single-collector instruments, note whether dual pulse-counting/analog
-                      mode is used. For multi-collector instruments, describe the
-                      Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laMcicpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laMcicpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
                   - title: Doubly-Charged Species Monitor
                     description: "The mass ratio monitored to estimate doubly-charged
                       ion (M\xB2\u207A) formation during instrument tuning. The monitor
@@ -2255,35 +2519,6 @@ allOf:
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation
                 allOf:
-                - contains:
-                    title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer.
-                      For single-collector instruments, note whether dual pulse-counting/analog
-                      mode is used. For multi-collector instruments, describe the
-                      Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laMcicpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laMcicpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
-                  minContains: 0
-                  maxContains: 1
                 - contains:
                     title: Doubly-Charged Species Monitor
                     description: "The mass ratio monitored to estimate doubly-charged
@@ -2472,7 +2707,6 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_massFractionationLaw
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfBlocksPerMeasurement
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfCyclesPerBlock
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
@@ -2501,10 +2735,6 @@ allOf:
         maxContains: 1
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
         minContains: 0
         maxContains: 1
       - contains:
@@ -2579,7 +2809,7 @@ allOf:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte
+              description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
                 in the procedure are recorded in Mass Resolution Setting (Group 3).
@@ -2611,12 +2841,13 @@ allOf:
               - schema:defaultValue
             - title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -2643,26 +2874,26 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Per-Analyte Calibration Strategy
+            - title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -2681,7 +2912,7 @@ allOf:
           allOf:
           - contains:
               title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte
+              description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
                 in the procedure are recorded in Mass Resolution Setting (Group 3).
@@ -2716,12 +2947,13 @@ allOf:
           - contains:
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -2751,26 +2983,26 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Per-Analyte Calibration Strategy
+              title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:

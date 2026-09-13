@@ -14,6 +14,13 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -22,17 +29,9 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Li, Xu, Xiong et al." ] ;
     schema1:datePublished "missing" ;
@@ -68,7 +67,6 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
     ada:internalStandardApproach "Single element from EMP: Si (SiO₂ from EMP for silicate glass); NIST 610 as external standard" ;
     ada:internalStandardElement "Si from EMP (SiO₂ wt% for silicate glass)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -101,13 +99,6 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:defaultValue "Unit resolution (quadrupole fixed)" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSettingDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single spot per location (~40 s ablation at 7 Hz)" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

@@ -43,108 +43,6 @@
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Foraminifera shells cleaned mechanically and chemically then dissolved; no grinding (stated section 2)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "isotopeDilutionDataReductionMethod",
-            "schema:name": "Isotope Dilution Data Reduction Method",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated"
-          },
-          {
-            "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "constantsReferenceValuesDefault",
-            "schema:name": "Constants Reference Values",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Natural isotopic abundances used to select isotopes and derive correction factors: the Li standard \"was artificially depleted of 7Li (92.32% vs 92.48% for natural)\"; \"The natural abundance of 11B (80.17%) is also different from values of foraminiferal samples which are expected to be 80.40-80.43% if assumed to have d11B ratios of 25-27 permil\", giving \"correction factors (0.9983 for Li and 0.9968-0.9971 for B)\"; 111Cd 12.8%, 112Cd 24.1%, 114Cd 28.7%, 238U 99.3%"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      },
-      {
-        "schema:name": "Sample digestion",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": 1,
-            "schema:description": "1 (simple dissolution; stated section 2)"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 4
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -446,6 +344,94 @@
   "ada:numberOfReplicatesPerSample": "6 replicates (Table 1)",
   "ada:signalCollectionMode": "Peak hopping",
   "ada:driftCorrectionMethod": "Standard bracketing",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Foraminifera shells cleaned mechanically and chemically then dissolved; no grinding (stated section 2)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "None"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated"
+          },
+          {
+            "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "constantsReferenceValuesDefault",
+            "schema:name": "Constants Reference Values",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Natural isotopic abundances used to select isotopes and derive correction factors: the Li standard \"was artificially depleted of 7Li (92.32% vs 92.48% for natural)\"; \"The natural abundance of 11B (80.17%) is also different from values of foraminiferal samples which are expected to be 80.40-80.43% if assumed to have d11B ratios of 25-27 permil\", giving \"correction factors (0.9983 for Li and 0.9968-0.9971 for B)\"; 111Cd 12.8%, 112Cd 24.1%, 114Cd 28.7%, 238U 99.3%"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample digestion",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -497,7 +483,6 @@
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }

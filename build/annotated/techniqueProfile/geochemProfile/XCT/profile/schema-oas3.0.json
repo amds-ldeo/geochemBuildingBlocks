@@ -5015,7 +5015,7 @@
     },
     "ogch.techniqueProfile.geochemProfile.XCT.tapp": {
       "title": "Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)",
-      "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v37.csv by tools/build_tapp.py.",
+      "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v39.csv by tools/build_tapp.py.",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -12825,7 +12825,7 @@
           "type": "object",
           "properties": {
             "schema:name": {
-              "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured \u2014 analyte, material, or feature.",
+              "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured \u2014 target species, material, or feature.",
               "type": "string",
               "x-jsonld-id": "http://schema.org/name"
             },
@@ -13852,7 +13852,7 @@
                     "then": {
                       "properties": {
                         "schema:defaultValue": {
-                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -13920,7 +13920,7 @@
                     "then": {
                       "properties": {
                         "schema:value": {
-                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -13945,7 +13945,7 @@
         },
         "Param_Analysis_calibrationFactorAndDeterminationMethod": {
           "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
           "type": "object",
           "properties": {
             "@id": {
@@ -13991,7 +13991,7 @@
         },
         "Param_Procedure_calibrationFactorAndDeterminationMethod": {
           "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
           "type": "object",
           "properties": {
             "@id": {
@@ -21482,74 +21482,6 @@
             "enum": [
               "X-ray Computed Tomography (XCT) Image Collection",
               "X-ray computed tomography"
-            ]
-          }
-        },
-        "schema:distribution": {
-          "description": "Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType is a LABXCT-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such a componentType (the ADA/SAMIS archive form).",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "required": [
-                  "ada:componentType"
-                ],
-                "properties": {
-                  "ada:componentType": {
-                    "type": "string",
-                    "anyOf": [
-                      {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/universalComponentType"
-                      },
-                      {
-                        "enum": [
-                          "ada:XCTVolume",
-                          "ada:XCTProjectionImageSet",
-                          "ada:XCTSegmentationVolume",
-                          "ada:XCTRenderedImage",
-                          "ada:XCTQuantitativeTabular"
-                        ]
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "schema:hasPart"
-                ],
-                "properties": {
-                  "schema:hasPart": {
-                    "items": {
-                      "type": "object",
-                      "anyOf": [
-                        {
-                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/universalComponentTypeBranch"
-                        },
-                        {
-                          "properties": {
-                            "ada:componentType": {
-                              "type": "string",
-                              "enum": [
-                                "ada:XCTVolume",
-                                "ada:XCTProjectionImageSet",
-                                "ada:XCTSegmentationVolume",
-                                "ada:XCTRenderedImage",
-                                "ada:XCTQuantitativeTabular"
-                              ]
-                            }
-                          },
-                          "required": [
-                            "ada:componentType"
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
             ]
           }
         },

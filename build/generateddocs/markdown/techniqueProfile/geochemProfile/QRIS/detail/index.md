@@ -7,6 +7,95 @@ Detail block for QRIS hasPart items, carrying the analysis-level properties supp
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Golish2024
+detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center | Quantitative Reflectance Imaging System.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Golish2024",
+  "@type": [
+    "ada:QRISRaw"
+  ],
+  "ada:componentType": "ada:QRISRaw",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:qrisTAPP-Golish2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)",
+  "ada:analyst": "Golish, Dathon | Fulford, Ruby",
+  "ada:analysisStartDate": "2024-04-11 | 2024-05-14",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)",
+  "ada:sampleName": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/QRIS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Golish2024",
+  "@type": [
+    "ada:QRISRaw"
+  ],
+  "ada:componentType": "ada:QRISRaw",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:qrisTAPP-Golish2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)",
+  "ada:analyst": "Golish, Dathon | Fulford, Ruby",
+  "ada:analysisStartDate": "2024-04-11 | 2024-05-14",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)",
+  "ada:sampleName": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-Golish2024> a ada:QRISRaw ;
+    schema1:measurementTechnique <ex:qrisTAPP-Golish2024> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-04-11 | 2024-05-14" ;
+    ada:analyst "Golish, Dathon | Fulford, Ruby" ;
+    ada:componentType "ada:QRISRaw" ;
+    ada:fundingSourceForAnalysis "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)" ;
+    ada:sampleName "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)" .
+
+<ex:qrisTAPP-Golish2024> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "laQicpms protocol \u2014 P6",
-  "schema:description": "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v71.csv).",
+  "schema:description": "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -206,16 +206,14 @@
           "schema:defaultValue": "~300"
         },
         {
-          "@id": "ada:parameter/laQicpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Single SEM in double mode, counting and analog"
         },
         {
@@ -395,7 +393,6 @@
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalStandardApproach": "missing",
   "ada:internalStandardElement": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",

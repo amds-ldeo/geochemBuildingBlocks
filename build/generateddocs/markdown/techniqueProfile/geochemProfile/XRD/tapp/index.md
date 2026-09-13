@@ -7,6 +7,838 @@ X-ray diffraction extension of the base TAPP definition. XRD reports phases rath
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### xrdTAPP example King2024
+xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:xrdTAPP-King2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "xrd protocol — King2024",
+  "schema:description": "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Custom-built",
+  "ada:instrumentModel": "(NHM)Position Sensitive Detector X-ray Diffraction",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "X-ray diffraction"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "King, Ashley",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Natural History Museum",
+    "schema:identifier": "https://ror.org/039zvsn29"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:reportedProperties": [
+    "Angle (degrees 2theta) | Intensity (counts)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:diffractometerGeometry": "missing",
+  "ada:sampleMountDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:stepSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "ada:timePerStepDefault": -9999,
+  "ada:xRayWavelength": -9999,
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:xrdTAPP-King2024",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "xrd protocol \u2014 King2024",
+  "schema:description": "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Custom-built",
+  "ada:instrumentModel": "(NHM)Position Sensitive Detector X-ray Diffraction",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "X-ray diffraction"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "King, Ashley",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Natural History Museum",
+    "schema:identifier": "https://ror.org/039zvsn29"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:reportedProperties": [
+    "Angle (degrees 2theta) | Intensity (counts)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:diffractometerGeometry": "missing",
+  "ada:sampleMountDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:stepSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "ada:timePerStepDefault": -9999,
+  "ada:xRayWavelength": -9999,
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:xrdTAPP-King2024 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "King, Ashley" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:identifier "https://ror.org/039zvsn29" ;
+            schema1:name "Natural History Museum" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "X-ray diffraction" ] ;
+    schema1:name "xrd protocol — King2024" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:diffractometerGeometry "missing" ;
+    ada:instrumentManufacturer "Custom-built" ;
+    ada:instrumentModel "(NHM)Position Sensitive Detector X-ray Diffraction" ;
+    ada:reportedProperties "Angle (degrees 2theta) | Intensity (counts)" ;
+    ada:sampleMountDefault "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:stepSizeDefault -9999 ;
+    ada:targetMaterial "missing" ;
+    ada:timePerStepDefault -9999 ;
+    ada:xRayWavelength -9999 .
+
+
+```
+
+
+### xrdTAPP example King2024-2
+xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:xrdTAPP-King2024-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "xrd protocol — King2024-2",
+  "schema:description": "xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD (publication column of XRD_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Malvern PANalytical",
+  "ada:instrumentModel": "(JSC-ARES)Malvern PANalytical XPert Pro XRD",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "X-ray diffraction"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "King, Ashley",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center",
+    "schema:identifier": "https://ror.org/04xx4z452"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:reportedProperties": [
+    "Angle (degrees 2theta) | Intensity (counts)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:diffractometerGeometry": "missing",
+  "ada:sampleMountDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:stepSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "ada:timePerStepDefault": -9999,
+  "ada:xRayWavelength": -9999,
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:xrdTAPP-King2024-2",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "xrd protocol \u2014 King2024-2",
+  "schema:description": "xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD (publication column of XRD_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Malvern PANalytical",
+  "ada:instrumentModel": "(JSC-ARES)Malvern PANalytical XPert Pro XRD",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "X-ray diffraction"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "King, Ashley",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "NASA Johnson Space Center",
+    "schema:identifier": "https://ror.org/04xx4z452"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:reportedProperties": [
+    "Angle (degrees 2theta) | Intensity (counts)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:diffractometerGeometry": "missing",
+  "ada:sampleMountDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:stepSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "ada:timePerStepDefault": -9999,
+  "ada:xRayWavelength": -9999,
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:xrdTAPP-King2024-2 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "King, Ashley" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD (publication column of XRD_TAPP_draft_v2.csv)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:identifier "https://ror.org/04xx4z452" ;
+            schema1:name "NASA Johnson Space Center" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "X-ray diffraction" ] ;
+    schema1:name "xrd protocol — King2024-2" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:diffractometerGeometry "missing" ;
+    ada:instrumentManufacturer "Malvern PANalytical" ;
+    ada:instrumentModel "(JSC-ARES)Malvern PANalytical XPert Pro XRD" ;
+    ada:reportedProperties "Angle (degrees 2theta) | Intensity (counts)" ;
+    ada:sampleMountDefault "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:stepSizeDefault -9999 ;
+    ada:targetMaterial "missing" ;
+    ada:timePerStepDefault -9999 ;
+    ada:xRayWavelength -9999 .
+
+
+```
+
+
+### xrdTAPP example King2023
+xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:xrdTAPP-King2023",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "xrd protocol — King2023",
+  "schema:description": "xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD (publication column of XRD_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Rigaku",
+  "ada:instrumentModel": "Rigaku Rapid 2 Micro-XRD",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "X-ray diffraction"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "King, Ashley",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Natural History Museum",
+    "schema:identifier": "https://ror.org/039zvsn29"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:reportedProperties": [
+    "Angle (degrees 2theta) | Intensity (counts)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:diffractometerGeometry": "missing",
+  "ada:sampleMountDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:stepSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "ada:timePerStepDefault": -9999,
+  "ada:xRayWavelength": -9999,
+  "schema:datePublished": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:xrdTAPP-King2023",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "xrd protocol \u2014 King2023",
+  "schema:description": "xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD (publication column of XRD_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Rigaku",
+  "ada:instrumentModel": "Rigaku Rapid 2 Micro-XRD",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "X-ray diffraction"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "King, Ashley",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Natural History Museum",
+    "schema:identifier": "https://ror.org/039zvsn29"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:reportedProperties": [
+    "Angle (degrees 2theta) | Intensity (counts)"
+  ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:diffractometerGeometry": "missing",
+  "ada:sampleMountDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:stepSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "ada:timePerStepDefault": -9999,
+  "ada:xRayWavelength": -9999,
+  "schema:datePublished": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:xrdTAPP-King2023 a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "King, Ashley" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD (publication column of XRD_TAPP_draft_v2.csv)." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    schema1:location [ a schema1:Place ;
+            schema1:identifier "https://ror.org/039zvsn29" ;
+            schema1:name "Natural History Museum" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:termCode "X-ray diffraction" ] ;
+    schema1:name "xrd protocol — King2023" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:diffractometerGeometry "missing" ;
+    ada:instrumentManufacturer "Rigaku" ;
+    ada:instrumentModel "Rigaku Rapid 2 Micro-XRD" ;
+    ada:reportedProperties "Angle (degrees 2theta) | Intensity (counts)" ;
+    ada:sampleMountDefault "missing" ;
+    ada:samplingUnit "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:stepSizeDefault -9999 ;
+    ada:targetMaterial "missing" ;
+    ada:timePerStepDefault -9999 ;
+    ada:xRayWavelength -9999 .
+
+
+```
+
 ## Schema
 
 ```yaml

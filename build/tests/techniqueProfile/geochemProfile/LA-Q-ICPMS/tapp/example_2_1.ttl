@@ -22,8 +22,8 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
@@ -33,7 +33,6 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Xue, Li, Wang et al." ] ;
     schema1:datePublished "missing" ;
@@ -69,7 +68,6 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     ada:elementalFractionationCorrection "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)" ;
     ada:internalStandardApproach "Two internal standards: Si from XRF SiO₂ (for Co, Ni, Cu, Zn); Al from XRF Al₂O₃ (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects" ;
     ada:internalStandardElement "Si (SiO₂ from XRF) for Co, Ni, Cu, Zn; Al (Al₂O₃ from XRF) for all other 28 trace elements" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:oxideProductionMethodAndThreshold "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05" ;
     ada:primaryStandardNameDefault "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser" ;
@@ -84,13 +82,6 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "Iolite 4 (Paton et al. 2011)" ;
             ada:toolRole "dataReduction" ] .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Applied: dual detector mode (30 ms / 10 ms dwell alternation)" ;
-    schema1:name "Pulse/Analog Detector Nonlinearity Correction" ;
-    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 15 ;
@@ -150,13 +141,6 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single spot per location (45 s ablation at 1 Hz)" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Surface cleaning with ethanol before analysis" ;
     schema1:name "Pre Ablation Surface Treatment" ;
@@ -171,12 +155,26 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Dual mode detector (30 ms / 10 ms dwell alternation)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Applied: dual detector mode (30 ms / 10 ms dwell alternation)" ;
+    schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
+    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
@@ -225,9 +223,4 @@ ex:laQicpmsTAPP-Liu2024 a cdi:Activity,
     ada:laserRepetitionRateDefault "1 Hz" ;
     ada:laserSpotGeometryDefault "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)" ;
     ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/detectorConfiguration> ;
-    schema1:value "Dual mode detector (30 ms / 10 ms dwell alternation)" .
 

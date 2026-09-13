@@ -1688,6 +1688,126 @@ ex:empaTAPP-P13 schema1:identifier "missing" .
 
 ```
 
+
+### detail example P14
+detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL JXA-8200).
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P14",
+  "@type": [
+    "ada:EMPAImage"
+  ],
+  "ada:componentType": "ada:EMPAImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:empaTAPP-P14",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "73001,6014-73001,6021",
+  "ada:samplingUnit": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)",
+  "ada:mapDimensions": 1,
+  "ada:mapArea": "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)",
+  "ada:proceduralBlankLevel": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": 0.1,
+  "ada:analyticalPrecision": "missing",
+  "ada:analyticalAccuracy": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:edsDeadTime": -9999,
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P14",
+  "@type": [
+    "ada:EMPAImage"
+  ],
+  "ada:componentType": "ada:EMPAImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:empaTAPP-P14",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "73001,6014-73001,6021",
+  "ada:samplingUnit": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)",
+  "ada:mapDimensions": 1,
+  "ada:mapArea": "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)",
+  "ada:proceduralBlankLevel": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:detectionLimit": 0.1,
+  "ada:analyticalPrecision": "missing",
+  "ada:analyticalAccuracy": "missing",
+  "ada:countingStatisticsError": "missing",
+  "ada:edsDeadTime": -9999,
+  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:detail-P14 a ada:EMPAImage ;
+    schema1:measurementTechnique ex:empaTAPP-P14 ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisStartDate "missing" ;
+    ada:analyst "missing" ;
+    ada:analyticalAccuracy "missing" ;
+    ada:analyticalPrecision "missing" ;
+    ada:componentType "ada:EMPAImage" ;
+    ada:countingStatisticsError "missing" ;
+    ada:detectionLimit 1e-01 ;
+    ada:edsDeadTime -9999 ;
+    ada:fundingSourceForAnalysis "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:mapArea "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)" ;
+    ada:mapDimensions 1 ;
+    ada:proceduralBlankLevel "missing" ;
+    ada:sampleName "73001,6014-73001,6021" ;
+    ada:samplingUnit "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)" ;
+    ada:sessionIdentifier "missing" .
+
+ex:empaTAPP-P14 schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

@@ -174,39 +174,7 @@
                                       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Analysis_filteringApproach"
                                     },
                                     {
-                                      "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                      "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Pulse/Analog Detector Nonlinearity Correction"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
+                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.json#/$defs/Param_Analysis_pulseAnalogDetectorNonlinearityCorrection"
                                     },
                                     {
                                       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/Param_Analysis_constantsReferenceValues"
@@ -223,39 +191,7 @@
                                   },
                                   {
                                     "contains": {
-                                      "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                      "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrection"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Pulse/Analog Detector Nonlinearity Correction"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
+                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.json#/$defs/Param_Analysis_pulseAnalogDetectorNonlinearityCorrection"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
@@ -611,7 +547,7 @@
                                               "anyOf": [
                                                 {
                                                   "title": "Doubly-Charged Species Monitor",
-                                                  "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
+                                                  "description": "The mass ratio monitored to estimate doubly-charged ion (M\u00b2\u207a) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
                                                   "type": "object",
                                                   "properties": {
                                                     "@id": {
@@ -688,7 +624,7 @@
                                               {
                                                 "contains": {
                                                   "title": "Doubly-Charged Species Monitor",
-                                                  "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
+                                                  "description": "The mass ratio monitored to estimate doubly-charged ion (M\u00b2\u207a) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
                                                   "type": "object",
                                                   "properties": {
                                                     "@id": {

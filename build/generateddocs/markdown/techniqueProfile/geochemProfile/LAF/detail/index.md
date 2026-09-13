@@ -7,6 +7,95 @@ Detail block for LAF hasPart items, carrying the analysis-identification propert
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=16 | Greenwood, Richard | Open University | Thermo MAT 253.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:LAFRaw"
+  ],
+  "ada:componentType": "ada:LAFRaw",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:lafTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240124_laf_ou_orex-501042-0_1",
+  "ada:analyst": "Greenwood, Richard",
+  "ada:analysisStartDate": "2024-01-23",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "STFC Grant ST/Y000188/1",
+  "ada:sampleName": "OREX-501042-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LAF/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:LAFRaw"
+  ],
+  "ada:componentType": "ada:LAFRaw",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:lafTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240124_laf_ou_orex-501042-0_1",
+  "ada:analyst": "Greenwood, Richard",
+  "ada:analysisStartDate": "2024-01-23",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "STFC Grant ST/Y000188/1",
+  "ada:sampleName": "OREX-501042-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:LAFRaw ;
+    schema1:measurementTechnique <ex:lafTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-01-23" ;
+    ada:analyst "Greenwood, Richard" ;
+    ada:componentType "ada:LAFRaw" ;
+    ada:fundingSourceForAnalysis "STFC Grant ST/Y000188/1" ;
+    ada:sampleName "OREX-501042-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240124_laf_ou_orex-501042-0_1" .
+
+<ex:lafTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

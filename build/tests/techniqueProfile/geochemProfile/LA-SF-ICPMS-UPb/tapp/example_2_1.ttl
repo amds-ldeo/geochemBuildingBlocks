@@ -14,9 +14,9 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
@@ -71,7 +71,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
     ada:internalStandardApproach "Sum-of-major-oxide normalization: MgO+FeO+SiO₂+P₂O₅ = 100 wt% per pixel (Liu et al. 2008 approach; no EPMA required for IS)" ;
     ada:internalStandardElement "No single IS element; oxide sum normalization (MgO+FeO+SiO₂+P₂O₅) used as virtual IS per pixel" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massResolutionAssignment "missing" ;
     ada:massesMeasuredDefault "missing" ;
@@ -87,13 +86,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C1)" ;
             ada:toolRole "dataReduction" ] .
-
-<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Applied: triple mode detection; cross-calibration between pulse-counting and analog modes performed" ;
-    schema1:name "Pulse/Analog Detector Nonlinearity Correction" ;
-    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> a schema1:PropertyValueSpecification ;
     schema1:name "Configuration" ;
@@ -189,12 +181,26 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Triple mode detection (all analytical modes)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Applied: triple mode detection; cross-calibration between pulse-counting and analog modes performed" ;
+    schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
+    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Double-focusing sector field ICP-MS (explicitly stated: \"Thermo Scientific Element XR double-focusing sector field ICP-MS unit\")",
         "ICPMS" ;
@@ -239,9 +245,4 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
     ada:laserRepetitionRateDefault "20 Hz" ;
     ada:laserSpotGeometryDefault "20×20 µm square" ;
     ada:laserType "193 nm ArF excimer; pulse duration ~5 ns" .
-
-<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/detectorConfiguration> ;
-    schema1:value "Triple mode detection (all analytical modes)" .
 

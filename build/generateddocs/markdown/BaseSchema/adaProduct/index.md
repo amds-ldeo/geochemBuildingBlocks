@@ -190,6 +190,7 @@ Mock data for validation and testing.
       ],
       "schema:identifier": "session-ada-20260110-001",
       "schema:startDate": "2026-01-10T09:30:00",
+      "schema:endDate": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -610,6 +611,7 @@ Mock data for validation and testing.
       ],
       "schema:identifier": "session-ada-20260110-001",
       "schema:startDate": "2026-01-10T09:30:00",
+      "schema:endDate": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -945,6 +947,7 @@ ex:adaProduct-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
+            schema1:endDate "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;

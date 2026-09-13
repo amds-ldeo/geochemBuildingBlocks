@@ -242,17 +242,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.9,
       "schema:description": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
-    },
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot per location (30 µm circular)"
     }
   ],
   "ada:analysisSequenceDefault": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described",
@@ -383,7 +372,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
   "ada:backgroundCountTimeDefault": -9999,
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -640,17 +628,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.9,
       "schema:description": "Ar make-up: 0.9\u20131.2 l min\u207b\u00b9; Ar auxiliary: 0.6\u20131.2 l min\u207b\u00b9"
-    },
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot per location (30 \u00b5m circular)"
     }
   ],
   "ada:analysisSequenceDefault": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described",
@@ -781,7 +758,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
   "ada:backgroundCountTimeDefault": -9999,
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -831,8 +807,7 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:chemicalAbrasionConditions "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata" ] ;
     schema1:datePublished "missing" ;
@@ -874,7 +849,6 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
     ada:internalStandardApproach "Single element externally measured by EPMA: ⁶¹Ni concentration from EPMA at exact analysis location used as IS" ;
     ada:internalStandardElement "⁶¹Ni; concentration from EPMA measured at exact analysis spot location" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -938,13 +912,6 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     schema1:name "Laser Pulse Duration" ;
     schema1:value "~220 fs (Ti:sapphire IFRIT system)" ;
     schema1:valueName "laserPulseDuration" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single spot per location (30 µm circular)" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -1128,12 +1095,12 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
             "schema:defaultValue": "Homogeneity index (H) applied to test element distribution; Co, Ni, Cu in high-Si glass (GSR-1) identified as near-LOD and flagged; flux blank contributions to pollution elements subtracted"
           },
           {
-            "@id": "ada:parameter/laQicpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: dual detector mode (30 ms / 10 ms dwell alternation)"
@@ -1181,16 +1148,14 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
           "schema:defaultValue": "Unit resolution (quadrupole; ICP-MS/MS mode not specified)"
         },
         {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsUPbTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Dual mode detector (30 ms / 10 ms dwell alternation)"
         },
         {
@@ -1348,19 +1313,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
   "ada:carrierGasFlowRateDefault": "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)",
   "ada:analysisSequenceDefault": "Gas blank (25 s) → ablation (45 s) → washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
   "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot per location (45 s ablation at 1 Hz)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1427,7 +1379,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ageModelDefault": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:rasterLineSpacingDefault": "missing",
@@ -1565,12 +1516,12 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
             "schema:defaultValue": "Homogeneity index (H) applied to test element distribution; Co, Ni, Cu in high-Si glass (GSR-1) identified as near-LOD and flagged; flux blank contributions to pollution elements subtracted"
           },
           {
-            "@id": "ada:parameter/laQicpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: dual detector mode (30 ms / 10 ms dwell alternation)"
@@ -1618,16 +1569,14 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
           "schema:defaultValue": "Unit resolution (quadrupole; ICP-MS/MS mode not specified)"
         },
         {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsUPbTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Dual mode detector (30 ms / 10 ms dwell alternation)"
         },
         {
@@ -1785,19 +1734,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
   "ada:carrierGasFlowRateDefault": "He: 0.7 l min\u207b\u00b9 (chamber) + 0.1 l min\u207b\u00b9 (cup gas)",
   "ada:analysisSequenceDefault": "Gas blank (25 s) \u2192 ablation (45 s) \u2192 washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
   "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot per location (45 s ablation at 1 Hz)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1864,7 +1800,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ageModelDefault": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:rasterLineSpacingDefault": "missing",
@@ -1896,17 +1831,17 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "Pettke (2012) for most elements: LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S); LOQ for pollution elements = blank value + 10SD (IUPAC Gold Book)" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
@@ -1916,7 +1851,6 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:chemicalAbrasionConditions "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Xue, Li, Wang et al." ] ;
     schema1:datePublished "missing" ;
@@ -1953,7 +1887,6 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
     ada:internalStandardApproach "Two internal standards: Si from XRF SiO₂ (for Co, Ni, Cu, Zn); Al from XRF Al₂O₃ (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects" ;
     ada:internalStandardElement "Si (SiO₂ from XRF) for Co, Ni, Cu, Zn; Al (Al₂O₃ from XRF) for all other 28 trace elements" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
     ada:oxideProductionMethodAndThreshold "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05" ;
@@ -1969,13 +1902,6 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "Iolite 4 (Paton et al. 2011)" ;
             ada:toolRole "dataReduction" ] .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Applied: dual detector mode (30 ms / 10 ms dwell alternation)" ;
-    schema1:name "Pulse/Analog Detector Nonlinearity Correction" ;
-    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 15 ;
@@ -2035,13 +1961,6 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single spot per location (45 s ablation at 1 Hz)" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Surface cleaning with ethanol before analysis" ;
     schema1:name "Pre Ablation Surface Treatment" ;
@@ -2056,12 +1975,26 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Dual mode detector (30 ms / 10 ms dwell alternation)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Applied: dual detector mode (30 ms / 10 ms dwell alternation)" ;
+    schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
+    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectorConfiguration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
@@ -2110,11 +2043,6 @@ ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
     ada:laserRepetitionRateDefault "1 Hz" ;
     ada:laserSpotGeometryDefault "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)" ;
     ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" .
-
-<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/detectorConfiguration> ;
-    schema1:value "Dual mode detector (30 ms / 10 ms dwell alternation)" .
 
 
 ```
@@ -2299,17 +2227,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N₂ or Ar mixed into He carrier for sensitivity optimization (amounts not stated)"
-    },
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot per location (~40 s ablation at 7 Hz)"
     }
   ],
   "ada:analysisSequenceDefault": "NIST 610 as primary standard measured in session; NIST 612 and BCR-2G as monitoring standards; unknowns bracketed by standards",
@@ -2426,7 +2343,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -2629,17 +2545,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N\u2082 or Ar mixed into He carrier for sensitivity optimization (amounts not stated)"
-    },
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot per location (~40 s ablation at 7 Hz)"
     }
   ],
   "ada:analysisSequenceDefault": "NIST 610 as primary standard measured in session; NIST 612 and BCR-2G as monitoring standards; unknowns bracketed by standards",
@@ -2756,7 +2661,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -2789,6 +2693,13 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -2797,17 +2708,9 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Li, Xu, Xiong et al." ] ;
     schema1:datePublished "missing" ;
@@ -2843,7 +2746,6 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
     ada:internalStandardApproach "Single element from EMP: Si (SiO₂ from EMP for silicate glass); NIST 610 as external standard" ;
     ada:internalStandardElement "Si from EMP (SiO₂ wt% for silicate glass)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -2876,13 +2778,6 @@ ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
     schema1:defaultValue "Unit resolution (quadrupole fixed)" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSettingDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single spot per location (~40 s ablation at 7 Hz)" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -3125,17 +3020,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N₂ or Ar mixed (same protocol as glass)"
-    },
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot per location (sulfides; same acquisition parameters as glass but 20 µm spot)"
     }
   ],
   "ada:analysisSequenceDefault": "Same bracketing as silicate glass protocol",
@@ -3252,7 +3136,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -3455,17 +3338,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N\u2082 or Ar mixed (same protocol as glass)"
-    },
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot per location (sulfides; same acquisition parameters as glass but 20 \u00b5m spot)"
     }
   ],
   "ada:analysisSequenceDefault": "Same bracketing as silicate glass protocol",
@@ -3582,7 +3454,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -3632,8 +3503,7 @@ ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:chemicalAbrasionConditions "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Li, Xu, Xiong et al." ] ;
     schema1:datePublished "missing" ;
@@ -3669,7 +3539,6 @@ ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
     ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
     ada:internalStandardApproach "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard" ;
     ada:internalStandardElement "Fe from EMP (FeOT wt% for sulfide)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -3702,13 +3571,6 @@ ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
     schema1:defaultValue "Unit resolution (quadrupole fixed)" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSettingDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single spot per location (sulfides; same acquisition parameters as glass but 20 µm spot)" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -3942,19 +3804,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   ],
   "ada:analysisSequenceDefault": "NIST 610 glass standard analyzed before and after every session; unknowns in between",
   "ada:backgroundCountTimeDefault": "50 s (background counted for 50 s before each LA-ICP-MS analysis)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot analysis per location"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4058,7 +3907,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "ada:ageModelDefault": "missing",
   "ada:carrierGasFlowRateDefault": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -4252,19 +4100,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   ],
   "ada:analysisSequenceDefault": "NIST 610 glass standard analyzed before and after every session; unknowns in between",
   "ada:backgroundCountTimeDefault": "50 s (background counted for 50 s before each LA-ICP-MS analysis)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot analysis per location"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4368,7 +4203,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "ada:ageModelDefault": "missing",
   "ada:carrierGasFlowRateDefault": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -4402,11 +4236,6 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ],
@@ -4416,8 +4245,12 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
+                    ada:chemicalAbrasionConditions "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume" ;
     schema1:instrument <https://example.org/instrument/ICPMS>,
@@ -4455,7 +4288,6 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
     ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
     ada:internalStandardApproach "Normalization to 100 wt% oxide total (for silicates and oxides)" ;
     ada:internalStandardElement "None (oxide sum normalization, 100 wt% total)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -4477,13 +4309,6 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
     schema1:name "Laser Energy" ;
     schema1:valueName "laserEnergyDefault" ;
     ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single spot analysis per location" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
-    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
@@ -4716,19 +4541,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   ],
   "ada:analysisSequenceDefault": "Same as silicate protocol",
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot analysis per location"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4832,7 +4644,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "ada:ageModelDefault": "missing",
   "ada:carrierGasFlowRateDefault": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -5026,19 +4837,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   ],
   "ada:analysisSequenceDefault": "Same as silicate protocol",
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot analysis per location"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5142,7 +4940,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "ada:ageModelDefault": "missing",
   "ada:carrierGasFlowRateDefault": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massesMeasuredDefault": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
@@ -5191,7 +4988,6 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
     schema1:datePublished "missing" ;
     schema1:description "N/A — see silicate column for general notes" ;
     schema1:instrument <https://example.org/instrument/ICPMS>,
@@ -5208,13 +5004,13 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
                     schema1:value "Martian meteorite (Tissint) phosphate: sodium-merrillite" ],
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Same as silicate protocol" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)" ;
                     schema1:name "EPMA (EMP)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Same as silicate protocol" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
@@ -5229,7 +5025,6 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
     ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
     ada:internalStandardApproach "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot" ;
     ada:internalStandardElement "40Ca; CaO wt% from EMP at the analysis spot" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -5251,13 +5046,6 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
     schema1:name "Laser Energy" ;
     schema1:valueName "laserEnergyDefault" ;
     ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single spot analysis per location" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
-    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
@@ -5335,7 +5123,6 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -5472,43 +5259,7 @@ allOf:
                       anyOf:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_signalSmoothing
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
-                      - title: Pulse/Analog Detector Nonlinearity Correction
-                        description: Whether a correction was applied for nonlinear
-                          detector response at the transition between pulse-counting
-                          and analog (and Faraday, for triple-mode instruments) detection
-                          modes. Cross-calibration factors between detector modes
-                          must be confirmed, typically measured each session. Record
-                          'Applied' and describe the method, the detector modes involved
-                          and the analytes affected; 'None' where a crossover exists
-                          on this instrument but no correction was made, giving the
-                          reason; and 'N/A' where the detector is pulse-counting only
-                          and no crossover exists.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: pulseAnalogDetectorNonlinearityCorrectionDefault
-                          schema:name:
-                            const: Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_intermediateDaughterDisequilibriumCorrection
@@ -5523,43 +5274,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Pulse/Analog Detector Nonlinearity Correction
-                        description: Whether a correction was applied for nonlinear
-                          detector response at the transition between pulse-counting
-                          and analog (and Faraday, for triple-mode instruments) detection
-                          modes. Cross-calibration factors between detector modes
-                          must be confirmed, typically measured each session. Record
-                          'Applied' and describe the method, the detector modes involved
-                          and the analytes affected; 'None' where a crossover exists
-                          on this instrument but no correction was made, giving the
-                          reason; and 'N/A' where the detector is pulse-counting only
-                          and no crossover exists.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: pulseAnalogDetectorNonlinearityCorrectionDefault
-                          schema:name:
-                            const: Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -5599,7 +5314,39 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
+        - title: Ion Counter Dead Time
+          description: Dead time of the ion-counting detector(s), used in the dead-time
+            correction applied to high count rates. Distinct from pulse/analog cross-calibration,
+            which relates the two detector modes rather than correcting counting losses
+            within the pulse-counting mode.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/ionCounterDeadTimeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ionCounterDeadTimeDefault
+            schema:name:
+              const: Ion Counter Dead Time
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: ns
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinitionAndValues
         - title: Error Correlation Between Reported Quantities
@@ -5652,7 +5399,39 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
+          title: Ion Counter Dead Time
+          description: Dead time of the ion-counting detector(s), used in the dead-time
+            correction applied to high count rates. Distinct from pulse/analog cross-calibration,
+            which relates the two detector modes rather than correcting counting losses
+            within the pulse-counting mode.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/ionCounterDeadTimeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ionCounterDeadTimeDefault
+            schema:name:
+              const: Ion Counter Dead Time
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:unitText:
+              const: ns
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         minContains: 0
         maxContains: 1
       - contains:
@@ -5732,32 +5511,7 @@ allOf:
                   anyOf:
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
-                  - title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer.
-                      For single-collector instruments, note whether dual pulse-counting/analog
-                      mode is used. For multi-collector instruments, describe the
-                      Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsUPbTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laQicpmsUPbTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
                   - title: Doubly-Charged Species Monitor
                     description: "The mass ratio monitored to estimate doubly-charged
@@ -5833,32 +5587,7 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer.
-                      For single-collector instruments, note whether dual pulse-counting/analog
-                      mode is used. For multi-collector instruments, describe the
-                      Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsUPbTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laQicpmsUPbTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -6146,12 +5875,13 @@ allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -6210,26 +5940,26 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Per-Analyte Calibration Strategy
+            - title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laQicpmsUPbTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -6449,12 +6179,13 @@ allOf:
           - contains:
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -6519,26 +6250,26 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Per-Analyte Calibration Strategy
+              title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laQicpmsUPbTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -6775,13 +6506,13 @@ allOf:
             minContains: 0
             maxContains: 1
     ada:massesMeasuredDefault:
-      description: Specific masses monitored in this procedure, grouped by the analyte
-        element they serve where they serve one. Covers atomic isotopes and, where
-        a reaction cell shifts an analyte onto a different mass, the product mass
-        actually measured. Includes interference-monitor and internal-standard masses,
-        which serve no analyte and so have no parent element. The analyte list is
-        given by the Analyte field and is never inferred from the element symbols
-        appearing here.
+      description: Specific masses monitored in this procedure, grouped by the target
+        species element they serve where they serve one. Covers atomic isotopes and,
+        where a reaction cell shifts an target species onto a different mass, the
+        product mass actually measured. Includes interference-monitor and internal-standard
+        masses, which serve no target species and so have no parent element. The target
+        species list is given by the Target Species field and is never inferred from
+        the element symbols appearing here.
       type: string
       readOnly: true
     ada:signalCollectionMode:

@@ -71,16 +71,14 @@
           "schema:defaultValue": "Low resolution (M/\u0394M \u2248 400)"
         },
         {
-          "@id": "ada:parameter/laSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Triple mode detection (pulse counting + analog + Faraday) at 65% duty cycle"
         }
       ],
@@ -203,12 +201,12 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: triple mode detection at 65% duty cycle (pulse counting + analog + Faraday); specific cross-calibration not described"
@@ -288,7 +286,6 @@
   "ada:carrierGasFlowRateDefault": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:internalStandardElement": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massResolutionAssignment": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",

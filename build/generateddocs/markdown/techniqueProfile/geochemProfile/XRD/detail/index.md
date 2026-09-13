@@ -7,6 +7,271 @@ Detail block for XRD hasPart items, carrying the analysis-level properties suppl
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example King2024
+detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-King2024",
+  "@type": [
+    "ada:XRDTabular"
+  ],
+  "ada:componentType": "ada:XRDTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:xrdTAPP-King2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1",
+  "ada:analyst": "King, Ashley",
+  "ada:analysisStartDate": "2024-07-25 | 2024-11-25",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800117-108 | OREX-800107-103",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-King2024",
+  "@type": [
+    "ada:XRDTabular"
+  ],
+  "ada:componentType": "ada:XRDTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:xrdTAPP-King2024",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1",
+  "ada:analyst": "King, Ashley",
+  "ada:analysisStartDate": "2024-07-25 | 2024-11-25",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800117-108 | OREX-800107-103",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-King2024> a ada:XRDTabular ;
+    schema1:measurementTechnique <ex:xrdTAPP-King2024> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-07-25 | 2024-11-25" ;
+    ada:analyst "King, Ashley" ;
+    ada:componentType "ada:XRDTabular" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-800117-108 | OREX-800107-103" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1" .
+
+<ex:xrdTAPP-King2024> schema1:identifier "missing" .
+
+
+```
+
+
+### detail example King2024-2
+detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-King2024-2",
+  "@type": [
+    "ada:XRDTabular"
+  ],
+  "ada:componentType": "ada:XRDTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:xrdTAPP-King2024-2",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20230928_xrd_jsc-ares_orex-500005-0_1",
+  "ada:analyst": "King, Ashley",
+  "ada:analysisStartDate": "2024-01-28",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-500005-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-King2024-2",
+  "@type": [
+    "ada:XRDTabular"
+  ],
+  "ada:componentType": "ada:XRDTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:xrdTAPP-King2024-2",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20230928_xrd_jsc-ares_orex-500005-0_1",
+  "ada:analyst": "King, Ashley",
+  "ada:analysisStartDate": "2024-01-28",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-500005-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-King2024-2> a ada:XRDTabular ;
+    schema1:measurementTechnique <ex:xrdTAPP-King2024-2> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-01-28" ;
+    ada:analyst "King, Ashley" ;
+    ada:componentType "ada:XRDTabular" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-500005-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20230928_xrd_jsc-ares_orex-500005-0_1" .
+
+<ex:xrdTAPP-King2024-2> schema1:identifier "missing" .
+
+
+```
+
+
+### detail example King2023
+detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-King2023",
+  "@type": [
+    "ada:XRDTabular"
+  ],
+  "ada:componentType": "ada:XRDTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:xrdTAPP-King2023",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231124_xrd_nhm_orex-800032-110_1",
+  "ada:analyst": "King, Ashley",
+  "ada:analysisStartDate": "2023-11-24",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800032-110",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-King2023",
+  "@type": [
+    "ada:XRDTabular"
+  ],
+  "ada:componentType": "ada:XRDTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:xrdTAPP-King2023",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231124_xrd_nhm_orex-800032-110_1",
+  "ada:analyst": "King, Ashley",
+  "ada:analysisStartDate": "2023-11-24",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800032-110",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-King2023> a ada:XRDTabular ;
+    schema1:measurementTechnique <ex:xrdTAPP-King2023> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-24" ;
+    ada:analyst "King, Ashley" ;
+    ada:componentType "ada:XRDTabular" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-800032-110" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20231124_xrd_nhm_orex-800032-110_1" .
+
+<ex:xrdTAPP-King2023> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

@@ -20,16 +20,11 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
@@ -37,9 +32,13 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
                             schema1:name "1 M HNO3 (minimum volume for dissolution; stated section 2.4)" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1)." ;
@@ -65,7 +64,6 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     ada:driftCorrectionMethod "Standard bracketing" ;
     ada:finalSolutionMatrix "0.1 M HNO3 + 0.3 M HF (Table 1)" ;
     ada:internalStandardElement "None (matrix-matched external calibration; stated section 2.3.1)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "None" ;
     ada:numberOfReplicatesPerSample "3 runs (LR and MR; Table 3)" ;
     ada:numberOfScansPerReplicate "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)" ;
@@ -135,6 +133,20 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)" ;
+    schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
+    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
     schema1:name "Desolvation System" ;
     schema1:value "None" ;
@@ -147,14 +159,6 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     schema1:value "ESI 50 uL microconcentric nebulizer; self-aspirating (Table 1)" ;
     schema1:valueName "nebulizerType" ;
     ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> a schema1:PropertyValueSpecification ;
-    schema1:description "1 (stated section 2.4)" ;
-    schema1:name "Number of Digestion Steps" ;
-    schema1:value 1 ;
-    schema1:valueName "numberOfDigestionSteps" ;
-    ada:dataType "integer" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
@@ -180,18 +184,11 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)" ;
-    schema1:name "Pulse/Analog Detector Nonlinearity Correction" ;
-    schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
@@ -233,9 +230,4 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
-    schema1:value "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)" .
 

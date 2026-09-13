@@ -1,15 +1,15 @@
 
-# ADA EMPA Product Profile (Schema)
+# ADA EPMA Product Profile (Schema)
 
 `ogch.techniqueProfile.geochemProfile.EMPA.profile` *v0.1*
 
-Path-driven ADA product profile for ADA EMPA Product Profile.
+Path-driven ADA product profile for ADA EPMA Product Profile.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
 ## Examples
 
-### ADA EMPA Product Profile Example
+### ADA EPMA Product Profile Example
 Example path-driven EMPA product record with dataset-level analysis detail
 and technique component types on the archive distribution. Mock data for validation.
 #### json
@@ -34,7 +34,7 @@ and technique component types on the archive distribution. Mock data for validat
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:name": "ADA EMPA Example Product",
+  "schema:name": "ADA EPMA Example Product",
   "schema:description": "Example path-driven EMPA product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Electron Microprobe Analysis (EMPA)",
@@ -175,6 +175,7 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:identifier": "session-ada-20260110-001",
       "schema:startDate": "2026-01-10T09:30:00",
+      "schema:endDate": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -235,8 +236,7 @@ and technique component types on the archive distribution. Mock data for validat
         "@type": [
           "schema:HowTo"
         ]
-      },
-      "schema:endDate": "missing"
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -331,7 +331,8 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:defaultValue": "missing"
     }
   ],
   "schema:distribution": [
@@ -524,7 +525,7 @@ and technique component types on the archive distribution. Mock data for validat
     "schema:Dataset",
     "schema:Product"
   ],
-  "schema:name": "ADA EMPA Example Product",
+  "schema:name": "ADA EPMA Example Product",
   "schema:description": "Example path-driven EMPA product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Electron Microprobe Analysis (EMPA)",
@@ -665,6 +666,7 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:identifier": "session-ada-20260110-001",
       "schema:startDate": "2026-01-10T09:30:00",
+      "schema:endDate": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -725,8 +727,7 @@ and technique component types on the archive distribution. Mock data for validat
         "@type": [
           "schema:HowTo"
         ]
-      },
-      "schema:endDate": "missing"
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -821,7 +822,8 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:defaultValue": "missing"
     }
   ],
   "schema:distribution": [
@@ -1063,7 +1065,7 @@ ex:adaEMPA-example-001 a schema1:Dataset,
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:identifier "https://ada.astromat.org/vocabulary/techniques/ADA" ;
             schema1:name "Astromat Data Archive (ADA)" ] ;
-    schema1:name "ADA EMPA Example Product" ;
+    schema1:name "ADA EPMA Example Product" ;
     schema1:subjectOf ex:adaProduct-metadata-001 ;
     schema1:url "https://astromat.org/products/adaproduct-example-001" ;
     schema1:variableMeasured ex:adaProduct-var-001,
@@ -1074,7 +1076,7 @@ ex:adaEMPA-example-001 a schema1:Dataset,
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess [ a schema1:HowTo ] ;
-            schema1:endDate "missing" ;
+            schema1:endDate "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
@@ -1143,6 +1145,7 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
+    schema1:defaultValue "missing" ;
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Detection Limit reported for this dataset. Example value.",
         "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
@@ -1184,8 +1187,8 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: ADA EMPA Product Profile
-description: Path-driven technique-specific profile for ADA EMPA Product Profile.
+title: ADA EPMA Product Profile
+description: Path-driven technique-specific profile for ADA EPMA Product Profile.
   Extends the base ADA product profile with the EMPA analysis-instance detail on the
   schema:Dataset root, narrows prov:used to the empaTAPP protocol, and constrains
   valid component types on schema:distribution.hasPart.
@@ -1234,50 +1237,6 @@ allOf:
         enum:
         - Electron Microprobe Analysis (EMPA)
         - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
-    schema:distribution:
-      description: Each distribution item is EITHER a monolithic single-file dataset
-        whose ada:componentType is a EMPA-specific or universal value (and may carry
-        cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such
-        a componentType (the ADA/SAMIS archive form).
-      type: array
-      items:
-        anyOf:
-        - type: object
-          required:
-          - ada:componentType
-          properties:
-            ada:componentType:
-              type: string
-              anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType
-              - enum:
-                - ada:EMPAImage
-                - ada:EMPAImageMap
-                - ada:EMPAQEATabular
-                - ada:EMPAImageCollection
-                - ada:EMPAESPCTabular
-                - ada:EMPAESPCPlot
-        - type: object
-          required:
-          - schema:hasPart
-          properties:
-            schema:hasPart:
-              items:
-                type: object
-                anyOf:
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
-                - properties:
-                    ada:componentType:
-                      type: string
-                      enum:
-                      - ada:EMPAImage
-                      - ada:EMPAImageMap
-                      - ada:EMPAQEATabular
-                      - ada:EMPAImageCollection
-                      - ada:EMPAESPCTabular
-                      - ada:EMPAESPCPlot
-                  required:
-                  - ada:componentType
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

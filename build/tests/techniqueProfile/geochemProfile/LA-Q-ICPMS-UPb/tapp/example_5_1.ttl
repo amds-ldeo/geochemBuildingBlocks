@@ -15,11 +15,6 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ],
@@ -29,8 +24,12 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> ;
+                    ada:chemicalAbrasionConditions "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume" ;
     schema1:instrument <https://example.org/instrument/ICPMS>,
@@ -68,7 +67,6 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
     ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
     ada:internalStandardApproach "Normalization to 100 wt% oxide total (for silicates and oxides)" ;
     ada:internalStandardElement "None (oxide sum normalization, 100 wt% total)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -90,13 +88,6 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
     schema1:name "Laser Energy" ;
     schema1:valueName "laserEnergyDefault" ;
     ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/multiRunSequentialAnalysisDesign> a schema1:PropertyValueSpecification ;
-    schema1:name "Multi Run Sequential Analysis Design" ;
-    schema1:value "Single spot analysis per location" ;
-    schema1:valueName "multiRunSequentialAnalysisDesign" ;
-    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;

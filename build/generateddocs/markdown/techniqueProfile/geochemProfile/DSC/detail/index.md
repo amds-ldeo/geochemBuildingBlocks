@@ -7,6 +7,95 @@ Detail block for DSC hasPart items, carrying the analysis-identification propert
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example DSC8000
+detail instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-DSC8000",
+  "@type": [
+    "ada:DSCHeatTabular"
+  ],
+  "ada:componentType": "ada:DSCHeatTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:dscTAPP-DSC8000",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241111_dsc_nu_orex-803224-0_1",
+  "ada:analyst": "Biele, Jens",
+  "ada:analysisStartDate": "2024-11-11",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-803224-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/DSC/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-DSC8000",
+  "@type": [
+    "ada:DSCHeatTabular"
+  ],
+  "ada:componentType": "ada:DSCHeatTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:dscTAPP-DSC8000",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241111_dsc_nu_orex-803224-0_1",
+  "ada:analyst": "Biele, Jens",
+  "ada:analysisStartDate": "2024-11-11",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-803224-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-DSC8000> a ada:DSCHeatTabular ;
+    schema1:measurementTechnique <ex:dscTAPP-DSC8000> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-11-11" ;
+    ada:analyst "Biele, Jens" ;
+    ada:componentType "ada:DSCHeatTabular" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-803224-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20241111_dsc_nu_orex-803224-0_1" .
+
+<ex:dscTAPP-DSC8000> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

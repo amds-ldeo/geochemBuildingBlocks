@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "TEM Technique-Aligned Protocol Profile (temTAPP)",
-  "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from tapp/Current TAPPs/TEM_TAPP_v48.csv by tools/build_tapp.py.",
+  "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from tapp/Current TAPPs/TEM_TAPP_v51.csv by tools/build_tapp.py.",
   "allOf": [
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json"
@@ -14,9 +14,6 @@
     },
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/ProcedureIdentification"
-    },
-    {
-      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.json#/$defs/ProcedureIdentification"
     },
     {
       "type": "object",
@@ -1937,7 +1934,7 @@
               },
               {
                 "title": "EDS Detection Limit",
-                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per target species, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3032,7 +3029,7 @@
             {
               "contains": {
                 "title": "EDS Detection Limit",
-                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per target species, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3337,7 +3334,7 @@
         "ada:eelsEdgesDefault": {
           "type": "array",
           "items": {
-            "description": "Ionization edge(s) acquired by EELS, specified by element symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart to the Analyte field: while Analyte lists elements, EELS Edges documents which ionization edges were used and their approximate energy loss positions. The edge list may be narrowed at analysis time. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+            "description": "Ionization edge(s) acquired by EELS, specified by element symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart to the Target Species field: while Target Species lists elements, EELS Edges documents which ionization edges were used and their approximate energy loss positions. The edge list may be narrowed at analysis time. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
             "type": "string"
           }
         },
@@ -3365,7 +3362,7 @@
           ]
         },
         "ada:eelsEnergyLossRangeDefault": {
-          "description": "Energy loss range acquired, defined by onset energy and width in eV. The target range covers the registered analyte edges; the actual range acquired may differ. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+          "description": "Energy loss range acquired, defined by onset energy and width in eV. The target range covers the registered target species edges; the actual range acquired may differ. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
           "type": "string"
         },
         "ada:phaseIdentificationMethod": {
@@ -3655,7 +3652,7 @@
               },
               {
                 "title": "EDS Detection Limit",
-                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per target species, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                 "type": "object",
                 "properties": {
                   "@id": {
@@ -3703,7 +3700,7 @@
             {
               "contains": {
                 "title": "EDS Detection Limit",
-                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+                "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per target species, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
                 "type": "object",
                 "properties": {
                   "@id": {

@@ -7,6 +7,95 @@ Detail block for ICPOES hasPart items, carrying the analysis-identification prop
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example CAP6300
+detail instance derived from ADA n=12 | Welten, Kees | University of California, Berkeley | Thermo Fisher Scientific iCAP 6300 duo.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-CAP6300",
+  "@type": [
+    "ada:ICPOESRawTabular"
+  ],
+  "ada:componentType": "ada:ICPOESRawTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:icpoesTAPP-CAP6300",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231219_icp-oes_ucb_multisample_1",
+  "ada:analyst": "Welten, Kees",
+  "ada:analysisStartDate": "2023-12-13",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX Participating Scientist Program.",
+  "ada:sampleName": "OREX-803047-101",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/ICPOES/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-CAP6300",
+  "@type": [
+    "ada:ICPOESRawTabular"
+  ],
+  "ada:componentType": "ada:ICPOESRawTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:icpoesTAPP-CAP6300",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231219_icp-oes_ucb_multisample_1",
+  "ada:analyst": "Welten, Kees",
+  "ada:analysisStartDate": "2023-12-13",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX Participating Scientist Program.",
+  "ada:sampleName": "OREX-803047-101",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-CAP6300> a ada:ICPOESRawTabular ;
+    schema1:measurementTechnique <ex:icpoesTAPP-CAP6300> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-12-13" ;
+    ada:analyst "Welten, Kees" ;
+    ada:componentType "ada:ICPOESRawTabular" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX Participating Scientist Program." ;
+    ada:sampleName "OREX-803047-101" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20231219_icp-oes_ucb_multisample_1" .
+
+<ex:icpoesTAPP-CAP6300> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

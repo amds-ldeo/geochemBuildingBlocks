@@ -10,7 +10,7 @@
           "type": "object",
           "properties": {
             "schema:name": {
-              "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured \u2014 analyte, material, or feature.",
+              "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured \u2014 target species, material, or feature.",
               "type": "string",
               "x-jsonld-id": "http://schema.org/name"
             },
@@ -1063,7 +1063,7 @@
                                 "then": {
                                   "properties": {
                                     "schema:description": {
-                                      "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the analyte each position serves. Lists the mass number monitored in each collector position with its analyte element where it has one \u2014 e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no analyte)'. Interference-monitor and internal-standard positions serve no analyte and carry no parent element; the analyte list itself is given by the Analyte field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
+                                      "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one \u2014 e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
                                       "anyOf": [
                                         {
                                           "type": "string"
@@ -1627,7 +1627,7 @@
         },
         "Param_Analysis_integrationTimePerCycle": {
           "title": "Integration Time per Cycle",
-          "description": "Duration of signal integration per measurement cycle (seconds). Where different isotope channels use different integration schemes, record the time for each channel.",
+          "description": "Duration of signal integration per measurement cycle (seconds).",
           "type": "object",
           "properties": {
             "@id": {
@@ -1685,7 +1685,7 @@
         },
         "Param_Procedure_integrationTimePerCycle": {
           "title": "Integration Time per Cycle",
-          "description": "Duration of signal integration per measurement cycle (seconds). Where different isotope channels use different integration schemes, record the time for each channel.",
+          "description": "Duration of signal integration per measurement cycle (seconds).",
           "type": "object",
           "properties": {
             "@id": {
@@ -1940,7 +1940,7 @@
         },
         "Param_Analysis_doubleSpikeMixingRatio": {
           "title": "Double Spike Mixing Ratio",
-          "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample ratio. The optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically \u00b120% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
+          "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically \u00b120% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
           "type": "object",
           "properties": {
             "@id": {
@@ -1986,7 +1986,7 @@
         },
         "Param_Procedure_doubleSpikeMixingRatio": {
           "title": "Double Spike Mixing Ratio",
-          "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample ratio. The optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically \u00b120% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
+          "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically \u00b120% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
           "type": "object",
           "properties": {
             "@id": {
@@ -2209,7 +2209,7 @@
                     "then": {
                       "properties": {
                         "schema:defaultValue": {
-                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -2277,7 +2277,7 @@
                     "then": {
                       "properties": {
                         "schema:value": {
-                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -2302,7 +2302,7 @@
         },
         "Param_Analysis_calibrationFactorAndDeterminationMethod": {
           "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
           "type": "object",
           "properties": {
             "@id": {
@@ -2348,7 +2348,7 @@
         },
         "Param_Procedure_calibrationFactorAndDeterminationMethod": {
           "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
           "type": "object",
           "properties": {
             "@id": {
@@ -2610,25 +2610,13 @@
     },
     "ogch.BaseSchema.modules.icpms": {
       "title": "TAPP Composition Module: ICPMS",
-      "description": "The shared ICPMS block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_ICPMS.csv), composed by 9 of the sixteen delivery tables. 39 owned fields over 17 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
+      "description": "The shared ICPMS block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_ICPMS.csv), composed by 9 of the sixteen delivery tables. 42 owned fields over 16 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
       "$defs": {
         "ProcedureIdentification": {
           "title": "ICPMS on the procedure",
           "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
           "type": "object",
           "properties": {
-            "ada:ionCounterDeadTimeDefault": {
-              "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-              "anyOf": [
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "x-jsonld-id": "https://ada.astromat.org/metadata/ionCounterDeadTimeDefault"
-            },
             "ada:uncertaintyLevel": {
               "description": "The convention at which reported uncertainties are quoted \u2014 1-sigma, 2-sigma, or a 95% confidence interval \u2014 and whether a measured spread is reported as a standard error or a standard deviation. State the convention applying to all values reported under this procedure, and state each separately where different reported quantities use different conventions. Distinct from Uncertainty Propagation Method, which addresses how component uncertainties are combined rather than how the result is quoted.",
               "type": "string",
@@ -2819,7 +2807,7 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/blankBackgroundCorrectionMethod"
             },
             "ada:internalStandardElement": {
-              "description": "Element(s) used as the internal standard, the monitored isotope, and how the internal-standard concentration was established for unknowns. Where the element serves isotope-ratio work it must have a known isotopic composition and a mass close to the analyte's. Record 'None' together with the alternative used where no internal standard is applied.",
+              "description": "Element(s) used as the internal standard, the monitored isotope, and how the internal-standard concentration was established for unknowns. Where the element serves isotope-ratio work it must have a known isotopic composition and a mass close to the target species's. Record 'None' together with the alternative used where no internal standard is applied.",
               "type": "string",
               "x-jsonld-id": "https://ada.astromat.org/metadata/internalStandardElement"
             },
@@ -2839,7 +2827,6 @@
             "ada:blankBackgroundCorrectionMethod",
             "ada:calibrationMeasurementFrequency",
             "ada:internalStandardElement",
-            "ada:ionCounterDeadTimeDefault",
             "ada:oxideProductionMethodAndThreshold",
             "ada:signalIntegrationIntervalMethod",
             "ada:uncertaintyLevel"
@@ -2932,7 +2919,7 @@
               "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy"
             },
             "ada:sensitivityYield": {
-              "description": "Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram \u2014 or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. A sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
+              "description": "Instrument sensitivity achieved in the session, with the isotope or monitored property it was measured on and the conditions it applies to. May be expressed either as detected signal per unit concentration or per unit mass of target species delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram \u2014 or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited. A sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.",
               "anyOf": [
                 {
                   "type": "number"
@@ -3557,64 +3544,6 @@
             "schema:name",
             "ada:dataType",
             "ada:fieldScope"
-          ]
-        },
-        "Param_Analysis_ionCounterDeadTime": {
-          "title": "Ion Counter Dead Time",
-          "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-          "type": "object",
-          "properties": {
-            "@id": {
-              "enum": [
-                "ada:parameter/module/ICPMS/ionCounterDeadTime"
-              ]
-            },
-            "@type": {
-              "enum": [
-                [
-                  "schema:PropertyValue"
-                ]
-              ]
-            },
-            "schema:propertyID": {
-              "x-jsonld-id": "http://schema.org/propertyID",
-              "enum": [
-                [
-                  {
-                    "@id": "ada:parameter/module/ICPMS/ionCounterDeadTime"
-                  }
-                ]
-              ]
-            },
-            "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
-              "enum": [
-                "Ion Counter Dead Time"
-              ]
-            },
-            "schema:value": {
-              "anyOf": [
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "x-jsonld-id": "http://schema.org/value"
-            },
-            "schema:unitText": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/unitText"
-            }
-          },
-          "required": [
-            "@id",
-            "@type",
-            "schema:propertyID",
-            "schema:name",
-            "schema:value",
-            "schema:unitText"
           ]
         },
         "Param_Analysis_uncertaintyPropagationMethod": {
@@ -4619,7 +4548,7 @@
         },
         "Param_Analysis_massResolutionSetting": {
           "title": "Mass Resolution Setting",
-          "description": "Operating mass resolution of the mass analyser. Where the analyser permits selection, state the mode; where individual analytes are assigned to different modes, state each.",
+          "description": "Operating mass resolution of the mass analyser. Where the analyser permits selection, state the mode; where individual target species are assigned to different modes, state each.",
           "type": "object",
           "properties": {
             "@id": {
@@ -4665,7 +4594,7 @@
         },
         "Param_Procedure_massResolutionSetting": {
           "title": "Mass Resolution Setting",
-          "description": "Operating mass resolution of the mass analyser. Where the analyser permits selection, state the mode; where individual analytes are assigned to different modes, state each.",
+          "description": "Operating mass resolution of the mass analyser. Where the analyser permits selection, state the mode; where individual target species are assigned to different modes, state each.",
           "type": "object",
           "properties": {
             "@id": {
@@ -4872,7 +4801,7 @@
                     "then": {
                       "properties": {
                         "schema:defaultValue": {
-                          "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+                          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
                           "anyOf": [
                             {
                               "type": "number"
@@ -5034,7 +4963,7 @@
                     "then": {
                       "properties": {
                         "schema:value": {
-                          "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+                          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
                           "anyOf": [
                             {
                               "type": "number"
@@ -5255,7 +5184,7 @@
         },
         "Param_Analysis_detectionLimit": {
           "title": "Detection Limit",
-          "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
           "type": "object",
           "properties": {
             "@id": {
@@ -5313,7 +5242,7 @@
         },
         "Param_Procedure_detectionLimit": {
           "title": "Detection Limit",
-          "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
           "type": "object",
           "properties": {
             "@id": {
@@ -5712,69 +5641,6 @@
               "x-jsonld-id": "http://schema.org/unitText",
               "enum": [
                 "mg or mL"
-              ]
-            }
-          },
-          "required": [
-            "@id",
-            "@type",
-            "schema:valueName",
-            "schema:name",
-            "ada:dataType",
-            "ada:fieldScope"
-          ]
-        },
-        "Param_Procedure_numberOfDigestionSteps": {
-          "title": "Number of Digestion Steps",
-          "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some procedures require multiple sequential steps \u2014 for example, an initial open-beaker HF\u2013HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals, or by an aqua regia reflux to destroy fluoride complexes.",
-          "type": "object",
-          "properties": {
-            "@id": {
-              "enum": [
-                "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps"
-              ]
-            },
-            "@type": {
-              "enum": [
-                [
-                  "schema:PropertyValueSpecification"
-                ]
-              ]
-            },
-            "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
-              "enum": [
-                "numberOfDigestionSteps"
-              ]
-            },
-            "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
-              "enum": [
-                "Number of Digestion Steps"
-              ]
-            },
-            "ada:dataType": {
-              "x-jsonld-id": "https://ada.astromat.org/metadata/dataType",
-              "enum": [
-                "integer"
-              ]
-            },
-            "ada:fieldScope": {
-              "x-jsonld-id": "https://ada.astromat.org/metadata/fieldScope",
-              "enum": [
-                "session"
-              ]
-            },
-            "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
-              "enum": [
-                true
-              ]
-            },
-            "ada:tier": {
-              "x-jsonld-id": "https://ada.astromat.org/metadata/tier",
-              "enum": [
-                "R"
               ]
             }
           },
@@ -7236,7 +7102,7 @@
         },
         "Param_Analysis_cellExitDiscriminationVoltage": {
           "title": "Cell Exit Discrimination Voltage",
-          "description": "Bias voltage applied at the collision/reaction cell exit to discriminate between analyte ions and low-energy polyatomic interferences in KED mode, in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED or the instrument has no cell.",
+          "description": "Bias voltage applied at the collision/reaction cell exit to discriminate between target species ions and low-energy polyatomic interferences in KED mode, in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED or the instrument has no cell.",
           "type": "object",
           "properties": {
             "@id": {
@@ -7294,7 +7160,7 @@
         },
         "Param_Procedure_cellExitDiscriminationVoltage": {
           "title": "Cell Exit Discrimination Voltage",
-          "description": "Bias voltage applied at the collision/reaction cell exit to discriminate between analyte ions and low-energy polyatomic interferences in KED mode, in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED or the instrument has no cell.",
+          "description": "Bias voltage applied at the collision/reaction cell exit to discriminate between target species ions and low-energy polyatomic interferences in KED mode, in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED or the instrument has no cell.",
           "type": "object",
           "properties": {
             "@id": {

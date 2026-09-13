@@ -120,10 +120,10 @@ The procedure half of the CompositionQC module, with every property populated. G
 
 [] schema1:actionProcess [ schema1:step [ schema1:name "Data reduction" ;
                     ada:detectionLimitMethod "example value" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue "example value" ;
-            schema1:name "Normalization / Standards-Based Correction" ],
-        [ schema1:defaultValue 1 ;
-            schema1:name "Detection Limit" ] ;
+    schema1:variableMeasured [ schema1:defaultValue 1 ;
+            schema1:name "Detection Limit" ],
+        [ schema1:defaultValue "example value" ;
+            schema1:name "Normalization / Standards-Based Correction" ] ;
     ada:primaryStandardNameDefault "example value" ;
     ada:secondaryReferenceMaterialDefault "example value" .
 
@@ -208,12 +208,12 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:variableMeasured [ schema1:name "Detection Limit" ;
-            schema1:value 1 ],
-        [ schema1:name "Normalization / Standards-Based Correction" ;
+[] schema1:variableMeasured [ schema1:name "Normalization / Standards-Based Correction" ;
             schema1:value "example value" ],
         [ schema1:name "Detection Limit Method" ;
-            schema1:value "example value" ] ;
+            schema1:value "example value" ],
+        [ schema1:name "Detection Limit" ;
+            schema1:value 1 ] ;
     prov:wasGeneratedBy [ prov:used [ prov:reagent "example value" ] ] .
 
 
@@ -256,11 +256,11 @@ $defs:
               properties:
                 schema:defaultValue:
                   description: Detection limit, one per reported concentration variable
-                    (one per analyte, these being the same set). State the units and
-                    whether the values are procedure-typical estimates or session-specific
-                    measured values. The calculation method is recorded separately
-                    in Detection Limit Method. Record 'N/A' where the procedure reports
-                    no concentrations.
+                    (one per target species, these being the same set). State the
+                    units and whether the values are procedure-typical estimates or
+                    session-specific measured values. The calculation method is recorded
+                    separately in Detection Limit Method. Record 'N/A' where the procedure
+                    reports no concentrations.
                   anyOf:
                   - type: number
                   - type: string
@@ -368,11 +368,11 @@ $defs:
               properties:
                 schema:value:
                   description: Detection limit, one per reported concentration variable
-                    (one per analyte, these being the same set). State the units and
-                    whether the values are procedure-typical estimates or session-specific
-                    measured values. The calculation method is recorded separately
-                    in Detection Limit Method. Record 'N/A' where the procedure reports
-                    no concentrations.
+                    (one per target species, these being the same set). State the
+                    units and whether the values are procedure-typical estimates or
+                    session-specific measured values. The calculation method is recorded
+                    separately in Detection Limit Method. Record 'N/A' where the procedure
+                    reports no concentrations.
                   anyOf:
                   - type: number
                   - type: string
@@ -506,8 +506,8 @@ $defs:
   Param_Analysis_detectionLimit:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object
@@ -542,8 +542,8 @@ $defs:
   Param_Procedure_detectionLimit:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
-      analyte, these being the same set). State the units and whether the values are
-      procedure-typical estimates or session-specific measured values. The calculation
+      target species, these being the same set). State the units and whether the values
+      are procedure-typical estimates or session-specific measured values. The calculation
       method is recorded separately in Detection Limit Method. Record 'N/A' where
       the procedure reports no concentrations.
     type: object

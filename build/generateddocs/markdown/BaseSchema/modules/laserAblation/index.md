@@ -26,6 +26,12 @@ This is a **profile, not a vocabulary**: it asserts which properties a conformin
 
 Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.
 
+## Not yet placed
+
+These fields belong to the module but have no schema path in any sidecar, so they are absent from the schema until one is authored:
+
+- Inter-Pass Data Dependency
+
 ## Composing it
 
 ```yaml
@@ -1061,46 +1067,6 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  Param_Procedure_multiRunSequentialAnalysisDesign:
-    title: Multi Run Sequential Analysis Design
-    description: Whether the procedure uses a single acquisition pass or multiple
-      sequential runs on the same sample location, each optimized for different analytical
-      objectives. For multi-run designs, describe the number of runs, their purpose,
-      key laser and instrument settings per run, and how outputs of one run feed into
-      data reduction of another. Not applicable to raster mapping, where each spatial
-      location is visited exactly once.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: multiRunSequentialAnalysisDesign
-        x-jsonld-id: http://schema.org/valueName
-      schema:name:
-        const: Multi Run Sequential Analysis Design
-        x-jsonld-id: http://schema.org/name
-      ada:dataType:
-        const: string
-        x-jsonld-id: https://ada.astromat.org/metadata/dataType
-      ada:fieldScope:
-        const: session
-        x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
-      schema:readonlyValue:
-        const: true
-        x-jsonld-id: http://schema.org/readonlyValue
-      ada:tier:
-        const: R
-        x-jsonld-id: https://ada.astromat.org/metadata/tier
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
   Param_Analysis_signalSmoothing:
     title: Signal Smoothing
     description: Description of any signal smoothing device or approach installed

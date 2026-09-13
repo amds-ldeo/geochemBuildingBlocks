@@ -301,9 +301,6 @@ allOf:
                                               - title: Integration Time per Cycle
                                                 description: Duration of signal integration
                                                   per measurement cycle (seconds).
-                                                  Where different isotope channels
-                                                  use different integration schemes,
-                                                  record the time for each channel.
                                                 type: object
                                                 properties:
                                                   '@id':
@@ -338,8 +335,8 @@ allOf:
                                                 - ada:dataType
                                                 - schema:value
                                               - title: Ion Counter Dead Time
-                                                description: Dead time of each ion-counting
-                                                  detector channel, used in the dead-time
+                                                description: Dead time of the ion-counting
+                                                  detector(s), used in the dead-time
                                                   correction applied to high count
                                                   rates. Distinct from pulse/analog
                                                   cross-calibration, which relates
@@ -384,9 +381,6 @@ allOf:
                                                 title: Integration Time per Cycle
                                                 description: Duration of signal integration
                                                   per measurement cycle (seconds).
-                                                  Where different isotope channels
-                                                  use different integration schemes,
-                                                  record the time for each channel.
                                                 type: object
                                                 properties:
                                                   '@id':
@@ -424,8 +418,8 @@ allOf:
                                               maxContains: 1
                                             - contains:
                                                 title: Ion Counter Dead Time
-                                                description: Dead time of each ion-counting
-                                                  detector channel, used in the dead-time
+                                                description: Dead time of the ion-counting
+                                                  detector(s), used in the dead-time
                                                   correction applied to high count
                                                   rates. Distinct from pulse/analog
                                                   cross-calibration, which relates

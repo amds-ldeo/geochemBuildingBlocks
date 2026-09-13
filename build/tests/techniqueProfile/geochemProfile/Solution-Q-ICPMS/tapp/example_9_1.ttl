@@ -14,10 +14,15 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
@@ -35,15 +40,9 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v73.csv)." ;
+    schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v82.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Science Tokyo" ] ;
@@ -81,7 +80,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF" ;
     ada:internalStandardElement "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
@@ -167,13 +165,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:value "PFA hexagonal cap vials (6 mL, Savillex), tightly capped with polypropylene wrenches to maintain high-pressure conditions" ;
     schema1:valueName "digestionVesselType" ;
     ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> a schema1:PropertyValueSpecification ;
-    schema1:name "Number of Digestion Steps" ;
-    schema1:value "Four heating stages are described" ;
-    schema1:valueName "numberOfDigestionSteps" ;
-    ada:dataType "integer" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;

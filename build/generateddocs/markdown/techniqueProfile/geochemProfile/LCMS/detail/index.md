@@ -7,6 +7,95 @@ Detail block for LCMS hasPart items, carrying the analysis-identification proper
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Ultimate3000
+detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Thermo Fischer Ultimate3000-QExactive.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Ultimate3000",
+  "@type": [
+    "ada:LCMSCollection"
+  ],
+  "ada:componentType": "ada:LCMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:lcmsTAPP-Ultimate3000",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240301_lc-ms_ku_orex-800044-101_1",
+  "ada:analyst": "Oba, Yasuhiro",
+  "ada:analysisStartDate": "2023-11-15",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "NASA",
+  "ada:sampleName": "OREX-800044-101",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LCMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Ultimate3000",
+  "@type": [
+    "ada:LCMSCollection"
+  ],
+  "ada:componentType": "ada:LCMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:lcmsTAPP-Ultimate3000",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240301_lc-ms_ku_orex-800044-101_1",
+  "ada:analyst": "Oba, Yasuhiro",
+  "ada:analysisStartDate": "2023-11-15",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "NASA",
+  "ada:sampleName": "OREX-800044-101",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-Ultimate3000> a ada:LCMSCollection ;
+    schema1:measurementTechnique <ex:lcmsTAPP-Ultimate3000> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-15" ;
+    ada:analyst "Oba, Yasuhiro" ;
+    ada:componentType "ada:LCMSCollection" ;
+    ada:fundingSourceForAnalysis "NASA" ;
+    ada:sampleName "OREX-800044-101" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240301_lc-ms_ku_orex-800044-101_1" .
+
+<ex:lcmsTAPP-Ultimate3000> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

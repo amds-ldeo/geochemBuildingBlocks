@@ -7,6 +7,95 @@ Detail block for NanoSIMS hasPart items, carrying the analysis-identification pr
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:analysisLocation"
+  ],
+  "ada:componentType": "ada:analysisLocation",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:nanosimsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240111_nanosims_ou_orex-501059-0_1",
+  "ada:analyst": "Nguyen, Ann",
+  "ada:analysisStartDate": "2023-11-16",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "STFC Grant ST/Y000188/1",
+  "ada:sampleName": "OREX-501018-100",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoSIMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:analysisLocation"
+  ],
+  "ada:componentType": "ada:analysisLocation",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:nanosimsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240111_nanosims_ou_orex-501059-0_1",
+  "ada:analyst": "Nguyen, Ann",
+  "ada:analysisStartDate": "2023-11-16",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "STFC Grant ST/Y000188/1",
+  "ada:sampleName": "OREX-501018-100",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:analysisLocation ;
+    schema1:measurementTechnique <ex:nanosimsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-16" ;
+    ada:analyst "Nguyen, Ann" ;
+    ada:componentType "ada:analysisLocation" ;
+    ada:fundingSourceForAnalysis "STFC Grant ST/Y000188/1" ;
+    ada:sampleName "OREX-501018-100" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240111_nanosims_ou_orex-501059-0_1" .
+
+<ex:nanosimsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

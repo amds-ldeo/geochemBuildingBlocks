@@ -1,7 +1,7 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-Q-ICP-MS Technique-Aligned Procedure Profile (laQicpmsTAPP)
 description: Laser-ablation quadrupole ICP-MS extension of the base TAPP definition,
-  generated from tapp/Current TAPPs/LA-Q-ICP-MS_TAPP_v71.csv via the path-driven pipeline
+  generated from tapp/Current TAPPs/LA-Q-ICP-MS_TAPP_v79.csv via the path-driven pipeline
   (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -9,7 +9,6 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -146,43 +145,7 @@ allOf:
                       anyOf:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_signalSmoothing
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
-                      - title: Pulse/Analog Detector Nonlinearity Correction
-                        description: Whether a correction was applied for nonlinear
-                          detector response at the transition between pulse-counting
-                          and analog (and Faraday, for triple-mode instruments) detection
-                          modes. Cross-calibration factors between detector modes
-                          must be confirmed, typically measured each session. Record
-                          'Applied' and describe the method, the detector modes involved
-                          and the analytes affected; 'None' where a crossover exists
-                          on this instrument but no correction was made, giving the
-                          reason; and 'N/A' where the detector is pulse-counting only
-                          and no crossover exists.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: pulseAnalogDetectorNonlinearityCorrectionDefault
-                          schema:name:
-                            const: Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                     allOf:
@@ -195,43 +158,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Pulse/Analog Detector Nonlinearity Correction
-                        description: Whether a correction was applied for nonlinear
-                          detector response at the transition between pulse-counting
-                          and analog (and Faraday, for triple-mode instruments) detection
-                          modes. Cross-calibration factors between detector modes
-                          must be confirmed, typically measured each session. Record
-                          'Applied' and describe the method, the detector modes involved
-                          and the analytes affected; 'None' where a crossover exists
-                          on this instrument but no correction was made, giving the
-                          reason; and 'N/A' where the detector is pulse-counting only
-                          and no crossover exists.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/laQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: pulseAnalogDetectorNonlinearityCorrectionDefault
-                          schema:name:
-                            const: Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -263,7 +190,6 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief
       allOf:
       - contains:
@@ -280,10 +206,6 @@ allOf:
         maxContains: 1
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
-        minContains: 0
-        maxContains: 1
-      - contains:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
         minContains: 0
         maxContains: 1
       - contains:
@@ -324,32 +246,7 @@ allOf:
                   anyOf:
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
-                  - title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer.
-                      For single-collector instruments, note whether dual pulse-counting/analog
-                      mode is used. For multi-collector instruments, describe the
-                      Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laQicpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
                   - title: Doubly-Charged Species Monitor
                     description: "The mass ratio monitored to estimate doubly-charged
@@ -425,32 +322,7 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer.
-                      For single-collector instruments, note whether dual pulse-counting/analog
-                      mode is used. For multi-collector instruments, describe the
-                      Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/laQicpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/laQicpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -738,12 +610,13 @@ allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -802,26 +675,26 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Per-Analyte Calibration Strategy
+            - title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laQicpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -1041,12 +914,13 @@ allOf:
           - contains:
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -1111,26 +985,26 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Per-Analyte Calibration Strategy
+              title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laQicpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:

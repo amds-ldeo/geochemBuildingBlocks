@@ -7,6 +7,95 @@ Detail block for PSFD hasPart items, carrying the analysis-identification proper
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Center | Fujifilm GFX 100s.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:quickLook"
+  ],
+  "ada:componentType": "ada:quickLook",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:psfdTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250220_psfd_jsc-ares_multisample_1",
+  "ada:analyst": "Pajola, Maurizio",
+  "ada:analysisStartDate": "2024-04-17",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800005-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/PSFD/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:quickLook"
+  ],
+  "ada:componentType": "ada:quickLook",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:psfdTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250220_psfd_jsc-ares_multisample_1",
+  "ada:analyst": "Pajola, Maurizio",
+  "ada:analysisStartDate": "2024-04-17",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800005-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:quickLook ;
+    schema1:measurementTechnique <ex:psfdTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-04-17" ;
+    ada:analyst "Pajola, Maurizio" ;
+    ada:componentType "ada:quickLook" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-800005-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20250220_psfd_jsc-ares_multisample_1" .
+
+<ex:psfdTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

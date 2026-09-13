@@ -167,8 +167,8 @@ $defs:
                     factor calibrated against a reference of independently known value,
                     rather than on the instrument response alone. Distinct from the
                     fields that name the calibration material and that state which
-                    approach applies to which analyte, where the technique has them:
-                    this field records the resulting factor itself.'
+                    approach applies to which target species, where the technique
+                    has them: this field records the resulting factor itself.'
                   anyOf:
                   - type: string
                   - type: array
@@ -211,8 +211,8 @@ $defs:
                     factor calibrated against a reference of independently known value,
                     rather than on the instrument response alone. Distinct from the
                     fields that name the calibration material and that state which
-                    approach applies to which analyte, where the technique has them:
-                    this field records the resulting factor itself.'
+                    approach applies to which target species, where the technique
+                    has them: this field records the resulting factor itself.'
                   anyOf:
                   - type: string
                   - type: array
@@ -227,8 +227,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -259,8 +259,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':

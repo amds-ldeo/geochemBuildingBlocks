@@ -14,6 +14,12 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -23,27 +29,20 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "\"redissolved in a 2:1 mixture of HCl:HNO3 for 1 week on a hot plate ... These steps were performed twice\"; dried and dissolved in concentrated HNO3, diluted in 3 M HNO3" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08." ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
@@ -65,7 +64,6 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     ada:finalSolutionMatrix "15–25 ppb for the most abundant isotope" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "OL-REE series" ;
@@ -90,14 +88,15 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "1 week per step, performed twice" ;
+    schema1:defaultValue "2 weeks for the HF-HNO3-HClO4 step and 1 week for the HCl-HNO3 step, the pair performed twice" ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Hot plate, temperature not stated" ;
+    schema1:defaultValue 160 ;
+    schema1:description "160 deg C (hot plate)" ;
     schema1:name "Digestion Temperature" ;
     schema1:valueName "digestionTemperatureDefault" ;
     ada:dataType "number" ;
@@ -108,13 +107,6 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     schema1:value "N/A — no added internal standard element" ;
     schema1:valueName "internalStandardConcentration" ;
     ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> a schema1:PropertyValueSpecification ;
-    schema1:name "Number of Digestion Steps" ;
-    schema1:value "Two (\"These steps were performed twice\")" ;
-    schema1:valueName "numberOfDigestionSteps" ;
-    ada:dataType "integer" ;
     ada:fieldScope "session" .
 
 <https://example.org/instrument/ICPMS> a schema1:Product,

@@ -7,6 +7,95 @@ Detail block for EAIRMS hasPart items, carrying the analysis-identification prop
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institution for Science | Thermo Scientific Delta VPlus.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:EAIRMSCollection"
+  ],
+  "ada:componentType": "ada:EAIRMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:eairmsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231209_ea-irms_cis_multisample_1",
+  "ada:analyst": "Foustoukos, Dionysis",
+  "ada:analysisStartDate": "2023-10-04",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW",
+  "ada:sampleName": "OREX-800107-177",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EAIRMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:EAIRMSCollection"
+  ],
+  "ada:componentType": "ada:EAIRMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:eairmsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20231209_ea-irms_cis_multisample_1",
+  "ada:analyst": "Foustoukos, Dionysis",
+  "ada:analysisStartDate": "2023-10-04",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW",
+  "ada:sampleName": "OREX-800107-177",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:EAIRMSCollection ;
+    schema1:measurementTechnique <ex:eairmsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-10-04" ;
+    ada:analyst "Foustoukos, Dionysis" ;
+    ada:componentType "ada:EAIRMSCollection" ;
+    ada:fundingSourceForAnalysis "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW" ;
+    ada:sampleName "OREX-800107-177" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20231209_ea-irms_cis_multisample_1" .
+
+<ex:eairmsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

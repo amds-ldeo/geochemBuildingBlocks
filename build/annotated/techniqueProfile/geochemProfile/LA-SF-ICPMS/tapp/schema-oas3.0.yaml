@@ -1355,7 +1355,8 @@ x-defs:
           schema:name:
             description: "A short descriptive name for this analytical procedure,
               including a version number. Should identify the instrument, the technique,
-              and the scope of what is measured \u2014 analyte, material, or feature."
+              and the scope of what is measured \u2014 target species, material, or
+              feature."
             type: string
             x-jsonld-id: http://schema.org/name
           schema:measurementTechnique:
@@ -3028,53 +3029,6 @@ x-defs:
         - schema:propertyID
         - schema:name
         - schema:value
-      Param_Procedure_multiRunSequentialAnalysisDesign:
-        title: Multi Run Sequential Analysis Design
-        description: Whether the procedure uses a single acquisition pass or multiple
-          sequential runs on the same sample location, each optimized for different
-          analytical objectives. For multi-run designs, describe the number of runs,
-          their purpose, key laser and instrument settings per run, and how outputs
-          of one run feed into data reduction of another. Not applicable to raster
-          mapping, where each spatial location is visited exactly once.
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign
-          '@type':
-            enum:
-            - - schema:PropertyValueSpecification
-          schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
-            enum:
-            - multiRunSequentialAnalysisDesign
-          schema:name:
-            x-jsonld-id: http://schema.org/name
-            enum:
-            - Multi Run Sequential Analysis Design
-          ada:dataType:
-            x-jsonld-id: https://ada.astromat.org/metadata/dataType
-            enum:
-            - string
-          ada:fieldScope:
-            x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
-            enum:
-            - session
-          schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
-            enum:
-            - true
-          ada:tier:
-            x-jsonld-id: https://ada.astromat.org/metadata/tier
-            enum:
-            - R
-        required:
-        - '@id'
-        - '@type'
-        - schema:valueName
-        - schema:name
-        - ada:dataType
-        - ada:fieldScope
       Param_Analysis_signalSmoothing:
         title: Signal Smoothing
         description: Description of any signal smoothing device or approach installed
@@ -3378,9 +3332,9 @@ x-defs:
                         depends on a factor calibrated against a reference of independently
                         known value, rather than on the instrument response alone.
                         Distinct from the fields that name the calibration material
-                        and that state which approach applies to which analyte, where
-                        the technique has them: this field records the resulting factor
-                        itself.'
+                        and that state which approach applies to which target species,
+                        where the technique has them: this field records the resulting
+                        factor itself.'
                       anyOf:
                       - type: string
                       - type: array
@@ -3425,9 +3379,9 @@ x-defs:
                         depends on a factor calibrated against a reference of independently
                         known value, rather than on the instrument response alone.
                         Distinct from the fields that name the calibration material
-                        and that state which approach applies to which analyte, where
-                        the technique has them: this field records the resulting factor
-                        itself.'
+                        and that state which approach applies to which target species,
+                        where the technique has them: this field records the resulting
+                        factor itself.'
                       anyOf:
                       - type: string
                       - type: array
@@ -3442,8 +3396,8 @@ x-defs:
           Applies where the conversion depends on a factor calibrated against a reference
           of independently known value, rather than on the instrument response alone.
           Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
+          which approach applies to which target species, where the technique has
+          them: this field records the resulting factor itself.'
         type: object
         properties:
           '@id':
@@ -3476,8 +3430,8 @@ x-defs:
           Applies where the conversion depends on a factor calibrated against a reference
           of independently known value, rather than on the instrument response alone.
           Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
+          which approach applies to which target species, where the technique has
+          them: this field records the resulting factor itself.'
         type: object
         properties:
           '@id':
@@ -3516,45 +3470,11 @@ x-defs:
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  ogch.BaseSchema.modules.analyte:
-    title: 'TAPP Composition Module: Analyte'
-    description: "The shared Analyte block of the 2026-08-11 TAPP library (Claude
-      Skills for TAPP/Module_Analyte.csv), composed by 13 of the sixteen delivery
-      tables. 1 owned fields over 1 schema paths.\n\nGENERATED by tools/build_module_bb.py
-      from the module's CSV and its schema-path sidecar \u2014 edit those, not this
-      file. Requiredness follows the TAPP tier matrix: a field Basic on a side is
-      required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
-      is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure
-      or analysis carries. Column F (Example / Allowed Content) is consumer-owned
-      per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may
-      narrow a value space, never widen it."
-    $defs:
-      ProcedureIdentification:
-        title: Analyte on the procedure
-        description: 'Composed into a TAPP (prov:Plan) schema: what the procedure
-          asserts once, for every analysis that follows it.'
-        type: object
-        properties:
-          ada:analyteTemplate:
-            type: object
-            properties:
-              ada:defaultAnalytes:
-                type: array
-                items:
-                  anyOf:
-                  - type: string
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm
-                x-jsonld-id: https://ada.astromat.org/metadata/defaultAnalytes
-            x-jsonld-id: https://ada.astromat.org/metadata/analyteTemplate
-    x-jsonld-prefixes:
-      ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.icpms:
     title: 'TAPP Composition Module: ICPMS'
     description: "The shared ICPMS block of the 2026-08-11 TAPP library (Claude Skills
-      for TAPP/Module_ICPMS.csv), composed by 9 of the sixteen delivery tables. 39
-      owned fields over 17 schema paths.\n\nGENERATED by tools/build_module_bb.py
+      for TAPP/Module_ICPMS.csv), composed by 9 of the sixteen delivery tables. 42
+      owned fields over 16 schema paths.\n\nGENERATED by tools/build_module_bb.py
       from the module's CSV and its schema-path sidecar \u2014 edit those, not this
       file. Requiredness follows the TAPP tier matrix: a field Basic on a side is
       required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
@@ -3569,15 +3489,6 @@ x-defs:
           asserts once, for every analysis that follows it.'
         type: object
         properties:
-          ada:ionCounterDeadTimeDefault:
-            description: Dead time of each ion-counting detector channel, used in
-              the dead-time correction applied to high count rates. Distinct from
-              pulse/analog cross-calibration, which relates the two detector modes
-              rather than correcting counting losses within the pulse-counting mode.
-            anyOf:
-            - type: number
-            - type: string
-            x-jsonld-id: https://ada.astromat.org/metadata/ionCounterDeadTimeDefault
           ada:uncertaintyLevel:
             description: "The convention at which reported uncertainties are quoted
               \u2014 1-sigma, 2-sigma, or a 95% confidence interval \u2014 and whether
@@ -3719,8 +3630,8 @@ x-defs:
             description: Element(s) used as the internal standard, the monitored isotope,
               and how the internal-standard concentration was established for unknowns.
               Where the element serves isotope-ratio work it must have a known isotopic
-              composition and a mass close to the analyte's. Record 'None' together
-              with the alternative used where no internal standard is applied.
+              composition and a mass close to the target species's. Record 'None'
+              together with the alternative used where no internal standard is applied.
             type: string
             x-jsonld-id: https://ada.astromat.org/metadata/internalStandardElement
           ada:signalIntegrationIntervalMethod:
@@ -3743,7 +3654,6 @@ x-defs:
         - ada:blankBackgroundCorrectionMethod
         - ada:calibrationMeasurementFrequency
         - ada:internalStandardElement
-        - ada:ionCounterDeadTimeDefault
         - ada:oxideProductionMethodAndThreshold
         - ada:signalIntegrationIntervalMethod
         - ada:uncertaintyLevel
@@ -3800,13 +3710,13 @@ x-defs:
             x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
           ada:sensitivityYield:
             description: "Instrument sensitivity achieved in the session, with the
-              isotope or channel it was measured on and the conditions it applies
-              to. May be expressed either as detected signal per unit concentration
-              or per unit mass of analyte delivered \u2014 counts per second per ppb,
-              volts per ppm, counts per picogram \u2014 or as useful yield, the percentage
-              of sampled atoms ultimately detected as ions, with the method used to
-              derive it cited. A sensitivity the procedure requires before analyses
-              may begin belongs with the tuning acceptance criteria."
+              isotope or monitored property it was measured on and the conditions
+              it applies to. May be expressed either as detected signal per unit concentration
+              or per unit mass of target species delivered \u2014 counts per second
+              per ppb, volts per ppm, counts per picogram \u2014 or as useful yield,
+              the percentage of sampled atoms ultimately detected as ions, with the
+              method used to derive it cited. A sensitivity the procedure requires
+              before analyses may begin belongs with the tuning acceptance criteria."
             anyOf:
             - type: number
             - type: string
@@ -4225,43 +4135,6 @@ x-defs:
         - schema:name
         - ada:dataType
         - ada:fieldScope
-      Param_Analysis_ionCounterDeadTime:
-        title: Ion Counter Dead Time
-        description: Dead time of each ion-counting detector channel, used in the
-          dead-time correction applied to high count rates. Distinct from pulse/analog
-          cross-calibration, which relates the two detector modes rather than correcting
-          counting losses within the pulse-counting mode.
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/ICPMS/ionCounterDeadTime
-          '@type':
-            enum:
-            - - schema:PropertyValue
-          schema:propertyID:
-            x-jsonld-id: http://schema.org/propertyID
-            enum:
-            - - '@id': ada:parameter/module/ICPMS/ionCounterDeadTime
-          schema:name:
-            x-jsonld-id: http://schema.org/name
-            enum:
-            - Ion Counter Dead Time
-          schema:value:
-            anyOf:
-            - type: number
-            - type: string
-            x-jsonld-id: http://schema.org/value
-          schema:unitText:
-            type: string
-            x-jsonld-id: http://schema.org/unitText
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-        - schema:unitText
       Param_Analysis_uncertaintyPropagationMethod:
         title: Uncertainty Propagation Method
         description: 'The approach used to propagate analytical uncertainty through
@@ -4955,7 +4828,7 @@ x-defs:
       Param_Analysis_massResolutionSetting:
         title: Mass Resolution Setting
         description: Operating mass resolution of the mass analyser. Where the analyser
-          permits selection, state the mode; where individual analytes are assigned
+          permits selection, state the mode; where individual target species are assigned
           to different modes, state each.
         type: object
         properties:
@@ -4985,7 +4858,7 @@ x-defs:
       Param_Procedure_massResolutionSetting:
         title: Mass Resolution Setting
         description: Operating mass resolution of the mass analyser. Where the analyser
-          permits selection, state the mode; where individual analytes are assigned
+          permits selection, state the mode; where individual target species are assigned
           to different modes, state each.
         type: object
         properties:
@@ -5141,11 +5014,11 @@ x-defs:
                   properties:
                     schema:defaultValue:
                       description: Detection limit, one per reported concentration
-                        variable (one per analyte, these being the same set). State
-                        the units and whether the values are procedure-typical estimates
-                        or session-specific measured values. The calculation method
-                        is recorded separately in Detection Limit Method. Record 'N/A'
-                        where the procedure reports no concentrations.
+                        variable (one per target species, these being the same set).
+                        State the units and whether the values are procedure-typical
+                        estimates or session-specific measured values. The calculation
+                        method is recorded separately in Detection Limit Method. Record
+                        'N/A' where the procedure reports no concentrations.
                       anyOf:
                       - type: number
                       - type: string
@@ -5258,11 +5131,11 @@ x-defs:
                   properties:
                     schema:value:
                       description: Detection limit, one per reported concentration
-                        variable (one per analyte, these being the same set). State
-                        the units and whether the values are procedure-typical estimates
-                        or session-specific measured values. The calculation method
-                        is recorded separately in Detection Limit Method. Record 'N/A'
-                        where the procedure reports no concentrations.
+                        variable (one per target species, these being the same set).
+                        State the units and whether the values are procedure-typical
+                        estimates or session-specific measured values. The calculation
+                        method is recorded separately in Detection Limit Method. Record
+                        'N/A' where the procedure reports no concentrations.
                       anyOf:
                       - type: number
                       - type: string
@@ -5402,10 +5275,10 @@ x-defs:
       Param_Analysis_detectionLimit:
         title: Detection Limit
         description: Detection limit, one per reported concentration variable (one
-          per analyte, these being the same set). State the units and whether the
-          values are procedure-typical estimates or session-specific measured values.
-          The calculation method is recorded separately in Detection Limit Method.
-          Record 'N/A' where the procedure reports no concentrations.
+          per target species, these being the same set). State the units and whether
+          the values are procedure-typical estimates or session-specific measured
+          values. The calculation method is recorded separately in Detection Limit
+          Method. Record 'N/A' where the procedure reports no concentrations.
         type: object
         properties:
           '@id':
@@ -5440,10 +5313,10 @@ x-defs:
       Param_Procedure_detectionLimit:
         title: Detection Limit
         description: Detection limit, one per reported concentration variable (one
-          per analyte, these being the same set). State the units and whether the
-          values are procedure-typical estimates or session-specific measured values.
-          The calculation method is recorded separately in Detection Limit Method.
-          Record 'N/A' where the procedure reports no concentrations.
+          per target species, these being the same set). State the units and whether
+          the values are procedure-typical estimates or session-specific measured
+          values. The calculation method is recorded separately in Detection Limit
+          Method. Record 'N/A' where the procedure reports no concentrations.
         type: object
         properties:
           '@id':
@@ -5565,6 +5438,133 @@ x-defs:
       prov: http://www.w3.org/ns/prov#
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ogch.BaseSchema.modules.singleCollector:
+    title: 'TAPP Composition Module: SingleCollector'
+    description: "The shared SingleCollector block of the 2026-08-11 TAPP library
+      (Claude Skills for TAPP/Module_SingleCollector.csv), composed by 6 of the sixteen
+      delivery tables. 2 owned fields over 0 schema paths.\n\nGENERATED by tools/build_module_bb.py
+      from the module's CSV and its schema-path sidecar \u2014 edit those, not this
+      file. Requiredness follows the TAPP tier matrix: a field Basic on a side is
+      required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
+      is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure
+      or analysis carries. Column F (Example / Allowed Content) is consumer-owned
+      per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may
+      narrow a value space, never widen it."
+    $defs:
+      Param_Procedure_detectorConfiguration:
+        title: Detector Configuration
+        description: 'Type(s) of detector(s) installed in the mass spectrometer and
+          the detection mode(s) used: pulse counting, analog and, on some sector-field
+          instruments, Faraday. The cross-calibration between detector modes is recorded
+          in Pulse/Analog Detector Nonlinearity Correction (Group 5).'
+        type: object
+        properties:
+          '@id':
+            enum:
+            - ada:parameter/module/SingleCollector/detectorConfiguration
+          '@type':
+            enum:
+            - - schema:PropertyValueSpecification
+          schema:valueName:
+            enum:
+            - detectorConfiguration
+          schema:name:
+            enum:
+            - Detector Configuration
+          ada:dataType:
+            enum:
+            - string
+          ada:fieldScope:
+            enum:
+            - session
+          schema:readonlyValue:
+            enum:
+            - true
+          ada:tier:
+            enum:
+            - R
+        required:
+        - '@id'
+        - '@type'
+        - schema:valueName
+        - schema:name
+        - ada:dataType
+        - ada:fieldScope
+      Param_Analysis_pulseAnalogDetectorNonlinearityCorrection:
+        title: Pulse Analog Detector Nonlinearity Correction
+        description: Whether a correction was applied for nonlinear detector response
+          at the transition between pulse-counting and analog (and Faraday, for triple-mode
+          instruments) detection modes. Cross-calibration factors between detector
+          modes must be confirmed, typically measured each session. Record 'Applied'
+          and describe the method, the detector modes involved and the target species
+          affected; 'None' where a crossover exists on this instrument but no correction
+          was made, giving the reason; and 'N/A' where the detector is pulse-counting
+          only and no crossover exists.
+        type: object
+        properties:
+          '@id':
+            enum:
+            - ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection
+          '@type':
+            enum:
+            - - schema:PropertyValue
+          schema:propertyID:
+            enum:
+            - - '@id': ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection
+          schema:name:
+            enum:
+            - Pulse Analog Detector Nonlinearity Correction
+          schema:value:
+            type: string
+        required:
+        - '@id'
+        - '@type'
+        - schema:propertyID
+        - schema:name
+        - schema:value
+      Param_Procedure_pulseAnalogDetectorNonlinearityCorrection:
+        title: Pulse Analog Detector Nonlinearity Correction
+        description: Whether a correction was applied for nonlinear detector response
+          at the transition between pulse-counting and analog (and Faraday, for triple-mode
+          instruments) detection modes. Cross-calibration factors between detector
+          modes must be confirmed, typically measured each session. Record 'Applied'
+          and describe the method, the detector modes involved and the target species
+          affected; 'None' where a crossover exists on this instrument but no correction
+          was made, giving the reason; and 'N/A' where the detector is pulse-counting
+          only and no crossover exists.
+        type: object
+        properties:
+          '@id':
+            enum:
+            - ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault
+          '@type':
+            enum:
+            - - schema:PropertyValueSpecification
+          schema:valueName:
+            enum:
+            - pulseAnalogDetectorNonlinearityCorrectionDefault
+          schema:name:
+            enum:
+            - Pulse Analog Detector Nonlinearity Correction
+          ada:dataType:
+            enum:
+            - string
+          ada:fieldScope:
+            enum:
+            - session
+          schema:readonlyValue: {}
+          ada:tier:
+            enum:
+            - R
+        required:
+        - '@id'
+        - '@type'
+        - schema:valueName
+        - schema:name
+        - ada:dataType
+        - ada:fieldScope
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.aggregation:
     title: 'TAPP Composition Module: Aggregation'
@@ -13183,7 +13183,6 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.analyte/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.compositionQC/$defs/ProcedureIdentification
 - type: object
@@ -13326,48 +13325,7 @@ allOf:
                       anyOf:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_signalSmoothing
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_filteringApproach
-                      - title: Pulse/Analog Detector Nonlinearity Correction
-                        description: Whether a correction was applied for nonlinear
-                          detector response at the transition between pulse-counting
-                          and analog (and Faraday, for triple-mode instruments) detection
-                          modes. Cross-calibration factors between detector modes
-                          must be confirmed, typically measured each session. Record
-                          'Applied' and describe the method, the detector modes involved
-                          and the analytes affected; 'None' where a crossover exists
-                          on this instrument but no correction was made, giving the
-                          reason; and 'N/A' where the detector is pulse-counting only
-                          and no crossover exists.
-                        type: object
-                        properties:
-                          '@id':
-                            enum:
-                            - ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-                          '@type':
-                            enum:
-                            - - schema:PropertyValueSpecification
-                          schema:valueName:
-                            enum:
-                            - pulseAnalogDetectorNonlinearityCorrectionDefault
-                          schema:name:
-                            enum:
-                            - Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            enum:
-                            - string
-                          ada:fieldScope:
-                            enum:
-                            - session
-                          schema:readonlyValue: {}
-                          ada:tier:
-                            enum:
-                            - R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.singleCollector/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                     allOf:
@@ -13380,48 +13338,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        title: Pulse/Analog Detector Nonlinearity Correction
-                        description: Whether a correction was applied for nonlinear
-                          detector response at the transition between pulse-counting
-                          and analog (and Faraday, for triple-mode instruments) detection
-                          modes. Cross-calibration factors between detector modes
-                          must be confirmed, typically measured each session. Record
-                          'Applied' and describe the method, the detector modes involved
-                          and the analytes affected; 'None' where a crossover exists
-                          on this instrument but no correction was made, giving the
-                          reason; and 'N/A' where the detector is pulse-counting only
-                          and no crossover exists.
-                        type: object
-                        properties:
-                          '@id':
-                            enum:
-                            - ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-                          '@type':
-                            enum:
-                            - - schema:PropertyValueSpecification
-                          schema:valueName:
-                            enum:
-                            - pulseAnalogDetectorNonlinearityCorrectionDefault
-                          schema:name:
-                            enum:
-                            - Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            enum:
-                            - string
-                          ada:fieldScope:
-                            enum:
-                            - session
-                          schema:readonlyValue: {}
-                          ada:tier:
-                            enum:
-                            - R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.singleCollector/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -13513,7 +13430,6 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_matrixOffsetCorrectionLief
       allOf:
       - contains:
@@ -13597,10 +13513,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_multiRunSequentialAnalysisDesign
-        minContains: 0
-        maxContains: 1
-      - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_matrixOffsetCorrectionLief
         minContains: 0
         maxContains: 1
@@ -13639,34 +13551,7 @@ allOf:
                   anyOf:
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_massResolutionSetting
-                  - title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer.
-                      For single-collector instruments, note whether dual pulse-counting/analog
-                      mode is used. For multi-collector instruments, describe the
-                      Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        enum:
-                        - ada:parameter/laSficpmsTAPP/detectorConfiguration
-                      '@type':
-                        enum:
-                        - - schema:PropertyValue
-                      schema:propertyID:
-                        enum:
-                        - - '@id': ada:parameter/laSficpmsTAPP/detectorConfiguration
-                      schema:name:
-                        enum:
-                        - Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.singleCollector/$defs/Param_Procedure_detectorConfiguration
                   - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_icpTuning
                   - title: Doubly-Charged Species Monitor
                     description: "The mass ratio monitored to estimate doubly-charged
@@ -13752,34 +13637,7 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer.
-                      For single-collector instruments, note whether dual pulse-counting/analog
-                      mode is used. For multi-collector instruments, describe the
-                      Faraday/multiplier cup layout.
-                    type: object
-                    properties:
-                      '@id':
-                        enum:
-                        - ada:parameter/laSficpmsTAPP/detectorConfiguration
-                      '@type':
-                        enum:
-                        - - schema:PropertyValue
-                      schema:propertyID:
-                        enum:
-                        - - '@id': ada:parameter/laSficpmsTAPP/detectorConfiguration
-                      schema:name:
-                        enum:
-                        - Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.singleCollector/$defs/Param_Procedure_detectorConfiguration
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -14037,12 +13895,13 @@ allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/AnalyteIdentifierColumn
             - title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -14076,7 +13935,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte
+              description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
                 in the procedure are recorded in Mass Resolution Setting (Group 3).
@@ -14148,29 +14007,29 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Per-Analyte Calibration Strategy
+            - title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
                   enum:
-                  - ada:analyteColumn/laSficpmsTAPP/perAnalyteCalibrationStrategy
+                  - ada:analyteColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   enum:
                   - - schema:PropertyValueSpecification
                 schema:valueName:
                   enum:
-                  - perAnalyteCalibrationStrategy
+                  - calibrationStrategyPerTargetSpecies
                 schema:name:
                   enum:
-                  - Per-Analyte Calibration Strategy
+                  - Calibration Strategy per Target Species
                 ada:dataType:
                   enum:
                   - string
@@ -14423,12 +14282,13 @@ allOf:
           - contains:
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
-                the analyte element they serve where they serve one. Covers atomic
-                isotopes and, where a reaction cell shifts an analyte onto a different
-                mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no
-                parent element. The analyte list is given by the Analyte field and
-                is never inferred from the element symbols appearing here.
+                the target species element they serve where they serve one. Covers
+                atomic isotopes and, where a reaction cell shifts an target species
+                onto a different mass, the product mass actually measured. Includes
+                interference-monitor and internal-standard masses, which serve no
+                target species and so have no parent element. The target species list
+                is given by the Target Species field and is never inferred from the
+                element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -14465,7 +14325,7 @@ allOf:
             maxContains: 1
           - contains:
               title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte
+              description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
                 in the procedure are recorded in Mass Resolution Setting (Group 3).
@@ -14543,29 +14403,29 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Per-Analyte Calibration Strategy
+              title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
                   enum:
-                  - ada:analyteColumn/laSficpmsTAPP/perAnalyteCalibrationStrategy
+                  - ada:analyteColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   enum:
                   - - schema:PropertyValueSpecification
                 schema:valueName:
                   enum:
-                  - perAnalyteCalibrationStrategy
+                  - calibrationStrategyPerTargetSpecies
                 schema:name:
                   enum:
-                  - Per-Analyte Calibration Strategy
+                  - Calibration Strategy per Target Species
                 ada:dataType:
                   enum:
                   - string
@@ -14835,10 +14695,10 @@ allOf:
             minContains: 0
             maxContains: 1
     ada:massResolutionAssignment:
-      description: Mass resolution mode used for acquisition. One analyte may be acquired
-        at more than one resolution, so the assignment is per acquired mass rather
-        than per element. The overall mode(s) used in the procedure are recorded in
-        Mass Resolution Setting (Group 3).
+      description: Mass resolution mode used for acquisition. One target species may
+        be acquired at more than one resolution, so the assignment is per acquired
+        mass rather than per element. The overall mode(s) used in the procedure are
+        recorded in Mass Resolution Setting (Group 3).
       type: string
       readOnly: true
     ada:totalIntegrationTimePerOutputDataPointDefault:

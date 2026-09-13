@@ -2313,7 +2313,7 @@
     },
     "ogch.techniqueProfile.geochemProfile.EMPA.tapp": {
       "title": "EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)",
-      "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v60.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+      "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v68.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -2326,9 +2326,6 @@
         },
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.calibrationFactor/$defs/ProcedureIdentification"
-        },
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.analyte/$defs/ProcedureIdentification"
         },
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.compositionQC/$defs/ProcedureIdentification"
@@ -2683,13 +2680,13 @@
                         "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/AnalyteIdentifierColumn"
                       },
                       {
-                        "title": "Analyte Estimation Method",
+                        "title": "Target Species Estimation Method",
                         "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
                         "type": "object",
                         "properties": {
                           "@id": {
                             "enum": [
-                              "ada:analyteColumn/empaTAPP/analyteEstimationMethod"
+                              "ada:analyteColumn/empaTAPP/targetSpeciesEstimationMethod"
                             ]
                           },
                           "@type": {
@@ -2701,12 +2698,12 @@
                           },
                           "schema:valueName": {
                             "enum": [
-                              "analyteEstimationMethod"
+                              "targetSpeciesEstimationMethod"
                             ]
                           },
                           "schema:name": {
                             "enum": [
-                              "Analyte Estimation Method"
+                              "Target Species Estimation Method"
                             ]
                           },
                           "ada:dataType": {
@@ -2889,7 +2886,7 @@
                       },
                       {
                         "title": "Beam Current",
-                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
+                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -2997,7 +2994,7 @@
                       },
                       {
                         "title": "Counting Statistics Error",
-                        "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                        "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -3046,13 +3043,13 @@
                         ]
                       },
                       {
-                        "title": "EPMA Technique per Analyte",
+                        "title": "EPMA Technique per Target Species",
                         "description": "Whether the measurement was made by WDS or EDS. Applies where a procedure uses both WDS and EDS.",
                         "type": "object",
                         "properties": {
                           "@id": {
                             "enum": [
-                              "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte"
+                              "ada:analyteColumn/empaTAPP/epmaTechniquePerTargetSpecies"
                             ]
                           },
                           "@type": {
@@ -3064,12 +3061,12 @@
                           },
                           "schema:valueName": {
                             "enum": [
-                              "epmaTechniquePerAnalyte"
+                              "epmaTechniquePerTargetSpecies"
                             ]
                           },
                           "schema:name": {
                             "enum": [
-                              "EPMA Technique per Analyte"
+                              "EPMA Technique per Target Species"
                             ]
                           },
                           "ada:dataType": {
@@ -3318,13 +3315,13 @@
                   "allOf": [
                     {
                       "contains": {
-                        "title": "Analyte Estimation Method",
+                        "title": "Target Species Estimation Method",
                         "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
                         "type": "object",
                         "properties": {
                           "@id": {
                             "enum": [
-                              "ada:analyteColumn/empaTAPP/analyteEstimationMethod"
+                              "ada:analyteColumn/empaTAPP/targetSpeciesEstimationMethod"
                             ]
                           },
                           "@type": {
@@ -3336,12 +3333,12 @@
                           },
                           "schema:valueName": {
                             "enum": [
-                              "analyteEstimationMethod"
+                              "targetSpeciesEstimationMethod"
                             ]
                           },
                           "schema:name": {
                             "enum": [
-                              "Analyte Estimation Method"
+                              "Target Species Estimation Method"
                             ]
                           },
                           "ada:dataType": {
@@ -3540,7 +3537,7 @@
                     {
                       "contains": {
                         "title": "Beam Current",
-                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
+                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -3656,7 +3653,7 @@
                     {
                       "contains": {
                         "title": "Counting Statistics Error",
-                        "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                        "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -3709,13 +3706,13 @@
                     },
                     {
                       "contains": {
-                        "title": "EPMA Technique per Analyte",
+                        "title": "EPMA Technique per Target Species",
                         "description": "Whether the measurement was made by WDS or EDS. Applies where a procedure uses both WDS and EDS.",
                         "type": "object",
                         "properties": {
                           "@id": {
                             "enum": [
-                              "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte"
+                              "ada:analyteColumn/empaTAPP/epmaTechniquePerTargetSpecies"
                             ]
                           },
                           "@type": {
@@ -3727,12 +3724,12 @@
                           },
                           "schema:valueName": {
                             "enum": [
-                              "epmaTechniquePerAnalyte"
+                              "epmaTechniquePerTargetSpecies"
                             ]
                           },
                           "schema:name": {
                             "enum": [
-                              "EPMA Technique per Analyte"
+                              "EPMA Technique per Target Species"
                             ]
                           },
                           "ada:dataType": {
@@ -4425,7 +4422,7 @@
                       },
                       {
                         "title": "Sequence",
-                        "description": "Order in which spectrometer assignments are acquired during point analysis. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+                        "description": "Order in which spectrometer assignments are acquired, and \u2014 where the element suite exceeds the number of spectrometers \u2014 the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -5074,7 +5071,7 @@
                     {
                       "contains": {
                         "title": "Sequence",
-                        "description": "Order in which spectrometer assignments are acquired during point analysis. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+                        "description": "Order in which spectrometer assignments are acquired, and \u2014 where the element suite exceeds the number of spectrometers \u2014 the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -6250,6 +6247,14 @@
                 }
               ],
               "readOnly": true
+            },
+            "ada:monitoredEleemnts": {
+              "type": "array",
+              "items": {
+                "description": "Specific elements monitored in this procedure, grouped by the target species they serve where they serve one. Includes elements monitored only to correct an interference, which serve no target species and so have no parent. The target species list is given by the Target Species field and is never inferred from the elements appearing here. The X-ray line, diffracting crystal, spectrometer assignment and counting times used for each monitored element are recorded in their own fields, keyed to this one.",
+                "type": "string",
+                "readOnly": true
+              }
             },
             "ada:analyticalMode": {
               "type": "array",
@@ -10855,7 +10860,7 @@
           "type": "object",
           "properties": {
             "schema:name": {
-              "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured \u2014 analyte, material, or feature.",
+              "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured \u2014 target species, material, or feature.",
               "type": "string",
               "x-jsonld-id": "http://schema.org/name"
             },
@@ -11882,7 +11887,7 @@
                     "then": {
                       "properties": {
                         "schema:defaultValue": {
-                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -11950,7 +11955,7 @@
                     "then": {
                       "properties": {
                         "schema:value": {
-                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -11975,7 +11980,7 @@
         },
         "Param_Analysis_calibrationFactorAndDeterminationMethod": {
           "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
           "type": "object",
           "properties": {
             "@id": {
@@ -12021,7 +12026,7 @@
         },
         "Param_Procedure_calibrationFactorAndDeterminationMethod": {
           "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
           "type": "object",
           "properties": {
             "@id": {
@@ -12311,7 +12316,7 @@
                     "then": {
                       "properties": {
                         "schema:defaultValue": {
-                          "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+                          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
                           "anyOf": [
                             {
                               "type": "number"
@@ -12473,7 +12478,7 @@
                     "then": {
                       "properties": {
                         "schema:value": {
-                          "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+                          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
                           "anyOf": [
                             {
                               "type": "number"
@@ -12694,7 +12699,7 @@
         },
         "Param_Analysis_detectionLimit": {
           "title": "Detection Limit",
-          "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
           "type": "object",
           "properties": {
             "@id": {
@@ -12752,7 +12757,7 @@
         },
         "Param_Procedure_detectionLimit": {
           "title": "Detection Limit",
-          "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
           "type": "object",
           "properties": {
             "@id": {
@@ -13633,44 +13638,6 @@
         "wd": "https://www.wikidata.org/entity/"
       },
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/instrument/schema.yaml",
-      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
-    },
-    "ogch.BaseSchema.modules.analyte": {
-      "title": "TAPP Composition Module: Analyte",
-      "description": "The shared Analyte block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_Analyte.csv), composed by 13 of the sixteen delivery tables. 1 owned fields over 1 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
-      "$defs": {
-        "ProcedureIdentification": {
-          "title": "Analyte on the procedure",
-          "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
-          "type": "object",
-          "properties": {
-            "ada:analyteTemplate": {
-              "type": "object",
-              "properties": {
-                "ada:defaultAnalytes": {
-                  "type": "array",
-                  "items": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm"
-                      }
-                    ]
-                  },
-                  "x-jsonld-id": "https://ada.astromat.org/metadata/defaultAnalytes"
-                }
-              },
-              "x-jsonld-id": "https://ada.astromat.org/metadata/analyteTemplate"
-            }
-          }
-        }
-      },
-      "x-jsonld-prefixes": {
-        "ada": "https://ada.astromat.org/metadata/"
-      },
-      "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString": {
@@ -20323,8 +20290,8 @@
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     }
   },
-  "title": "ADA EMPA Product Profile",
-  "description": "Path-driven technique-specific profile for ADA EMPA Product Profile. Extends the base ADA product profile with the EMPA analysis-instance detail on the schema:Dataset root, narrows prov:used to the empaTAPP protocol, and constrains valid component types on schema:distribution.hasPart.",
+  "title": "ADA EPMA Product Profile",
+  "description": "Path-driven technique-specific profile for ADA EPMA Product Profile. Extends the base ADA product profile with the EMPA analysis-instance detail on the schema:Dataset root, narrows prov:used to the empaTAPP protocol, and constrains valid component types on schema:distribution.hasPart.",
   "allOf": [
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct"
@@ -20396,76 +20363,6 @@
             "enum": [
               "Electron Microprobe Analysis (EMPA)",
               "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)"
-            ]
-          }
-        },
-        "schema:distribution": {
-          "description": "Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType is a EMPA-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such a componentType (the ADA/SAMIS archive form).",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "required": [
-                  "ada:componentType"
-                ],
-                "properties": {
-                  "ada:componentType": {
-                    "type": "string",
-                    "anyOf": [
-                      {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/universalComponentType"
-                      },
-                      {
-                        "enum": [
-                          "ada:EMPAImage",
-                          "ada:EMPAImageMap",
-                          "ada:EMPAQEATabular",
-                          "ada:EMPAImageCollection",
-                          "ada:EMPAESPCTabular",
-                          "ada:EMPAESPCPlot"
-                        ]
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "schema:hasPart"
-                ],
-                "properties": {
-                  "schema:hasPart": {
-                    "items": {
-                      "type": "object",
-                      "anyOf": [
-                        {
-                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/universalComponentTypeBranch"
-                        },
-                        {
-                          "properties": {
-                            "ada:componentType": {
-                              "type": "string",
-                              "enum": [
-                                "ada:EMPAImage",
-                                "ada:EMPAImageMap",
-                                "ada:EMPAQEATabular",
-                                "ada:EMPAImageCollection",
-                                "ada:EMPAESPCTabular",
-                                "ada:EMPAESPCPlot"
-                              ]
-                            }
-                          },
-                          "required": [
-                            "ada:componentType"
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
             ]
           }
         },

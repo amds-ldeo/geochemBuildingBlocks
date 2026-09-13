@@ -30,7 +30,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Genge2025",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v58.csv).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v64.csv).",
   "schema:object": [
     {
       "@type": [
@@ -231,7 +231,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Genge2025",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v58.csv).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v64.csv).",
   "schema:object": [
     {
       "@type": [
@@ -431,7 +431,7 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v58.csv)." ;
+    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v64.csv)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
@@ -901,15 +901,15 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -1391,15 +1391,15 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -2486,10 +2486,10 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -3148,7 +3148,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Zega2025",
-  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v58.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v64.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "schema:object": [
     {
       "@type": [
@@ -3359,7 +3359,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Zega2025",
-  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v58.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v64.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "schema:object": [
     {
       "@type": [
@@ -3559,17 +3559,17 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v58.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
+    schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v64.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
@@ -4650,14 +4650,13 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)
 description: Scanning electron microscopy compositional microanalysis (EDS/WDS) extension
-  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v58.csv
+  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v64.csv
   via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
@@ -5010,22 +5009,22 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Technique per Analyte
+            - title: Technique per Target Species
               description: Records which X-ray detection technique (EDS or WDS) was
                 used to collect the measurement. Required when a procedure employs
-                both EDS and WDS simultaneously. List in the same order as the Analyte
-                field.
+                both EDS and WDS simultaneously. List in the same order as the Target
+                Species field.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte
+                  const: ada:analyteColumn/semCompositionTAPP/techniquePerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: techniquePerAnalyte
+                  const: techniquePerTargetSpecies
                 schema:name:
-                  const: Technique per Analyte
+                  const: Technique per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -5042,12 +5041,12 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: WDS Spectrometer Channel
-              description: "WDS spectrometer position(s) assigned to each analyte,
-                one entry per assignment. An analyte may be assigned to more than
-                one spectrometer with intensities aggregated (aggregate intensity
-                counting), and one spectrometer serves several analytes across a run,
-                so the assignment \u2014 not the analyte \u2014 is the unit carrying
-                the spectrometer setup."
+              description: "WDS spectrometer position(s) assigned to each target species,
+                one entry per assignment. An target species may be assigned to more
+                than one spectrometer with intensities aggregated (aggregate intensity
+                counting), and one spectrometer serves several target species across
+                a run, so the assignment \u2014 not the target species \u2014 is the
+                unit carrying the spectrometer setup."
               type: object
               properties:
                 '@id':
@@ -5134,7 +5133,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: Analyte Estimation Method
+            - title: Target Species Estimation Method
               description: Whether elemental concentrations were calculated directly
                 from measured X-ray intensities, or estimated by cation stoichiometry
                 (e.g., oxygen calculated from cation proportions in silicates; carbon
@@ -5142,14 +5141,14 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod
+                  const: ada:analyteColumn/semCompositionTAPP/targetSpeciesEstimationMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: analyteEstimationMethod
+                  const: targetSpeciesEstimationMethod
                 schema:name:
-                  const: Analyte Estimation Method
+                  const: Target Species Estimation Method
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -5342,10 +5341,10 @@ allOf:
               description: "Uncertainty predicted from counting statistics \u2014
                 the theoretical limit set by the Poisson distribution of the counts
                 accumulated \u2014 for each reported quantity per analysis, with the
-                sigma level stated. Derived from the counts on the analyte together
-                with those on any background or blank subtracted from it. Distinct
-                from the scatter actually observed within a measurement or between
-                repeated measurements, which is recorded separately."
+                sigma level stated. Derived from the counts on the target species
+                together with those on any background or blank subtracted from it.
+                Distinct from the scatter actually observed within a measurement or
+                between repeated measurements, which is recorded separately."
               type: object
               properties:
                 '@id':
@@ -5407,22 +5406,22 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Technique per Analyte
+              title: Technique per Target Species
               description: Records which X-ray detection technique (EDS or WDS) was
                 used to collect the measurement. Required when a procedure employs
-                both EDS and WDS simultaneously. List in the same order as the Analyte
-                field.
+                both EDS and WDS simultaneously. List in the same order as the Target
+                Species field.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte
+                  const: ada:analyteColumn/semCompositionTAPP/techniquePerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: techniquePerAnalyte
+                  const: techniquePerTargetSpecies
                 schema:name:
-                  const: Technique per Analyte
+                  const: Technique per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -5442,12 +5441,12 @@ allOf:
             maxContains: 1
           - contains:
               title: WDS Spectrometer Channel
-              description: "WDS spectrometer position(s) assigned to each analyte,
-                one entry per assignment. An analyte may be assigned to more than
-                one spectrometer with intensities aggregated (aggregate intensity
-                counting), and one spectrometer serves several analytes across a run,
-                so the assignment \u2014 not the analyte \u2014 is the unit carrying
-                the spectrometer setup."
+              description: "WDS spectrometer position(s) assigned to each target species,
+                one entry per assignment. An target species may be assigned to more
+                than one spectrometer with intensities aggregated (aggregate intensity
+                counting), and one spectrometer serves several target species across
+                a run, so the assignment \u2014 not the target species \u2014 is the
+                unit carrying the spectrometer setup."
               type: object
               properties:
                 '@id':
@@ -5543,7 +5542,7 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Analyte Estimation Method
+              title: Target Species Estimation Method
               description: Whether elemental concentrations were calculated directly
                 from measured X-ray intensities, or estimated by cation stoichiometry
                 (e.g., oxygen calculated from cation proportions in silicates; carbon
@@ -5551,14 +5550,14 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod
+                  const: ada:analyteColumn/semCompositionTAPP/targetSpeciesEstimationMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: analyteEstimationMethod
+                  const: targetSpeciesEstimationMethod
                 schema:name:
-                  const: Analyte Estimation Method
+                  const: Target Species Estimation Method
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -5772,10 +5771,10 @@ allOf:
               description: "Uncertainty predicted from counting statistics \u2014
                 the theoretical limit set by the Poisson distribution of the counts
                 accumulated \u2014 for each reported quantity per analysis, with the
-                sigma level stated. Derived from the counts on the analyte together
-                with those on any background or blank subtracted from it. Distinct
-                from the scatter actually observed within a measurement or between
-                repeated measurements, which is recorded separately."
+                sigma level stated. Derived from the counts on the target species
+                together with those on any background or blank subtracted from it.
+                Distinct from the scatter actually observed within a measurement or
+                between repeated measurements, which is recorded separately."
               type: object
               properties:
                 '@id':
@@ -6361,9 +6360,13 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Sequence
-              description: Order in which spectrometer assignments are acquired during
-                point analysis. Not applicable to X-ray mapping, where all assigned
-                spectrometers collect simultaneously at each pixel.
+              description: "Order in which spectrometer assignments are acquired,
+                and \u2014 where the element suite exceeds the number of spectrometers
+                \u2014 the passes the acquisition is divided into. Within a single
+                pass all assigned spectrometers collect simultaneously, including
+                at every pixel in X-ray mapping; a suite larger than the spectrometer
+                count therefore requires the acquisition to be run more than once,
+                each pass covering a different subset of elements."
               type: object
               properties:
                 '@id':
@@ -6684,9 +6687,13 @@ allOf:
             maxContains: 1
           - contains:
               title: Sequence
-              description: Order in which spectrometer assignments are acquired during
-                point analysis. Not applicable to X-ray mapping, where all assigned
-                spectrometers collect simultaneously at each pixel.
+              description: "Order in which spectrometer assignments are acquired,
+                and \u2014 where the element suite exceeds the number of spectrometers
+                \u2014 the passes the acquisition is divided into. Within a single
+                pass all assigned spectrometers collect simultaneously, including
+                at every pixel in X-ray mapping; a suite larger than the spectrometer
+                count therefore requires the acquisition to be run more than once,
+                each pass covering a different subset of elements."
               type: object
               properties:
                 '@id':

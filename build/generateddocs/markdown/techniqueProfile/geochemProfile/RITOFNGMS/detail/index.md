@@ -7,6 +7,95 @@ Detail block for RITOFNGMS hasPart items, carrying the analysis-identification p
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:RITOFNGMSCollection"
+  ],
+  "ada:componentType": "ada:RITOFNGMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:ritofngmsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240116_ri-tof-ngms_uom_orex-803060-0_1",
+  "ada:analyst": "Crowther, Sarah",
+  "ada:analysisStartDate": "2024-01-16",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1",
+  "ada:sampleName": "OREX-803060-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/RITOFNGMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:RITOFNGMSCollection"
+  ],
+  "ada:componentType": "ada:RITOFNGMSCollection",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:ritofngmsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240116_ri-tof-ngms_uom_orex-803060-0_1",
+  "ada:analyst": "Crowther, Sarah",
+  "ada:analysisStartDate": "2024-01-16",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1",
+  "ada:sampleName": "OREX-803060-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:RITOFNGMSCollection ;
+    schema1:measurementTechnique <ex:ritofngmsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-01-16" ;
+    ada:analyst "Crowther, Sarah" ;
+    ada:componentType "ada:RITOFNGMSCollection" ;
+    ada:fundingSourceForAnalysis "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1" ;
+    ada:sampleName "OREX-803060-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240116_ri-tof-ngms_uom_orex-803060-0_1" .
+
+<ex:ritofngmsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

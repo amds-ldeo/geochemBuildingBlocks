@@ -2048,31 +2048,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_analyteEstimationMethod:
-    title: Analyte Estimation Method
-    description: Whether elemental concentrations were calculated directly from measured
-      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
-      from cation proportions in silicates; carbon from stoichiometry in carbonates).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/empaTAPP/analyteEstimationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/empaTAPP/analyteEstimationMethod
-      schema:name:
-        const: Analyte Estimation Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   empa_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds,
@@ -2129,7 +2104,7 @@ $defs:
   empa_beamCurrent:
     title: Beam Current
     description: Probe current in nanoamperes (nA). Often varies by phase type or
-      analyte; record the procedure-standard value(s).
+      target species; record the procedure-standard value(s).
     type: object
     properties:
       '@id':
@@ -2274,8 +2249,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -2866,9 +2841,12 @@ $defs:
     - schema:value
   empa_sequence:
     title: Sequence
-    description: Order in which spectrometer assignments are acquired during point
-      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
-      collect simultaneously at each pixel.
+    description: "Order in which spectrometer assignments are acquired, and \u2014
+      where the element suite exceeds the number of spectrometers \u2014 the passes
+      the acquisition is divided into. Within a single pass all assigned spectrometers
+      collect simultaneously, including at every pixel in X-ray mapping; a suite larger
+      than the spectrometer count therefore requires the acquisition to be run more
+      than once, each pass covering a different subset of elements."
     type: object
     properties:
       '@id':
@@ -2946,6 +2924,60 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  empa_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/empaTAPP/targetSpecies
+      schema:name:
+        const: Target Species
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  empa_targetSpeciesEstimationMethod:
+    title: Target Species Estimation Method
+    description: Whether elemental concentrations were calculated directly from measured
+      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
+      from cation proportions in silicates; carbon from stoichiometry in carbonates).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/targetSpeciesEstimationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/empaTAPP/targetSpeciesEstimationMethod
+      schema:name:
+        const: Target Species Estimation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   empa_timeDependentIntensityCorrection:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
@@ -2998,11 +3030,11 @@ $defs:
     - schema:value
   empa_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
-    description: "WDS spectrometer position(s) assigned to each analyte, one entry
-      per assignment. An analyte may be assigned to more than one spectrometer with
-      intensities aggregated (aggregate intensity counting), and one spectrometer
-      serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup."
+    description: "WDS spectrometer position(s) assigned to each target species, one
+      entry per assignment. An target species may be assigned to more than one spectrometer
+      with intensities aggregated (aggregate intensity counting), and one spectrometer
+      serves several target species across a run, so the assignment \u2014 not the
+      target species \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -5505,8 +5537,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -5555,8 +5587,8 @@ $defs:
   laMcicpmsUPb_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
-      between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      between target species ions and low-energy polyatomic interferences in KED mode,
+      in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
       Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
@@ -5807,13 +5839,13 @@ $defs:
     - schema:value
   laMcicpmsUPb_doubleSpikeMixingRatio:
     title: Double-Spike Mixing Ratio
-    description: "Target proportion of double-spike signal relative to total analyte
-      signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. The optimum is analyte-system specific and is typically determined using
-      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
-      from the target within acceptable bounds (typically \xB120% of optimal); the
-      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
-      the procedure does not use a double spike."
+    description: "Target proportion of double-spike signal relative to total target
+      species signal in the spiked mixture, expressed as spike fraction (0\u20131)
+      or spike:sample ratio. The optimum is target species-system specific and is
+      typically determined using the Double Spike Toolbox or equivalent. The achieved
+      mixing ratio may deviate from the target within acceptable bounds (typically
+      \xB120% of optimal); the double-spike inversion corrects for actual mixing ratios.
+      Record 'N/A' where the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -5964,12 +5996,13 @@ $defs:
   laMcicpmsUPb_instrumentSensitivity:
     title: Instrument Sensitivity
     description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. A sensitivity the procedure
-      requires before analyses may begin belongs with the tuning acceptance criteria."
+      or monitored property it was measured on and the conditions it applies to. May
+      be expressed either as detected signal per unit concentration or per unit mass
+      of target species delivered \u2014 counts per second per ppb, volts per ppm,
+      counts per picogram \u2014 or as useful yield, the percentage of sampled atoms
+      ultimately detected as ions, with the method used to derive it cited. A sensitivity
+      the procedure requires before analyses may begin belongs with the tuning acceptance
+      criteria."
     type: object
     properties:
       '@id':
@@ -6046,9 +6079,7 @@ $defs:
     - schema:value
   laMcicpmsUPb_integrationTimePerCycle:
     title: Integration Time per Cycle
-    description: Duration of signal integration per measurement cycle (seconds). Where
-      different isotope channels use different integration schemes, record the time
-      for each channel.
+    description: Duration of signal integration per measurement cycle (seconds).
     type: object
     properties:
       '@id':
@@ -6074,6 +6105,35 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laMcicpmsUPb_interPassDataDependency:
+    title: Inter-Pass Data Dependency
+    description: "Which earlier acquisition pass supplied inputs to this one, and
+      what those inputs are \u2014 for example a concentration measured in one pass
+      and used as the internal standard for a later pass on the same location. Records
+      the dependency only; the settings of each pass are carried by the fields keyed
+      by acquisition pass, and the passes themselves are enumerated by Acquisition
+      Pass. Leave empty for a pass that consumes no earlier output. Not applicable
+      to raster mapping, where each spatial location is visited exactly once."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/interPassDataDependency
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/interPassDataDependency
+      schema:name:
+        const: Inter-Pass Data Dependency
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_intermediateDaughterDisequilibriumCorrection:
     title: Intermediate Daughter Disequilibrium Correction
     description: "Correction for initial disequilibrium in intermediate daughter products
@@ -6102,7 +6162,7 @@ $defs:
     - schema:value
   laMcicpmsUPb_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -6304,8 +6364,8 @@ $defs:
   laMcicpmsUPb_massResolutionSetting:
     title: Mass Resolution Setting
     description: Operating mass resolution of the mass analyser. Where the analyser
-      permits selection, state the mode; where individual analytes are assigned to
-      different modes, state each.
+      permits selection, state the mode; where individual target species are assigned
+      to different modes, state each.
     type: object
     properties:
       '@id':
@@ -6371,34 +6431,6 @@ $defs:
         - '@id': ada:parameter/laMcicpmsUPbTAPP/memoryEffectMitigation
       schema:name:
         const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laMcicpmsUPb_multiRunSequentialAnalysisDesign:
-    title: Multi-Run Sequential Analysis Design
-    description: Whether the procedure uses a single acquisition pass or multiple
-      sequential runs on the same sample location, each optimized for different analytical
-      objectives. For multi-run designs, describe the number of runs, their purpose,
-      key laser and instrument settings per run, and how outputs of one run feed into
-      data reduction of another. Not applicable to raster mapping, where each spatial
-      location is visited exactly once.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laMcicpmsUPbTAPP/multiRunSequentialAnalysisDesign
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laMcicpmsUPbTAPP/multiRunSequentialAnalysisDesign
-      schema:name:
-        const: Multi-Run Sequential Analysis Design
       schema:value:
         type: string
     required:
@@ -6664,9 +6696,9 @@ $defs:
     title: Reaction Product Ion / Mass-Shift Transition
     description: Where a monitored mass is produced by a reaction in the collision/reaction
       cell, the precursor ion, the reagent gas and the product ion measured. Records
-      the mass-shift chemistry relating the mass measured to the analyte it reports,
-      which the monitored mass alone does not state. Record 'N/A' where the analyte
-      is measured on its own mass.
+      the mass-shift chemistry relating the mass measured to the target species it
+      reports, which the monitored mass alone does not state. Record 'N/A' where the
+      target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -6948,6 +6980,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpmsUPb_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/targetSpecies
+      schema:name:
+        const: Target Species
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_torchDepth:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
@@ -7205,8 +7266,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -7255,8 +7316,8 @@ $defs:
   laMcicpms_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
-      between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      between target species ions and low-energy polyatomic interferences in KED mode,
+      in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
       Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
@@ -7481,13 +7542,13 @@ $defs:
     - schema:value
   laMcicpms_doubleSpikeMixingRatio:
     title: Double-Spike Mixing Ratio
-    description: "Target proportion of double-spike signal relative to total analyte
-      signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. The optimum is analyte-system specific and is typically determined using
-      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
-      from the target within acceptable bounds (typically \xB120% of optimal); the
-      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
-      the procedure does not use a double spike."
+    description: "Target proportion of double-spike signal relative to total target
+      species signal in the spiked mixture, expressed as spike fraction (0\u20131)
+      or spike:sample ratio. The optimum is target species-system specific and is
+      typically determined using the Double Spike Toolbox or equivalent. The achieved
+      mixing ratio may deviate from the target within acceptable bounds (typically
+      \xB120% of optimal); the double-spike inversion corrects for actual mixing ratios.
+      Record 'N/A' where the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -7612,12 +7673,13 @@ $defs:
   laMcicpms_instrumentSensitivity:
     title: Instrument Sensitivity
     description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. A sensitivity the procedure
-      requires before analyses may begin belongs with the tuning acceptance criteria."
+      or monitored property it was measured on and the conditions it applies to. May
+      be expressed either as detected signal per unit concentration or per unit mass
+      of target species delivered \u2014 counts per second per ppb, volts per ppm,
+      counts per picogram \u2014 or as useful yield, the percentage of sampled atoms
+      ultimately detected as ions, with the method used to derive it cited. A sensitivity
+      the procedure requires before analyses may begin belongs with the tuning acceptance
+      criteria."
     type: object
     properties:
       '@id':
@@ -7694,9 +7756,7 @@ $defs:
     - schema:value
   laMcicpms_integrationTimePerCycle:
     title: Integration Time per Cycle
-    description: Duration of signal integration per measurement cycle (seconds). Where
-      different isotope channels use different integration schemes, record the time
-      for each channel.
+    description: Duration of signal integration per measurement cycle (seconds).
     type: object
     properties:
       '@id':
@@ -7722,9 +7782,38 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laMcicpms_interPassDataDependency:
+    title: Inter-Pass Data Dependency
+    description: "Which earlier acquisition pass supplied inputs to this one, and
+      what those inputs are \u2014 for example a concentration measured in one pass
+      and used as the internal standard for a later pass on the same location. Records
+      the dependency only; the settings of each pass are carried by the fields keyed
+      by acquisition pass, and the passes themselves are enumerated by Acquisition
+      Pass. Leave empty for a pass that consumes no earlier output. Not applicable
+      to raster mapping, where each spatial location is visited exactly once."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/interPassDataDependency
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/interPassDataDependency
+      schema:name:
+        const: Inter-Pass Data Dependency
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpms_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -7926,8 +8015,8 @@ $defs:
   laMcicpms_massResolutionSetting:
     title: Mass Resolution Setting
     description: Operating mass resolution of the mass analyser. Where the analyser
-      permits selection, state the mode; where individual analytes are assigned to
-      different modes, state each.
+      permits selection, state the mode; where individual target species are assigned
+      to different modes, state each.
     type: object
     properties:
       '@id':
@@ -7993,34 +8082,6 @@ $defs:
         - '@id': ada:parameter/laMcicpmsTAPP/memoryEffectMitigation
       schema:name:
         const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laMcicpms_multiRunSequentialAnalysisDesign:
-    title: Multi-Run Sequential Analysis Design
-    description: Whether the procedure uses a single acquisition pass or multiple
-      sequential runs on the same sample location, each optimized for different analytical
-      objectives. For multi-run designs, describe the number of runs, their purpose,
-      key laser and instrument settings per run, and how outputs of one run feed into
-      data reduction of another. Not applicable to raster mapping, where each spatial
-      location is visited exactly once.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laMcicpmsTAPP/multiRunSequentialAnalysisDesign
-      schema:name:
-        const: Multi-Run Sequential Analysis Design
       schema:value:
         type: string
     required:
@@ -8286,9 +8347,9 @@ $defs:
     title: Reaction Product Ion / Mass-Shift Transition
     description: Where a monitored mass is produced by a reaction in the collision/reaction
       cell, the precursor ion, the reagent gas and the product ion measured. Records
-      the mass-shift chemistry relating the mass measured to the analyte it reports,
-      which the monitored mass alone does not state. Record 'N/A' where the analyte
-      is measured on its own mass.
+      the mass-shift chemistry relating the mass measured to the target species it
+      reports, which the monitored mass alone does not state. Record 'N/A' where the
+      target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -8538,6 +8599,35 @@ $defs:
         - '@id': ada:parameter/laMcicpmsTAPP/spikeOutlierFilteringApproach
       schema:name:
         const: Spike / Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpms_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/targetSpecies
+      schema:name:
+        const: Target Species
       schema:value:
         type: string
     required:
@@ -8830,8 +8920,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -8880,8 +8970,8 @@ $defs:
   laQicpmsUPb_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
-      between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      between target species ions and low-energy polyatomic interferences in KED mode,
+      in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
       Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
@@ -9290,12 +9380,13 @@ $defs:
   laQicpmsUPb_instrumentSensitivity:
     title: Instrument Sensitivity
     description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. A sensitivity the procedure
-      requires before analyses may begin belongs with the tuning acceptance criteria."
+      or monitored property it was measured on and the conditions it applies to. May
+      be expressed either as detected signal per unit concentration or per unit mass
+      of target species delivered \u2014 counts per second per ppb, volts per ppm,
+      counts per picogram \u2014 or as useful yield, the percentage of sampled atoms
+      ultimately detected as ions, with the method used to derive it cited. A sensitivity
+      the procedure requires before analyses may begin belongs with the tuning acceptance
+      criteria."
     type: object
     properties:
       '@id':
@@ -9370,6 +9461,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpmsUPb_interPassDataDependency:
+    title: Inter-Pass Data Dependency
+    description: "Which earlier acquisition pass supplied inputs to this one, and
+      what those inputs are \u2014 for example a concentration measured in one pass
+      and used as the internal standard for a later pass on the same location. Records
+      the dependency only; the settings of each pass are carried by the fields keyed
+      by acquisition pass, and the passes themselves are enumerated by Acquisition
+      Pass. Leave empty for a pass that consumes no earlier output. Not applicable
+      to raster mapping, where each spatial location is visited exactly once."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/interPassDataDependency
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/interPassDataDependency
+      schema:name:
+        const: Inter-Pass Data Dependency
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpmsUPb_intermediateDaughterDisequilibriumCorrection:
     title: Intermediate Daughter Disequilibrium Correction
     description: "Correction for initial disequilibrium in intermediate daughter products
@@ -9398,7 +9518,7 @@ $defs:
     - schema:value
   laQicpmsUPb_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -9600,8 +9720,8 @@ $defs:
   laQicpmsUPb_massResolutionSetting:
     title: Mass Resolution Setting
     description: Operating mass resolution of the mass analyser. Where the analyser
-      permits selection, state the mode; where individual analytes are assigned to
-      different modes, state each.
+      permits selection, state the mode; where individual target species are assigned
+      to different modes, state each.
     type: object
     properties:
       '@id':
@@ -9667,34 +9787,6 @@ $defs:
         - '@id': ada:parameter/laQicpmsUPbTAPP/memoryEffectMitigation
       schema:name:
         const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laQicpmsUPb_multiRunSequentialAnalysisDesign:
-    title: Multi-Run Sequential Analysis Design
-    description: Whether the procedure uses a single acquisition pass or multiple
-      sequential runs on the same sample location, each optimized for different analytical
-      objectives. For multi-run designs, describe the number of runs, their purpose,
-      key laser and instrument settings per run, and how outputs of one run feed into
-      data reduction of another. Not applicable to raster mapping, where each spatial
-      location is visited exactly once.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsUPbTAPP/multiRunSequentialAnalysisDesign
-      schema:name:
-        const: Multi-Run Sequential Analysis Design
       schema:value:
         type: string
     required:
@@ -9820,9 +9912,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -9933,9 +10025,9 @@ $defs:
     title: Reaction Product Ion / Mass-Shift Transition
     description: Where a monitored mass is produced by a reaction in the collision/reaction
       cell, the precursor ion, the reagent gas and the product ion measured. Records
-      the mass-shift chemistry relating the mass measured to the analyte it reports,
-      which the monitored mass alone does not state. Record 'N/A' where the analyte
-      is measured on its own mass.
+      the mass-shift chemistry relating the mass measured to the target species it
+      reports, which the monitored mass alone does not state. Record 'N/A' where the
+      target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -10209,6 +10301,35 @@ $defs:
         - '@id': ada:parameter/laQicpmsUPbTAPP/spikeOutlierFilteringApproach
       schema:name:
         const: Spike / Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/targetSpecies
+      schema:name:
+        const: Target Species
       schema:value:
         type: string
     required:
@@ -10505,8 +10626,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -10555,8 +10676,8 @@ $defs:
   laQicpms_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
-      between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      between target species ions and low-energy polyatomic interferences in KED mode,
+      in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
       Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
@@ -10913,12 +11034,13 @@ $defs:
   laQicpms_instrumentSensitivity:
     title: Instrument Sensitivity
     description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. A sensitivity the procedure
-      requires before analyses may begin belongs with the tuning acceptance criteria."
+      or monitored property it was measured on and the conditions it applies to. May
+      be expressed either as detected signal per unit concentration or per unit mass
+      of target species delivered \u2014 counts per second per ppb, volts per ppm,
+      counts per picogram \u2014 or as useful yield, the percentage of sampled atoms
+      ultimately detected as ions, with the method used to derive it cited. A sensitivity
+      the procedure requires before analyses may begin belongs with the tuning acceptance
+      criteria."
     type: object
     properties:
       '@id':
@@ -10993,9 +11115,38 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpms_interPassDataDependency:
+    title: Inter-Pass Data Dependency
+    description: "Which earlier acquisition pass supplied inputs to this one, and
+      what those inputs are \u2014 for example a concentration measured in one pass
+      and used as the internal standard for a later pass on the same location. Records
+      the dependency only; the settings of each pass are carried by the fields keyed
+      by acquisition pass, and the passes themselves are enumerated by Acquisition
+      Pass. Leave empty for a pass that consumes no earlier output. Not applicable
+      to raster mapping, where each spatial location is visited exactly once."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/interPassDataDependency
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/interPassDataDependency
+      schema:name:
+        const: Inter-Pass Data Dependency
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpms_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -11197,8 +11348,8 @@ $defs:
   laQicpms_massResolutionSetting:
     title: Mass Resolution Setting
     description: Operating mass resolution of the mass analyser. Where the analyser
-      permits selection, state the mode; where individual analytes are assigned to
-      different modes, state each.
+      permits selection, state the mode; where individual target species are assigned
+      to different modes, state each.
     type: object
     properties:
       '@id':
@@ -11264,34 +11415,6 @@ $defs:
         - '@id': ada:parameter/laQicpmsTAPP/memoryEffectMitigation
       schema:name:
         const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laQicpms_multiRunSequentialAnalysisDesign:
-    title: Multi-Run Sequential Analysis Design
-    description: Whether the procedure uses a single acquisition pass or multiple
-      sequential runs on the same sample location, each optimized for different analytical
-      objectives. For multi-run designs, describe the number of runs, their purpose,
-      key laser and instrument settings per run, and how outputs of one run feed into
-      data reduction of another. Not applicable to raster mapping, where each spatial
-      location is visited exactly once.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsTAPP/multiRunSequentialAnalysisDesign
-      schema:name:
-        const: Multi-Run Sequential Analysis Design
       schema:value:
         type: string
     required:
@@ -11417,9 +11540,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -11530,9 +11653,9 @@ $defs:
     title: Reaction Product Ion / Mass-Shift Transition
     description: Where a monitored mass is produced by a reaction in the collision/reaction
       cell, the precursor ion, the reagent gas and the product ion measured. Records
-      the mass-shift chemistry relating the mass measured to the analyte it reports,
-      which the monitored mass alone does not state. Record 'N/A' where the analyte
-      is measured on its own mass.
+      the mass-shift chemistry relating the mass measured to the target species it
+      reports, which the monitored mass alone does not state. Record 'N/A' where the
+      target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -11782,6 +11905,35 @@ $defs:
         - '@id': ada:parameter/laQicpmsTAPP/spikeOutlierFilteringApproach
       schema:name:
         const: Spike / Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/targetSpecies
+      schema:name:
+        const: Target Species
       schema:value:
         type: string
     required:
@@ -12105,8 +12257,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -12506,12 +12658,13 @@ $defs:
   laSficpmsUPb_instrumentSensitivity:
     title: Instrument Sensitivity
     description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. A sensitivity the procedure
-      requires before analyses may begin belongs with the tuning acceptance criteria."
+      or monitored property it was measured on and the conditions it applies to. May
+      be expressed either as detected signal per unit concentration or per unit mass
+      of target species delivered \u2014 counts per second per ppb, volts per ppm,
+      counts per picogram \u2014 or as useful yield, the percentage of sampled atoms
+      ultimately detected as ions, with the method used to derive it cited. A sensitivity
+      the procedure requires before analyses may begin belongs with the tuning acceptance
+      criteria."
     type: object
     properties:
       '@id':
@@ -12586,6 +12739,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpmsUPb_interPassDataDependency:
+    title: Inter-Pass Data Dependency
+    description: "Which earlier acquisition pass supplied inputs to this one, and
+      what those inputs are \u2014 for example a concentration measured in one pass
+      and used as the internal standard for a later pass on the same location. Records
+      the dependency only; the settings of each pass are carried by the fields keyed
+      by acquisition pass, and the passes themselves are enumerated by Acquisition
+      Pass. Leave empty for a pass that consumes no earlier output. Not applicable
+      to raster mapping, where each spatial location is visited exactly once."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/interPassDataDependency
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/interPassDataDependency
+      schema:name:
+        const: Inter-Pass Data Dependency
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpmsUPb_intermediateDaughterDisequilibriumCorrection:
     title: Intermediate Daughter Disequilibrium Correction
     description: "Correction for initial disequilibrium in intermediate daughter products
@@ -12614,7 +12796,7 @@ $defs:
     - schema:value
   laSficpmsUPb_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -12816,8 +12998,8 @@ $defs:
   laSficpmsUPb_massResolutionSetting:
     title: Mass Resolution Setting
     description: Operating mass resolution of the mass analyser. Where the analyser
-      permits selection, state the mode; where individual analytes are assigned to
-      different modes, state each.
+      permits selection, state the mode; where individual target species are assigned
+      to different modes, state each.
     type: object
     properties:
       '@id':
@@ -12883,34 +13065,6 @@ $defs:
         - '@id': ada:parameter/laSficpmsUPbTAPP/memoryEffectMitigation
       schema:name:
         const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laSficpmsUPb_multiRunSequentialAnalysisDesign:
-    title: Multi-Run Sequential Analysis Design
-    description: Whether the procedure uses a single acquisition pass or multiple
-      sequential runs on the same sample location, each optimized for different analytical
-      objectives. For multi-run designs, describe the number of runs, their purpose,
-      key laser and instrument settings per run, and how outputs of one run feed into
-      data reduction of another. Not applicable to raster mapping, where each spatial
-      location is visited exactly once.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsUPbTAPP/multiRunSequentialAnalysisDesign
-      schema:name:
-        const: Multi-Run Sequential Analysis Design
       schema:value:
         type: string
     required:
@@ -13036,9 +13190,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -13338,6 +13492,35 @@ $defs:
         - '@id': ada:parameter/laSficpmsUPbTAPP/spikeOutlierFilteringApproach
       schema:name:
         const: Spike / Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpmsUPb_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/targetSpecies
+      schema:name:
+        const: Target Species
       schema:value:
         type: string
     required:
@@ -13658,8 +13841,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -14007,12 +14190,13 @@ $defs:
   laSficpms_instrumentSensitivity:
     title: Instrument Sensitivity
     description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. A sensitivity the procedure
-      requires before analyses may begin belongs with the tuning acceptance criteria."
+      or monitored property it was measured on and the conditions it applies to. May
+      be expressed either as detected signal per unit concentration or per unit mass
+      of target species delivered \u2014 counts per second per ppb, volts per ppm,
+      counts per picogram \u2014 or as useful yield, the percentage of sampled atoms
+      ultimately detected as ions, with the method used to derive it cited. A sensitivity
+      the procedure requires before analyses may begin belongs with the tuning acceptance
+      criteria."
     type: object
     properties:
       '@id':
@@ -14087,9 +14271,38 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpms_interPassDataDependency:
+    title: Inter-Pass Data Dependency
+    description: "Which earlier acquisition pass supplied inputs to this one, and
+      what those inputs are \u2014 for example a concentration measured in one pass
+      and used as the internal standard for a later pass on the same location. Records
+      the dependency only; the settings of each pass are carried by the fields keyed
+      by acquisition pass, and the passes themselves are enumerated by Acquisition
+      Pass. Leave empty for a pass that consumes no earlier output. Not applicable
+      to raster mapping, where each spatial location is visited exactly once."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/interPassDataDependency
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/interPassDataDependency
+      schema:name:
+        const: Inter-Pass Data Dependency
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpms_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -14291,8 +14504,8 @@ $defs:
   laSficpms_massResolutionSetting:
     title: Mass Resolution Setting
     description: Operating mass resolution of the mass analyser. Where the analyser
-      permits selection, state the mode; where individual analytes are assigned to
-      different modes, state each.
+      permits selection, state the mode; where individual target species are assigned
+      to different modes, state each.
     type: object
     properties:
       '@id':
@@ -14358,34 +14571,6 @@ $defs:
         - '@id': ada:parameter/laSficpmsTAPP/memoryEffectMitigation
       schema:name:
         const: Memory Effect Mitigation
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laSficpms_multiRunSequentialAnalysisDesign:
-    title: Multi-Run Sequential Analysis Design
-    description: Whether the procedure uses a single acquisition pass or multiple
-      sequential runs on the same sample location, each optimized for different analytical
-      objectives. For multi-run designs, describe the number of runs, their purpose,
-      key laser and instrument settings per run, and how outputs of one run feed into
-      data reduction of another. Not applicable to raster mapping, where each spatial
-      location is visited exactly once.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsTAPP/multiRunSequentialAnalysisDesign
-      schema:name:
-        const: Multi-Run Sequential Analysis Design
       schema:value:
         type: string
     required:
@@ -14511,9 +14696,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -14797,6 +14982,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpms_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/targetSpecies
+      schema:name:
+        const: Target Species
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpms_torchDepth:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
@@ -15049,8 +15263,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -20013,31 +20227,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  semComposition_analyteEstimationMethod:
-    title: Analyte Estimation Method
-    description: Whether elemental concentrations were calculated directly from measured
-      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
-      from cation proportions in silicates; carbon from stoichiometry in carbonates).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semCompositionTAPP/analyteEstimationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semCompositionTAPP/analyteEstimationMethod
-      schema:name:
-        const: Analyte Estimation Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   semComposition_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds,
@@ -20240,8 +20429,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -20862,9 +21051,12 @@ $defs:
     - schema:value
   semComposition_sequence:
     title: Sequence
-    description: Order in which spectrometer assignments are acquired during point
-      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
-      collect simultaneously at each pixel.
+    description: "Order in which spectrometer assignments are acquired, and \u2014
+      where the element suite exceeds the number of spectrometers \u2014 the passes
+      the acquisition is divided into. Within a single pass all assigned spectrometers
+      collect simultaneously, including at every pixel in X-ray mapping; a suite larger
+      than the spectrometer count therefore requires the acquisition to be run more
+      than once, each pass covering a different subset of elements."
     type: object
     properties:
       '@id':
@@ -20941,6 +21133,60 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  semComposition_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/targetSpecies
+      schema:name:
+        const: Target Species
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_targetSpeciesEstimationMethod:
+    title: Target Species Estimation Method
+    description: Whether elemental concentrations were calculated directly from measured
+      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
+      from cation proportions in silicates; carbon from stoichiometry in carbonates).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/targetSpeciesEstimationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/targetSpeciesEstimationMethod
+      schema:name:
+        const: Target Species Estimation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   semComposition_timeDependentIntensityCorrection:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
@@ -20993,11 +21239,11 @@ $defs:
     - schema:value
   semComposition_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
-    description: "WDS spectrometer position(s) assigned to each analyte, one entry
-      per assignment. An analyte may be assigned to more than one spectrometer with
-      intensities aggregated (aggregate intensity counting), and one spectrometer
-      serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup."
+    description: "WDS spectrometer position(s) assigned to each target species, one
+      entry per assignment. An target species may be assigned to more than one spectrometer
+      with intensities aggregated (aggregate intensity counting), and one spectrometer
+      serves several target species across a run, so the assignment \u2014 not the
+      target species \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -22270,60 +22516,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  sem_analyte:
-    title: Analyte
-    description: "The chemical species this procedure is designed to determine, recorded
-      at whatever resolution the chemistry is resolved \u2014 element(s) for this
-      technique; valence species where a procedure resolves oxidation state; compounds
-      where it resolves molecules. Isotopes are not analytes: isotopes of an element
-      are the same chemical species. The subset actually measured may be narrower
-      than the registered suite where species were excluded due to interferences or
-      scope reduction."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/analyte
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semTAPP/analyte
-      schema:name:
-        const: Analyte
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  sem_analyteEstimationMethod:
-    title: Analyte Estimation Method
-    description: Whether elemental concentrations were calculated directly from measured
-      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
-      from cation proportions in silicates; carbon from stoichiometry in carbonates).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/analyteEstimationMethod
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semTAPP/analyteEstimationMethod
-      schema:name:
-        const: Analyte Estimation Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   sem_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds,
@@ -22526,8 +22718,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -23562,9 +23754,12 @@ $defs:
     - schema:value
   sem_sequence:
     title: Sequence
-    description: Order in which spectrometer assignments are acquired during point
-      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
-      collect simultaneously at each pixel.
+    description: "Order in which spectrometer assignments are acquired, and \u2014
+      where the element suite exceeds the number of spectrometers \u2014 the passes
+      the acquisition is divided into. Within a single pass all assigned spectrometers
+      collect simultaneously, including at every pixel in X-ray mapping; a suite larger
+      than the spectrometer count therefore requires the acquisition to be run more
+      than once, each pass covering a different subset of elements."
     type: object
     properties:
       '@id':
@@ -23669,6 +23864,60 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  sem_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/targetSpecies
+      schema:name:
+        const: Target Species
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_targetSpeciesEstimationMethod:
+    title: Target Species Estimation Method
+    description: Whether elemental concentrations were calculated directly from measured
+      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
+      from cation proportions in silicates; carbon from stoichiometry in carbonates).
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/targetSpeciesEstimationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/targetSpeciesEstimationMethod
+      schema:name:
+        const: Target Species Estimation Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   sem_timeDependentIntensityCorrection:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
@@ -23721,11 +23970,11 @@ $defs:
     - schema:value
   sem_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
-    description: "WDS spectrometer position(s) assigned to each analyte, one entry
-      per assignment. An analyte may be assigned to more than one spectrometer with
-      intensities aggregated (aggregate intensity counting), and one spectrometer
-      serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup."
+    description: "WDS spectrometer position(s) assigned to each target species, one
+      entry per assignment. An target species may be assigned to more than one spectrometer
+      with intensities aggregated (aggregate intensity counting), and one spectrometer
+      serves several target species across a run, so the assignment \u2014 not the
+      target species \u2014 is the unit carrying the spectrometer setup."
     type: object
     properties:
       '@id':
@@ -24390,8 +24639,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -24415,8 +24664,8 @@ $defs:
   solutionMcicpms_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
-      between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      between target species ions and low-energy polyatomic interferences in KED mode,
+      in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
       Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
@@ -24716,13 +24965,13 @@ $defs:
     - schema:unitText
   solutionMcicpms_doubleSpikeMixingRatio:
     title: Double-Spike Mixing Ratio
-    description: "Target proportion of double-spike signal relative to total analyte
-      signal in the spiked mixture, expressed as spike fraction (0\u20131) or spike:sample
-      ratio. The optimum is analyte-system specific and is typically determined using
-      the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate
-      from the target within acceptable bounds (typically \xB120% of optimal); the
-      double-spike inversion corrects for actual mixing ratios. Record 'N/A' where
-      the procedure does not use a double spike."
+    description: "Target proportion of double-spike signal relative to total target
+      species signal in the spiked mixture, expressed as spike fraction (0\u20131)
+      or spike:sample ratio. The optimum is target species-system specific and is
+      typically determined using the Double Spike Toolbox or equivalent. The achieved
+      mixing ratio may deviate from the target within acceptable bounds (typically
+      \xB120% of optimal); the double-spike inversion corrects for actual mixing ratios.
+      Record 'N/A' where the procedure does not use a double spike."
     type: object
     properties:
       '@id':
@@ -24735,6 +24984,57 @@ $defs:
         - '@id': ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio
       schema:name:
         const: Double-Spike Mixing Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_doublyChargedSpeciesMonitor:
+    title: Doubly-Charged Species Monitor
+    description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor
+      schema:name:
+        const: Doubly-Charged Species Monitor
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_doublyChargedSpeciesProduction:
+    title: Doubly-Charged Species Production
+    description: Measured percentage of doubly-charged ion production for the monitored
+      species at the time of instrument tuning. The acceptable threshold is typically
+      <1% or <3%. Record both the threshold and the measured value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction
+      schema:name:
+        const: Doubly-Charged Species Production
       schema:value:
         type: string
     required:
@@ -24772,12 +25072,13 @@ $defs:
   solutionMcicpms_instrumentSensitivity:
     title: Instrument Sensitivity
     description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. A sensitivity the procedure
-      requires before analyses may begin belongs with the tuning acceptance criteria."
+      or monitored property it was measured on and the conditions it applies to. May
+      be expressed either as detected signal per unit concentration or per unit mass
+      of target species delivered \u2014 counts per second per ppb, volts per ppm,
+      counts per picogram \u2014 or as useful yield, the percentage of sampled atoms
+      ultimately detected as ions, with the method used to derive it cited. A sensitivity
+      the procedure requires before analyses may begin belongs with the tuning acceptance
+      criteria."
     type: object
     properties:
       '@id':
@@ -24854,9 +25155,7 @@ $defs:
     - schema:value
   solutionMcicpms_integrationTimePerCycle:
     title: Integration Time per Cycle
-    description: Duration of signal integration per measurement cycle (seconds). Where
-      different isotope channels use different integration schemes, record the time
-      for each channel.
+    description: Duration of signal integration per measurement cycle (seconds).
     type: object
     properties:
       '@id':
@@ -24914,7 +25213,7 @@ $defs:
     - schema:unitText
   solutionMcicpms_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -24978,8 +25277,8 @@ $defs:
   solutionMcicpms_massResolutionSetting:
     title: Mass Resolution Setting
     description: Operating mass resolution of the mass analyser. Where the analyser
-      permits selection, state the mode; where individual analytes are assigned to
-      different modes, state each.
+      permits selection, state the mode; where individual target species are assigned
+      to different modes, state each.
     type: object
     properties:
       '@id':
@@ -25235,9 +25534,9 @@ $defs:
     title: Reaction Product Ion / Mass-Shift Transition
     description: Where a monitored mass is produced by a reaction in the collision/reaction
       cell, the precursor ion, the reagent gas and the product ion measured. Records
-      the mass-shift chemistry relating the mass measured to the analyte it reports,
-      which the monitored mass alone does not state. Record 'N/A' where the analyte
-      is measured on its own mass.
+      the mass-shift chemistry relating the mass measured to the target species it
+      reports, which the monitored mass alone does not state. Record 'N/A' where the
+      target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -25473,6 +25772,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionMcicpms_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/targetSpecies
+      schema:name:
+        const: Target Species
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionMcicpms_torchDepth:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
@@ -25613,8 +25941,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -25638,8 +25966,8 @@ $defs:
   solutionQicpms_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
-      between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      between target species ions and low-energy polyatomic interferences in KED mode,
+      in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
       Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
@@ -25939,8 +26267,10 @@ $defs:
     - schema:unitText
   solutionQicpms_doublyChargedSpeciesMonitor:
     title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
-      during instrument tuning.
+    description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -26045,12 +26375,13 @@ $defs:
   solutionQicpms_instrumentSensitivity:
     title: Instrument Sensitivity
     description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. A sensitivity the procedure
-      requires before analyses may begin belongs with the tuning acceptance criteria."
+      or monitored property it was measured on and the conditions it applies to. May
+      be expressed either as detected signal per unit concentration or per unit mass
+      of target species delivered \u2014 counts per second per ppb, volts per ppm,
+      counts per picogram \u2014 or as useful yield, the percentage of sampled atoms
+      ultimately detected as ions, with the method used to derive it cited. A sensitivity
+      the procedure requires before analyses may begin belongs with the tuning acceptance
+      criteria."
     type: object
     properties:
       '@id':
@@ -26157,7 +26488,7 @@ $defs:
     - schema:unitText
   solutionQicpms_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -26221,8 +26552,8 @@ $defs:
   solutionQicpms_massResolutionSetting:
     title: Mass Resolution Setting
     description: Operating mass resolution of the mass analyser. Where the analyser
-      permits selection, state the mode; where individual analytes are assigned to
-      different modes, state each.
+      permits selection, state the mode; where individual target species are assigned
+      to different modes, state each.
     type: object
     properties:
       '@id':
@@ -26363,9 +26694,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -26451,9 +26782,9 @@ $defs:
     title: Reaction Product Ion / Mass-Shift Transition
     description: Where a monitored mass is produced by a reaction in the collision/reaction
       cell, the precursor ion, the reagent gas and the product ion measured. Records
-      the mass-shift chemistry relating the mass measured to the analyte it reports,
-      which the monitored mass alone does not state. Record 'N/A' where the analyte
-      is measured on its own mass.
+      the mass-shift chemistry relating the mass measured to the target species it
+      reports, which the monitored mass alone does not state. Record 'N/A' where the
+      target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -26689,6 +27020,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionQicpms_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/targetSpecies
+      schema:name:
+        const: Target Species
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionQicpms_torchDepth:
     title: Torch Depth
     description: Distance between the load coil and the sampling cone tip (mm), also
@@ -26829,8 +27189,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -27067,8 +27427,10 @@ $defs:
     - schema:unitText
   solutionSficpms_doublyChargedSpeciesMonitor:
     title: Doubly-Charged Species Monitor
-    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation
-      during instrument tuning.
+    description: "The mass ratio monitored to estimate doubly-charged ion (M\xB2\u207A)
+      formation during instrument tuning. The monitor species and the mass positions
+      monitored should be stated explicitly. Analogous to Oxide Production Method
+      and Threshold for oxide monitoring."
     type: object
     properties:
       '@id':
@@ -27202,12 +27564,13 @@ $defs:
   solutionSficpms_instrumentSensitivity:
     title: Instrument Sensitivity
     description: "Instrument sensitivity achieved in the session, with the isotope
-      or channel it was measured on and the conditions it applies to. May be expressed
-      either as detected signal per unit concentration or per unit mass of analyte
-      delivered \u2014 counts per second per ppb, volts per ppm, counts per picogram
-      \u2014 or as useful yield, the percentage of sampled atoms ultimately detected
-      as ions, with the method used to derive it cited. A sensitivity the procedure
-      requires before analyses may begin belongs with the tuning acceptance criteria."
+      or monitored property it was measured on and the conditions it applies to. May
+      be expressed either as detected signal per unit concentration or per unit mass
+      of target species delivered \u2014 counts per second per ppb, volts per ppm,
+      counts per picogram \u2014 or as useful yield, the percentage of sampled atoms
+      ultimately detected as ions, with the method used to derive it cited. A sensitivity
+      the procedure requires before analyses may begin belongs with the tuning acceptance
+      criteria."
     type: object
     properties:
       '@id':
@@ -27314,7 +27677,7 @@ $defs:
     - schema:unitText
   solutionSficpms_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -27378,8 +27741,8 @@ $defs:
   solutionSficpms_massResolutionSetting:
     title: Mass Resolution Setting
     description: Operating mass resolution of the mass analyser. Where the analyser
-      permits selection, state the mode; where individual analytes are assigned to
-      different modes, state each.
+      permits selection, state the mode; where individual target species are assigned
+      to different modes, state each.
     type: object
     properties:
       '@id':
@@ -27520,9 +27883,9 @@ $defs:
       at the transition between pulse-counting and analog (and Faraday, for triple-mode
       instruments) detection modes. Cross-calibration factors between detector modes
       must be confirmed, typically measured each session. Record 'Applied' and describe
-      the method, the detector modes involved and the analytes affected; 'None' where
-      a crossover exists on this instrument but no correction was made, giving the
-      reason; and 'N/A' where the detector is pulse-counting only and no crossover
+      the method, the detector modes involved and the target species affected; 'None'
+      where a crossover exists on this instrument but no correction was made, giving
+      the reason; and 'N/A' where the detector is pulse-counting only and no crossover
       exists.
     type: object
     properties:
@@ -27751,6 +28114,35 @@ $defs:
         - '@id': ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach
       schema:name:
         const: Spike / Outlier Filtering Approach
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/targetSpecies
+      schema:name:
+        const: Target Species
       schema:value:
         type: string
     required:
@@ -28670,8 +29062,8 @@ $defs:
       where the conversion depends on a factor calibrated against a reference of independently
       known value, rather than on the instrument response alone. Distinct from the
       fields that name the calibration material and that state which approach applies
-      to which analyte, where the technique has them: this field records the resulting
-      factor itself.'
+      to which target species, where the technique has them: this field records the
+      resulting factor itself.'
     type: object
     properties:
       '@id':
@@ -29190,10 +29582,10 @@ $defs:
     title: EELS Edges
     description: 'Ionization edge(s) acquired by EELS, specified by element symbol
       and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific counterpart
-      to the Analyte field: while Analyte lists elements, EELS Edges documents which
-      ionization edges were used and their approximate energy loss positions. The
-      edge list may be narrowed at analysis time. Record ''N/A'' where EELS is not
-      listed in Spectroscopic Detector(s).'
+      to the Target Species field: while Target Species lists elements, EELS Edges
+      documents which ionization edges were used and their approximate energy loss
+      positions. The edge list may be narrowed at analysis time. Record ''N/A'' where
+      EELS is not listed in Spectroscopic Detector(s).'
     type: object
     properties:
       '@id':
@@ -29270,8 +29662,9 @@ $defs:
   tem_eelsEnergyLossRange:
     title: EELS Energy Loss Range
     description: Energy loss range acquired, defined by onset energy and width in
-      eV. The target range covers the registered analyte edges; the actual range acquired
-      may differ. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+      eV. The target range covers the registered target species edges; the actual
+      range acquired may differ. Record 'N/A' where EELS is not listed in Spectroscopic
+      Detector(s).
     type: object
     properties:
       '@id':
@@ -30005,6 +30398,35 @@ $defs:
         - '@id': ada:parameter/temTAPP/stemScanGridAndArea4D
       schema:name:
         const: 4D-STEM Scan Grid and Area
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tem_targetSpecies:
+    title: Target Species
+    description: "The chemical species this procedure is designed to determine, recorded
+      at whatever resolution the chemistry is resolved \u2014 element(s) for this
+      technique; valence species where a procedure resolves oxidation state; compounds
+      where it resolves molecules. Isotopes are not target species: isotopes of an
+      element are the same chemical species. The subset actually measured may be narrower
+      than the registered suite where species were excluded due to interferences or
+      scope reduction."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/targetSpecies
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/temTAPP/targetSpecies
+      schema:name:
+        const: Target Species
       schema:value:
         type: string
     required:

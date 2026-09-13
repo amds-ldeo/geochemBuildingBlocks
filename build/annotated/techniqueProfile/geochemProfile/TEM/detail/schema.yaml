@@ -781,11 +781,11 @@ allOf:
               - title: EELS Edges
                 description: 'Ionization edge(s) acquired by EELS, specified by element
                   symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific
-                  counterpart to the Analyte field: while Analyte lists elements,
-                  EELS Edges documents which ionization edges were used and their
-                  approximate energy loss positions. The edge list may be narrowed
-                  at analysis time. Record ''N/A'' where EELS is not listed in Spectroscopic
-                  Detector(s).'
+                  counterpart to the Target Species field: while Target Species lists
+                  elements, EELS Edges documents which ionization edges were used
+                  and their approximate energy loss positions. The edge list may be
+                  narrowed at analysis time. Record ''N/A'' where EELS is not listed
+                  in Spectroscopic Detector(s).'
                 type: object
                 properties:
                   '@id':
@@ -837,9 +837,9 @@ allOf:
                 - schema:unitText
               - title: EELS Energy Loss Range
                 description: Energy loss range acquired, defined by onset energy and
-                  width in eV. The target range covers the registered analyte edges;
-                  the actual range acquired may differ. Record 'N/A' where EELS is
-                  not listed in Spectroscopic Detector(s).
+                  width in eV. The target range covers the registered target species
+                  edges; the actual range acquired may differ. Record 'N/A' where
+                  EELS is not listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -955,9 +955,9 @@ allOf:
                 - schema:value
               - title: EDS Detection Limit
                 description: Estimated detection limits by EDS under this procedure's
-                  conditions, one per reported concentration variable (one per analyte,
-                  these being the same set). Record 'N/A' where EDS is not listed
-                  in Spectroscopic Detector(s).
+                  conditions, one per reported concentration variable (one per target
+                  species, these being the same set). Record 'N/A' where EDS is not
+                  listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -1643,11 +1643,11 @@ allOf:
                 title: EELS Edges
                 description: 'Ionization edge(s) acquired by EELS, specified by element
                   symbol and edge label (e.g., Fe L2,3; O K). Provides the EELS-specific
-                  counterpart to the Analyte field: while Analyte lists elements,
-                  EELS Edges documents which ionization edges were used and their
-                  approximate energy loss positions. The edge list may be narrowed
-                  at analysis time. Record ''N/A'' where EELS is not listed in Spectroscopic
-                  Detector(s).'
+                  counterpart to the Target Species field: while Target Species lists
+                  elements, EELS Edges documents which ionization edges were used
+                  and their approximate energy loss positions. The edge list may be
+                  narrowed at analysis time. Record ''N/A'' where EELS is not listed
+                  in Spectroscopic Detector(s).'
                 type: object
                 properties:
                   '@id':
@@ -1705,9 +1705,9 @@ allOf:
             - contains:
                 title: EELS Energy Loss Range
                 description: Energy loss range acquired, defined by onset energy and
-                  width in eV. The target range covers the registered analyte edges;
-                  the actual range acquired may differ. Record 'N/A' where EELS is
-                  not listed in Spectroscopic Detector(s).
+                  width in eV. The target range covers the registered target species
+                  edges; the actual range acquired may differ. Record 'N/A' where
+                  EELS is not listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -1838,9 +1838,9 @@ allOf:
             - contains:
                 title: EDS Detection Limit
                 description: Estimated detection limits by EDS under this procedure's
-                  conditions, one per reported concentration variable (one per analyte,
-                  these being the same set). Record 'N/A' where EDS is not listed
-                  in Spectroscopic Detector(s).
+                  conditions, one per reported concentration variable (one per target
+                  species, these being the same set). Record 'N/A' where EDS is not
+                  listed in Spectroscopic Detector(s).
                 type: object
                 properties:
                   '@id':
@@ -2161,8 +2161,9 @@ allOf:
       - contains:
           title: EDS Detection Limit
           description: Estimated detection limits by EDS under this procedure's conditions,
-            one per reported concentration variable (one per analyte, these being
-            the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+            one per reported concentration variable (one per target species, these
+            being the same set). Record 'N/A' where EDS is not listed in Spectroscopic
+            Detector(s).
           type: object
           properties:
             '@id':

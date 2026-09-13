@@ -7,6 +7,95 @@ Detail block for GPYC hasPart items, carrying the analysis-identification proper
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:calibrationFile"
+  ],
+  "ada:componentType": "ada:calibrationFile",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:gpycTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240221_gpyc_jsc-ares_orex-800019-0_1",
+  "ada:analyst": "Ryan, Andy",
+  "ada:analysisStartDate": "2024-02-21",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800019-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/GPYC/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:calibrationFile"
+  ],
+  "ada:componentType": "ada:calibrationFile",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:gpycTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240221_gpyc_jsc-ares_orex-800019-0_1",
+  "ada:analyst": "Ryan, Andy",
+  "ada:analysisStartDate": "2024-02-21",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800019-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:calibrationFile ;
+    schema1:measurementTechnique <ex:gpycTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-02-21" ;
+    ada:analyst "Ryan, Andy" ;
+    ada:componentType "ada:calibrationFile" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-800019-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240221_gpyc_jsc-ares_orex-800019-0_1" .
+
+<ex:gpycTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

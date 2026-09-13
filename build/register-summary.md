@@ -28,17 +28,17 @@ Shell type for labeled links to creative works (schema:CreativeWork). Defines pr
 
 Supplemental documents for calibration, methods, and analysis info. Defines properties: @type, componentType, schema:version, schema:isBasedOn. Uses building blocks: detailARGT (geochemProperties).
 
-### `ogch.BaseSchema.otherFile` — Other File Type
-
-**Type:** schema
-
-Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
-
 ### `ogch.BaseSchema.image` — Image Type
 
 **Type:** schema
 
 ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
+
+### `ogch.BaseSchema.otherFile` — Other File Type
+
+**Type:** schema
+
+Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
 
 ### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
 
@@ -99,6 +99,12 @@ The shared ReportingCore block of the 2026-08-11 TAPP library, composed by 16 of
 **Type:** schema
 
 The shared SamplingUnitSelection block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 2 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
+### `ogch.BaseSchema.modules.singleCollector` — TAPP Composition Module: SingleCollector
+
+**Type:** schema
+
+The shared SingleCollector block of the 2026-08-11 TAPP library, composed by 6 of the sixteen delivery tables. 2 owned fields over 0 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.solutionIntroduction` — TAPP Composition Module: SolutionIntroduction
 
@@ -284,7 +290,7 @@ DataDownload with checksum, size, encoding format, and file detail. Defines prop
 
 **Type:** schema
 
-The shared ICPMS block of the 2026-08-11 TAPP library, composed by 9 of the sixteen delivery tables. 39 owned fields over 17 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared ICPMS block of the 2026-08-11 TAPP library, composed by 9 of the sixteen delivery tables. 42 owned fields over 16 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.laserAblation` — TAPP Composition Module: LaserAblation
 
@@ -1246,11 +1252,47 @@ Detail block for XRD hasPart items, carrying the analysis-level properties suppl
 
 X-ray diffraction extension of the base TAPP definition. XRD reports phases rather than per-element concentrations, so no ada:analyteTemplate is defined; no mode-flag columns, since it delivers a single technique componentType. DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
 
-### `ogch.techniqueProfile.geochemProfile.EMPA.profile` — ADA EMPA Product Profile
+### `ogch.techniqueProfile.geochemProfile.CAPD.profile` — ADA Capacitance Dilatometry Product Profile
 
 **Type:** schema
 
-Path-driven ADA product profile for ADA EMPA Product Profile.
+Path-driven ADA product profile for ADA Capacitance Dilatometry Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.CPD.profile` — ADA Curation Photo-Documentation Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA Curation Photo-Documentation Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.DSSM.profile` — ADA Direct Shear Strength Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA Direct Shear Strength Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.EMPA.profile` — ADA EPMA Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA EPMA Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.FINESSE.profile` — ADA FINESSE Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA FINESSE Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.GC-C-IRMS.profile` — ADA GC-C-IRMS Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA GC-C-IRMS Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.IC-MS.profile` — ADA Ion Chromatography-Mass Spectrometry Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA Ion Chromatography-Mass Spectrometry Product Profile.
 
 ### `ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.profile` — ADA LA-MC-ICP-MS Product Profile
 
@@ -1288,6 +1330,18 @@ Path-driven ADA product profile for ADA LA-SF-ICP-MS Product Profile.
 
 Path-driven ADA product profile for ADA LA-SF-ICP-MS U-Pb Geochronology Product Profile.
 
+### `ogch.techniqueProfile.geochemProfile.NI-MI.profile` — ADA NI-MI Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA NI-MI Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.PCD-AFM.profile` — ADA PCD-AFM Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA PCD-AFM Product Profile.
+
 ### `ogch.techniqueProfile.geochemProfile.QRIS.profile-ada` — ADA QRIS Profile (TAPP-linked)
 
 **Type:** schema
@@ -1300,11 +1354,23 @@ Profile for an ADA metadata document describing Quantitative Reflectance Imaging
 
 Profile for an ADA metadata document describing Raman vibrational spectroscopy products generated under a registered ramanTAPP procedure. Adds the RAMAN analysis detail on the schema:Dataset root and pins prov:used to the ramanTAPP definition, on top of the ADA RAMAN component-type constraints. DRAFT - the source table has not been through Phase 0 review.
 
+### `ogch.techniqueProfile.geochemProfile.S-XRF.profile` — ADA S-XRF Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA S-XRF Product Profile.
+
 ### `ogch.techniqueProfile.geochemProfile.SEM.profile` — ADA SEM (superset) Product Profile
 
 **Type:** schema
 
 Path-driven ADA product profile for ADA SEM (superset) Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.SEM-CL.profile` — ADA SEM-CL Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA SEM-CL Product Profile.
 
 ### `ogch.techniqueProfile.geochemProfile.SEM-Composition.profile` — ADA SEM Composition (EDS/WDS) Product Profile
 
@@ -1324,6 +1390,12 @@ Path-driven ADA product profile for ADA FIB-SEM Product Profile.
 
 Path-driven ADA product profile for ADA SEM Imaging Product Profile.
 
+### `ogch.techniqueProfile.geochemProfile.STHM-AFM.profile` — ADA STHM-AFM Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA STHM-AFM Product Profile.
+
 ### `ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.profile` — ADA Solution MC-ICP-MS Product Profile
 
 **Type:** schema
@@ -1342,11 +1414,23 @@ Path-driven ADA product profile for ADA Solution Q-ICP-MS Product Profile.
 
 Path-driven ADA product profile for ADA Solution SF-ICP-MS Product Profile.
 
+### `ogch.techniqueProfile.geochemProfile.TDM.profile` — ADA TDM Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA TDM Product Profile.
+
 ### `ogch.techniqueProfile.geochemProfile.TEM.profile` — ADA TEM Product Profile
 
 **Type:** schema
 
 Path-driven ADA product profile for ADA TEM Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.TIMS.profile` — ADA TIMS Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA TIMS Product Profile.
 
 ### `ogch.techniqueProfile.geochemProfile.VNMIR.profile-ada` — ADA VNMIR Profile (TAPP-linked)
 

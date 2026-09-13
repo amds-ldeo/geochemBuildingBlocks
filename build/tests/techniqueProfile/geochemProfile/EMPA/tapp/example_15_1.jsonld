@@ -1,0 +1,382 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EMPA/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:empaTAPP-P14",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "EPMA-WDS quantitative compositional mapping, Apollo 17 core 73001 continuous thin sections (Washington University in St. Louis)",
+  "schema:description": "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes. Reported detail: ada:matrixCorrectionMethod = Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard.",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "EPMA",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "15 kV (stage maps and BSE mosaic)",
+      "ada:beamDiameterDefault": "10 um (fixed)",
+      "ada:beamMode": "Fixed 10 um beam (stated 'a fixed 10 um electron beam')",
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "EDS Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:description": "N/A - WDS mapping; no EDS used for the EPMA work",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/EPMA/part/EDS-Detector",
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "WDS Spectrometer",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "Fixed wavelength-dispersive spectrometers; count not stated (five elements collected per pass)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source",
+          "schema:description": "missing"
+        }
+      ],
+      "schema:manufacturer": {
+        "schema:name": "JEOL",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/EPMA",
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "JEOL JXA-8200",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/empaTAPP/beamRasterDimensionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "beamRasterDimensionsDefault",
+      "schema:name": "Beam Raster Dimensions",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A - stage scan, not beam scan"
+    },
+    {
+      "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan"
+        }
+      ],
+      "schema:name": "Stage Scan vs. Beam Scan",
+      "schema:value": "Stage scan (stated 'EPMA stage maps')"
+    }
+  ],
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "BSE mosaic: approximately 325 backscattered-electron images collected with the JEOL guide-net mapping software at 15 kV, 2 nA probe current and 70x magnification, stitched with the ImageJ Fiji grid-collection stitching plug-in (Donovan et al., 2021) into a 20k x 5k pixel mosaic at ~1.5 um pixel resolution"
+        },
+        {
+          "schema:name": "Target Material",
+          "schema:value": [
+            "Lunar regolith (Apollo 17 double drive tube, lower section 73001), as continuous thin sections"
+          ]
+        }
+      ]
+    }
+  ],
+  "ada:matrixCorrectionMethod": "ZAF",
+  "ada:stepSizePixelSizeDefault": "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)",
+  "ada:channelTemplate": {
+    "ada:defaultChannels": [
+      "N - spectrometer-to-element assignments not stated"
+    ],
+    "ada:channelColumns": [
+      {
+        "schema:valueName": "channel",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:channelColumn/empaTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/empaTAPP/backgroundPosition",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundPosition",
+        "schema:name": "Background Position(s)",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:channelColumn/empaTAPP/diffractingCrystal",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "diffractingCrystal",
+        "schema:name": "Diffracting Crystal",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/empaTAPP/dwellTimePerPixel",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerPixel",
+        "schema:name": "Dwell Time per Pixel",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/empaTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/empaTAPP/proportionalCounterDetector",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "proportionalCounterDetector",
+        "schema:name": "Proportional Counter / Detector",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:channelColumn/empaTAPP/sequence",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "sequence",
+        "schema:name": "Sequence",
+        "ada:dataType": "integer"
+      },
+      {
+        "@id": "ada:channelColumn/empaTAPP/wdsPhaSetting",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "wdsPhaSetting",
+        "schema:name": "WDS PHA Setting",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:channelColumn/empaTAPP/xRayLine",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLine",
+        "schema:name": "X-ray Line",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:samplingUnitSelectionCriteriaDefault": "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated",
+  "ada:monitoredEleemnts": [
+    "Pass 1: Mg, Al, Fe, Ca, Ti. Pass 2: Na, Si, Mn, K, Cr. All determined. \"Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2\" (p.6)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "EPMA-WDS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Washington University in St. Louis"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)",
+        "schema:description": "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:samplingUnit": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks"
+    }
+  ],
+  "ada:analyticalMode": [
+    "WDS Mapping"
+  ],
+  "ada:reportedProperties": [
+    "Quantitative element and oxide wt.% maps; cation stoichiometry; derived mineral endmember maps (32-bit floating point .tiff)"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "ada:detectionLimitMethod": "N - attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "ada:primaryStandardNameDefault": "N - 'EPMA standards having a range of average atomic number Z' are used for the MAN background calibration; individual standards not named",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:edsAcquisitionMode": "missing",
+  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
+  "ada:massAbsorptionCoefficients": "missing",
+  "ada:wdsDeadTimeCorrection": "missing",
+  "schema:datePublished": "missing"
+}

@@ -236,9 +236,12 @@ $defs:
     - ada:dataType
   empa_sequence:
     title: Sequence
-    description: Order in which spectrometer assignments are acquired during point
-      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
-      collect simultaneously at each pixel.
+    description: "Order in which spectrometer assignments are acquired, and \u2014
+      where the element suite exceeds the number of spectrometers \u2014 the passes
+      the acquisition is divided into. Within a single pass all assigned spectrometers
+      collect simultaneously, including at every pixel in X-ray mapping; a suite larger
+      than the spectrometer count therefore requires the acquisition to be run more
+      than once, each pass covering a different subset of elements."
     type: object
     properties:
       '@id':
@@ -416,9 +419,7 @@ $defs:
     - schema:defaultValue
   laMcicpms_integrationTimePerCycle:
     title: Integration Time per Cycle
-    description: Duration of signal integration per measurement cycle (seconds). Where
-      different isotope channels use different integration schemes, record the time
-      for each channel.
+    description: Duration of signal integration per measurement cycle (seconds).
     type: object
     properties:
       '@id':
@@ -528,7 +529,7 @@ $defs:
     - schema:defaultValue
   laMcicpms_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of each ion-counting detector channel, used in the dead-time
+    description: Dead time of the ion-counting detector(s), used in the dead-time
       correction applied to high count rates. Distinct from pulse/analog cross-calibration,
       which relates the two detector modes rather than correcting counting losses
       within the pulse-counting mode.
@@ -567,10 +568,10 @@ $defs:
     - schema:value
   laMcicpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One analyte may be acquired
-      at more than one resolution, so the assignment is per acquired mass rather than
-      per element. The overall mode(s) used in the procedure are recorded in Mass
-      Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may
+      be acquired at more than one resolution, so the assignment is per acquired mass
+      rather than per element. The overall mode(s) used in the procedure are recorded
+      in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -817,9 +818,12 @@ $defs:
     - ada:dataType
   semComposition_sequence:
     title: Sequence
-    description: Order in which spectrometer assignments are acquired during point
-      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
-      collect simultaneously at each pixel.
+    description: "Order in which spectrometer assignments are acquired, and \u2014
+      where the element suite exceeds the number of spectrometers \u2014 the passes
+      the acquisition is divided into. Within a single pass all assigned spectrometers
+      collect simultaneously, including at every pixel in X-ray mapping; a suite larger
+      than the spectrometer count therefore requires the acquisition to be run more
+      than once, each pass covering a different subset of elements."
     type: object
     properties:
       '@id':
@@ -1136,9 +1140,12 @@ $defs:
     - ada:dataType
   sem_sequence:
     title: Sequence
-    description: Order in which spectrometer assignments are acquired during point
-      analysis. Not applicable to X-ray mapping, where all assigned spectrometers
-      collect simultaneously at each pixel.
+    description: "Order in which spectrometer assignments are acquired, and \u2014
+      where the element suite exceeds the number of spectrometers \u2014 the passes
+      the acquisition is divided into. Within a single pass all assigned spectrometers
+      collect simultaneously, including at every pixel in X-ray mapping; a suite larger
+      than the spectrometer count therefore requires the acquisition to be run more
+      than once, each pass covering a different subset of elements."
     type: object
     properties:
       '@id':
@@ -1352,10 +1359,10 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One analyte may be acquired
-      at more than one resolution, so the assignment is per acquired mass rather than
-      per element. The overall mode(s) used in the procedure are recorded in Mass
-      Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may
+      be acquired at more than one resolution, so the assignment is per acquired mass
+      rather than per element. The overall mode(s) used in the procedure are recorded
+      in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -1609,10 +1616,10 @@ $defs:
     - schema:defaultValue
   solutionSficpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One analyte may be acquired
-      at more than one resolution, so the assignment is per acquired mass rather than
-      per element. The overall mode(s) used in the procedure are recorded in Mass
-      Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may
+      be acquired at more than one resolution, so the assignment is per acquired mass
+      rather than per element. The overall mode(s) used in the procedure are recorded
+      in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':

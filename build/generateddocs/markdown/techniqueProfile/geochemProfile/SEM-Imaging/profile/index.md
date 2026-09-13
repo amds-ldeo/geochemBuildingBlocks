@@ -228,13 +228,7 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ],
-      "schema:actionProcess": {
-        "@type": [
-          "schema:HowTo"
-        ]
-      },
-      "schema:endDate": "missing"
+      ]
     }
   ],
   "schema:variableMeasured": [
@@ -672,13 +666,7 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ],
-      "schema:actionProcess": {
-        "@type": [
-          "schema:HowTo"
-        ]
-      },
-      "schema:endDate": "missing"
+      ]
     }
   ],
   "schema:variableMeasured": [
@@ -977,16 +965,14 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
             dqv:value "example ebsdPatternQualityThreshold" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
-            schema1:actionProcess [ a schema1:HowTo ] ;
-            schema1:endDate "missing" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
@@ -1137,50 +1123,6 @@ allOf:
         enum:
         - Scanning Electron Microscopy (SEM) Image
         - Scanning electron microscopy
-    schema:distribution:
-      description: Each distribution item is EITHER a monolithic single-file dataset
-        whose ada:componentType is a SEMIMAGING-specific or universal value (and may
-        carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry
-        such a componentType (the ADA/SAMIS archive form).
-      type: array
-      items:
-        anyOf:
-        - type: object
-          required:
-          - ada:componentType
-          properties:
-            ada:componentType:
-              type: string
-              anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType
-              - enum:
-                - ada:SEMImage
-                - ada:BSEImage
-                - ada:CLImage
-                - ada:CLSpectrum
-                - ada:EBSDMap
-                - ada:SEMTabular
-        - type: object
-          required:
-          - schema:hasPart
-          properties:
-            schema:hasPart:
-              items:
-                type: object
-                anyOf:
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
-                - properties:
-                    ada:componentType:
-                      type: string
-                      enum:
-                      - ada:SEMImage
-                      - ada:BSEImage
-                      - ada:CLImage
-                      - ada:CLSpectrum
-                      - ada:EBSDMap
-                      - ada:SEMTabular
-                  required:
-                  - ada:componentType
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

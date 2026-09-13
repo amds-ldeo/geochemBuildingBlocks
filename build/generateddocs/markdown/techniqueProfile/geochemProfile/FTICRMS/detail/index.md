@@ -7,6 +7,95 @@ Detail block for FTICRMS hasPart items, carrying the analysis-identification pro
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:FTICRMSCube"
+  ],
+  "ada:componentType": "ada:FTICRMSCube",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:fticrmsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240530_fticr-ms_hmgu_orex-803006-0_1",
+  "ada:analyst": "Liss, Michael",
+  "ada:analysisStartDate": "2024-05-30",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)",
+  "ada:sampleName": "OREX-803006-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/FTICRMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:FTICRMSCube"
+  ],
+  "ada:componentType": "ada:FTICRMSCube",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:fticrmsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240530_fticr-ms_hmgu_orex-803006-0_1",
+  "ada:analyst": "Liss, Michael",
+  "ada:analysisStartDate": "2024-05-30",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)",
+  "ada:sampleName": "OREX-803006-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:FTICRMSCube ;
+    schema1:measurementTechnique <ex:fticrmsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-05-30" ;
+    ada:analyst "Liss, Michael" ;
+    ada:componentType "ada:FTICRMSCube" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)" ;
+    ada:sampleName "OREX-803006-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240530_fticr-ms_hmgu_orex-803006-0_1" .
+
+<ex:fticrmsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

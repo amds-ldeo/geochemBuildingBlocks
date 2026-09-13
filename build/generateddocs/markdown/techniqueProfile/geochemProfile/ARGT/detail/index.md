@@ -7,6 +7,95 @@ Detail block for ARGT hasPart items, carrying the analysis-identification proper
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Thermo Fisher ARGUS VI.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:report"
+  ],
+  "ada:componentType": "ada:report",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:argtTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250108_argt_cuwa_orex-803373-0_1",
+  "ada:analyst": "Jourdan, Fred",
+  "ada:analysisStartDate": "2024-02-09",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-803373-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/ARGT/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:report"
+  ],
+  "ada:componentType": "ada:report",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:argtTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20250108_argt_cuwa_orex-803373-0_1",
+  "ada:analyst": "Jourdan, Fred",
+  "ada:analysisStartDate": "2024-02-09",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-803373-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:report ;
+    schema1:measurementTechnique <ex:argtTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-02-09" ;
+    ada:analyst "Jourdan, Fred" ;
+    ada:componentType "ada:report" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-803373-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20250108_argt_cuwa_orex-803373-0_1" .
+
+<ex:argtTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

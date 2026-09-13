@@ -20,20 +20,19 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "Step 1: 6M HCl (1.5 ml) + 8M HNO3 (0.5 ml); Step 2: 10M HCl (1.5 ml) for re-dissolution; stated section 2.3.1" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -67,7 +66,6 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
     ada:driftCorrectionMethod "IS normalization" ;
     ada:finalSolutionMatrix "2% HNO3 + 5 ng/ml Rh (stated section 2.3)" ;
     ada:internalStandardElement "Rh (103Rh; Table 1)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "None (external calibration used; stated section 2.3)" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:numberOfScansPerReplicate -9999 ;
@@ -146,6 +144,13 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Single SEM, pulse counting only (stated Table 1: counting mode)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "48 h (stated section 2.3)" ;
     schema1:name "Digestion Duration" ;
@@ -184,14 +189,6 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> a schema1:PropertyValueSpecification ;
-    schema1:description "2 (step 1: 6M HCl + 8M HNO3 at 130 deg C / 48 h; step 2: evaporate + re-dissolve in 10M HCl; both steps explicitly described; stated section 2.3.1)" ;
-    schema1:name "Number of Digestion Steps" ;
-    schema1:value 2 ;
-    schema1:valueName "numberOfDigestionSteps" ;
-    ada:dataType "integer" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 100 ;
     schema1:description "~100 mg mineral powder (stated section 2.3)" ;
@@ -211,7 +208,7 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
@@ -254,9 +251,4 @@ ex:solutionSficpmsTAPP-P1 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/detectorConfiguration> ;
-    schema1:value "Single SEM, pulse counting only (stated Table 1: counting mode)" .
 

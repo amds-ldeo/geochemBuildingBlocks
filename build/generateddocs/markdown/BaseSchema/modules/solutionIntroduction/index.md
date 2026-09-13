@@ -25,6 +25,12 @@ This is a **profile, not a vocabulary**: it asserts which properties a conformin
 
 Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.
 
+## Not yet placed
+
+These fields belong to the module but have no schema path in any sidecar, so they are absent from the schema until one is authored:
+
+- Digestion Step
+
 ## Composing it
 
 ```yaml
@@ -273,45 +279,6 @@ $defs:
       schema:unitText:
         const: mg or mL
         x-jsonld-id: http://schema.org/unitText
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
-  Param_Procedure_numberOfDigestionSteps:
-    title: Number of Digestion Steps
-    description: "Total number of distinct acid digestion steps required to dissolve
-      the sample. Some procedures require multiple sequential steps \u2014 for example,
-      an initial open-beaker HF\u2013HNO3 dissolution followed by a second closed-vessel
-      step for residues retaining refractory minerals, or by an aqua regia reflux
-      to destroy fluoride complexes."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: numberOfDigestionSteps
-        x-jsonld-id: http://schema.org/valueName
-      schema:name:
-        const: Number of Digestion Steps
-        x-jsonld-id: http://schema.org/name
-      ada:dataType:
-        const: integer
-        x-jsonld-id: https://ada.astromat.org/metadata/dataType
-      ada:fieldScope:
-        const: session
-        x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
-      schema:readonlyValue:
-        const: true
-        x-jsonld-id: http://schema.org/readonlyValue
-      ada:tier:
-        const: R
-        x-jsonld-id: https://ada.astromat.org/metadata/tier
     required:
     - '@id'
     - '@type'

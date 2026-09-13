@@ -30,7 +30,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P0",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -404,7 +404,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -442,7 +441,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P0",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M\u00fcnster (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M\u00fcnster (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -816,7 +815,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -847,6 +845,14 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
@@ -856,14 +862,6 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
                     schema1:name "Sample preparation" ;
@@ -871,7 +869,7 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut für Planetologie, University of Münster" ] ;
@@ -898,7 +896,6 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
     ada:finalSolutionMatrix "missing" ;
     ada:internalNormalizationElementAndIsotopeRatio "98Mo/96Mo = 1.453173" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "Alfa Aesar Mo solution standard" ;
@@ -1069,7 +1066,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P1",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -1555,7 +1552,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -1592,7 +1588,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P1",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -2078,7 +2074,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -2103,16 +2098,6 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "5 ml HNO3 (50%), then 3 ml concentrated HNO3 + 2 mL HCl (50%); residue dissolved in 4 mL 2% HNO3" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
@@ -2126,6 +2111,16 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "5 ml HNO3 (50%), then 3 ml concentrated HNO3 + 2 mL HCl (50%); residue dissolved in 4 mL 2% HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Mineral standard cut as a 2 mm thick section, polished and mounted on a 45x25 mm petrographic slide for the laser half; solution half dissolved from weighed mineral" ;
                     schema1:name "Sample preparation" ;
@@ -2133,7 +2128,7 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Woods Hole Oceanographic Institution" ] ;
@@ -2161,7 +2156,6 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
     ada:finalSolutionMatrix "2% (w/w) HNO3, 50 ppm S stock" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "In-house S_Alfa and S_Spex 20 ppm S solutions, calibrated against IAEA-S-1, S-2, S-4 and NBS-123" ;
@@ -2408,7 +2402,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P2",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -2854,7 +2848,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     }
   ],
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:uncertaintyLevel": "missing",
@@ -2892,7 +2885,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P2",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -3338,7 +3331,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     }
   ],
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:uncertaintyLevel": "missing",
@@ -3364,17 +3356,6 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -3385,16 +3366,27 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
                             schema1:name "Iron meteorites: aqua regia (3:1 HCl-HNO3). Basalts: HF-HNO3 (2:1) followed by several steps of aqua regia. All converted to chloride and redissolved in 0.25 ml 10 M HCl" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
@@ -3421,7 +3413,6 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
     ada:finalSolutionMatrix "0.3 M HNO3 (measured at 10 µg/g Fe in 0.45 M HNO3); all sample and standard solutions \"prepared with the same 0.3 M HNO3 solution\"" ;
     ada:internalNormalizationElementAndIsotopeRatio "57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549, the certified ratios of IRMM-014" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "IRMM-524a" ;
@@ -3641,7 +3632,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P3",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -3724,17 +3715,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:name": "Sample digestion",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": "Two (\"These steps were performed twice\")"
-          },
-          {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -3743,7 +3723,8 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Hot plate, temperature not stated"
+            "schema:defaultValue": 160,
+            "schema:description": "160 deg C (hot plate)"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -3754,12 +3735,12 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "1 week per step, performed twice"
+            "schema:defaultValue": "2 weeks for the HF-HNO3-HClO4 step and 1 week for the HCl-HNO3 step, the pair performed twice"
           }
         ],
         "bios:reagent": [
           {
-            "schema:name": "\"redissolved in a 2:1 mixture of HCl:HNO3 for 1 week on a hot plate ... These steps were performed twice\"; dried and dissolved in concentrated HNO3, diluted in 3 M HNO3",
+            "schema:name": "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08.",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -3940,7 +3921,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -3977,7 +3957,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P3",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -4060,17 +4040,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:name": "Sample digestion",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": "Two (\"These steps were performed twice\")"
-          },
-          {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -4079,7 +4048,8 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Hot plate, temperature not stated"
+            "schema:defaultValue": 160,
+            "schema:description": "160 deg C (hot plate)"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -4090,12 +4060,12 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "1 week per step, performed twice"
+            "schema:defaultValue": "2 weeks for the HF-HNO3-HClO4 step and 1 week for the HCl-HNO3 step, the pair performed twice"
           }
         ],
         "bios:reagent": [
           {
-            "schema:name": "\"redissolved in a 2:1 mixture of HCl:HNO3 for 1 week on a hot plate ... These steps were performed twice\"; dried and dissolved in concentrated HNO3, diluted in 3 M HNO3",
+            "schema:name": "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08.",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -4276,7 +4246,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -4301,6 +4270,12 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -4310,27 +4285,20 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "\"redissolved in a 2:1 mixture of HCl:HNO3 for 1 week on a hot plate ... These steps were performed twice\"; dried and dissolved in concentrated HNO3, diluted in 3 M HNO3" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08." ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
@@ -4352,7 +4320,6 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     ada:finalSolutionMatrix "15–25 ppb for the most abundant isotope" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "OL-REE series" ;
@@ -4377,14 +4344,15 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "1 week per step, performed twice" ;
+    schema1:defaultValue "2 weeks for the HF-HNO3-HClO4 step and 1 week for the HCl-HNO3 step, the pair performed twice" ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Hot plate, temperature not stated" ;
+    schema1:defaultValue 160 ;
+    schema1:description "160 deg C (hot plate)" ;
     schema1:name "Digestion Temperature" ;
     schema1:valueName "digestionTemperatureDefault" ;
     ada:dataType "number" ;
@@ -4395,13 +4363,6 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     schema1:value "N/A — no added internal standard element" ;
     schema1:valueName "internalStandardConcentration" ;
     ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> a schema1:PropertyValueSpecification ;
-    schema1:name "Number of Digestion Steps" ;
-    schema1:value "Two (\"These steps were performed twice\")" ;
-    schema1:valueName "numberOfDigestionSteps" ;
-    ada:dataType "integer" ;
     ada:fieldScope "session" .
 
 <https://example.org/instrument/ICPMS> a schema1:Product,
@@ -4481,7 +4442,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — Tissot2020",
-  "schema:description": "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -4618,7 +4579,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Zircon 48 hours (U-Pb) and 60 hours (Zr isotopes)"
+            "schema:defaultValue": "48 h at 215 deg C in a Parr vessel. The 60 h previously recorded here is the chemical-abrasion ANNEALING at 900 deg C, not a digestion; the abrasion leach itself is 12 h."
           }
         ],
         "bios:reagent": [
@@ -4872,7 +4833,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
     }
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -4910,7 +4870,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 Tissot2020",
-  "schema:description": "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -5047,7 +5007,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Zircon 48 hours (U-Pb) and 60 hours (Zr isotopes)"
+            "schema:defaultValue": "48 h at 215 deg C in a Parr vessel. The 60 h previously recorded here is the chemical-abrasion ANNEALING at 900 deg C, not a digestion; the abrasion leach itself is 12 h."
           }
         ],
         "bios:reagent": [
@@ -5301,7 +5261,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
     }
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -5327,19 +5286,9 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -5353,12 +5302,22 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Massachusetts Institute of Technology" ] ;
@@ -5386,7 +5345,6 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
     ada:finalSolutionMatrix "0.59 M HNO3 + 0.28 M HF, samples and bracketing standards matched in matrix and at 60 ng/g total Zr" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "ZrNIST" ;
@@ -5441,7 +5399,7 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Zircon 48 hours (U-Pb) and 60 hours (Zr isotopes)" ;
+    schema1:defaultValue "48 h at 215 deg C in a Parr vessel. The 60 h previously recorded here is the chemical-abrasion ANNEALING at 900 deg C, not a digestion; the abrasion leach itself is 12 h." ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
@@ -5564,7 +5522,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — Dauphas2019",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -5668,17 +5626,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "30 ml fluoropolymer vessel"
-          },
-          {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": "Three"
           }
         ],
         "bios:reagent": [
@@ -5950,7 +5897,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:uncertaintyLevel": "missing",
@@ -5988,7 +5934,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 Dauphas2019",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -6092,17 +6038,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "30 ml fluoropolymer vessel"
-          },
-          {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": "Three"
           }
         ],
         "bios:reagent": [
@@ -6374,7 +6309,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:uncertaintyLevel": "missing",
@@ -6419,8 +6353,7 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
@@ -6429,7 +6362,7 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
@@ -6452,7 +6385,6 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
     ada:finalSolutionMatrix "0.3 M HNO3, ~15–25 ppb Rb" ;
     ada:internalNormalizationElementAndIsotopeRatio "N/A — Rb has two stable isotopes, so internal normalization is not possible; bracketing used instead" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST SRM984" ;
@@ -6524,13 +6456,6 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
     schema1:value "N/A — no added internal standard element" ;
     schema1:valueName "internalStandardConcentration" ;
     ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> a schema1:PropertyValueSpecification ;
-    schema1:name "Number of Digestion Steps" ;
-    schema1:value "Three" ;
-    schema1:valueName "numberOfDigestionSteps" ;
-    ada:dataType "integer" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
@@ -6639,7 +6564,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P6",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -6981,7 +6906,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -7018,7 +6942,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P6",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -7360,7 +7284,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -7385,14 +7308,6 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "N/A — reference material solutions, no solid preparation" ;
                     schema1:name "Sample preparation" ;
@@ -7406,13 +7321,21 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
                             schema1:name "N/A — reference material solutions in 3 or 5 mol/l Teflon-distilled HCl" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Arthur Holmes Isotope Geology Laboratory, Durham" ] ;
@@ -7435,7 +7358,6 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
     ada:finalSolutionMatrix "3 or 5 mol/l Teflon-distilled HCl" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "UMd, DTM, LOsST and DROsS Os reference materials" ;
@@ -7593,7 +7515,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P7",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -7935,7 +7857,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -7972,7 +7893,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P7",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -8314,7 +8235,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
@@ -8339,19 +8259,6 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "N/A — reference material solutions, no solid preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -8362,11 +8269,24 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "N/A — reference material solutions, no solid preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NERC Isotope Geosciences Laboratory (NIGL)" ] ;
@@ -8389,7 +8309,6 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
     ada:finalSolutionMatrix "3 mol/l Teflon-distilled HCl" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "DTM and LOsST" ;
@@ -8547,7 +8466,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — Moynier2017",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -8960,7 +8879,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -8998,7 +8916,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 Moynier2017",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -9411,7 +9329,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -9438,6 +9355,12 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -9457,18 +9380,12 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "\"a mixture of concentrated HF/HNO3\"; after evaporation \"6N HCl was added\" to dissolve fluoride complexes" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                            schema1:name "\"a mixture of concentrated HF/HNO3\"; after evaporation \"6N HCl was added\" to dissolve fluoride complexes" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut de Physique du Globe de Paris" ] ;
@@ -9491,7 +9408,6 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
     ada:finalSolutionMatrix "0.1N HNO3" ;
     ada:internalNormalizationElementAndIsotopeRatio "N/A — Rb has two stable isotopes; bracketing used instead" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST SRM984 RbCl; BCR-2 as an alternative bracketing standard in some sessions" ;
@@ -9697,7 +9613,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P9",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -9812,18 +9728,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "Octagonal-body Savillex vials; Parr bomb (Ivuna PB, BCR-2, AGV-1); hotplate (BHVO-2)"
-          },
-          {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": 3,
-            "schema:description": "Ivuna high PT: two (HF-HNO3 then HCl)"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -10096,7 +10000,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"
@@ -10133,7 +10036,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P9",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Sch\u00f6nb\u00e4chler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Sch\u00f6nb\u00e4chler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -10248,18 +10151,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "Octagonal-body Savillex vials; Parr bomb (Ivuna PB, BCR-2, AGV-1); hotplate (BHVO-2)"
-          },
-          {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": 3,
-            "schema:description": "Ivuna high PT: two (HF-HNO3 then HCl)"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -10532,7 +10423,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"
@@ -10566,15 +10456,10 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Concentrated HF-HNO3, then a HNO3-HCl mixture, then a HNO3-H2O2 mixture; Ivuna high PT: concentrated HF-HNO3 for 3 days then concentrated HCl for 2 days" ] ],
+                    schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -10582,14 +10467,18 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Concentrated HF-HNO3, then a HNO3-HCl mixture, then a HNO3-H2O2 mixture; Ivuna high PT: concentrated HF-HNO3 for 3 days then concentrated HCl for 2 days" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ETH Zurich; sample digestion and separation at Tokyo Institute of Technology" ] ;
@@ -10616,7 +10505,6 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
     ada:finalSolutionMatrix "0.5 M HNO3 - 0.005 M HF at 30 ppb Zr (also 17 and 60 ppb)" ;
     ada:internalNormalizationElementAndIsotopeRatio "94Zr/90Zr = 0.3381 (Minster & Ricard 1981)" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "Argide and Ar-Ar-oxide interferences on 94Zr and 96Zr minimised by tuning; no numeric threshold stated" ;
     ada:primaryStandardNameDefault "NIST SRM 3169" ;
@@ -10696,14 +10584,6 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
     schema1:value "PFA nebulizer with an Aridus II desolvating nebulizer system" ;
     schema1:valueName "nebulizerType" ;
     ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/numberOfDigestionSteps> a schema1:PropertyValueSpecification ;
-    schema1:description "Ivuna high PT: two (HF-HNO3 then HCl)" ;
-    schema1:name "Number of Digestion Steps" ;
-    schema1:value 3 ;
-    schema1:valueName "numberOfDigestionSteps" ;
-    ada:dataType "integer" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
@@ -10802,7 +10682,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P10",
-  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -10893,8 +10773,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 °C for the 10 M HCl Cr(VI) speciation step; 720 °C for the NaOH fusion"
+            "schema:defaultValue": 150,
+            "schema:description": "150 deg C for 1 day then 210 deg C for 2 days (Parr bomb); hotplate for the aqua regia step; 720 deg C for the NaOH fusion (Si route). The 130 deg C 10 M HCl step previously recorded here is Cr(VI) speciation during column chemistry, not a digestion."
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -10905,7 +10785,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "3 h (Cr(VI) speciation), >1 week at room temperature (Cr(III) speciation), 13 min (NaOH fusion)"
+            "schema:defaultValue": "3 days in the Parr bomb (1 + 2 days) then 2 days in aqua regia; 13 min for the NaOH fusion. The 3 h and >1 week previously recorded here are Cr speciation during column chemistry."
           }
         ],
         "bios:reagent": [
@@ -11180,7 +11060,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -11218,7 +11097,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P10",
-  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -11309,8 +11188,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 \u00b0C for the 10 M HCl Cr(VI) speciation step; 720 \u00b0C for the NaOH fusion"
+            "schema:defaultValue": 150,
+            "schema:description": "150 deg C for 1 day then 210 deg C for 2 days (Parr bomb); hotplate for the aqua regia step; 720 deg C for the NaOH fusion (Si route). The 130 deg C 10 M HCl step previously recorded here is Cr(VI) speciation during column chemistry, not a digestion."
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -11321,7 +11200,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "3 h (Cr(VI) speciation), >1 week at room temperature (Cr(III) speciation), 13 min (NaOH fusion)"
+            "schema:defaultValue": "3 days in the Parr bomb (1 + 2 days) then 2 days in aqua regia; 13 min for the NaOH fusion. The 3 h and >1 week previously recorded here are Cr speciation during column chemistry."
           }
         ],
         "bios:reagent": [
@@ -11596,7 +11475,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -11622,10 +11500,18 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Bulk powder; for the Si aliquot, NaOH fusion in silver crucibles" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Cr/Mg route: 6 M HCl loading, 10 M HCl pretreatment, 0.5 M HCl, 0.5 M HNO3, 1 M HF, 6 M HCl elutions; Si route: NaOH fusion then Milli-Q water and HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -11637,21 +11523,13 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Cr/Mg route: 6 M HCl loading, 10 M HCl pretreatment, 0.5 M HCl, 0.5 M HNO3, 1 M HF, 6 M HCl elutions; Si route: NaOH fusion then Milli-Q water and HNO3" ] ] ] ;
+                    schema1:description "Bulk powder; for the Si aliquot, NaOH fusion in silver crucibles" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen" ] ;
@@ -11677,7 +11555,6 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     ada:finalSolutionMatrix "0.5 M HNO3 (Cr); 6 M HCl elution of the final Cr cut" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "IRMM-014, SRM979, DTS-2b" ;
@@ -11738,15 +11615,15 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "3 h (Cr(VI) speciation), >1 week at room temperature (Cr(III) speciation), 13 min (NaOH fusion)" ;
+    schema1:defaultValue "3 days in the Parr bomb (1 + 2 days) then 2 days in aqua regia; 13 min for the NaOH fusion. The 3 h and >1 week previously recorded here are Cr speciation during column chemistry." ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 130 ;
-    schema1:description "130 °C for the 10 M HCl Cr(VI) speciation step; 720 °C for the NaOH fusion" ;
+    schema1:defaultValue 150 ;
+    schema1:description "150 deg C for 1 day then 210 deg C for 2 days (Parr bomb); hotplate for the aqua regia step; 720 deg C for the NaOH fusion (Si route). The 130 deg C 10 M HCl step previously recorded here is Cr(VI) speciation during column chemistry, not a digestion." ;
     schema1:name "Digestion Temperature" ;
     schema1:valueName "digestionTemperatureDefault" ;
     ada:dataType "number" ;
@@ -11849,7 +11726,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P11",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -11940,8 +11817,8 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 70,
-            "schema:description": "70 °C for the HCl step; 140 °C for the HF/HNO3 mixture"
+            "schema:defaultValue": 150,
+            "schema:description": "150 deg C (hotplate). The 70 and 140 deg C previously recorded here belong to the carbonate-removal pre-treatment and to the cosmogenic-radionuclide dissolution, which are different preparations in the same paper."
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -11952,7 +11829,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "20 h for the HF/HNO3 step"
+            "schema:defaultValue": "About 1 week for the HF-HNO3 step. The 20 h previously recorded here is the cosmogenic-radionuclide dissolution, a different preparation."
           }
         ],
         "@type": [
@@ -12181,7 +12058,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -12220,7 +12096,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P11",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -12311,8 +12187,8 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 70,
-            "schema:description": "70 \u00b0C for the HCl step; 140 \u00b0C for the HF/HNO3 mixture"
+            "schema:defaultValue": 150,
+            "schema:description": "150 deg C (hotplate). The 70 and 140 deg C previously recorded here belong to the carbonate-removal pre-treatment and to the cosmogenic-radionuclide dissolution, which are different preparations in the same paper."
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -12323,7 +12199,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "20 h for the HF/HNO3 step"
+            "schema:defaultValue": "About 1 week for the HF-HNO3 step. The 20 h previously recorded here is the cosmogenic-radionuclide dissolution, a different preparation."
           }
         ],
         "@type": [
@@ -12552,7 +12428,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:samplingUnit": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -12579,18 +12454,6 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -12602,11 +12465,23 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
@@ -12633,7 +12508,6 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
     ada:finalSolutionMatrix "300 ppb K solution" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST SRM 3141a" ;
@@ -12673,15 +12547,15 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "20 h for the HF/HNO3 step" ;
+    schema1:defaultValue "About 1 week for the HF-HNO3 step. The 20 h previously recorded here is the cosmogenic-radionuclide dissolution, a different preparation." ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 70 ;
-    schema1:description "70 °C for the HCl step; 140 °C for the HF/HNO3 mixture" ;
+    schema1:defaultValue 150 ;
+    schema1:description "150 deg C (hotplate). The 70 and 140 deg C previously recorded here belong to the carbonate-removal pre-treatment and to the cosmogenic-radionuclide dissolution, which are different preparations in the same paper." ;
     schema1:name "Digestion Temperature" ;
     schema1:valueName "digestionTemperatureDefault" ;
     ada:dataType "number" ;
@@ -12780,7 +12654,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P12",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -13133,7 +13007,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -13171,7 +13044,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P12",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -13524,7 +13397,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
@@ -13550,6 +13422,17 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -13564,22 +13447,11 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
@@ -13605,7 +13477,6 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
     ada:finalSolutionMatrix "200 ppb for K and Zn; 100 ppb for Cu" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST-SRM 3141a, NIST-SRM 976, JMC-Lyon" ;
@@ -13760,7 +13631,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P13",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -13826,7 +13697,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "\"Titanium isotopes were collected in two cup configurations\"",
+          "schema:description": "Two cup configurations: (1) ⁴⁶Ti–⁵⁰Ti and ⁴⁴Ca; (2) ⁴⁹Ti, ⁵⁰Ti, ⁵¹V, ⁵²Cr, ⁵³Cr — \"Titanium isotopes were collected in two cup configurations\" (p.8). Cup positions are not stated",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -14031,7 +13902,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "ε50Ti"
+    "ε46Ti, ε48Ti and ε50Ti (parts per 10^4) relative to an in-house Alfa Aesar Ti wire standard, εiTi = [(iTi/47Ti)sample/(iTi/47Ti)standard − 1] × 10^4, \"where i refers to the isotope masses 46Ti, 48Ti and 50Ti\" (p.8)"
   ],
   "ada:chromatographicSeparationApplied": "Yes — three-step anion exchange chromatography; yields 75–100%",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -14048,7 +13919,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -14087,7 +13957,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P13",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -14153,7 +14023,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "\"Titanium isotopes were collected in two cup configurations\"",
+          "schema:description": "Two cup configurations: (1) \u2074\u2076Ti\u2013\u2075\u2070Ti and \u2074\u2074Ca; (2) \u2074\u2079Ti, \u2075\u2070Ti, \u2075\u00b9V, \u2075\u00b2Cr, \u2075\u00b3Cr \u2014 \"Titanium isotopes were collected in two cup configurations\" (p.8). Cup positions are not stated",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -14358,7 +14228,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "\u03b550Ti"
+    "\u03b546Ti, \u03b548Ti and \u03b550Ti (parts per 10^4) relative to an in-house Alfa Aesar Ti wire standard, \u03b5iTi = [(iTi/47Ti)sample/(iTi/47Ti)standard \u2212 1] \u00d7 10^4, \"where i refers to the isotope masses 46Ti, 48Ti and 50Ti\" (p.8)"
   ],
   "ada:chromatographicSeparationApplied": "Yes \u2014 three-step anion exchange chromatography; yields 75\u2013100%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
@@ -14375,7 +14245,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -14402,12 +14271,6 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -14424,10 +14287,16 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Coordinated dissolution shared with the WUSTL split — see the WUSTL column" ] ] ] ;
+                            schema1:name "Coordinated dissolution shared with the WUSTL split — see the WUSTL column" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v67.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geochemistry and Petrology, ETH Zurich" ] ;
@@ -14454,11 +14323,10 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
     ada:finalSolutionMatrix "missing" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "missing" ;
-    ada:reportedProperties "ε50Ti" ;
+    ada:reportedProperties "ε46Ti, ε48Ti and ε50Ti (parts per 10^4) relative to an in-house Alfa Aesar Ti wire standard, εiTi = [(iTi/47Ti)sample/(iTi/47Ti)standard − 1] × 10^4, \"where i refers to the isotope masses 46Ti, 48Ti and 50Ti\" (p.8)" ;
     ada:samplingUnit "A 5.2 mg aliquot of Bennu aggregate" ;
     ada:signalIntegrationIntervalMethod "missing" ;
     ada:uncertaintyLevel "2 s.d." ;
@@ -14513,7 +14381,7 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
-    schema1:description "\"Titanium isotopes were collected in two cup configurations\"" ;
+    schema1:description "Two cup configurations: (1) ⁴⁶Ti–⁵⁰Ti and ⁴⁴Ca; (2) ⁴⁹Ti, ⁵⁰Ti, ⁵¹V, ⁵²Cr, ⁵³Cr — \"Titanium isotopes were collected in two cup configurations\" (p.8). Cup positions are not stated" ;
     schema1:name "missing" .
 
 <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
@@ -14555,7 +14423,7 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)
 description: Solution multi-collector ICP-MS extension of the base TAPP definition,
-  generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v67.csv via the path-driven
+  generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v79.csv via the path-driven
   pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -14563,7 +14431,6 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -14654,16 +14521,11 @@ allOf:
                     items:
                       anyOf:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionTemperature
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionDuration
                     allOf:
                     - contains:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -15022,26 +14884,26 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - title: Per-Analyte Calibration Strategy
+            - title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -15093,26 +14955,26 @@ allOf:
               - schema:defaultValue
           allOf:
           - contains:
-              title: Per-Analyte Calibration Strategy
+              title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different analytes
-                or analyte groups within one procedure are calibrated differently
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
                 - different primary standards for different mass ranges or phases,
                 or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all analytes, record
-                that strategy. Where the procedure reports isotope ratios only and
-                no concentrations, record 'Not applicable (isotope ratios only)'.
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -15285,7 +15147,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte
+              description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
                 in the procedure are recorded in Mass Resolution Setting (Group 3).
@@ -15440,7 +15302,7 @@ allOf:
             maxContains: 1
           - contains:
               title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte
+              description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
                 in the procedure are recorded in Mass Resolution Setting (Group 3).

@@ -7,6 +7,95 @@ Detail block for VLM hasPart items, carrying the analysis-identification propert
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=10 | Haenecour, Pierre | University of Arizona | (UAZ)Keyence VHX-7000 Digital Microscope.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:VLMImage"
+  ],
+  "ada:componentType": "ada:VLMImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vlmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240320_vlm_uaz_orex-501085-0_1",
+  "ada:analyst": "Haenecour, Pierre",
+  "ada:analysisStartDate": "2023-11-15",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-501085-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VLM/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:VLMImage"
+  ],
+  "ada:componentType": "ada:VLMImage",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:vlmTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240320_vlm_uaz_orex-501085-0_1",
+  "ada:analyst": "Haenecour, Pierre",
+  "ada:analysisStartDate": "2023-11-15",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-501085-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:VLMImage ;
+    schema1:measurementTechnique <ex:vlmTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2023-11-15" ;
+    ada:analyst "Haenecour, Pierre" ;
+    ada:componentType "ada:VLMImage" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-501085-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240320_vlm_uaz_orex-501085-0_1" .
+
+<ex:vlmTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

@@ -7,6 +7,95 @@ Detail block for IC hasPart items, carrying the analysis-identification properti
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space Center | DIONEX Integrion IC.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:ICTabular"
+  ],
+  "ada:componentType": "ada:ICTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:icTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240215_ic_jsc-ares_orex-803001-111_1",
+  "ada:analyst": "Peretyazhko, Tanya",
+  "ada:analysisStartDate": "2024-03-19",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-803001-111",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/IC/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:ICTabular"
+  ],
+  "ada:componentType": "ada:ICTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:icTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240215_ic_jsc-ares_orex-803001-111_1",
+  "ada:analyst": "Peretyazhko, Tanya",
+  "ada:analysisStartDate": "2024-03-19",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-803001-111",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:ICTabular ;
+    schema1:measurementTechnique <ex:icTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-03-19" ;
+    ada:analyst "Peretyazhko, Tanya" ;
+    ada:componentType "ada:ICTabular" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-803001-111" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240215_ic_jsc-ares_orex-803001-111_1" .
+
+<ex:icTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

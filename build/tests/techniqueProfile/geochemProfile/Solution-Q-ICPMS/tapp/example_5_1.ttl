@@ -22,16 +22,16 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                             schema1:name "0.5 mol/l HF (stated section 2.1.1)" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -96,7 +96,6 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     ada:driftCorrectionMethod "Standard bracketing" ;
     ada:finalSolutionMatrix "0.5 mol/l HF (stated section 2.1.1)" ;
     ada:internalStandardElement "None (ID-IS method: spike isotope ratios used; stated section 2.1)" ;
-    ada:ionCounterDeadTimeDefault -9999 ;
     ada:isotopeDilutionSpike "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)" ;
     ada:massCyclesPerReplicate "48 scans per 30 s acquisition (stated section 2.1.1)" ;
     ada:numberOfReplicatesPerSample -9999 ;
@@ -229,6 +228,13 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:name "Detector Configuration" ;
+    schema1:value "Dual mode: pulse counting + analog (crossover ~10^6 cps; stated section 2.1.1)" ;
+    schema1:valueName "detectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
     schema1:name "Desolvation System" ;
     schema1:value "None" ;
@@ -278,7 +284,7 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectorConfiguration> ;
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
@@ -330,9 +336,4 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "Quartz glass torch with Pt injector (stated Table in section 2.1.1)" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/detectorConfiguration> ;
-    schema1:value "Dual mode: pulse counting + analog (crossover ~10^6 cps; stated section 2.1.1)" .
 

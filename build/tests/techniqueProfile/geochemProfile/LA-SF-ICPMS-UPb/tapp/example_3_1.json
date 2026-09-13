@@ -109,12 +109,12 @@
             "schema:defaultValue": "Manual inspection; analyses with elevated P, Ca, Co, Ni (phosphate or metal inclusions) excluded; Cr heterogeneities also flagged"
           },
           {
-            "@id": "ada:parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: Run 1 medium resolution with Faraday for major elements; Run 2 low resolution; cross-calibration performed"
@@ -257,16 +257,14 @@
           "schema:defaultValue": "Run 1: Medium resolution (M/\u0394M = 4000) for major elements; Run 2: Low resolution (M/\u0394M = 300) for trace elements"
         },
         {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laSficpmsUPbTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Triple mode detection; Faraday used for major elements in run 1"
         },
         {
@@ -360,17 +358,6 @@
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.947,
       "schema:description": "Ar make-up: 0.947 l min\u207b\u00b9 (run 1 and run 2); N\u2082 not added"
-    },
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Three-stage sequential design on same olivine location: (1) Pre-ablation pass (2 J cm\u207b\u00b2, 150 \u00b5m square, 300 \u00b5m s\u207b\u00b9) to remove surface contamination; (2) Run 1 \u2014 major elements (30 \u00b5m circular, MR M/\u0394M=4000, 20 Hz, 7 nuclides); (3) Run 2 \u2014 trace elements (130 \u00b5m circular, LR M/\u0394M=300, 40 Hz, 36 nuclides; Cr from run 1 as IS)"
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.19 l min\u207b\u00b9; MFC-2 0.22 l min\u207b\u00b9",
@@ -441,7 +428,6 @@
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ageModelDefault": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massResolutionAssignment": "missing",
   "ada:massesMeasuredDefault": "missing",

@@ -229,14 +229,7 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ],
-      "ada:proceduralBlankLevel": "missing",
-      "schema:actionProcess": {
-        "@type": [
-          "schema:HowTo"
-        ]
-      },
-      "schema:endDate": "missing"
+      ]
     }
   ],
   "schema:variableMeasured": [
@@ -295,8 +288,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -313,8 +305,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -331,8 +322,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -349,8 +339,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -367,8 +356,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": -9999
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -854,14 +842,7 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ],
-      "ada:proceduralBlankLevel": "missing",
-      "schema:actionProcess": {
-        "@type": [
-          "schema:HowTo"
-        ]
-      },
-      "schema:endDate": "missing"
+      ]
     }
   ],
   "schema:variableMeasured": [
@@ -920,8 +901,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -938,8 +918,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -956,8 +935,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -974,8 +952,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -992,8 +969,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": -9999
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -1339,16 +1315,14 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "example peakFlatness" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "example goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "example peakFlatness" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "example oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
-            schema1:actionProcess [ a schema1:HowTo ] ;
-            schema1:endDate "missing" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
@@ -1361,8 +1335,7 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
-            ada:proceduralBlankLevel "missing" ] ;
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
     ada:reportedDateType "Weighted mean 206Pb/238U" ;
     ada:sensitivityYield 1e+00 ;
     ada:spotDiameterMeasured 1e+00 .
@@ -1443,8 +1416,6 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
         "measurement_value" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/ada_primary" ;
     schema1:unitText "counts" ;
-    schema1:value -9999,
-        "missing" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 ex:adaProduct-var-002 a cdi:InstanceVariable,
@@ -1526,40 +1497,6 @@ allOf:
         - Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed
         - Multi-Collector Inductively Coupled Plasma Mass Spectrometry
         - Laser Ablation Inductively Coupled Plasma Mass Spectrometry
-    schema:distribution:
-      description: Each distribution item is EITHER a monolithic single-file dataset
-        whose ada:componentType is a LAMCICPMSUPB-specific or universal value (and
-        may carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each
-        carry such a componentType (the ADA/SAMIS archive form).
-      type: array
-      items:
-        anyOf:
-        - type: object
-          required:
-          - ada:componentType
-          properties:
-            ada:componentType:
-              type: string
-              anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType
-              - enum:
-                - ada:LAICPMSGeochronTabular
-        - type: object
-          required:
-          - schema:hasPart
-          properties:
-            schema:hasPart:
-              items:
-                type: object
-                anyOf:
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
-                - properties:
-                    ada:componentType:
-                      type: string
-                      enum:
-                      - ada:LAICPMSGeochronTabular
-                  required:
-                  - ada:componentType
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

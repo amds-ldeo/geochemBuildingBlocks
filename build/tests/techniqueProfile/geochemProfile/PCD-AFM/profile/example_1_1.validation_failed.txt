@@ -1,0 +1,401 @@
+Validation report for ogch.techniqueProfile.geochemProfile.PCD-AFM.profile - ADA PCD-AFM Product Profile
+Generated 2026-09-13T17:07:23.156055+00:00
+=== Files ===
+Using exampleadaPCDAFM.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'schema:endDate' is a required property
+
+Failed validating 'required' in schema['allOf'][1]['allOf'][0]['properties']['prov:wasGeneratedBy']['items']:
+    {'properties': {'prov:used': {'items': {'allOf': [{'if': {'required': ['bios:computationalTool']},
+                                                       'then': {'properties': {'bios:computationalTool': {'items': {'allOf': [{'$ref': 'https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool'},
+                                                                                                                              {'allOf': [{'if': {'properties': {'ada:toolRole': {'const': 'acquisition'}},
+                                                                                                                                                 'required': ['ada:toolRole']},
+                                                                                                                                          'then': {'properties': {'schema:name': {'anyOf': [{'type': 'string'},
+                                                                                                                                                                                            {'items': {'type': 'string'},
+                                                                                                                                                                                             'type': 'array'}],
+                                                                                                                                                                                  'description': 'Instrument '
+                                                                                                                                                                                                 'control, '
+                                                                                                                                                                                                 'automation '
+                                                                                                                                                                                                 'and '
+                                                                                                                                                                                                 'data '
+                                                                                                                                                                                                 'acquisition '
+                                                                                                                                                                                                 'software '
+                                                                                                                                                                                                 'used '
+                                                                                                                                                                                                 'to '
+                                                                                                                                                                                                 'collect '
+                                                                                                                                                                                                 'the '
+                                                                                                                                                                                                 'raw '
+                                                                                                                                                                                                 'data, '
+                                                                                                                                                                                                 'including '
+                                                                                                                                                                                                 'version '
+                                                                                                                                                                                                 'number. '
+                                                                                                                                                                                                 'Distinct '
+                                                                                                                                                                                                 'from '
+                                                                                                                                                                                                 'Data '
+                                                                                                                                                                                                 'Processing '
+                                                                                                                                                                                                 'Software(s), '
+                                                                                                                                                                                                 'which '
+                                                                                                                                                                                                 'covers '
+                                                                                                                                                                                                 'everything '
+                                                                                                                                                                                                 'applied '
+                                                                                                                                                                                                 'to '
+                                                                                                                                                                                                 'the '
+                                                                                                                                                                                                 'data '
+                                                                                                                                                                                                 'after '
+                                                                                                                                                                                                 'acquisition.',
+                                                                                                                                                                                  'x-jsonld-id': 'http://schema.org/name'}}}},
+                                                                                                                                         {'if': {'properties': {'ada:toolRole': {'const': 'dataReduction'}},
+                                                                                                                                                 'required': ['ada:toolRole']},
+                                                                                                                                          'then': {'properties': {'schema:name': {'anyOf': [{'type': 'string'},
+                                                                                                                                                                                            {'items': {'type': 'string'},
+                                                                                                                                                                                             'type': 'array'}],
+                                                                                                                                                                                  'description': 'All '
+                                                                                                                                                                                                 'software '
+                                                                                                                                                                                                 'applied '
+                                                                                                                                                                                                 'to '
+                                                                                                                                                                                                 'the '
+                                                                                                                                                                                                 'data '
+                                                                                                                                                                                                 'after '
+                                                                                                                                                                                                 'acquisition '
+                                                                                                                                                                                                 'in '
+                                                                                                                                                                                                 'order '
+                                                                                                                                                                                                 'to '
+                                                                                                                                                                                                 'produce '
+                                                                                                                                                                                                 'the '
+                                                                                                                                                                                                 'reported '
+                                                                                                                                                                                                 'quantities, '
+                                                                                                                                                                                                 'including '
+                                                                                                                                                                                                 'version '
+                                                                                                                                                                                                 'numbers. '
+                                                                                                                                                                                                 'List '
+                                                                                                                                                                                                 'every '
+                                                                                                                                                                                                 'package '
+                                                                                                                                                                                                 'used. '
+                                                                                                                                                                                                 'Distinct '
+                                                                                                                                                                                                 'from '
+                                                                                                                                                                                                 'Acquisition '
+                                                                                                                                                                                                 'Software, '
+                                                                                                                                                                                                 'which '
+                                                                                                                                                                                                 'controls '
+                                                                                                                                                                                                 'the '
+                                                                                                                                                                                                 'instrument '
+                                                                                                                                                                                                 'and '
+                                                                                                                                                                                                 'collects '
+                                                                                                                                                                                                 'the '
+                                                                                                                                                                                                 'raw '
+                                                                                                                                                                                                 'data.',
+                                                                                                                                                                                  'x-jsonld-id': 'http://schema.org/name'}}}}],
+                                                                                                                               'required': ['ada:toolRole'],
+                                                                                                                               'type': 'object'}]},
+                                                                                                          'type': 'array',
+                                                                                                          'x-jsonld-id': 'https://bioschemas.org/computationalTool'}}}}],
+                                            'type': 'object'},
+                                  'type': 'array',
+                                  'x-jsonld-id': 'http://www.w3.org/ns/prov#used'},
+                    'schema:actionProcess': {'properties': {'schema:step': {'items': {'allOf': [{'if': {'properties': {'schema:name': {'const': 'Sample '
+                                                                                                                                                'preparation'}},
+                                                                                                        'required': ['schema:name']},
+                                                                                                 'then': {'properties': {'schema:description': {'anyOf': [{'type': 'string'},
+                                                                                                                                                          {'items': {'type': 'string'},
+                                                                                                                                                           'type': 'array'}],
+                                                                                                                                                'description': 'The '
+                                                                                                                                                               'form '
+                                                                                                                                                               'in '
+                                                                                                                                                               'which '
+                                                                                                                                                               'the '
+                                                                                                                                                               'sample '
+                                                                                                                                                               'is '
+                                                                                                                                                               'presented '
+                                                                                                                                                               'to '
+                                                                                                                                                               'the '
+                                                                                                                                                               'instrument, '
+                                                                                                                                                               'and '
+                                                                                                                                                               'the '
+                                                                                                                                                               'preparation '
+                                                                                                                                                               'that '
+                                                                                                                                                               'brought '
+                                                                                                                                                               'it '
+                                                                                                                                                               'to '
+                                                                                                                                                               'that '
+                                                                                                                                                               'form '
+                                                                                                                                                               '— '
+                                                                                                                                                               'for '
+                                                                                                                                                               'example '
+                                                                                                                                                               'mounting, '
+                                                                                                                                                               'sectioning, '
+                                                                                                                                                               'polishing, '
+                                                                                                                                                               'coating, '
+                                                                                                                                                               'crushing, '
+                                                                                                                                                               'fusion, '
+                                                                                                                                                               'or '
+                                                                                                                                                               'extraction '
+                                                                                                                                                               'of '
+                                                                                                                                                               'an '
+                                                                                                                                                               'electron-transparent '
+                                                                                                                                                               'section. '
+                                                                                                                                                               'Record '
+                                                                                                                                                               "'None' "
+                                                                                                                                                               'where '
+                                                                                                                                                               'the '
+                                                                                                                                                               'material '
+                                                                                                                                                               'is '
+                                                                                                                                                               'analysed '
+                                                                                                                                                               'as '
+                                                                                                                                                               'received.',
+                                                                                                                                                'x-jsonld-id': 'http://schema.org/description'}}}}],
+                                                                                      'type': 'object'},
+                                                                            'type': 'array',
+                                                                            'x-jsonld-id': 'http://schema.org/step'}},
+                                             'type': 'object',
+                                             'x-jsonld-id': 'http://schema.org/actionProcess'},
+                    'schema:description': {'description': 'Any procedure- '
+                                                          'or '
+                                                          'analysis-specific '
+                                                          'information not '
+                                                          'captured by a '
+                                                          'structured '
+                                                          'field anywhere '
+                                                          'in this TAPP — '
+                                                          'including '
+                                                          'anomalies, '
+                                                          'deviations from '
+                                                          'the registered '
+                                                          'procedure, '
+                                                          'instrument '
+                                                          'modifications, '
+                                                          'and '
+                                                          'supplementary '
+                                                          'context. Scope '
+                                                          'is the whole '
+                                                          'document, not '
+                                                          'Group 6: this '
+                                                          'is the last '
+                                                          'field of the '
+                                                          'TAPP and covers '
+                                                          'all six groups. '
+                                                          'Use sparingly; '
+                                                          'a structured '
+                                                          'field is '
+                                                          'preferred for '
+                                                          'anything that '
+                                                          'can be formally '
+                                                          'categorised.',
+                                           'type': 'string',
+                                           'x-jsonld-id': 'http://schema.org/description'},
+                    'schema:endDate': {'description': 'Date on which the '
+                                                      'analytical session '
+                                                      'ended. May equal '
+                                                      'Analysis Start Date '
+                                                      'for single-day '
+                                                      'sessions. Format: '
+                                                      'YYYY-MM-DD.',
+                                       'type': 'string',
+                                       'x-jsonld-id': 'http://schema.org/endDate'},
+                    'schema:identifier': {'description': 'Identifier for '
+                                                         'the analytical '
+                                                         'session this '
+                                                         'record describes '
+                                                         '— the '
+                                                         "laboratory's own "
+                                                         'run, sequence or '
+                                                         'batch identifier '
+                                                         'as generated by '
+                                                         'the instrument '
+                                                         'or acquisition '
+                                                         'software. '
+                                                         'Distinct from '
+                                                         'any persistent '
+                                                         'identifier a '
+                                                         'repository mints '
+                                                         'on submission.',
+                                          'type': 'string',
+                                          'x-jsonld-id': 'http://schema.org/identifier'},
+                    'schema:location': {'properties': {'schema:identifier': {'description': 'Persistent '
+                                                                                            'identifier '
+                                                                                            'for '
+                                                                                            'the '
+                                                                                            'laboratory '
+                                                                                            '(e.g., '
+                                                                                            'ROR '
+                                                                                            'ID).',
+                                                                             'type': 'string',
+                                                                             'x-jsonld-id': 'http://schema.org/identifier'},
+                                                       'schema:name': {'description': 'Name '
+                                                                                      'of '
+                                                                                      'the '
+                                                                                      'laboratory '
+                                                                                      'or '
+                                                                                      'institution '
+                                                                                      'hosting '
+                                                                                      'the '
+                                                                                      'instrument.',
+                                                                       'type': 'string',
+                                                                       'x-jsonld-id': 'http://schema.org/name'}},
+                                        'type': 'object',
+                                        'x-jsonld-id': 'http://schema.org/location'},
+                    'schema:object': {'allOf': [{'contains': {'properties': {'@type': {'contains': {'const': 'https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'}}},
+                                                              'required': ['@type']}}],
+                                      'items': {'allOf': [{'if': {'properties': {'@type': {'contains': {'const': 'https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'}}},
+                                                                  'required': ['@type']},
+                                                           'then': {'properties': {'schema:identifier': {'anyOf': [{'type': 'string'},
+                                                                                                                   {'items': {'type': 'string'},
+                                                                                                                    'type': 'array'}],
+                                                                                                         'description': 'Globally '
+                                                                                                                        'unique, '
+                                                                                                                        'persistent '
+                                                                                                                        'identifier '
+                                                                                                                        'for '
+                                                                                                                        'each '
+                                                                                                                        'sample '
+                                                                                                                        'listed '
+                                                                                                                        'in '
+                                                                                                                        'Sample '
+                                                                                                                        'Name. '
+                                                                                                                        'IGSN '
+                                                                                                                        '(International '
+                                                                                                                        'Geo '
+                                                                                                                        'Sample '
+                                                                                                                        'Number) '
+                                                                                                                        'is '
+                                                                                                                        'the '
+                                                                                                                        'recommended '
+                                                                                                                        'standard '
+                                                                                                                        'for '
+                                                                                                                        'geological '
+                                                                                                                        'and '
+                                                                                                                        'cosmochemical '
+                                                                                                                        'samples, '
+                                                                                                                        'as '
+                                                                                                                        'used '
+                                                                                                                        'by '
+                                                                                                                        'Astromat, '
+                                                                                                                        'EarthChem '
+                                                                                                                        'and '
+                                                                                                                        'SESAR. '
+                                                                                                                        'Where '
+                                                                                                                        'a '
+                                                                                                                        'sample '
+                                                                                                                        'and '
+                                                                                                                        'its '
+                                                                                                                        'sub-samples '
+                                                                                                                        'are '
+                                                                                                                        'separately '
+                                                                                                                        'registered, '
+                                                                                                                        'record '
+                                                                                                                        'the '
+                                                                                                                        'identifier '
+                                                                                                                        'at '
+                                                                                                                        'the '
+                                                                                                                        'level '
+                                                                                                                        'actually '
+                                                                                                                        'analysed.',
+                                                                                                         'x-jsonld-id': 'http://schema.org/identifier'},
+                                                                                   'schema:name': {'anyOf': [{'type': 'string'},
+                                                                                                             {'items': {'type': 'string'},
+                                                                                                              'type': 'array'}],
+                                                                                                   'description': 'Name '
+                                                                                                                  'or '
+                                                                                                                  'identifier '
+                                                                                                                  'of '
+                                                                                                                  'each '
+                                                                                                                  'sample '
+                                                                                                                  'analysed '
+                                                                                                                  'in '
+                                                                                                                  'this '
+                                                                                                                  'session, '
+                                                                                                                  'as '
+                                                                                                                  'used '
+                                                                                                                  'in '
+                                                                                                                  'the '
+                                                                                                                  'laboratory '
+                                                                                                                  '— '
+                                                                                                                  'a '
+                                                                                                                  'sample '
+                                                                                                                  'mount, '
+                                                                                                                  'section '
+                                                                                                                  'or '
+                                                                                                                  'aliquot '
+                                                                                                                  'counts '
+                                                                                                                  'as '
+                                                                                                                  'one '
+                                                                                                                  'entry '
+                                                                                                                  'where '
+                                                                                                                  'that '
+                                                                                                                  'is '
+                                                                                                                  'what '
+                                                                                                                  'the '
+                                                                                                                  'laboratory '
+                                                                                                                  'tracks. '
+                                                                                                                  'Should '
+                                                                                                                  'match '
+                                                                                                                  'the '
+                                                                                                                  'identifier '
+                                                                                                                  'used '
+                                                                                                                  'in '
+                                                                                                                  'associated '
+                                                                                                                  'publications '
+                                                                                                                  'or '
+                                                                                                                  'data '
+                                                                                                                  'tables.',
+                                                                                                   'x-jsonld-id': 'http://schema.org/name'}},
+                                                                    'required': ['schema:name']}}],
+                                                'type': 'object'},
+                                      'type': 'array',
+                                      'x-jsonld-id': 'http://schema.org/object'},
+                    'schema:startDate': {'description': 'Date on which the '
+                                                        'analytical '
+                                                        'session began. '
+                                                        'For sessions '
+                                                        'spanning multiple '
+                                                        'days, use the '
+                                                        'date of the first '
+                                                        'session. Format: '
+                                                        'YYYY-MM-DD.',
+                                         'type': 'string',
+                                         'x-jsonld-id': 'http://schema.org/startDate'}},
+     'required': ['schema:endDate',
+                  'schema:identifier',
+                  'schema:startDate'],
+     'type': 'object'}
+
+On instance['prov:wasGeneratedBy'][0]:
+    {'@type': ['prov:Activity', 'schema:Action'],
+     'prov:used': [{'schema:instrument': [{'@id': 'ex:instrument/nxs-BaseClass-NXinstrument',
+                                           '@type': ['schema:Thing',
+                                                     'schema:Product'],
+                                           'schema:additionalType': [{'@id': 'nxs:base_classes/NXinstrument.html'},
+                                                                     'ada:ADAInstrument',
+                                                                     {'@id': 'https://www.wikidata.org/wiki/Q3099911'}],
+                                           'schema:identifier': ['ex:instrument-ada-001'],
+                                           'schema:name': 'Example ADA '
+                                                          'Instrument'}]}],
+     'schema:identifier': 'session-ada-20260110-001',
+     'schema:location': {'@type': ['schema:Place'],
+                         'schema:additionalType': [{'@id': 'nxs:base_classes/NXsource.html'}],
+                         'schema:identifier': 'https://ror.org/00hx57361',
+                         'schema:name': 'Analytical Sciences Laboratory'},
+     'schema:object': [{'@type': ['schema:Thing',
+                                  'https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'],
+                        'schema:additionalType': ['MaterialSample'],
+                        'schema:description': 'Thin section of Allan Hills '
+                                              '84001 martian meteorite',
+                        'schema:identifier': ['igsn:10.60471/GSEEXAMPLE001'],
+                        'schema:name': 'ALH 84001,123'}],
+     'schema:startDate': '2026-01-10T09:30:00'}
+=== End JSON Schema ===
+
+=== SHACL ===
+
+** Validation error **
+Error processing _sources/BaseSchema/modules/core/rules.shacl: at line 45 of <>:
+Bad syntax (Prefix "bios:" not bound) at ^ in:
+"...b'the procedure." ;\n    ] ;\n    sh:property [\n        sh:path '^b'bios:computationalTool ;\n        sh:minCount 1 ;\n        sh:'..."
+=== End SHACL ===
+

@@ -108,12 +108,12 @@
             "schema:defaultValue": "Homogeneity index (H) applied to test element distribution; Co, Ni, Cu in high-Si glass (GSR-1) identified as near-LOD and flagged; flux blank contributions to pollution elements subtracted"
           },
           {
-            "@id": "ada:parameter/laQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: dual detector mode (30 ms / 10 ms dwell alternation)"
@@ -161,16 +161,14 @@
           "schema:defaultValue": "Unit resolution (quadrupole; ICP-MS/MS mode not specified)"
         },
         {
-          "@id": "ada:parameter/laQicpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laQicpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Dual mode detector (30 ms / 10 ms dwell alternation)"
         },
         {
@@ -328,19 +326,6 @@
   "ada:carrierGasFlowRateDefault": "He: 0.7 l min\u207b\u00b9 (chamber) + 0.1 l min\u207b\u00b9 (cup gas)",
   "ada:analysisSequenceDefault": "Gas blank (25 s) \u2192 ablation (45 s) \u2192 washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
   "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot per location (45 s ablation at 1 Hz)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -406,7 +391,6 @@
   "ada:primaryStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",

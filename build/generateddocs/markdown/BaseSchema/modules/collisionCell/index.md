@@ -421,8 +421,8 @@ $defs:
   Param_Analysis_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
-      between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      between target species ions and low-energy polyatomic interferences in KED mode,
+      in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
       Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:
@@ -456,8 +456,8 @@ $defs:
   Param_Procedure_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
-      between analyte ions and low-energy polyatomic interferences in KED mode, in
-      volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
+      between target species ions and low-energy polyatomic interferences in KED mode,
+      in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction
       Cell (CRC) Configuration does not include KED or the instrument has no cell.
     type: object
     properties:

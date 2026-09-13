@@ -25,9 +25,6 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.json#/$defs/ProcedureIdentification"
     },
     {
-      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/analyte/schema.json#/$defs/ProcedureIdentification"
-    },
-    {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/ProcedureIdentification"
     },
     {
@@ -264,45 +261,7 @@
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_filteringApproach"
                               },
                               {
-                                "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/laQicpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Pulse/Analog Detector Nonlinearity Correction"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.json#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection"
                               },
                               {
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod"
@@ -335,45 +294,7 @@
                             },
                             {
                               "contains": {
-                                "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/laQicpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
-                                  },
-                                  "schema:name": {
-                                    "const": "Pulse/Analog Detector Nonlinearity Correction"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": false
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.json#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection"
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -459,7 +380,48 @@
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
               },
               {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.json#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign"
+                "title": "Ion Counter Dead Time",
+                "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsUPbTAPP/ionCounterDeadTimeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "ionCounterDeadTimeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Ion Counter Dead Time"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "const": "ns"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.json#/$defs/Param_Procedure_matrixOffsetCorrectionLief"
@@ -544,7 +506,48 @@
             },
             {
               "contains": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.json#/$defs/Param_Procedure_multiRunSequentialAnalysisDesign"
+                "title": "Ion Counter Dead Time",
+                "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsUPbTAPP/ionCounterDeadTimeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "ionCounterDeadTimeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Ion Counter Dead Time"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:unitText": {
+                    "const": "ns"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               "minContains": 0,
               "maxContains": 1
@@ -658,40 +661,7 @@
                             "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_massResolutionSetting"
                           },
                           {
-                            "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer. For single-collector instruments, note whether dual pulse-counting/analog mode is used. For multi-collector instruments, describe the Faraday/multiplier cup layout.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laQicpmsUPbTAPP/detectorConfiguration"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": [
-                                  {
-                                    "@id": "ada:parameter/laQicpmsUPbTAPP/detectorConfiguration"
-                                  }
-                                ]
-                              },
-                              "schema:name": {
-                                "const": "Detector Configuration"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.json#/$defs/Param_Procedure_detectorConfiguration"
                           },
                           {
                             "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/Param_Procedure_icpTuning"
@@ -800,40 +770,7 @@
                         },
                         {
                           "contains": {
-                            "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer. For single-collector instruments, note whether dual pulse-counting/analog mode is used. For multi-collector instruments, describe the Faraday/multiplier cup layout.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "const": "ada:parameter/laQicpmsUPbTAPP/detectorConfiguration"
-                              },
-                              "@type": {
-                                "const": [
-                                  "schema:PropertyValue"
-                                ]
-                              },
-                              "schema:propertyID": {
-                                "const": [
-                                  {
-                                    "@id": "ada:parameter/laQicpmsUPbTAPP/detectorConfiguration"
-                                  }
-                                ]
-                              },
-                              "schema:name": {
-                                "const": "Detector Configuration"
-                              },
-                              "schema:value": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id",
-                              "@type",
-                              "schema:propertyID",
-                              "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.json#/$defs/Param_Procedure_detectorConfiguration"
                           },
                           "minContains": 0,
                           "maxContains": 1
@@ -1338,7 +1275,7 @@
                   },
                   {
                     "title": "Monitored Masses",
-                    "description": "Specific masses monitored in this procedure, grouped by the analyte element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an analyte onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
+                    "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -1426,12 +1363,12 @@
                     ]
                   },
                   {
-                    "title": "Per-Analyte Calibration Strategy",
-                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different analytes or analyte groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all analytes, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
+                    "title": "Calibration Strategy per Target Species",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/perAnalyteCalibrationStrategy"
+                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -1439,10 +1376,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "perAnalyteCalibrationStrategy"
+                        "const": "calibrationStrategyPerTargetSpecies"
                       },
                       "schema:name": {
-                        "const": "Per-Analyte Calibration Strategy"
+                        "const": "Calibration Strategy per Target Species"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -1717,7 +1654,7 @@
                 {
                   "contains": {
                     "title": "Monitored Masses",
-                    "description": "Specific masses monitored in this procedure, grouped by the analyte element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an analyte onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
+                    "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -1813,12 +1750,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Per-Analyte Calibration Strategy",
-                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different analytes or analyte groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all analytes, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
+                    "title": "Calibration Strategy per Target Species",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/perAnalyteCalibrationStrategy"
+                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -1826,10 +1763,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "perAnalyteCalibrationStrategy"
+                        "const": "calibrationStrategyPerTargetSpecies"
                       },
                       "schema:name": {
-                        "const": "Per-Analyte Calibration Strategy"
+                        "const": "Calibration Strategy per Target Species"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -2130,7 +2067,7 @@
           }
         },
         "ada:massesMeasuredDefault": {
-          "description": "Specific masses monitored in this procedure, grouped by the analyte element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an analyte onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no analyte and so have no parent element. The analyte list is given by the Analyte field and is never inferred from the element symbols appearing here.",
+          "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
           "type": "string",
           "readOnly": true
         },

@@ -7,6 +7,95 @@ Detail block for SVRUEC hasPart items, carrying the analysis-identification prop
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example Model5077
+detail instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary | Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-Model5077",
+  "@type": [
+    "ada:SVRUECTabular"
+  ],
+  "ada:componentType": "ada:SVRUECTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:svruecTAPP-Model5077",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241216_sv-ruec_uca_orex-800123-0_1",
+  "ada:analyst": "Hanton, Lincoln",
+  "ada:analysisStartDate": "2024-12-16",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800123-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SVRUEC/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-Model5077",
+  "@type": [
+    "ada:SVRUECTabular"
+  ],
+  "ada:componentType": "ada:SVRUECTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:svruecTAPP-Model5077",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20241216_sv-ruec_uca_orex-800123-0_1",
+  "ada:analyst": "Hanton, Lincoln",
+  "ada:analysisStartDate": "2024-12-16",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
+  "ada:sampleName": "OREX-800123-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-Model5077> a ada:SVRUECTabular ;
+    schema1:measurementTechnique <ex:svruecTAPP-Model5077> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-12-16" ;
+    ada:analyst "Hanton, Lincoln" ;
+    ada:componentType "ada:SVRUECTabular" ;
+    ada:fundingSourceForAnalysis "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
+    ada:sampleName "OREX-800123-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20241216_sv-ruec_uca_orex-800123-0_1" .
+
+<ex:svruecTAPP-Model5077> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

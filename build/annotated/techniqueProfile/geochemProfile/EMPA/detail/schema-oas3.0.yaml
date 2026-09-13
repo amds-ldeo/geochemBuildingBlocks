@@ -21,7 +21,8 @@ x-defs:
           schema:name:
             description: "A short descriptive name for this analytical procedure,
               including a version number. Should identify the instrument, the technique,
-              and the scope of what is measured \u2014 analyte, material, or feature."
+              and the scope of what is measured \u2014 target species, material, or
+              feature."
             type: string
             x-jsonld-id: http://schema.org/name
           schema:measurementTechnique:
@@ -813,9 +814,9 @@ x-defs:
                         depends on a factor calibrated against a reference of independently
                         known value, rather than on the instrument response alone.
                         Distinct from the fields that name the calibration material
-                        and that state which approach applies to which analyte, where
-                        the technique has them: this field records the resulting factor
-                        itself.'
+                        and that state which approach applies to which target species,
+                        where the technique has them: this field records the resulting
+                        factor itself.'
                       anyOf:
                       - type: string
                       - type: array
@@ -860,9 +861,9 @@ x-defs:
                         depends on a factor calibrated against a reference of independently
                         known value, rather than on the instrument response alone.
                         Distinct from the fields that name the calibration material
-                        and that state which approach applies to which analyte, where
-                        the technique has them: this field records the resulting factor
-                        itself.'
+                        and that state which approach applies to which target species,
+                        where the technique has them: this field records the resulting
+                        factor itself.'
                       anyOf:
                       - type: string
                       - type: array
@@ -877,8 +878,8 @@ x-defs:
           Applies where the conversion depends on a factor calibrated against a reference
           of independently known value, rather than on the instrument response alone.
           Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
+          which approach applies to which target species, where the technique has
+          them: this field records the resulting factor itself.'
         type: object
         properties:
           '@id':
@@ -911,8 +912,8 @@ x-defs:
           Applies where the conversion depends on a factor calibrated against a reference
           of independently known value, rather than on the instrument response alone.
           Distinct from the fields that name the calibration material and that state
-          which approach applies to which analyte, where the technique has them: this
-          field records the resulting factor itself.'
+          which approach applies to which target species, where the technique has
+          them: this field records the resulting factor itself.'
         type: object
         properties:
           '@id':
@@ -1126,11 +1127,11 @@ x-defs:
                   properties:
                     schema:defaultValue:
                       description: Detection limit, one per reported concentration
-                        variable (one per analyte, these being the same set). State
-                        the units and whether the values are procedure-typical estimates
-                        or session-specific measured values. The calculation method
-                        is recorded separately in Detection Limit Method. Record 'N/A'
-                        where the procedure reports no concentrations.
+                        variable (one per target species, these being the same set).
+                        State the units and whether the values are procedure-typical
+                        estimates or session-specific measured values. The calculation
+                        method is recorded separately in Detection Limit Method. Record
+                        'N/A' where the procedure reports no concentrations.
                       anyOf:
                       - type: number
                       - type: string
@@ -1243,11 +1244,11 @@ x-defs:
                   properties:
                     schema:value:
                       description: Detection limit, one per reported concentration
-                        variable (one per analyte, these being the same set). State
-                        the units and whether the values are procedure-typical estimates
-                        or session-specific measured values. The calculation method
-                        is recorded separately in Detection Limit Method. Record 'N/A'
-                        where the procedure reports no concentrations.
+                        variable (one per target species, these being the same set).
+                        State the units and whether the values are procedure-typical
+                        estimates or session-specific measured values. The calculation
+                        method is recorded separately in Detection Limit Method. Record
+                        'N/A' where the procedure reports no concentrations.
                       anyOf:
                       - type: number
                       - type: string
@@ -1387,10 +1388,10 @@ x-defs:
       Param_Analysis_detectionLimit:
         title: Detection Limit
         description: Detection limit, one per reported concentration variable (one
-          per analyte, these being the same set). State the units and whether the
-          values are procedure-typical estimates or session-specific measured values.
-          The calculation method is recorded separately in Detection Limit Method.
-          Record 'N/A' where the procedure reports no concentrations.
+          per target species, these being the same set). State the units and whether
+          the values are procedure-typical estimates or session-specific measured
+          values. The calculation method is recorded separately in Detection Limit
+          Method. Record 'N/A' where the procedure reports no concentrations.
         type: object
         properties:
           '@id':
@@ -1425,10 +1426,10 @@ x-defs:
       Param_Procedure_detectionLimit:
         title: Detection Limit
         description: Detection limit, one per reported concentration variable (one
-          per analyte, these being the same set). State the units and whether the
-          values are procedure-typical estimates or session-specific measured values.
-          The calculation method is recorded separately in Detection Limit Method.
-          Record 'N/A' where the procedure reports no concentrations.
+          per target species, these being the same set). State the units and whether
+          the values are procedure-typical estimates or session-specific measured
+          values. The calculation method is recorded separately in Detection Limit
+          Method. Record 'N/A' where the procedure reports no concentrations.
         type: object
         properties:
           '@id':

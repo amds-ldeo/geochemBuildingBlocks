@@ -7,6 +7,95 @@ Detail block for NanoIR hasPart items, carrying the analysis-identification prop
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=3 | Dominguez, Gerardo | California State University, San Marcos | Bruker NanoIR3-s.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:NanoIRBackground"
+  ],
+  "ada:componentType": "ada:NanoIRBackground",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:nanoirTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240216_nanoir_csusm_orex-803030-0_1",
+  "ada:analyst": "Dominguez, Gerardo",
+  "ada:analysisStartDate": "2024-05-28",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Development of NanoIR for returned samples was supported by NASA under award 80NSSC19K1051.",
+  "ada:sampleName": "OREX-803030-0",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:NanoIRBackground"
+  ],
+  "ada:componentType": "ada:NanoIRBackground",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:nanoirTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240216_nanoir_csusm_orex-803030-0_1",
+  "ada:analyst": "Dominguez, Gerardo",
+  "ada:analysisStartDate": "2024-05-28",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Development of NanoIR for returned samples was supported by NASA under award 80NSSC19K1051.",
+  "ada:sampleName": "OREX-803030-0",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:NanoIRBackground ;
+    schema1:measurementTechnique <ex:nanoirTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-05-28" ;
+    ada:analyst "Dominguez, Gerardo" ;
+    ada:componentType "ada:NanoIRBackground" ;
+    ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Development of NanoIR for returned samples was supported by NASA under award 80NSSC19K1051." ;
+    ada:sampleName "OREX-803030-0" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240216_nanoir_csusm_orex-803030-0_1" .
+
+<ex:nanoirTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml

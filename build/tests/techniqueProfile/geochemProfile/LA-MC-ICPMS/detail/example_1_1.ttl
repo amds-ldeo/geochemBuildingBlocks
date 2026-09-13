@@ -4,10 +4,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Zhang2022 a ada:LAICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement>,
+        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfCyclesPerBlock>,
+        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique ex:laMcicpmsTAPP-Zhang2022 ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Cycle level: the cycles at the beginning and end of ablation are discarded, leaving 60-70 of the 90 ablation cycles (p.3). Technical criteria (p.5): (a) data with ⁸⁷Rb/⁸⁶Sr > 1 deleted, the Rb interference correction being invalid above that; (b) data with ⁸⁸Sr signal < 0.2 V discarded for poor ⁸⁷Sr/⁸⁶Sr precision. Run level: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8)" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -17,7 +19,7 @@ ex:detail-Zhang2022 a ada:LAICPMSTabular ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "CNSA pre-research project D020205; NSFC 41973013; Natural Science Foundation of Hubei Province 2020CFA045; GPMR State Key Laboratory special fund MSFGPMR04 and MSFGPMR08" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "MSWD from IsoplotR (Table 3): NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "missing" ;
@@ -26,7 +28,7 @@ ex:detail-Zhang2022 a ada:LAICPMSTabular ;
     ada:peakFlatness "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnit "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime 60 ;
     ada:spotDiameter -9999 ;
@@ -35,6 +37,16 @@ ex:detail-Zhang2022 a ada:LAICPMSTabular ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1" .
 
 ex:laMcicpmsTAPP-Zhang2022 schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement> a schema1:PropertyValue ;
+    schema1:name "Number of Blocks per Measurement" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement> ;
+    schema1:value 1 .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+    schema1:name "Number of Cycles per Block" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfCyclesPerBlock> ;
+    schema1:value 120 .
 
 <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;

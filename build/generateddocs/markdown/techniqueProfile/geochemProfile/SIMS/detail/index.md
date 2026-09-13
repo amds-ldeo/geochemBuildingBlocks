@@ -7,6 +7,95 @@ Detail block for SIMS hasPart items, carrying the analysis-identification proper
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Examples
+
+### detail example P0
+detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7.
+#### json
+```json
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:SIMSTabular"
+  ],
+  "ada:componentType": "ada:SIMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:simsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240422_sims_cnrs-crpg_orex-800045-103_1",
+  "ada:analyst": "Marrocchi, Yves",
+  "ada:analysisStartDate": "2024-02-29",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES).",
+  "ada:sampleName": "OREX-800045-103",
+  "ada:samplingUnit": "missing"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SIMS/detail/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/"
+    }
+  ],
+  "@id": "ex:detail-P0",
+  "@type": [
+    "ada:SIMSTabular"
+  ],
+  "ada:componentType": "ada:SIMSTabular",
+  "schema:measurementTechnique": [
+    {
+      "@id": "ex:simsTAPP-P0",
+      "schema:identifier": "missing"
+    }
+  ],
+  "ada:sessionIdentifier": "20240422_sims_cnrs-crpg_orex-800045-103_1",
+  "ada:analyst": "Marrocchi, Yves",
+  "ada:analysisStartDate": "2024-02-29",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES).",
+  "ada:sampleName": "OREX-800045-103",
+  "ada:samplingUnit": "missing"
+}
+```
+
+#### ttl
+```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix schema1: <http://schema.org/> .
+
+<ex:detail-P0> a ada:SIMSTabular ;
+    schema1:measurementTechnique <ex:simsTAPP-P0> ;
+    ada:analysisEndDate "missing" ;
+    ada:analysisStartDate "2024-02-29" ;
+    ada:analyst "Marrocchi, Yves" ;
+    ada:componentType "ada:SIMSTabular" ;
+    ada:fundingSourceForAnalysis "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)." ;
+    ada:sampleName "OREX-800045-103" ;
+    ada:samplingUnit "missing" ;
+    ada:sessionIdentifier "20240422_sims_cnrs-crpg_orex-800045-103_1" .
+
+<ex:simsTAPP-P0> schema1:identifier "missing" .
+
+
+```
+
 ## Schema
 
 ```yaml
