@@ -82,6 +82,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Partially — \"the mean ... of ten individual standard-bracketed sample analyses\"; \"Samples were typically analysed two to four times\". No rejection rule stated"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "doubleSpikeInversionAlgorithm",
+            "schema:name": "Double-Spike Inversion Algorithm",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A — no double spike used"
           }
         ],
         "@type": [
@@ -307,8 +318,25 @@
           "ada:dataType": "number",
           "ada:fieldScope": "session",
           "schema:defaultValue": "None — \"The samples were measured without the use of an auxiliary gas to the introduction system to reduce gas-based interferences\""
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Measured \"at low radiofrequency power and sample gas inflow\" deliberately, to reduce gas-based interferences"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -339,9 +367,43 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:value": "N/A — no added internal standard element"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "baselineMeasurementApproach",
+      "schema:name": "Baseline Measurement Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "On-peak baseline — Fe 25 x 16.7 s; Cr 75 s; Mg 25 x 16.7 s"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeIsotopePair",
+      "schema:name": "Double Spike Isotope Pair",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N/A — no double spike used"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — no double spike used"
     }
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
+  "ada:massBiasCorrectionStrategy": "Standard-sample bracketing",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -393,6 +455,7 @@
   ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,

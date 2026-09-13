@@ -431,6 +431,9 @@
                                                     },
                                                     {
                                                         "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation"
+                                                    },
+                                                    {
+                                                        "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning"
                                                     }
                                                 ]
                                             },
@@ -559,11 +562,44 @@
                                                     },
                                                     "minContains": 0,
                                                     "maxContains": 1
+                                                },
+                                                {
+                                                    "contains": {
+                                                        "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning"
+                                                    },
+                                                    "minContains": 0,
+                                                    "maxContains": 1
                                                 }
+                                            ]
+                                        },
+                                        "schema:manufacturer": {
+                                            "type": "object",
+                                            "properties": {
+                                                "schema:name": {
+                                                    "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "Thermo Fisher Scientific",
+                                                        "Agilent",
+                                                        "PerkinElmer",
+                                                        "Nu Instruments",
+                                                        "Analytik Jena",
+                                                        "Shimadzu",
+                                                        "Unknown",
+                                                        "N/A",
+                                                        "None",
+                                                        "missing"
+                                                    ],
+                                                    "readOnly": true
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
                                             ]
                                         }
                                     },
                                     "required": [
+                                        "schema:manufacturer",
                                         "schema:model"
                                     ]
                                 }
@@ -996,6 +1032,9 @@
                             },
                             {
                                 "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach"
+                            },
+                            {
+                                "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
                             }
                         ]
                     },
@@ -1108,6 +1147,13 @@
                         {
                             "contains": {
                                 "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -2075,12 +2121,25 @@
                         "missing"
                     ],
                     "readOnly": true
+                },
+                "ada:numberOfAcquisitionPasses": {
+                    "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "readOnly": true
                 }
             },
             "required": [
                 "ada:numberOfScansPerReplicate",
                 "ada:numberOfReplicatesPerSample",
-                "ada:driftCorrectionMethod"
+                "ada:driftCorrectionMethod",
+                "ada:numberOfAcquisitionPasses"
             ]
         }
     ]

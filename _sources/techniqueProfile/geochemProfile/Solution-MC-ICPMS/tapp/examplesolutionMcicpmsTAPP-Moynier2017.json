@@ -94,6 +94,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "\"any ratio outside 2σ was discarded\" — an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\""
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "doubleSpikeInversionAlgorithm",
+            "schema:name": "Double-Spike Inversion Algorithm",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A — no double spike used"
           }
         ],
         "@type": [
@@ -345,6 +356,12 @@
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -386,9 +403,44 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "\"any ratio outside 2σ was discarded\""
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfBlocksPerMeasurementDefault",
+      "schema:name": "Number of Blocks per Measurement",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20,
+      "schema:description": "Blocks of 20 cycles"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeIsotopePair",
+      "schema:name": "Double Spike Isotope Pair",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N/A — no double spike used"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — no double spike used"
     }
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
+  "ada:massBiasCorrectionStrategy": "\"Measurements were made using standard-sample bracketing to correct for instrumental mass bias\"",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -428,6 +480,7 @@
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,

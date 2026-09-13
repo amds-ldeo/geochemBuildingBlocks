@@ -12402,6 +12402,41 @@
                                                     "schema:name",
                                                     "schema:value"
                                                   ]
+                                                },
+                                                {
+                                                  "title": "ICP Tuning",
+                                                  "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/module/ICPMS/icpTuning"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/module/ICPMS/icpTuning"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "ICP Tuning"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
                                                 }
                                               ]
                                             },
@@ -12546,6 +12581,45 @@
                                                     },
                                                     "schema:name": {
                                                       "const": "Memory Effect Mitigation"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
+                                                },
+                                                "minContains": 0,
+                                                "maxContains": 1
+                                              },
+                                              {
+                                                "contains": {
+                                                  "title": "ICP Tuning",
+                                                  "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/module/ICPMS/icpTuning"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/module/ICPMS/icpTuning"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "ICP Tuning"
                                                     },
                                                     "schema:value": {
                                                       "type": "string"
@@ -21841,6 +21915,47 @@
                                                     "ada:dataType",
                                                     "ada:fieldScope"
                                                   ]
+                                                },
+                                                {
+                                                  "title": "ICP Tuning",
+                                                  "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/module/ICPMS/icpTuningDefault"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValueSpecification"
+                                                      ]
+                                                    },
+                                                    "schema:valueName": {
+                                                      "const": "icpTuningDefault"
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "ICP Tuning"
+                                                    },
+                                                    "ada:dataType": {
+                                                      "const": "string"
+                                                    },
+                                                    "ada:fieldScope": {
+                                                      "const": "session"
+                                                    },
+                                                    "schema:readonlyValue": {
+                                                      "const": false
+                                                    },
+                                                    "ada:tier": {
+                                                      "const": "R"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:valueName",
+                                                    "schema:name",
+                                                    "ada:dataType",
+                                                    "ada:fieldScope"
+                                                  ]
                                                 }
                                               ]
                                             },
@@ -22162,11 +22277,82 @@
                                                 },
                                                 "minContains": 0,
                                                 "maxContains": 1
+                                              },
+                                              {
+                                                "contains": {
+                                                  "title": "ICP Tuning",
+                                                  "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/module/ICPMS/icpTuningDefault"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValueSpecification"
+                                                      ]
+                                                    },
+                                                    "schema:valueName": {
+                                                      "const": "icpTuningDefault"
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "ICP Tuning"
+                                                    },
+                                                    "ada:dataType": {
+                                                      "const": "string"
+                                                    },
+                                                    "ada:fieldScope": {
+                                                      "const": "session"
+                                                    },
+                                                    "schema:readonlyValue": {
+                                                      "const": false
+                                                    },
+                                                    "ada:tier": {
+                                                      "const": "R"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:valueName",
+                                                    "schema:name",
+                                                    "ada:dataType",
+                                                    "ada:fieldScope"
+                                                  ]
+                                                },
+                                                "minContains": 0,
+                                                "maxContains": 1
                                               }
+                                            ]
+                                          },
+                                          "schema:manufacturer": {
+                                            "type": "object",
+                                            "properties": {
+                                              "schema:name": {
+                                                "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                                                "type": "string",
+                                                "enum": [
+                                                  "Thermo Fisher Scientific",
+                                                  "Agilent",
+                                                  "PerkinElmer",
+                                                  "Nu Instruments",
+                                                  "Analytik Jena",
+                                                  "Shimadzu",
+                                                  "Unknown",
+                                                  "N/A",
+                                                  "None",
+                                                  "missing"
+                                                ],
+                                                "readOnly": true
+                                              }
+                                            },
+                                            "required": [
+                                              "schema:name"
                                             ]
                                           }
                                         },
                                         "required": [
+                                          "schema:manufacturer",
                                           "schema:model"
                                         ]
                                       }
@@ -23371,6 +23557,47 @@
                                         "ada:dataType",
                                         "ada:fieldScope"
                                       ]
+                                    },
+                                    {
+                                      "title": "Instrument Warm up Session Duration Limit",
+                                      "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "instrumentWarmUpSessionDurationLimit"
+                                        },
+                                        "schema:name": {
+                                          "const": "Instrument Warm up Session Duration Limit"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "string"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": true
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
                                     }
                                   ]
                                 },
@@ -23587,6 +23814,51 @@
                                         },
                                         "schema:readonlyValue": {
                                           "const": false
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
+                                      "title": "Instrument Warm up Session Duration Limit",
+                                      "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "instrumentWarmUpSessionDurationLimit"
+                                        },
+                                        "schema:name": {
+                                          "const": "Instrument Warm up Session Duration Limit"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "string"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": true
                                         },
                                         "ada:tier": {
                                           "const": "R"
@@ -24567,12 +24839,25 @@
                                   "missing"
                                 ],
                                 "readOnly": true
+                              },
+                              "ada:numberOfAcquisitionPasses": {
+                                "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
+                                "anyOf": [
+                                  {
+                                    "type": "integer"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "readOnly": true
                               }
                             },
                             "required": [
                               "ada:numberOfScansPerReplicate",
                               "ada:numberOfReplicatesPerSample",
-                              "ada:driftCorrectionMethod"
+                              "ada:driftCorrectionMethod",
+                              "ada:numberOfAcquisitionPasses"
                             ]
                           }
                         ]

@@ -96,6 +96,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "N/A — no isotope dilution applied"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "doubleSpikeInversionAlgorithm",
+            "schema:name": "Double-Spike Inversion Algorithm",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A — no double spike used"
           }
         ],
         "@type": [
@@ -354,6 +365,19 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "faradayCupArrayConfiguration",
+              "schema:name": "Faraday Cup Array Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "Nine Faraday cups — \"equipped with nine Faraday Cups\" (p.3); Table 1 gives detection system \"Faraday cups\" and acquisition mode \"Static, analogue detectors\" (p.3). No ion counter stated"
+            }
+          ],
           "schema:description": "32S(L3), 33S(C), 34S(H3)",
           "@type": [
             "schema:Product",
@@ -415,6 +439,12 @@
           "schema:defaultValue": "Wash-out 2 min for solution"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -445,8 +475,31 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:value": "N/A — no added internal standard element"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeIsotopePair",
+      "schema:name": "Double Spike Isotope Pair",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N/A — no double spike used"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — no double spike used"
     }
   ],
+  "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against matrix-matched purified S solutions",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -501,6 +554,7 @@
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"

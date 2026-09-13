@@ -1041,6 +1041,14 @@ allOf:
         of a single measurement, which derives from counting statistics over the cycles of that measurement
         rather than from repeated analyses.
       type: string
+    ada:numberOfAcquisitionPasses:
+      description: Number of acquisition passes the procedure runs. A count of the passes enumerated in
+        Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that
+        field.
+      anyOf:
+      - type: integer
+      - type: string
+      readOnly: true
     ada:analyticalMode:
       type: array
       items:
@@ -1056,3 +1064,4 @@ allOf:
   - ada:isobaricInterferenceCorrectionsApplied
   - ada:massBiasCorrectionStrategy
   - ada:withinSessionPrecision
+  - ada:numberOfAcquisitionPasses

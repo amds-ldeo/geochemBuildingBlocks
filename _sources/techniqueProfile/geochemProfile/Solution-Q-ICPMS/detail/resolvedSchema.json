@@ -3096,6 +3096,41 @@
                                                     "schema:name",
                                                     "schema:value"
                                                   ]
+                                                },
+                                                {
+                                                  "title": "ICP Tuning",
+                                                  "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/module/ICPMS/icpTuning"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/module/ICPMS/icpTuning"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "ICP Tuning"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
                                                 }
                                               ]
                                             },
@@ -3201,6 +3236,45 @@
                                                     },
                                                     "schema:name": {
                                                       "const": "Memory Effect Mitigation"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
+                                                },
+                                                "minContains": 0,
+                                                "maxContains": 1
+                                              },
+                                              {
+                                                "contains": {
+                                                  "title": "ICP Tuning",
+                                                  "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/module/ICPMS/icpTuning"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/module/ICPMS/icpTuning"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "ICP Tuning"
                                                     },
                                                     "schema:value": {
                                                       "type": "string"

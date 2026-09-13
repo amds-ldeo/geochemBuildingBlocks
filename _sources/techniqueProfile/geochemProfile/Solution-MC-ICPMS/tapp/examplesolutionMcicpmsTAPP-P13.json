@@ -73,6 +73,12 @@
           "schema:value": "Medium mass resolution, R ≈ 6,600–7,000 (R = m/m0.95 − m0.05)"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -179,6 +185,28 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:value": "N/A — no added internal standard element"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeIsotopePair",
+      "schema:name": "Double Spike Isotope Pair",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N/A — no double spike used"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — no double spike used"
     }
   ],
   "schema:actionProcess": {
@@ -219,6 +247,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "N/A — no isotope dilution applied"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "doubleSpikeInversionAlgorithm",
+            "schema:name": "Double-Spike Inversion Algorithm",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A — no double spike used"
           }
         ],
         "@type": [
@@ -255,6 +294,7 @@
       "schema:HowTo"
     ]
   },
+  "ada:massBiasCorrectionStrategy": "Internal normalization to 49Ti/47Ti = 0.749766 using the exponential law, plus bracketing against an in-house Alfa Aesar Ti wire standard — \"the isotope data were normalized to a 49Ti/47Ti ratio of 0.749766 (ref. 72), using the exponential law\"; results reported \"applying the sample–standard bracketing method\" (p.8)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -303,6 +343,7 @@
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:finalSolutionMatrix": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

@@ -118,6 +118,19 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "faradayCupArrayConfiguration",
+              "schema:name": "Faraday Cup Array Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "\"The Durham Neptune has a 9 Faraday collector array equipped with 10^11 Ω resistor amplifiers which allow a maximum beam of 50 V per channel\" (p.3). An SEM ion counter is also present — abundance sensitivity \"was determined by scanning the low mass tail of a 30 V 192Os beam using the SEM\" (p.3); its position is not stated"
+            }
+          ],
           "schema:description": "L4=182W, L3=184Os, L2=185Re, L1=186Os, Ax=187Os, H1=188Os, H2=189Os, H3=190Os, H4=192Os, with 184W, 186W and 187Re as interference monitors",
           "@type": [
             "schema:Product",
@@ -194,8 +207,25 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Desolvating nebulisers deliberately avoided because of \"severe memory problems for Os\"; ESI PFA-50 low-uptake nebuliser and GE Cinnabar micro-cyclonic spray chamber chosen \"in the hope these would reduce the long Os washout times and poor memory usually associated with solution introduction of Os\"; wash acid aspirated until the 192Os beam fell to background — a 99.99% decrease reached after 220 s for DTM"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "\"At the start of each analytical session the Neptune was tuned for maximum sensitivity and optimal peak shape using an Os solution, either the UMd or DTM RMs, and the mass calibration was updated by peak-centering on the centre-cup mass 187Os\""
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -226,6 +256,62 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:value": "N/A — no added internal standard element"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfBlocksPerMeasurementDefault",
+      "schema:name": "Number of Blocks per Measurement",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 9,
+      "schema:description": "9 blocks"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "baselineMeasurementApproach",
+      "schema:name": "Baseline Measurement Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Electronic baselines \"measured, on peak with the line of sight valve closed\"; peak centering and baselines \"were not carried out at the start of each analysis to reduce measurement time and conserve sample but were repeated several times during an analytical session\""
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeIsotopePair",
+      "schema:name": "Double Spike Isotope Pair",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N/A — no double spike used"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — no double spike used"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
+      "schema:name": "Instrument Warm up Session Duration Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "\"Instrument electronic baselines and amplifier gains were then measured ... while the Neptune was allowed to warm up for half an hour\""
     }
   ],
   "schema:actionProcess": {
@@ -277,6 +363,28 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Partially — n = 45 per analysis. No rejection rule stated"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/peakFlatnessMethodAndThreshold",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "peakFlatnessMethodAndThreshold",
+            "schema:name": "Peak Flatness Method and Threshold",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Tuned for \"optimal peak shape\"; mass calibration updated by peak-centering on the centre-cup mass 187Os. No numeric threshold stated"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "doubleSpikeInversionAlgorithm",
+            "schema:name": "Double-Spike Inversion Algorithm",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A — no double spike used"
           }
         ],
         "@type": [
@@ -313,6 +421,7 @@
       "schema:HowTo"
     ]
   },
+  "ada:massBiasCorrectionStrategy": "Instrumental mass bias correction applied offline in Excel alongside abundance sensitivity and W/Re interference corrections",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -357,6 +466,7 @@
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"

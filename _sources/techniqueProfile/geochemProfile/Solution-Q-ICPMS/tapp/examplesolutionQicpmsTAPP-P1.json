@@ -70,6 +70,17 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "60 s wash between samples (stated Table 1)"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "\"The instrument sensitivity was optimized daily using a 10 ppb Mg-In-U standard\"; \"Plasma robustness was monitored by constraining CeO/Ce ratio within 3% to refrain formation of polyatomic oxides\""
         }
       ],
       "schema:hasPart": [
@@ -242,7 +253,7 @@
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "PerkinElmer -- \"a Perkin-Elmer Elan DRC II instrument\"",
+        "schema:name": "PerkinElmer",
         "@type": [
           "schema:Organization"
         ]
@@ -266,6 +277,17 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "None"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
+      "schema:name": "Instrument Warm up Session Duration Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Partially -- session duration is characterised but not enforced: \"blanks for all isotopes were stable during a typical run (~5 hr)\""
     }
   ],
   "ada:channelTemplate": {
@@ -479,6 +501,7 @@
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }

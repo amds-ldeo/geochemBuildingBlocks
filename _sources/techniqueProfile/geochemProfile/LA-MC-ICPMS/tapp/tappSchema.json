@@ -2253,6 +2253,18 @@
                     "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
                     "type": "string"
                 },
+                "ada:numberOfAcquisitionPasses": {
+                    "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "readOnly": true
+                },
                 "ada:analyticalMode": {
                     "type": "array",
                     "items": {
@@ -2271,7 +2283,8 @@
                 "ada:constantsAndReferenceValuesUsedDefault",
                 "ada:isobaricInterferenceCorrectionsApplied",
                 "ada:massBiasCorrectionStrategy",
-                "ada:withinSessionPrecision"
+                "ada:withinSessionPrecision",
+                "ada:numberOfAcquisitionPasses"
             ]
         }
     ]

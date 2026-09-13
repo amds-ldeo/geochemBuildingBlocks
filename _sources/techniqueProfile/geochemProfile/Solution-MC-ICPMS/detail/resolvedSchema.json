@@ -2979,38 +2979,147 @@
                                           "schema:additionalProperty": {
                                             "type": "array",
                                             "items": {
-                                              "title": "Memory Effect Mitigation",
-                                              "description": "Procedure applied to identify and minimise carry-over of high-concentration or isotopically distinct material from a preceding measurement into the current one. Mitigation is applied primarily at measurement time, by allowing sufficient washout or rinse between successive introductions. At data processing level, record any flagging or exclusion of measurements where the required washout may not have been achieved.",
-                                              "type": "object",
-                                              "properties": {
-                                                "@id": {
-                                                  "const": "ada:parameter/module/ICPMS/memoryEffectMitigation"
-                                                },
-                                                "@type": {
-                                                  "const": [
-                                                    "schema:PropertyValue"
-                                                  ]
-                                                },
-                                                "schema:propertyID": {
-                                                  "const": [
-                                                    {
-                                                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                                              "anyOf": [
+                                                {
+                                                  "title": "Memory Effect Mitigation",
+                                                  "description": "Procedure applied to identify and minimise carry-over of high-concentration or isotopically distinct material from a preceding measurement into the current one. Mitigation is applied primarily at measurement time, by allowing sufficient washout or rinse between successive introductions. At data processing level, record any flagging or exclusion of measurements where the required washout may not have been achieved.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Memory Effect Mitigation"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
                                                     }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
                                                   ]
                                                 },
-                                                "schema:name": {
-                                                  "const": "Memory Effect Mitigation"
+                                                {
+                                                  "title": "ICP Tuning",
+                                                  "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/module/ICPMS/icpTuning"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/module/ICPMS/icpTuning"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "ICP Tuning"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
                                                 },
-                                                "schema:value": {
-                                                  "type": "string"
+                                                {
+                                                  "title": "Doubly-Charged Species Monitor",
+                                                  "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Doubly-Charged Species Monitor"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
+                                                },
+                                                {
+                                                  "title": "Doubly-Charged Species Production",
+                                                  "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Doubly-Charged Species Production"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
                                                 }
-                                              },
-                                              "required": [
-                                                "@id",
-                                                "@type",
-                                                "schema:propertyID",
-                                                "schema:name",
-                                                "schema:value"
                                               ]
                                             },
                                             "allOf": [
@@ -3037,6 +3146,123 @@
                                                     },
                                                     "schema:name": {
                                                       "const": "Memory Effect Mitigation"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
+                                                },
+                                                "minContains": 0,
+                                                "maxContains": 1
+                                              },
+                                              {
+                                                "contains": {
+                                                  "title": "ICP Tuning",
+                                                  "description": "Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration).",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/module/ICPMS/icpTuning"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/module/ICPMS/icpTuning"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "ICP Tuning"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
+                                                },
+                                                "minContains": 0,
+                                                "maxContains": 1
+                                              },
+                                              {
+                                                "contains": {
+                                                  "title": "Doubly-Charged Species Monitor",
+                                                  "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Doubly-Charged Species Monitor"
+                                                    },
+                                                    "schema:value": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value"
+                                                  ]
+                                                },
+                                                "minContains": 0,
+                                                "maxContains": 1
+                                              },
+                                              {
+                                                "contains": {
+                                                  "title": "Doubly-Charged Species Production",
+                                                  "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Doubly-Charged Species Production"
                                                     },
                                                     "schema:value": {
                                                       "type": "string"
@@ -3089,49 +3315,130 @@
               "schema:additionalProperty": {
                 "type": "array",
                 "items": {
-                  "title": "Signal Integration Time",
-                  "description": "The integration time actually used for the reported signal, in seconds - the time retained after the signal-integration interval has been applied, and therefore equal to or shorter than the total acquisition. Where the procedure computes it from an acquisition structure, record that basis.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/module/ICPMS/signalIntegrationTime"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/signalIntegrationTime"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Signal Integration Time"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
+                  "anyOf": [
+                    {
+                      "title": "Signal Integration Time",
+                      "description": "The integration time actually used for the reported signal, in seconds - the time retained after the signal-integration interval has been applied, and therefore equal to or shorter than the total acquisition. Where the procedure computes it from an acquisition structure, record that basis.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/ICPMS/signalIntegrationTime"
                         },
-                        {
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/ICPMS/signalIntegrationTime"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Signal Integration Time"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
-                    "schema:unitText": {
-                      "type": "string"
+                    {
+                      "title": "Number of Blocks per Measurement",
+                      "description": "Number of measurement blocks acquired per sample or standard solution introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Adjust for samples with low signal or where higher precision is required.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Number of Blocks per Measurement"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "title": "Double Spike Mixing Ratio",
+                      "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Double Spike Mixing Ratio"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
                     }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
                   ]
                 },
                 "allOf": [
@@ -3180,6 +3487,91 @@
                         "schema:name",
                         "schema:value",
                         "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Number of Blocks per Measurement",
+                      "description": "Number of measurement blocks acquired per sample or standard solution introduction. In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles. Adjust for samples with low signal or where higher precision is required.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Number of Blocks per Measurement"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Double Spike Mixing Ratio",
+                      "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Double Spike Mixing Ratio"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
                       ]
                     },
                     "minContains": 0,

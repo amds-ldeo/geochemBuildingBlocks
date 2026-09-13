@@ -261,6 +261,12 @@
                                                             },
                                                             {
                                                                 "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
+                                                            },
+                                                            {
+                                                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_peakFlatnessMethodAndThreshold"
+                                                            },
+                                                            {
+                                                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm"
                                                             }
                                                         ]
                                                     },
@@ -282,6 +288,20 @@
                                                         {
                                                             "contains": {
                                                                 "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        },
+                                                        {
+                                                            "contains": {
+                                                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_peakFlatnessMethodAndThreshold"
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        },
+                                                        {
+                                                            "contains": {
+                                                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
@@ -383,6 +403,91 @@
                                                     },
                                                     {
                                                         "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation"
+                                                    },
+                                                    {
+                                                        "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning"
+                                                    },
+                                                    {
+                                                        "title": "Doubly-Charged Species Monitor",
+                                                        "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@id": {
+                                                                "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault"
+                                                            },
+                                                            "@type": {
+                                                                "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                ]
+                                                            },
+                                                            "schema:valueName": {
+                                                                "const": "doublyChargedSpeciesMonitorDefault"
+                                                            },
+                                                            "schema:name": {
+                                                                "const": "Doubly-Charged Species Monitor"
+                                                            },
+                                                            "ada:dataType": {
+                                                                "const": "string"
+                                                            },
+                                                            "ada:fieldScope": {
+                                                                "const": "session"
+                                                            },
+                                                            "schema:readonlyValue": {
+                                                                "const": false
+                                                            },
+                                                            "ada:tier": {
+                                                                "const": "R"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:valueName",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "ada:fieldScope"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Doubly-Charged Species Production",
+                                                        "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@id": {
+                                                                "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProductionDefault"
+                                                            },
+                                                            "@type": {
+                                                                "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                ]
+                                                            },
+                                                            "schema:valueName": {
+                                                                "const": "doublyChargedSpeciesProductionDefault"
+                                                            },
+                                                            "schema:name": {
+                                                                "const": "Doubly-Charged Species Production"
+                                                            },
+                                                            "ada:dataType": {
+                                                                "const": "string"
+                                                            },
+                                                            "ada:fieldScope": {
+                                                                "const": "session"
+                                                            },
+                                                            "schema:readonlyValue": {
+                                                                "const": false
+                                                            },
+                                                            "ada:tier": {
+                                                                "const": "R"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:valueName",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "ada:fieldScope"
+                                                        ]
                                                     }
                                                 ]
                                             },
@@ -411,6 +516,103 @@
                                                 {
                                                     "contains": {
                                                         "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation"
+                                                    },
+                                                    "minContains": 0,
+                                                    "maxContains": 1
+                                                },
+                                                {
+                                                    "contains": {
+                                                        "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning"
+                                                    },
+                                                    "minContains": 0,
+                                                    "maxContains": 1
+                                                },
+                                                {
+                                                    "contains": {
+                                                        "title": "Doubly-Charged Species Monitor",
+                                                        "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@id": {
+                                                                "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault"
+                                                            },
+                                                            "@type": {
+                                                                "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                ]
+                                                            },
+                                                            "schema:valueName": {
+                                                                "const": "doublyChargedSpeciesMonitorDefault"
+                                                            },
+                                                            "schema:name": {
+                                                                "const": "Doubly-Charged Species Monitor"
+                                                            },
+                                                            "ada:dataType": {
+                                                                "const": "string"
+                                                            },
+                                                            "ada:fieldScope": {
+                                                                "const": "session"
+                                                            },
+                                                            "schema:readonlyValue": {
+                                                                "const": false
+                                                            },
+                                                            "ada:tier": {
+                                                                "const": "R"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:valueName",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "ada:fieldScope"
+                                                        ]
+                                                    },
+                                                    "minContains": 0,
+                                                    "maxContains": 1
+                                                },
+                                                {
+                                                    "contains": {
+                                                        "title": "Doubly-Charged Species Production",
+                                                        "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@id": {
+                                                                "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProductionDefault"
+                                                            },
+                                                            "@type": {
+                                                                "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                ]
+                                                            },
+                                                            "schema:valueName": {
+                                                                "const": "doublyChargedSpeciesProductionDefault"
+                                                            },
+                                                            "schema:name": {
+                                                                "const": "Doubly-Charged Species Production"
+                                                            },
+                                                            "ada:dataType": {
+                                                                "const": "string"
+                                                            },
+                                                            "ada:fieldScope": {
+                                                                "const": "session"
+                                                            },
+                                                            "schema:readonlyValue": {
+                                                                "const": false
+                                                            },
+                                                            "ada:tier": {
+                                                                "const": "R"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:valueName",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "ada:fieldScope"
+                                                        ]
                                                     },
                                                     "minContains": 0,
                                                     "maxContains": 1
@@ -717,6 +919,40 @@
                                                                 }
                                                             }
                                                         }
+                                                    },
+                                                    {
+                                                        "if": {
+                                                            "properties": {
+                                                                "schema:additionalType": {
+                                                                    "contains": {
+                                                                        "const": "Collector"
+                                                                    },
+                                                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "schema:additionalType"
+                                                            ]
+                                                        },
+                                                        "then": {
+                                                            "properties": {
+                                                                "schema:additionalProperty": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_faradayCupArrayConfiguration"
+                                                                    },
+                                                                    "allOf": [
+                                                                        {
+                                                                            "contains": {
+                                                                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_faradayCupArrayConfiguration"
+                                                                            },
+                                                                            "minContains": 0,
+                                                                            "maxContains": 1
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
                                                     }
                                                 ]
                                             },
@@ -780,11 +1016,52 @@
                                                             "schema:additionalType"
                                                         ]
                                                     }
+                                                },
+                                                {
+                                                    "contains": {
+                                                        "properties": {
+                                                            "schema:additionalType": {
+                                                                "contains": {
+                                                                    "const": "Collector"
+                                                                },
+                                                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "schema:additionalType"
+                                                        ]
+                                                    }
                                                 }
+                                            ]
+                                        },
+                                        "schema:manufacturer": {
+                                            "type": "object",
+                                            "properties": {
+                                                "schema:name": {
+                                                    "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "Thermo Fisher Scientific",
+                                                        "Agilent",
+                                                        "PerkinElmer",
+                                                        "Nu Instruments",
+                                                        "Analytik Jena",
+                                                        "Shimadzu",
+                                                        "Unknown",
+                                                        "N/A",
+                                                        "None",
+                                                        "missing"
+                                                    ],
+                                                    "readOnly": true
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
                                             ]
                                         }
                                     },
                                     "required": [
+                                        "schema:manufacturer",
                                         "schema:model"
                                     ]
                                 }
@@ -821,6 +1098,24 @@
                             },
                             {
                                 "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach"
+                            },
+                            {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfBlocksPerMeasurement"
+                            },
+                            {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach"
+                            },
+                            {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_massFractionationLaw"
+                            },
+                            {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeIsotopePair"
+                            },
+                            {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeMixingRatio"
+                            },
+                            {
+                                "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
                             }
                         ]
                     },
@@ -842,6 +1137,48 @@
                         {
                             "contains": {
                                 "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfBlocksPerMeasurement"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_massFractionationLaw"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeIsotopePair"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeMixingRatio"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -1477,8 +1814,29 @@
                             ]
                         }
                     }
+                },
+                "ada:massBiasCorrectionStrategy": {
+                    "description": "Primary strategy used to correct for instrumental isotopic mass fractionation. Four main strategies: (1) Sample-standard bracketing (SSB): alternating sample and isotopic standard measurements; bias interpolated linearly between bracketing measurements. (2) Double-spike: a mixture of two enriched isotopes of the target species element added before digestion provides an internal monitor of both instrumental and chemical mass fractionation. (3) Internal normalization: an element of known isotopic composition added to samples and standards; measured ratio of normalizing element used to calculate the mass bias factor applied to target species ratios. (4) SSB + internal normalization: both strategies applied simultaneously for redundant bias correction.",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "ada:numberOfAcquisitionPasses": {
+                    "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "readOnly": true
                 }
-            }
+            },
+            "required": [
+                "ada:massBiasCorrectionStrategy",
+                "ada:numberOfAcquisitionPasses"
+            ]
         }
     ]
 }

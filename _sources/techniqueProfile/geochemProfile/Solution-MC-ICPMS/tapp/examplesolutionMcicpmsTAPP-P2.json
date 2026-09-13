@@ -94,6 +94,28 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "57Fe/56Fe = 0.023095 and 57Fe/54Fe = 0.362549, \"the certified ratios of IRMM-014\" (Craddock and Dauphas, 2010)"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/peakFlatnessMethodAndThreshold",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "peakFlatnessMethodAndThreshold",
+            "schema:name": "Peak Flatness Method and Threshold",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Measurements made \"on the flat-topped peak shoulder\" in MR or HR mode; no numeric threshold stated"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "doubleSpikeInversionAlgorithm",
+            "schema:name": "Double-Spike Inversion Algorithm",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A — no double spike used"
           }
         ],
         "@type": [
@@ -377,6 +399,12 @@
           "schema:defaultValue": "210 s washout between all measurements"
         }
       ],
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -407,9 +435,54 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:value": "N/A — no added internal standard element"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "baselineMeasurementApproach",
+      "schema:name": "Baseline Measurement Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "\"On peak zero intensities from a blank solution measured at the beginning of each sequence were subtracted from all individual measurements\""
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/massFractionationLaw",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "massFractionationLaw",
+      "schema:name": "Mass Fractionation Law",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Exponential law"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeIsotopePair",
+      "schema:name": "Double Spike Isotope Pair",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N/A — no double spike used"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — no double spike used"
     }
   ],
   "ada:analysisSequenceDefault": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
+  "ada:massBiasCorrectionStrategy": "Internal normalization to 57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549 using the exponential law, with IRMM-524a bracketing",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -461,6 +534,7 @@
     }
   ],
   "ada:calibrationMeasurementFrequency": "missing",
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:uncertaintyLevel": "missing",

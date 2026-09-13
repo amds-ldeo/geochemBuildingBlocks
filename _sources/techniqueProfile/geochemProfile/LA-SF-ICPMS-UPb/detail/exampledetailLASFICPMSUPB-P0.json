@@ -7,7 +7,7 @@
     "bios": "https://bioschemas.org/",
     "dqv": "http://www.w3.org/ns/dqv#"
   },
-  "@id": "ex:detailSOLUTIONMCICPMS-P0",
+  "@id": "ex:detailLASFICPMSUPB-P0",
   "@type": [
     "schema:Dataset",
     "schema:Product"
@@ -19,21 +19,32 @@
           "@type": [
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
           ],
-          "schema:description": "example sampleDescription",
           "schema:additionalProperty": [
             {
-              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrate",
               "@type": [
                 "schema:PropertyValue"
               ],
               "schema:propertyID": [
                 {
-                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                  "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrate"
                 }
               ],
-              "schema:name": "Sample Aliquot Mass or Volume",
-              "schema:value": 1,
-              "schema:unitText": "example value"
+              "schema:name": "Sample Form Analytical Substrate",
+              "schema:value": "example value"
+            },
+            {
+              "@id": "ada:parameter/module/LaserAblation/mappedAreaDescription",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/LaserAblation/mappedAreaDescription"
+                }
+              ],
+              "schema:name": "Mapped area description",
+              "schema:value": "example value"
             }
           ],
           "schema:name": "example sampleName",
@@ -43,40 +54,53 @@
       "schema:actionProcess": {
         "schema:step": [
           {
-            "schema:name": "Sample digestion",
+            "schema:name": "Sample preparation",
             "schema:additionalProperty": [
               {
-                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
+                "@id": "ada:parameter/module/LaserAblation/fusionFluxAndDilutionRatio",
                 "@type": [
                   "schema:PropertyValue"
                 ],
                 "schema:propertyID": [
                   {
-                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
+                    "@id": "ada:parameter/module/LaserAblation/fusionFluxAndDilutionRatio"
                   }
                 ],
-                "schema:name": "Digestion Temperature",
-                "schema:value": 1,
-                "schema:unitText": "example value"
+                "schema:name": "Fusion Flux and Dilution Ratio",
+                "schema:value": "example value"
               },
               {
-                "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration",
+                "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatment",
                 "@type": [
                   "schema:PropertyValue"
                 ],
                 "schema:propertyID": [
                   {
-                    "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
+                    "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatment"
                   }
                 ],
-                "schema:name": "Digestion Duration",
+                "schema:name": "Pre Ablation Surface Treatment",
                 "schema:value": "example value"
               }
-            ]
+            ],
+            "schema:description": "Polished thin section"
           },
           {
             "schema:name": "Data reduction",
             "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/LaserAblation/signalSmoothing",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/LaserAblation/signalSmoothing"
+                  }
+                ],
+                "schema:name": "Signal Smoothing",
+                "schema:value": "example value"
+              },
               {
                 "@id": "ada:parameter/module/ICPMS/filteringApproach",
                 "@type": [
@@ -88,6 +112,19 @@
                   }
                 ],
                 "schema:name": "Filtering Approach",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection"
+                  }
+                ],
+                "schema:name": "Pulse Analog Detector Nonlinearity Correction",
                 "schema:value": "example value"
               },
               {
@@ -104,13 +141,160 @@
                 "schema:value": "example value"
               }
             ]
-          },
-          {
-            "schema:name": "Sample preparation",
-            "schema:description": "Whole-rock powder"
           }
         ]
       },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+            }
+          ],
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize"
+            }
+          ],
+          "schema:name": "Transect Rate Mapping Rate or Step Size",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
+            }
+          ],
+          "schema:name": "Make-up Gas and Flow Rate",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses"
+            }
+          ],
+          "schema:name": "Monitored Masses",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/laSficpmsUPbTAPP/ionCounterDeadTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laSficpmsUPbTAPP/ionCounterDeadTime"
+            }
+          ],
+          "schema:name": "Ion Counter Dead Time",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/laSficpmsUPbTAPP/numberOfReplicates",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laSficpmsUPbTAPP/numberOfReplicates"
+            }
+          ],
+          "schema:name": "Number of Replicates",
+          "schema:value": 1
+        },
+        {
+          "@id": "ada:parameter/module/LaserAblation/transectLength",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/LaserAblation/transectLength"
+            }
+          ],
+          "schema:name": "Transect Length",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/module/LaserAblation/mappingArea",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/LaserAblation/mappingArea"
+            }
+          ],
+          "schema:name": "Mapping Area",
+          "schema:value": "example value"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/signalIntegrationTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/ICPMS/signalIntegrationTime"
+            }
+          ],
+          "schema:name": "Signal Integration Time",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities"
+            }
+          ],
+          "schema:name": "Error Correlation Between Reported Quantities",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        },
+        {
+          "@id": "ada:parameter/laSficpmsUPbTAPP/totalIntegrationTimePerOutputDataPoint",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laSficpmsUPbTAPP/totalIntegrationTimePerOutputDataPoint"
+            }
+          ],
+          "schema:name": "Total Integration Time per Output Data Point",
+          "schema:value": 1,
+          "schema:unitText": "example value"
+        }
+      ],
       "prov:used": [
         {
           "schema:instrument": [
@@ -156,84 +340,12 @@
                 },
                 {
                   "schema:additionalType": [
-                    "Sample Introduction System",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
-                        }
-                      ],
-                      "schema:name": "Sample Uptake Rate",
-                      "schema:value": 1,
-                      "schema:unitText": "example value"
-                    },
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Nebulizer Gas Flow Rate",
-                      "schema:value": 1,
-                      "schema:unitText": "example value"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
-                        }
-                      ],
-                      "schema:name": "Make-up Gas and Flow Rate",
-                      "schema:value": 1,
-                      "schema:unitText": "example value"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-                  "schema:name": "missing"
-                },
-                {
-                  "schema:additionalType": [
                     "ICP Source",
                     {
                       "@id": "https://www.wikidata.org/wiki/Q3099911"
                     }
                   ],
                   "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1,
-                      "schema:unitText": "example value"
-                    },
                     {
                       "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                       "@type": [
@@ -261,6 +373,20 @@
                       "schema:name": "Auxiliary Gas Flow Rate",
                       "schema:value": 1,
                       "schema:unitText": "example value"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 1,
+                      "schema:unitText": "example value"
                     }
                   ],
                   "@type": [
@@ -269,78 +395,20 @@
                   ],
                   "@id": "ex:instrument/ICPMS/part/ICP-Source",
                   "schema:name": "missing"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collision Reaction Cell",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/CollisionCell/gasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/CollisionCell/gasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Gas Flow Rate",
-                      "schema:value": 1,
-                      "schema:unitText": "example value"
-                    },
-                    {
-                      "@id": "ada:parameter/module/CollisionCell/cellExitDiscriminationVoltage",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/CollisionCell/cellExitDiscriminationVoltage"
-                        }
-                      ],
-                      "schema:name": "Cell Exit Discrimination Voltage",
-                      "schema:value": 1,
-                      "schema:unitText": "example value"
-                    },
-                    {
-                      "@id": "ada:parameter/module/CollisionCell/reactionGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/CollisionCell/reactionGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Reaction Gas Flow Rate",
-                      "schema:value": 1,
-                      "schema:unitText": "example value"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell",
-                  "schema:name": "missing"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
                     }
                   ],
-                  "schema:name": "Memory Effect Mitigation",
+                  "schema:name": "Mass Resolution Setting",
                   "schema:value": "example value"
                 },
                 {
@@ -357,29 +425,42 @@
                   "schema:value": "example value"
                 },
                 {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor",
+                  "@id": "ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                      "@id": "ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor"
                     }
                   ],
                   "schema:name": "Doubly-Charged Species Monitor",
                   "schema:value": "example value"
                 },
                 {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction",
+                  "@id": "ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                      "@id": "ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction"
                     }
                   ],
                   "schema:name": "Doubly-Charged Species Production",
+                  "schema:value": "example value"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
                   "schema:value": "example value"
                 }
               ],
@@ -388,6 +469,39 @@
                 "schema:Thing"
               ],
               "@id": "ex:instrument/ICPMS",
+              "schema:name": "example instrumentName"
+            },
+            {
+              "schema:additionalType": [
+                "Laser Ablation System",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/LaserAblation/laserEnergy",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/LaserAblation/laserEnergy"
+                    }
+                  ],
+                  "schema:name": "Laser Energy",
+                  "schema:value": 1,
+                  "schema:unitText": "example value"
+                }
+              ],
+              "ada:laserSpotGeometry": "example laserSpotGeometry",
+              "ada:laserFluence": 1.0,
+              "ada:laserRepetitionRate": 1.0,
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "@id": "ex:instrument/Laser-Ablation-System",
               "schema:name": "example instrumentName"
             }
           ]
@@ -429,48 +543,6 @@
           ]
         }
       ],
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/ICPMS/signalIntegrationTime",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/module/ICPMS/signalIntegrationTime"
-            }
-          ],
-          "schema:name": "Signal Integration Time",
-          "schema:value": 1,
-          "schema:unitText": "example value"
-        },
-        {
-          "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement"
-            }
-          ],
-          "schema:name": "Number of Blocks per Measurement",
-          "schema:value": 1
-        },
-        {
-          "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
-            }
-          ],
-          "schema:name": "Double Spike Mixing Ratio",
-          "schema:value": "example value"
-        }
-      ],
       "ada:proceduralBlankLevel": "example proceduralBlankLevel",
       "schema:location": {
         "@type": [
@@ -482,7 +554,10 @@
       "schema:identifier": "example sessionIdentifier",
       "schema:startDate": "example analysisStartDate",
       "schema:endDate": "example analysisEndDate",
-      "schema:description": "example additionalNotes"
+      "schema:description": "example additionalNotes",
+      "ada:ablationSpotDuration": 1.0,
+      "ada:ablationPitDepthRate": "example ablationPitDepthAndAblationRate",
+      "ada:rasterLineSpacing": "example rasterLineSpacing"
     }
   ],
   "schema:measurementTechnique": [
@@ -528,11 +603,8 @@
       "schema:target": "example coupledDatasetOrPublicationReference"
     }
   ],
+  "ada:spotDiameterMeasured": 1.0,
   "dqv:hasQualityMeasurement": [
-    {
-      "dqv:isMeasurementOf": "Peak Flatness",
-      "dqv:value": "example peakFlatness"
-    },
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
       "dqv:value": "example goodnessOfFitOrDispersionStatistic"
@@ -541,6 +613,9 @@
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "example oxideProduction"
     }
+  ],
+  "ada:reportedDateType": [
+    "Weighted mean 206Pb/238U"
   ],
   "ada:sensitivityYield": 1.0
 }

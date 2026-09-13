@@ -537,12 +537,174 @@
                                                                                     "schema:additionalProperty": {
                                                                                         "type": "array",
                                                                                         "items": {
-                                                                                            "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation"
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation"
+                                                                                                },
+                                                                                                {
+                                                                                                    "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning"
+                                                                                                },
+                                                                                                {
+                                                                                                    "title": "Doubly-Charged Species Monitor",
+                                                                                                    "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "@id": {
+                                                                                                            "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                                                                        },
+                                                                                                        "@type": {
+                                                                                                            "const": [
+                                                                                                                "schema:PropertyValue"
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:propertyID": {
+                                                                                                            "const": [
+                                                                                                                {
+                                                                                                                    "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:name": {
+                                                                                                            "const": "Doubly-Charged Species Monitor"
+                                                                                                        },
+                                                                                                        "schema:value": {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "@id",
+                                                                                                        "@type",
+                                                                                                        "schema:propertyID",
+                                                                                                        "schema:name",
+                                                                                                        "schema:value"
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "title": "Doubly-Charged Species Production",
+                                                                                                    "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "@id": {
+                                                                                                            "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                                                                        },
+                                                                                                        "@type": {
+                                                                                                            "const": [
+                                                                                                                "schema:PropertyValue"
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:propertyID": {
+                                                                                                            "const": [
+                                                                                                                {
+                                                                                                                    "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:name": {
+                                                                                                            "const": "Doubly-Charged Species Production"
+                                                                                                        },
+                                                                                                        "schema:value": {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "@id",
+                                                                                                        "@type",
+                                                                                                        "schema:propertyID",
+                                                                                                        "schema:name",
+                                                                                                        "schema:value"
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
                                                                                         },
                                                                                         "allOf": [
                                                                                             {
                                                                                                 "contains": {
                                                                                                     "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation"
+                                                                                                },
+                                                                                                "minContains": 0,
+                                                                                                "maxContains": 1
+                                                                                            },
+                                                                                            {
+                                                                                                "contains": {
+                                                                                                    "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning"
+                                                                                                },
+                                                                                                "minContains": 0,
+                                                                                                "maxContains": 1
+                                                                                            },
+                                                                                            {
+                                                                                                "contains": {
+                                                                                                    "title": "Doubly-Charged Species Monitor",
+                                                                                                    "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "@id": {
+                                                                                                            "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                                                                        },
+                                                                                                        "@type": {
+                                                                                                            "const": [
+                                                                                                                "schema:PropertyValue"
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:propertyID": {
+                                                                                                            "const": [
+                                                                                                                {
+                                                                                                                    "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:name": {
+                                                                                                            "const": "Doubly-Charged Species Monitor"
+                                                                                                        },
+                                                                                                        "schema:value": {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "@id",
+                                                                                                        "@type",
+                                                                                                        "schema:propertyID",
+                                                                                                        "schema:name",
+                                                                                                        "schema:value"
+                                                                                                    ]
+                                                                                                },
+                                                                                                "minContains": 0,
+                                                                                                "maxContains": 1
+                                                                                            },
+                                                                                            {
+                                                                                                "contains": {
+                                                                                                    "title": "Doubly-Charged Species Production",
+                                                                                                    "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "@id": {
+                                                                                                            "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                                                                        },
+                                                                                                        "@type": {
+                                                                                                            "const": [
+                                                                                                                "schema:PropertyValue"
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:propertyID": {
+                                                                                                            "const": [
+                                                                                                                {
+                                                                                                                    "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "schema:name": {
+                                                                                                            "const": "Doubly-Charged Species Production"
+                                                                                                        },
+                                                                                                        "schema:value": {
+                                                                                                            "type": "string"
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "@id",
+                                                                                                        "@type",
+                                                                                                        "schema:propertyID",
+                                                                                                        "schema:name",
+                                                                                                        "schema:value"
+                                                                                                    ]
                                                                                                 },
                                                                                                 "minContains": 0,
                                                                                                 "maxContains": 1
@@ -583,12 +745,36 @@
                             "schema:additionalProperty": {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime"
+                                    "anyOf": [
+                                        {
+                                            "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime"
+                                        },
+                                        {
+                                            "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_numberOfBlocksPerMeasurement"
+                                        },
+                                        {
+                                            "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio"
+                                        }
+                                    ]
                                 },
                                 "allOf": [
                                     {
                                         "contains": {
                                             "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime"
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_numberOfBlocksPerMeasurement"
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                    },
+                                    {
+                                        "contains": {
+                                            "$ref": "../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio"
                                         },
                                         "minContains": 0,
                                         "maxContains": 1

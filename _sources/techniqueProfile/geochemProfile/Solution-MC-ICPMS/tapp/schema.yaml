@@ -145,6 +145,8 @@ allOf:
                       - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                      - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_peakFlatnessMethodAndThreshold
+                      - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm
                     allOf:
                     - contains:
                         $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
@@ -156,6 +158,14 @@ allOf:
                       maxContains: 1
                     - contains:
                         $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_peakFlatnessMethodAndThreshold
+                      minContains: 0
+                      maxContains: 1
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeInversionAlgorithm
                       minContains: 0
                       maxContains: 1
           allOf:
@@ -212,6 +222,70 @@ allOf:
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation
+                  - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
+                  - &id001
+                    title: Doubly-Charged Species Monitor
+                    description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
+                      during instrument tuning. The monitor species and the mass positions monitored should
+                      be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide
+                      monitoring.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: doublyChargedSpeciesMonitorDefault
+                      schema:name:
+                        const: Doubly-Charged Species Monitor
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
+                  - &id002
+                    title: Doubly-Charged Species Production
+                    description: Measured percentage of doubly-charged ion production for the monitored
+                      species at the time of instrument tuning. The acceptable threshold is typically
+                      <1% or <3%. Record both the threshold and the measured value.
+                    type: object
+                    properties:
+                      '@id':
+                        const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProductionDefault
+                      '@type':
+                        const:
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: doublyChargedSpeciesProductionDefault
+                      schema:name:
+                        const: Doubly-Charged Species Production
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: false
+                      ada:tier:
+                        const: R
+                    required:
+                    - '@id'
+                    - '@type'
+                    - schema:valueName
+                    - schema:name
+                    - ada:dataType
+                    - ada:fieldScope
                 allOf:
                 - contains:
                     $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentSerialNumberOrLabIdentifier
@@ -227,6 +301,16 @@ allOf:
                   maxContains: 1
                 - contains:
                     $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation
+                  minContains: 0
+                  maxContains: 1
+                - contains:
+                    $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id001
+                  minContains: 0
+                  maxContains: 1
+                - contains: *id002
                   minContains: 0
                   maxContains: 1
               schema:hasPart:
@@ -388,6 +472,25 @@ allOf:
                               $ref: ../../../../BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Procedure_reactionGasFlowRate
                             minContains: 0
                             maxContains: 1
+                  - if:
+                      properties:
+                        schema:additionalType:
+                          contains:
+                            const: Collector
+                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                      required:
+                      - schema:additionalType
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_faradayCupArrayConfiguration
+                          allOf:
+                          - contains:
+                              $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_faradayCupArrayConfiguration
+                            minContains: 0
+                            maxContains: 1
                 allOf:
                 - contains:
                     properties:
@@ -421,7 +524,39 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+                - contains:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: Collector
+                        schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                    required:
+                    - schema:additionalType
+              schema:manufacturer:
+                type: object
+                properties:
+                  schema:name:
+                    description: Manufacturer of the instrument that performs the measurement, recorded
+                      as a controlled value. Where a procedure couples a sample-introduction system to
+                      an analysing instrument, this records the analysing instrument. Instrument Model
+                      gives the specific designation.
+                    type: string
+                    enum:
+                    - Thermo Fisher Scientific
+                    - Agilent
+                    - PerkinElmer
+                    - Nu Instruments
+                    - Analytik Jena
+                    - Shimadzu
+                    - Unknown
+                    - N/A
+                    - None
+                    - missing
+                    readOnly: true
+                required:
+                - schema:name
             required:
+            - schema:manufacturer
             - schema:model
       allOf:
       - contains:
@@ -439,6 +574,12 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
         - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_internalStandardConcentration
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfBlocksPerMeasurement
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_massFractionationLaw
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeIsotopePair
+        - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeMixingRatio
+        - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
       allOf:
       - contains:
           $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_desolvationSystem
@@ -452,6 +593,30 @@ allOf:
           $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_filteringApproach
         minContains: 0
         maxContains: 1
+      - contains:
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_numberOfBlocksPerMeasurement
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_baselineMeasurementApproach
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_massFractionationLaw
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeIsotopePair
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeMixingRatio
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
+        minContains: 0
+        maxContains: 1
     ada:analyteTemplate:
       type: object
       properties:
@@ -460,7 +625,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id001
+            - &id003
               title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported concentrations, and
                 specifically any case where different target species or target species groups within one
@@ -495,7 +660,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id002
+            - &id004
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted values for secondary reference materials,
                 and the method used to assess it. Specify the reference material and the source of its
@@ -530,10 +695,10 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id001
+          - contains: *id003
             minContains: 0
             maxContains: 1
-          - contains: *id002
+          - contains: *id004
             minContains: 0
             maxContains: 1
     ada:channelTemplate:
@@ -544,7 +709,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
-            - &id007
+            - &id009
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
                 are applied in data reduction, supplementary to any suppression already achieved by chemical
@@ -569,10 +734,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id003
+                  - &id005
                     type: string
                   - type: array
-                    items: *id003
+                    items: *id005
               required:
               - '@id'
               - '@type'
@@ -580,7 +745,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id008
+            - &id010
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured
                 masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
@@ -605,10 +770,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id004
+                  - &id006
                     type: string
                   - type: array
-                    items: *id004
+                    items: *id006
               required:
               - '@id'
               - '@type'
@@ -616,7 +781,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id009
+            - &id011
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution,
                 together with how its magnitude was established - a monitor mass measured simultaneously
@@ -642,10 +807,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id005
+                  - &id007
                     type: string
                   - type: array
-                    items: *id005
+                    items: *id007
               required:
               - '@id'
               - '@type'
@@ -653,7 +818,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id010
+            - &id012
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One target species may be acquired
                 at more than one resolution, so the assignment is per acquired mass rather than per element.
@@ -678,10 +843,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id006
+                  - &id008
                     type: string
                   - type: array
-                    items: *id006
+                    items: *id008
               required:
               - '@id'
               - '@type'
@@ -690,15 +855,37 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id007
-            minContains: 0
-            maxContains: 1
-          - contains: *id008
-            minContains: 0
-            maxContains: 1
           - contains: *id009
             minContains: 0
             maxContains: 1
           - contains: *id010
             minContains: 0
             maxContains: 1
+          - contains: *id011
+            minContains: 0
+            maxContains: 1
+          - contains: *id012
+            minContains: 0
+            maxContains: 1
+    ada:massBiasCorrectionStrategy:
+      description: 'Primary strategy used to correct for instrumental isotopic mass fractionation. Four
+        main strategies: (1) Sample-standard bracketing (SSB): alternating sample and isotopic standard
+        measurements; bias interpolated linearly between bracketing measurements. (2) Double-spike: a
+        mixture of two enriched isotopes of the target species element added before digestion provides
+        an internal monitor of both instrumental and chemical mass fractionation. (3) Internal normalization:
+        an element of known isotopic composition added to samples and standards; measured ratio of normalizing
+        element used to calculate the mass bias factor applied to target species ratios. (4) SSB + internal
+        normalization: both strategies applied simultaneously for redundant bias correction.'
+      type: string
+      readOnly: true
+    ada:numberOfAcquisitionPasses:
+      description: Number of acquisition passes the procedure runs. A count of the passes enumerated in
+        Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that
+        field.
+      anyOf:
+      - type: integer
+      - type: string
+      readOnly: true
+  required:
+  - ada:massBiasCorrectionStrategy
+  - ada:numberOfAcquisitionPasses
