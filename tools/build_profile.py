@@ -89,14 +89,14 @@ PROFILES = {
     "laMcicpmsUPbTAPP": dict(dir="LA-MC-ICPMS-UPb", short="LAMCICPMSUPB", cid="adaLAMCICPMSUPb",
         addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-MC-ICP-MS U-Pb Geochronology Product Profile"),
-    # EMPA and TEM predate the generator: EMPA already has a hand-made profile/ (cid adaEMPA, kept
+    # EPMA and TEM predate the generator: EPMA already has a hand-made profile/ (cid adaEMPA, kept
     # verbatim so its published conformsTo URI does not move) and TEM has none yet. Adding them here
     # brings both under the generator, so a technique regen keeps its profile in step with its own
-    # detail and tapp - EMPA's profile had gone stale against them precisely because it was skipped.
+    # detail and tapp - EPMA's profile had gone stale against them precisely because it was skipped.
     "empaTAPP": dict(dir="EMPA", short="EMPA", cid="adaEMPA",
         addtype=["Electron Microprobe Analysis (EMPA)",
                  "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)"],
-        title="ADA EMPA Product Profile"),
+        title="ADA EPMA Product Profile"),
     "temTAPP": dict(dir="TEM", short="TEM", cid="adaTEM",
         addtype=["Scanning Transmission Electron Microscopy (STEM) Image",
                  "Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy "
@@ -127,7 +127,7 @@ PROFILES = {
     "finesseTAPP": dict(dir="FINESSE", short="FINESSE", cid="adaFINESSE", addtype=["Elemental Analyzer Stepped Heating C N Isotope (FINESSE)"],
         title="ADA FINESSE Product Profile"),                 # Stepped Heating Carbon and Nitrogen Isotopic Compositions | FINESSECollection, FINESSETabular
     "gcCIrmsTAPP": dict(dir="GC-C-IRMS", short="GCCIRMS", cid="adaGCCIRMS",
-                        addtype=["Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry (GCCIRMS)",
+                        addtype=["icMsTAPP (GCCIRMS)",
                                  "Combustion gas chromatography isotopic ratio mass spectrometry",
                                  "C-GC-IR-MS"],
         title="ADA GC-C-IRMS Product Profile"),               # Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry | GCCIRMSDataCollection, GCCIRMSOrbitrapCollection, GCCIRMSTabularIsotopicValues
@@ -252,7 +252,7 @@ def _example(tapp, cfg, component_types):
     ex["schema:additionalType"] = [cfg["addtype"][0], "ada:DataDeliveryPackage"]
     # The scaffolding is the LA-ICPMS example, so its prov:used instrument is an ICPMS. Retarget it
     # to whatever THIS technique's detail selects on, or every profile example claims an ICP-MS --
-    # an EMPA record asserting it used a mass spectrometer. A laser-ablation technique legitimately
+    # an EPMA record asserting it used a mass spectrometer. A laser-ablation technique legitimately
     # names two (Laser Ablation System + ICPMS); both go on the one instrument, which is what
     # satisfies a `contains` per token.
     _retarget_instrument(ex, _instrument_tokens(tapp))
@@ -288,7 +288,36 @@ def _example(tapp, cfg, component_types):
                 ct.append({"@id": pid})
         so["dcterms:conformsTo"] = ct
     _add_required_variables(ex, tapp, cfg)
+    _fill_required(ex, tapp)
     return ex
+
+
+def _fill_required(ex, tapp):
+    """Sentinel the required properties a generated profile example cannot know.
+
+    Delegates to build_tapp_examples.fill_nested_required -- the SAME pass the tapp/ and detail/
+    examples already get (80f696008). This module used to carry its own parallel version, which
+    was worse in ways that commit had already found and fixed: it stubbed a required object from a
+    hardcoded HowTo shape instead of building the smallest instance the schema accepts, and it set
+    @type itself, which breaks array cardinality -- @type and @id are structural, not transcription
+    gaps, and belong to the typing pass that runs after the fill.
+
+    Why profile/ examples were missed: fill_nested_required covers what build_tapp_examples writes,
+    and profile/ examples are generated here instead.
+
+    JTYPE_BY_PROP is populated from the workbook during that tool's own run, so it is empty here.
+    That only costs the URI sentinel hint; sentinel_by_jtype falls back to the schema otherwise.
+    """
+    path = os.path.join(_profile_dir(tapp), "resolvedSchema.json")
+    if not os.path.exists(path):
+        return 0                    # first build: resolve, then re-run to pick these up
+    sch = json.load(open(path, encoding="utf-8"))
+    import build_tapp_examples as bte
+    import schema_path_example_emitter as spe
+    n = bte.fill_nested_required(ex, sch, bte.JTYPE_BY_PROP)
+    n += bte.sentinel_pinned_members(ex, sch)
+    spe.fill_required_types(ex, sch)   # re-type what the fill created
+    return n
 
 
 def _add_required_variables(ex, tapp, cfg):

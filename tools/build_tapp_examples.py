@@ -706,7 +706,7 @@ def sentinel_for(sub, depth=4, root=None):
         # A required OBJECT cannot be stood in for by a scalar, so build the smallest instance its
         # own schema accepts: its required properties, each sentinelled in turn. Returning None
         # here left schema:actionProcess and schema:manufacturer absent, which is what kept the
-        # LA and EMPA examples failing after everything scalar had been filled.
+        # LA and EPMA examples failing after everything scalar had been filled.
         if depth <= 0:
             return None
         obj = {}
@@ -935,6 +935,80 @@ def conform_enums(inst, tapp_dir, technique_enum):
     if notes:
         inst["schema:description"] = (inst.get("schema:description", "").rstrip()
                                       + " Reported detail: " + "; ".join(notes) + ".").strip()
+
+
+def sentinel_pinned_members(inst, resolved_schema):
+    """Give every `contains`-PINNED member its declared value, sentinelled when absent.
+
+    A mandatory `contains` (see docs/ISSUE_2026-09-06_mandatory_selector_contains.md) forces a
+    member to exist -- an analyst Role, a "Detection Limit" variable, a "Data reduction" step. But
+    the member satisfies the pin by carrying the discriminator ALONE, so an example can tick the
+    constraint while reporting nothing. Nine such literals occur in 0 of 2,621 ADA records, and the
+    argument for sentinelling them is that a literal which is ALWAYS a sentinel is the evidence its
+    cardinality constraint needs revisiting. That evidence is only countable if the value is there.
+
+    fill_nested_required cannot do this: it fills what the schema REQUIRES, and these value leaves
+    are optional inside their branch.
+
+    Nothing is hardcoded. The pins come from allOf[].contains, and the value leaf from the matching
+    if/then branch -- which is schema:defaultValue on a MethodDefinition template form and
+    schema:value on a Dataset value form, so naming either would have been wrong half the time.
+    Only scalar-accepting leaves are filled, via sentinel_for; a leaf needing an object is left to
+    fill_nested_required. Returns the number filled.
+    """
+    pins = {}                       # (discriminator, const) -> {leaf: subschema}
+    def collect(n):
+        if isinstance(n, dict):
+            for decl in (n.get("properties") or {}).values():
+                if not isinstance(decl, dict):
+                    continue
+                pinned = [(k, v["const"])
+                          for a in (decl.get("allOf") or []) if isinstance(a, dict)
+                          for k, v in ((a.get("contains") or {}).get("properties") or {}).items()
+                          if isinstance(v, dict) and "const" in v]
+                if not pinned:
+                    continue
+                for br in ((decl.get("items") or {}).get("allOf") or []):
+                    cond = ((br.get("if") or {}).get("properties") or {})
+                    for k, v in cond.items():
+                        if not (isinstance(v, dict) and "const" in v):
+                            continue
+                        if (k, v["const"]) not in pinned:
+                            continue
+                        leaves = (br.get("then") or {}).get("properties") or {}
+                        pins.setdefault((k, v["const"]), {}).update(
+                            {lk: lv for lk, lv in leaves.items()
+                             if isinstance(lv, dict) and lk not in NEVER_SENTINEL})
+            for v in n.values():
+                collect(v)
+        elif isinstance(n, list):
+            for v in n:
+                collect(v)
+    collect(resolved_schema)
+    if not pins:
+        return 0
+
+    filled = 0
+    def apply(n):
+        nonlocal filled
+        if isinstance(n, dict):
+            for (disc, const), leaves in pins.items():
+                if n.get(disc) != const:
+                    continue
+                for leaf, sub in leaves.items():
+                    if leaf in n:
+                        continue
+                    val = sentinel_for(_deref(sub, resolved_schema), root=resolved_schema)
+                    if val is not None:
+                        n[leaf] = val
+                        filled += 1
+            for v in n.values():
+                apply(v)
+        elif isinstance(n, list):
+            for v in n:
+                apply(v)
+    apply(inst)
+    return filled
 
 
 def conform_nested_enums(inst, resolved_schema, max_passes=4):
@@ -1258,6 +1332,7 @@ def main():
             # root-level sentinels first, then everything nested inside instruments, howto steps
             # and variableMeasured entries that the root pass cannot see
             fill_nested_required(inst, tapp_res, JTYPE_BY_PROP)
+            sentinel_pinned_members(inst, tapp_res)
             # objects the fill just created have no @type yet, and JSON-LD typing is structural
             # rather than a transcription gap. normalize_instrument_tree already knows the two the
             # validator cannot infer -- schema:manufacturer is an Organization, schema:model a
@@ -1281,6 +1356,7 @@ def main():
         fill_required_sentinels(dinst, DETAIL_DIR)
         if detail_res is not None:
             fill_nested_required(dinst, detail_res, JTYPE_BY_PROP)
+            sentinel_pinned_members(dinst, detail_res)
             type_instrument_tree(dinst)
             ex.fill_required_types(dinst, detail_res)
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),

@@ -1092,7 +1092,7 @@ TAPP_CONFIGS = {
     "sthmAfmTAPP": {
         "xlsx": "draftTAPPs/STHM-AFM_TAPP_draft_v2.csv",
         "prefix": "sthmAfm",
-        "component_types": ["SThMCollection"],
+        "component_types": ["ada:SThMCollection"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1114,7 +1114,7 @@ TAPP_CONFIGS = {
     "sXrfTAPP": {
         "xlsx": "draftTAPPs/S-XRF_TAPP_draft_v2.csv",
         "prefix": "sXrf",
-        "component_types": ["SXRF2DImage", "SXRFPointTabular"],
+        "component_types": ["ada:SXRF2DImage", "ada:SXRFPointTabular"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1136,7 +1136,7 @@ TAPP_CONFIGS = {
     "icMsTAPP": {
         "xlsx": "draftTAPPs/IC-MS_TAPP_draft_v2.csv",
         "prefix": "icMs",
-        "component_types": ["ICMSCollection"],
+        "component_types": ["ada:ICMSCollection"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1158,7 +1158,7 @@ TAPP_CONFIGS = {
     "cpdTAPP": {
         "xlsx": "draftTAPPs/CPD_TAPP_draft_v2.csv",
         "prefix": "cpd",
-        "component_types": ["CPDImage"],
+        "component_types": ["ada:CPDImage"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1180,7 +1180,7 @@ TAPP_CONFIGS = {
     "pcdAfmTAPP": {
         "xlsx": "draftTAPPs/PCD-AFM_TAPP_draft_v2.csv",
         "prefix": "pcdAfm",
-        "component_types": ["PCDAFMCollection"],
+        "component_types": ["ada:PCDAFMCollection"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1202,7 +1202,7 @@ TAPP_CONFIGS = {
     "gcCIrmsTAPP": {
         "xlsx": "draftTAPPs/GC-C-IRMS_TAPP_draft_v2.csv",
         "prefix": "gcCIrms",
-        "component_types": ["GCCIRMSDataCollection", "GCCIRMSOrbitrapCollection", "GCCIRMSTabularIsotopicValues"],
+        "component_types": ["ada:GCCIRMSDataCollection", "ada:GCCIRMSOrbitrapCollection", "ada:GCCIRMSTabularIsotopicValues"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1224,7 +1224,7 @@ TAPP_CONFIGS = {
     "finesseTAPP": {
         "xlsx": "draftTAPPs/FINESSE_TAPP_draft_v2.csv",
         "prefix": "finesse",
-        "component_types": ["FINESSECollection", "FINESSETabular"],
+        "component_types": ["ada:FINESSECollection", "ada:FINESSETabular"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1246,7 +1246,7 @@ TAPP_CONFIGS = {
     "niMiTAPP": {
         "xlsx": "draftTAPPs/NI-MI_TAPP_draft_v2.csv",
         "prefix": "niMi",
-        "component_types": ["NIMICollection"],
+        "component_types": ["ada:NIMICollection"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1268,7 +1268,7 @@ TAPP_CONFIGS = {
     "timsTAPP": {
         "xlsx": "draftTAPPs/TIMS_TAPP_draft_v2.csv",
         "prefix": "tims",
-        "component_types": ["TIMSProcessedTabular", "TIMSRawCollection"],
+        "component_types": ["ada:TIMSProcessedTabular", "ada:TIMSRawCollection"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1290,7 +1290,7 @@ TAPP_CONFIGS = {
     "capdTAPP": {
         "xlsx": "draftTAPPs/CAPD_TAPP_draft_v2.csv",
         "prefix": "capd",
-        "component_types": ["CAPDRawTabular"],
+        "component_types": ["ada:CAPDRawTabular"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1312,7 +1312,7 @@ TAPP_CONFIGS = {
     "dssmTAPP": {
         "xlsx": "draftTAPPs/DSSM_TAPP_draft_v2.csv",
         "prefix": "dssm",
-        "component_types": ["DSSMTabular", "UCSTabular"],
+        "component_types": ["ada:DSSMTabular", "ada:UCSTabular"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1334,7 +1334,7 @@ TAPP_CONFIGS = {
     "tdmTAPP": {
         "xlsx": "draftTAPPs/TDM_TAPP_draft_v2.csv",
         "prefix": "tdm",
-        "component_types": ["TDMRawTabular"],
+        "component_types": ["ada:TDMRawTabular"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1356,7 +1356,7 @@ TAPP_CONFIGS = {
     "semClTAPP": {
         "xlsx": "draftTAPPs/SEM-CL_TAPP_draft_v2.csv",
         "prefix": "semCl",
-        "component_types": ["SEMHRCLTabular", "SEMHRCLCube"],
+        "component_types": ["ada:SEMHRCLTabular", "ada:SEMHRCLCube"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
@@ -1522,7 +1522,7 @@ def write_gen_index(prefix, **fields):
     `basic_props` entry carries the coverage count that decided whether the property is required.
 
     One shape, one place. It used to be written to docs/new_tapps202606/ - a June-2026 branch name,
-    under the hand-authored source tree, for a purely generated file - and the legacy EMPA path
+    under the hand-authored source tree, for a purely generated file - and the legacy EPMA path
     wrote a DIFFERENT set of keys to the same filename, so a consumer could not tell which shape it
     had without inspecting it. Every key below is always present; a path with nothing to say for one
     passes an empty list.
@@ -2212,7 +2212,7 @@ def _regen_detail_addl_constraint(L, detail_param_names):
     })
     block1 = {"type": "object", "properties": {"schema:additionalProperty": {
         "type": "array",
-        "description": ("Per-dataset schema:PropertyValue entries for this EMPA dataset. Each item "
+        "description": ("Per-dataset schema:PropertyValue entries for this EPMA dataset. Each item "
                         "is any of the empaTAPP-derived parameter types or (via the catch-all "
                         "branch) any other PropertyValue. All entries are optional — include only "
                         "the parameters you have values for."),

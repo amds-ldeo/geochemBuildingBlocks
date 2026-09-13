@@ -286,7 +286,7 @@ examples on their old placement. Moving `Detection Limit` off `analyteColumns[]`
 validation failures that regeneration alone cleared — no code was wrong, the artifacts were stale.
 
 The legacy `build_TAPP_from_spreadsheet.py` / `build_detail_BB.py` drivers now **delegate to `build_tapp.py` for `empaTAPP`** (matrix routing); they remain only for hypothetical impl-tag-style TAPPs. Templates + user-facing guide live in `docs/`:
-- `docs/TAPP_EPMA_filled-noInterp.xlsx` — annotated canonical EMPA workbook.
+- `docs/TAPP_EPMA_filled-noInterp.xlsx` — annotated canonical EPMA workbook.
 - `docs/TierImplementationPatterns.xlsx` — the canonical tier matrix (authoritative routing rules).
 - `docs/TAPP_TEMPLATE_GUIDE.md` — worksheet structure (column-by-column, schema-path role conventions, tier-matrix routing, hasPart additionalType pattern, vocab handling). *(Partially stale re: the retired impl-tag readOnly routing.)*
 

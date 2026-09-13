@@ -121,7 +121,7 @@ grouping, so do not infer placement from the directory.
 
 Measure before relocating one of these `$ref`s. Moving the twelve `adaProfile` hasPart-item blocks
 to the top level was tried on a copy on 2026-09-05 and failed **all 218** records of the affected
-profiles on a missing `ada:componentType` — the reasoning that motivated it (EMPA's description
+profiles on a missing `ada:componentType` — the reasoning that motivated it (EPMA's description
 says "Dataset-level analysis-instance detail ... on the schema:Dataset root") generalised from the
 wrong family.
 

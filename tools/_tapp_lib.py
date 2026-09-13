@@ -57,7 +57,7 @@ DETAIL_EMPA = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _
 # Each entry holds the technique-specific knobs. configure() copies the matching
 # entry into CFG so the rest of the module can read CFG[...] without having to
 # care which TAPP is being built. Default behavior is empaTAPP, so existing
-# callers that don't set configure() still get bit-identical EMPA output.
+# callers that don't set configure() still get bit-identical EPMA output.
 
 TAPP_PROFILES: dict[str, dict] = {
     "empaTAPP": {
@@ -88,9 +88,9 @@ TAPP_PROFILES: dict[str, dict] = {
         "termname": "Electron Microprobe Analysis - WDS",
         "example_name_template": "EPMA TAPP example {code}",
         "detail_componenttype_default": "ada:EMPAQEATabular",
-        "schema_title": "EMPA Technique-Aligned Protocol Profile (empaTAPP)",
+        "schema_title": "EPMA Technique-Aligned Protocol Profile (empaTAPP)",
         "schema_description": (
-            "EMPA-specific extension of the base TAPP definition. Adds top-level EPMA "
+            "EPMA-specific extension of the base TAPP definition. Adds top-level EPMA "
             "properties (beam mode, accelerating voltage default, matrix correction "
             "method, etc.), Advanced-protocol parameter specifications in schema:additionalProperty, and an "
             "analyte-column template covering EPMA per-element acquisition and "
@@ -106,7 +106,7 @@ TAPP_PROFILES: dict[str, dict] = {
             "enumerated in the empaTAPP-derived catalog above."
         ),
         "detail_constraint_addprop_desc": (
-            "Per-dataset schema:PropertyValue entries for this EMPA dataset. "
+            "Per-dataset schema:PropertyValue entries for this EPMA dataset. "
             "Each item is any of the empaTAPP-derived parameter types or "
             "(via the catch-all branch) any other PropertyValue. All entries "
             "are optional — include only the parameters you have values for."
@@ -1626,7 +1626,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
             continue
         if item == "WDS Spectrometer Configuration":
             if not CFG.get("has_wds_config", False):
-                # Non-EMPA TAPPs have no WDS spectrometers; skip silently.
+                # Non-EPMA TAPPs have no WDS spectrometers; skip silently.
                 continue
             inst = parts.setdefault("schema:instrument", {"@type": ["schema:Thing"]})
             inst.setdefault("schema:hasPart", []).extend(_parse_wds_table(val))
@@ -1886,7 +1886,7 @@ def variable_measured_from_default_analytes(pub_label: str, default_analytes: li
     is preserved without forcing a consumer to read both the profile record and
     the TAPP definition.
 
-    Defaults to 'wt%' for schema:unitText (EMPA QEA convention). Other techniques
+    Defaults to 'wt%' for schema:unitText (EPMA QEA convention). Other techniques
     pass their own unit (e.g. 'ppm' for trace LA-ICP-MS).
     """
     out = []
@@ -1902,7 +1902,7 @@ def variable_measured_from_default_analytes(pub_label: str, default_analytes: li
         if da.get("primaryCalibrationStandard"):
             bits.append(f"calibrated against {da['primaryCalibrationStandard']}")
         detail = "; ".join(bits)
-        desc = f"{analyte} abundance measured by EMPA WDS"
+        desc = f"{analyte} abundance measured by EPMA WDS"
         if detail:
             desc += f" ({detail})"
         desc += "."
@@ -2021,7 +2021,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
         ("@id", f"ex:adaEMPA-{pub_label}-data-001"),
         ("@type", ["schema:MediaObject", "ada:tabularData", "cdi:TabularTextDataSet", "schema:Thing"]),
         ("schema:name", f"adaEMPA-{pub_label}-data.csv"),
-        ("schema:description", f"Per-point quantitative EMPA analyses ({pub_citation})."),
+        ("schema:description", f"Per-point quantitative EPMA analyses ({pub_citation})."),
         ("schema:additionalType", ["ada:EMPAQEATabular"]),
         ("schema:encodingFormat", ["text/csv"]),
         ("cdi:isDelimited", True),
@@ -2097,7 +2097,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     out["schema:distribution"] = [OrderedDict([
         ("@type", ["schema:DataDownload"]),
         ("schema:name", f"adaEMPA-{pub_label}-archive.zip"),
-        ("schema:description", f"Archive containing tabular EMPA data for {pub_label}."),
+        ("schema:description", f"Archive containing tabular EPMA data for {pub_label}."),
         ("schema:contentUrl", f"https://astromat.org/downloads/adaempa-{pub_label.lower()}.zip"),
         ("schema:encodingFormat", ["application/zip"]),
         ("spdx:checksum", OrderedDict([
@@ -2133,7 +2133,7 @@ def build_profile_examples(pub_filter: list[str] | None = None) -> dict:
     emit _sources/profiles/adaProfiles/adaEMPA/exampleadaEMPA-<pub>.json. Returns
     a counts dict {written: int, skipped: int}.
 
-    EMPA-only — emits nothing when CFG["emit_profile_examples"] is False
+    EPMA-only — emits nothing when CFG["emit_profile_examples"] is False
     (e.g. for laicpmsTAPP)."""
     if not CFG.get("emit_profile_examples", False):
         return {"written": 0, "skipped": 0}

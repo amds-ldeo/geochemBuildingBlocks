@@ -2,7 +2,8 @@
 """Regenerate the pipeline in dependency order. One entrypoint, because the order is load-bearing.
 
     python tools/regenerate.py                 # everything
-    python tools/regenerate.py --tapp semTAPP  # one technique (modules and resolve still run)
+    python tools/regenerate.py --tapp semTAPP  # one technique (modules/simplify still run;
+                                               #   resolve is scoped to that technique)
     python tools/regenerate.py --dry-run       # print the plan, run nothing
     python tools/regenerate.py --from profile  # resume at a stage, after fixing something
 
@@ -69,9 +70,9 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--tapp", action="append", default=[],
-                    help="limit the per-technique stages to these (repeatable); the module, "
-                         "simplify, resolve and mirror stages always run over everything, "
-                         "because they are shared")
+                    help="limit the per-technique stages to these (repeatable). module, simplify "
+                         "and mirrors still run over everything because they are shared; resolve is "
+                         "SCOPED to these techniques plus every shared schema")
     ap.add_argument("--from", dest="start", choices=[s for s, _, _ in STAGES],
                     help="resume at this stage")
     ap.add_argument("--dry-run", action="store_true")
@@ -99,8 +100,17 @@ def main():
             fail += [(stage, "")] if run(["", os.path.join(TOOLS, "simplify_sidecars.py"),
                                           "--write"], a.dry_run) else []
         elif stage == "resolve":
-            fail += [(stage, "")] if run(["", os.path.join(TOOLS, "resolve_schema.py"),
-                                          "--all"], a.dry_run) else []
+            # Scope resolve to the techniques being rebuilt. Without this a --tapp run still
+            # resolved all 206 schemas -- 190 of them techniques it was not touching -- and that
+            # stage dominates the wall clock. Shared schemas (BaseSchema/, registry/) are always
+            # resolved by resolve_schema itself: the module and registry stages rebuild them every
+            # run, so scoping those out would leave a stale resolvedSchema poisoning every
+            # technique that composes it.
+            cmd = ["", os.path.join(TOOLS, "resolve_schema.py"), "--all"]
+            if a.tapp:
+                for t in a.tapp:
+                    cmd += ["--only", b.TECH_DIR.get(t, t)]
+            fail += [(stage, "")] if run(cmd, a.dry_run) else []
         elif stage == "mirrors":
             fail += [(stage, "")] if run(["", os.path.join(TOOLS, "regenerate_schema_json.py")],
                                          a.dry_run) else []

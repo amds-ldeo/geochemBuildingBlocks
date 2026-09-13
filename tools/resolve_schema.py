@@ -1512,6 +1512,16 @@ def main():
         help="(deprecated, ignored — structured form is now the only output mode)",
     )
     parser.add_argument(
+        "--only",
+        action="append",
+        default=[],
+        help="with --all, restrict the techniqueProfile schemas to those whose path contains one "
+             "of these (repeatable; e.g. --only EMPA --only LA-Q-ICPMS). Shared schemas under "
+             "BaseSchema/ and registry/ are ALWAYS resolved, because the module and registry "
+             "stages rebuild them on every run and a stale resolvedSchema there is what silently "
+             "poisons every technique that composes it.",
+    )
+    parser.add_argument(
         "--refresh-remote",
         action="store_true",
         help="fetch remote $refs from the network and re-pin them under vendor/remote. Without "
@@ -1526,6 +1536,15 @@ def main():
 
     if args.all:
         schemas = find_all_schemas_with_external_refs()
+        if args.only:
+            keep = []
+            for sp in schemas:
+                rel = str(sp).replace("\\", "/")
+                if "/techniqueProfile/" not in rel or any(o in rel for o in args.only):
+                    keep.append(sp)
+            print(f"--only {', '.join(args.only)}: {len(keep)} of {len(schemas)} schemas "
+                  f"({len(schemas) - len(keep)} technique schemas skipped)", file=sys.stderr)
+            schemas = keep
         print(f"Found {len(schemas)} building blocks with external $refs", file=sys.stderr)
         for schema_path in schemas:
             rel = schema_path.relative_to(REPO_ROOT)
