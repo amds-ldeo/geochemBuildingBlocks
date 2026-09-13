@@ -94,8 +94,14 @@ PROFILES = {
     # brings both under the generator, so a technique regen keeps its profile in step with its own
     # detail and tapp - EPMA's profile had gone stale against them precisely because it was skipped.
     "empaTAPP": dict(dir="EMPA", short="EMPA", cid="adaEMPA",
+        # adaProduct's controlled list pairs each technique: a Title Case name carrying the
+        # acronym, and a sentence-case name without it. 19 of the 20 multi-value profiles here
+        # carry both halves. EMPA carried two ACRONYM forms instead -- two products -- and never
+        # picked up its sentence-case partner, which is the value every published ADA EMPA record
+        # actually writes. Without it the profile rejects its own records.
         addtype=["Electron Microprobe Analysis (EMPA)",
-                 "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)"],
+                 "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)",
+                 "Electron microprobe analysis"],
         title="ADA EPMA Product Profile"),
     "temTAPP": dict(dir="TEM", short="TEM", cid="adaTEM",
         addtype=["Scanning Transmission Electron Microscopy (STEM) Image",
