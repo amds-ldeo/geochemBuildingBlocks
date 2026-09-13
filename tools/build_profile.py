@@ -133,21 +133,36 @@ PROFILES = {
     "finesseTAPP": dict(dir="FINESSE", short="FINESSE", cid="adaFINESSE", addtype=["Elemental Analyzer Stepped Heating C N Isotope (FINESSE)"],
         title="ADA FINESSE Product Profile"),                 # Stepped Heating Carbon and Nitrogen Isotopic Compositions | FINESSECollection, FINESSETabular
     "gcCIrmsTAPP": dict(dir="GC-C-IRMS", short="GCCIRMS", cid="adaGCCIRMS",
-                        addtype=["icMsTAPP (GCCIRMS)",
+                        # "icMsTAPP (GCCIRMS)" was a TAPP key leaked into a human-readable
+                        # label -- and the wrong TAPP's key at that. Removed. The published
+                        # value, already named in the trailing comment below, was missing.
+                        addtype=["Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry",
                                  "Combustion gas chromatography isotopic ratio mass spectrometry",
                                  "C-GC-IR-MS"],
         title="ADA GC-C-IRMS Product Profile"),               # Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry | GCCIRMSDataCollection, GCCIRMSOrbitrapCollection, GCCIRMSTabularIsotopicValues
-    "icMsTAPP": dict(dir="IC-MS", short="ICMS", cid="adaICMS", addtype=["Ion Chromatography-Mass Spectrometry (ICMS)",
-                                                                        "Liquid chromatography mass spectrometry"],
+    # Neither previous value matched a published record. "Ion Chromatography-Mass Spectrometry"
+    # (47 records) and "Ion Chromatography" (12) are the spellings in use. LC-MS is kept on the
+    # reviewer's reading that ion chromatography IS liquid chromatography -- but note ADA treats
+    # LC-MS as a technique of its own (ada:LCMSCollection, 75 records) with no profile, so those
+    # records will now validate here.
+    "icMsTAPP": dict(dir="IC-MS", short="ICMS", cid="adaICMS", addtype=["Ion Chromatography-Mass Spectrometry",
+                                                                        "Ion Chromatography-Mass Spectrometry (ICMS)",
+                                                                        "Ion Chromatography",
+                                                                        "Liquid Chromatography-Mass Spectrometry"],
         title="ADA Ion Chromatography-Mass Spectrometry Product Profile"),                   # Ion Chromatography-Mass Spectrometry | ICMSCollection
     "niMiTAPP": dict(dir="NI-MI", short="NIMI", cid="adaNIMI", addtype=["Nanoindentation and microindentation (NI-MI)"],
         title="ADA NI-MI Product Profile"),                   # Nanoindentation and Microindentation | NIMICollection
     "pcdAfmTAPP": dict(dir="PCD-AFM", short="PCDAFM", cid="adaPCDAFM", addtype=["Particle cohesion determination with AFM (PCDAFM)"],
         title="ADA PCD-AFM Product Profile"),                 # Particle cohesion determination with AFM | PCDAFMCollection
     "sXrfTAPP": dict(dir="S-XRF", short="SXRF", cid="adaSXRF",
-                     addtype=["Synchrotron-based X-ray Fluorescence Spectroscopy (S-XRF)",
-                              "Synchroton X-ray fluorescence spectrometry",
-                              "Synchotron X-Ray Fluorescence Analysis","SYNCHXRF"],
+                     # "Synchrotron" was misspelled two different ways here, "Synchroton" and
+                     # "Synchotron". Neither variant is used by any published record, so
+                     # correcting them is safe. The value 325 S-XRF records actually carry --
+                     # already named in the trailing comment below -- was missing.
+                     addtype=["Synchrotron-based X-ray Fluorescence Spectroscopy",
+                              "Synchrotron-based X-ray Fluorescence Spectroscopy (S-XRF)",
+                              "Synchrotron X-ray fluorescence spectrometry",
+                              "Synchrotron X-Ray Fluorescence Analysis", "SYNCHXRF"],
         title="ADA S-XRF Product Profile"),                   # Synchrotron-based X-ray Fluorescence Spectroscopy | SXRF2DImage, SXRFPointTabular
     "semClTAPP": dict(dir="SEM-CL", short="SEMCL", cid="adaSEMCL", addtype=["SEM Cathodoluminescence Spectroscopy (SEMCL)"],
         title="ADA SEM-CL Product Profile"),                  # SEM Cathodoluminescence Spectroscopy | SEMHRCLTabular, SEMHRCLCube
