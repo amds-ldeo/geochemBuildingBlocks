@@ -83,6 +83,11 @@ properties:
   ada:componentType:
     type: string
     enum:
+    - ada:VLMVideo
+    - ada:XCTRenderedVideo
+    - ada:XCTVideo
+    - ada:contextVideo
+    - ada:other
     - ada:analysisLocation
     - ada:annotatedImage
     - ada:areaOfInterest
@@ -90,25 +95,19 @@ properties:
     - ada:calibrationFile
     - ada:code
     - ada:contextPhotography
-    - ada:contextVideo
     - ada:inputFile
     - ada:instrumentMetadata
     - ada:logFile
     - ada:methodDescription
-    - ada:other
     - ada:plot
     - ada:processingMethod
     - ada:quickLook
     - ada:report
     - ada:samplePreparation
     - ada:shapefile
-    - ada:SLSPartialScan
-    - ada:SLSShapeModel
     - ada:supplementalBasemap
     - ada:supplementaryImage
-    - ada:VLMVideo
     - ada:worldFile
-    - ada:XCTVideo
     - nil:missing
     description: ADA componentType for an other-format file, as a single string. Allowed
       values are constrained at the technique-profile level.

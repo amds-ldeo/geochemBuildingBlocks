@@ -201,9 +201,9 @@ The analysis half of the ReportingCore module, with every property populated. Ge
 ```ttl
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 
-[] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+[] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Dispersion Statistic" ;
             dqv:value "example value" ],
-        [ dqv:isMeasurementOf "Dispersion Statistic" ;
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "example value" ] .
 
 
