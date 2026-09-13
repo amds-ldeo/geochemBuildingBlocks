@@ -40,6 +40,7 @@ exactly that.
     python tools/build_ada_vocabulary.py empaTAPP
     python tools/build_ada_vocabulary.py --all
     python tools/build_ada_vocabulary.py --all --write   # emit build/vocabulary/<tapp>.json
+    python tools/build_ada_vocabulary.py --check-stability  # what blocks minting; exit 1 if unsafe
 """
 import argparse
 import collections
@@ -157,6 +158,107 @@ def build(tapp, reg, term_techs):
     return block, stats
 
 
+def notations(j):
+    """The real terms in a codelist -- sentinels are absences, not concepts."""
+    return frozenset(n for n in ((c.get("skos:notation") or "").strip()
+                                 for c in j["skos:hasTopConcept"])
+                     if n and n.lower() not in SENTINELS)
+
+
+def check_stability(reg, term_techs):
+    """What has to be settled before an IRI is minted.
+
+    Every segment this tool mints slugs something mutable, and a permanent identifier
+    cannot track a mutable thing. Reports each case, separating what is already wrong
+    in the output from what is a decision waiting to be taken. Returns the blocking
+    count so the tool exits non-zero while minting is unsafe.
+    """
+    try:            # terms carry non-ASCII (the zeta-factor labels); cp1252 would abort
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+    blocking = 0
+
+    # 1. A scheme IRI is {BASE}/scheme/{slug(field)} with no technique segment, so two
+    #    techniques naming a field alike mint ONE scheme IRI. Fine where they agree on
+    #    members; a defect where they do not, because the IRI then denotes a different
+    #    scheme depending on which record you read it from.
+    members = collections.defaultdict(dict)
+    for _, (tapp, field, j) in reg.items():
+        members[slug(field)][tapp] = notations(j)
+    shared = {s: d for s, d in members.items() if len(d) > 1}
+    diverge = {s: d for s, d in shared.items() if len(set(d.values())) > 1}
+    print("1. scheme IRIs, minted from the field name")
+    print(f"   {len(members)} distinct scheme slugs; {len(shared)} minted by more than one "
+          f"technique, of which {len(shared) - len(diverge)} agree on members")
+    if diverge:
+        print(f"   BLOCKING -- {len(diverge)} slug(s) name a DIFFERENT scheme per technique.")
+        print("   Grouped by member set: each group is one scheme, and they share one IRI.")
+        for sl, d in sorted(diverge.items(), key=lambda kv: -len(set(kv[1].values()))):
+            groups = collections.defaultdict(list)
+            for t, v in d.items():
+                groups[v].append(t)
+            common = set.intersection(*map(set, d.values()))
+            print(f"     /scheme/{sl}  --  {len(groups)} distinct member sets across "
+                  f"{len(d)} techniques, {len(common)} term(s) common to all")
+            for v, ts in sorted(groups.items(), key=lambda kv: -len(kv[1])):
+                who = ", ".join(sorted(ts)[:3]) + (f" +{len(ts) - 3} more" if len(ts) > 3 else "")
+                only = sorted(set(v) - common)
+                tail = "  e.g. " + "; ".join(only[:2]) if only else ""
+                print(f"       {len(v):>3d} terms  [{len(ts):>2d}] {who}{tail}")
+        blocking += len(diverge)
+
+    # 2. A concept IRI is slug(term), so the IRI encodes the label and the label can
+    #    then never be corrected. Collisions are the readable symptom; mutability is
+    #    the real hazard, and no check can see a rename that has not happened yet.
+    by_slug = collections.defaultdict(set)
+    for _, (_, _, j) in reg.items():
+        for n in notations(j):
+            by_slug[slug(n)].add(n)
+    coll = {s: v for s, v in by_slug.items() if len(v) > 1}
+    print()
+    print("2. term IRIs, minted from the label")
+    print(f"   {sum(len(v) for v in by_slug.values())} distinct terms -> {len(by_slug)} slugs")
+    if coll:
+        print(f"   REVIEW -- {len(coll)} slug(s) reached by more than one term; merging is "
+              f"right only where they mean the same thing:")
+        for sl, v in sorted(coll.items()):
+            print(f"     /term/{sl} <- " + " | ".join(sorted(v)))
+
+    # 3. Shared-vs-local is recomputed from the current data on every run, so a local
+    #    term's IRI leaves its technique namespace the day a second technique adopts
+    #    it, orphaning every record already carrying the old one.
+    local = [n for n, t in term_techs.items() if len(t) == 1 and "_shared" not in t]
+    edge = [n for n, t in term_techs.items() if len(t) == 2]
+    print()
+    print("3. the shared/local split, recomputed on every run")
+    print(f"   REVIEW -- {len(local)} term(s) are technique-local today; each one's IRI "
+          f"changes if a second technique adopts it")
+    print(f"   {len(edge)} term(s) sit at exactly two techniques, one drop from the "
+          f"reverse move")
+
+    # 4. Decision 4 gives a term one IRI, hence one definition. Correct for a crystal
+    #    like LIF, wrong for a word like Linear that two fields may use differently.
+    by_field = collections.defaultdict(set)
+    for _, (_, field, j) in reg.items():
+        for n in notations(j):
+            by_field[n].add(field)
+    rec = sorted(((len(f), n) for n, f in by_field.items() if len(f) > 1), reverse=True)
+    print()
+    print("4. one term, one IRI, one definition")
+    print(f"   REVIEW -- {len(rec)} of {len(by_field)} terms recur across fields; each needs "
+          f"a definition that fits every field it appears in:")
+    for c, n in rec:
+        print(f"     {c}x  {n}")
+
+    print()
+    if blocking:
+        print(f"BLOCKING: {blocking} scheme IRI(s) denote more than one scheme. Do not mint.")
+    else:
+        print("No blocking defect. The REVIEW sections are decisions, not errors.")
+    return blocking
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0],
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -166,11 +268,20 @@ def main():
                          "delivery, not the repo-local drafts")
     ap.add_argument("--write", action="store_true", help=f"emit into {os.path.relpath(OUTDIR, ROOT)}")
     ap.add_argument("--drafts", action="store_true", help="with --all, include the drafts too")
+    ap.add_argument("--check-stability", action="store_true",
+                    help="report what blocks URI minting; exits non-zero if a minted "
+                         "IRI is already ambiguous")
     a = ap.parse_args()
 
     reg = load_registry()
     term_techs = term_technique_index(reg)
     counts = collections.Counter(t for t, _, _ in reg.values() if t)
+
+    if a.check_stability:
+        print(f"registry: {len(reg)} codelists across {len(counts)} namespaces")
+        print(f"base: {BASE}")
+        print()
+        return 1 if check_stability(reg, term_techs) else 0
 
     if a.all:
         # Which TAPPs are "the sixteen" is not a question the registry can answer -- a
