@@ -80,8 +80,12 @@ PROFILES = {
                  "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-SF-ICP-MS Product Profile"),
     "laMcicpmsTAPP": dict(dir="LA-MC-ICPMS", short="LAMCICPMS", cid="adaLAMCICPMS",
-        addtype=["Laser Ablation Inductively coupled plasma mass spectrometry",
-                 "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
+        # addtype[0] is what the generated example declares, so it should be a value real
+        # records of this technique carry. "Multi-Collector Inductively Coupled Plasma Mass
+        # Spectrometry" is on 90 published records; the laser-ablation string is on 8 and is
+        # no more specific to MC, so it stays in the enum but not at the head.
+        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
+                 "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Laser Ablation Inductively coupled plasma mass spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-MC-ICP-MS Product Profile"),
     "laQicpmsUPbTAPP": dict(dir="LA-Q-ICPMS-UPb", short="LAQICPMSUPB", cid="adaLAQICPMSUPb",
         addtype=["Laser Ablation Inductively coupled plasma mass spectrometry",
@@ -92,8 +96,12 @@ PROFILES = {
                  "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-SF-ICP-MS U-Pb Geochronology Product Profile"),
     "laMcicpmsUPbTAPP": dict(dir="LA-MC-ICPMS-UPb", short="LAMCICPMSUPB", cid="adaLAMCICPMSUPb",
-        addtype=["Laser Ablation Inductively coupled plasma mass spectrometry",
-                 "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
+        # addtype[0] is what the generated example declares, so it should be a value real
+        # records of this technique carry. "Multi-Collector Inductively Coupled Plasma Mass
+        # Spectrometry" is on 90 published records; the laser-ablation string is on 8 and is
+        # no more specific to MC, so it stays in the enum but not at the head.
+        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
+                 "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Laser Ablation Inductively coupled plasma mass spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-MC-ICP-MS U-Pb Geochronology Product Profile"),
     # EPMA and TEM predate the generator: EPMA already has a hand-made profile/ (cid adaEMPA, kept
     # verbatim so its published conformsTo URI does not move) and TEM has none yet. Adding them here
