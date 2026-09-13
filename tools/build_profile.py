@@ -72,22 +72,28 @@ PROFILES = {
     # coined. NOTE: that list has no laser-ablation MC product string, so LA-MC and Solution-MC both
     # take the generic MCICPMS one; they stay distinct by conformsTo, componentType and detail.
     "laQicpmsTAPP": dict(dir="LA-Q-ICPMS", short="LAQICPMS", cid="adaLAQICPMS",
-        addtype=["Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed", "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"],
+        addtype=["Laser Ablation Inductively coupled plasma mass spectrometry",
+                 "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed", "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-Q-ICP-MS Product Profile"),
     "laSficpmsTAPP": dict(dir="LA-SF-ICPMS", short="LASFICPMS", cid="adaLASFICPMS",
-        addtype=["Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
+        addtype=["Laser Ablation Inductively coupled plasma mass spectrometry",
+                 "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-SF-ICP-MS Product Profile"),
     "laMcicpmsTAPP": dict(dir="LA-MC-ICPMS", short="LAMCICPMS", cid="adaLAMCICPMS",
-        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
+        addtype=["Laser Ablation Inductively coupled plasma mass spectrometry",
+                 "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-MC-ICP-MS Product Profile"),
     "laQicpmsUPbTAPP": dict(dir="LA-Q-ICPMS-UPb", short="LAQICPMSUPB", cid="adaLAQICPMSUPb",
-        addtype=["Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed", "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"],
+        addtype=["Laser Ablation Inductively coupled plasma mass spectrometry",
+                 "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed", "Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-Q-ICP-MS U-Pb Geochronology Product Profile"),
     "laSficpmsUPbTAPP": dict(dir="LA-SF-ICPMS-UPb", short="LASFICPMSUPB", cid="adaLASFICPMSUPb",
-        addtype=["Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
+        addtype=["Laser Ablation Inductively coupled plasma mass spectrometry",
+                 "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry (LASFICPMS) Processed", "Laser Ablation Sector-Field Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-SF-ICP-MS U-Pb Geochronology Product Profile"),
     "laMcicpmsUPbTAPP": dict(dir="LA-MC-ICPMS-UPb", short="LAMCICPMSUPB", cid="adaLAMCICPMSUPb",
-        addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
+        addtype=["Laser Ablation Inductively coupled plasma mass spectrometry",
+                 "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-MC-ICP-MS U-Pb Geochronology Product Profile"),
     # EPMA and TEM predate the generator: EPMA already has a hand-made profile/ (cid adaEMPA, kept
     # verbatim so its published conformsTo URI does not move) and TEM has none yet. Adding them here
@@ -104,7 +110,8 @@ PROFILES = {
                  "Electron microprobe analysis"],
         title="ADA EPMA Product Profile"),
     "temTAPP": dict(dir="TEM", short="TEM", cid="adaTEM",
-        addtype=["Scanning Transmission Electron Microscopy (STEM) Image",
+        addtype=["Transmission Electron Microscopy",
+                 "Scanning Transmission Electron Microscopy (STEM) Image",
                  "Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy "
                  "(STEMEDS) Tabular"],
         title="ADA TEM Product Profile"),
@@ -124,13 +131,17 @@ PROFILES = {
     # comment line: the technique's own declared full name, then its component_types, which say
     # what product kinds exist. Compare the shape already in use, e.g. XRD:
     #     ["X-ray Diffraction (XRD) Tabular", "X-ray diffraction"]
-    "capdTAPP": dict(dir="CAPD", short="CAPD", cid="adaCAPD", addtype=["Capacitance Dilatometry (CAPD)"],
+    "capdTAPP": dict(dir="CAPD", short="CAPD", cid="adaCAPD", addtype=["Capacitance Dilatometry",
+                 "Capacitance Dilatometry (CAPD)"],
         title="ADA Capacitance Dilatometry Product Profile"),                    # Capacitance Dilatometry | CAPDRawTabular
-    "cpdTAPP": dict(dir="CPD", short="CPD", cid="adaCPD", addtype=["Curation Photo-Documentation (CPD)"],
+    "cpdTAPP": dict(dir="CPD", short="CPD", cid="adaCPD", addtype=["Curation Photo-Documentation",
+                 "Curation Photo-Documentation (CPD)"],
         title="ADA Curation Photo-Documentation Product Profile"),                     # Curation Photo-Documentation | CPDImage
-    "dssmTAPP": dict(dir="DSSM", short="DSSM", cid="adaDSSM", addtype=["Direct Shear Strength Measurement (DSSM)"],
+    "dssmTAPP": dict(dir="DSSM", short="DSSM", cid="adaDSSM", addtype=["Direct Shear Strength Measurement",
+                 "Direct Shear Strength Measurement (DSSM)"],
         title="ADA Direct Shear Strength Product Profile"),                    # Direct Shear Strength Measurement | DSSMTabular, UCSTabular
-    "finesseTAPP": dict(dir="FINESSE", short="FINESSE", cid="adaFINESSE", addtype=["Elemental Analyzer Stepped Heating C N Isotope (FINESSE)"],
+    "finesseTAPP": dict(dir="FINESSE", short="FINESSE", cid="adaFINESSE", addtype=["Stepped Heating Carbon and Nitrogen Isotopic Compositions",
+                 "Elemental Analyzer Stepped Heating C N Isotope (FINESSE)"],
         title="ADA FINESSE Product Profile"),                 # Stepped Heating Carbon and Nitrogen Isotopic Compositions | FINESSECollection, FINESSETabular
     "gcCIrmsTAPP": dict(dir="GC-C-IRMS", short="GCCIRMS", cid="adaGCCIRMS",
                         # "icMsTAPP (GCCIRMS)" was a TAPP key leaked into a human-readable
@@ -150,9 +161,11 @@ PROFILES = {
                                                                         "Ion Chromatography",
                                                                         "Liquid Chromatography-Mass Spectrometry"],
         title="ADA Ion Chromatography-Mass Spectrometry Product Profile"),                   # Ion Chromatography-Mass Spectrometry | ICMSCollection
-    "niMiTAPP": dict(dir="NI-MI", short="NIMI", cid="adaNIMI", addtype=["Nanoindentation and microindentation (NI-MI)"],
+    "niMiTAPP": dict(dir="NI-MI", short="NIMI", cid="adaNIMI", addtype=["Nanoindentation and Microindentation",
+                 "Nanoindentation and microindentation (NI-MI)"],
         title="ADA NI-MI Product Profile"),                   # Nanoindentation and Microindentation | NIMICollection
-    "pcdAfmTAPP": dict(dir="PCD-AFM", short="PCDAFM", cid="adaPCDAFM", addtype=["Particle cohesion determination with AFM (PCDAFM)"],
+    "pcdAfmTAPP": dict(dir="PCD-AFM", short="PCDAFM", cid="adaPCDAFM", addtype=["Particle cohesion determination with AFM",
+                 "Particle cohesion determination with AFM (PCDAFM)"],
         title="ADA PCD-AFM Product Profile"),                 # Particle cohesion determination with AFM | PCDAFMCollection
     "sXrfTAPP": dict(dir="S-XRF", short="SXRF", cid="adaSXRF",
                      # "Synchrotron" was misspelled two different ways here, "Synchroton" and
@@ -164,13 +177,17 @@ PROFILES = {
                               "Synchrotron X-ray fluorescence spectrometry",
                               "Synchrotron X-Ray Fluorescence Analysis", "SYNCHXRF"],
         title="ADA S-XRF Product Profile"),                   # Synchrotron-based X-ray Fluorescence Spectroscopy | SXRF2DImage, SXRFPointTabular
-    "semClTAPP": dict(dir="SEM-CL", short="SEMCL", cid="adaSEMCL", addtype=["SEM Cathodoluminescence Spectroscopy (SEMCL)"],
+    "semClTAPP": dict(dir="SEM-CL", short="SEMCL", cid="adaSEMCL", addtype=["Scanning electron microscopy",
+                 "SEM Cathodoluminescence Spectroscopy (SEMCL)"],
         title="ADA SEM-CL Product Profile"),                  # SEM Cathodoluminescence Spectroscopy | SEMHRCLTabular, SEMHRCLCube
-    "sthmAfmTAPP": dict(dir="STHM-AFM", short="STHMAFM", cid="adaSTHMAFM", addtype=["Scanning Thermal Microscopy with AFM (STHMAFM)"],
+    "sthmAfmTAPP": dict(dir="STHM-AFM", short="STHMAFM", cid="adaSTHMAFM", addtype=["Scanning Thermal Microscopy with AFM",
+                 "Scanning Thermal Microscopy with AFM (STHMAFM)"],
         title="ADA STHM-AFM Product Profile"),                # Scanning Thermal Microscopy with AFM | SThMCollection
-    "tdmTAPP": dict(dir="TDM", short="TDM", cid="adaTDM", addtype=["Temperature-Dependent Magnetization (TDM)"],
+    "tdmTAPP": dict(dir="TDM", short="TDM", cid="adaTDM", addtype=["Temperature-Dependent Magnetization",
+                 "Temperature-Dependent Magnetization (TDM)"],
         title="ADA TDM Product Profile"),                     # Temperature-Dependent Magnetization | TDMRawTabular
-    "timsTAPP": dict(dir="TIMS", short="TIMS", cid="adaTIMS", addtype=["Thermal ionization mass spectrometry (TIMS)"],
+    "timsTAPP": dict(dir="TIMS", short="TIMS", cid="adaTIMS", addtype=["Thermal ionization mass spectrometry",
+                 "Thermal ionization mass spectrometry (TIMS)"],
         title="ADA TIMS Product Profile"),                    # Thermal ionization mass spectrometry | TIMSProcessedTabular, TIMSRawCollection
 }
 
