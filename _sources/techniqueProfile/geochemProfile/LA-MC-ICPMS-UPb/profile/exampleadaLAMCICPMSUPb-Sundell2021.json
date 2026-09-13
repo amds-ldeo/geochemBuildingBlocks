@@ -1,0 +1,996 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://cdif.org/0.1/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "ex": "https://example.org/",
+    "dcat": "http://www.w3.org/ns/dcat#"
+  },
+  "@id": "https://doi.org/10.1111/ggr.12355",
+  "@type": [
+    "schema:Dataset",
+    "schema:Product"
+  ],
+  "schema:name": "Rapid U-Pb Geochronology by Laser Ablation Multi-Collector ICP-MS",
+  "schema:description": "Zircon U-Pb dates acquired by multi-collector LA-ICP-MS at 120, 300, 600 and 1200 analyses per hour (30, 12, 6 and 3 s per analysis), demonstrated on twelve zircon reference materials with dates from ~3465 to ~28 Ma and on detrital zircons from sandstone sample CP40. Mean offset from high-precision dates rises from 0.9% to 1.1% with rate; mean random 1s uncertainty from 0.6% to 1.3%.",
+  "schema:additionalType": [
+    "Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
+    "ada:DataDeliveryPackage"
+  ],
+  "schema:identifier": {
+    "@type": [
+      "schema:PropertyValue"
+    ],
+    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:value": "10.1111/ggr.12355",
+    "schema:url": "https://doi.org/10.1111/ggr.12355"
+  },
+  "schema:url": "https://doi.org/10.1111/ggr.12355",
+  "schema:dateModified": "2026-01-15",
+  "schema:version": "1.0",
+  "schema:conditionsOfAccess": [
+    "Unrestricted access for research purposes"
+  ],
+  "schema:license": [
+    "nil:missing"
+  ],
+  "schema:creativeWorkStatus": "Published",
+  "schema:keywords": [
+    "U-Pb geochronology",
+    "detrital zircon",
+    "LA-MC-ICP-MS",
+    "reference materials",
+    "data reduction"
+  ],
+  "schema:creator": {
+    "@list": [
+      {
+        "@type": [
+          "schema:Person"
+        ],
+        "schema:name": "Sundell, Kurt E.",
+        "schema:affiliation": {
+          "@type": [
+            "schema:Organization"
+          ],
+          "schema:name": "Department of Geosciences, University of Arizona"
+        },
+        "schema:contactPoint": {
+          "@type": [
+            "schema:ContactPoint"
+          ],
+          "schema:email": "sundell@arizona.edu"
+        }
+      },
+      {
+        "@type": [
+          "schema:Person"
+        ],
+        "schema:name": "Gehrels, George E.",
+        "schema:affiliation": {
+          "@type": [
+            "schema:Organization"
+          ],
+          "schema:name": "Department of Geosciences, University of Arizona"
+        }
+      },
+      {
+        "@type": [
+          "schema:Person"
+        ],
+        "schema:name": "Pecha, Mark E.",
+        "schema:affiliation": {
+          "@type": [
+            "schema:Organization"
+          ],
+          "schema:name": "Department of Geosciences, University of Arizona"
+        }
+      }
+    ]
+  },
+  "schema:contributor": [
+    {
+      "@type": [
+        "schema:Role"
+      ],
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "@type": [
+          "schema:Person"
+        ],
+        "schema:name": "Leadscientist, Patricia",
+        "schema:identifier": "https://orcid.org/0000-0003-1111-2222",
+        "schema:contactPoint": {
+          "@type": [
+            "schema:ContactPoint"
+          ],
+          "schema:email": "leadscientist@example.org"
+        }
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:identifier": {
+        "@type": [
+          "schema:PropertyValue"
+        ],
+        "schema:propertyID": "award number",
+        "schema:value": "NNX17AE48G"
+      },
+      "schema:name": "Astromaterials Curation and Analysis",
+      "schema:funder": {
+        "@type": [
+          "schema:Organization"
+        ],
+        "schema:additionalType": [
+          "schema:FundingAgency"
+        ],
+        "schema:name": "NASA - National Aeronautics and Space Administration"
+      }
+    }
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Astromat Data Archive (ADA)",
+      "schema:identifier": "https://ada.astromat.org/vocabulary/techniques/ADA"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": [
+        "prov:Activity",
+        "schema:Action"
+      ],
+      "schema:identifier": "sundell2021-arizona-laserchron",
+      "schema:startDate": "missing",
+      "schema:endDate": "missing",
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "@type": [
+                "schema:Thing",
+                "schema:Product"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "nxs:base_classes/NXinstrument.html"
+                },
+                "ICPMS",
+                "Laser Ablation System",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:name": "Photon Machines Analyte G2",
+              "schema:identifier": [
+                "ex:instrument-ada-001"
+              ],
+              "@id": "ex:instrument/nxs-BaseClass-NXinstrument",
+              "schema:manufacturer": {
+                "@type": [
+                  "schema:Organization"
+                ],
+                "schema:name": "Photon Machines"
+              },
+              "schema:model": {
+                "@type": [
+                  "schema:ProductModel"
+                ],
+                "schema:name": "Analyte G2"
+              },
+              "schema:description": "ArF 193 nm excimer laser with a HelEx sample cell, coupled to the mass spectrometer through an aerosol rapid introduction system (ARIS) giving sub-second washout. Constant energy set 7 mJ, laser energy 100% (open gate), repetition rate 7 Hz, beam diameter 30 um. Helium carrier via two mass flow controllers, MFC1 0.10 and MFC2 0.30 l/min."
+            },
+            {
+              "@type": [
+                "schema:Thing",
+                "schema:Product"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "nxs:base_classes/NXinstrument.html"
+                },
+                "ICPMS",
+                "Laser Ablation System",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:name": "Nu Instruments HR Multi-collector",
+              "schema:identifier": [
+                "ex:instrument-ada-001"
+              ],
+              "@id": "ex:instrument/nxs-BaseClass-NXinstrument",
+              "schema:manufacturer": {
+                "@type": [
+                  "schema:Organization"
+                ],
+                "schema:name": "Nu Instruments"
+              },
+              "schema:model": {
+                "@type": [
+                  "schema:ProductModel"
+                ],
+                "schema:name": "Nu Plasma HR"
+              },
+              "schema:description": "High-resolution multi-collector ICP-MS. RF power 1300 W; cool gas 13.0, auxiliary 0.80, sample/make-up 1.06 l/min. Combined Faraday and ion-counter routine. Collector configuration, mass by cup: ExH = 238U (Faraday); H2 = 232Th (Faraday); L6 = 208Pb (Faraday); L7 = 207Pb (Faraday); L8 = 206Pb (Faraday); IC0 = 204Pb (ion counter); IC2 = 202Hg + Pb (ion counter)."
+            }
+          ]
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Arizona LaserChron Center, University of Arizona",
+        "schema:identifier": "https://ror.org/03m2x1q45",
+        "schema:alternateName": [
+          "ALC"
+        ],
+        "schema:additionalType": [
+          {
+            "@id": "nxs:base_classes/NXsource.html"
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "schema:Thing",
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalType": [
+            "MaterialSample"
+          ],
+          "schema:name": "ALH 84001,123",
+          "schema:identifier": [
+            "igsn:10.60471/GSEEXAMPLE001"
+          ],
+          "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
+        }
+      ],
+      "ada:proceduralBlankLevel": "missing",
+      "schema:actionProcess": {
+        "@type": [
+          "schema:HowTo"
+        ],
+        "schema:name": "Rapid zircon U-Pb geochronology by LA-MC-ICP-MS, Arizona LaserChron Center",
+        "schema:description": "Sample-standard bracketed zircon U-Pb dating on a Nu Plasma HR multi-collector, at four acquisition rates from 120 to 1200 analyses per hour, with U, Th and the three radiogenic Pb masses on Faradays and 204Pb and 202(Hg+Pb) on ion counters.",
+        "schema:step": [
+          {
+            "@type": [
+              "schema:HowToStep"
+            ],
+            "schema:position": 1,
+            "schema:name": "Sample preparation",
+            "schema:description": "Unknown zircons (sandstone CP40) mounted in a single epoxy mount with the primary and secondary reference materials FC-1 and R33, with spots assigned at random. Before each session every selected spot received a three-pulse cleaning shot at 50 um beam diameter to remove common Pb and surface contaminants from the mount; the paper calls this critical for the rapid acquisition rates."
+          },
+          {
+            "@type": [
+              "schema:HowToStep"
+            ],
+            "schema:position": 2,
+            "schema:name": "Data acquisition",
+            "schema:description": "Four acquisition rates: 120, 300, 600 and 1200 analyses per hour, i.e. 30, 12, 6 and 3 s per analysis, equating to 15, 7, 3 and 1 s of sample integration. Each was optimised to maximise on-peak time while minimising background and washout. For the 120 per hour rate fifty indexes (10 s) of background are measured and subtracted, bringing the standard error on 238U below 1%. Fractionation from instrument drift, mass bias and laser-induced fractionation is handled by bracketing five unknowns to one primary reference analysis."
+          },
+          {
+            "@type": [
+              "schema:HowToStep"
+            ],
+            "schema:position": 3,
+            "schema:name": "Data reduction",
+            "schema:description": "AgeCalcML, a new open-source MATLAB package (github.com/kurtsundell/AgeCalcML), based on the in-house Excel macro AgeCalc at the Arizona LaserChron Center (Gehrels et al. 2008) and following the data-reporting protocols of Horstwood et al. (2016). Each isotopic mass is recorded as a discrete time series and individual analyses are parsed from the seven time series by identifying the start of ablation, t0. Quality control filters applied here: 10% uncertainty cut-off, 10% discordance filter on best ages older than 600 Ma, 5% reverse-discordance filter, and a 204Pb filter at 400 cps.",
+            "ada:detectionLimitMethod": "missing"
+          }
+        ]
+      },
+      "ada:deadTime": -9999
+    }
+  ],
+  "schema:variableMeasured": [
+    {
+      "@id": "ex:sundell2021/var/238U",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "238U",
+      "schema:alternateName": [
+        "ADA primary measurement"
+      ],
+      "schema:description": "Ion beam intensity at m/z 238 (U), measured on collector ExH, a Faraday.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:monitoredProperty/238U"
+        }
+      ],
+      "schema:unitText": "V",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "V",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Monitored Mass",
+          "schema:value": "238",
+          "schema:unitText": "m/z"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Collector Configuration",
+          "schema:value": "ExH"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Detector Type",
+          "schema:value": "Faraday"
+        }
+      ]
+    },
+    {
+      "@id": "ex:sundell2021/var/232Th",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "232Th",
+      "schema:alternateName": [
+        "ADA primary measurement"
+      ],
+      "schema:description": "Ion beam intensity at m/z 232 (Th), measured on collector H2, a Faraday.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:monitoredProperty/232Th"
+        }
+      ],
+      "schema:unitText": "V",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "V",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Monitored Mass",
+          "schema:value": "232",
+          "schema:unitText": "m/z"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Collector Configuration",
+          "schema:value": "H2"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Detector Type",
+          "schema:value": "Faraday"
+        }
+      ]
+    },
+    {
+      "@id": "ex:sundell2021/var/208Pb",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "208Pb",
+      "schema:alternateName": [
+        "ADA primary measurement"
+      ],
+      "schema:description": "Ion beam intensity at m/z 208 (Pb), measured on collector L6, a Faraday.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:monitoredProperty/208Pb"
+        }
+      ],
+      "schema:unitText": "V",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "V",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Monitored Mass",
+          "schema:value": "208",
+          "schema:unitText": "m/z"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Collector Configuration",
+          "schema:value": "L6"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Detector Type",
+          "schema:value": "Faraday"
+        }
+      ]
+    },
+    {
+      "@id": "ex:sundell2021/var/207Pb",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "207Pb",
+      "schema:alternateName": [
+        "ADA primary measurement"
+      ],
+      "schema:description": "Ion beam intensity at m/z 207 (Pb), measured on collector L7, a Faraday.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:monitoredProperty/207Pb"
+        }
+      ],
+      "schema:unitText": "V",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "V",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Monitored Mass",
+          "schema:value": "207",
+          "schema:unitText": "m/z"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Collector Configuration",
+          "schema:value": "L7"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Detector Type",
+          "schema:value": "Faraday"
+        }
+      ]
+    },
+    {
+      "@id": "ex:sundell2021/var/206Pb",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "206Pb",
+      "schema:alternateName": [
+        "ADA primary measurement"
+      ],
+      "schema:description": "Ion beam intensity at m/z 206 (Pb), measured on collector L8, a Faraday.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:monitoredProperty/206Pb"
+        }
+      ],
+      "schema:unitText": "V",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "V",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Monitored Mass",
+          "schema:value": "206",
+          "schema:unitText": "m/z"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Collector Configuration",
+          "schema:value": "L8"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Detector Type",
+          "schema:value": "Faraday"
+        }
+      ]
+    },
+    {
+      "@id": "ex:sundell2021/var/204Pb",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "204Pb",
+      "schema:alternateName": [
+        "ADA primary measurement"
+      ],
+      "schema:description": "Ion beam intensity at m/z 204 (Pb), measured on collector IC0, a ion counter.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:monitoredProperty/204Pb"
+        }
+      ],
+      "schema:unitText": "cps",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "cps",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Monitored Mass",
+          "schema:value": "204",
+          "schema:unitText": "m/z"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Collector Configuration",
+          "schema:value": "IC0"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Detector Type",
+          "schema:value": "ion counter"
+        }
+      ]
+    },
+    {
+      "@id": "ex:sundell2021/var/202HgPb",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "202Hg + Pb",
+      "schema:alternateName": [
+        "ADA primary measurement"
+      ],
+      "schema:description": "Ion beam intensity at m/z 202 (Hg + Pb), measured on collector IC2, a ion counter.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:monitoredProperty/202HgPb"
+        }
+      ],
+      "schema:unitText": "cps",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "cps",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Monitored Mass",
+          "schema:value": "202",
+          "schema:unitText": "m/z"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Collector Configuration",
+          "schema:value": "IC2"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:name": "Detector Type",
+          "schema:value": "ion counter"
+        }
+      ]
+    },
+    {
+      "@id": "ex:adaProduct-var-002",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "position_x",
+      "schema:alternateName": [
+        "X coordinate"
+      ],
+      "schema:description": "Horizontal position coordinate on sample surface.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/position_x"
+      ],
+      "schema:unitText": "um",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "DimensionComponent",
+      "cdi:simpleUnitOfMeasure": "um",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
+      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:value": "missing"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Radiogenic Fraction of Measured Signal",
+      "schema:description": "Radiogenic Fraction of Measured Signal reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:value": "missing"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Age Datum / Reference Epoch",
+      "schema:description": "Age Datum / Reference Epoch reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:value": "missing"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Limit of Quantification (LOQ) Method",
+      "schema:description": "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:value": "missing"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Detection Limit",
+      "schema:description": "Detection Limit reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:value": -9999
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:defaultValue": "missing"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Age Calculation Method",
+      "schema:description": "Age Calculation Method reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:value": "missing"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Reported Date Type",
+      "schema:description": "Reported Date Type reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:defaultValue": "missing"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Inherited or Initial Signal Correction",
+      "schema:description": "Inherited or Initial Signal Correction reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:defaultValue": "missing"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Age Model",
+      "schema:description": "Age Model reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "schema:distribution": [
+    {
+      "@type": [
+        "schema:DataDownload",
+        "schema:Collection"
+      ],
+      "schema:name": "adaProduct-ALH84001-archive.zip",
+      "schema:description": "Archive containing ADA data files and supplementary materials",
+      "schema:contentUrl": "https://astromat.org/downloads/adaproduct-example-001.zip",
+      "schema:encodingFormat": [
+        "application/zip"
+      ],
+      "spdx:checksum": {
+        "@type": [
+          "spdx:Checksum"
+        ],
+        "spdx:algorithm": "SHA256",
+        "spdx:checksumValue": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+      },
+      "schema:size": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 15728640,
+        "schema:unitText": "byte"
+      },
+      "schema:provider": [
+        {
+          "@type": [
+            "schema:Organization"
+          ],
+          "schema:name": "Astromat Data Archive"
+        }
+      ],
+      "schema:hasPart": [
+        {
+          "@id": "ex:adaProduct-file-001",
+          "@type": [
+            "schema:MediaObject",
+            "ada:image",
+            "schema:ImageObject"
+          ],
+          "schema:name": "ALH84001_ADA_001.tif",
+          "schema:description": "ADA data file for ALH 84001 thin section",
+          "schema:additionalType": [
+            "ada:LAICPMSGeochronTabular"
+          ],
+          "schema:encodingFormat": [
+            "image/tiff"
+          ],
+          "schema:size": {
+            "@type": [
+              "schema:QuantitativeValue"
+            ],
+            "schema:value": 10485760,
+            "schema:unitText": "byte"
+          },
+          "spdx:checksum": {
+            "@type": [
+              "spdx:Checksum"
+            ],
+            "spdx:algorithm": "MD5",
+            "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
+          },
+          "ada:componentType": "ada:LAICPMSGeochronTabular"
+        },
+        {
+          "@id": "ex:adaProduct-file-002",
+          "@type": [
+            "schema:MediaObject",
+            "ada:document",
+            "schema:DigitalDocument"
+          ],
+          "schema:name": "ALH84001_ADA_methods.pdf",
+          "schema:description": "Method description document for this analysis",
+          "schema:additionalType": [
+            "ada:LAICPMSGeochronTabular"
+          ],
+          "schema:encodingFormat": [
+            "application/pdf"
+          ],
+          "schema:size": {
+            "@type": [
+              "schema:QuantitativeValue"
+            ],
+            "schema:value": 524288,
+            "schema:unitText": "byte"
+          },
+          "ada:componentType": "ada:LAICPMSGeochronTabular"
+        }
+      ]
+    }
+  ],
+  "schema:subjectOf": {
+    "@type": [
+      "schema:Dataset"
+    ],
+    "schema:additionalType": [
+      {
+        "@id": "dcat:CatalogRecord"
+      }
+    ],
+    "@id": "ex:adaProduct-metadata-001",
+    "schema:about": {
+      "@id": "ex:adaProduct-example-001"
+    },
+    "schema:dateModified": "2026-01-15",
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/discovery/1.1"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/provenance/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/manifest/1.1"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaLAMCICPMSUPb"
+      }
+    ],
+    "schema:maintainer": {
+      "@type": [
+        "schema:Organization"
+      ],
+      "schema:name": "Astromat Data Archive"
+    },
+    "schema:sdDatePublished": "2026-01-15T12:00:00Z",
+    "schema:includedInDataCatalog": {
+      "@type": [
+        "schema:DataCatalog"
+      ],
+      "schema:name": "Astromat Data Archive",
+      "schema:url": "https://astromat.org"
+    }
+  },
+  "ada:spotDiameterMeasured": 1.0,
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Peak Flatness",
+      "dqv:value": "missing"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "Mean offset from high-precision ID-TIMS dates 0.9% at 120 analyses/h rising to 1.1% at 1200; mean random 1 sigma uncertainty 0.6% rising to 1.3%, over twelve zircon reference materials."
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "missing"
+    }
+  ],
+  "ada:reportedDateType": [
+    "Weighted mean 206Pb/238U"
+  ],
+  "ada:sensitivityYield": 1.0,
+  "schema:datePublished": "2021"
+}
