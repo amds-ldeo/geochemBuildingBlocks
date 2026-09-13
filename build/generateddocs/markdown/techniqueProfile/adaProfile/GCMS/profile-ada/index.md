@@ -303,7 +303,7 @@ Mock data for validation and testing.
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/position_x"
       ],
-      "schema:unitText": "micrometer",
+      "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
@@ -724,7 +724,7 @@ Mock data for validation and testing.
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/position_x"
       ],
-      "schema:unitText": "micrometer",
+      "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
@@ -1049,7 +1049,7 @@ ex:adaGCMS-var-002 a cdi:InstanceVariable,
     schema1:description "Horizontal position coordinate on sample surface." ;
     schema1:name "position_x" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/position_x" ;
-    schema1:unitText "micrometer" ;
+    schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
 
 <https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,

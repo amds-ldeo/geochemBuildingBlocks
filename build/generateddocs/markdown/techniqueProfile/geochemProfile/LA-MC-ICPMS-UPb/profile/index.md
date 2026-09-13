@@ -267,7 +267,7 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/position_x"
       ],
-      "schema:unitText": "micrometer",
+      "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
@@ -880,7 +880,7 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/position_x"
       ],
-      "schema:unitText": "micrometer",
+      "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
@@ -1315,12 +1315,12 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "example peakFlatness" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ] ;
+            dqv:value "example oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:identifier "session-ada-20260110-001" ;
@@ -1427,7 +1427,7 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:description "Horizontal position coordinate on sample surface." ;
     schema1:name "position_x" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/position_x" ;
-    schema1:unitText "micrometer" ;
+    schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
 
 <https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
