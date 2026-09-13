@@ -110,21 +110,23 @@ Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition
 Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:value,authored,,"data-reduction step parameter, following geochronTAPP",
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,module,covered by a composed module; the module owns the placement,reported property
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
-Faraday Cup Array Configuration,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),
+Faraday Cup Array Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].schema:additionalProperty[schema:name='Faraday Cup Array Configuration'].schema:value,authored,,instrument cup-array part,
 Faraday Cup Amplifier Resistor Values,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),monitored property
 Faraday Cup Gain Calibration Method,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),monitored property
 Collector Configuration,Basic,Read-Only,Text (free),,module,module,covered by a composed module; the module owns the placement,monitored property
-Number of Blocks per Measurement,Basic,Editable,Integer,,flagged,,new in this revision (needs mapping),
+Number of Blocks per Measurement,Basic,Editable,Integer,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Number of Blocks per Measurement'].schema:value,authored,,dual-home: procedure default + analysis-tier value,
+Number of Blocks per Measurement,Basic,Editable,Integer,$MethodDefinition.schema:additionalProperty[schema:name='Number of Blocks per Measurement'].schema:defaultValue,authored,,dual-home: procedure default + analysis-tier value,
 Number of Cycles per Block,Basic,Editable,Integer,,flagged,,new in this revision (needs mapping),acquisition pass
 Integration Time per Cycle,Basic,Editable,Numeric (s),,flagged,,new in this revision (needs mapping),monitored property
-Baseline Measurement Approach,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),
-Peak Flatness Method and Threshold,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),
+Baseline Measurement Approach,Basic,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Baseline Measurement Approach'].schema:value,authored,,procedure-level additional property,
+Peak Flatness Method and Threshold,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Peak Flatness Method and Threshold'].schema:value,authored,,data-reduction step parameter,
 Peak Flatness,N/A,Basic,Text (free),,module,module,covered by a composed module; the module owns the placement,
-Mass Bias Correction Strategy,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),
-Mass Fractionation Law,Basic,Read-Only,Controlled list,,flagged,,new in this revision (needs mapping),
-Double-Spike Isotope Pair,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),
-Double-Spike Mixing Ratio,Advanced,Editable,Text (free),,flagged,,new in this revision (needs mapping),
-Double-Spike Inversion Algorithm,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),
+Mass Bias Correction Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:massBiasCorrectionStrategy,authored,,"bare ada: property, identical in all six LA sidecars",
+Mass Fractionation Law,Basic,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Mass Fractionation Law'].schema:value,authored,,procedure-level additional property,
+Double-Spike Isotope Pair,Basic,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Double Spike Isotope Pair'].schema:value,authored,,procedure-level additional property,
+Double-Spike Mixing Ratio,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Double Spike Mixing Ratio'].schema:value,authored,,dual-home: procedure default + analysis-tier value,
+Double-Spike Mixing Ratio,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Double Spike Mixing Ratio'].schema:defaultValue,authored,,dual-home: procedure default + analysis-tier value,
+Double-Spike Inversion Algorithm,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Double-Spike Inversion Algorithm'].schema:value,authored,,data-reduction step parameter,
 Internal Normalization Element and Isotope Ratio,Basic,Read-Only,Text (free),,module,module,covered by a composed module; the module owns the placement,
 Isotope Ratio Reported,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),reported property
 delta or epsilon Value Reference Standard,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),target species
@@ -132,8 +134,9 @@ Error Correlation Between Reported Quantities,Advanced,Basic,Numeric (dimensionl
 Internal (Within-Measurement) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property
 Between-Session (Long-Term) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),standard x reported property
 Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:manufacturer.schema:name,authored,,"placement copied from this workbook's own Instrument Model row, substituting schema:manufacturer for schema:model",
-ICP Tuning,Advanced,Editable,Text (free),,flagged,,new in this revision (needs mapping),
-Instrument Warm-up / Session Duration Limit,Advanced,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),
+ICP Tuning,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='ICP Tuning'].schema:defaultValue,authored,,dual-home: procedure default + analysis-tier value,
+ICP Tuning,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='ICP Tuning'].schema:value,authored,,dual-home: procedure default + analysis-tier value,
+Instrument Warm-up / Session Duration Limit,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Instrument Warm up Session Duration Limit'].schema:value,authored,,procedure-level additional property,
 Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,,module,module,covered by a composed module; the module owns the placement,monitored property
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),,module,module,covered by a composed module; the module owns the placement,monitored property
 Counting Statistics Error,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property
@@ -145,5 +148,7 @@ Digestion Step,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs
 Monitored Masses,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),defines: monitored property per target species
 Acquisition Pass,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),defines: acquisition pass
 Number of Acquisition Passes,Basic,Read-Only,Integer,$MethodDefinition.ada:numberOfAcquisitionPasses,authored,,"count of the passes enumerated in Acquisition Pass; keyed (none), so it needs no pass identifier and is placeable ahead of the rest of the pass family",
-Doubly-Charged Species Monitor,Advanced,Editable,Text (free),,flagged,,new in this revision (needs mapping),
-Doubly-Charged Species Production,Advanced,Editable,Text (free),,flagged,,new in this revision (needs mapping),
+Doubly-Charged Species Monitor,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Doubly Charged Species Monitor'].schema:value,authored,,dual-home: procedure default + analysis-tier value,
+Doubly-Charged Species Monitor,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Doubly Charged Species Monitor'].schema:defaultValue,authored,,dual-home: procedure default + analysis-tier value,
+Doubly-Charged Species Production,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Doubly Charged Species Production'].schema:value,authored,,dual-home: procedure default + analysis-tier value,
+Doubly-Charged Species Production,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Doubly Charged Species Production'].schema:defaultValue,authored,,dual-home: procedure default + analysis-tier value,

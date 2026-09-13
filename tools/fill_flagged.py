@@ -91,6 +91,64 @@ FILLS = {
         "been retired. The reviewer settled the placement as "
         "$MethodDefinition.ada:reportedProperties[], which the SEM sidecars carry",
         "reported-properties list"),
+    "Faraday Cup Array Configuration": (
+        "laMcicpmsTAPP",
+        "the MC-ICP-MS module owns this item; LA-MC-ICPMS_v78 carries it with Notes 'path from owning module', and Solution_MC-ICP-MS_v79 flags it only as 'new in this revision'. Protocol tier, analysis tier and Data Type are identical in both, so this is the same module item reaching a second table of the family, not a rival placement",
+        "instrument cup-array part"),
+    "Number of Blocks per Measurement": (
+        "laMcicpmsTAPP",
+        "the MC-ICP-MS module owns this item; LA-MC-ICPMS_v78 carries it with Notes 'path from owning module', and Solution_MC-ICP-MS_v79 flags it only as 'new in this revision'. Protocol tier, analysis tier and Data Type are identical in both, so this is the same module item reaching a second table of the family, not a rival placement",
+        "dual-home: procedure default + analysis-tier value"),
+    "Baseline Measurement Approach": (
+        "laMcicpmsTAPP",
+        "the MC-ICP-MS module owns this item; LA-MC-ICPMS_v78 carries it with Notes 'path from owning module', and Solution_MC-ICP-MS_v79 flags it only as 'new in this revision'. Protocol tier, analysis tier and Data Type are identical in both, so this is the same module item reaching a second table of the family, not a rival placement",
+        "procedure-level additional property"),
+    "Peak Flatness Method and Threshold": (
+        "laMcicpmsTAPP",
+        "the MC-ICP-MS module owns this item; LA-MC-ICPMS_v78 carries it with Notes 'path from owning module', and Solution_MC-ICP-MS_v79 flags it only as 'new in this revision'. Protocol tier, analysis tier and Data Type are identical in both, so this is the same module item reaching a second table of the family, not a rival placement",
+        "data-reduction step parameter"),
+    "Mass Bias Correction Strategy": (
+        "laMcicpmsTAPP",
+        "the MC-ICP-MS module owns this item; LA-MC-ICPMS_v78 carries it with Notes 'path from owning module', and Solution_MC-ICP-MS_v79 flags it only as 'new in this revision'. Protocol tier, analysis tier and Data Type are identical in both, so this is the same module item reaching a second table of the family, not a rival placement",
+        "bare ada: property, identical in all six LA sidecars"),
+    "Mass Fractionation Law": (
+        "laMcicpmsTAPP",
+        "the MC-ICP-MS module owns this item; LA-MC-ICPMS_v78 carries it with Notes 'path from owning module', and Solution_MC-ICP-MS_v79 flags it only as 'new in this revision'. Protocol tier, analysis tier and Data Type are identical in both, so this is the same module item reaching a second table of the family, not a rival placement",
+        "procedure-level additional property"),
+    "Double-Spike Isotope Pair": (
+        "laMcicpmsTAPP",
+        "the MC-ICP-MS module owns this item; LA-MC-ICPMS_v78 carries it with Notes 'path from owning module', and Solution_MC-ICP-MS_v79 flags it only as 'new in this revision'. Protocol tier, analysis tier and Data Type are identical in both, so this is the same module item reaching a second table of the family, not a rival placement",
+        "procedure-level additional property"),
+    "Double-Spike Mixing Ratio": (
+        "laMcicpmsTAPP",
+        "the MC-ICP-MS module owns this item; LA-MC-ICPMS_v78 carries it with Notes 'path from owning module', and Solution_MC-ICP-MS_v79 flags it only as 'new in this revision'. Protocol tier, analysis tier and Data Type are identical in both, so this is the same module item reaching a second table of the family, not a rival placement",
+        "dual-home: procedure default + analysis-tier value"),
+    "Double-Spike Inversion Algorithm": (
+        "laMcicpmsTAPP",
+        "the MC-ICP-MS module owns this item; LA-MC-ICPMS_v78 carries it with Notes 'path from owning module', and Solution_MC-ICP-MS_v79 flags it only as 'new in this revision'. Protocol tier, analysis tier and Data Type are identical in both, so this is the same module item reaching a second table of the family, not a rival placement",
+        "data-reduction step parameter"),
+    "ICP Tuning": (
+        "laMcicpmsTAPP",
+        "authored by hand in all six LA sidecars with the identical $MethodDefinition path; the "
+        "$Dataset dual-home partner is inferred, and is carried with it because the item is "
+        "Analysis-Level Editable and so needs an analysis-tier home",
+        "dual-home: procedure default + analysis-tier value"),
+    "Instrument Warm-up / Session Duration Limit": (
+        "laMcicpmsTAPP",
+        "authored, single path, identical in all six LA sidecars",
+        "procedure-level additional property"),
+    "Doubly-Charged Species Monitor": (
+        "solutionQicpmsTAPP",
+        "already authored in two of the three Solution sidecars with the identical dual-home "
+        "pair, and in all six LA sidecars; only Solution_MC-ICP-MS_v79 is flagged. The nearest "
+        "sibling in the same family wins over the LA tables",
+        "dual-home: procedure default + analysis-tier value"),
+    "Doubly-Charged Species Production": (
+        "solutionQicpmsTAPP",
+        "already authored in two of the three Solution sidecars with the identical dual-home "
+        "pair, and in all six LA sidecars; only Solution_MC-ICP-MS_v79 is flagged. The nearest "
+        "sibling in the same family wins over the LA tables",
+        "dual-home: procedure default + analysis-tier value"),
 }
 
 

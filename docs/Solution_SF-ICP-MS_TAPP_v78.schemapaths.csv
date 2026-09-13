@@ -20,7 +20,7 @@ Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by M
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,shared,,
 Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
-Sample Description,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:description,flagged,shared,analysis-instance (needs mapping),
+Sample Description,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:description,authored,shared,analysis-instance (needs mapping),
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
 Digestion Acid(s),Basic,Read-Only,Text (free),,module,shared,placement owned by Module SolutionIntroduction,preparation step
 Digestion Vessel Type,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample digestion'].schema:additionalProperty[schema:name='Digestion Vessel Type'].schema:value,inferred,shared,,
@@ -120,8 +120,9 @@ Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:was
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,module,covered by a composed module; the module owns the placement,reported property
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:manufacturer.schema:name,authored,,"placement copied from this workbook's own Instrument Model row, substituting schema:manufacturer for schema:model",
-ICP Tuning,Advanced,Editable,Text (free),,flagged,,new in this revision (needs mapping),
-Instrument Warm-up / Session Duration Limit,Advanced,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),
+ICP Tuning,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='ICP Tuning'].schema:defaultValue,authored,,dual-home: procedure default + analysis-tier value,
+ICP Tuning,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='ICP Tuning'].schema:value,authored,,dual-home: procedure default + analysis-tier value,
+Instrument Warm-up / Session Duration Limit,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Instrument Warm up Session Duration Limit'].schema:value,authored,,procedure-level additional property,
 Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,,module,module,covered by a composed module; the module owns the placement,monitored property
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),,module,module,covered by a composed module; the module owns the placement,
 Counting Statistics Error,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property
