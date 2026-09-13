@@ -260,7 +260,7 @@ TAPP_CONFIGS = {
         "xlsx": "tapp/Current TAPPs/Lab-XCT_TAPP_v39.csv",
         "prefix": "labxct",
         "component_types": ["ada:XCTVolume", "ada:XCTProjectionImageSet", "ada:XCTSegmentationVolume",
-                            "ada:XCTRenderedImage", "ada:XCTQuantitativeTabular"],
+                            "ada:XCTRenderedVideo", "ada:XCTQuantitativeTabular"],
         "base_items": _IDENTITY_COMMON | {"CT System Manufacturer and Model"},
         "analyte_map": {},
         "conditional_mode": "Multi-volume stitching",
