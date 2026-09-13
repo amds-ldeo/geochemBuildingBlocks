@@ -68,6 +68,23 @@ def module_paths(refs):
     return out
 
 
+def _dedupe(rows):
+    """Drop rows identical to one already kept, preserving order. Returns (rows, n_removed).
+
+    Only EXACT duplicates go -- every field equal. Two rows for one item that still differ in
+    Schema Path are the legitimate multi-placement case (a keyed row plus its unkeyed fallback,
+    or a $MethodDefinition and a $Dataset home) and are left alone.
+    """
+    seen, out = set(), []
+    for r in rows:
+        k = tuple(sorted((k2, (v or "")) for k2, v in r.items()))
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(r)
+    return out, len(rows) - len(out)
+
+
 def run(tapp, write=False):
     b.configure(tapp)
     f = schemapath_io.csv_path(b.XLSX)
@@ -105,10 +122,19 @@ def run(tapp, write=False):
         r["Source"] = "module"
         r["Notes"] = "placement owned by Module %s" % match[0]
         blanked += 1
-    if write and (blanked or adopted):
+
+    # Blanking DESTROYS the only field that told two rows for the same item apart. A field that
+    # carried four distinct placements becomes four byte-identical rows reading "placement owned
+    # by Module X" -- a fossil of how many paths it used to have, and unreadable as anything else.
+    # Harmless downstream (load_spec reads paths; four blank rows say what one says), but it is
+    # what a human hits first: 945 such rows existed across the sidecars before this collapse ran.
+    # Identical rows carry no distinct information, so keep the first and drop the rest.
+    rows, removed = _dedupe(rows)
+
+    if write and (blanked or adopted or removed):
         schemapath_io.write(f, rows)
-    print("%-22s %3d blanked, %2d adopted, %d divergent%s"
-          % (tapp, blanked, adopted, len(divergent), "" if write else "  (dry run)"))
+    print("%-22s %3d blanked, %2d adopted, %2d deduped, %d divergent%s"
+          % (tapp, blanked, adopted, removed, len(divergent), "" if write else "  (dry run)"))
     for it, p, owners in divergent:
         print("      DIVERGENT %-42s owned by %s" % (it[:42], ", ".join(owners) or "?"))
         print("                technique: %s" % p[:100])

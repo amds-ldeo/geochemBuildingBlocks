@@ -6,8 +6,6 @@ Segmentation Method,Basic,Editable,Controlled list / Text,$Dataset.prov:wasGener
 Accelerating Voltage,Basic,Editable,Numeric (kV),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:acceleratingVoltageDefault,authored,divergent,divergence decision applied,
 Accelerating Voltage,Basic,Editable,Numeric (kV),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='Accelerating Voltage'].schema:value,inferred,divergent,tier rule: analysis value is an additionalProperty on the instrument,
 Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Analysis End Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:defaultValue,authored,,new in this revision (needs mapping),
@@ -32,7 +30,6 @@ Beam Raster Dimensions,Advanced,Editable,Numeric pair (µm x µm),$Dataset.prov:
 Blank Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,target species
 BSE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='BSE Detector'].schema:name,authored,,reviewer: use the instrument hasPart[BSEDetector] form,
 Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
-Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
 Chamber Pressure,Advanced,Editable,Numeric + unit,$MethodDefinition.schema:additionalProperty[schema:name='Chamber Pressure'].schema:defaultValue,authored,,,
 Chamber Pressure,Advanced,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Chamber Pressure'].schema:value,authored,,new in this revision (needs mapping),
 CL Acquisition Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:clAcquisitionMode,authored,,new in this revision (needs mapping),
@@ -51,18 +48,11 @@ Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.ada:analy
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
 Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
-Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
-Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Crystal Structure Database,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:defaultValue,authored,,triage decision (reviewer),
 Crystal Structure Database,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:value,authored,,triage decision (reviewer),
 Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
 Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
 Diffracting Crystal,Basic,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),monitored property
 Drift Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Drift Correction'].schema:defaultValue,inferred,shared,,
@@ -109,16 +99,11 @@ Ion Beam Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrum
 Ion Milling Conditions (3D Tomography),Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:description,authored,,,
 Ion Milling Conditions (3D Tomography),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:description,authored,,new in this revision (needs mapping),
 Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
 Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
 Lift-out Method,Basic,Read-Only,Controlled list,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:liftOutMethod,authored,,new in this revision (needs mapping),
 Map Area,N/A,Basic,Numeric + unit,$Dataset.schema:additionalProperty[schema:name='Map Area'].schema:value,authored,,analysis-instance (needs mapping),
 Mass Absorption Coefficients (MACs),Basic,Read-Only,Controlled list,$MethodDefinition.ada:massAbsorptionCoefficients,inferred,shared,,
 Matrix Correction Method,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:matrixCorrectionMethod,inferred,shared,,
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
 Peak Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),monitored property
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,keyed,,,sample
@@ -135,7 +120,6 @@ Protective Coating Deposition,Basic,Editable,Text (free),$Dataset.prov:wasGenera
 Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
 Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
-Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
 Sample Tilt Angle,Basic,Read-Only,Numeric (degrees),$MethodDefinition.ada:sampleTiltAngle,authored,,new in this revision (needs mapping),
 Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit

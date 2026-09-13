@@ -3,8 +3,6 @@ Procedure Name,Basic,Read-Only,Text (free),,module,shared,placement owned by Mod
 Technique,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
 Procedure Author,Basic,Read-Only,Text (free),,module,shared,placement owned by Module Core,
 Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
 Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
 Procedure Start Date,Basic,Read-Only,Date,,module,shared,placement owned by Module Core,
 Funding Source for Procedure Development,Advanced,Read-Only,Text (free),,module,shared,placement owned by Module Core,
@@ -16,13 +14,10 @@ Analysis Start Date,N/A,Basic,Date,,module,shared,placement owned by Module Core
 Analysis End Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
 Funding Source for Analysis,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
 Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
-Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
-Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,shared,,
-Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
 Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
@@ -37,8 +32,6 @@ Instrument Variant,Basic,Read-Only,Controlled list,$MethodDefinition.schema:inst
 EDS Detector Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='EDS Detector'].schema:description,authored,divergent,divergence decision applied,
 WDS Spectrometer Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='WDS Spectrometer'].schema:name,authored,divergent,divergence decision applied,
 Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
-Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Analytical Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
 Beam Mode,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:beamMode,authored,divergent,divergence decision applied,sample > sampling unit
@@ -88,11 +81,7 @@ Halogen Correction on Oxygen,Advanced,Editable,Controlled list / Text,$Dataset.p
 EDS Spectral Processing Type,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value,inferred,shared,,
 Blank Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,target species
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
-Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
 WDS Dead Time Correction,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:wdsDeadTimeCorrection,inferred,shared,,
-Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
 Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
 Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:proceduralBlankLevel,authored,,shared analysis-instance row,target species
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:defaultValue,authored,,data-reduction step parameter,
@@ -104,16 +93,11 @@ X-ray Line Overlap Corrections Applied,Basic,Read-Only,Controlled list / Text,$M
 Interfering Elements,Advanced,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,target species
 Interference Correction Standard,Advanced,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,target species
 Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
 Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
 Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
 Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
 Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,sample > sampling unit x reported property
 EDS Dead Time,N/A,Basic,Numeric (%),$Dataset.prov:wasGeneratedBy.ada:deadTime,authored,,"analysis-instance dead time, following temTAPP",
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
-Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Monitored Elements,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),defines: monitored property per target species
