@@ -3,9 +3,8 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "dqv": "http://www.w3.org/ns/dqv#"
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:icMsTAPP-P0",
   "@type": [
@@ -15,12 +14,10 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "example procedureName",
-  "ada:targetMaterial": "Silicate mineral",
-  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
-  "ada:instrumentManufacturer": "WITec",
-  "ada:instrumentModel": "example instrumentModel",
-  "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
+  "schema:name": "icMs protocol — P0",
+  "schema:description": "icMsTAPP instance derived from ADA n=47 | no named analyst | Japan Agency for Marine-Earth Science and Technology | (JAMSTEC) Thermo Fisher QExactive with Dionex ICS-6000 HPIC (publication column of IC-MS_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Thermo Fisher Scientific",
+  "ada:instrumentModel": "(JAMSTEC) Thermo Fisher QExactive with Dionex ICS-6000 HPIC",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -29,34 +26,46 @@
       "schema:termCode": "Ion Chromatography-Mass Spectrometry"
     }
   ],
-  "schema:creator": {
-    "schema:name": "example procedureAuthor",
-    "@type": [
-      "schema:Person"
-    ]
-  },
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "example laboratory",
-    "schema:identifier": "example laboratoryId"
+    "schema:name": "Japan Agency for Marine-Earth Science and Technology",
+    "schema:identifier": "https://ror.org/059qg2m13"
   },
-  "schema:datePublished": "example procedureStartDate",
-  "schema:funding": [
-    {
-      "@type": [
-        "schema:MonetaryGrant"
-      ],
-      "schema:name": "example fundingSourceForProcedureDevelopment"
-    }
-  ],
-  "ada:samplingUnit": "Whole sample",
-  "ada:analyticalMode": [
-    "Point spectrum"
-  ],
-  "ada:reportedProperties": [
-    "example reportedVariablesAndUnits"
-  ],
-  "schema:description": "example additionalNotes"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
 }
