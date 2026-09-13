@@ -252,7 +252,7 @@ their delivery-packaging vocabulary (see adaProduct).
             "cdif:name": [
               "concentration"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:geochemProduct-var-001"
             }
           }
@@ -517,7 +517,7 @@ their delivery-packaging vocabulary (see adaProduct).
             "cdif:name": [
               "concentration"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:geochemProduct-var-001"
             }
           }
@@ -663,7 +663,7 @@ ex:geochemProduct-metadata-001 a schema1:Dataset ;
 
 ex:struct-geochem-001 a cdi:DimensionalDataStructure ;
     cdi:has_DataStructureComponent [ a cdi:MeasureComponent ;
-            cdif:isDefinedBy_RepresentedVariable ex:geochemProduct-var-001 ;
+            cdif:isDefinedBy_Variable ex:geochemProduct-var-001 ;
             cdif:name "concentration" ] ;
     schema1:description "Dimensional structure: one measure over the analysis." ;
     schema1:name "Analysis result data structure" .
